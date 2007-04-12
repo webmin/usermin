@@ -1,0 +1,27 @@
+main_title=Usermin $1 on $2 ($3)
+main_title2=Usermin
+main_none=You do not have access to any Usermin modules.
+
+category_mail=メール
+category_usermin=Usermin
+category_login=ログイン
+category_apps=アプリケーション
+
+longcategory_usermin=Usermin 自体を設定するモジュール
+longcategory_mail=電子メールを読む・取り出す・処理するモジュール
+longcategory_login=サーバへのログインに関するモジュール
+longcategory_apps=データベース、暗号化、Webサイトなど、他アプリケーションに関するモジュール
+
+header_webmin=Usermin 一覧
+header_config=初期設定
+
+programname=Usermin
+
+feedback_title=Usermin Feedback
+feedback_desc=This form allows you to report bugs on make suggestions to the Usermin developers regarding any problems or missing features that you have found. When the Send button is clicked, the details entered into the form will be emailed to $1.
+
+session_header=Userminにログイン
+session_mesg=ユーザ名とパスワードを入力してください。サーバ $1 の Usermin にログインします。
+
+pam_header=Webminにログイン
+pam_mesg=以下の問いかけに答えてください。サーバ $1 の Usermin にログインします。

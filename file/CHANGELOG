@@ -1,0 +1,31 @@
+---- Changes since 1.060 ----
+An uploaded zip, tar or tar.gz file can be extracted in the directory it was uploaded to.
+Directories can now be downloaded as zip, tar or tar.gz files
+Added configuration options to hide buttons from users.
+---- Changes since 1.120 ----
+Users can now be prevented from accessing certain directories by a new option on the module configuration page.
+---- Changes since 1.170 ----
+When searching for files, you can now search by their contents too.
+Added a Preview button, for viewing a scaled-down version of a GIF, JPEG or PNG image.
+---- Changes since 1.180 ----
+Absolute and relative paths like /tmp/foo and bar/foo can be used when renaming a file.
+The GD Perl module will be used for scaling preview images, if installed.
+User-mountable filesystems can be mounted through the file manager, just like in Webmin.
+---- Changes since 1.190 ----
+Added a button for editing HTML files, using a rich-text editor.
+---- Changes since 1.200 ----
+Added Module Config options for changing the font size for buttons and regular text.
+---- Changes since 1.220 ----
+Added the ability to extract tar.bz2 files.
+Added a History button next to the field for entering a directory to show, for quickly navigating to recently entered paths.
+Added text fields to the file info window showing the total size, number of sub-files and number of sub-directories in a directory. These are only populated when a new 'Get Size' button is clicked.
+---- Changes since 1.230 ----
+Added Extract button for un-compressing tar, tgz, zip and gz archives on the server.
+Added a Download button to the search results window, for downloading a selected matching file.
+---- Changes since 1.240 ----
+Added a popup progress window to track large uploads.
+---- Changes since 1.250 ----
+Removed the HTML editing button, and changed the Edit button to detect HTML files and launch the HTML editor instead.
+Added a button for creating a new HTML file.
+---- Changes since 1.260 ----
+Replaced the HTMLarea widget for editing .html pages with Xinha.

@@ -1,0 +1,12 @@
+---- Changes since 1.100 ----
+First version of this module, which can set up automatic email messages sent on a repeating schedule or single date.
+---- Changes since 1.110 ----
+Added option to send message from a file.
+---- Changes since 1.130 ----
+Email to groups defined in the Read Mail module now works.
+---- Changes since 1.180 ----
+Attachments (such as images or documents) can be added to scheduled emails.
+---- Changes since 1.220 ----
+Added a preferences option for controling the sort order to scheduled emails.
+---- Changes since 1.250 ----
+Cc and Bcc addresses are now also shown on the main page.

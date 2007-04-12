@@ -1,0 +1,22 @@
+index_title=Zmiana Has³a
+index_desc=Ta strona pos³u¿y Ci do zmiany has³a, którego u¿ywasz do logowania siê w systemie
+index_for=U¿ytkownik
+index_old=Stare has³o
+index_new1=Nowe has³o
+index_new2=Potwierdzenie nowego has³a
+index_change=Akceptacja zmian
+index_return=Has³o zmieniane z
+
+change_err=B³±d podczas zmieniania has³a
+change_title=Changed Password
+change_ok=Has³o dla $1 zosta³o pomy¶lnie zmienione. Us³ugi takie jak telnet, SSH, FTP czy POP3 bêd± wymaga³y nowego has³a.
+change_enew1=Brak nowego has³a
+change_enew2=Nowe has³a nie pasuja do siebie
+change_eold=Stare has³o jest niepoprawne
+change_epam2=B³±d PAM : $1
+change_samba=Twoje has³o dostepowe do plików udostêpnionych za pomoc± Samby, zosta³o zmienione.
+change_samba2=Twoje has³o dostepowe do plików udostêpnionych za pomoc± Samby, NIE zosta³o zmienione.
+change_ecmd=$1 b³±d : $2
+change_epasswd=Polecenie $1 nie zosta³o znalezione w systyemie, PAM - modó³ perla jest nie zainstalowany. Przynajmniej jedno z nich jest wymagane do zmiany has³a.
+change_inbox=Twoje has³o na skrzynke $1 zostalo zmienione.
+change_folder=Has³o na folder $1 na $2 zosta³o zmienione.

@@ -1,0 +1,6 @@
+desc=SSH Configuration
+category=login
+usermin=1
+longdesc=Edit your SSH client configuration, private key and lists of authorized keys and known hosts.
+desc_nl=Ssh-client instellen
+desc_de=SSH-Client Konfiguration

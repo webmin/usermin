@@ -1,0 +1,1 @@
+../../webadmin/postgresql/create_table.cgi

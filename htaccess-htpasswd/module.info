@@ -1,0 +1,8 @@
+name=HTAccess Files
+desc=Protected Web Directories
+depends=htaccess
+longdesc=Create .htaccess and htpasswd files to protect web-acessible directories.
+usermin=1
+category=apps
+desc_de=WWW-Verzeichnisschutz (.htpasswd)
+desc_fr=Répertoires Web protégés

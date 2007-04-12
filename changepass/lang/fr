@@ -1,0 +1,30 @@
+index_title=Modification de mot de passe
+index_desc1=Utilisez cette page pour changer votre mot de passe utilisé pour vous connecter au serveur via SSH, Telnet, FTP ou pour récupérer vos mails via POP3 ou IMAP.
+index_desc2=Votre mot de passe Samba utilisé lors de l'accès aux fichiers du serveur depuis des postes Windows sera aussi modifié.
+index_for=Changement pour l'utilisateur
+index_old=Mot de passe actuel
+index_new1=Nouveau mot de passe
+index_new2=Confirmation nouveau mot de passe
+index_change=Changer maintenant
+index_return=Formulaire changement mot de passe
+
+change_err=Echec du changement de mot de passe
+change_title=Mot de passe modifié
+change_ok=Votre mot de passe pour $1 a été modifié avec succès. Tout accès telnet, SSH, FTP, POP3 ou IMAP réalisé à partir de maintenant nécessite le nouveau mot de passe.
+change_enew1=Nouveau mot de passe non renseigné
+change_enew2=Les nouveaux mots de passe sont différents
+change_eold=Ancien mot de passe incorrect
+change_epam2=Erreur PAM : $1
+change_samba=Votre mot de passe Samba pour le partage de fichier Windows a également été changé.
+change_samba2=Cependant, votre mot de passe Samba n'a pas été changé : $1
+change_ecmd=$1 a échoué : $2
+change_epasswd=La commande $1 n'a pas été trouvé sur votre système, et le module Perl Authen::PAM perl n'est pas installé. Au moins l'un des deux doit etre présent pour permettre la modification de mots de passes.
+change_inbox=Le mot de passe de votre boite aux lettres $1 a aussi été changé.
+change_folder=Votre mot de passe pour le dossier $1 sur $2 a aussi été changé.
+change_euser=Votre nom d'utilisateur n'a pas été trouvé dans le fichier des mots de passes
+change_epasswd_min=Le mot de passe doit avoir au moins $1 caractères
+change_epasswd_re=Le mot de passe ne répond pas au critère $1
+change_epasswd_dict=Le mot de passe est un mot du dictionnaire
+change_epasswd_same=Le mot de passe contient ou est le même que le nom d'utilisateur
+change_epasswd_new=Le mot de passe est le même que l'ancien
+

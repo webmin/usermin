@@ -1,0 +1,5 @@
+---- Changes since 1.130 ----
+Added the ability to manage groups too, and to specify which users and groups from the password file are allowed.
+---- Changes since 1.180 ----
+Added the ability to specify extra directives to be added to .htaccess files, thanks to Charlie Garrison <charlie@make-tracks.com.au>
+

@@ -1,0 +1,1 @@
+../../webadmin/spam-assassin/save_report.cgi

@@ -1,0 +1,1 @@
+/usr/local/webadmin/mailcap/index.cgi

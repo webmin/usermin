@@ -1,0 +1,79 @@
+index_title=Reenvio de correo
+index_desc=Este módulo le permite configurar el reenvio de correo enviado a su cuenta en este servidor. Si decide reenviar su correo, no será entregado a su casilla de correo a menos que específicamente agregue una regla de reenvio a 'Casilla normal de correo'.
+index_none=No esta configurado el reenvio de correo. Todo el correo será entregado en su casilla.
+index_add=Agregar una regla de reenvio.
+index_return=reenvio de correo
+index_edit=Editar $1 en forma manual.
+
+aliases_to=Reenviar a..
+aliases_from=Correo para..
+aliases_type1=Direccion $1
+aliases_type2=Direcciones en el archivo $1
+aliases_type3=Archivo $1
+aliases_type4=Programa $1
+aliases_type5=Archivo de autorespuesta $1
+aliases_type6=Aplicar archivo de filtro $1
+aliases_type7=Casilla normal de correo
+aliases_enabled=Habilitado?
+
+aform_type0=Ninguno
+aform_type1=Dirección de correo
+aform_type2=Direcciones en archivo
+aform_type3=Escribir a archivo
+aform_type4=Dárselo a un programa
+aform_type5=Autorespuesta desde archivo
+aform_type6=Aplicar archivo de filtro
+aform_type7=Casilla normal de correo
+aform_edit=Editar Reenvio de Correo
+aform_create=Agregar Reenvio de Correo
+aform_enabled=Habilitado?
+aform_val=Reenviar a
+aform_afile=Editar..
+aform_return=alias
+aform_name=Correo para..
+
+afile_title=Editar Archivo de Direcciones
+afile_desc=Use el área de texto debajo para editar las direcciones en el archivo $1.
+afile_undo=Deshacer Cambios
+afile_ewrite=Falló al escribir archivo de direcciones: $1
+
+asave_err=Failed to save forwarding
+asave_eaddr='$1' is not a valid address
+asave_etype1='$1' is not a valid email address
+asave_etype2=Addresses file '$1' is not valid or does not exist
+asave_etype3='$1' is not a valid filename
+asave_etype4='$1' is not a valid program or does not exist
+asave_etype4none=No program given
+asave_etype1q=Qmail does not support :include:
+asave_etype2q=Qmail requires the Mailbox path to be set by system administrator
+asave_ename=Missing or invalid mail for name
+asave_esame=An alias for that address already exists
+asave_enone=Nothing was selected to forward to
+
+ffile_title=Edit Filter File
+ffile_desc=Use the form below to setup filter rules in the file $1.
+ffile_efile=You are not allowed to edit $1.
+ffile_line=If the $1 field $2 $3 then forward to $4
+ffile_from=from
+ffile_to=to
+ffile_subject=subject
+ffile_cc=CC
+ffile_body=body
+ffile_what0=doesn't match
+ffile_what1=matches
+ffile_other=Otherwise forward to $1
+ffile_err=Failed to save filter file
+ffile_ematch=Missing match
+ffile_eaction=Missing forwarding address
+ffile_ewrite=Failed to write to filter file : $1
+
+rfile_title=Editar Archivo de Autorespuesta
+rfile_desc=Use el área de texto debajo para editar el mensaje de autorespuesta en $1. El mensaje puede contener las variables $SUBJECT (Asunto), $FROM (De), $TO (Para), $DATE (Fecha) y $BODY (Cuerpo) que serán expandidas cuando la autorespuesta sea utilizada.
+rfile_desc2=También puede colocar encabezados de correo para agregar o reemplazar a los de por defecto usados en la autorespuesta, colocando líneas como:<br><tt>From: foo@bar.com</tt><br><tt>Subject: De vacaciones</tt><br>al principio del mensaje, separado del cuerpo por una sola lína en blanco.
+rfile_efile=No le esta permitido editar el archivo $1.
+rfile_undo=Deshacer Cambios
+rfile_ewrite=Falló al escribir el archivo de autorespuesta: $1
+
+edit_title=Editar Archivo de Reenvio
+edit_desc=Esta página permite editar manualmente los conetidos de su archivo $1. Sea cuidadoso, ya que no se verifica por errores en lo que escriba.
+

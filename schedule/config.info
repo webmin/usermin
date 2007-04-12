@@ -1,0 +1,2 @@
+attach=Allow email contents from a file?,1,1-Yes,0-No
+upload=Allow attached files?,1,1-Yes,0-No

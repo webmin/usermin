@@ -1,0 +1,1 @@
+../../webadmin/shell/index.cgi

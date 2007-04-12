@@ -1,0 +1,8 @@
+name=Fetchmail
+desc=Fetchmail Mail Retrieval
+category=mail
+desc_ja_JP.euc=Fetchmail Mail ¸¡º÷
+usermin=1
+longdesc=Configure Fetchmail to download email from a remote POP3 or IMAP server to a local address.
+desc_de=Fetchmail E-Mail-Empfang
+desc_cz=Fetchmail - stahování po¹ty

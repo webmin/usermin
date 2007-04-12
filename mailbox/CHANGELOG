@@ -1,0 +1,67 @@
+---- Changes since 1.060 ----
+Added links for switching between HTML and plain text view, and for showing the raw mail message.
+Improved the simple search function to accept 'and' and 'or' separated boolean expressions.
+---- Changes since 1.070 ----
+Added links to find all messages by the same sender or with the same subject when reading email.
+Image references like cid: in HTML email are now replaced with correct paths for other attachments in the email.
+---- Changes since 1.080 ----
+Added a basic HTML editor for sending and replying to email in HTML format. Requires Java 1.4+ in the browser. Must be enabled on the Preferences page, as it is still rather unstable.
+Included support for SMTP authentication when sending email, configurable in Webmin's Usermin Configuration module.
+Added a check for attempting to delete the same messages twice by using the browser Back button. If the mail file has been modified since the message list was loaded, the deletion will fail.
+---- Changes since 1.090 ----
+Replaced the Java HTML editor with HTMLArea, which uses DHTML and is much more reliable.
+---- Changes since 1.100 ----
+Added a preference option and field on the advanced search form for limiting the number of messages to search. Useful for users who have massive mailboxes and don't need to search way back into the past.
+Added support for requesting, sending and handling disposition status notifications. This is mostly disabled by default, but can be activated on the Preferences page.
+Added support for handling delivery status notifications.
+Created a new type of folder - the composite, which can combine multiple other folders into one. Useful if you have several separate mail files and want to make them appear as one folder.
+---- Changes since 1.110 ----
+Added a Preferences option to delete spam when reporting it, and one to control if the spam report/blacklist buttons appear on the mail list, mail page or both.
+On the advanced search form, you can now find messages with a particular status (read, unread or special).
+---- Changes since 1.130 ----
+Added a Preferences page option to enable buttons for reporting mail as ham (non-spam) on the mail list and individual message page.
+---- Changes since 1.140 ----
+Added a Preferences option to show a preview of message bodies in the mail list.
+All local folders are now sortable, by clicking on headers in the mail list.
+When searching, the results are now turned into a virtual folder, instead of simply being displayed. This allows them to be more easily navigated, and for search results to be kept around for a while.
+Added a Preferences option to view and compose email messages in a separate window.
+When Courier IMAP puts sub-folders inside the ~/Maildir/ directory, they will now automatically appear as mail folders in this module too.
+---- Changes since 1.150 ----
+Added a folder option to hide it from the menu above the mail list.
+Added a Preferences option to open links in emails in separate windows.
+---- Changes since 1.170 ----
+Spell checking is now possible for HTML email too.
+Output from sa-learn or spamassassin is now show when reporting multiple messages as spam.
+---- Changes since 1.190 ----
+Added a Preferences option to specify MIME types for attachments that should always be downloaded by the browser, not displayed inline.
+---- Changes since 1.200 ----
+Added a Preferences option for setting the date format.
+Improved support for Maildir++ sub-folders.
+Added a link on the Manage Folders page for setting up automatic scheduled deletion of messages older than some number of days, or those that cause the mailbox to exceed some size.
+Links to messages from the mail list now include a unique message ID, which ensures that changes to the mailbox (such as receiving new mail) between the time it is displayed and the time you click will not break the links.
+Messages in the mail list can be selected by clicking on the subject, date or size, rather than just on the checkbox.
+Searches on folder types other than mbox and IMAP now use the sort index, which speeds them up significantly for large folders (mbox folders already have their own indexes, and IMAP supports remote searching).
+Deleting messages from a folder properly updates the sort index, avoiding the need to totally rebuild it.
+Made the From/To/Subject fields for new emails larger and dynamically sized.
+Added highlighting for selected messages (when supported by the theme).
+Added a Preferences option for choosing the timezone for message dates (for when your browser is in a different timezone from the server).
+Added checkboxes and a button on the Manage Folders page for deleting several at once.
+Added a link on the Manage Folders page for copying all email from one folder to another.
+---- Changes since 1.210 ----
+Added caching to speed up large Maildir-format folders.
+---- Changes since 1.220 ----
+Improved cache speed for Maildir-format folders, and updated the code for adding to and deleting from Maildir folders to keep the cache in sync.
+Fixed the mail list to not use sub-tables, which caused problems in Safari.
+The character set used for the HTML page in which a message is displayed is taken from the message itself.
+Improved support for IMAP mode, so that all folders are taken from and created on the IMAP server automatically. In this mode, access to local file folders is no longer available.
+---- Changes since 1.240 ----
+Fixed a bug that caused automatic IMAP logins to be always used, and almost always fail.
+---- Changes since 1.240 ----
+Added a popup progress window to track the upload of large attachments.
+---- Changes since 1.250 ----
+Added tabs to the Compose Email page to show the From / To / Cc addresses separatately, so that the size of their fields can be increased.
+Added a link to dynamically add new client and server-side attachment fields.
+Optimized index used for sorting email, to speed up deleting from large mailboxes.
+---- Changes since 1.260 ----
+Replaced the HTMLarea widget for composing email with Xinha.
+On systems using Maildir++ for folders, the default sent mail and trash folders are named .sentmail and .trash respectively, and created in Maildir format.

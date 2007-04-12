@@ -1,0 +1,1 @@
+../../webadmin/postgresql/table_form.cgi

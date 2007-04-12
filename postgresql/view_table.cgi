@@ -1,0 +1,1 @@
+../../webadmin/postgresql/view_table.cgi

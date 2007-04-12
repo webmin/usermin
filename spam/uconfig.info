@@ -1,0 +1,5 @@
+spam_file=Mail file for spam,3,None
+full_from=Show full From: addresses in spam list?,1,1-Yes,0-No
+refresh=Seconds between automatic spam list refreshes,3,Don't refresh
+inbox=Name of folder to move non-spam to,3,Inbox
+search_body=When searching spam&#44; check,1,1-Entires messages,0-Subject and From headers only

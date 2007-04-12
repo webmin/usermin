@@ -1,0 +1,4 @@
+name=MOTD
+desc=Message of the Day
+usermin=1
+category=login

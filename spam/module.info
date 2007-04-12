@@ -1,0 +1,10 @@
+name=SpamAssassin
+desc=SpamAssassin Mail Filter
+category=mail
+longdesc=Set up and configure SpamAssassin to filter email sent to your account.
+usermin=1
+desc_fr=Filtre Anti-Spam Spamassassin
+desc_de=SpamAssassin E-Mail-Filter
+desc_ru_RU=Ôèëüòğ ñïàìà
+desc_ru_SU=æÉÌØÔÒ ÓĞÁÍÁ
+desc_cz=Spamovı filtr SpamAssassin

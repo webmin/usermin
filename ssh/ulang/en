@@ -1,0 +1,83 @@
+index_title=SSH Configuration
+index_setup=SSH has not yet been setup for your account. Click the button below to set it up, after entering an optional additional SSH password.
+index_sok=Setup SSH with password:
+index_essh=The command $1 was not found on your system. Most likely SSH is not installed.
+index_return=SSH menu
+
+setup_err=Failed to setup SSH
+
+auths_title=Authorized Keys
+auths_desc=This page lists the SSH public keys that can be used to login to your account on this server, without requiring a password.
+auths_name=Key Name
+auths_key=Key Digits
+auths_none=No authorized keys have been registered.
+auths_add1=Add a new SSH 1 authorized key.
+auths_add2=Add a new SSH 2 authorized key.
+auths_return=authorized keys
+
+auth_edit=Edit Authorized Key
+auth_create=Add Authorized Key
+auth_desc1=This page allows you to add a new authorized key, which will allow the owner of that key to login to your account on this server. The key details below should come from the public key of the user that you are allowing to login.
+auth_header1=SSH 1 authorized key details and options
+auth_header2=SSH 2 authorized key details and options
+auth_name=Key name
+auth_bits=Key bits
+auth_exp=Key exponent
+auth_key=Key digits
+auth_from=Allow login from hosts
+auth_from_all=All hosts
+auth_from_sel=Only listed hosts ..
+auth_command=Only allow execution of command
+auth_noport=Allow port forwarding?
+auth_nox11=Allow X11 forwarding?
+auth_noagent=Allow agent forwarding?
+auth_nopty=Allow PTY allocation?
+auth_err=Failed to save authorized key
+auth_ename=Missing or invalid key name
+auth_ebits=Missing or invalid number of key bits
+auth_eexp=Missing or invalid key exponent
+auth_ekey=Missing or invalid key digits
+auth_ekey2=Missing or invalid key text digits
+auth_keytype=SSH key type
+auth_dss=DSS
+auth_rsa=RSA
+
+knowns_title=Known Remote Hosts
+knowns_desc=This page lists the known SSH keys for remote servers that you have logged into, which allows SSH client programs to verify that they really are connecting to that host for future sessions.
+knowns_hosts=Host Name(s)
+knowns_key=Key Digits
+knowns_add=Add a new known host.
+knowns_none=No known remote hosts have been registered.
+knowns_return=known remote hosts
+knowns_delete=Delete Selected Known Hosts
+
+known_edit=Edit Known Host
+known_create=Add Known Host
+known_desc1=This page allows you to add the public key for a remote host that you want to login to with SSH, so that connections to that host cannot be intercepted. This also happens automatically when you login to a remote host that you have not connected to before.
+known_header=Known remote host details
+known_hosts=Host names / IP addresses
+known_bits=Key bits
+known_exp=Key exponent
+known_key=Key digits
+known_comment=Host comment
+known_err=Failed to save known host
+known_ehosts=No host names entered
+
+keys_title=Your Keys
+keys_desc1=Your SSH private key is used by the SSH client programs to authenticate you to remote servers when you login. If this key is changed, you will need to change your authorized key on all the remote hosts that you login to.
+keys_download=Download Key
+keys_downloadmsg=Click this button to download your SSH private key. Once downloaded, it can be uploaded to another server using this page.
+keys_upload=Upload Key:
+keys_uploadmsg=Click this button to upload a new SSH private key. This must be a valid SSH 1.0 key file from another server or account.
+keys_desc2=Your SSH public key is not used for any authentication or remote logins on this server, but can be copied to the authorized keys list of any hosts that you want to login to. If you change your private key, this public key should be updated as well from the same source.
+keys_public=Public SSH key
+keys_perr=Failed to save public key
+keys_epublic=Missing public key text
+keys_epubwrite=Failed to write to public key file : $1
+keys_err=Failed to save private key
+keys_eprivate=No private key selected to upload
+keys_eformat=Uploaded file does not look like a private key
+keys_epriwrite=Failed to write to private key file : $1
+
+hosts_title=Host Options
+

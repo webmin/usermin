@@ -1,0 +1,7 @@
+name=Usermount
+desc=Mount Filesystems
+os_support=*-linux
+category=others
+usermin=1
+longdesc=Mount and unmount filesystems that have been marked as managable by normal users.
+desc_de=Dateisysteme mounten

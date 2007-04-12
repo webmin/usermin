@@ -1,0 +1,1 @@
+../../webadmin/file/upload2.cgi

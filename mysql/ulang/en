@@ -1,0 +1,9 @@
+login_elogin=Incorrect username or password
+index_nopass=You must enter a MySQL username and password in order to connect to the database.
+index_eadmin=The MySQL admin program $1 was not found on your system. Maybe MySQL is not installed, or the module configuration is incorrect.
+index_esql=The MySQL client program $1 was not found on your system. Maybe MySQL is not installed, or the module configuration is incorrect.
+index_ever=The MySQL client program $1 does not appear to be the correct version. Webmin only supports MySQL versions 3 and above.
+index_elibrary=The MySQL client program $1 could not be run because it could not find the MySQL shared libraries. Check the module configuration and make sure the <i>Path to MySQL shared libraries</i> is set.
+
+login_epass=Incorrect MySQL username or password
+

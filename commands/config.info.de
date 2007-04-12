@@ -1,0 +1,5 @@
+display_mode=Hauptseite zeigt,1,0-Alle Befehle und Parameter,1-Verkn&#252;pfungen zu Befehlen
+height=H&#246;he des Dateieditorfensters,3,Standard 20 Zeichen
+webmin_config=Konfigurations-Verzeichnis des Webminmoduls CUSTOM,0
+width=Breite des Dateieditorfensters,3,Standard 80 Zeichen
+wrap=Zeilenumbruch im Dateieditor,1,-Standard Weich,hard-Hart,off-Ausschalten

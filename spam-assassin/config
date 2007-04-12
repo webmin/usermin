@@ -1,0 +1,2 @@
+local_cf=.spamassassin/user_prefs
+spamassassin=spamassassin

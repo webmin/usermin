@@ -1,0 +1,4 @@
+index_title=Disk Quotas
+index_quotas=Disk quotas for $1 on mounted filesystems
+index_none=You have no user disk quotas on any mounted filesystems.
+index_gquotas=Disk quotas for group $1 on mounted filesystems

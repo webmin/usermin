@@ -1,0 +1,6 @@
+name=HTaccess
+desc=Apache Options Files
+category=apps
+usermin=1
+longdesc=Edit your .htaccess files, using an interface similar to Webmin's Apache module.
+desc_de=WWW-Verzeichnisschutz (.htaccess)

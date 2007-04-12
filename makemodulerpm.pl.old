@@ -1,0 +1,227 @@
+#!/usr/bin/perl
+# makemodulerpm.pl
+# Create an RPM for a usermin module or theme
+
+$target_dir = "/tmp";	# where to copy the RPM to
+
+if (-d "/usr/src/OpenLinux") {
+	$basedir = "/usr/src/OpenLinux";
+	}
+else {
+	$basedir = "/usr/src/redhat";
+	}
+$licence = "Freeware";
+
+# Parse command-line args
+while(@ARGV) {
+	local $a = shift(@ARGV);
+	if ($a eq "--force-theme") {
+		$force_theme = 1;
+		}
+	elsif ($a eq "--rpm-dir") {
+		$basedir = shift(@ARGV);
+		}
+	elsif ($a eq "--licence") {
+		$licence = shift(@ARGV);
+		}
+	else {
+		if (!defined($dir)) {
+			$dir = $a;
+			}
+		else {
+			$ver = $a;
+			}
+		}
+	}
+
+# Validate args
+$ver ||= 1;
+$dir || die "usage: makemodulerpm.pl [--force-theme] [--rpm-dir directory] <directory> [version]";
+chop($par = `dirname $dir`);
+chop($mod = `basename $dir`);
+if (!-d $basedir) {
+	die "RPM directory $basedir does not exist";
+	}
+$spec_dir = "$basedir/SPECS";
+$source_dir = "$basedir/SOURCES";
+$rpm_dir = "$basedir/RPMS/noarch";
+if (!-d $spec_dir || !-d $source_dir || !-d $rpm_dir) {
+	die "RPM directory $basedir is not valid";
+	}
+
+
+
+$ver = 1;
+
+if ($ARGV[0] eq "--force-theme") {
+	$force_theme = shift(@ARGV);
+	}
+@ARGV == 1 || @ARGV == 2 || die "usage: makemodulerpm.pl [--force-theme] <directory> [version]";
+($dir, $ver) = @ARGV;
+$ver = 1 if (!$ver);
+chop($par = `dirname $dir`);
+chop($mod = `basename $dir`);
+
+# Is this actually a module or theme directory?
+-d $dir || die "$dir is not a directory";
+if (&read_file("$dir/module.info", \%minfo) && $minfo{'desc'}) {
+	$depends = join(" ", grep { !/^[0-9\.]+$/ }
+				  split(/\s+/, $minfo{'depends'}));
+	$prefix = "usm";
+	$desc = "Usermin module for '$minfo{'desc'}'";
+	$post_config = 1;
+	}
+elsif (&read_file("$dir/theme.info", \%tinfo) && $tinfo{'desc'}) {
+	$prefix = "ust";
+	$desc = "Usermin theme '$tinfo{'desc'}'";
+	$post_config = 0;
+	}
+else {
+	die "$dir does not appear to be a usermin module or theme";
+	}
+
+# Tar up the directory
+system("cd $par ; tar czhf $source_dir/$mod.tar.gz $mod");
+
+# Create the SPEC file
+open(SPEC, ">$spec_dir/$prefix-$mod.spec");
+print SPEC <<EOF;
+%define Name $mod
+%define Version $ver
+%define Release 1
+%define BuildRoot /tmp/%{Name}-%{Version}
+
+Summary: $desc
+Name: $prefix-$mod
+Version: $ver
+Release: 1
+PreReq: /bin/sh /usr/bin/perl /usr/libexec/usermin
+Requires: /bin/sh /usr/bin/perl /usr/libexec/usermin
+AutoReq: 0
+Copyright: Freeware
+Group: System/Tools
+Source: $mod.tar.gz
+BuildRoot: /tmp/%{Name}-%{Version}
+BuildArchitectures: noarch
+%description
+$desc in RPM format
+
+%prep
+%setup -n $mod
+
+%build
+(find . -name '*.cgi' ; find . -name '*.pl') | perl -ne 'chop; open(F,\$_); \@l=<F>; close(F); \$l[0] = "#\!/usr/bin/perl\$1\n" if (\$l[0] =~ /#\!\\S*perl\\S*(.*)/); open(F,">\$_"); print F \@l; close(F)'
+(find . -name '*.bak' ; find . -name core) | xargs rm -f
+
+%install
+mkdir -p %{BuildRoot}/usr/libexec/usermin/$mod
+cp -rp * %{buildroot}/usr/libexec/usermin/$mod
+echo rpm >%{BuildRoot}/usr/libexec/usermin/$mod/install-type
+
+%clean
+#%{rmDESTDIR}
+[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+
+%files
+/usr/libexec/usermin/$mod
+
+%pre
+# Check if usermin is installed
+if [ ! -r /etc/usermin/config -o ! -d /usr/libexec/usermin ]; then
+	echo "Usermin does not appear to be installed on your system."
+	echo "This RPM cannot be installed unless the RPM version of Usermin"
+	echo "is installed first."
+	exit 1
+fi
+if [ "$depends" != "" ]; then
+	# Check if depended usermin modules are installed
+	for \$d in $depends; do
+		if [ ! -r /usr/libexec/usermin/\$d/module.info ]; then
+			echo "The Usermin module depends on the module \$d, which is"
+			echo "not installed on your system."
+			exit 1
+		fi
+	done
+fi
+# Check if this module is already installed
+if [ -d /usr/libexec/usermin/$mod -a "\$1" = "1" ]; then
+	echo "This Usermin module is already installed on your system."
+	exit 1
+fi
+
+%post
+if [ "$post_config" = "1" ]; then
+	# Copy config file to /etc/usermin
+	os_type=`grep "^os_type=" /etc/usermin/config | sed -e 's/os_type=//g'`
+	os_version=`grep "^os_version=" /etc/usermin/config | sed -e 's/os_version=//g'`
+	/usr/bin/perl /usr/libexec/usermin/copyconfig.pl \$os_type \$os_version /usr/libexec/usermin /etc/usermin $mod
+
+	# Update the ACL for the user
+	mods=`grep user: /etc/usermin/webmin.acl | cut -f 2 -d :`
+	echo \$mods | grep " $mod" >/dev/null
+	if [ "\$?" != "0" ]; then
+		grep -v ^user: /etc/webmin/webmin.acl > /tmp/webmin.acl.tmp
+		echo user: \$mods $mod > /etc/webmin/webmin.acl
+		cat /tmp/webmin.acl.tmp >> /etc/webmin/webmin.acl
+		rm -f /tmp/webmin.acl.tmp
+	fi
+fi
+if [ "$force_theme" != "" -a "$prefix" = "ust" ]; then
+	# Activate this theme
+	grep -v "^preroot=" /etc/usermin/miniserv.conf >/etc/usermin/miniserv.conf.tmp
+	(cat /etc/usermin/miniserv.conf.tmp ; echo preroot=$mod) > /etc/usermin/miniserv.conf
+	rm -f /etc/usermin/miniserv.conf.tmp
+	grep -v "^theme=" /etc/usermin/config >/etc/usermin/config.tmp
+	(cat /etc/usermin/config.tmp ; echo theme=$mod) > /etc/usermin/config
+	rm -f /etc/usermin/config.tmp
+	(/etc/usermin/stop && /etc/usermin/start) >/dev/null 2>&1
+fi
+
+# Run post-install shell script
+if [ -r "/usr/libexec/usermin/$mod/postinstall.sh" ]; then
+	WEBMIN_CONFIG=/etc/usermin WEBMIN_VAR=/var/usermin /usr/libexec/usermin/$mod/postinstall.sh
+fi
+
+%preun
+
+%postun
+if [ "$prefix" = "ust" ]; then
+	# De-activate this theme, if in use
+	grep "^preroot=$mod" /etc/usermin/miniserv.conf >/dev/null
+	if [ "$?" = "0" ]; then
+		grep -v "^preroot=$mod" /etc/usermin/miniserv.conf >/etc/usermin/miniserv.conf.tmp
+		(cat /etc/usermin/miniserv.conf.tmp) > /etc/usermin/miniserv.conf
+		rm -f /etc/usermin/miniserv.conf.tmp
+		grep -v "^theme=$mod" /etc/usermin/config >/etc/usermin/config.tmp
+		(cat /etc/usermin/config.tmp) > /etc/usermin/config
+		rm -f /etc/usermin/config.tmp
+		(/etc/usermin/stop && /etc/usermin/start) >/dev/null 2>&1
+	fi
+fi
+/bin/true
+
+EOF
+close(SPEC);
+
+# Build the actual RPM
+$cmd = -x "/usr/bin/rpmbuild" ? "rpmbuild" : "rpm";
+system("$cmd -ba $spec_dir/$prefix-$mod.spec") && exit;
+unlink("$source_dir/$mod.tar.gz");
+system("cp $rpm_dir/$prefix-$mod-$ver-1.noarch.rpm $target_dir/$prefix-$mod.rpm");
+
+# read_file(file, &assoc, [&order], [lowercase])
+# Fill an associative array with name=value pairs from a file
+sub read_file
+{
+open(ARFILE, $_[0]) || return 0;
+while(<ARFILE>) {
+	s/\r|\n//g;
+        if (!/^#/ && /^([^=]+)=(.*)$/) {
+		$_[1]->{$_[3] ? lc($1) : $1} = $2;
+		push(@{$_[2]}, $1) if ($_[2]);
+        	}
+        }
+close(ARFILE);
+return 1;
+}
+ 

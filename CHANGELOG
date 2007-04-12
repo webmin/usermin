@@ -1,0 +1,32 @@
+---- Changes since 1.070 ----
+Fixed a security hole that could allow an attacker to lock valid users by sending a bogus username or password.
+Fixed a bug that stopped user limiting from working when Usermin was run from inetd.
+---- Changes since 1.080 ----
+Fixed a security hole in the maketemp.pl script, used to create the /tmp/.usermin directory at install time. If an un-trusted user creates this directory before Webmin is installed, he could create in it a symbolic link pointing to a critical file on the system, which would be overwritten when Usermin writes to the link filename (CVE bug CAN-2004-0559).
+When PAM is used for authentication, expired passwords are now detected and the user is prompted to select a new password (if this feature is enabled on the Usermin Configuration module).
+---- Changes since 1.090 ----
+Added support for Solaris 10.
+Included several additional translations for various languages and modules.
+Added support for config- files that allow a range of OS version numbers, and used this to reduce the number of standard config files.
+---- Changes since 1.100 ----
+When installing or upgrading Usermin, password timeouts are now enabled by default. This protects against brute-force password guessing attacks.
+---- Changes since 1.110 ----
+All subheadings have been reduced in size with using the default MSC theme.
+---- Changes since 1.150 ----
+Fixed a bug that could allow a remote attack if the option to use full PAM conversations is enabled.
+---- Changes since 1.160 ----
+Replaced all calls to the crypt() function with new code that will use the Crypt::UnixCrypt Perl modules on systems for with crypt() is broken.
+---- Changes since 1.170 ----
+Fixed a possible security hole caused by a bug in Perl.
+---- Changes since 1.180 ----
+Added support for DAV clients.
+---- Changes since 1.190 ----
+The From: address for feedback emails is now taken from the Read Mail module.
+Proxy settings made in Webmin in the Usermin Configuration module are passed on to programs Usermin calls via the http_proxy and ftp_proxy environment variables.
+---- Changes since 1.250 ----
+When a large file is uploaded, it is no longer read into memory by miniserv.pl.
+Changed the default theme for all installs to the new framed blue theme.
+Updated all rows of links (like select all, invert selection, add something) above tables to use a separator between links.
+---- Changes since 1.260 ----
+Improved support for automatic domain name prepending at long time to check the first and second parts of the hostname in the URL.
+Added support for Slam64 Linux.

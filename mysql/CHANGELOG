@@ -1,0 +1,12 @@
+---- Changes since 1.090 ----
+Added the ability to select which tables to include when making a backup.
+---- Changes since 1.150 ----
+Added checkboxes and a button to the list of tables for deleted several at once.
+When there are too many databases or tables to reasonably list, a search form is shown instead for finding matching databases or tables by name.
+Added a button on the Edit Table page for exporting in CSV format, either to a file or for display in the browser.
+---- Changes since 1.200 ----
+Added a button for deleting multiple fields from a table at once.
+---- Changes since 1.220 ----
+Column headings in the Table Data page can be clicked to sort the data by that column.
+---- Changes since 1.230 ----
+Added options on the backup form for selecting a compatability format for exporting to other database types.

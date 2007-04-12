@@ -1,0 +1,3 @@
+---- Changes since 1.060 ----
+A new form has been added for creating and scheduling a Cron job to run Fetchmail, as an alternative to running the daemon
+

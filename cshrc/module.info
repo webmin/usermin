@@ -1,0 +1,7 @@
+desc=Login Scripts
+category=login
+usermin=1
+desc_ja_JP.euc=ログイン スクリプト
+longdesc=Edit your .login, .profile and .cshrc files, depending on the login shell.
+desc_de=Login-Skripte
+desc_nl=Inlogscripts

@@ -1,0 +1,6 @@
+change_real=Can change real name?,1,1-Yes,0-No
+change_office=Can change office room number?,1,1-Yes,0-No
+change_ophone=Can change work phone?,1,1-Yes,0-No
+change_hphone=Can change home phone?,1,1-Yes,0-No
+change_shell=Can change shell?,1,1-Yes,0-No
+shells=Get list of shells from,3,/etc/shells

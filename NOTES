@@ -1,0 +1,38 @@
+ x Will need custom setup.sh script and makedist.pl, with /etc/webmin and
+   /var/webmin changed to usermin
+
+ x Authen::PAM needed for authentication
+
+ x Turn on unixauth and localauth config options
+
+ x Because we want to allow all users access with their normal password
+   by default, unixauth will have to be set to some user who can
+   see all modules..
+
+ - In order to support per-user modules, a special variable pre-root
+   will be needed
+
+ x The global config variable 'userconfig' indicates to web-lib.pl that
+   a per-user config directory is needed
+
+ x /etc/usermin and usermin-0.xx directory permissions must allow
+   reading by everyone
+
+ x overlang entry in config file for extra lang entries
+
+ x need user-selectable themes and language?
+
+ x problem logging in after logging out?
+
+ x switching of UID should be done in CGI scripts (in init_config or some
+   other function), not in the webserver .. this way, some modules can
+   choose not to give up root privileges!
+
+ - Need webmin module for
+	- Adding new usermin modules
+	- Setting usermin module configs
+
+ x Need nofeedbackcc and nofeedbackconfig entries in config
+
+ x Need PAM service called 'webmin' (in RPM ?)
+

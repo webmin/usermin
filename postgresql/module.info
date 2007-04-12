@@ -1,0 +1,6 @@
+category=apps
+desc=PostgreSQL Database
+name=PostgreSQL
+longdesc=Login to PostgreSQL and manage tables and records through an interface similar to Webmin's PostgreSQL module.
+usermin=1
+desc_de=PostgreSQL Datenbank

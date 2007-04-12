@@ -1,0 +1,13 @@
+perpage=Number of rows to display per page,0
+add_mode=Use vertical row editing interface,1,1-Yes,0-No
+blob_mode=Show blob and text fields as,1,0-Data in table,1-Links to download
+nodbi=Use DBI to connect if available?,1,0-Yes,1-No
+psql=Path to psql command,0
+plib=Path to PostgreSQL shared libraries,3,Not needed
+basedb=Initial PostgreSQL database,0
+host=PostgreSQL host to connect to,3,localhost
+port=PostgreSQL port to connect to,3,Default
+dump_cmd=Path to pg_dump command,0
+rstr_cmd=Path to pg_restore command,0
+access=Database access control list&#44;<br>in <tt>username: db1 db2</tt> format.<br>MySQL permissions also apply,9,0,0,\t
+access_own=Only show databases owned by user?,1,1-Yes,0-No

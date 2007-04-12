@@ -1,0 +1,17 @@
+index_title=Mijn gebruikersgegevens bewerken
+index_desc=Deze pagina stelt U instaat om de gebruikersgegevens van uw UNIX-account te bewerken. De login-shell die op opgeeft wordt gebruikt indien u via telnet of SSH inlogt. Wees voorzichtig met deze instelling, omdat u bij een incorrecte ingave mogelijk niet meer kunt inloggen.
+index_header=Huidige gebruikersgegevens
+index_real=Volledige naam
+index_office=Kamernummer kantoor
+index_ophone=Telefoon werk
+index_hphone=Telefoon thuis
+index_shell=Login-shell
+
+save_err=Kon uw niet bijwerken
+save_ereal=Uw volledige naam mag geen , of : bevatten
+save_eoffice=Uw kamernummer op kantoor mag geen , of : bevatten
+save_eophone=Uw telefoonnummer op het werk mag geen , of : bevatten
+save_ehphone=Telefoon thuis kan geen , of : bevatten
+save_eshell=Uw login-shell mag geen , of : bevatten
+save_title=Gegevens gewijzigd
+save_desc=Uw Unix-gebruikersgegevens voor $1 zijn succesvol gewijzigd.

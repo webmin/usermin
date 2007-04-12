@@ -1,0 +1,5 @@
+mail_system=1
+types=1,2,3,4,5,6,7
+edit=1
+smrsh_dir=/etc/smrsh
+attach=1

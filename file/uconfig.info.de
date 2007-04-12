@@ -1,0 +1,3 @@
+hide_dot_files=Zeige Dateien mit einem Punkt am Anfang?,1,0-Yes,1-No
+iconsize=Gr&#246;&#223;e der Buttons in der Toolbar,1,1-Klein,0-Gro&#223; mit Bildunterschriften
+nocharset=Versuche den richtigen Zeichensatz zu verwenden?,1,0-Ja,1-Nein

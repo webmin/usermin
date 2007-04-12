@@ -1,0 +1,5 @@
+mail_system=Mail system installed,1,0-Sendmail,1-Qmail
+types=Allowed forwarding types,13,1-Address,2-Addresses in file,3-File,4-Program,5-Autoreply,6-Filter,7-User mailbox
+edit=Allow editing of .forward file?,1,1-Yes,0-No
+attach=Allow attached files?,1,1-Yes,0-No
+smrsh_dir=SMRSH directory,3,None

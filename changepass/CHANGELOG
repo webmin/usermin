@@ -1,0 +1,6 @@
+---- Changes since 1.090 ----
+Added an option to change the user's MySQL password at the same time, assuming that the MySQL Database module has been setup properly.
+---- Changes since 1.130 ----
+When using PAM to change passwords, restrictions on quality and length are now enforced by Usermin calling the PAM libraries in the correct way.
+---- Changes since 1.150 ----
+Added a configuration option to use MD5 password encryption, which is enabled by default on Linux systems.

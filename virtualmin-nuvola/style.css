@@ -1,0 +1,119 @@
+head {
+       background-color: #ffffff;
+       color: #000000;
+     }
+
+body { 
+       background-color: #ffffff;
+       color: #000000;
+     }
+
+table {
+				border-width: 0px;
+				empty-cells: hide;
+}
+
+a:link { color: #333399;
+  text-decoration: none;
+}
+a:hover, a:visited:hover { color: #6666EE;
+  text-decoration: none;
+}
+a:visited { color: #333399;
+  text-decoration: none;
+}
+
+body, p, td, br, center { font-size: 10pt;
+        font-family: sans-serif;
+      }
+
+title { color: #000000;
+     font-family: sans-serif;
+   }
+
+h1 { color: #000000;
+     font-family: sans-serif;
+   }
+
+h2 { color: #333399;
+     font-size: large;
+     font-family: sans-serif;
+   }
+
+h3 { color: #FF9933;
+     font-size: large;
+     font-family: sans-serif;
+   }
+   
+h4 { color: #333399;
+     font-size: medium;
+     font-family: sans-serif;
+   }
+	 
+	 th { font-size: small; }
+
+pre { font-size: 12pt; 
+    }
+
+input:hover, textarea {
+    color: #333399;
+}
+
+input.button:hover {
+    color: #333399;
+		background-image: url("images/title-bar-selected.png");
+}
+
+select:focus, textarea:focus, input:focus {
+    background-color: #eeeeff;
+}
+
+#main { border-style: solid;
+	border-color: #ccccff;
+	border-width: 1px;
+	background-color: #e8e8ea;
+}
+
+#menubarun { border-style: solid;
+	border-color: #c9c9c9;
+	border-bottom-width: 0px;
+	border-top-width: 0px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	background-image: url("images/title-bar.png");
+}
+
+#menubar { border-style: solid;
+	border-color: #adade4;
+	border-bottom-width: 0px;
+	border-top-width: 0px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	background-image: url("images/title-bar-selected.png");
+}
+
+#forms { border-style: solid;
+	border-color: #ccccff;
+	border-width: 1px;
+	background-color: #e8e8ea;
+}
+
+tr.mainbody { border-style: solid;
+	border-color: #ddddff;
+	border-bottom-width: 1px;
+	border-top-width: 0px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	border-collapse;
+}
+
+tr.maintitle { border-style: solid;
+	border-color: #adade4;
+	border-bottom-width: 0px;
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-right-width: 1px;
+	background-image: url("/images/title-bar-selected.png");
+	border-collapse;
+}
+

@@ -1,0 +1,4 @@
+index_title=Quotas de Disque
+index_quotas=Quotas de disque pour $1 sur les filesystems montés/actifs
+index_none=Vous n'avez aucun quota sur aucun filesystem monté.
+index_gquotas=Quotas de Disque pour le groupe $1 sur les filesystems montés/actifs

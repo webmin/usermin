@@ -1,0 +1,23 @@
+index_title=Yerleþtirilmiþ dosya sistemleri
+index_none=Bu sunucu üzerinde normal kullanýcýlar tarfýndan yerleþtirilmiþ ya da yerleþtirlmemiþ herhangibir dosya sistemi bulunmamaktadýr.
+index_status=Yerleþtirildi?
+index_action=Ýþlem
+index_mount=Yerleþtirme
+index_umount=Yerleþtirilmemiþ
+
+select_device=$1 aygýt $2
+select_part=$1 aygýt $2 bölüm $3
+select_fd=Disket sürücüsü $1
+select_mylex=Mylex RAID $1 sürücü $2
+select_mpart=Mylex RAID $1 sürücü $2 bölüm $3
+select_cpq=Compaq RAID $1 sürücü $2
+select_cpart=Compaq RAID $1 sürücü $2 bölüm $3
+select_scsi=SCSI kontrol $1 bus $2 target $3 LUN $4
+select_spart=SCSI kontrol $1 bus $2 target $3 LUN $4 bölüm $5
+select_newide=IDE kontrol $1 bus $2 disk $3
+select_snewide=IDE kontrol $1 bus $2 disk $3 bölüm $5
+select_smart=Compaq Akýllý Dizi $1 sürücü $2
+select_smartpart=Compaq Akýllý Dizi $1 sürücü $2 bölüm $3
+
+mount_err1=Yerleþtirme hatalý
+mount_err2=Yerleþtirilmeme hatalý

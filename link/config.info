@@ -1,0 +1,3 @@
+link=URL to redirect to,0
+window=Open in,1,1-New window,0-Current window
+opts=Javascript options for new window,0

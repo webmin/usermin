@@ -1,0 +1,20 @@
+---- Changes since 1.060 ----
+Spam mail can now be searched, and the whole spam folder deleted with a single button.
+---- Changes since 1.070 ----
+A preferences option has been added to control whether the spam search includes only From and Subject headers, or the entire message.
+Spam mail can now be searched by score as well, using a new field.
+---- Changes since 1.080 ----
+Added an icon for setting up Razor, if it is not already set up.
+---- Changes since 1.110 ----
+Added support for the add_header directive, when using SpamAssassin 3.0.
+---- Changes since 1.130 ----
+Added a new icon for re-configuring where Procmail delivers mail classifies as Spam.
+---- Changes since 1.140 ----
+Simplified the Header and Body Tests page, to more easily allow the definition of rules using the header, score and describe directives.
+---- Changes since 1.180 ----
+Updated the setup and procmail delivery pages to allow forwarding of spam to an email address.
+---- Changes since 1.200 ----
+When reading spam, the mail list is now simply a link to the Read Mail module, instead of separate (and inferior) code.
+---- Changes since 1.230 ----
+Added Module Config options for commands to run before and after saving SpamAssassin config changes.
+Improved support for running under Virtualmin, where spamassassin is run globally.

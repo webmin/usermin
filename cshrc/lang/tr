@@ -1,0 +1,4 @@
+index_title= Scriptlere giriþ 
+index_desc_0=Aþaðýdaki  $1 scripti  yeni bir kabuk baþlatýldýðýnda ya da SSH veya  telnet e giriþ yapýldýðýnda uygulanacaktýr. 
+index_desc_1=Aþaðýdaki  $1 scripti sadece  SSH veya  telnete giriþ yapýldýðýnda uygulanýr.
+

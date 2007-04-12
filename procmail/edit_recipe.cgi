@@ -1,0 +1,1 @@
+/usr/local/webadmin/procmail/edit_recipe.cgi

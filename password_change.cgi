@@ -1,0 +1,1 @@
+../webadmin/password_change.cgi

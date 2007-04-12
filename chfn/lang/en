@@ -1,0 +1,21 @@
+index_title=Change User Details
+index_desc=This page allows you to change information about your Unix account, and your login shell which is used when you connect via telnet or SSH. Be careful when changing your shell, as some selections may prevent you from logging in.
+index_desc2=This page allows you to change information about your Unix account, such as your real name and contact numbers.
+index_header=Current user details
+index_real=Real name
+index_office=Office room number
+index_ophone=Work phone
+index_hphone=Home phone
+index_shell=Login shell
+
+save_err=Failed to change details
+save_ereal=Real name cannot contain , or : characters
+save_eoffice=Office room number cannot contain , or : characters
+save_eophone=Office phone cannot contain , or : characters
+save_ehphone=Hone phone cannot contain , or : characters
+save_eshell=Shell cannot contain , or : characters
+save_title=Changed Details
+save_desc=Successfully changed Unix user details and shell for $1.
+save_desc2=Successfully changed Unix user details for $1.
+save_eshell2=Missing shell
+save_ereal2=Missing real name

@@ -1,0 +1,41 @@
+Release Checklist
+-----------------
+
+ x Check all .cgi and .pl files for syntax errors!
+find . -name "*.cgi" | grep -v shellinabox.cgi | xargs -l1 perl -c |& grep -v OK
+find . -name "*.pl" | grep -v config.info | grep -v nuvola | grep -v makemodulerpm.pl | xargs -l1 perl -c |& grep -v OK
+
+ x Make sure all cgi programs are executable
+find . -name "*.cgi" | xargs chmod +x
+
+ x Make sure all files are world-readable, but not world-writable
+find . -type f | xargs chmod +r
+find . -type f | xargs chmod o-w
+
+ x Delete all ~, .rej and .orig files
+find . -name "*~" -o -name "*.rej" -o -name "*.orig" | xargs rm
+
+ x Update README and version files
+
+ x Build .tar.gz, RPM and Debian packages
+
+ x Upload files to sourceforge
+
+ x Upload signatures to sourceforge (with copy-sigs.sh)
+
+ x Update .htaccess redirects in download directory on sourceforge
+
+ x Copy module .wbm files to sourceforge (with modules-release.sh)
+
+ x Update and upload website HTML, including lang_list.html and standard.html
+
+ - Update freshmeat.net entry
+
+ x Send to mailing list
+
+ x Add version to bug tracker
+
+ x Add new modules to bug tracker
+
+ x notify sourceforge file users
+

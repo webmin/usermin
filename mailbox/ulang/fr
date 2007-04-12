@@ -1,0 +1,173 @@
+send_efile=Le fichier attaché $1 ne peut être lu ou n'existe pas
+
+view_gnupg=vérification signature GnuPG
+view_gnupg_0=La signature par $1 est invalide.
+view_gnupg_1=La signature par $1 est valide, mais la chaine de confiance n'a pu etre établie.
+view_gnupg_2=LA signature par $1 n'est <b>PAS</b> valide.
+view_gnupg_3=La clé ID $1 n'est pas dans votre liste, aussi la signature n'a pu être vérifiée.
+view_gnupg_4=Echec de la vérification de la signature : $1
+view_crypt=Décryptage mail GnuPG
+view_crypt_1=Le message est crypté, mais le support GnuPG n'est pas installé.
+view_crypt_2=Echec du décryptage dy message : $1
+view_crypt_3=Le mail a été décrypté avec succés.
+view_recv=<a href='$2'>Fetch key ID $1 from keyserver</a>.
+view_folder=Retour boite aux lettres
+view_detach=Detacher le fichier:
+view_dir=Vers le fichier ou répertoire:
+view_black=Emetteur non autorisé
+view_razor=Reporté à Razor
+
+mail_title=Lecture des Mails
+mail_sign=Signer avec la clé GnuPG:
+mail_nosign=&lt;Ne pas signer&gt;
+mail_crypt=GnuPG cryptage pour:
+mail_nocrypt=&lt;Ne pas décrypter&gt;
+mail_samecrypt=&lt;Clés pour les adresses destination&gt;
+mail_addresses=Gérer le carnet adresse
+mail_none=Il n'y a pas de mail dans le dossier $1
+mail_pos=Mails $1 à $2 (sur $3) du dossier $4
+mail_fchange=Modifier
+mail_move=Déplacer vers:
+mail_return=mailbox
+mail_folders=Gérer les dossier
+mail_err=Une erreur a eu lieu en listant les mails du dossier : $1
+mail_loginheader=Login serveur POP3
+mail_logindesc=Vous devez entrer un login et mot de passe pour accéder aux mails<br>du dossier Inbox sur le serveur mail $1.
+mail_loginuser=Nom utilisateur
+mail_loginpass=Mot de passe
+mail_loginmailbox=IMAP mailbox
+mail_login=Login
+mail_reset=Reset
+mail_logout=Change POP3 login
+mail_logout2=Change IMAP login
+mail_sig=Editer la Signature
+mail_jump=Saut à la page :
+mail_of=de
+mail_replyto=Répondre à
+
+send_epass=Vous ne pouvez pas signer un message cat votre phrase de passeur passphrase has not be setup yet in the GnuPG module.
+send_esign=Echec de la signature du message : $1
+send_ekey=Ne pas pas trouver de clé pour l'adresse email $1
+send_ecrypt=Echec du cryptage du message : $1
+send_eword=Mot mal épelé $1
+send_eword2=Mot mal épelé $1 - Corrections possible $2
+send_eline=Line $1 :
+send_espell=Les erreurs d'orthographe suivante ont été trouvé dans votre message ..
+send_draft=Mail à $1 sauvé dans le dossier Brouillon (drafts).
+send_eattachsize=L'attachement au mail dépasse la taille maximum autorisée de $1 octets
+
+address_chooser=Choisir Adresse..
+address_addr=Adresse Email
+address_name=Nom réel
+address_none=Votre carnet d adresse est vide.
+address_title=Carnet d adresse
+address_desc=La table suivante liste les adresses que vous pouvez sélectionner comme émetteur quand vous composez un nouveau mail. Ces adresses peuvent être ajoutées en cliquant dessus quand vous consulter un email.
+address_edit=Editer..
+address_delete=Effacer
+address_add=Ajouter une nouvelle adresse.
+address_err=Echec de la sauvegarde de l'adresse
+address_eaddr=Adresse Email manquante ou invalide
+address_from=Adresse émetteur?
+address_yd=Oui, defaut
+
+reply_spell=Vérifier les erreurs d'orthographe?
+reply_draft=Sauver en Brouillon
+
+folder_inbox=Messages reçus
+folder_sent=Messages envoyés
+folder_drafts=Brouillons
+
+delete_emnone=Aucun mail à déplacer selectionné
+
+folders_title=Gérer les dossiers
+folders_desc=Each of the folders listed below can contain mail that you move into it, or mail that is placed into it automatically. There are four kinds of folders :<ul><li>System folders like Inbox, Drafts and Sent Mail that always exist<li>Folders under the <tt>$1</tt> directory that can be created or deleted by Usermin<li>Other files or directories that can be managed as folders by Usermin<li>POP3 accounts on other servers that can be treated as folders</ul>
+folders_name=Folder name
+folders_path=Location
+folders_type=Type
+folders_size=Size
+folders_maildir=Directory
+folders_mbox=File
+folders_mhdir=MH directory
+folders_create=Create a new folder
+folders_add=Add an existing file or directory as a folder
+folders_return=folders list
+folders_serv=$1 on server $2
+folders_padd=Add a POP3 account as a folder
+folders_iadd=Add an IMAP mailbox as a folder
+
+edit_title1=Create Folder
+edit_title2=Edit Folder
+edit_header=Mail folder details
+edit_mode=Folder type
+edit_mode0=File under $1
+edit_mode1=External mail file
+edit_mode2=Sent mail file
+edit_name=Folder name
+edit_type=Storage type
+edit_type0=Single file (mbox)
+edit_type1=Qmail mail directory (Maildir)
+edit_type3=MH directory (MH)
+edit_file=External mail file or directory
+edit_sent=Sent mail file or directory
+edit_sent1=Usermin default
+edit_sent0=External mail file or directory
+edit_perpage=Messages to display per page
+edit_sentview=Show To: address instead of From: ?
+edit_pop3=POP3 account
+edit_imap=IMAP mailbox
+edit_server=POP3 server
+edit_iserver=IMAP server
+edit_user=Username on server
+edit_pass=Password on server
+edit_mailbox=IMAP mailbox
+edit_imapinbox=User's inbox
+edit_imapother=Other mailbox
+edit_fromaddr=From: address for messages sent from folder
+
+save_err=Failed to save folder
+save_ecannot=You are not allowed to use this type of folder
+save_ename=Missing or invalid folder name
+save_esys=Folder name clashes with one of the system folders
+save_eclash=A folder with the same name already exists
+save_embox='$1' does not appear to be a valid mailbox file
+save_emaildir='$1' does not appear to be a valid Qmail or MH mail directory
+save_efile='$1' does not exist or is not accessible
+save_eindir=External mail files cannot be under the folders directory $1
+save_title=Delete Folder
+save_rusure=Are you sure you want to delete the folder $1 in $2? $3 kB of email will be deleted forever.
+save_delete=Delete Now
+save_eserver=Missing or invalid POP3 server
+save_euser=Missing username
+save_elogin=Failed to login to POP3 server : $1
+save_elogin2=Failed to login to IMAP server : $1
+save_eperpage=Missing or invalid number of messages per page
+save_efromaddr=Missing or invalid From: address
+save_emailbox=Failed to open IMAP mailbox : $1
+save_emailbox2=Missing or invalid IMAP mailbox
+save_edelete=Failed to delete mail : $1
+save_eappend=Failed to add mail to IMAP mailbox : $1
+save_esearch=Failed to search IMAP mailbox : $1
+
+confirm_title=Confirmer la suppression
+confirm_warn=Etes-vous sur de vouloir supprimer les $1 messages sélectionnés?
+confirm_warn2=Compte tenu de la taille et format de votre boite aux lettres, l'opération peut être longue. Jusqu'à ce que la suppression soit complète, aucune autre action ne doit être entreprise.
+confirm_warn3=Etes-vous sur de vouloir supprimer le message?
+confirm_warn4=Jusqu'à ce que la suppression soit complète, aucune autre action ne doit être entreprise.
+confirm_ok=Effacer maintenant
+
+detach_err=Echec du détachement
+detach_edir=Fichier ou répertoire pour sauvegarde non renseigné
+detach_eopen=Echec à l'ouverture de $1 : $2
+detach_ewrite=Echec à l'écriture de $1 : $2
+detach_title=Detacher Fichier
+detach_ok=Ecrire l'attachement sur le serveur comme fichier $1 ($2).
+
+razor_title=Reporter à SpamAssassin
+razor_report=Reporter ce mail à la base de donnée anti-spam de SpamAssassin ..
+razor_done=.. terminé
+razor_err=.. échec! Consultez le message d'erreur ci-dessous pour plus d'info.
+
+black_title=Interdire l'émetteur
+black_done=Ajouter l'adresse email $1 à la liste des adresses interdites de SpamAssassin.
+black_already=Cet adresse email $1 est déjà dans la liste des adresses interdites de SpamAssassin.
+

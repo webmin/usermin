@@ -1,0 +1,1 @@
+../../webadmin/cron/edit_cron.cgi

@@ -1,0 +1,1 @@
+../../webadmin/postgresql/exec.cgi

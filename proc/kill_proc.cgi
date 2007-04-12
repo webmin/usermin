@@ -1,0 +1,1 @@
+../../webadmin/proc/kill_proc.cgi

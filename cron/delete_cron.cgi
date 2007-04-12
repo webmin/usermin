@@ -1,0 +1,1 @@
+../../webadmin/cron/delete_cron.cgi

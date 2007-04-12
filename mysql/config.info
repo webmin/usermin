@@ -1,0 +1,16 @@
+mysqlshow=Path to mysqlshow command,0
+mysqladmin=Path to mysqladmin command,0
+mysql=Path to mysql command,0
+mysqldump=Path to mysqldump command,0
+mysqlimport=Path to mysqlimport command,0
+start_cmd=Command to start MySQL server,0
+stop_cmd=Command to stop MySQL server,3,Automatic
+mysql_libs=Path to MySQL shared libraries directory,3,None
+perpage=Number of rows to display per page,0
+style=Show databases and tables as,1,1-List,0-Icons
+add_mode=Use vertical row editing interface,1,1-Yes,0-No
+blob_mode=Show blob and text fields as,1,0-Data in table,1-Links to download
+host=MySQL host to connect to,3,Localhost
+sock=MySQL socket file,3,Default
+nodbi=Use DBI to connect if available?,1,0-Yes,1-No
+access=Database access control list&#44;<br>in <tt>username: db1 db2</tt> format.<br>MySQL permissions also apply,9,0,0,\t

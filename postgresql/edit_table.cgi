@@ -1,0 +1,1 @@
+../../webadmin/postgresql/edit_table.cgi

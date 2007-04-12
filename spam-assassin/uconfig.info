@@ -1,0 +1,2 @@
+defaults=Show separate default options?,1,0-Yes,1-No
+redirect_index=After saving return to,1,1-Index,0-Editing form

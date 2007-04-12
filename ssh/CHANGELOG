@@ -1,0 +1,7 @@
+---- Changes since 1.130 ----
+Added support for the ProxyCommand, CheckHostIP and Protocol SSH client options.
+---- Changes since 1.180 ----
+Added support for SSH 2 private and public keys.
+SSH 2 authorized keys can also be edited.
+---- Changes since 1.250 ----
+Added checkboxes and a button for deleting multiple known remote hosts at once.

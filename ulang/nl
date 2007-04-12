@@ -1,0 +1,25 @@
+main_title=Usermin $1 op $2 ($3)
+main_title2=Usermin
+main_none=U heeft geen toegang tot enige Usermin modules
+
+category_mail=E-mail
+category_usermin=Usermin
+category_login=Inloggen
+category_apps=Toepassingen
+
+header_webmin=Usermin Index
+header_config=Voorkeuren
+
+programname=Usermin
+
+config_title=Voorkeuren
+
+feedback_title=Stuur een reaktie op Usermin
+feedback_desc=This form allows you to report bugs or make suggestions to the Usermin developers regarding any problems or missing features that you have found. When the Send button is clicked, the details entered into the form will be emailed to $1.
+feedback_desc2=This feedback will be sent to the developer of Usermin, not your system administrator, ISP or hosting company. Please write your feedback in english, even if you are currently running Usermin in another language.
+feedback_configdesc=If this is selected, the email will include your preferences for the related module and the contents of any config files that the module uses.
+
+session_header=Login op Usermin
+session_mesg=U dient een gebruikersnaam en wachtwoord ingeven op op de Usermin-server op $1 in te loggen.
+
+

@@ -1,0 +1,1 @@
+../../webadmin/at/delete_jobs.cgi

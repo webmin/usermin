@@ -1,0 +1,4 @@
+desc=Mail Forwarding
+category=mail
+depends=mailbox
+usermin=1

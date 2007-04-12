@@ -1,0 +1,6 @@
+name=MySQL
+desc=MySQL Database
+usermin=1
+category=apps
+longdesc=Login to MySQL and manage tables and records through an interface similar to Webmin's MySQL module.
+desc_de=MySQL Datenbank

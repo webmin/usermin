@@ -1,0 +1,1 @@
+../../webadmin/proc/renice_proc.cgi

@@ -1,0 +1,187 @@
+index_title=GnuPG Encryption
+index_setupdesc=GnuPG hesabýnýza ayarlanmamýþ. Yeni bir GnuPG özel anahtarý oluþturmak için aþaðýdaki formu kullanmak, ki bu anahtar þifreleme ve iþaretleme için gerek olacak.
+index_name=Adýnýz
+index_email=Email adresi
+index_comment=Þifre açýklamasý
+index_size=Þifre boyutu
+index_pass=Þifre sözcüðü
+index_setup=GnuPG Ayarlamak
+index_return=GnuPG indexlemek
+index_egpg=GnuPG komutu $1 sisteminizde bulunamadý. Belki yüklenmemiþ olabilir.
+
+setup_err=GnuPG ayarlamasý baþarýsýz
+setup_ename=Atlanmýþ þifre ismi
+setup_enamelen=Þifre için isim en az $1 karakterinin uzunluðu kadar olmalý
+setup_eemail=Þifre için atlanmýþ email adresi
+setup_title=GnuPG Ayarla
+setup_ok=GnuPG baþarýyla ayarlandý ve gizli bir þifre oluþturuldu.
+setup_failed=Gizli þifre oluþturulmasý baþarýsýz : $1
+
+keys_title=Þifreleri Yönet
+keys_desc=GnuPG þifre halkanýzdaki tüm genel þifreler bu sayfada listelenir. Bununla birlikte herhangi birisi için bir dosyayý þifreler, onlarýn genel þifrelerini yüklemeniz gerekir böylece o bu sayfa üzerinde görünür.
+keys_id=Þifre ID
+keys_secret=Gizli þifre?
+keys_date=Tarih oluþturuldu
+keys_name=Sahibinin ismi
+keys_email=Sahibinin emaili
+keys_importdesc=Eðer baþka bir GnuPG kullanýcýnýn þifresi bir dosya içerisinde size verilmiþse, þifre listenizin içine onu yüklemek için bu formu kullanmanýz gerekir.
+keys_import=Yükleme Þifresi
+keys_recvdesc=Þifreler $1 þifre sunucusundan getirilebilir eðer istediðiniz þifrenin ID sini biliyorsanýz.
+keys_recv=Þifre sunucusundan ID þifresi getirmek:
+keys_return=Þifrelerin listesi
+keys_from=bir yerden þifre yüklemek
+keys_mode0=Dosyayý güncelle
+keys_mode1=Sunucudaki dosya
+
+import_err=Þifre yükleme baþarýsýz
+import_ekey=Seçili þifre dosyasý yok
+import_egpg=GnuPG $1 geçersiz
+import_efile=Atlanmýþ ya da geçersiz þifre dosyasý
+
+key_title=Genel Þifre Detaylarý
+key_header=Þifre Detaylarý
+key_id=Þifre ID
+key_date=Tarih oluþturuldu
+key_owner=Sahibin detaylarý
+key_oname=Ýsim ve yorum
+key_oemail=Email adresi
+key_addowner=Eklemek
+key_finger=Parmakizi þifresi
+key_ascii=ASCII formatýndaki þifre
+key_sign=Þifre simgesi
+key_exportform=Export
+key_desc=Bu sayfa þifre çemberinizdeki þifrelerin bir tanesinin ayrýntýlarýný tümüyle gösterir.Eðer bu þifreyi baþka bir kimseye vermek isterseniz böylece onlar dosyalarýný bununla þifreleyebilirler, bir dosyaya onu yüklemek için sayfanýn altýndaki düðmeleri kullanýn.
+key_send=Þifre sunucusuna Göndermek
+key_changepass=Þifre sözcüðünü Deðiþtirmek
+key_setpass=Þifre söcüðünü ayarlamak
+key_passdesc=Bu þifre bir þifre sözcüðüne henüz sahip deðil,bu yüzden bir tane buraya girmeniz gerek.
+key_passdesc2=Bu þifre bir þifre sözcüðü ayarlamasýna zaten sahip, bu yüzden belki onu deðiþtirmeniz gerekmez.
+key_trust=Þifre güven seviyesi
+key_trust_0=Henüz ayarlanmamýþ
+key_trust_1=Güven seviyesi bilinmiyor
+key_trust_2=Güvenilmez
+key_trust_3=Sýnýrlý güvenilir
+key_trust_4=Tamamiyle güvenilir
+key_changetrust=Deðiþtirmek
+key_del=Þifre Silmek
+
+encrypt_title=Dosya Þifrelemek
+encrypt_desc=Genel seçilmiþ bir þifre ve GnuPG ile bir dosya þifrelemeye bu sayfayý kullanýn. Bir kez þifrelendi, özel bir þifreleme birleþtirmesi sahibi tarafýndan sonuç þifrelenemez.
+encrypt_mode=Þifrelemek için Dosya
+encrypt_mode0=Dosyayý yükseltmek
+encrypt_mode1=Yerel dosya
+encrypt_key=Genel þifreyi kullanma
+encrypt_ascii=ASCII dosyasýna þifrelensin mi?
+encrypt_ok=Þimdi þifrele
+encrypt_err=Dosyayý þifreleme baþarýsýz
+encrypt_eupload=Þifrelemek için hiçbir dosya seçilmedi
+encrypt_elocal=Seçilen dosya mevcut deðil veya okunamýyor
+encrypt_egpg=GnuPG baþarýsýz : $1
+
+decrypt_title=Çözülmüþ þifre Dosyasý
+decrypt_desc=Genel þifrenizi kullanarak þifrelenmiþ bir dosyayý çözmek için bu sayfayý kullanýn, ya sizin tarafýnýzdan ya dasizin þifrenize sahip baþka bir kimse tarafýndan.
+decrypt_mode=Þifreyi çözmek için Dosya
+decrypt_mode0=Yükseltilmiþ dosya
+decrypt_mode1=Yerel dosya
+decrypt_pass=Özel þifre için þifre sözcüðü
+decrypt_ok=Þimdi þifre çöz
+decrypt_def=Geçerli þifre sözcüðü
+decrypt_err=Dosya þifre çözmesi baþarýsýz
+decrypt_eupload=Þifre çözmek için hiçbir dosya seçilmedi
+decrypt_elocal=Seçilen dosya mevcut deðil ya da okunamýyor
+decrypt_egpg=GnuPG baþarýsýz : $1
+
+sign_title=Dosya Simgesi
+sign_desc=Bir dosya simgelemek için bu sayfayý kullanýn ki böylece sizin tarafýnýzdan simgelenerek doðrulanabilir ve ki simgelemeden itibaren deðiþtirilemez.
+sign_mode=Simgelemek için Dosya
+sign_mode0=Yükseltilmiþ dosya
+sign_mode1=Yerel dosya
+sign_key=Gizli anahtarý kullanarak simgelemek
+sign_ascii=Dosyanýn sonuna bir metin gibi imza eklensin mi?
+sign_ok=Þimdi simgele
+sign_err=Dosya simgeleme baþarýsýz
+sign_eupload=Simgelemek için hiçbir dosya seçilmedi
+sign_elocal=Seçilen dosya mevcut deðil ya da okunamýyor
+sign_egpg=GnuPG baþarýsýz : $1
+sign_epass=Seçilen gizli þifre için henüz hiç bir þifre sözcüðü seçilmedi
+sign_sep=Yalnýzca ayrý imzaya dönülsün mü?
+
+verify_title=Simgelenmiþ dosyayý doðrulamak
+verify_desc=GnuPG ile simgelenmiþ dosyayý doðrulamak için bu sayfayý kullan, bununla birlikte deðiþtirilmiþ olaný kontrol etmek ve simgelenen çýktýyý bulmak için kullan. Eðer ikilik sisteme göre simgelenmiþ bir dosyadan orjinal veriyi çözümlemek isterseniz, bunu kullanýn <a href='$1'>çözülmüþ þifre sayfasý</a>.
+verify_mode=Doðrulamak için Dosya
+verify_mode0=Yükseltilmiþ Dosya
+verify_mode1=Yerel dosya
+verify_ok=Þimdi doðrula
+verify_err=Dosyayý doðrulama baþarýsýz
+verify_eupload=Doðrulamak için hiçbir dosya seçilmedi
+verify_elocal=Seçilen dosya mevcut deðil ya da okunamýyor
+verify_egpg=GnuPG baþarýsýz : $1
+verify_good=Dosya $1 den geçerli bir imzaya sahip.
+verify_bad=Dosya $1 den imzaya sahip, fakat o geçersizdir.
+verify_noid=$1 ID ile genel þifre doðrulam için elde edilemez.
+verify_failed=Ýmza doðrulamasý baþarýsýz : $1
+verify_warning=Uyarý - Bu þifre yönetici þifre sayfanýzda simgelenmemiþ ve doðrulanmamýþ.
+
+signkey_title=Þifre Simgelemek
+signkey_confirm=$1 $2 ye kiþisel þifreyi simgelemek istediðinize emin misiniz? Bu size parmak izi kontrol edilerek þifrenin doðruluðunu doðrulamýþ olmayý sahibi ile belirtecek ( $3 ).
+signkey_failed=$1 : $2 ye kiþisel þifre simgeleme baþarýsýz 
+signkey_success=$1 e kiþisel þifre baþarýyla simgelendi.
+signkey_already=$1 e kiþisel þifre zaten simgelenmiþ.
+signkey_trust=güvenilir seviye ile
+signkey_trust0=Cevap yok
+signkey_trust1=Kontrol edilmedi
+signkey_trust2=Tesadüfi kontrol edildi
+signkey_trust3=Dikkatlice kontrol edildi
+
+send_title=Þifre sunucusuna Göndermek
+send_desc=Þifre $1 i þifre sunucusuna gönderiliyor..
+send_failed=Þifre gönderme baþarýsýz : $1
+send_success=Þifre baþarýyla sunuldu. Diðer GnuPG kullanýcýlarý dosya þifrelemek ve email göndermek için sizin genel þifrenizi yeniden elde edebilecekler.
+
+recv_title=Þifre sunucusundan geri almak
+recv_desc=Þifre sunucusu $2 den $1 e þifre ID geri alýnýyor ..
+recv_failed=Þifre geri alma baþarýsýz : $1
+recv_same=Already have key from $1.
+recv_success=$1 den þifre baþarýyla yüklendi.
+
+secret_title=Gizli Þifre Eklemek
+secret_desc=Çözümleme ve simgeleme için kullanabileceðiniz bir ilave gizli þifre oluþturmak için bu sayfayý kullanabilirsiniz.
+secret_err=Gizli þifre ekleme baþarýsýz
+secret_ok=Yeni bir gizli þifre baþarýyla oluþturuldu.
+secret_name=Yeni þifre adý
+secret_setup=Yeni þifre oluþtur
+
+gnupg_esignpass=Þifre simgelemek için henüz þifre sözcüðü ayarlanmadý
+gnupg_ecryptid=Gizli þifre þifreleme elde edilemez
+gnupg_ecryptkey=Gizli þifre þifreleme ID $1 elde edilemez
+gnupg_ecryptpass=$1 gizli þifre için henüz hiçbir þifre sözcüðü ayarlanmadý
+gnupg_canset=Mevcut olan bir þifre için þifre sözcüðü ayarlamak için, ziyaret edin <a href='$1'>þifre ayrýntý sayfasý</a>
+
+trust_title=Güvenilir Seviyeyi Ayarlamak
+trust_echoice=Güvenilir bir seviye seçmeniz gerek, 'henüz ayarlanmamýþ' deðil.
+trust_done=$1 þifresi için güvenilir seviye baþarýyla ayarlamak.
+
+owner_err1=Sahibine eklemek baþarýz
+owner_ename=Hiçbir ad girilmedi
+owner_err2=Sahibi silmek baþarýsýz
+owner_elast=En son sahibinin ayrýntýlarýný silemezsiniz
+
+delkey_title=Þifreyi Silmek
+delkey_rusure=$1 $2 gizli þifreyi silmek istediðinize emin misiniz? Hiçbir dosya veya email fazla uzun sürmeyecek  þifre çözme ile þifrelenmiþtir!
+delkey_ok=Evet, onu sil
+
+export_title=Export Þifre
+export_desc=Bu sayfa size þifreyi þifre halkanýzdan $1 $ ye export etmeye izin verir, ya bir dosyaya ya da browserýnýzdan download etmeye.
+export_to=Export mod
+export_mode0=Browserda göster
+export_mode1=Dosyaya ya da dizine kaydetmek
+export_format=Export biçim
+export_ascii=ASCII metni
+export_binary=Ýkili sistem
+export_smode=Export etmek için þifre
+export_secret=Tüm gizli ve genel þifreexport_public=Public key only
+export_ok=Þimdi Export 
+export_err= Þifre export etme baþarýsýz
+export_efile=Hiçbir dosya ya da dizin girilmedi
+export_done=$1 dosyaya þifre baþarýyla kaydedildi.
+

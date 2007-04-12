@@ -1,0 +1,4 @@
+index_title=Login Scripts
+index_desc_0=The script $1 below will be executed whenever you start a new shell, or when you login via SSH or telnet.
+index_desc_1=The script $1 below will be executed only when you login via SSH or telnet.
+

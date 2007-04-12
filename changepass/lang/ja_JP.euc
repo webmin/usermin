@@ -1,0 +1,20 @@
+index_title=パスワードの変更
+index_desc=このページではログインする為のあなたのパスワードが変更できます
+index_for=変更するユーザー
+index_old=現在のパスワード
+index_new1=あたらしいパスワード
+index_new2=あたらしいパスワードをもう１度
+index_change=変更する
+index_return=password changing form
+
+change_err=パスワードの変更に失敗しました。
+change_title=Changed Password
+change_ok=$1 のあなたのパスワードが変更されました。ログイン 、telnet 、 SSH 、 FTP 、 POP３ 等は 今 作成した新しいパスワードを必要とします。
+change_enew1=新しいパスワードが欠けています
+change_enew2=新しいパスワードが同じではありません
+change_eold=古いパスワードが正しくありません
+change_epam2=PAM error : $1
+change_samba=Your Samba password for windows file sharing has also been changed.
+change_samba2=However, your Samba password was not changed : $1
+change_ecmd=$1 failed : $2
+change_epam=The Authen::PAM perl module がインストールされていません。その代わりには外部のpasswd プログラム を使うように設定されていなければなりません。

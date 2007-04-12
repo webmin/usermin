@@ -1,0 +1,9 @@
+htaccess=.htaccess
+htpasswd=.htpasswd
+htgroups=.htgroups
+md5=0
+dirs=
+home=1
+can_htpasswd=1
+can_htgroups=1
+extra_directives=

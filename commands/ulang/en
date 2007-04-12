@@ -1,0 +1,2 @@
+index_nodir=The Webmin custom commands directory $1 was not found on your system. This module requires that Webmin be installed so that it can be used to define commands.
+index_none=No custom commands have been defined in Webmin or designated as available for running in Usermin.

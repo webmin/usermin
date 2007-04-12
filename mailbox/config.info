@@ -1,0 +1,48 @@
+line1=Inbox format and location,11
+mail_system=Mail storage format for Inbox,4,0-Sendmail style single file (mbox),1-Qmail style directory (Maildir),3-MH style directory (MH),2-Remote POP3 server,4-Remote IMAP server
+mail_dir=Sendmail mail file location,3,File under home directory
+mail_file=Sendmail mail file in home directory,0
+mail_qmail=Qmail or MH directory location,3,Subdirectory under home directory
+mail_dir_qmail=Qmail or MH directory in home directory,0
+mail_style=Mail subdirectory style,4,0-mail/username,1-mail/u/username,2-mail/u/us/username,3-mail/u/s/username
+pop3_server=POP3 or IMAP server name,3,<tt>localhost</tt>
+
+line2=Sending email,11
+send_mode=Send mail via connection to,3,Sendmail executable
+no_crlf=Add carriage return ( \r ) to each line?,1,0-Yes,1-No
+smtp_user=SMTP login name for mail server,3,None
+smtp_pass=SMTP password for mail server,3,None
+smtp_auth=SMTP authentication method,4,-Default,Cram-MD5-Cram&#45;MD5,Digest-MD5-Digest&#45;MD5,Plain-Plain,Login-Login
+sendmail_path=Sendmail command,0
+
+line3=User From addresses,11
+server_name=Default hostname for From: addresses,10,-From real hostname,*-From URL,ldap-Lookup in LDAP
+edit_from=Allow editing of From: address,1,1-Yes,0-No (always username@hostname),2-Only the username part
+from_map=From: address mapping file,3,None
+from_format=Address mapping file format,1,0-Username to address (genericstable),1-Address to username (virtusertable)
+
+line3.5=Qmail+LDAP options,11
+ldap_host=LDAP server,3,Not used
+ldap_port=LDAP port,3,Default
+ldap_login=Login for LDAP server,0
+ldap_pass=Password for LDAP server,0
+ldap_base=Base for mail users,0
+
+line3.6=Spam options,11
+spam_report=Report spam using,1,sa_learn-sa&$45;learn --spam,spamassassin-spamassasin -r,-Decide automatically
+spam_always=Show spam options if SpamAssassin module is,1,1-Installed,0-Installed and available
+
+line3.7=Mail quota options,11
+max_quota=Maximum allowed size for all folders (bytes),3,Unlimited
+ldap_quotas=Enforce LDAP quotas?,1,1-Yes,0-No
+
+line4=Other settings and restrictions,11
+server_attach=Allow access to server-side files?,1,2-Attach and detach,1-Attach only,0-Niether
+max_attach=Maximum total attachments size,3,Unlimited
+global_address=Global address book file,3,None
+global_address_group=Global address group book file,3,None
+folder_types=Allowed real folder types,2,local-File under ~/mail,ext-External file,pop3-POP3 server,imap-IMAP server
+folder_virts=Allowed virtual folder types,2,virt-Virtual,comp-Composite
+pop_locks=Check for POP3 lock files?,1,1-Yes,0-No
+shortindex=Base filename for index files,1,1-Last part of filename,0-Full filename
+

@@ -1,0 +1,1 @@
+../../webadmin/mysql/edit_field.cgi

@@ -1,0 +1,1 @@
+../webadmin/lang_list.txt

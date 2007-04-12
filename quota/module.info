@@ -1,0 +1,10 @@
+name=Quotas
+desc=Disk Quotas
+os_support=solaris redhat-linux mandrake-linux slackware-linux debian-linux suse-linux united-linux hpux freebsd open-linux unixware turbo-linux openbsd corel-linux cobalt-linux msc-linux generic-linux gentoo-linux netbsd macos trustix-linux sol-linux coherant-linux qnx
+usermin=1
+desc_el=Quotas Äßóêùí
+longdesc=View your quotas and those of your groups on all filesystems for which they are enabled.
+desc_fr=Quotas Disques
+desc_de=Speicherbegrenzung (quotas)
+desc_ru_RU=Äèñêîâûå êâîòû
+desc_ru_SU=äÉÓËÏ×ÙÅ Ë×ÏÔÙ

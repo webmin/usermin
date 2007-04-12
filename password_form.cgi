@@ -1,0 +1,1 @@
+../webadmin/password_form.cgi

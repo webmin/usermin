@@ -1,0 +1,3 @@
+desc=MIME Type Programs
+usermin=1
+longdesc=Edit the ~/.mailcap file, which maps MIME types to handler programs

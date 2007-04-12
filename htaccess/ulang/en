@@ -1,0 +1,15 @@
+index_title=Apache Options Files
+index_desc=This module allows you to edit the $1 files that set options for directories served by the Apache webserver. Options apply to all files in the directory and any subdirectories, unless overridden by another options file.
+index_header=Existing Options Files
+index_none=No options files have been created yet.
+index_create=Add options for:
+index_createdesc=Creates a new options file in the specified directory.
+index_find=Find options files in:
+index_finddesc=Searches the entered directory for any $1 files that have been created manually. Until manually created files are found, they cannot be edited using this module.
+index_return=options file list
+index_apache=Apache version and module information was not found in the Webmin configuration directory $1. This module requires that Webmin be installed and its Apache module configured properly.
+
+find_title=Find Options Files
+find_list=The following options files were found under $1 ..
+find_none=No $1 options files were found under $2.
+

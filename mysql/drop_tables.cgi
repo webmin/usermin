@@ -1,0 +1,1 @@
+../../webadmin/mysql/drop_tables.cgi

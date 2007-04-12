@@ -1,0 +1,3 @@
+keyserver=Keyserver to send and receive keys from,0
+gpg=Full path to gpg command,3,gpg in PATH
+compress=Compression algorithm,3,Default

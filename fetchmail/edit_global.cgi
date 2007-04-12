@@ -1,0 +1,1 @@
+../../webadmin/fetchmail/edit_global.cgi

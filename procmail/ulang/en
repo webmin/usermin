@@ -1,0 +1,1 @@
+index_desc=This module allows you to configure filtering for email send to your address on this server. However, it will only work if your system administrator has installed Procmail globally, or if you have setup delivery to the Procmail program in the Mail Forwarding module.

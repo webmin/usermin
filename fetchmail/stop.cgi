@@ -1,0 +1,1 @@
+../../webadmin/fetchmail/stop.cgi

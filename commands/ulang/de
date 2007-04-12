@@ -1,0 +1,2 @@
+index_nodir=Das Konfigurations-Verzeichnis des Webminmodules <tt>Eigene Befehle</tt> $1 wurde nicht gefunden. Webmin mu&#223; installiert sein, damit Sie dieses Modul benutzen k&#246;nnen.
+index_none=Es wurden bisher keine &quot;Eigenen Befehle&quot; in Webmin hinterlegt oder diese sind in Usermin nicht verf&#252;gbar.

@@ -1,0 +1,17 @@
+index_title=Apache Seçenekler dosyalarý 
+index_desc=Bu modul sizin $1 dosyalarýný düzenlemenize izin verir ki bu klasörler için ayar seçenekleri Apache webserver tarafýndan saðlanýr. 
+Seçenekler tüm dosyalarýn içindeki klasör ve alt klasörlere uygulanýr, bu baþka bir seçenekler dosyasý tarafýndan engellenmediði sürece geçerlidir.
+index_header=Varolan Seçenekler dosyasý 
+index_none=Henüz hiçbir Seçenekler dosyasý oluþturulmadý.
+index_create=Seçenekler ekle:
+index_createdesc=Belirlenmiþ klasörün içinde yeni bir seçenekler dosyasý oluþturur.
+index_find=Seçenekler dosyasý içinde bul:
+index_finddesc=Girilen daha önceden oluþturulmuþ herhangibir $1 dosyasý aranýyor.
+ Bu dosya bulunana kadar, onlar bu modül kullanýlarak düzenlenemezler.
+index_return=Seçenekler dosyasý listesi
+index_apache=Apache versiyon ve modul bilgisi Webmin yapýlandýrma klasörü $1 içinde bulunmamaktadýr.
+ Bu modul, Apache modulü yapýlandýrýlmasý iyi bi þekilde yapýlmýþ bir Webmin kurulmuþ olmasýný gerektirir.
+
+find_title=Seçenekler dosyalarýný bul
+find_list=Bir sonraki Seçenekler dosyasý $1 klasörü altýnda bulundu..
+find_none=$2 altýnda $1 Seçenekler dosyasý bulunamadý .

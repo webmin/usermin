@@ -1,0 +1,13 @@
+name=CHFN
+desc=Change User Details
+os_support=*-linux freebsd netbsd openbsd
+category=login
+usermin=1
+desc_ja_JP.euc=¥æ¡¼¥¶¡¼¾ÜºÙ¤ÎÊÑ¹¹
+desc_nl=Gebruikersgegevens
+desc_el=ÁëëáãŞ Óôïé÷åßùí ×ñŞóôç
+longdesc=Change your Unix real name, office, phone numbers and shell.
+desc_de=&#196;ndere Benutzer-Details
+desc_fr=Infos utilisateurs
+desc_ru_RU=Íàñòğîéêè ó÷åòíîé çàïèñè
+desc_ru_SU=îÁÓÔÒÏÊËÉ ÕŞÅÔÎÏÊ ÚÁĞÉÓÉ

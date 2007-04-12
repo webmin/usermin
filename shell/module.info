@@ -1,0 +1,14 @@
+desc_ja_JP.euc=¥³¥Ş¥ó¥É ¥·¥§¥ë
+desc_ko_KR.euc=¸í·É ½©
+desc_pl=Linia poleceñ
+desc=Command Shell
+name=Shell
+desc_ca=Línia d'Ordres
+desc_de=Kommandozeile
+desc_hu=Parancshéj
+category=login
+usermin=1
+desc_el=Êİëõöïò Åíôïëşí
+longdesc=Run simple shell commands and see their output.
+desc_nl=Commando's uitvoeren
+desc_fr=Commande Shell

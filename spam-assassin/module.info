@@ -1,0 +1,4 @@
+name=SpamAssassin
+desc=SpamAssassin Configuration
+category=mail
+usermin=1

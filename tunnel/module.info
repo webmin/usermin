@@ -1,0 +1,6 @@
+name=Tunnel
+desc=HTTP Tunnel
+usermin=1
+longdesc=Connect to another HTTP server via a tunnel through the Usermin server.
+desc_de=HTTP-Tunnel Konfiguration
+desc_fr=Tunnel HTTP

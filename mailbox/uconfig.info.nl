@@ -1,0 +1,13 @@
+perpage=Aantal berichten per pagina in lijst,0
+wrap_width=Maximale regellengte voor e-mail bericht,0
+top_buttons=Toon knoppen bovenaan voor,1,2-Folders en berichten,1-Alleen berichten,0-Nooit
+show_to=Toon ontvangeradres in folders,1,1-Ja,0-Nee
+no_mime=Codeer berichten met alleen tekst niet met MIME?,1,1-Ja,0-Nee
+mailbox_dir=Folder directory onder home directory,0
+mailbox_recur=Behandel folder subdirectories als,1,1-Folders,0-Subdirectories
+save_sent=Bewaar verzonden e-mail?,1,1-Ja,0-Nee
+auto_mark=Markeer gelezen bericht automatisch?,1,1-Ja,0-Nee
+default_folder=Standaard folder,3,Inbox
+thumbnails=Toon bijlage als pasfoto's<br>(Vereist <tt>cjpeg</tt>&#44; <tt>djpeg</tt> en PNM library commando's),1,1-Ja,0-Nee
+sort_addrs=Sorteer adresboek op,1,0-Als toegevoegd,1-Persoonsnaam,2-E-mailadres
+real_name=Toon persoonsnaam in afzenderadres?,1,1-Ja,0-Nee

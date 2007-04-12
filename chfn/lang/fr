@@ -1,0 +1,20 @@
+index_title=Modification des informations utilisateurs
+index_desc=Cette page vous permet de changer les informations sur votre compte Unix, et votre shell de connexion utilisé lorsque vous vous connecté via Telnet ou SSH. Attention en changeant votre shell, certaines valeurs peuvent vous empêcher de vous connecter.
+index_desc2=Cette page vous permet de changer les informations sur votre compte Unix, comme votre nom complète ou vos coordonnées de contact.
+index_header=Informations de l'utilisateur courant
+index_real=Nom réel
+index_office=Numéro du bureau
+index_ophone=Téléphone (bureau)
+index_hphone=Téléphone (domicile)
+index_shell=Shell de Login
+
+save_err=Echec du changement des informations
+save_ereal=Le nom réel contient les caractères , ou :
+save_eoffice=Le numéro de bureau ne peut pas contenir les caractères , ou :
+save_eophone=Le numéro de téléphone ne peut contenir les caractères , or :
+save_ehphone=Le numéro de téléphone ne peut contenir les caractères , or :
+save_eshell=Le login shell ne peut contenir les caractères , or :
+save_title=Informations modifiées
+save_desc=Information Unix et shell pour $1 modifés avec succès.
+save_desc2=Information Unix pour $1 modifées avec succès.
+

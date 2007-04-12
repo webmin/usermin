@@ -1,0 +1,21 @@
+main_title=Usermin $1 en $2 ($3)
+main_title2=Usermin
+main_none=No tiene acceso a los modulos de Usermin.
+
+category_mail=Correo
+category_usermin=Usermin
+category_login=Ingreso
+category_apps=Aplicaciones
+
+header_webmin=Índice de Usermin
+header_config=Preferencias
+
+programname=Usermin
+
+feedback_title=Usermin Feedback
+feedback_desc=Esta forma le permite reportar problemas o hacer sugerencias a los desarrolladores de Usermin acerca de cualquier problema o funcionalidad faltante que halla encontrado. Cuando se presiona el botón Enviar, los detalles ingresados en la forma serán enviados por correo electrónico a $1.
+feedback_configdesc=Si es seleccionado, el correo enviado incluirá sus preferencias del módulo en cuestión y los contenidos de cualquier archivo de configuración que ese módulo utilize.
+
+session_header=Ingreso a Usermin
+session_mesg=Debe ingresar un nombre de usuario y la clave para poder entrar al servicio Usermin en $1.
+

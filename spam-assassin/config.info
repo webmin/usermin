@@ -1,0 +1,2 @@
+local_cf=SpamAssassin configuration file,0
+spamassassin=Full path to SpamAssassin command,0

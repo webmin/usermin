@@ -1,0 +1,118 @@
+mail_title=Maili oku 
+mail_none= $1 dosyasýnda hiçbir mesaj bulunmamakta
+mail_pos= $3 deki $1 $2 arasý mesajlar  $4 klasöründe 
+mail_return=mailkutusu
+mail_fromsrch=Benzer göndericiler..
+mail_subsrch=Benzer konular ..
+
+send_efile=Eklenen $1 dosyasý okunamýyor veya mevcut deðil 
+send_nobody=Hiçkimse 
+
+address_chooser=Adresleri seç..
+address_addr=Email Adresi
+address_name=Gerçek adý
+address_none=Adres defterin boþ.
+address_title=Adres defteri
+address_desc=Aþaðýdaki tabloda maili gönderirken kayýtlý olan kiþilerin mail adreslerini görebilirsin.Gelen maillere týklayarakta adres ekleyebilirsin.
+address_edit=Ekle..
+address_delete=Sil
+address_add=Yeni mail adresi ekle.
+address_err=Adresi kaydedilmedi
+address_eaddr=Eksik veya hatalý mail adresi
+address_from=Adreslerden mi ?
+address_yd=Evet, varsayýlan 
+address_gdesc=Bu liste ayný maili birden çok kiþiye gönderme olanaðýda saðlar 
+address_gadd=Yeni gurup ekle.
+address_gnone=Grup listeniz boþ.
+address_group=Gurup
+address_members=Email Adresleri
+address_m=$1 Üyeleri 
+
+group_err=Grup adresleri kaydedilemedi
+group_egroup=Eksik veya hatalý gurup ismi
+group_emembers=Guruba hiçbir mail adresi eklenmemiþtir.
+
+folders_title=Klasörleri yönet 
+folders_desc=Bu klasörlere mailleri kendinde ayýrabilirsin yada otomatik olarak ayrýlýr.Dört tip dosya bulunmakta :<ul><li>Gelen , gönderilen ve taslak klasörleri sistem tarafýndan koyulup her sistemde vardýr.<li> <tt>$1</tt> dizini altýndaki klasörler kullaný tarafýndan düzenlenebilir.<li>Diðer dosyalar veya dizinler de kullanýcý tarafýndan klasör haline getirilebilir.<li> Diðer serverda POP3 hesaplarýndaki klasör gibi davranýr.</ul>
+folders_name=Dosya ismi
+folders_path=Konum
+folders_type=Tip
+folders_size=Büyüklük
+folders_maildir=Dizin
+folders_mbox=Dosya
+folders_mhdir=MH dizini
+folders_create=Yeni bir dosya yarat
+folders_add=Var dosya veya dizini klasör gibi ekle
+folders_return=Dosya listesi
+folders_serv=$2 serverendaki $1
+folders_servp= $2 port $3 deki $1 serverý  
+folders_padd=Klasör olarak POP3 hesabý ekle  
+folders_iadd=Klasör olarak IMAP mailkutusu ekle 
+
+edit_title1=Dosya yarat
+edit_title2=Dosya ekle
+edit_header=Mail dosyasý detaylarý
+edit_mode=Dosya tipi
+edit_mode0= $1 içindeki dosya 
+edit_mode1=Harici mail dosyasý
+edit_mode2=Mail dosyasý gönder
+edit_name=Dosya ismi
+edit_type=Kaydetme þekli 
+edit_type0=Tek dosya (mbox)
+edit_type1=Qmail mail dizini  (Maildir)
+edit_type3=MH dizini (MH)
+edit_file=Harici mail dosya veya dizini 
+edit_sent=Mail dosyasý veya dizini gönder
+edit_sent1=Kullanýcý varsayýlan ayarlarý 
+edit_sent0=Harici mail dosya veya dizini
+edit_perpage=Bir sayfada gösterilecek mail sayýsý 
+edit_sentview=Adrese göre sýrala : ?
+edit_pop3=POP3 Hesabý
+edit_imap=IMAP mailkutusu
+edit_server=POP3 servýr
+edit_port=Port numarasý
+edit_iserver=IMAP server
+edit_user=Servýrdaki kullanýcý adý
+edit_pass=Serverdeki þifre
+edit_mailbox=IMAP mailkutusu
+edit_imapinbox=Kullanýcý gelen kutusu 
+edit_imapother=Diðer  mailkutusu
+edit_fromaddr=From: Klasörden mailler için gönderim adresleri 
+
+save_err=Dosya kaydedilemedi
+save_ecannot=Bu tip bir klasör kullanmaya yetkili deðilsiniz
+save_ename=Eksik veya hatalý dosya adý
+save_esys=Klasör ismi sistem klasörleriyle çakýþmakta
+save_eclash=Ayný isimli bir klasör þu anda var
+save_embox='$1' mail kutusu bulunamadý
+save_emaildir='$1' Qmail veya MH mail dizini bulunamadý
+save_efile='$1' bulunamadý veya giriþ izni yok
+save_eindir=harici mail dosyalarý $1 klasörü altýnda bulunamaz
+save_title=Dosyayý sil 
+save_rusure= $2 deki $1 klasörünü silmek istediðinize emin misiniz?  $3 kB büyüklüðündeki mailler silinecektir.
+save_delete=Þimdi sil
+save_eserver=Eksik veya hatalý POP3 serverý
+save_euser=Eksik kullanýcý adý
+save_elogin= POP3 servera giriþ baþarýsýz : $1
+save_elogin2=IMAP servera giriþ baþarýsýz : $1
+save_eperpage= sayfada bulunan hatalý vaya eksik mesaj sayýsý
+save_eport=Hatalý veya eksik port numarasý
+save_efromaddr=Eksik  veya hatlý : adresi
+save_emailbox=IMAP mailkutusunu açma baþarýsýz : $1
+save_emailbox2=Eksik veya hatalý IMAP mailkutusu
+save_edelete=Mail silme baþarýsýz: $1
+save_eappend= IMAP mailkutusuna mail ekleme baþarýsýz : $1
+save_esearch= IMAP mailkutusundaki arama baþarýsýz : $1
+
+razor_title=Spam olarak bildirildi 
+razor_report= Razor ve diðer  SpamAssassin spam-blocking veritabanýna bildirildi. ..
+razor_done=.. Yapýldý 
+razor_err=.. Baþarýsýz! Bu hatanýn sebebini aþaðýdaki mesaj kutusundan öðren .
+
+black_title=Kullanýcý reddedildi
+black_done= $1 mail adreslerinin SpamAssassin'ye eklenmesi engellendi.
+black_already= $1 mail adresleri  SpamAssassin'daki engellendi. 
+
+epop3lock_tries=$1 $2 dakika denendi fakat engelleme POP3 için baþarýsýz.
+
+

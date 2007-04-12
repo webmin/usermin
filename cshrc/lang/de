@@ -1,0 +1,3 @@
+index_desc_0=Das Skript $1 wie unten aufgef&#252;hrt wird ausgef&#252;hrt, wann immer Sie eine neue Shell starten oder wenn Sie via SSH oder Telent einloggen.
+index_desc_1=Das Skript $1 wie unten aufgef&#252;hrt wird nur dann ausgef&#252;hrt, wenn Sie sich via SSH oder Telnet einloggen.
+index_title=Login-Skripte

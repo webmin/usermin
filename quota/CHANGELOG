@@ -1,0 +1,3 @@
+---- Changes since 1.140 ----
+Quotas are now show in kB / MB / GB where the filesystem block size is know (such as on Linux).
+A graph of usage is now included where possible, thanks to Moses Moore.

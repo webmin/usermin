@@ -1,0 +1,1 @@
+../webadmin/thirdparty.pl

@@ -1,0 +1,11 @@
+# German translation contributed by Danny Trommer (dantro@esc.de)
+#
+index_title=automatische Abwesenheitsnotiz
+index_desc=Bitte tragen Sie Ihre automatische Antwort hier ein.<BR>Oft ist es sehr nuetzlich, wenn Sie angeben, wann Sie wieder erreichbar sind und wer Sie waehrend Ihrer Abwesenheit vertritt.
+subject_desc=Betreff:
+subject_text=Abwesenheitsnotiz
+from_desc=Absender:
+body_desc=Nachricht:
+body_text=Ich bin im Moment nicht erreichbar. Bitte senden Sie Ihre Nachricht an meine Stellvertretung.
+vacation_enable=Aktiviere Abwesenheitsnachricht
+vacation_disable=Deaktiviere Abwesenheitsnachricht

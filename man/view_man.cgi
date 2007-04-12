@@ -1,0 +1,1 @@
+../../webadmin/man/view_man.cgi

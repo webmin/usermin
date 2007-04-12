@@ -1,0 +1,4 @@
+IDENT=usermin
+DESCRIPTIVE="Usermin administration server"
+OPTIONS=""
+ONBOOT="yes"

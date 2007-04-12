@@ -1,0 +1,2 @@
+fetchmail_path=Path to fetchmail program,0
+mda_command=Mail delivery command,3,Use SMTP

@@ -1,0 +1,117 @@
+send_efile=Bijlage file $1 is niet leesbaar of bestaat niet
+
+view_gnupg=GnuPG ondertekening verificatie
+view_gnupg_0=Ondertekening door $1 is geldig.
+view_gnupg_1=Ondertekening door $1 is geldig, maar er was geen geldige vertrouwensketen.
+view_gnupg_2=Ontertekening door $1 is <b>ONGELDIG</b>.
+view_gnupg_3=Key ID $1 is niet in uw lijst, ondertekening kon niet worden geverifieerd.
+view_gnupg_4=Kon ondertekening niet verifieren: $1
+view_crypt=GnuPG mail decodering
+view_crypt_1=E-mail is gecodeerd, maar GnuPG support is niet geinstalleerd.
+view_crypt_2=Kon e-mail niet decoderen: $1
+view_crypt_3=E-mail is gedecodeerd.
+view_recv=<a href='$2'>Ophalen van key ID $1 van keyserver</a>.
+view_folder=Terug naar mailbox
+
+mail_sign=Teken met GnuPG key:
+mail_nosign=&lt;Teken niet&gt;
+mail_crypt=GnuPG codering voor:
+mail_nocrypt=&lt;codeer niet&gt;
+mail_samecrypt=&lt;Key van To: address&gt;
+mail_addresses=Beheer adresboek
+mail_none= Er zijn geen berichten in map $1
+mail_pos=Berichten $1 tot $2 van $3 in map $4
+mail_fchange=Ga naar
+mail_move=Verplaats naar:
+mail_return=mailbox
+mail_folders=Beheer mappen
+mail_err=Er is een fout opgetreden tijdens het openen van map : $1
+mail_loginheader=POP3 server login
+mail_logindesc=U moet over een wachtwoord beschikken om de e-mail<br>in uw inbox op server $1 te lezen.
+mail_loginuser=Gebruikersnaam
+mail_loginpass=Wachtwoord
+mail_login=Login
+mail_reset=Opnieuw
+
+send_epass=U kunt nog geen berichten ondertekenen omdat U nog geen passphrase heeft opgegeven in de GnuPG module.
+send_esign=Kon e-mail $1 niet ondertekenen
+send_ekey=Kon geen key vinden voor e-mailadres $1
+send_ecrypt=Kon e-mail $1 niet coderen
+send_eword=Spelfout in woord $1
+send_eword2=Spelfout in woord $1 - mogelijke correctie $2
+send_eline=In regel $1 :
+send_espell=De volgende spelfouten zijn gevonden in uw bericht..
+send_draft=E-mail aan $1 opgeslagen in concepten map.
+
+address_chooser=Kies Adres..
+address_addr=E-mail adres
+address_name=Volledige naam
+address_none=Uw adresboek is leeg.
+address_title=Adresboek
+address_desc=De tabel hieronder bevat e-mailadressen die U kunt gebruiken bij het aanmaken van e-mails. U kunt adressen toevoegen door op het adres te klikken tijdens het lezen van e-mail.
+address_edit=Bewerk..
+address_delete=Verwijder
+address_add=Voeg nieuw adres toe.
+address_err=Kon adres niet opslaan
+address_eaddr=Ontbrekend of ongeldig e-mailadres
+
+reply_spell=Spellingscontrole?
+reply_draft=Bewaar als concept
+
+folder_inbox=Inbox
+folder_sent=Verzonden mail
+folder_drafts=Concepten
+
+delete_emnone=Geen e-mail geselecteerd voor verplaatsen
+
+folders_title=Beheer mappen
+folders_desc=De mappen die hieronder staan afgebeeld kunnen elk e-mail bevatten die u daarin plaatst, of daarin automatisch terecht komt. Er zijn vier soorten mappen:<ul><li>Systeem mappen zoals Inbox, Concepten en Verzonden mail, deze mappen bestaan altijd.<li> Mappen onder de <tt>$1</tt> directory die door Usermin gemaakt of verwijderd kunnen worden.<li>Andere files of directories die als mappen beheerd kunnen worden door Usermin<li>POP3 accounts op andere servers die als mappen gezien worden.</ul>
+folders_name=Naam map
+folders_path=Locatie
+folders_type=Type
+folders_size=Grootte
+folders_maildir=Directory
+folders_mbox=File
+folders_mhdir=MH directory
+folders_create=Maak een nieuwe map
+folders_add=Voeg een bestaande file of directory toe als folder
+folders_return=mappenlijst
+folders_serv=$1 op server $2
+folders_padd=Voeg een POP3 account als folder
+
+edit_title1=Nieuwe Map
+edit_title2=Bewerk Map
+edit_header=E-mail map details
+edit_mode=Map type
+edit_mode0=Bewaar in $1
+edit_mode1=Externe mail file
+edit_mode2=Verzonden mail file
+edit_name=Mapnaam
+edit_type=Opslag type
+edit_type0=Enkele file (mbox)
+edit_type1=Qmail mail directory (Maildir)
+edit_type3=MH directory (MH)
+edit_file=Externe mail file or directory
+edit_sent=Verzonden mail file of directory
+edit_sent1=Usermin default
+edit_sent0=Externe mail file of directory
+edit_pop3=POP3 account
+edit_server=POP3 server
+edit_user=Gebruikersnaam op server
+edit_pass=Wachtwoord op server
+
+save_err=Kon map niet opslaan
+save_ename=Ontbrekende of ongeldige mapnaam
+save_esys=Mapnaam conflicteert met een van de systeem mappen
+save_eclash=Een map met deze naam bestaat reeds
+save_embox='$1' is niet in een leesbaar mailbox formaat
+save_emaildir='$1' is niet in een leesbaar Qmail of MH mail directoryformaat
+save_efile='$1' Bestaat niet, of is onleesbaar
+save_eindir=Externe mail files kunnen niet onder de mappen directory $1 staan
+save_title=Verwijder Map
+save_rusure= Wilt U map $1 in $2 verwijderen? $3 kB aan e-mail zal voorgoed worden verwijderd.
+save_delete=Verwijder Nu
+save_eserver=Onbekende of ongeldige POP3 server
+save_euser=Onbekende gebruikersnaam
+save_elogin= Kon niet inloggen op POP3 server : $1
+

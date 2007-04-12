@@ -1,0 +1,10 @@
+name=Procmail
+desc=Procmail Mail Filter
+category=mail
+usermin=1
+desc_es=Filtro de Correo Procmail
+longdesc=Configure advanced content-based forwarding for mail sent to your account. Requires Procmail to be installed and properly set up for mail delivery.
+desc_de=Procmail E-Mail Filter
+desc_ru_RU=Ôèëüòğ ïî÷òû
+desc_ru_SU=æÉÌØÔÒ ĞÏŞÔÙ
+desc_cz=Procmail - filtr po¹ty

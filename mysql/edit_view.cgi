@@ -1,0 +1,1 @@
+../../webadmin/mysql/edit_view.cgi

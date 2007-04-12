@@ -1,0 +1,31 @@
+index_title=Þifreyi deðiþtir
+index_desc1=Sunucu yolu ile SSH, telnet ya da FTP'ye girmek veya  POP3'den mail almak için kullandýðýn þifreyi bu sayfayý kullanarak deðiþtir.
+index_desc2= Windows'daki dosyalarýna ulaþmak için kullandýðýn senin Samba þifren de deðiþecektir. 
+index_for=Kullanýcý için deðiþtirmek 
+index_old=Eski þifren 
+index_new1=Yeni þifren 
+index_new2=Tekrar yeni þifren 
+index_change=Þimdi deðiþtir
+index_return=Þifre deðiþtirme formu 
+
+change_err=Þifre deðiþtirilemedi
+change_title=Þifreyi deðiþtir
+change_ok=Senin þifren  $1 baþarýyla deðiþti.telnet, SSH, FTP or POP3 gibi yerlere giriþ yapmak için yeni þifre gerekli.
+change_enew1=Eksik yeni þifre
+change_enew2=Yeni þifreler ayný deðil
+change_eold=Eski þifre yanlýþ 
+change_epam2=PAM error : $1
+change_samba= Samba þifrende deðiþti.
+change_samba2=Ne yazýkki Samba þifren deðiþmedi : $1
+change_ecmd=$1 olmadý : $2
+change_epasswd= $1 komutu sisiteminde bulunamadý, ve Authen::PAM perl module yüklenmedi.Sonuç olarak bunlardan herhengi birtanesi þifre deðiþtirmek için yeterli. 
+change_inbox=senin gelen  $1 þifren de deðiþti.
+change_folder=$2 klasöründeki $1 dosyasý için olan þifren de deðiþti. 
+change_euser=Þifre dosyasýnda senin kullanýncý adýn bulunamadý.
+change_epasswd_min=Þifren en az  $1 kadar olmalý 
+change_epasswd_re=Þifren $1 e uymuyor.
+change_epasswd_dict=Sifren anlamlý olmamalý
+change_epasswd_same=þifren kullanýcý adýný kapsamamalý
+change_epasswd_new=Þifren eski þifrenden farklý olmalý.
+
+

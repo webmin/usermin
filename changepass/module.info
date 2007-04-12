@@ -1,0 +1,14 @@
+name=Changepass
+desc=Change Password
+desc_de=Passwort &#228;ndern
+category=login
+depends=proc
+usermin=1
+desc_ja_JP.euc=¥Ñ¥¹¥ï¡¼¥É¤ÎÊÑ¹¹
+desc_es=Cambiar clave de acceso
+desc_el=ÁëëáãŞ Êùäéêïı
+longdesc=Change your password, either by calling PAM or running the passwd command.
+desc_fr=Changement Mot de passe
+desc_nl=Mijn wachtwoord veranderen
+desc_ru_RU=Ñìåíà ïàğîëÿ
+desc_ru_SU=óÍÅÎÁ ĞÁÒÏÌÑ

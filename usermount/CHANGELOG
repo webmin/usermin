@@ -1,0 +1,2 @@
+---- Changes since 1.170 ----
+Filesystems with the encryption option now promt for a password when mounting.

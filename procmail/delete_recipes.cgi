@@ -1,0 +1,1 @@
+../../webadmin/procmail/delete_recipes.cgi

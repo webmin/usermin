@@ -1,0 +1,1 @@
+../../webadmin/mysql/save_index.cgi

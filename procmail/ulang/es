@@ -1,0 +1,1 @@
+index_desc=Este módulo le permite configurar filtros para el correo que envían a su dirección es este servidor. Sin embargo, sólo funcionará si el administrador del sistema instaló Procmail en forma global, o si tiene configurado el módulo Procmail particularmente para su usuario.

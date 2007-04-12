@@ -1,0 +1,17 @@
+start_cmd=(/usr/bin/safe_mysqld || /usr/bin/mysqld_safe) &
+perpage=25
+mysql=/opt/bin/mysql
+mysqldump=/opt/bin/mysqldump
+mysqlimport=/opt/bin/mysqlimport
+mysqlshow=/opt/bin/mysqlshow
+login=root
+mysql_libs=/opt/lib/
+mysqladmin=/opt/bin/mysqladmin
+style=0
+add_mode=1
+nodbi=0
+access=*: *
+blob_mode=0
+date_subs=0
+passwd_mode=0
+max_dbs=50

@@ -1,0 +1,1 @@
+../../webadmin/mysql/table_form.cgi

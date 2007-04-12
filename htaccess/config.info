@@ -1,0 +1,3 @@
+htaccess=Options file name,0
+webmin_apache=Webmin apache config directory,0
+apache_docbase=Base directory for Apache documentation,3,Apache website

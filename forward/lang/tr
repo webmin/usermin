@@ -1,0 +1,90 @@
+index_title=Mail Ýletimi
+index_desc=Bu sunucu üzerindeki hesabýnýza mail göndermek için iletimi düzenlemeye bu modül izin verir. Eðer mail iletimini seçerseniz,'Normal kullanýcý mail kutusuna'iletmek için özellikle bir kural eklemedikçe mail kutunuza taþýnmasý çok uzun sürmez .
+index_none=Hiçbir mail iletimi ayarlanmaz.Tüm mailler yalnýzca mail kutunuza taþýnabilir, veya eðer kullanýmdaysa Procmaile.
+index_add=Bir mail iletimi kuralý eklemek.
+index_return=mail iletimi
+index_edit=$1 dosyasýný elle düzenlemek.
+
+aliases_to=..e iletim
+aliases_from=..için Mail
+aliases_type1=$1 Adresi 
+aliases_type2=$1 dosyasýndaki adresler
+aliases_type3=$1 dosyasý
+aliases_type4=$1 programý 
+aliases_type5=$1 dosyasýný otomatik cevaplama
+aliases_type6=$1 dosyasýna filtre uygulamak
+aliases_type7=Normal kullanýcý mail kutusu
+aliases_enabled=Görünsün mü?
+
+aform_type0=Hiçbiri
+aform_type1=Email adres
+aform_type2=Dosyadaki adresler
+aform_type3=Dosyaya yazmak
+aform_type4=Programý beslemek
+aform_type5=Dosyadan otomatik cevaplamak
+aform_type6=Dosyaya filtreleme uygulamak
+aform_type7=Normal kullanýcý mail kutusu
+aform_edit=Mail Ýletimini Düzenlemek
+aform_create=Mail Ýletimi Eklemek
+aform_enabled=Görünsün mü?
+aform_val=..e iletim
+aform_afile=..Düzenlemek
+aform_return=takma isim
+aform_name=..için Mail
+
+afile_title=Dosya Adresi Düzenlemek
+afile_desc=$1 dosyasýndaki adresleri düzenlemek için aþaðýdaki metin alanýný kullanmak.
+afile_undo=Deðiþiklikleri geri al
+afile_ewrite=Dosya adreslerine yazma baþarýsýz : $1
+
+asave_err=Ýletimi kaydetme baþarýsýz
+asave_eaddr='$1' geçerli bir adres deðil
+asave_etype1='$1' geçerli bir email adresi deðil
+asave_etype2=Adreslerin dosyasý '$1' geçerli deðil veya mevcut deðil
+asave_etype3='$1' geçerli bir dosya adý deðil
+asave_etype4='$1' geçerli bir program deðil veya mevcut deðil
+asave_etype4none=Hiçbir program verilmedi
+asave_etype1q=Qmail desteklemez :kapsamak:
+asave_etype2q=Qmail yönetici tarafýndan konulan Mail kutusu yolunu ister
+asave_ename=Ýsim için atlanýlmýþ ya da geçersiz mail 
+asave_esame=Mevcut olan adresler için bir takma ad
+asave_enone=Ýletim için hiçbirþey seçilmedi
+asave_ecannot=Geçersiz iletim tipi seçildi
+
+ffile_title=Dosya Filtresi Düzenlemek
+ffile_desc=$1 dosyasýndaki filtreleme kurallarýný ayarlamak için aþaðýdaki formu kullanmak.
+ffile_efile=$1 i düzenlemenize izin verilmez.
+ffile_line=Eðer $1 $2 $3 e konumlandýysa daha sonra $4 e iletmek
+ffile_from=den
+ffile_to=e
+ffile_subject=konu
+ffile_cc=CC
+ffile_body=gövde
+ffile_what0=birleþtirilmez
+ffile_what1=birleþmeler
+ffile_other=$1 e diðer bir yoldan iletim
+ffile_err=Filtre dosyasýný kaydetme baþarýsýz
+ffile_ematch=Atlanýlmýþ birleþtirme
+ffile_eaction=Atlanýlmýþ iletim adresleri
+ffile_ewrite=Filtre dosyasýna yazma baþarýsýz : $1
+
+rfile_title=Otomatik cevaplama Dosyasýný Düzenlemek
+rfile_desc=$1 deki otomatik cevaplama mesajýný düzenlemek için aþaðýdaki metin alanýný kullanmak. Mesaj þu makrolarý kapsar $SUBJECT, $FROM, $TO, $DATE and $BODY ki bunlar otomatik cevaplama aktif olduðunda geniþletilebilir.
+rfile_desc2=Konulan çizgiler tarafýndan  otomatik cevaplamadaki defaultlarý deðiþtiren veya ekleyen mail baþlýklarýný ayarlayabilirsiniz. Örneðin:<br><tt>From: foo@bar.com</tt><br><tt>Subject: On holiday</tt><br>mesajýn tepesinde, yalnýz boþ bir çizgi tarafýndan gövdeden ayrýlmýþ.
+rfile_efile=$1 i düzenlemenize izin verilmez.
+rfile_undo=Deðiþiklikleri geri al
+rfile_ewrite=Otomatik cevaplama dosyasýna yazma baþarýsýz : $1
+rfile_replies=Ayný adrese birden fazla mesajý engellemek için otomatik cevaplarýn izini sürülsün mü?
+rfile_period=Cevaplar arasýndaki minumum aralýk
+rfile_default=Default (1 saat)
+rfile_secs=saniye
+rfile_eperiod=Cevaplar arasýndaki atlanmýþ veya geçersiz saniye numaralarý
+rfile_no_autoreply=Otomatik cevaplarý ..e göndermeyin
+rfile_from=Den: cevaplar için adresler
+rfile_auto=Otomatik (alýcýnýn adresine baðlý)
+rfile_efrom=adres : den atlanmýþ 
+rfile_fromdesc=Bir yerden : adresler olabilecekleri yerlerden özelleþtirilmiþ olamalýdýr, güvenilir olmayan metotlar gibi.
+
+edit_title=Ýletim Dosyasýný Düzenlemek
+edit_desc=Bu sayfa $1 dosyanýzýn içeriðini elle düzeltmenize izin verir. Dikkatli olun, girdiðiniz deðerlerde hiçbir hata kontrolü yapýlmadýðý gibi.
+

@@ -1,0 +1,18 @@
+index_title=ユーザー詳細の変更
+index_desc=このページは、あなたのUnixアカウント情報と、あなたが telnet あるいは SSH によって接続するとき使われる、あなたのログインシェルを変更できます。
+index_header=現在のユーザー詳細
+index_real=本名
+index_office=オフィスのルームナンバー
+index_ophone=勤務先 電話番号
+index_hphone=自宅 電話番号
+index_shell=ログイン シェル
+
+save_err=詳細の変更に失敗しました
+save_ereal=本名に 「,」 と 「:」 の文字は使えません
+save_eoffice==オフィスのルームナンバーに 「,」 と 「:」 の文字は使えません
+save_eophone=勤務先 電話番号に 「,」 と 「:」 の文字は使えません
+save_ehphone=自宅 電話番号に 「,」 と 「:」 の文字は使えません
+save_eshell=シェルに 「,」 と 「:」 の文字は使えません
+save_title=詳細を変更しました
+save_desc= $1  のユーザー詳細とシェルの変更に成功しました
+

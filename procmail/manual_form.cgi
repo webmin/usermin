@@ -1,0 +1,1 @@
+../../webadmin/procmail/manual_form.cgi

@@ -1,0 +1,9 @@
+login_elogin=Þifre ya da kullanýcý adý yanlýþ.
+index_nopass=Database'e baþlanmak için MySQL kullanýcý adýný ve þifreni girmelisin.
+index_eadmin=MySQL admin programý $1 sisteminizde bulunamadý. Belki MySQL yüklü deðil ya da modül konfigürasyonu yanlýþ.
+index_esql=MySQL istemci programý $1 sisteminizde bulunamadý. Belki MySQL yüklü deðil ya da modül konfigürasyonu yanlýþ.
+index_ever=MySQL istemci programý $1 doðru versiyonda gibi görünmüyor. Webmin sadece MySQL 3.versiyonunu ve üstündeki versiyonlarý destekler.
+index_elibrary=MySQL istemci program? $1 çalýþmýyor çünkü MySQL paylaþtýrma kütüphanesinde bulunamad?. Modül konfigürasyonunu kontrol edin ve <i>MySQL paylaþtýrma kütüphanesi için yol</i> un belirli olduðundan  emin olun.
+
+login_epass=Yanlýþ MySQL kullanýcý adý ya da þifre.
+

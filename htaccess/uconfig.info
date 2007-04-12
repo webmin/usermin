@@ -1,0 +1,2 @@
+www_root=Web root directory,0
+show_names=Show Apache directive names,1,1-Yes,0-No

@@ -1,0 +1,8 @@
+htaccess=Apache options file name,0
+htpasswd=Users file name,0
+htgroups=Groups file name,0
+can_htpasswd=Allow choice of users file?,1,1-Yes,0-No
+can_htgroups=Allow creation of groups files?,1,1-Yes,0-No
+dirs=Allowed directories for options files,9,0,0,\t
+home=Include home directory in allowed list?,1,1-Yes,0-No
+extra_directives=Extra directives to include in .htaccess,9,0,0,\t

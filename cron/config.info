@@ -1,0 +1,10 @@
+cron_dir=Crontab Directory,0
+cron_user_get_command=Command to read the user's cron job,0
+cron_user_edit_command=Command to edit the user's cron job,0
+cron_user_copy_command=Command to accept the user's cron job on stdin,0
+cron_user_delete_command=Command to delete the user's cron jobs,0
+cron_input=Cron supports input to cron jobs,1,1-Yes,0-No
+vixie_cron=Supports Vixie-Cron extensions,1,1-Yes,0-No
+system_crontab=Path to Vixie-Cron system crontab file,0
+cronfiles_dir=Path to extra cron files directory,3,None
+run_parts=run-parts command,0

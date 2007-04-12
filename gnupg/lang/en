@@ -1,0 +1,197 @@
+index_title=GnuPG Encryption
+index_setupdesc=GnuPG has not been setup on your account. Use the form below to create a new GnuPG private key, which you will need for encryption and signing.
+index_name=Your name
+index_email=Email address
+index_comment=Key comment
+index_size=Key size
+index_pass=Passphrase
+index_setup=Setup GnuPG
+index_return=GnuPG index
+index_egpg=The GnuPG command $1 was not found on your system. Maybe it is not installed.
+
+setup_err=Failed to setup GnuPG
+setup_ename=Missing name for key
+setup_enamelen=Name for key must be at least $1 characters long
+setup_eemail=Missing email address for key
+setup_title=Setup GnuPG
+setup_ok=GnuPG has been successfully setup and a secret key generated.
+setup_failed=Failed to create secret key : $1
+setup_emkdir=Failed to create .gnupg directory : $1
+
+keys_title=Manage Keys
+keys_desc=This page lists all the public keys in your GnuPG keyring. In order to encrypt a file for someone, you need to import their public key so that it appears on this page.
+keys_id=Key ID
+keys_secret=Secret key?
+keys_date=Date created
+keys_name=Owner's name
+keys_email=Owner's email
+keys_importdesc=If another GnuPG user's key has been given to you in a file, you should use this form to import it into your list of keys.
+keys_import=Import Key
+keys_recvdesc=Keys can also be fetched from the keyserver $1 if you know the ID of the key you want.
+keys_recv=Fetch key ID from keyserver:
+keys_return=list of keys
+keys_from=Import key from
+keys_mode0=Uploaded file
+keys_mode1=File on server
+keys_delete=Delete Selected Keys
+
+import_err=Failed to import key
+import_ekey=No key file selected
+import_egpg=GnuPG failed : $1
+import_efile=Missing or invalid key file
+
+key_title=Public Key Details
+key_header=Key Details
+key_id=Key ID
+key_date=Date created
+key_owner=Owner's details
+key_oname=Name and comment
+key_oemail=Email address
+key_addowner=Add
+key_finger=Key fingerprint
+key_ascii=Key in ascii format
+key_sign=Sign Key
+key_exportform=Export
+key_desc=This page shows the full details of one of the keys in your keyring. If you want to give this key to someone else so that they can encrypt files with it, use the buttons at the bottom of the page to export it to a file.
+key_send=Send to Keyserver
+key_changepass=Change passphrase to
+key_setpass=Set passphrase to
+key_passdesc=This key does not have a passphrase set yet, so you should enter one here.
+key_passdesc2=This key already has a passphrase set, so you probably do not need to change it.
+key_trust=Key trust level
+key_trust_0=Not yet set
+key_trust_1=Trust level unknown
+key_trust_2=Not trusted
+key_trust_3=Marginally trusted
+key_trust_4=Fully trusted
+key_changetrust=Change
+key_del=Delete Key
+
+encrypt_title=Encrypt File
+encrypt_desc=Use this page to encrypt a file with GnuPG and a chosen public key. Once encrypted, the result will only be decryptable by the owner of the matching private key.
+encrypt_mode=File to encrypt
+encrypt_mode0=Uploaded file
+encrypt_mode1=Local file
+encrypt_key=Using public key
+encrypt_ascii=Encrypt to ASCII file?
+encrypt_ok=Encrypt Now
+encrypt_err=Failed to encrypt file
+encrypt_eupload=No file selected to encrypt
+encrypt_elocal=Selected file does not exist or is not readable
+encrypt_egpg=GnuPG failed : $1
+
+decrypt_title=Decrypt File
+decrypt_desc=Use this page to decrypt a file that has been encrypted using your public key, either by yourself or by someone else who has your key.
+decrypt_mode=File to decrypt
+decrypt_mode0=Uploaded file
+decrypt_mode1=Local file
+decrypt_pass=Passphrase for private key
+decrypt_ok=Decrypt Now
+decrypt_def=Current passphrase
+decrypt_err=Failed to decrypt file
+decrypt_eupload=No file selected to decrypt
+decrypt_elocal=Selected file does not exist or is not readable
+decrypt_egpg=GnuPG failed : $1
+
+sign_title=Sign File
+sign_desc=Use this page to sign a file so that it can be verified that it was signed by you and that it has not been modified since signing.
+sign_mode=File to sign
+sign_mode0=Uploaded file
+sign_mode1=Local file
+sign_key=Sign using secret key
+sign_ascii=Add signature as text at end of file?
+sign_ok=Sign Now
+sign_err=Failed to sign file
+sign_eupload=No file selected to sign
+sign_elocal=Selected file does not exist or is not readable
+sign_egpg=GnuPG failed : $1
+sign_epass=No passphrase has been set yet for the chosen secret key
+sign_sep=Return detached signature only?
+
+verify_title=Verify Signed File
+verify_desc=Use this page to verify a file that has been signed with GnuPG, in order to check that it has not been modified and find out who signed it. If you want to extract the original data from a signed binary file, use the <a href='$1'>decryption page</a>.
+verify_mode=File to verify
+verify_mode0=Uploaded file
+verify_mode1=Local file
+verify_sig=Signature for file
+verify_mode2=None (part of signed file)
+verify_ok=Verify Now
+verify_err=Failed to verify file
+verify_eupload=No file selected to verify
+verify_elocal=Selected file does not exist or is not readable
+verify_esigupload=No signature file selected
+verify_esiglocal=Signature file does not exist or is not readable
+verify_egpg=GnuPG failed : $1
+verify_good=File has a valid signature from $1.
+verify_bad=File has signature from $1, but it is not valid.
+verify_noid=Public key with ID $1 is not available for verification.
+verify_failed=Failed to verify signature : $1
+verify_warning=Warning - This key has not been verified and signed on your key management page.
+
+signkey_title=Sign Key
+signkey_confirm=Are you sure you want to sign the key belonging to $1 $2 ? This will indicate that you have confirmed the validity of the key by checking its fingerprint ( $3 ) with the owner.
+signkey_failed=Failed to sign key belonging to $1 : $2
+signkey_success=Successfully signed key belonging to $1.
+signkey_already=Key belonging to $1 has already been signed.
+signkey_trust=with trust level
+signkey_trust0=No answer
+signkey_trust1=Not checked
+signkey_trust2=Casually checked
+signkey_trust3=Carefully checked
+
+send_title=Send to Keyserver
+send_desc=Sending key $1 to keyserver $2 ..
+send_failed=Failed to send key : $1
+send_success=Key submitted successfully. Other GnuPG users will now be able to retrieve your public key for sending email and encrypting files.
+
+recv_title=Fetch From Keyserver
+recv_desc=Fetching key ID $1 from keyserver $2 ..
+recv_failed=Failed to fetch key : $1
+recv_same=Already have key from $1.
+recv_success=Successfully imported key from $1.
+
+secret_title=Add Secret Key
+secret_desc=Use this page to generate an additional secret key that you can use for signing and decryption.
+secret_err=Failed to add secret key
+secret_ok=A new secret key has been successfully generated.
+secret_name=New key name
+secret_setup=Create New Key
+
+gnupg_esignpass=No passphrase has been set yet for the signing key
+gnupg_ecryptid=Encryption secret key is not available
+gnupg_ecryptkey=Encryption secret key ID $1 not available
+gnupg_ecryptpass=No passphrase has been set yet for the secret key $1
+gnupg_canset=To set a passphrase for an existing key, visit the <a href='$1'>key details page</a>
+
+trust_title=Set Trust Level
+trust_echoice=You must choose a trust level, not 'Not yet set'.
+trust_done=Successfully set trust level for key $1.
+
+owner_err1=Failed to add owner
+owner_ename=No name entered
+owner_err2=Failed to delete owner
+owner_elast=You cannot delete the last owner details
+
+delkey_title=Delete Key
+delkey_rusure=Are you sure you want to delete the secret key $1 $2? Any files or email encrypted with it will no longer be decodable!
+delkey_ok=Yes, delete it
+
+delkeys_err=Failed to delete keys
+delkeys_enone=None selected
+
+export_title=Export Key
+export_desc=This page allows you to export the key $1 $2 from your keyring, either to a file or for download from your browser.
+export_to=Export mode
+export_mode0=Display in browser
+export_mode1=Save to file/directory
+export_format=Export format
+export_ascii=ASCII text
+export_binary=Binary
+export_smode=Key to export
+export_secret=Full secret and public key
+export_public=Public key only
+export_ok=Export Now
+export_err=Failed to export key
+export_efile=No file or directory entered
+export_done=Successfully saved key to file $1.
+

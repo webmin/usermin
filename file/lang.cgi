@@ -1,0 +1,1 @@
+../../webadmin/file/lang.cgi

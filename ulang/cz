@@ -1,0 +1,32 @@
+main_title=WWW pøístup $1 k serveru $2 ($3)
+main_title2=Mo¾nosti
+main_none=Nemáte povolen pøístup k ¾ádnému modulu.
+
+category_mail=Po¹ta
+category_usermin=Mo¾nosti
+category_login=Pøihla¹ování
+category_apps=Aplikace
+
+longcategory_usermin=Moduly pro nastavení Userminu
+longcategory_mail=Moduly pro získávání, ètení a zpracování po¹ty
+longcategory_login=Moduly související s pøihla¹ováním na server
+longcategory_apps=Moduly pro databáze, ¹ifrování, web a jiné aplikace
+
+header_webmin=Obsah Userminu
+header_config=Nastavení
+
+programname=Usermin
+
+config_title=Nastavení
+
+feedback_title=Zpìtná vazba Usermin
+feedback_desc=This form allows you to report bugs or make suggestions to the Usermin developers regarding any problems or missing features that you have found. When the Send button is clicked, the details entered into the form will be emailed to $1.
+feedback_desc2=This feedback will be sent to the developer of Usermin, not your system administrator, ISP or hosting company. Please write your feedback in english, even if you are currently running Usermin in another language.
+feedback_configdesc=If this is selected, the email will include your preferences for the related module and the contents of any config files that the module uses.
+
+session_header=Pøihlá¹ení do Userminu
+session_mesg=Pro pøihlá¹ení do Userminu na serveru $1 musíte zadat u¾ivatelské jméno a heslo.
+
+pam_header=Pøihlá¹ení do Webminu
+pam_mesg=pro pøihlá¹ení k Userminu na serveru $1 musíte odpovìdìt na následující otázku.
+

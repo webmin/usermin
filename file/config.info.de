@@ -1,0 +1,3 @@
+home_only=Auf Home-Verzeichnis beschr&#228;nken?,1
+root=Andere erlaubte Verzeichnisse,9,30,4
+goto=Home-Verzechnis &#246;ffnen?,1,1-Ja,0-Nein

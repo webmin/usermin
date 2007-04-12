@@ -1,0 +1,1 @@
+sort=Trier les utilisateurs par,1,1-Nom d'utilisateur,0-Ordre du fichier

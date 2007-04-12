@@ -1,0 +1,13 @@
+index_header=Email Forwarding Settings
+index_fwd=Forward all email to
+index_none=Just deliver normally
+index_to=To addresses
+index_save=Update Forwarding
+index_return=forwarding form
+
+save_err=Failed to save mail forwarding
+save_efwd='$1' is not a valid email address
+save_efwds=No addreess to forward to entered
+save_eldap=Error updating database : $1
+save_done1=Your mail forwarding settings have been successfully saved.
+save_done2=Mail forwarding has been successfully disabled.

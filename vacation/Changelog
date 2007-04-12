@@ -1,0 +1,13 @@
+Changelog for Usermin::Vacation
+
+Version 0.9
+- Rolled in a patch from Colin Hill at Duke University that allows
+  the user to update their vacation message without cycling vacation
+	on and off. Colin's patch also fixed the problem where user's couldn't
+	update their from: line. Thanks Colin!
+
+- Implemented an RFE from Hank Mensinga to have vacation determine
+  the hostname from the URL for virtual hosting enviroments.
+
+Version 0.5 
+- Added German translation contributed by Danny Trommer (dantro@esc.de)

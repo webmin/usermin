@@ -1,0 +1,32 @@
+main_title=Usermin $1 on $2 ($3)
+main_title2=Usermin
+main_none=You do not have access to any Usermin modules.
+
+category_mail=Mail
+category_usermin=Usermin
+category_login=Login
+category_apps=Applications
+
+longcategory_usermin=Modules for configuring Usermin itself
+longcategory_mail=Modules for reading, fetching and processing email
+longcategory_login=Modules related to logging into the server
+longcategory_apps=Modules for database, encryption, website and other applications
+
+header_webmin=Usermin Index
+header_config=Preferences
+
+programname=Usermin
+
+config_title=Preferences
+
+feedback_title=Usermin Feedback
+feedback_desc=This form allows you to report bugs or make suggestions to the Usermin developers regarding any problems or missing features that you have found. When the Send button is clicked, the details entered into the form will be emailed to $1.
+feedback_desc2=This feedback will be sent to the developer of Usermin, not your system administrator, ISP or hosting company. Please write your feedback in english, even if you are currently running Usermin in another language.
+feedback_configdesc=If this is selected, the email will include your preferences for the related module and the contents of any config files that the module uses.
+
+session_header=Login to Usermin
+session_mesg=You must enter a username and password to login to the Usermin server on $1.
+
+pam_header=Login to Webmin
+pam_mesg=You must respond to the question below to login to Usermin server on $1.
+

@@ -1,0 +1,42 @@
+Usermin Version 1.270
+---------------------
+To setup usermin, simply run the  setup.sh  shell script, which should be
+found in the same directory as this README file. This will setup Usermin
+to run from that directory.
+
+Usermin can be installed in two different ways :
+
+1) By just running the setup.sh script in the same directory as this README
+   file, with no arguments. You will be asked a series of questions such as
+   the configuration directory, your operating system and whether to use SSL.
+   For questions where a default is shown in square brackets, you can just hit
+   enter to accept the default (which is usually correct).
+
+   If the configuration directory you enter is the same as that used by
+   a previous install of Usermin, it will be automatically upgraded with all
+   configurable settings preserved.
+
+   This will set up Usermin to run directly from this directory. After running
+   setup.sh, do not delete the directory as it contains all the scripts and
+   programs that will be used by Usermin when it is running. Unlike the second
+   installation method, the Usermin scripts do not get copied to another
+   location when installing.
+
+2) By running the setup.sh script in this directory, but with a command-line
+   argument such as /usr/local/usermin . When a directory like this is provided,
+   Usermin's scripts will be copied to the chosen directory and it will be
+   configured to run from that location.
+
+   The exact same questions will be asked by setup.sh when it is run with
+   a directory argument, and upgrading will work in the same way. If you
+   are upgrading an old install, you should enter the same directory argument
+   so that the new files overwrite the old in order to save disk space.
+
+   After Usermin has been installed to a specific directory using this method,
+   the directory extracted from the tar.gz file can be safely deleted.
+
+For more information, see http://www.usermin.com/
+
+Jamie Cameron
+jcameron@webmin.com
+

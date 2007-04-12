@@ -1,0 +1,8 @@
+---- Changes since 1.080 ----
+The Usermin module now runs with the permissions of the logged-in Unix user, enhancing security and making calls from other modules easier.
+---- Changes since 1.150 ----
+In addition to the normal method of specifying the times that a cron job runs at, a date range can now also be entered.
+---- Changes since 1.160 ----
+Added a field for entering comments from Cron jobs, and a Preferences option to display comments in the list.
+---- Changes since 1.170 ----
+Multiple Cron jobs can be deleted at once, using checkboxes on the module's main page.

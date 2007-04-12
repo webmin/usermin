@@ -1,0 +1,14 @@
+---- Changes since 1.100 ----
+If the vacation program is installed, a forwarding alias can be created to deliver mail to the vacation program which then sends an automatic reply. The options which control how the vacation command behaves can be edited using the module.
+---- Changes since 1.150 ----
+Added a simple mode, for setting up one or more of local delivery, forwarding or autoresponding.
+---- Changes since 1.160 ----
+In simple mode, the autoreply message is kept and can be edited even when autoresponding is not enabled.
+---- Changes since 1.170 ----
+In simple mode a From: address for autoreplies can now be entered.
+---- Changes since 1.200 ----
+Files to attach to an autoresponder can now be specified.
+---- Changes since 1.210 ----
+Added a global configuration option to disable attachments.
+---- Changes since 1.230 ----
+Users with an @ in their names on Postfix settings can now have mail properly delivered to their mailboxes.

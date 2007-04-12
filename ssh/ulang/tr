@@ -1,0 +1,76 @@
+index_title=SSH Konfigürasyonu
+index_setup=SSH henüz hesabýnýzý düzenlemedi. Ýsteðe baðlý bir SSH þifresi girdikten sonra, aþaðýdaki düðmeye basarak düzenleyebilirsiniz.
+index_sok=SSH þifresiyle düzenlemek:
+index_essh=Komut $1 sisteminizde dulunamadý. Büyük bir ihtimalle SSH yüklü deðil.
+index_return=SSH menüsü
+
+setup_err=SSH düzenlemesi baþarýsý
+
+auths_title=Yetkili Þifreler
+auths_desc=Bu sayfa bu sunucu üzerinden hesabýnýza girmeye yarayan genel SSH þifrelerini listeler, bir þifre istetemeksizin.
+auths_name=Þifre Adý
+auths_key=Þifre Rakamlarý
+auths_none=Þifre girilmesi için yetki verilmedi.
+auths_add=Yeni bir yetkili þifre eklemek.
+auths_return=yetkili þifreler
+
+auth_edit=Yetkili Þifre Düzenlemek
+auth_create=Yetkili Þifre Eklemek
+auth_desc1=Bu sayfa yeni bir yetkili þifre,bu sunucu üzerinde hesabýnýza girmek için þifre sahibine izin veren,  eklemenize izin verir. Giriþine izin verdiðiniz kullanýcýnýn genel þifresinin ayrýntýlarý aþaðýda yer almasý gerekir.
+auth_header=Yetkili þifre ayrýntýlarý ve þeçenekleri
+auth_name=Þifre adý
+auth_bits=Þifre bitleri
+auth_exp=Þifre temsilcisi
+auth_key=Þifre rakamlarý
+auth_from=Hosttan giriþe izin ver
+auth_from_all=Bütün hostlar
+auth_from_sel=Yalnýzca listeli hostlar ..
+auth_command=Yalnýzca komutun  yürütülmesine izin vermek
+auth_noport=Portu iletmeye izin vereyim mi?
+auth_nox11=X11 i iletmeye izin vereyim mi?
+auth_noagent=Temsilcileri ileteyim mi?
+auth_nopty=PTY ayýrýmýna izin vereyim mi?
+auth_err=Yekili þifreyi kaydetme baþarýsýz
+auth_ename=Atlanýlmýþ ya da geçersiz þifre adý
+auth_ebits=Atlanýlmýþ ya da geçersiz þifre biti numarasý
+auth_eexp=Atlanýlmýþ ya da geçersiz þifre temsilcisi
+auth_ekey=Atlanýlmýþ ya da geçersiz þifre rakamlarý
+
+knowns_title=Bilinen Uzak Hostlar
+knowns_desc=Bu sayfa girdiðiniz uzak sunucular için bilinen SSH þifrelerini listeler, bu þekilde SSh client programlarýnýn gelecek oturumlara baðlanmaya doðruluðunu kanýtlamak için izin verir.
+knowns_hosts=Host Adý(larý)
+knowns_key=Þifre Rakamlarý
+knowns_add=Bilinen bir host eklemek.
+knowns_none=Kayýt olmuþ uzak hostlar hakkýnda bilgi yok.
+knowns_return=uzak hostlar biliniyor
+
+known_edit=Bilinen Hostlarý Düzenlemek
+known_create=Bilinen Host Eklemek
+known_desc1=Bu sayfa SSH ile girmek istediðiniz bir uzak host için genel þifre eklemenize izin verir, böylece o baðlantýyla host durdurulamaz. Bu, daha önce baðlanmadýðýnýz bir uzak hosta girdiðiniz zaman otomatik olarak gerçekleþir.
+known_header=Bilinen uzak host ayrýntýlarý
+known_hosts=Host adlarý / IP adresleri
+known_bits=Þifre bitleri
+known_exp=Þifre temsilcisi
+known_key=Þifre rakamlarý
+known_comment=Host yorumu
+known_err=Bilinen hostu kaydetme baþarýsýz
+known_ehosts=Hiçbir host adý giriþi yapýlmadý
+
+keys_title=Þifreleriniz
+keys_desc1=SSH özel þifreniz, uzak sunuculara giriþ yaptýðýnýzý belgeleyen SSH client programlarý tarafýndan kullanýlýr. Eðer bu þifre deðiþirse, giriþ yaptýðýnýz bütün uzak hostlarýndaki yetkili þifrenizi deðiþtirmeniz gerekir.
+keys_download=Download þifresi
+keys_downloadmsg=SSH özel þifrenizi download etmek için bu düðmeye týklayýnýz. Bir kere download edildiðinde bu sayfayý kullanarak baþka bir sunucuya yükseltme yüklemesi yapýlabilir.
+keys_upload=Yükseltip yükleme Þifresi:
+keys_uploadmsg=Yeni bir SSH özel þifresi yükseltip yüklemek için bu düðmeye týklayýnýz. Bu, baþka bir sunucu ya da hesaptan gelen geçerli bir SSH 1.0 þifresi olamalý.
+keys_desc2=SSH genel þifreniz bu sunucu üzerinde hiç bir belge ya da uzak giriþlerde kullanýlmýyor, fakat bu giriþ yapmak istediðiniz herhangi hostlarýn belgeli þifrelerine kopyalanabilir. Eðer özel þifrenizi deðiþtirirseniz, bu genel þifre ayný kaynaktan olabildiði kadar iyi yükseltilip yüklenmesi gerekir.      
+keys_public=Genel SSH þifresi
+keys_perr=Genel þifreyi kaydetne baþarýsýz
+keys_epublic=Atlanýlmýþ genel þifre metni
+keys_epubwrite=Genel þifre dosyasýna yazma baþarýsýz : $1
+keys_err=Özel þifreyi kaydetme baþarýsýz
+keys_eprivate=Yükseltip yüklemek için hiçbir özel þifre seçilmedi
+keys_eformat=Yükseltilip yüklenen dosya özel bir þifre gibi görünmüyor
+keys_epriwrite=Özel þifre dosyasýna yazma baþarýsýz : $1
+
+hosts_title=Host Seçenekleri
+

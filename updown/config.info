@@ -1,0 +1,7 @@
+home_only=Limit uploads and downloads to home directory?,1,1-Yes,0-No
+root=Other directories to allow,9,30,4
+upload=Allow uploading of files?,1,1-Yes,0-No
+download=Allow downloading of files from URLs?,1,1-Yes,0-No
+fetch=Allow downloading of files to PC?,1,1-Yes,0-No
+background=Allow downloads in background?,1,1-Yes,0-No
+max=Maximum allowed upload size,3,Unlimited,8,,bytes

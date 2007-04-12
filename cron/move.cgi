@@ -1,0 +1,1 @@
+../../webadmin/cron/move.cgi

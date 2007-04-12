@@ -1,0 +1,4 @@
+---- Changes since 1.060 ----
+Added the ability to run a scheduled command.
+---- Changes since 1.230 ----
+Added checkboxes and a button for deleting multiple scheduled commands at once.

@@ -1,0 +1,1 @@
+../../webadmin/custom/view.cgi

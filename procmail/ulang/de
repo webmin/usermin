@@ -1,0 +1,1 @@
+index_desc=Dieses Modul erlaubt die Konfiguration der Filterung von E-Mails die an Sie auf diesem Server gesandt wird. Dazu mu&#223; der Systemadministrator jedoch Procmail global f&#252;r alle Benutzer eingerichtet haben oder Sie richten Procmail im E-Mail-Weiterleitungs-Modul ein.

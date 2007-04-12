@@ -1,0 +1,5 @@
+---- Changes since 1.150 ----
+Added module configuration options to prevent uploading and/or downloading.
+Added a new form for downloading a file from the server to the user's PC.
+---- Changes since 1.220 ----
+Added the ability to extract tar.bz2 files.

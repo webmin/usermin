@@ -1,0 +1,1 @@
+../../webadmin/mysql/exec_file.cgi

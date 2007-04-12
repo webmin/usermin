@@ -1,0 +1,4 @@
+long_fstypes=Show long filesystem type names,1,1-Yes,0-No
+fstab_file=File listing filesystems mounted at boot time,0
+smbclient_path=Full path to smbclient,3
+nmblookup_path=Full path to nmblookup,3

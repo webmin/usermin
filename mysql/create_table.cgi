@@ -1,0 +1,1 @@
+../../webadmin/mysql/create_table.cgi

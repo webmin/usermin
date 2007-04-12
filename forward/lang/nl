@@ -1,0 +1,79 @@
+index_title=Uw E-mail doorsturen
+index_desc=Met deze module kunt U uw e-mail laten doorsturen of een antwoordapparaat op uw e-mail instellen. De e-mail zal niet meer in uw postvak op deze server worden opgeslagen tenzij U een speciale regel doorsturen aan 'Normale gebruikers postvak' toevoegt.
+index_none=Geen doorstuurinstelling gevonden. E-mail wordt in uw postvak opgeslagen.
+index_add=Voeg een doorstuuregel toe
+index_return=E-mail doorsturen
+index_edit=$1 bestand met de hand aanpassen.
+
+aliases_to=Stuur door aan..
+aliases_from=E-mail voor..
+aliases_type1=Adres $1
+aliases_type2=Meerdere adressen in bestand $1
+aliases_type3=File $1
+aliases_type4=Programma $1
+aliases_type5=Activeer antwoordapparaat uit bestand $1
+aliases_type6=Gebruik filterbestand $1
+aliases_type7=Normaal gebruikerspostvak
+aliases_enabled=Ingesteld?
+
+aform_type0=Geen
+aform_type1=E-mail adres
+aform_type2=Adressen in bestand
+aform_type3=Opslaan in bestand
+aform_type4=Invoer voor programma
+aform_type5=Antwoordapparaat, tekst uit bestand
+aform_type6=Gebruik filterbestand
+aform_type7=Normale gebruikers postvak
+aform_edit=E-mail doorsturen instellen
+aform_create=e-mail doorsturen bewerken
+aform_enabled=Ingesteld?
+aform_val=Doorsturen aan
+aform_abestand=Bewerken..
+aform_return=alias
+aform_name=E-mail aan..
+
+afile_title=Bewerk adresbestand
+afile_desc=Gebruik het tekstveld hieronder om de adressen in de lijst te bewerken $1.
+afile_undo=Ongedaan maken
+afile_ewrite=Kon adressen niet opslaan in bestand $1.
+
+asave_err=Kon doorstuur instellingen niet opslaan
+asave_eaddr='$1' is geen geldig adres
+asave_etype1='$1' is geen geldig e-mailadres
+asave_etype2=Adressenbestand '$1' is onleesbaar of bestaat niet
+asave_etype3='$1' is geen geldige bestandnaam
+asave_etype4='$1' is geen programma, of bestaat niet
+asave_etype4none=Geen programma opgegeven
+asave_etype1q=Qmail ondersteunt :include: niet
+asave_etype2q=Qmail vereist dat de administrator het Mailbox pad opzet.
+asave_ename=Ontbrekend of ongeldig e-mailadres voor naam
+asave_esame=Er bestaat reeds een alias voor dit e-mailadres
+asave_enone=Er is niemand geselecteerd om aan door te sturen
+
+ffile_title=Bewerk filterbestand
+ffile_desc=Gebruik het formulier hieronder om de filterregels op te zetten $1.
+ffile_efile= U heeft geen rechten om file $1 te bewerken.
+ffile_line=Als het $1 veld $2 $3  stuur dan door aan $4
+ffile_from=afzender
+ffile_to=ontvanger
+ffile_subject=onderwerp
+ffile_cc=CC
+ffile_body=inhoud
+ffile_what0=niet bevat
+ffile_what1=bevat
+ffile_other=Stuur anders door aan $1.
+ffile_err=Kon filerbestand niet opslaan
+ffile_ematch=Zoekclausule ontbreekt
+ffile_eaction=Doorstuuradres ontbreekt
+ffile_ewrite=Kon filterbestand $1 niet opslaan
+
+rfile_title=Antwoordapparaatbestand bewerken
+rfile_desc=Gebruik het tesktvak hieronder om de berichttekst voor het antwoordapparaat in $1 te bewerken. Het bericht mag de macro's $SUBJECT, $FROM, $TO, $DATE en $BODY bevatten, die zullen worden ge-expandeerd als het antwoordapparaat wordt geactiveerd.
+rfile_desc2=U kunt ook mailkoppen toevoegen die de standaardwaarde veranderen of die extra toegevoegd zullen worden zoals<br><tt>From: foo@bar.com</tt><br><tt>Subject: Ik ben op vakantie</tt><br>Deze moeten helemaal bovenaan het bericht worden ingevoegd, gevolgd door een lege regel.
+rfile_efile=U heeft geen rechten om $1 te berwerken.
+rfile_undo=Ongedaan maken
+rfile_ewrite=Kon berichttekst voor antwoordapparaat $1 niet opslaan.
+
+edit_title=Doorstuurbestand bewerken
+edit_desc=Op deze pagina kunt u handmatig de inhoud van uw $1-bestand bewerken. Voorzichtigheid is geboden, omdat er geen verdere controle is op uw wijzigingen.
+

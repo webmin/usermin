@@ -1,0 +1,30 @@
+#!/usr/local/bin/perl
+# Show a form for setting up scheduled folder clearing
+
+require './mailbox-lib.pl';
+&ReadParse();
+@folders = &list_folders();
+$folder = $folders[$in{'idx'}];
+
+# Validate inputs
+$auto = &get_auto_schedule($folder);
+$auto ||= { };
+$auto->{'enabled'} = $in{'enabled'};
+$auto->{'mode'} = $in{'mode'};
+if ($in{'mode'} == 0) {
+	$in{'days'} =~ /^\d+$/ || &error($text{'auto_edays'});
+	$auto->{'days'} = $in{'days'};
+	$auto->{'invalid'} = $in{'invalid'};
+	}
+else {
+	$in{'size'} =~ /^\d+$/ || &error($text{'auto_esize'});
+	$auto->{'size'} = $in{'size'}*$in{'size_units'};
+	}
+$auto->{'all'} = $in{'all'};
+
+# Save schedule, and setup cron job
+&save_auto_schedule($folder, $auto);
+&setup_auto_cron() if ($auto->{'enabled'});
+
+&redirect($config{'mail_system'} == 4 ? "list_ifolders.cgi"
+				      : "list_folders.cgi");

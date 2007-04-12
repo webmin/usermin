@@ -1,0 +1,1 @@
+../../webadmin/spam-assassin/index.cgi

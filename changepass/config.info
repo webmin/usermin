@@ -1,7 +1,7 @@
 passwd_cmd=Change with,10,-Use PAM or <tt>passwd</tt> command,file-Directly update file,Use command
 md5=Password encryption method,1,1-MD5,0-DES crypt
 cmd_mode=Run command as,1,0-User being changed,1-<tt>root</tt> (and append username)
-smbpasswd=Also change samba password with command,10,-Don't change,Use command
+smbpasswd=Also change samba password with command,3,Don't change
 mysql=Also change MySQL password?,1,1-Yes,0-No
 mailbox=Also change mailbox POP3 passwords?,1,1-Yes,0-No
 post_command=Command to run after changing password,0

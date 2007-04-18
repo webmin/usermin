@@ -93,7 +93,7 @@ closedir(DIR);
 
 # Remove useless .bak, test and other files, and create the tar.gz file
 print "Creating usermin-$vers.tar.gz\n";
-system("find tarballs/$dir -name '*.bak' -o -name test -o -name '*.tmp' -o -name '*.site' -o -name core -o -name .xvpics | xargs rm -rf");
+system("find tarballs/$dir -name '*.bak' -o -name test -o -name '*.tmp' -o -name '*.site' -o -name core -o -name .xvpics -o -name .svn | xargs rm -rf");
 system("cd tarballs ; tar chf - $dir | gzip -c >usermin-$vers.tar.gz");
 
 # Create per-module .wbm files

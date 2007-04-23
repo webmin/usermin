@@ -436,7 +436,7 @@ if ($folder_types{'local'}) {
 	}
 
 # Add sub-folders in ~/Maildir/ , as used by Courier
-if ($inbox->{'type'} == 1) {
+if ($inbox->{'type'} == 1 && $userconfig{'mailbox_dir'} ne "Maildir") {
 	foreach $p (&recursive_files($inbox->{'file'}, 0)) {
 		local $f = $p;
 		$f =~ s/^\Q$inbox->{'file'}\E\///;

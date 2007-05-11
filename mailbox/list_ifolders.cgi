@@ -7,10 +7,10 @@ require './mailbox-lib.pl';
 print &ui_form_start("delete_folders.cgi", "post");
 @tds = ( "width=5" );
 @folders = &list_folders_sorted();
-$adders = "<a href='edit_ifolder.cgi?new=1'>$text{'folders_addimap'}</a>\n".
-	  "<a href='edit_comp.cgi?new=1'>$text{'folders_addcomp'}</a>\n".
-	  "<a href='edit_virt.cgi?new=1'>$text{'folders_addvirt'}</a>\n";
-print $adders;
+@adders = ( "<a href='edit_ifolder.cgi?new=1'>$text{'folders_addimap'}</a>",
+	    "<a href='edit_comp.cgi?new=1'>$text{'folders_addcomp'}</a>",
+	    "<a href='edit_virt.cgi?new=1'>$text{'folders_addvirt'}</a>" );
+print &ui_links_row(\@adders);
 print &ui_columns_start([ "",
 			  $text{'folders_name'},
 			  $text{'folders_type'},
@@ -75,7 +75,7 @@ foreach $f (@folders) {
 		}
 	}
 print &ui_columns_end();
-print $adders;
+print &ui_links_row(\@adders);
 print &ui_form_end([ [ "delete", $text{'folders_delete'} ] ]);
 
 &ui_print_footer("", $text{'index'});

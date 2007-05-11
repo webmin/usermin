@@ -108,6 +108,13 @@ elsif ($in{'razor'} || $in{'ham'}) {
 		&send_mail($mail, $temp);
 		}
 
+	if ($userconfig{'spam_del'} && $in{'razor'}) {
+		# Delete spam too
+		&lock_folder($folder);
+		&mailbox_delete_mail($folder, @delmail);
+		&unlock_folder($folder);
+		}
+
 	# Call reporting command on them
 	&open_execute_command(OUT, "$cmd <$temp 2>&1", 1);
 	local $error;
@@ -123,19 +130,15 @@ elsif ($in{'razor'} || $in{'ham'}) {
 		}
 	else {
 		if ($userconfig{'spam_del'} && $in{'razor'}) {
-			# Delete spam too
-			&lock_folder($folder);
-			&mailbox_delete_mail($folder, @delmail);
-			&unlock_folder($folder);
 			print "<b>$text{'razor_deleted'}</b><p>\n";
 			}
 		else {
 			print "<b>$text{'razor_done'}</b><p>\n";
 			}
+		print "<script>\n";
+		print "window.location = 'index.cgi?folder=$in{'folder'}';\n";
+		print "</script>\n";
 		}
-	print "<script>\n";
-	print "window.location = 'index.cgi?folder=$in{'folder'}';\n";
-	print "</script>\n";
 	&ui_print_footer("index.cgi?folder=$in{'folder'}",
 			 $text{'mail_return'});
 	}

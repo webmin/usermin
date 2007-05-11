@@ -285,6 +285,14 @@ else {
 		print "<pre>";
 		local $temp = &transname();
 		&send_mail($mail, $temp, 0, 1);
+
+		if ($userconfig{'spam_del'} && $mode eq "razor") {
+			# Delete message too
+			&lock_folder($folder);
+			&mailbox_delete_mail($folder, $mail);
+			&unlock_folder($folder);
+			}
+
 		local $cmd = $mode eq "razor" ? &spam_report_cmd() 
 					      : &ham_report_cmd();
 		open(OUT, "$cmd <$temp 2>&1 |");
@@ -303,21 +311,25 @@ else {
 		else {
 			if ($userconfig{'spam_del'} && $mode eq "razor") {
 				# Delete message too
-				&lock_folder($folder);
-				&mailbox_delete_mail($folder, $mail);
-				&unlock_folder($folder);
 				print "<b>$text{'razor_deleted'}</b><p>\n";
 				$deleted = 1;
+				print "<script>\n";
+				print "window.location = 'index.cgi?folder=$in{'folder'}';\n";
+				print "</script>\n";
 				}
 			else {
 				print "<b>",$text{'razor_done'},"</b><p>\n";
+				print "<script>\n";
+				print "window.location = '$viewlink';\n";
+				print "</script>\n";
 				}
 			}
 
 		&mail_page_footer(
 			$deleted ? ( ) : 
 			( $viewlink, $text{'view_return'} ),
-			"index.cgi?folder=$in{'folder'}", $text{'mail_return'});
+			"index.cgi?folder=$in{'folder'}",
+			 $text{'mail_return'});
 		exit;
 		}
 	elsif ($in{'dsn'}) {

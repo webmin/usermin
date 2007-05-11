@@ -133,6 +133,9 @@ elsif ($in{'razor'} || $in{'ham'}) {
 			print "<b>$text{'razor_done'}</b><p>\n";
 			}
 		}
+	print "<script>\n";
+	print "window.location = 'index.cgi?folder=$in{'folder'}';\n";
+	print "</script>\n";
 	&ui_print_footer("index.cgi?folder=$in{'folder'}",
 			 $text{'mail_return'});
 	}

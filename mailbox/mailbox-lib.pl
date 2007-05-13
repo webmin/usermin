@@ -1675,7 +1675,7 @@ return ( ) if (!$folder->{'sortable'});
 local $file = &folder_name($folder);
 $file =~ s/\//_/g;
 my %sort;
-if (&read_file("$user_module_config_directory/sort.$file", \%sort)) {
+if (&read_file_cached("$user_module_config_directory/sort.$file", \%sort)) {
 	return ($sort{'field'}, $sort{'dir'});
 	}
 return ( );

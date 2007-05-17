@@ -1830,5 +1830,40 @@ if (!$from || @faddrs) {
 return $f;
 }
 
+# addressbook_to_whitelist()
+# If SpamAssassin is installed, update the user's whitelist with all
+# addressbook entries
+sub addressbook_to_whitelist
+{
+if ($userconfig{'white_book'} && &foreign_installed("spam")) {
+	&foreign_require("spam", "spam-lib.pl");
+	local $conf = &spam::get_config();
+	local @white = &spam::find_value("whitelist_from", $conf);
+	local %white = map { lc($_), 1 } @white;
+	foreach my $a (&list_addresses()) {
+		if (!$white{lc($a->[0])}) {
+			push(@white, $a->[0]);
+			}
+		}
+	&spam::save_directives($conf, "whitelist_from", \@white, 1);
+	&flush_file_lines();
+	}
+}
+
+# addressbook_remove_whitelist(address)
+# Delete some address from the whitelist
+sub addressbook_remove_whitelist
+{
+local ($addr) = @_;
+if ($userconfig{'white_book'} && &foreign_installed("spam")) {
+	&foreign_require("spam", "spam-lib.pl");
+	local $conf = &spam::get_config();
+	local @white = &spam::find_value("whitelist_from", $conf);
+	@white = grep { lc($_) ne lc($addr) } @white;
+	&spam::save_directives($conf, "whitelist_from", \@white, 1);
+	&flush_file_lines();
+	}
+}
+
 1;
 

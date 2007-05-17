@@ -30,3 +30,4 @@ Updated all rows of links (like select all, invert selection, add something) abo
 ---- Changes since 1.260 ----
 Improved support for automatic domain name prepending at long time to check the first and second parts of the hostname in the URL.
 Added support for Slam64 Linux.
+Fixed XSS bugs in pam_login.cgi.

@@ -522,31 +522,6 @@ foreach $f (readdir(DIR)) {
 	}
 closedir(DIR);
 
-# Add virtual folders
-opendir(DIR, $user_module_config_directory);
-foreach $f (readdir(DIR)) {
-	if ($f =~ /^(\d+)\.virt$/) {
-		local %virt = ( 'id' => $1 );
-		&read_file("$user_module_config_directory/$f", \%virt);
-		$virt{'folderfile'} = "$user_module_config_directory/$f";
-		$virt{'type'} = 6;
-		$virt{'mode'} = 0;
-		$virt{'index'} = scalar(@rv);
-		$virt{'noadd'} = 1;
-		$virt{'members'} = [ ];
-		local $k;
-		foreach $k (keys %virt) {
-			next if ($k !~ /^\d+$/);
-			local ($idx, $sfn, $mid) = split(/\s+/, $virt{$k}, 3);
-			local $sf = &find_named_folder($sfn, \@rv, \%fcache);
-			$virt{'members'}->[$k] = [ $sf, $idx, $mid ] if ($sf);
-			delete($virt{$k});
-			}
-		push(@rv, \%virt);
-		}
-	}
-closedir(DIR);
-
 # Add spam folder as specified in spamassassin module, in case it is
 # outside of the folders we scan
 if (&foreign_check("spam")) {
@@ -587,6 +562,32 @@ if (&foreign_check("spam")) {
 			}
 		}
 	}
+
+# Add virtual folders. This has to be last, so that other folders can be found
+# based on virtual/composite indexes.
+opendir(DIR, $user_module_config_directory);
+foreach $f (readdir(DIR)) {
+	if ($f =~ /^(\d+)\.virt$/) {
+		local %virt = ( 'id' => $1 );
+		&read_file("$user_module_config_directory/$f", \%virt);
+		$virt{'folderfile'} = "$user_module_config_directory/$f";
+		$virt{'type'} = 6;
+		$virt{'mode'} = 0;
+		$virt{'index'} = scalar(@rv);
+		$virt{'noadd'} = 1;
+		$virt{'members'} = [ ];
+		local $k;
+		foreach $k (keys %virt) {
+			next if ($k !~ /^\d+$/);
+			local ($idx, $sfn, $mid) = split(/\s+/, $virt{$k}, 3);
+			local $sf = &find_named_folder($sfn, \@rv, \%fcache);
+			$virt{'members'}->[$k] = [ $sf, $idx, $mid ] if ($sf);
+			delete($virt{$k});
+			}
+		push(@rv, \%virt);
+		}
+	}
+closedir(DIR);
 
 # Mark folders are using Notes mail encoding
 foreach $f (@rv) {

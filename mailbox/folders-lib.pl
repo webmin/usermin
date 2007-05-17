@@ -703,7 +703,8 @@ if ($index->{'lastchange'} < $folder->{'lastchange'} ||
 	local @mails = $realcount ? &mailbox_select_mails($folder,
 					[ $indexcount .. $realcount-1 ], 1)
 				  : ( );
-	my @index_fields = ( "subject", "from", "to", "date", "size", "x-spam-status", "message-id" );
+	my @index_fields = ( "subject", "from", "to", "date", "size",
+			     "x-spam-status", "message-id" );
 	foreach my $mail (@mails) {
 		foreach my $f (@index_fields) {
 			if ($f eq "date") {

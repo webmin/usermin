@@ -150,11 +150,17 @@ if ($folder) {
 	# Use same From/To display mode as original folder
 	$virt->{'show_to'} = $folder->{'show_to'};
 	$virt->{'show_from'} = $folder->{'show_from'};
+	$virt->{'spam'} = $folder->{'spam'};
+	$virt->{'sent'} = $folder->{'sent'};
+	$virt->{'drafts'} = $folder->{'drafts'};
 	}
 else {
 	# Use default From/To mode
 	delete($virt->{'show_to'});
 	delete($virt->{'show_from'});
+	delete($virt->{'spam'});
+	delete($virt->{'sent'});
+	delete($virt->{'drafts'});
 	}
 &delete_sort_index($virt);
 &save_folder($virt, $virt);

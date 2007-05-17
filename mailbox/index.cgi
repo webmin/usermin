@@ -237,48 +237,51 @@ if ($userconfig{'arrows'}) {
 
 # Show search form
 print "<hr>\n";
-print "<table width=100%><tr>\n";
+print "<table width=100%>\n";
 
-if ($folder->{'searchable'}) {
-	# Simple search
-	print "<form action=mail_search.cgi><td width=33%>\n";
-	print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
-	print "<input type=hidden name=simple value=1>\n";
-	print "<input type=submit value='$text{'mail_search2'}'>\n";
-	print "<input name=search size=20></td></form>\n";
+if (@mail) {
+	print "<tr>\n";
+	if ($folder->{'searchable'}) {
+		# Simple search
+		print "<form action=mail_search.cgi><td width=33%>\n";
+		print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
+		print "<input type=hidden name=simple value=1>\n";
+		print "<input type=submit value='$text{'mail_search2'}'>\n";
+		print "<input name=search size=20></td></form>\n";
 
-	# Advanced search
-	$jumpform = (@mail > $perpage);
-	print "<form action=search_form.cgi>\n";
-	print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
-	print "<td width=33% align=center><input type=submit name=advanced ",
-	      "value='$text{'mail_advanced'}'></td>\n";
-	print "</form>\n";
-	}
+		# Advanced search
+		$jumpform = (@mail > $perpage);
+		print "<form action=search_form.cgi>\n";
+		print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
+		print "<td width=33% align=center><input type=submit name=advanced ",
+		      "value='$text{'mail_advanced'}'></td>\n";
+		print "</form>\n";
+		}
 
-if ($folder->{'spam'}) {
-	# Spam level search
-	print "<form action=mail_search.cgi><td width=33% align=right>\n";
-	print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
-	print "<input type=hidden name=spam value=1>\n";
-	print "<input type=submit value='$text{'mail_search3'}'>\n";
-	print "<input name=score size=5></td></form>\n";
+	if ($folder->{'spam'}) {
+		# Spam level search
+		print "<form action=mail_search.cgi><td width=33% align=right>\n";
+		print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
+		print "<input type=hidden name=spam value=1>\n";
+		print "<input type=submit value='$text{'mail_search3'}'>\n";
+		print "<input name=score size=5></td></form>\n";
+		}
+	elsif ($jumpform) {
+		# Show page jump form
+		print "<form action=index.cgi>\n";
+		print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
+		print "<td width=33% align=right>\n";
+		print "<input type=submit value='$text{'mail_jump'}'>\n";
+		printf "<input name=jump size=3 value='%s'> %s %s\n",
+			int($in{'start'} / $perpage)+1, $text{'mail_of'},
+			int(@mail / $perpage)+1;
+		print "</td></form>\n";
+		}
+	else {
+		print "<td width=33% align=right></td>\n";
+		}
+	print "</tr>\n";
 	}
-elsif ($jumpform) {
-	# Show page jump form
-	print "<form action=index.cgi>\n";
-	print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
-	print "<td width=33% align=right>\n";
-	print "<input type=submit value='$text{'mail_jump'}'>\n";
-	printf "<input name=jump size=3 value='%s'> %s %s\n",
-		int($in{'start'} / $perpage)+1, $text{'mail_of'},
-		int(@mail / $perpage)+1;
-	print "</td></form>\n";
-	}
-else {
-	print "<td width=33% align=right></td>\n";
-	}
-print "</tr>\n";
 
 # Show various buttons for the address book, folders, sig and searches
 print "<tr>\n";
@@ -309,7 +312,7 @@ else {
 print "</tr>\n";
 
 print "<tr>\n";
-if ($folder->{'trash'} || $userconfig{'show_delall'}) {
+if (@mail && ($folder->{'trash'} || $userconfig{'show_delall'})) {
 	# Show button to delete all mail in folder
 	print "<form action=delete_mail.cgi>\n";
 	print "<input type=hidden name=folder value='$folder->{'index'}'>\n";

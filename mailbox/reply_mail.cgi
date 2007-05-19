@@ -358,6 +358,7 @@ else {
 		$rto = $mail->{'header'}->{'reply-to'};
 		$from = $mail->{'header'}->{'from'};
 		$cc = $mail->{'header'}->{'cc'};
+		$bcc = $mail->{'header'}->{'bcc'};
 		$ouser = $1 if ($from =~ /^(\S+)\@/);
 		}
 	else {
@@ -529,7 +530,7 @@ print &ui_table_row($text{'mail_cc'}, &ui_address_field("cc", $cc, 0, 1),
 print &ui_tabs_end_tabletab();
 
 # Show Bcc: field
-$bcc = $userconfig{'bcc_to'};
+$bcc ||= $userconfig{'bcc_to'};
 print &ui_tabs_start_tabletab("tab", "bcc");
 print &ui_table_row($text{'mail_bcc'}, &ui_address_field("bcc", $bcc, 0, 1),
 		    1, \@tds);

@@ -42,7 +42,8 @@ else {
 	($gconfig{'feedback'} ? "<br><a href=feedback_form.cgi>$text{'main_feedback'}</a>" : "")
 	);
 print "<center><font size=+1>",
-	    &text('main_version', $ver, $hostname, $ostr),"</font></center>\n";
+	    &text('main_version', $ver, $hostname, $ostr),"</font></center>\n"
+		if (!$gconfig{'nohostname'});
 print "<hr><p>\n";
 print $text{'main_header'};
 

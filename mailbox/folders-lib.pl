@@ -1638,7 +1638,7 @@ if (!$h) {
 	}
 
 # Select the right folder (if one was given)
-@rv = &imap_command($h, "select ".($_[0]->{'mailbox'} || "INBOX"));
+@rv = &imap_command($h, "select \"".($_[0]->{'mailbox'} || "INBOX")."\"");
 return (3, $rv[3]) if (!$rv[0]);
 local $count = $rv[2] =~ /\*\s+(\d+)\s+EXISTS/i ? $1 : undef;
 return (1, $h, $count);

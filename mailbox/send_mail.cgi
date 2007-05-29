@@ -347,14 +347,12 @@ $textonly = $userconfig{'no_mime'} && !$quoted_printable &&
 	    @{$mail->{'attach'}} == 1 &&
 	    $mail->{'attach'}->[0] eq $bodyattach && !$in{'html_edit'};
 
-if (!$userconfig{'send_return'}) {
-	# Tell the user what is happening
-	&mail_page_header($text{'send_title'});
-	@tos = ( split(/,/, $in{'to'}), split(/,/, $in{'cc'}), split(/,/, $in{'bcc'}) );
-	$tos = join(" , ", map { "<tt>".&html_escape($_)."</tt>" } @tos);
-	print &text($in{'draft'} ? 'send_draft' : 'send_sending',
-			  $tos || $text{'send_nobody'}),"<p>\n";
-	}
+# Tell the user what is happening
+&mail_page_header($text{'send_title'});
+@tos = ( split(/,/, $in{'to'}), split(/,/, $in{'cc'}), split(/,/, $in{'bcc'}) );
+$tos = join(" , ", map { "<tt>".&html_escape($_)."</tt>" } @tos);
+print &text($in{'draft'} ? 'send_draft' : 'send_sending',
+		  $tos || $text{'send_nobody'}),"<p>\n";
 
 if ($in{'draft'}) {
 	# Save in the drafts folder
@@ -423,24 +421,25 @@ if ($in{'abook'}) {
 
 if ($userconfig{'send_return'}) {
 	# Return to mail list
-	&redirect("index.cgi?folder=$in{'folder'}");
+	print "<script>\n";
+	print "window.location = 'index.cgi?folder=$in{'folder'}';\n";
+	print "</script>\n";
+	}
+
+# Print footer
+print "$text{'send_done'}<p>\n";
+if ($in{'idx'} ne '') {
+	&mail_page_footer(
+	    "view_mail.cgi?idx=$in{'idx'}&folder=$in{'folder'}&mid=".
+	    &urlize($in{'mid'})."$subs", $text{'view_return'},
+	    "index.cgi?folder=$in{'folder'}", $text{'mail_return'});
 	}
 else {
-	# Print footer
-	print "$text{'send_done'}<p>\n";
-	if ($in{'idx'} ne '') {
-		&mail_page_footer(
-		    "view_mail.cgi?idx=$in{'idx'}&folder=$in{'folder'}&mid=".
-		    &urlize($in{'mid'})."$subs", $text{'view_return'},
-		    "index.cgi?folder=$in{'folder'}", $text{'mail_return'});
-		}
-	else {
-		&mail_page_footer(
-		       "reply_mail.cgi?new=1&folder=$in{'folder'}",
-				 $text{'reply_return'},
-				 "index.cgi?folder=$in{'folder'}",
-				 $text{'mail_return'});
-		}
+	&mail_page_footer(
+	       "reply_mail.cgi?new=1&folder=$in{'folder'}",
+			 $text{'reply_return'},
+			 "index.cgi?folder=$in{'folder'}",
+			 $text{'mail_return'});
 	}
 
 # write_attachment(&attach)

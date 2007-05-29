@@ -50,6 +50,8 @@ related_search=Search for same subject or sender in,1,1-All folders,2-All local 
 search_latest=Messages to search,10,-All messages,Only latest
 show_body=Show message body previews in list?,1,1-Yes,0-No
 show_delall=Show button to delete entire mailbox?,1,1-Yes,0-No
+sent_name=Sent mail folder file,3,Automatic
+drafts_name=Drafts folder file,3,Automatic
 
 line4=Spam options,11
 spam_buttons=Show spam reporting buttons for,2,list-Mailboxes,mail-Messages

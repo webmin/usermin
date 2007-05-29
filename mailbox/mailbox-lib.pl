@@ -252,11 +252,12 @@ elsif ($config{'mail_system'} == 4) {
 		}
 
 	# Find or create the IMAP sent mail folder
-	local ($sent) = grep { lc($_->{'name'}) eq 'sent'} @rv;
+	local $sf = $userconfig{'sent_name'} || 'sent';
+	local ($sent) = grep { lc($_->{'name'}) eq $sf } @rv;
 	if (!$sent) {
-		local @irv = &imap_command($ih, "create \"sent\"");
+		local @irv = &imap_command($ih, "create \"$sf\"");
 		if ($irv[0]) {
-			$sent = { 'id' => "sent",
+			$sent = { 'id' => $sf,
 			          'type' => 4,
 				  'server' => $imapserver,
 				  'user' => $rv[0]->{'user'},
@@ -264,10 +265,10 @@ elsif ($config{'mail_system'} == 4) {
 				  'mode' => 2,
 				  'remote' => 1,
 				  'imapauto' => 1,
-				  'mailbox' => 'sent',
+				  'mailbox' => $sf,
 			          'index' => scalar(@rv) };
 			push(@rv, $sent);
-			&read_file("$user_module_config_directory/sent.imap",
+			&read_file("$user_module_config_directory/$sf.imap",
 				   $sent);
 			}
 		}
@@ -280,11 +281,12 @@ elsif ($config{'mail_system'} == 4) {
 		}
 
 	# Find or create the IMAP drafts folder
-	local ($drafts) = grep { lc($_->{'name'}) eq 'drafts'} @rv;
+	local $df = $userconfig{'drafts_name'} || 'drafts';
+	local ($drafts) = grep { lc($_->{'name'}) eq $df } @rv;
 	if (!$drafts) {
-		local @irv = &imap_command($ih, "create \"drafts\"");
+		local @irv = &imap_command($ih, "create \"$df\"");
 		if ($irv[0]) {
-			$drafts = { 'id' => "drafts",
+			$drafts = { 'id' => $df,
 			            'type' => 4,
 				    'server' => $imapserver,
 				    'user' => $rv[0]->{'user'},
@@ -292,10 +294,10 @@ elsif ($config{'mail_system'} == 4) {
 				    'mode' => 3,
 				    'remote' => 1,
 				    'imapauto' => 1,
-				    'mailbox' => 'drafts',
+				    'mailbox' => $df,
 			            'index' => scalar(@rv) };
 			push(@rv, $drafts);
-			&read_file("$user_module_config_directory/drafts.imap",
+			&read_file("$user_module_config_directory/$df.imap",
 				   $drafts);
 			}
 		}
@@ -354,10 +356,11 @@ if ($folder_types{'ext'} && $userconfig{'sent_mail'}) {
 	$done{$userconfig{'sent_mail'}}++;
 	}
 else {
-	$sf = "$folders_dir/sentmail";
+	local $sfn = $userconfig{'sent_name'} || 'sentmail';
+	$sf = "$folders_dir/$sfn";
 	if (!-e $sf && $userconfig{'mailbox_dir'} eq "Maildir") {
 		# For Maildir++ , use .sentmail
-		$sf = "$folders_dir/.sentmail";
+		$sf = "$folders_dir/.$sfn";
 		}
 	}
 $done{$sf}++;
@@ -374,7 +377,9 @@ push(@rv, { 'name' => $text{'folder_sent'},
 	    'index' => scalar(@rv) });
 
 # Add drafts file
-local $df = -r "$folders_dir/Drafts" ? "$folders_dir/Drafts" :
+local $df = $userconfig{'drafts_name'} ?
+		"$folders_dir/$userconfig{'drafts_name'}" :
+	    -r "$folders_dir/Drafts" ? "$folders_dir/Drafts" :
 	    -r "$folders_dir/.Drafts" ? "$folders_dir/.Drafts" :
 	    -r "$folders_dir/.drafts" ? "$folders_dir/.drafts" :
 	    $userconfig{'mailbox_dir'} eq "Maildir" ? "$folders_dir/.drafts" :

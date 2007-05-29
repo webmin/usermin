@@ -67,3 +67,4 @@ Replaced the HTMLarea widget for composing email with Xinha.
 On systems using Maildir++ for folders, the default sent mail and trash folders are named .sentmail and .trash respectively, and created in Maildir format.
 Added a Preferences option to have addressbook entries automatically added to the SpamAssassin whitelist.
 When searching a spam, virus or drafts folder, the same buttons that appear in te original folder will appear in the search results.
+Added Preferences page options for selecting the sent mail and drafts folder filenames.

@@ -12,6 +12,7 @@ address_chooser=Select Address..
 address_addr=Email address
 address_name=Real name
 address_none=Your address book is empty.
+address_none2=No addresses matched your search.
 address_title=Address Book
 address_desc=The table below lists addresses that you can select from when composing a new email. Addresses can also be added by clicking on them when viewing an email message.
 address_edit=Edit..
@@ -27,6 +28,8 @@ address_gnone=Your nickname list is empty.
 address_group=Nickname
 address_members=Email addresses
 address_m=$1 members
+address_search=Find addresses matching:
+address_ok=Search
 
 group_err=Failed to save address group
 group_egroup=Missing or invalid group name

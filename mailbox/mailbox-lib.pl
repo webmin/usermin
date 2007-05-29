@@ -172,10 +172,10 @@ local $mode = @_ > 2 ? $_[2] : 0;
 local $nogroups = @_ > 4 ? $_[4] : 0;
 local ($rfield1, $rfield2);
 if ($_[3]) {
-	return "<input type=button onClick='ifield = document.forms[$form].$_[0]; rfield = document.forms[$form].$_[3]; chooser = window.open(\"../$module_name/address_chooser.cgi?addr=\"+escape(ifield.value)+\"&mode=$mode&nogroups=$nogroups\", \"chooser\", \"toolbar=no,menubar=no,scrollbars=yes,width=500,height=250\"); chooser.ifield = ifield; window.ifield = ifield; chooser.rfield = rfield; window.rfield = rfield' value=\"...\">\n";
+	return "<input type=button onClick='ifield = document.forms[$form].$_[0]; rfield = document.forms[$form].$_[3]; chooser = window.open(\"../$module_name/address_chooser.cgi?addr=\"+escape(ifield.value)+\"&mode=$mode&nogroups=$nogroups\", \"chooser\", \"toolbar=no,menubar=no,scrollbars=yes,width=500,height=500\"); chooser.ifield = ifield; window.ifield = ifield; chooser.rfield = rfield; window.rfield = rfield' value=\"...\">\n";
 	}
 else {
-	return "<input type=button onClick='ifield = document.forms[$form].$_[0]; chooser = window.open(\"../$module_name/address_chooser.cgi?addr=\"+escape(ifield.value)+\"&mode=$mode\", \"chooser\", \"toolbar=no,menubar=no,scrollbars=yes,width=500,height=250\"); chooser.ifield = ifield; window.ifield = ifield' value=\"...\">\n";
+	return "<input type=button onClick='ifield = document.forms[$form].$_[0]; chooser = window.open(\"../$module_name/address_chooser.cgi?addr=\"+escape(ifield.value)+\"&mode=$mode\", \"chooser\", \"toolbar=no,menubar=no,scrollbars=yes,width=500,height=500\"); chooser.ifield = ifield; window.ifield = ifield' value=\"...\">\n";
 	}
 }
 

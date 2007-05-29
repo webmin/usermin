@@ -1,7 +1,6 @@
 #!/usr/local/bin/perl
 # address_chooser.cgi
 # Display a list of entries from the address book
-# XXX fix up ifield problem
 
 require './mailbox-lib.pl';
 &ReadParse();
@@ -112,7 +111,13 @@ window.close();
 }
 </script>
 EOF
+
+# Find addresses and groups
 @addrs = &list_addresses();
+if ($in{'search'}) {
+	$s = $in{'search'};
+	@addrs = grep { $_->[0] =~ /\Q$s\E/i || $_->[1] =~ /\Q$s\E/i } @addrs;
+	}
 if ($in{'mode'}) {
 	@addrs = grep { $_->[3] } @addrs;
 	$addrs_count = scalar(@addrs);
@@ -122,11 +127,30 @@ else {
 		@addrs = grep { !$_->[3] } @addrs;
 		}
 	$addrs_count = scalar(@addrs);
-	foreach $a (&list_address_groups()) {
+	@agroups = &list_address_groups();
+	if ($in{'search'}) {
+		$s = $in{'search'};
+		@agroups = grep { $_->[0] =~ /\Q$s\E/i ||
+				  $_->[1] =~ /\Q$s\E/i } @agroups;
+		}
+	foreach $a (@agroups) {
 		push(@addrs, [ $a->[0] ]);
 		$mems{$a->[0]} = [ &split_addresses($a->[1]) ];
 		}
 	}
+
+# Show search form
+if (@addrs) {
+	print &ui_form_start("address_chooser.cgi", "post");
+	print "<b>$text{'address_search'}</b>\n";
+	print &ui_textbox("search", $in{'search'}, 20);
+	print &ui_hidden("mode", $in{'mode'});
+	print &ui_hidden("addr", $in{'addr'});
+	print &ui_submit($text{'address_ok'});
+	print &ui_form_end();
+	}
+
+# Show list of addresses
 if (@addrs) {
 	local @sp = &split_addresses(&decode_mimewords($in{'addr'}));
 	for($i=0; $i<@sp; $i++) {
@@ -147,7 +171,7 @@ if (@addrs) {
 		print "<tr>\n";
 		if ($in{'mode'} == 0) {
 			printf "<td><input type=checkbox name=addr_$i value='%s' onClick='clickaddress(\"%s\", \"%s\", this)' %s>", &html_escape($a->[1]), &html_escape($a->[0]), &html_escape($a->[1]), defined($infield{$a->[0]}) ? "checked" : "";
-			$href = "<a href='' onClick='cb = document.forms[0].addr_$i; cb.checked = !cb.checked; clickaddress(\"".&html_escape($a->[0])."\", \"".&html_escape($a->[1])."\", cb); return false'>";
+			$href = "<a href='' onClick='cb = document.forms[1].addr_$i; cb.checked = !cb.checked; clickaddress(\"".&html_escape($a->[0])."\", \"".&html_escape($a->[1])."\", cb); return false'>";
 			}
 		else {
 			$href = "<a href='' onClick='select(\"".&html_escape($a->[0])."\", \"".&html_escape($a->[1])."\"); return false'>";
@@ -165,6 +189,9 @@ if (@addrs) {
 		$i++;
 		}
 	print "</table></form>\n";
+	}
+elsif ($in{'search'}) {
+	print "<b>$text{'address_none2'}</b> <p>\n";
 	}
 else {
 	print "<b>$text{'address_none'}</b> <p>\n";

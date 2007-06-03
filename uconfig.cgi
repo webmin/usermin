@@ -27,9 +27,13 @@ print &ui_table_start(&text('config_header', $module_info{'desc'}),
 if (-r "$m/uconfig_info.pl") {
 	# Module has a custom config editor
 	&foreign_require($m, "uconfig_info.pl");
-	&foreign_call($m, "config_form", \%config, \%canconfig);
+	local $fn = "${m}::config_form";
+	if (defined(&$fn)) {
+		$func++;
+		&foreign_call($m, "config_form", \%config, \%canconfig);
+		}
 	}
-else {
+if (!$func) {
 	# Use config.info to create config inputs
 	&generate_config(\%config, "$m/uconfig.info", undef,
 			 %canconfig ? \%canconfig : undef);

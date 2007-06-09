@@ -377,8 +377,12 @@ push(@rv, { 'name' => $text{'folder_sent'},
 	    'index' => scalar(@rv) });
 
 # Add drafts file
-local $df = $userconfig{'drafts_name'} ?
-		"$folders_dir/$userconfig{'drafts_name'}" :
+local $dn = $userconfig{'drafts_name'};
+if ($dn && $userconfig{'mailbox_dir'} eq "Maildir" && $dn !~ /^\./) {
+	# Maildir++ folders always start with .
+	$dn = ".".$dn;
+	}
+local $df = $dn ? "$folders_dir/$dn" :
 	    -r "$folders_dir/Drafts" ? "$folders_dir/Drafts" :
 	    -r "$folders_dir/.Drafts" ? "$folders_dir/.Drafts" :
 	    -r "$folders_dir/.drafts" ? "$folders_dir/.drafts" :

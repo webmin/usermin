@@ -2094,7 +2094,7 @@ foreach $f (@files) {
 	next if ($f eq "." || $f eq ".." || $f =~ /\.lock$/i ||
 		 $f eq "cur" || $f eq "tmp" || $f eq "new" ||
 		 $f =~ /^\.imap/i || $f eq ".customflags" ||
-		 $f eq "dovecot-uidlist" || 
+		 $f eq "dovecot-uidlist" || $f eq "dovecot-keywords" || 
 		 $f =~ /^courierimap/ || $f =~ /^courierpop3d/ ||
 		 $f eq "maildirfolder" || $f eq "maildirsize" ||
 		 $f eq "maildircache" || $f eq ".subscriptions" ||

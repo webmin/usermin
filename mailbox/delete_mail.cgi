@@ -153,7 +153,7 @@ elsif ($in{'delete'}) {
 		print "<form action=delete_mail.cgi method=post>\n";
 		foreach $i (keys %in) {
 			foreach $v (split(/\0/, $in{$i})) {
-				print &ui_hidden($i, $v),"\n";
+				print &ui_hidden($i, $v);
 				}
 			}
 		print "<center><b>\n";

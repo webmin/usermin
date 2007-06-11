@@ -419,6 +419,15 @@ if ($in{'abook'}) {
 		}
 	}
 
+if ($userconfig{'white_rec'}) {
+	# Add all recipients to the SpamAssassin whitelist
+	local @recips = ( &split_addresses($in{'to'}),
+		    	  &split_addresses($in{'cc'}),
+		    	  &split_addresses($in{'bcc'}) );
+	local @recip_addrs = map { $_->[0] } @recips;
+	&addressbook_add_whitelist(@recip_addrs);
+	}
+
 if ($userconfig{'send_return'}) {
 	# Return to mail list
 	print "<script>\n";

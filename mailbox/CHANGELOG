@@ -70,3 +70,5 @@ Added a Preferences option to have addressbook entries automatically added to th
 When searching a spam, virus or drafts folder, the same buttons that appear in te original folder will appear in the search results.
 Added Preferences page options for selecting the sent mail and drafts folder filenames.
 Added a search box to the address chooser popup.
+---- Changes since 1.280 ----
+Added a Module Config option to whitelist sent email recipients.

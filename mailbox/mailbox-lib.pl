@@ -1860,6 +1860,26 @@ if ($userconfig{'white_book'} && &foreign_installed("spam")) {
 	}
 }
 
+# addressbook_add_whitelist(address, ...)
+# Add some email address to the whitelist
+sub addressbook_add_whitelist
+{
+local (@addrs) = @_;
+if (&foreign_installed("spam")) {
+	&foreign_require("spam", "spam-lib.pl");
+	local $conf = &spam::get_config();
+	local @white = &spam::find_value("whitelist_from", $conf);
+	local %white = map { lc($_), 1 } @white;
+	foreach my $a (@addrs) {
+		if (!$white{lc($a)}) {
+			push(@white, $a);
+			}
+		}
+	&spam::save_directives($conf, "whitelist_from", \@white, 1);
+	&flush_file_lines();
+	}
+}
+
 # addressbook_remove_whitelist(address)
 # Delete some address from the whitelist
 sub addressbook_remove_whitelist

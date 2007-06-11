@@ -899,6 +899,7 @@ elsif ($_[2]->{'type'} == 4) {
 		local $what = $f->[1];
 		$what = "\"$what\"" if ($field ne "size");
 		$field = "LARGER" if ($field eq "size");
+		$field = "TEXT" if ($field eq "all");
 		local $search = uc($field)." ".$what."";
 		$search = "NOT $search" if ($neg);
 		push(@searches, $search);

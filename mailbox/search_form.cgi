@@ -22,7 +22,7 @@ for($i=0; $i<=9; $i++) {
 	print "<td>$text{'sform_where'}</td>\n";
 	print "<td><select name=field_$i>\n";
 	print "<option value=''>&nbsp;\n";
-	foreach $f ('from', 'subject', 'to', 'cc', 'date', 'body', 'headers', 'size') {
+	foreach $f ('from', 'subject', 'to', 'cc', 'date', 'body', 'headers', 'all', 'size') {
 		print "<option value=$f>",$text{"sform_$f"},"\n";
 		}
 	print "</select></td>\n";

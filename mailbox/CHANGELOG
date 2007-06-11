@@ -72,3 +72,4 @@ Added Preferences page options for selecting the sent mail and drafts folder fil
 Added a search box to the address chooser popup.
 ---- Changes since 1.280 ----
 Added a Module Config option to whitelist sent email recipients.
+When using the Advanced Search page, you can now search on both the message headers and body with the 'entire message' option.

@@ -31,3 +31,5 @@ Updated all rows of links (like select all, invert selection, add something) abo
 Improved support for automatic domain name prepending at long time to check the first and second parts of the hostname in the URL.
 Added support for Slam64 Linux.
 Fixed XSS bugs in pam_login.cgi.
+---- Changes since 1.280 ----
+Added support for blocking users with too many failed logins, configurable in Webmin's Usermin Configuration module.

@@ -11,7 +11,6 @@ require './mailbox-lib.pl';
 @folders = &list_folders();
 $folder = $folders[$in{'folder'}];
 &error_setup($text{'send_err'});
-$in{'draft'} || $in{'to'} || &error($text{'send_eto'});
 if (!$in{'subject'}) {
 	if ($userconfig{'force_subject'} eq 'error') {
 		&error($text{'send_esubject'});

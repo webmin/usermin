@@ -41,6 +41,7 @@ else {
 	$folder->{'perpage'} = $in{'perpage_def'} ? undef : $in{'perpage'};
 	$folder->{'fromaddr'} = $in{'fromaddr_def'} ? undef : $in{'fromaddr'};
 	$folder->{'sent'} = $in{'sent'};
+	$folder->{'mailbox'} = $in{'mailbox_def'} ? undef : $in{'mailbox'};
 	local @err = &imap_login($folder);
 	if ($err[0] == 0) {
 		&error($err[1]);

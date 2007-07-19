@@ -12,17 +12,11 @@ foreach $a (&list_addresses()) {
 	$inbook{$a->[0]}++;
 	}
 
+# Get the actual email being viewed, even if is a sub-message
 @folders = &list_folders_sorted();
 ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
-$qmid = &urlize($in{'mid'});
-if ($in{'idx'} =~ /^(\d+)\/(.*)$/) {
-	# Fix links where idx contains index and message ID (when in open_mode)
-	$in{'idx'} = $1;
-	$in{'mid'} = $2;
-	}
-@mail = &mailbox_list_mails_sorted($in{'idx'}, $in{'idx'}, $folder,
-				   0, undef);
-$mail = &find_message_by_index(\@mail, $folder, $in{'idx'}, $in{'mid'});
+$qid = &urlize($in{'id'});
+$mail = &mailbox_get_mail($folder, $in{'id'}, 0);
 $mail || &error($text{'view_egone'});
 &notes_decode($mail, $folder);
 &parse_mail($mail, undef, $in{'raw'});
@@ -146,8 +140,7 @@ print &check_clicks_function();
 print "<br>\n";
 
 print "<form action=reply_mail.cgi>\n";
-print &ui_hidden("idx", $in{'idx'}),"\n";
-print &ui_hidden("mid", $in{'mid'}),"\n";
+print &ui_hidden("id", $in{'id'}),"\n";
 print &ui_hidden("folder", $in{'folder'}),"\n";
 print &ui_hidden("mod", &modification_time($folder)),"\n";
 print &ui_hidden("body", $in{'body'}),"\n";
@@ -202,16 +195,17 @@ if ($userconfig{'top_buttons'} == 2 && &editable_mail($mail)) {
 	print "<p>\n";
 	}
 
+# Generate links for some/add headers
 print "<table width=100% border=1>\n";
 print "<tr> <td><table width=100% cellpadding=0 cellspacing=0><tr $tb>",
       "<td><b>$text{'view_headers'}</b></td> <td align=right>\n";
 if ($in{'headers'}) {
-	print "<a href='view_mail.cgi?idx=$in{'idx'}&mid=$qmid&body=$in{'body'}&headers=0&folder=$in{'folder'}$subs'>$text{'view_noheaders'}</a>\n";
+	print "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=0&folder=$in{'folder'}$subs'>$text{'view_noheaders'}</a>\n";
 	}
 else {
-	print "<a href='view_mail.cgi?idx=$in{'idx'}&mid=$qmid&body=$in{'body'}&headers=1&folder=$in{'folder'}$subs'>$text{'view_allheaders'}</a>\n";
+	print "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=1&folder=$in{'folder'}$subs'>$text{'view_allheaders'}</a>\n";
 	}
-print "&nbsp;&nbsp;<a href='view_mail.cgi?idx=$in{'idx'}&mid=$qmid&raw=1&folder=$in{'folder'}$subs'>$text{'view_raw'}</a></td>\n";
+print "&nbsp;&nbsp;<a href='view_mail.cgi?id=$qid&raw=1&folder=$in{'folder'}$subs'>$text{'view_raw'}</a></td>\n";
 print "</tr></table></td> </tr>\n";
 
 print "<tr $cb> <td><table width=100%>\n";
@@ -273,17 +267,17 @@ if ($body && $body->{'data'} =~ /\S/) {
 			}
 		$bodycontents .= "</pre>";
 		if ($htmlbody) {
-			$bodyright = "<a href='view_mail.cgi?idx=$in{'idx'}&mid=$qmid&body=2&headers=$in{'headers'}&folder=$in{'folder'}$subs'>$text{'view_ashtml'}</a>";
+			$bodyright = "<a href='view_mail.cgi?id=$qid&body=2&headers=$in{'headers'}&folder=$in{'folder'}$subs'>$text{'view_ashtml'}</a>";
 			}
 		}
 	elsif ($body eq $htmlbody) {
 		# Attempt to show HTML
 		($bodycontents, $bodystuff) = &safe_html($body->{'data'});
 		$bodycontents = &fix_cids($bodycontents, \@attach,
-			"detach.cgi?idx=$in{'idx'}&folder=$in{'folder'}$subs",
+			"detach.cgi?id=$qid&folder=$in{'folder'}$subs",
 			\@cidattach);
 		if ($textbody) {
-			$bodyright = "<a href='view_mail.cgi?idx=$in{'idx'}&mid=$qmid&body=1&headers=$in{'headers'}&folder=$in{'folder'}$subs'>$text{'view_astext'}</a>";
+			$bodyright = "<a href='view_mail.cgi?id=$qid&body=1&headers=$in{'headers'}&folder=$in{'folder'}$subs'>$text{'view_astext'}</a>";
 			}
 		%ciddone = map { $_->{'index'}, 1 } @cidattach;
 		@attach = grep { !$ciddone{$_->{'index'}} } @attach;
@@ -352,10 +346,10 @@ if (@attach) {
 		$fn =~ s/\#/_/g;
 		$fn = &html_escape($fn);
 		if ($a->{'type'} eq 'message/rfc822') {
-			push(@links, "view_mail.cgi?idx=$in{'idx'}&mid=$qmid&folder=$in{'folder'}$subs&sub=$a->{'idx'}");
+			push(@links, "view_mail.cgi?id=$qid&folder=$in{'folder'}$subs&sub=$a->{'idx'}");
 			}
 		else {
-			push(@links, "detach.cgi/$fn?idx=$in{'idx'}&mid=$qmid&folder=$in{'folder'}&attach=$a->{'idx'}$subs");
+			push(@links, "detach.cgi/$fn?id=$qid&folder=$in{'folder'}&attach=$a->{'idx'}$subs");
 			}
 		if ($userconfig{'thumbnails'} &&
 		    ($a->{'type'} =~ /image\/gif/i && &has_command("giftopnm")&&
@@ -363,7 +357,7 @@ if (@attach) {
 		     $a->{'type'} =~ /image\/jpeg/i && &has_command("djpeg") &&
 		     &has_command("pnmscale") && &has_command("cjpeg"))) {
 			# Can show an image icon
-			push(@icons, "detach.cgi?scale=1&idx=$in{'idx'}&folder=$in{'folder'}&attach=$a->{'idx'}$subs");
+			push(@icons, "detach.cgi?scale=1&id=$qid&folder=$in{'folder'}&attach=$a->{'idx'}$subs");
 			$imgicons++;
 			}
 		else {
@@ -399,7 +393,7 @@ if (defined($sigcode)) {
 	$sigmessage = $sigmessage if ($sigcode == 4);
 	print &text('view_gnupg_'.$sigcode, $sigmessage),"\n";
 	if ($sigcode == 3) {
-		local $url = "/$module_name/view_mail.cgi?idx=$in{'idx'}&mid=$qmid&folder=$in{'folder'}$subs";
+		local $url = "/$module_name/view_mail.cgi?id=$qid&folder=$in{'folder'}$subs";
 		print "<p>",&text('view_recv', $sigmessage, "/gnupg/recv.cgi?id=$sigmessage&return=".&urlize($url)."&returnmsg=".&urlize($text{'view_return'})),"\n";
 		}
 	print "</td> </tr></table><p>\n";
@@ -447,10 +441,10 @@ dbmclose(%read);
 
 # Show footer links
 local @sr = !@sub ? ( ) :
-    ( "view_mail.cgi?idx=$in{'idx'}", $text{'view_return'} ),
+    ( "view_mail.cgi?id=$qid&folder=$in{'folder'}", $text{'view_return'} ),
 $s = int((@mail - $in{'idx'} - 1) / $userconfig{'perpage'}) *
 	$userconfig{'perpage'};
-&mail_page_footer(@sub ? ( "view_mail.cgi?idx=$in{'idx'}&mid=$in{'mid'}&folder=$in{'folder'}",
+&mail_page_footer(@sub ? ( "view_mail.cgi?dx=$qid&folder=$in{'folder'}",
 		 $text{'view_return'} ) : ( ),
 	"index.cgi?folder=$in{'folder'}&start=$in{'start'}",
 	$text{'mail_return'});
@@ -554,7 +548,7 @@ foreach $a (@addrs) {
 		## name= will be EUC encoded now since split_addresses()
 		## is feeded with EUC converted value.
 		push(@rv, "<a href='add_address.cgi?addr=".&urlize($a->[0]).
-			  "&name=".&urlize($a->[1])."&idx=$in{'idx'}".
+			  "&name=".&urlize($a->[1])."&id=$qid".
 			  "&folder=$in{'folder'}$subs'>".
 			  &eucconv_and_escape($a->[2])."</a>");
 		}
@@ -567,15 +561,15 @@ sub show_arrows
 print "<center>\n";
 if (!@sub) {
 	# Get next and previous emails, where they exist
-	local $c = scalar(@mail);
+	local $c = &mailbox_folder_size($folder, 1);
+	print "sortidx=$mail->{'sortidx'} idx=$mail->{'idx'}\n";
 	local $prv = $mail->{'sortidx'} == 0 ? 0 : $mail->{'sortidx'}-1;
 	local $nxt = $mail->{'sortidx'} == $c-1 ? $c-1 : $mail->{'sortidx'}+1;
 	local @beside = &mailbox_list_mails_sorted($prv, $nxt, $folder, 1);
 
 	if ($mail->{'sortidx'} != 0) {
 		local $mailprv = $beside[$prv];
-		print "<a href='view_mail.cgi?idx=",($mail->{'sortidx'}-1),
-		      "&mid=",&urlize($mailprv->{'header'}->{'message-id'}),
+		print "<a href='view_mail.cgi?id=",&urlize($mailprv->{'id'}),
 		      "&folder=$in{'folder'}'>",
 		      "<img src=../images/left.gif border=0 ",
 		      "align=middle></a>\n";
@@ -587,8 +581,7 @@ if (!@sub) {
 			$folder->{'name'}),"</font>\n";
 	if ($mail->{'sortidx'} < $c-1) {
 		local $mailnxt = $beside[$nxt];
-		print "<a href='view_mail.cgi?idx=",($mail->{'sortidx'}+1),
-		      "&mid=",&urlize($mailnxt->{'header'}->{'message-id'}),
+		print "<a href='view_mail.cgi?id=",&urlize($mailnxt->{'id'}),
 		      "&folder=$in{'folder'}'>",
 		      "<img src=../images/right.gif border=0 ",
 		      "align=middle></a>\n";

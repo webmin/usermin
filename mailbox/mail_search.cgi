@@ -144,7 +144,7 @@ else {
 		  'name' => $in{'dest'} };
 	}
 $virt->{'delete'} = 1;
-$virt->{'members'} = [ map { [ $_->{'folder'}, $_->{'idx'}, $_->{'header'}->{'message-id'} ] } @rv ];
+$virt->{'members'} = [ map { [ $_->{'folder'}, $_->{'id'} ] } @rv ];
 $virt->{'msg'} = $msg;
 if ($folder) {
 	# Use same From/To display mode as original folder

@@ -27,21 +27,19 @@ else {
 	# Replying or forwarding
 	if ($in{'mailforward'} ne '') {
 		# Forwarding multiple .. get the messages
-		@mailforwardboth = split(/\0/, $in{'mailforward'});
-		@fwdmail = &messages_from_indexes($folder, \@mailforwardboth);
+		@mailforwardids = split(/\0/, $in{'mailforward'});
+		@fwdmail = &mailbox_select_mails($folder, \@mailforwardids, 0);
 		@fwdmail || &error($text{'reply_efwdnone'});
 		$mail = $fwdmail[0];
 		}
 	else {
 		# Replying or forwarding one .. get it
-		@mail = &mailbox_list_mails_sorted(
-				$in{'idx'}, $in{'idx'}, $folder, 0, undef);
-		$mail = &find_message_by_index(\@mail, $folder, $in{'idx'}, $in{'mid'});
+		$mail = &mailbox_get_mail($folder, $in{'id'}, 0);
 		$mail || &error($text{'view_egone'});
 		&decode_and_sub();
 		}
-	$viewlink = "view_mail.cgi?idx=$in{'idx'}&folder=$in{'folder'}&mid=".
-		    &urlize($in{'mid'});
+	$viewlink = "view_mail.cgi?id=".&urlize($in{'id'}).
+		    "&folder=$in{'folder'}";
 	$mail || &error($text{'mail_eexists'});
 
 	if ($in{'delete'}) {
@@ -412,8 +410,7 @@ print &ui_form_start("send_mail.cgi?id=$upid", "form-data", undef,
 
 # Output various hidden fields
 print "<input type=hidden name=ouser value='$ouser'>\n";
-print "<input type=hidden name=idx value='$in{'idx'}'>\n";
-print "<input type=hidden name=mid value='$in{'mid'}'>\n";
+print "<input type=hidden name=id value='$in{'id'}'>\n";
 print "<input type=hidden name=folder value='$in{'folder'}'>\n";
 print "<input type=hidden name=new value='$in{'new'}'>\n";
 print "<input type=hidden name=enew value='$in{'enew'}'>\n";
@@ -645,7 +642,8 @@ if (@attach) {
 	print "<tr> <td $cb>\n";
 	foreach $a (@attach) {
 		push(@titles, "<input type=checkbox name=forward value=$a->{'idx'} checked> ".($a->{'filename'} ? $a->{'filename'} : $a->{'type'}));
-		push(@links, "detach.cgi?idx=$in{'idx'}&mid=".&urlize($in{'mid'})."&folder=$in{'folder'}&attach=$a->{'idx'}$subs");
+		push(@links, "detach.cgi?id=".&urlize($in{'id'}).
+			     "&folder=$in{'folder'}&attach=$a->{'idx'}$subs");
 		push(@icons, "images/boxes.gif");
 		}
 	&icons_table(\@links, \@titles, \@icons, 8);
@@ -659,10 +657,10 @@ if (@fwdmail) {
 	print "<tr> <td $cb>\n";
 	foreach $f (@fwdmail) {
 		push(@titles, &simplify_subject($f->{'header'}->{'subject'}));
-		push(@links, "view_mail.cgi?idx=$f->{'sortidx'}&folder=$in{'folder'}&mid=".&urlize($f->{'header'}->{'message-id'}));
+		push(@links, "view_mail.cgi?id=".&urlize($f->{'id'}).
+			     "&folder=$in{'folder'}");
 		push(@icons, "images/boxes.gif");
-		print &ui_hidden("mailforward",
-			 "$f->{'sortidx'}/$f->{'header'}->{'message-id'}");
+		print &ui_hidden("mailforward", $f->{'id'});
 		}
 	&icons_table(\@links, \@titles, \@icons, 8);
 	print "</td></tr></table><p>\n";
@@ -764,7 +762,7 @@ foreach $s (@sub) {
 sub redirect_to_previous
 {
 local $perpage = $folder->{'perpage'} || $userconfig{'perpage'};
-local $s = int($in{'idx'} / $perpage) * $perpage;
+local $s = int($mail->{'sortidx'} / $perpage) * $perpage;
 if ($userconfig{'open_mode'}) {
 	&redirect($viewlink);
 	}

@@ -7,5 +7,6 @@ require './mailbox-lib.pl';
 &create_address($in{'addr'}, $in{'name'});
 @sub = split(/\0/, $in{'sub'});
 $subs = join("", map { "&sub=$_" } @sub);
-&redirect("view_mail.cgi?idx=$in{'idx'}&folder=$in{'folder'}$subs");
+$qid = &urlize($in{'id'});
+&redirect("view_mail.cgi?id=$qid&folder=$in{'folder'}$subs");
 

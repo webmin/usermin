@@ -1,18 +1,5 @@
 # mailbox-lib.pl
 # XXX don't reply-to our address
-#
-# XXX folder sorting
-#	XXX what about imap/pop3
-#	XXX update mailboxes module too
-#	XXX mailbox_list_mails should call mailbox_select_mails for type 6
-#
-# XXX mid in links
-#	XXX display should use sort index
-#	XXX folder list doens't need to really count virtual folder size
-#	    (or it should be faster!)
-#		XXX include in new theme
-#
-# XXX return to mail list after sending (preference)
 
 do '../web-lib.pl';
 &init_config();
@@ -588,9 +575,10 @@ foreach $f (readdir(DIR)) {
 		local $k;
 		foreach $k (keys %virt) {
 			next if ($k !~ /^\d+$/);
-			local ($idx, $sfn, $mid) = split(/\s+/, $virt{$k}, 3);
+			next if ($virt{$k} !~ /\t/);  # Old format
+			local ($sfn, $id) = split(/\t+/, $virt{$k}, 2);
 			local $sf = &find_named_folder($sfn, \@rv, \%fcache);
-			$virt{'members'}->[$k] = [ $sf, $idx, $mid ] if ($sf);
+			$virt{'members'}->[$k] = [ $sf, $id ] if ($sf);
 			delete($virt{$k});
 			}
 		push(@rv, \%virt);
@@ -726,9 +714,8 @@ elsif ($folder->{'type'} == 6) {
 	local $i;
 	local $mems = $folder->{'members'};
 	for($i=0; $i<@$mems; $i++) {
-		$virt{$i} = $mems->[$i]->[1]." ".
-			    &folder_name($mems->[$i]->[0])." ".
-			    $mems->[$i]->[2];
+		$virt{$i} = &folder_name($mems->[$i]->[0])."\t".
+			    $mems->[$i]->[1];
 		}
 	&write_file("$user_module_config_directory/$folder->{'id'}.virt",
 		    \%virt);
@@ -1718,12 +1705,12 @@ else {
 	}
 }
 
-# view_mail_link(&folder, index, start, from-to-text, message-id)
+# view_mail_link(&folder, id, start, from-to-text)
 sub view_mail_link
 {
-local ($folder, $idx, $start, $txt, $mid) = @_;
-local $qmid = &urlize($mid);
-local $url = "view_mail.cgi?start=$start&idx=$idx&folder=$folder->{'index'}&mid=$qmid";
+local ($folder, $id, $start, $txt) = @_;
+local $qid = &urlize($id);
+local $url = "view_mail.cgi?start=$start&id=$qid&folder=$folder->{'index'}";
 if ($userconfig{'open_mode'}) {
 	return "<a href='' onClick='window.open(\"$url\", \"viewmail\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>".
 	       &simplify_from($txt)."</a>";

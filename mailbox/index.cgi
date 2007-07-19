@@ -159,7 +159,7 @@ if (@error) {
 	}
 
 # Show the actual email
-for($i=int($in{'start'}); $i<@mail && $i<$in{'start'}+$perpage; $i++) {
+for(my $i=int($in{'start'}); $i<scalar(@mail) && $i<$in{'start'}+$perpage; $i++) {
 	local ($bs, $be);
 	$m = $mail[$i];
 	$mid = $m->{'header'}->{'message-id'};
@@ -173,16 +173,17 @@ for($i=int($in{'start'}); $i<@mail && $i<$in{'start'}+$perpage; $i++) {
 		}
 	&notes_decode($m, $folder);
 	local $idx = $m->{'idx'};
+	local $id = $m->{'id'};
 	local @cols;
 
 	# From and To columns, with links
 	if ($showfrom) {
-		push(@cols, $bs.&view_mail_link($folder, $i, $in{'start'},
-				      $m->{'header'}->{'from'}, $mid).$be);
+		push(@cols, $bs.&view_mail_link($folder, $id, $in{'start'},
+				      $m->{'header'}->{'from'}).$be);
 		}
 	if ($showto) {
-		push(@cols, $bs.&view_mail_link($folder, $i, $in{'start'},
-		      $m->{'header'}->{'to'}, $mid).$be);
+		push(@cols, $bs.&view_mail_link($folder, $id, $in{'start'},
+		      $m->{'header'}->{'to'}).$be);
 		}
 
 	# Date and size columns
@@ -205,7 +206,7 @@ for($i=int($in{'start'}); $i<@mail && $i<$in{'start'}+$perpage; $i++) {
 		    " ".join("&nbsp;", @icons).$be);
 
 	if (&editable_mail($m)) {
-		print &ui_checked_columns_row(\@cols, \@tds, "d", "$i/$mid");
+		print &ui_checked_columns_row(\@cols, \@tds, "d", $id);
 		}
 	else {
 		print &ui_columns_row([ "", @cols ], \@tds);

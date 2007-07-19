@@ -4,22 +4,23 @@
 
 require './mailbox-lib.pl';
 &ReadParse();
-@deleteboth = sort { $a <=> $b } split(/\0/, $in{'d'});
+@ids = sort { $a <=> $b } split(/\0/, $in{'d'});
 @folders = &list_folders();
 $folder = $folders[$in{'folder'}];
 
-if (!$in{'new'} && !$in{'mark1'} && !$in{'mark2'}) {
+if (!$in{'new'}) {
 	# Get the messages
-	@delmail = &messages_from_indexes($folder, \@deleteboth);
+	$headersonly = $in{'mark1'} || $in{'mark2'};
+	@delmail = &mailbox_select_mails($folder, \@ids, $headersonly);
 	}
 
 if ($in{'mark1'} || $in{'mark2'}) {
 	# Marking emails with some status
-	@deleteboth || &error($text{'delete_emnone'});
+	@ids || &error($text{'delete_emnone'});
 	&open_read_hash();
 	local $m = $in{'mark1'} ? $in{'mode1'} : $in{'mode2'};
-	foreach $h (@deleteboth) {
-		local ($hi, $hid) = split(/\//, $h);
+	foreach $mail (@delmail) {
+		local $hid = $mail->{'header'}->{'message-id'};
 		if ($m) {
 			$read{$hid} = $m;
 			}
@@ -29,7 +30,6 @@ if ($in{'mark1'} || $in{'mark2'}) {
 		}
 	dbmclose(%read);
 	$perpage = $folder->{'perpage'} || $userconfig{'perpage'};
-	#$s = int((@mail - $delete[0] - 1) / $perpage) * $perpage;
 	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}");
 	}
 elsif ($in{'move1'} || $in{'move2'}) {
@@ -61,7 +61,7 @@ elsif ($in{'forward'}) {
 	# Forwarding selected mails .. redirect
 	@delmail || &error($text{'delete_efnone'});
 	&redirect("reply_mail.cgi?folder=$in{'folder'}&".
-		  join("&", map { "mailforward=".&urlize($_) } @deleteboth));
+		  join("&", map { "mailforward=".&urlize($_) } @ids));
 	}
 elsif ($in{'new'}) {
 	# Need to redirect to compose form

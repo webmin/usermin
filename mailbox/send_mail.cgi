@@ -195,10 +195,7 @@ for($i=0; defined($in{"file$i"}); $i++) {
 @fwd = split(/\0/, $in{'forward'});
 ($sortfield, $sortdir) = &get_sort_field($folder);
 if (@fwd) {
-	@mail = &mailbox_list_mails_sorted($in{'idx'}, $in{'idx'}, $folder,
-					   0, undef, $sortfield, $sortdir);
-	$fwdmail = &find_message_by_index(\@mail, $folder,
-					  $in{'idx'}, $in{'mid'});
+	$fwdmail = &mailbox_get_mail($folder, $in{'id'}, 0);
 	&parse_mail($fwdmail);
 	&decrypt_attachments($fwdmail);
 
@@ -362,9 +359,7 @@ if ($in{'draft'}) {
 	if ($in{'enew'} && $folder eq $dfolder) {
 		# Update existing draft mail
 		($dsortfield, $dsortdir) = &get_sort_field($dfolder);
-		@oldmail = &mailbox_list_mails_sorted($in{'idx'}, $in{'idx'},
-			       $dfolder, 0, undef, $dsortfield, $dsortdir);
-		$oldmail = &find_message_by_index(\@oldmail, $dfolder, $in{'idx'}, $in{'mid'});
+		$oldmail = &mailbox_get_mail($folder, $in{'id'}, 0);
 		$oldmail || &error($text{'view_egone'});
 		&mailbox_modify_mail($oldmail, $mail, $dfolder, $textonly);
 		}
@@ -436,10 +431,10 @@ if ($userconfig{'send_return'}) {
 
 # Print footer
 print "$text{'send_done'}<p>\n";
-if ($in{'idx'} ne '') {
+if ($in{'id'} ne '') {
 	&mail_page_footer(
-	    "view_mail.cgi?idx=$in{'idx'}&folder=$in{'folder'}&mid=".
-	    &urlize($in{'mid'})."$subs", $text{'view_return'},
+	    "view_mail.cgi?id=".&urlize($in{'id'})."&folder=$in{'folder'}$subs",
+	     $text{'view_return'},
 	    "index.cgi?folder=$in{'folder'}", $text{'mail_return'});
 	}
 else {

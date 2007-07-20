@@ -162,7 +162,7 @@ else {
 	delete($virt->{'sent'});
 	delete($virt->{'drafts'});
 	}
-&delete_sort_index($virt);
+&delete_new_sort_index($virt);
 &save_folder($virt, $virt);
 
 # Redirect to it

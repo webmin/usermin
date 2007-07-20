@@ -699,7 +699,7 @@ elsif ($folder->{'type'} == 5) {
 	&write_file("$user_module_config_directory/$folder->{'id'}.comp",
 		    \%comp);
 	chmod(0700, "$user_module_config_directory/$folder->{'id'}.comp");
-	&delete_sort_index($folder);
+	&delete_new_sort_index($folder);
 	}
 elsif ($folder->{'type'} == 6) {
 	# A virtual folder
@@ -720,7 +720,7 @@ elsif ($folder->{'type'} == 6) {
 	&write_file("$user_module_config_directory/$folder->{'id'}.virt",
 		    \%virt);
 	chmod(0700, "$user_module_config_directory/$folder->{'id'}.virt");
-	&delete_sort_index($folder);
+	&delete_new_sort_index($folder);
 	}
 elsif ($folder->{'mode'} == 0) {
 	# Updating a folder in ~/mail .. need to manage file, and config options

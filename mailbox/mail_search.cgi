@@ -63,19 +63,21 @@ if ($in{'simple'}) {
 		# Can just do a single 'or' search
 		@searchlist = map { ( [ 'subject', $_ ],
 				      [ $who, $_ ] ) } @$words;
-		@rv = &mailbox_search_mail(\@searchlist, 0, $folder, $limit);
+		@rv = &mailbox_search_mail(\@searchlist, 0, $folder, $limit, 1);
 		}
 	elsif ($mode == 1) {
 		# Search was like 'foo and bar'
 		# Need to do two 'and' searches and combine
 		@searchlist1 = map { ( [ 'subject', $_ ] ) } @$words;
-		@rv1 = &mailbox_search_mail(\@searchlist1, 1, $folder, $limit);
+		@rv1 = &mailbox_search_mail(\@searchlist1, 1, $folder,
+					    $limit, 1);
 		@searchlist2 = map { ( [ $who, $_ ] ) } @$words;
-		@rv2 = &mailbox_search_mail(\@searchlist2, 1, $folder, $limit);
+		@rv2 = &mailbox_search_mail(\@searchlist2, 1, $folder,
+					    $limit, 1);
 		@rv = @rv1;
-		%gotidx = map { $_->{'idx'}, 1 } @rv;
+		%gotid = map { $_->{'id'}, 1 } @rv;
 		foreach $mail (@rv2) {
-			push(@rv, $mail) if (!$gotidx{$mail->{'idx'}});
+			push(@rv, $mail) if (!$gotid{$mail->{'id'}});
 			}
 		}
 	else {
@@ -92,7 +94,8 @@ if ($in{'simple'}) {
 elsif ($in{'spam'}) {
 	# Search by spam score, using X-Spam-Level header
 	$stars = "*" x $in{'score'};
-	@rv = &mailbox_search_mail([ [ "x-spam-level", $stars ] ], 0, $folder, $limit);
+	@rv = &mailbox_search_mail([ [ "x-spam-level", $stars ] ], 0, $folder,
+				   $limit, 1);
 	foreach $mail (@rv) {
 		$mail->{'folder'} = $folder;
 		}
@@ -112,7 +115,8 @@ else {
 		@sfolders = ( $folder );
 		}
 	foreach $sf (@sfolders) {
-		local @frv = &mailbox_search_mail(\@fields, $in{'and'}, $sf, $limit);
+		local @frv = &mailbox_search_mail(\@fields, $in{'and'}, $sf,
+						  $limit, 1);
 		foreach $mail (@frv) {
 			$mail->{'folder'} = $sf;
 			}

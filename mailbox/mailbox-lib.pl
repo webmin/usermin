@@ -438,7 +438,6 @@ if ($inbox->{'type'} == 1 && $userconfig{'mailbox_dir'} ne "Maildir") {
 		$f =~ s/^\Q$inbox->{'file'}\E\///;
 		local $name = $f;
 		$name =~ s/^\.// || $name =~ s/\/\./\//;
-		## XXX should check for $p/new, $p/cur to add only Maildir
 		push(@rv, { 'name' => "$name (Courier)",
 			    'file' => $p,
 			    'type' => &folder_type($p),
@@ -572,19 +571,22 @@ foreach $f (readdir(DIR)) {
 		$virt{'index'} = scalar(@rv);
 		$virt{'noadd'} = 1;
 		$virt{'members'} = [ ];
-		local $k;
-		foreach $k (keys %virt) {
-			next if ($k !~ /^\d+$/);
-			next if ($virt{$k} !~ /\t/);  # Old format
-			local ($sfn, $id) = split(/\t+/, $virt{$k}, 2);
-			local $sf = &find_named_folder($sfn, \@rv, \%fcache);
-			$virt{'members'}->[$k] = [ $sf, $id ] if ($sf);
-			delete($virt{$k});
-			}
 		push(@rv, \%virt);
 		}
 	}
 closedir(DIR);
+
+# Expand virtual folder sub-folders
+foreach my $virt (grep { $_->{'type'} == 6 } @rv) {
+	foreach my $k (keys %$virt) {
+		next if ($k !~ /^\d+$/);
+		next if ($virt->{$k} !~ /\t/);  # Old format
+		local ($sfn, $id) = split(/\t+/, $virt->{$k}, 2);
+		local $sf = &find_named_folder($sfn, \@rv, \%fcache);
+		$virt->{'members'}->[$k] = [ $sf, $id ] if ($sf);
+		delete($virt->{$k});
+		}
+	}
 
 # Mark folders are using Notes mail encoding
 foreach $f (@rv) {
@@ -1498,7 +1500,6 @@ print "<br>\n";
 # expand_to(list)
 # Given a string containing multiple email addresses and group names,
 # expand out the group names (if any)
-# XXX strip out my address when doing reply-to-all
 sub expand_to
 {
 $_[0] =~ s/\r//g;
@@ -1740,26 +1741,6 @@ if ($userconfig{'open_mode'}) {
 else {
 	&ui_print_footer(@_);
 	}
-}
-
-# messages_from_indexes(&folder, &pairs)
-# Given a list of strings in idx/message-id format, returns the actual emails
-sub messages_from_indexes
-{
-local ($folder, $both) = @_;
-local (@idxs, @mids, @rv);
-foreach my $d (@$both) {
-	local ($di, $dmid) = split(/\//, $d);
-	push(@idxs, $di);
-	push(@mids, $dmid);
-	}
-return ( ) if (!@idxs);
-local @mails = &mailbox_list_mails_sorted($idxs[0], $idxs[@idxs-1], $folder);
-for(my $i=0; $i<@idxs; $i++) {
-	local $mail = &find_message_by_index(\@mails, $folder, $idxs[$i], $mids[$i]);
-	push(@rv, $mail) if ($mail);
-	}
-return @rv;
 }
 
 # get_auto_schedule(&folder)

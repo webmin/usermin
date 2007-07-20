@@ -10,7 +10,7 @@ $folder = $folders[$in{'folder'}];
 
 if (!$in{'new'}) {
 	# Get the messages
-	$headersonly = $in{'mark1'} || $in{'mark2'};
+	$headersonly = $in{'mark1'} || $in{'mark2'} || $in{'delete'};
 	@delmail = &mailbox_select_mails($folder, \@ids, $headersonly);
 	}
 

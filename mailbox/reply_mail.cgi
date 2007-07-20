@@ -9,7 +9,12 @@ require './mailbox-lib.pl';
 $folder = $folders[$in{'folder'}];
 if ($in{'new'}) {
 	# Composing a new email
-	$html_edit = 1 if ($userconfig{'html_edit'} == 2);
+	if (defined($in{'html'})) {
+		$html_edit = $in{'html'};
+		}
+	else {
+		$html_edit = $userconfig{'html_edit'} == 2 ? 1 : 0;
+		}
 	$sig = &get_signature();
 	if ($html_edit) {
 		$sig =~ s/\n/<br>\n/g;
@@ -595,8 +600,18 @@ print &ui_table_row($text{'mail_subject'},
 	1, \@tds);
 print &ui_table_end(),"<p>\n";
 
+# Create link for switching to HTML/text mode
+if ($in{'new'}) {
+	if ($html_edit) {
+		$modelink = " </b><a href='reply_mail.cgi?folder=$in{'folder'}&new=1&html=0'>$text{'reply_html0'}</a><b>";
+		}
+	else {
+		$modelink = " </b><a href='reply_mail.cgi?folder=$in{'folder'}&new=1&html=1'>$text{'reply_html1'}</a><b>";
+		}
+	}
+
 # Output message body input
-print &ui_table_start($text{'reply_body'}, "width=100%", 2);
+print &ui_table_start($text{'reply_body'}.$modelink, "width=100%", 2);
 if ($html_edit) {
 	# Output HTML editor textarea
 	print <<EOF;

@@ -195,7 +195,7 @@ if ($userconfig{'top_buttons'} == 2 && &editable_mail($mail)) {
 	print "<p>\n";
 	}
 
-# Generate links for some/add headers
+# Generate links for some/all headers
 print "<table width=100% border=1>\n";
 print "<tr> <td><table width=100% cellpadding=0 cellspacing=0><tr $tb>",
       "<td><b>$text{'view_headers'}</b></td> <td align=right>\n";
@@ -442,8 +442,6 @@ dbmclose(%read);
 # Show footer links
 local @sr = !@sub ? ( ) :
     ( "view_mail.cgi?id=$qid&folder=$in{'folder'}", $text{'view_return'} ),
-$s = int((@mail - $in{'idx'} - 1) / $userconfig{'perpage'}) *
-	$userconfig{'perpage'};
 &mail_page_footer(@sub ? ( "view_mail.cgi?dx=$qid&folder=$in{'folder'}",
 		 $text{'view_return'} ) : ( ),
 	"index.cgi?folder=$in{'folder'}&start=$in{'start'}",
@@ -562,7 +560,6 @@ print "<center>\n";
 if (!@sub) {
 	# Get next and previous emails, where they exist
 	local $c = &mailbox_folder_size($folder, 1);
-	print "sortidx=$mail->{'sortidx'} idx=$mail->{'idx'}\n";
 	local $prv = $mail->{'sortidx'} == 0 ? 0 : $mail->{'sortidx'}-1;
 	local $nxt = $mail->{'sortidx'} == $c-1 ? $c-1 : $mail->{'sortidx'}+1;
 	local @beside = &mailbox_list_mails_sorted($prv, $nxt, $folder, 1);

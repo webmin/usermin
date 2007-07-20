@@ -214,9 +214,9 @@ if (@fwd) {
 	}
 
 # Add forwarded emails
-@mailfwdboth = split(/\0/, $in{'mailforward'});
-if (@mailfwdboth) {
-	@mailfwd = &messages_from_indexes($folder, \@mailfwdboth);
+@mailfwdids = split(/\0/, $in{'mailforward'});
+if (@mailfwdids) {
+	@mailfwd = &mailbox_select_mails($folder, \@mailfwdids, 0);
 	foreach $fwdmail (@mailfwd) {
 		local $headertext;
 		foreach $h (@{$fwdmail->{'headers'}}) {
@@ -356,7 +356,7 @@ if ($in{'draft'}) {
 	$qerr = &would_exceed_quota($dfolder, $mail);
 	&error($qerr) if ($qerr);
 	&lock_folder($dfolder);
-	if ($in{'enew'} && $folder eq $dfolder) {
+	if ($in{'enew'} && $folder->{'drafts'}) {
 		# Update existing draft mail
 		($dsortfield, $dsortdir) = &get_sort_field($dfolder);
 		$oldmail = &mailbox_get_mail($folder, $in{'id'}, 0);

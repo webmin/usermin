@@ -40,7 +40,7 @@ else {
 		}
 	print "<center><b>",
 	      &text($sz ? 'fdelete_rusure' : 'fdelete_rusure2',
-		    scalar(@dfolders), &nice_size($sz)),"</b></center>\n";
+		    scalar(@dfolders), &nice_size($sz)),"</b></center><p>\n";
 	print "<center>",&ui_submit($text{'fdelete_delete'}, "confirm"),
 	      "</center>\n";
 	print &ui_form_end();

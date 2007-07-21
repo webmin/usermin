@@ -59,16 +59,6 @@ if (($folder->{'type'} == 2 || $folder->{'type'} == 4) &&
 	print &ui_table_row($text{'mail_loginpass'},
 			    &ui_password("pass", $remote_pass, 30));
 
-	#if ($folder->{'type'} == 4) {
-	#	print "<tr> <td valign=top><b>$text{'mail_loginmailbox'}",
-	#	      "</b></td> <td>\n";
-	#	printf"<input type=radio name=mailbox_def value=1 %s> %s<br>\n",
-	#		"checked", $text{'edit_imapinbox'};
-	#	printf"<input type=radio name=mailbox_def value=0> %s\n",
-	#		$text{'edit_imapother'};
-	#	print "<input name=mailbox size=20></td> </tr>\n";
-	#	}
-
 	print &ui_table_end();
 	print &ui_form_end([ [ "login", $text{'mail_login'} ] ]);
 	print "</center>\n";
@@ -78,7 +68,7 @@ if (($folder->{'type'} == 2 || $folder->{'type'} == 4) &&
 	}
 
 # Get folder-selection HTML
-$sel = &folder_select(\@folders, $folder, "id", undef, 1);
+$sel = &folder_select(\@folders, $folder, "id", undef, 1, 1);
 
 # Work out start from jump page
 $perpage = $folder->{'perpage'} || $userconfig{'perpage'} || 20;
@@ -101,10 +91,13 @@ if ($in{'start'} >= @mail && $in{'jump'}) {
 # Show page flipping arrows
 &show_arrows();
 
-print "<form action=delete_mail.cgi method=post>\n";
-print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
-print "<input type=hidden name=mod value=",&modification_time($folder),">\n";
-print "<input type=hidden name=start value='$in{'start'}'>\n";
+# Start of form
+print &ui_form_start("delete_mail.cgi", "post");
+print &ui_hidden("folder", $folder->{'index'});
+print &ui_hidden("mod", &modification_time($folder));
+print &ui_hidden("start", $in{'start'});
+
+# Buttons at top
 if ($userconfig{'top_buttons'} && @mail) {
 	&show_mailbox_buttons(1, \@folders, $folder, \@mail);
 	@links = ( &select_all_link("d", 1),
@@ -228,110 +221,97 @@ if (@mail) {
 	print &ui_links_row(\@links);
 	}
 
+# Buttons at end of form
 &show_mailbox_buttons(2, \@folders, $folder, \@mail);
-print "</form>\n";
+print &ui_form_end();
+
 if ($userconfig{'arrows'}) {
 	# Show page flipping arrows
 	print "<br>\n";
 	&show_arrows();
 	}
 
-# Show search form
+# Start section for end of page buttons, in a 3-wide grid
 print "<hr>\n";
+@grid = ( );
 print "<table width=100%>\n";
 
 if (@mail) {
-	print "<tr>\n";
+	$jumpform = (@mail > $perpage);
 	if ($folder->{'searchable'}) {
 		# Simple search
-		print "<form action=mail_search.cgi><td width=33%>\n";
-		print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
-		print "<input type=hidden name=simple value=1>\n";
-		print "<input type=submit value='$text{'mail_search2'}'>\n";
-		print "<input name=search size=20></td></form>\n";
+		$ssform = &ui_form_start("mail_search.cgi");
+		$ssform .= &ui_hidden("folder", $folder->{'index'});
+		$ssform .= &ui_hidden("simple", 1);
+		$ssform .= &ui_submit($text{'mail_search2'});
+		$ssform .= &ui_textbox("search", undef, 20);
+		$ssform .= &ui_form_end();
+		push(@grid, $ssform);
 
 		# Advanced search
-		$jumpform = (@mail > $perpage);
-		print "<form action=search_form.cgi>\n";
-		print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
-		print "<td width=33% align=center><input type=submit name=advanced ",
-		      "value='$text{'mail_advanced'}'></td>\n";
-		print "</form>\n";
+		push(@grid, &ui_form_start("search_form.cgi").
+			    &ui_hidden("folder", $folder->{'index'}).
+			    &ui_submit($text{'mail_advanced'}, "advanced").
+			    &ui_form_end());
 		}
 
-	if ($folder->{'spam'}) {
+	if ($folder->{'spam'} && $folder->{'searchable'}) {
 		# Spam level search
-		print "<form action=mail_search.cgi><td width=33% align=right>\n";
-		print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
-		print "<input type=hidden name=spam value=1>\n";
-		print "<input type=submit value='$text{'mail_search3'}'>\n";
-		print "<input name=score size=5></td></form>\n";
+		push(@grid, &ui_form_start("mail_search.cgi").
+			    &ui_hidden("folder", $folder->{'index'}).
+			    &ui_hidden("spam", 1).
+			    &ui_submit($text{'mail_search3'}).
+			    &ui_textbox("score", undef, 5).
+			    &ui_form_end());
 		}
-	elsif ($jumpform) {
+	if ($jumpform) {
 		# Show page jump form
-		print "<form action=index.cgi>\n";
-		print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
-		print "<td width=33% align=right>\n";
-		print "<input type=submit value='$text{'mail_jump'}'>\n";
-		printf "<input name=jump size=3 value='%s'> %s %s\n",
-			int($in{'start'} / $perpage)+1, $text{'mail_of'},
-			int(@mail / $perpage)+1;
-		print "</td></form>\n";
+		push(@grid, &ui_form_start("index.cgi").
+			    &ui_hidden("folder", $folder->{'index'}).
+			    &ui_submit($text{'mail_jump'}).
+			    &ui_textbox("jump", int($in{'start'} / $perpage)+1,
+					3)." $text{'mail_of'} ".
+					   (int(@mail / $perpage)+1).
+			    &ui_form_end());
 		}
-	else {
-		print "<td width=33% align=right></td>\n";
-		}
-	print "</tr>\n";
 	}
 
-# Show various buttons for the address book, folders, sig and searches
-print "<tr>\n";
 
-print "<form action=list_addresses.cgi>\n";
-print "<td align=left width=33%><input type=submit value='$text{'mail_addresses'}'></td>\n";
-print "</form>\n";
-
-if ($config{'mail_system'} == 4) {
-	print "<form action=list_ifolders.cgi>\n";
+# Address book button
+if (!$main::mailbox_no_addressbook_button) {
+	push(@grid, &ui_form_start("list_addresses.cgi").
+		    &ui_submit($text{'mail_addresses'}).
+		    &ui_form_end());
 	}
-else {
-	print "<form action=list_folders.cgi>\n";
-	}
-print "<td align=",($bc == 2 ? "right" : "center"),
-      " width=33%><input type=submit value='$text{'mail_folders'}'></td>\n";
-print "</form>\n";
 
+# Folder management button
+if (!$main::mailbox_no_folder_button) {
+	push(@grid, &ui_form_start($config{'mail_system'} == 4 ?
+				"list_ifolders.cgi" : "list_folders.cgi").
+		    &ui_submit($text{'mail_folders'}).
+	    &ui_form_end());
+	}
+
+# Sig editor
 if (&get_signature_file()) {
-	print "<form action=edit_sig.cgi>\n";
-	print "<td width=33% align=right>",
-	      "<input type=submit value='$text{'mail_sig'}'></td>\n";
-	print "</form>\n";
+	push(@grid, &ui_form_start("edit_sig.cgi").
+		    &ui_submit($text{'mail_sig'}).
+		    &ui_form_end());
 	}
-else {
-	print "<td width=33% align=right></td>\n";
-	}
-print "</tr>\n";
 
-print "<tr>\n";
+# Show button to delete all mail in folder
 if (@mail && ($folder->{'trash'} || $userconfig{'show_delall'})) {
-	# Show button to delete all mail in folder
-	print "<form action=delete_mail.cgi>\n";
-	print "<input type=hidden name=folder value='$folder->{'index'}'>\n";
-	print "<input type=hidden name=all value=1>\n";
-	print "<td width=33%><input type=submit name=delete value='",
-		($folder->{'trash'} ? $text{'mail_deltrash'}
-				    : $text{'mail_delall'}),"'></td>\n";
-	print "</form>\n";
-	}
-else {
-	print "<td width=33%></td>\n";
+	push(@grid, &ui_form_start("delete_mail.cgi").
+		    &ui_hidden("folder", $folder->{'index'}).
+		    &ui_hidden("all", 1).
+		    &ui_submit($folder->{'trash'} ? $text{'mail_deltrash'}
+						  : $text{'mail_delall'},
+			       "delete").
+		    &ui_form_end());
 	}
 
-print "<td align=center width=33%></td>\n";
-
-print "</tr>\n";
-
-print "</table>\n";
+print &ui_grid_table(\@grid, 3, 100,
+		[ "align=left", "align=center", "align=right" ]);
 
 &ui_print_footer("/", $text{'index'});
 &pop3_logout();

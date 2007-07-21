@@ -19,7 +19,10 @@ else {
 	# Validate inputs
 	$in{'name'} =~ /\S/ || &error($text{'save_ename'});
 	for($i=0; defined($n = $in{"comp_$i"}); $i++) {
-		push(@subfolders, &find_named_folder($n, \@folders)) if ($n);
+		if ($n) {
+			$done{$n}++ && &error($text{'save_ecompsame'});
+			push(@subfolders, &find_named_folder($n, \@folders));
+			}
 		}
 	&parse_folder_options($folder, 0, \%in);
 

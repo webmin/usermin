@@ -9,66 +9,66 @@ require './mailbox-lib.pl';
 &set_module_index($in{'folder'});
 &ui_print_header(undef, $text{'sform_title'}, "");
 
-print "<form action=mail_search.cgi>\n";
-print "<input type=radio name=and value=1 checked> $text{'sform_and'}\n";
-print "<input type=radio name=and value=0> $text{'sform_or'}<p>\n";
+print &ui_form_start("mail_search.cgi");
+print &ui_table_start($text{'sform_header'}, "width=100%", 2);
 
-print "<table>\n";
-#print "<tr> <td><b>$text{'sform_field'}</b></td> ",
-#      "<td><b>$text{'sform_mode'}</b></td> ",
-#      "<td><b>$text{'sform_for'}</b></td> </tr>\n";
+# And/or mode
+print &ui_table_row($text{'sform_andmode'},
+		&ui_radio("and", 1, [ [ 1, $text{'sform_and'} ],
+				      [ 0, $text{'sform_or'} ] ]));
+
+# Criteria table
+$ctable = &ui_columns_start([ ], 50, 1);
+
 for($i=0; $i<=9; $i++) {
-	print "<tr>\n";
-	print "<td>$text{'sform_where'}</td>\n";
-	print "<td><select name=field_$i>\n";
-	print "<option value=''>&nbsp;\n";
-	foreach $f ('from', 'subject', 'to', 'cc', 'date', 'body', 'headers', 'all', 'size') {
-		print "<option value=$f>",$text{"sform_$f"},"\n";
-		}
-	print "</select></td>\n";
+	local @cols;
+	push(@cols, $text{'sform_where'});
+	push(@cols, &ui_select("field_$i", undef,
+			[ [ undef, "&nbsp;" ],
+			  map { [ $_, $_ eq 'all' ? $text{'sform_allmsg'}
+						  : $text{"sform_".$_} ] }
+			      ( 'from', 'subject', 'to', 'cc', 'date',
+				'body', 'headers', 'all', 'size') ]));
 
-	print "<td><select name=neg_$i>\n";
-	print "<option value=0 checked>$text{'sform_neg0'}\n";
-	print "<option value=1>$text{'sform_neg1'}\n";
-	print "</select></td>\n";
+	push(@cols, &ui_select("neg_$i", 0,
+			[ [ 0, $text{'sform_neg0'} ],
+			  [ 1, $text{'sform_neg1'} ] ]));
 
-	print "<td>$text{'sform_text'}</td>\n";
-	print "<td><input name=what_$i size=30></td>\n";
-	print "</tr>\n";
+	push(@cols, $text{'sform_text'});
+	push(@cols, &ui_textbox("what_$i", undef, 30));
+	$ctable .= &ui_columns_row(\@cols);
 	}
-print "</table>\n";
+$ctable .= &ui_columns_end();
+print &ui_table_row(" ", $ctable, 1);
 
 # Status to find
-print "<table>\n";
-print "<tr> <td>$text{'search_status'}</td>\n";
-print "<td>",&ui_radio("status_def", 1,
+print &ui_table_row($text{'search_status'},
+      &ui_radio("status_def", 1,
 		[ [ 1, $text{'search_allstatus'} ],
-		  [ 0, $text{'search_onestatus'} ] ]),"\n",
+		  [ 0, $text{'search_onestatus'} ] ])." ".
 		&ui_select("status", 2,
 			   [ [ 0, $text{'view_mark0'} ],
 			     [ 1, $text{'view_mark1'} ],
-			     [ 2, $text{'view_mark2'} ] ]),"</td> </tr>\n";
+			     [ 2, $text{'view_mark2'} ] ]));
 
 # Limit on number of messages to search
-print "<tr> <td>$text{'search_latest'}</td>\n";
-print "<td>",&ui_opt_textbox("limit", $userconfig{'search_latest'}, 10,
-			     $text{'search_nolatest'}, $text{'search_latestnum'}),"</td> </tr>\n";
+print &ui_table_row($text{'search_latest'},
+	&ui_opt_textbox("limit", $userconfig{'search_latest'}, 10,
+			$text{'search_nolatest'}, $text{'search_latestnum'}));
 
 # Destination for search
-print "<tr> <td>$text{'search_dest'}</td>\n";
-print "<td>",&ui_opt_textbox("dest", undef, 30, $text{'search_dest1'}, $text{'search_dest0'}),"</td> </tr>\n";
+print &ui_table_row($text{'search_dest'},
+	&ui_opt_textbox("dest", undef, 30, $text{'search_dest1'},
+					   $text{'search_dest0'}));
 
-print "</table>\n";
-
-$extra = <<EOF;
-<option value=-1>$text{'sform_all'}
-<option value=-2>$text{'sform_local'}
-EOF
-print "<input type=submit value='$text{'sform_ok'}'>\n";
+# Folder to search
 @sfolders = grep { $_->{'id'} != $search_folder_id } @folders;
-print " $text{'sform_folder'} ",&folder_select(\@sfolders, $folder, "folder",
-					       $extra);
-print "</form>\n";
+print &ui_table_row($text{'sform_folder2'},
+	&folder_select(\@sfolders, $folder, "folder",
+		       [ [ -1, $text{'sform_all'} ],
+			 [ -2, $text{'sform_local'} ] ]));
+print &ui_table_end();
+print &ui_form_end([ [ undef, $text{'sform_ok'} ] ]);
 
 &ui_print_footer("index.cgi?folder=$in{'folder'}", $text{'mail_return'});
 

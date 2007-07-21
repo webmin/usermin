@@ -104,11 +104,16 @@ elsif ($in{'spam'}) {
 else {
 	# Complex search, perhaps over multiple folders!
 	if ($in{'folder'} == -2) {
-		@sfolders = grep { !$_->{'remote'} } @folders;
+		# All local folders, except composite and virtual
+		@sfolders = grep { !$_->{'remote'} &&
+				   $_->{'type'} != 5 &&
+				   $_->{'type'} != 6 } @folders;
 		$multi_folder = 1;
 		}
 	elsif ($in{'folder'} == -1) {
-		@sfolders = @folders;
+		# All folders, except composite and virtual
+		@sfolders = grep { $_->{'type'} != 5 &&
+				   $_->{'type'} != 6 } @folders;
 		$multi_folder = 1;
 		}
 	else {

@@ -13,33 +13,33 @@ else {
 	$folder = $folders[$in{'idx'}];
 	}
 
-print "<form action=save_virt.cgi>\n";
-print "<input type=hidden name=idx value='$in{'idx'}'>\n";
-print "<input type=hidden name=new value='$in{'new'}'>\n";
-print "<table border>\n";
-print "<tr $tb> <td><b>$text{'edit_header'}</b></td> </tr>\n";
-print "<tr $cb> <td><table>\n";
+# Form and table start
+print &ui_form_start("save_virt.cgi");
+print &ui_hidden("idx", $in{'idx'});
+print &ui_hidden("new", $in{'new'});
+print &ui_table_start($text{'edit_header'}, undef, 2, [ "width=30%" ]);
 
-print "<tr> <td><b>$text{'edit_mode'}</b></td>\n";
-print "<td>$text{'edit_virt'}</td> </tr>\n";
+# Folder type
+print &ui_table_row($text{'edit_mode'}, $text{'edit_virt'});
 
-print "<tr> <td><b>$text{'edit_name'}</b></td>\n";
-print "<td>",&ui_textbox("name", $folder->{'name'}, 40),"</td> </tr>\n";
+# Folder name
+print &ui_table_row($text{'edit_name'},
+	&ui_textbox("name", $folder->{'name'}, 40));
 
-print "<tr> <td><b>$text{'edit_delete'}</b></td>\n";
-print "<td>",&ui_yesno_radio("delete", int($folder->{'delete'})),"</td></tr>\n";
+# Deletion mode
+print &ui_table_row($text{'edit_delete'},
+	&ui_yesno_radio("delete", $folder->{'delete'}));
 
 &show_folder_options($folder);
 
-print "</table></td></tr></table>\n";
+print &ui_table_end();
 if ($in{'new'}) {
-	print "<input type=submit value='$text{'create'}'>\n";
+	print &ui_form_end([ [ undef, $text{'create'} ] ]);
 	}
 else {
-	print "<input type=submit value='$text{'save'}'>\n";
-	print "<input type=submit name=delete value='$text{'delete'}'>\n";
+	print &ui_form_end([ [ undef, $text{'save'} ],
+			     [ 'delete', $text{'delete'} ] ]);
 	}
-print "</form>\n";
 
 &ui_print_footer($config{'mail_system'} == 4 ? "list_ifolders.cgi"
 					     : "list_folders.cgi",

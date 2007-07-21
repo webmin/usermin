@@ -139,7 +139,8 @@ print &check_clicks_function();
 &show_arrows();
 print "<br>\n";
 
-print "<form action=reply_mail.cgi>\n";
+# Start of form
+print &ui_form_start("reply_mail.cgi");
 print &ui_hidden("id", $in{'id'}),"\n";
 print &ui_hidden("folder", $in{'folder'}),"\n";
 print &ui_hidden("mod", &modification_time($folder)),"\n";
@@ -192,34 +193,29 @@ if (&has_command("gpg") && &foreign_check("gnupg")) {
 
 if ($userconfig{'top_buttons'} == 2 && &editable_mail($mail)) {
 	&show_buttons(1, scalar(@sub));
-	print "<p>\n";
+	print "<br>\n";
 	}
 
-# Generate links for some/all headers
-print "<table width=100% border=1>\n";
-print "<tr> <td><table width=100% cellpadding=0 cellspacing=0><tr $tb>",
-      "<td><b>$text{'view_headers'}</b></td> <td align=right>\n";
+# Start of headers section
 if ($in{'headers'}) {
-	print "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=0&folder=$in{'folder'}$subs'>$text{'view_noheaders'}</a>\n";
+	$hmode = "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=0&folder=$in{'folder'}$subs'>$text{'view_noheaders'}</a>\n";
 	}
 else {
-	print "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=1&folder=$in{'folder'}$subs'>$text{'view_allheaders'}</a>\n";
+	$hmode = "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=1&folder=$in{'folder'}$subs'>$text{'view_allheaders'}</a>\n";
 	}
-print "&nbsp;&nbsp;<a href='view_mail.cgi?id=$qid&raw=1&folder=$in{'folder'}$subs'>$text{'view_raw'}</a></td>\n";
-print "</tr></table></td> </tr>\n";
+$hmode .= "&nbsp;&nbsp;<a href='view_mail.cgi?id=$qid&raw=1&folder=$in{'folder'}$subs'>$text{'view_raw'}</a>";
+print &ui_table_start(&left_right_align("<b>$text{'view_headers'}</b>", $hmode),
+		      "width=100%", 2, [ "width=10% nowrap" ]);
 
-print "<tr $cb> <td><table width=100%>\n";
 if ($in{'headers'}) {
 	# Show all the headers
 	if ($mail->{'fromline'}) {
-		print "<tr> <td><b>$text{'mail_rfc'}</b></td>",
-		      "<td>",&eucconv_and_escape($mail->{'fromline'}),
-		      "</td> </tr>\n";
+		print &ui_table_row($text{'mail_rfc'},
+			&eucconv_and_escape($mail->{'fromline'}));
 		}
 	foreach $h (@{$mail->{'headers'}}) {
-		print "<tr> <td><b>$h->[0]:</b></td> ",
-		      "<td>",&eucconv_and_escape(&decode_mimewords($h->[1])),
-		      "</td> </tr>\n";
+		print &ui_table_row("$h->[0]:",
+			&eucconv_and_escape(&decode_mimewords($h->[1])));
 		}
 	}
 else {
@@ -228,32 +224,34 @@ else {
 				$mail->{'header'}->{'from'}));
 	local @toaddrs = &split_addresses(&decode_mimewords(
 				$mail->{'header'}->{'to'}));
-	print "<tr> <td valign=top><b>$text{'mail_from'}</b></td> ",
-	      "<td>",&address_link($mail->{'header'}->{'from'}),"</td>",
-	      "<td align=right>",&search_link("from", $addrs[0]->[0],
-			$text{'mail_fromsrch'}),"</td> </tr>\n";
-	print "<tr> <td valign=top><b>$text{'mail_to'}</b></td> ",
-	      "<td>",&address_link($mail->{'header'}->{'to'}),"</td>",
-	      "<td align=right>",&search_link("to", $toaddrs[0]->[0],
-			$text{'mail_tosrch'}),"</td> </tr>\n";
-	print "<tr> <td valign=top><b>$text{'mail_cc'}</b></td> ",
-	      "<td>",&address_link($mail->{'header'}->{'cc'}),"</td> </tr>\n"
-		if ($mail->{'header'}->{'cc'});
-	print "<tr> <td valign=top><b>$text{'mail_bcc'}</b></td> ",
-	      "<td>",&address_link($mail->{'header'}->{'bcc'}),"</td> </tr>\n"
-		if ($mail->{'header'}->{'bcc'});
-	print "<tr> <td><b>$text{'mail_date'}</b></td> ",
-	      "<td>",&eucconv_and_escape($mail->{'header'}->{'date'}),
-	      "</td> </tr>\n";
+	print &ui_table_row($text{'mail_from'},
+		&left_right_align(&address_link($mail->{'header'}->{'from'}),
+				  &search_link("from", $addrs[0]->[0],
+					       $text{'mail_fromsrch'})));
+	print &ui_table_row($text{'mail_to'},
+		&left_right_align(&address_link($mail->{'header'}->{'to'}),
+				  &search_link("to", $toaddrs[0]->[0],
+					       $text{'mail_tosrch'})));
+	if ($mail->{'header'}->{'cc'}) {
+		print &ui_table_row($text{'mail_cc'},
+			&address_link($mail->{'header'}->{'cc'}));
+		}
+	if ($mail->{'header'}->{'bcc'}) {
+		print &ui_table_row($text{'mail_bcc'},
+			&address_link($mail->{'header'}->{'bcc'}));
+		}
+	print &ui_table_row($text{'mail_date'},
+		&eucconv_and_escape($mail->{'header'}->{'date'}));
+
 	local $subj = $mail->{'header'}->{'subject'};
 	$subj =~ s/^((Re:|Fwd:|\[\S+\])\s*)+//g;
-	print "<tr> <td><b>$text{'mail_subject'}</b></td> ",
-	      "<td>",&eucconv_and_escape(&decode_mimewords(
-			$mail->{'header'}->{'subject'})),"</td> ",
-	      "<td align=right>",&search_link("subject", $subj,
-			$text{'mail_subsrch'}),"</td> </tr>\n";
+	print &ui_table_row($text{'mail_subject'},
+		&left_right_align(&eucconv_and_escape(&decode_mimewords(
+					$mail->{'header'}->{'subject'})),
+				  &search_link("subject", $subj,
+					       $text{'mail_subsrch'})));
 	}
-print "</table></td></tr></table><p>\n";
+print &ui_table_end();
 
 # Show body attachment, with properly linked URLs
 if ($body && $body->{'data'} =~ /\S/) {
@@ -284,13 +282,11 @@ if ($body && $body->{'data'} =~ /\S/) {
 		}
 	}
 if ($bodycontents) {
-	print "<table width=100% border=1>\n";
-	print "<tr $tb> <td><table width=100% cellpadding=0 cellspacing=0><tr>",
-	      "<td><b>$text{'view_body'}</b></td> ",
-	      "<td align=right>$bodyright</td> </tr></table></td> </tr>\n";
-	print "<tr $cb> <td $bodystuff>\n";
-	print $bodycontents;
-	print "</td></tr></table><p>\n";
+	print &ui_table_start(
+		&left_right_align("<b>$text{'view_body'}</b>", $bodyright),
+		"width=100%", 1);
+	print &ui_table_row(undef, $bodycontents, undef, [ undef, $bodystuff ]);
+	print &ui_table_end();
 	}
 
 # If *this* message is a delivery status, display it
@@ -298,28 +294,22 @@ if ($dstatus) {
 	local $ds = &parse_delivery_status($dstatus->{'data'});
 	$dtxt = $ds->{'status'} =~ /^2\./ ? $text{'view_dstatusok'}
 					  : $text{'view_dstatus'};
-	print "<table width=100% border=1>\n";
-	print "<tr $tb> <td><b>$dtxt</b></td> </tr>\n";
-	print "<tr $cb> <td><table>\n";
+	print &ui_table_start($dtxt, "width=100%", 2, [ "width=10% nowrap" ]);
 
 	foreach $dsh ('final-recipient', 'diagnostic-code',
 		      'remote-mta', 'reporting-mta') {
 		if ($ds->{$dsh}) {
 			$ds->{$dsh} =~ s/^\S+;//;
-			print "<tr> <td nowrap valign=top><b>",
-			      $text{'view_'.$dsh},"</b></td>\n";
-			print "<td>",&html_escape($ds->{$dsh}),"</td> </tr>\n";
+			print &ui_table_row($text{'view_'.$dsh},
+					    &html_escape($ds->{$dsh}));
 			}
 		}
-
-	print "</table></td></tr></table><p>\n";
+	print &ui_table_end();
 	}
 
 # Display other attachments
 if (@attach) {
-	print "<table width=100% border=1>\n";
-	print "<tr $tb> <td><b>$text{'view_attach'}</b></td> </tr>\n";
-	print "<tr $cb> <td>\n";
+	print &ui_table_start($text{'view_attach'}, "width=100%", 1);
 	foreach $a (@attach) {
 		local $fn;
 		$size = (int(length($a->{'data'})/1000)+1)." Kb";
@@ -364,70 +354,69 @@ if (@attach) {
 			push(@icons, "images/boxes.gif");
 			}
 		}
-	&icons_table(\@links, \@titles, \@icons, 6, undef,
-		     $imgicons ? ( 0, 0 ) : ( ));
+	print &ui_table_row(undef,
+		&capture_function_output(\&icons_table,
+			\@links, \@titles, \@icons, 6, undef,
+			$imgicons ? ( 0, 0 ) : ( )));
 	if ($config{'server_attach'} == 2 && @detach) {
-		print "<input type=submit name=detach value='$text{'view_detach'}'>\n";
-		print "<input type=hidden name=bindex value='$body->{'idx'}'>\n" if ($body);
-		print "<input type=hidden name=sindex value='$sindex'>\n" if (defined($sindex));
-		print "<select name=attach>\n";
-		print "<option value=*>$text{'view_dall'}\n";
-		foreach $a (@detach) {
-			printf "<option value=%s>%s\n",
-				$a->[0], $a->[1];
-			}
-		print "</select>\n";
-		print "<b>$text{'view_dir'}</b>\n";
-		print "<input name=dir size=40> ",
-			&file_chooser_button("dir", 1),"\n";
+		$dtach = &ui_submit($text{'view_detach'}, 'detach');
+		$dtach .= &ui_hidden("bindex", $body->{'idx'}) if ($body);
+		$dtach .= &ui_hidden("sindex", $sindex) if (defined($sindex));
+		$dtach .= &ui_select("attach", undef,
+				[ [ '*', $text{'view_dall'} ],
+				  @detach ]);
+		$dtach .= "<b>$text{'view_dir'}</b>\n";
+		$dtach .= &ui_textbox("dir", undef, 60)." ".
+			  &file_chooser_button("dir", 1);
+		print &ui_table_row(undef, $dtach);
 		}
-	print "</td></tr></table><p>\n";
+	print &ui_table_end();
 	}
 
 # Display GnuPG results
 if (defined($sigcode)) {
-	print "<table border width=100%>\n";
-	print "<tr $tb> <td><b>$text{'view_gnupg'}</b></td> </tr>\n";
-	print "<tr $cb> <td>";
+	print &ui_table_start($text{'view_gnupg'}, "width=100%", 1);
 	$sigmessage = &html_escape($sigmessage);
 	$sigmessage = $sigmessage if ($sigcode == 4);
-	print &text('view_gnupg_'.$sigcode, $sigmessage),"\n";
+	print &ui_table_row(undef, &text('view_gnupg_'.$sigcode, $sigmessage));
 	if ($sigcode == 3) {
 		local $url = "/$module_name/view_mail.cgi?id=$qid&folder=$in{'folder'}$subs";
-		print "<p>",&text('view_recv', $sigmessage, "/gnupg/recv.cgi?id=$sigmessage&return=".&urlize($url)."&returnmsg=".&urlize($text{'view_return'})),"\n";
+		print &ui_table_row(undef,
+			&text('view_recv', $sigmessage, "/gnupg/recv.cgi?id=$sigmessage&return=".&urlize($url)."&returnmsg=".&urlize($text{'view_return'})));
 		}
-	print "</td> </tr></table><p>\n";
+	print &ui_table_end();
 	}
 if ($deccode) {
-	print "<table border width=100%>\n";
-	print "<tr $tb> <td><b>$text{'view_crypt'}</b></td> </tr>\n";
-	print "<tr $cb> <td>";
-	print &text('view_crypt_'.$deccode, "<pre>$decmessage</pre>");
-	print "</td> </tr></table><p>\n";
+	print &ui_table_start($text{'view_crypt'}, "width=100%", 1);
+	print &ui_table_row(undef,
+		&text('view_crypt_'.$deccode, "<pre>$decmessage</pre>"));
+	print &ui_table_end();
 	}
 
 # Display DSN status
 if ($sent_dsn_to || $send_dsn_button || $got_dsn || @delmsgs) {
-	print "<table border width=100%>\n";
-	print "<tr $tb> <td><b>$text{'view_dsn'}</b></td> </tr>\n";
-	print "<tr $cb> <td>";
+	print &ui_table_row($text{'view_dsn'}, "width=100%", 1);
 	if ($sent_dsn_to) {
-		print &text($sent_dsn ? 'view_dnsnow' : 'view_dsnbefore',
+		print &ui_table_row(undef,
+		      &text($sent_dsn ? 'view_dnsnow' : 'view_dsnbefore',
 			    &html_escape($sent_dsn_to),
-			    ($dsntm = localtime($sent_dsn_at)));
+			    ($dsntm = localtime($sent_dsn_at))));
 		}
 	elsif ($send_dsn_button) {
-		print &text('view_dsnreq', &html_escape($dsn_req)),"<br>\n";
-		print &ui_submit($text{'view_dsnsend'}, "dsn");
+		print &ui_table_row(undef,
+			&text('view_dsnreq', &html_escape($dsn_req))."<br>".
+			&ui_submit($text{'view_dsnsend'}, "dsn"));
 		}
 	elsif ($got_dsn) {
-		print &text('view_dsngot', &html_escape($got_dsn_from),
-			    ($dsntm = localtime($got_dsn))),"<br>\n";
+		print &ui_table_row(undef,
+			&text('view_dsngot', &html_escape($got_dsn_from),
+			     ($dsntm = localtime($got_dsn))));
 		}
 	elsif (@delmsgs) {
-		print join("<br>\n", @delmsgs),"<br>\n";
+		print &ui_table_row(undef,
+			join("<br>\n", @delmsgs));
 		}
-	print "</td> </tr></table><p>\n";
+	print &ui_table_end();
 	}
 
 &show_buttons(2, scalar(@sub)) if (&editable_mail($mail));
@@ -454,38 +443,38 @@ sub show_buttons
 {
 local $spacer = "&nbsp;\n";
 if ($folder->{'sent'} || $folder->{'drafts'}) {
-	print "<input type=submit value=\"$text{'view_enew'}\" name=enew>";
+	print &ui_submit($text{'view_enew'}, "enew");
 	}
 else {
-	print "<input type=submit value=\"$text{'view_reply'}\" name=reply>";
-	print "<input type=submit value=\"$text{'view_reply2'}\" name=rall>";
+	print &ui_submit($text{'view_reply'}, "reply");
+	print &ui_submit($text{'view_reply2'}, "rall");
 	}
 print $spacer;
 
-print "<input type=submit value=\"$text{'view_forward'}\" name=forward>";
+print &ui_submit($text{'view_forward'}, "forward");
 print $spacer;
 
 if ($userconfig{'open_mode'}) {
 	# Compose button needs to pop up a window
-	print "<input type=submit name=new value=\"$text{'mail_compose'}\" ",
-	      "onClick='window.open(\"reply_mail.cgi?new=1\", \"compose\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>";
+	print &ui_submit($text{'mail_compose'}, "new", undef,
+	      "onClick='window.open(\"reply_mail.cgi?new=1\", \"compose\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>");
 	}
 else {
 	# Compose button can just submit and redirect
-	print "<input type=submit name=new value=\"$text{'mail_compose'}\">";
+	print &ui_submit($text{'mail_compose'}, "new");
 	}
 print $spacer;
 
 if (!$_[1]) {
+	# Show mark buttons, except for current mode
 	if (!$folder->{'sent'} && !$folder->{'drafts'}) {
 		$m = $read{$mail->{'header'}->{'message-id'}};
-		print "<input name=mark$_[0] type=submit value=\"$text{'view_mark'}\">";
-		print "<select name=mode$_[0]>\n";
 		foreach $i (0 .. 2) {
-			printf "<option value=%d %s>%s\n",
-				$i, $m == $i ? 'selected' : '', $text{"view_mark$i"};
+			if ($m != $i) {
+				print &ui_submit($text{'view_markas'.$i},
+						 "markas".$i);
+				}
 			}
-		print "</select>";
 		print $spacer;
 		}
 
@@ -494,8 +483,7 @@ if (!$_[1]) {
 		print $spacer;
 		}
 
-	print "<input type=submit value=\"$text{'view_delete'}\" name=delete ",
-	      "onClick='return check_clicks(form)'>";
+	print &ui_submit($text{'view_delete'}, "delete");
 	print $spacer;
 	}
 else {
@@ -504,26 +492,26 @@ else {
 		print $spacer;
 		}
 	}
-print "<input type=submit value=\"$text{'view_print'}\" name=print>";
+print &ui_submit($text{'view_print'}, "print");
 print $spacer;
 
 if (!$_[1]) {
 	# Show spam and/or ham report buttons
 	if (&can_report_spam($folder) &&
 	    $userconfig{'spam_buttons'} =~ /mail/) {
-		print "<input type=submit value=\"$text{'view_black'}\" name=black>";
+		print &ui_submit($text{'view_black'}, "black");
 		if ($userconfig{'spam_del'}) {
-			print "<input type=submit value=\"$text{'view_razordel'}\" name=razor>";
+			print &ui_submit($text{'view_razordel'}, "razor");
 			}
 		else {
-			print "<input type=submit value=\"$text{'view_razor'}\" name=razor>";
+			print &ui_submit($text{'view_razor'}, "razor");
 			}
 		print $spacer;
 		}
 	if (&can_report_ham($folder) &&
 	    $userconfig{'ham_buttons'} =~ /mail/) {
-		print "<input type=submit value=\"$text{'view_white'}\" name=white>";
-		print "<input type=submit value=\"$text{'view_ham'}\" name=ham>";
+		pritn &ui_submit($text{'view_white'}, "white");
+		pritn &ui_submit($text{'view_ham'}, "ham");
 		print $spacer;
 		}
 	}

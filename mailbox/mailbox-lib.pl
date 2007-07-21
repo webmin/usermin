@@ -701,7 +701,6 @@ elsif ($folder->{'type'} == 5) {
 	&write_file("$user_module_config_directory/$folder->{'id'}.comp",
 		    \%comp);
 	chmod(0700, "$user_module_config_directory/$folder->{'id'}.comp");
-	&delete_new_sort_index($folder);
 	}
 elsif ($folder->{'type'} == 6) {
 	# A virtual folder
@@ -722,7 +721,6 @@ elsif ($folder->{'type'} == 6) {
 	&write_file("$user_module_config_directory/$folder->{'id'}.virt",
 		    \%virt);
 	chmod(0700, "$user_module_config_directory/$folder->{'id'}.virt");
-	&delete_new_sort_index($folder);
 	}
 elsif ($folder->{'mode'} == 0) {
 	# Updating a folder in ~/mail .. need to manage file, and config options
@@ -961,11 +959,9 @@ sub movecopy_select
 {
 local $rv;
 if (!$_[3]) {
-	$rv .="<input type=submit name=move$_[0] value=\"$text{'mail_move'}\" ".
-	      "onClick='return check_clicks(form)'>";
+	$rv .= &ui_submit($text{'mail_move'}, "move".$_[0]);
 	}
-$rv .= "<input type=submit name=copy$_[0] value=\"$text{'mail_copy'}\" ".
-       "onClick='return check_clicks(form)'>";
+print &ui_submit($text{'mail_copy'}, "copy".$_[0]);
 local @mfolders = grep { $_ ne $_[2] && !$_->{'nowrite'} } @{$_[1]};
 $rv .= &folder_select(\@mfolders, undef, "mfolder$_[0]");
 return $rv;
@@ -975,32 +971,27 @@ return $rv;
 # Print HTML for editing the options for some folder
 sub show_folder_options
 {
-print "<tr> <td><b>$text{'edit_perpage'}</b></td>\n";
-printf "<td><input type=radio name=perpage_def value=1 %s> %s\n",
-	$_[0]->{'perpage'} ? "" : "checked", $text{'default'};
-printf "<input type=radio name=perpage_def value=0 %s> %s\n",
-	$_[0]->{'perpage'} ? "checked" : "";
-printf "<input name=perpage size=5 value='%s'></td> </tr>\n",
-	$_[0]->{'perpage'};
+local ($folder, $mode) = @_;
 
-if ($_[1] != 2) {
-	print "<tr> <td><b>$text{'edit_sentview'}</b></td>\n";
-	printf "<td><input type=radio name=show_to value=1 %s> %s\n",
-		$_[0]->{'show_to'} ? "checked" : "", $text{'yes'};
-	printf "<input type=radio name=show_to value=0 %s> %s</td> </tr>\n",
-		$_[0]->{'show_to'} ? "" : "checked", $text{'no'};
+# Messages per page
+print &ui_table_row($text{'edit_perpage'},
+	&ui_opt_textbox("perpage", $folder->{'perpage'}, 5, $text{'default'}));
+
+# Show as sent mail
+if ($mode != 2) {
+	print &ui_table_row($text{'edit_sentview'},
+		&ui_yesno_radio("show_to", $folder->{'show_to'}));
 	}
 
-print "<tr> <td><b>$text{'edit_fromaddr'}</b></td>\n";
-printf "<td><input type=radio name=fromaddr_def value=1 %s> %s\n",
-	$_[0]->{'fromaddr'} ? "" : "checked", $text{'default'};
-printf "<input type=radio name=fromaddr_def value=0 %s> %s\n",
-	$_[0]->{'fromaddr'} ? "checked" : "";
-printf "<input name=fromaddr size=30 value='%s'> %s</td> </tr>\n",
-	$_[0]->{'fromaddr'}, &address_button("fromaddr", 0, 1);
+# From address for sent mail
+print &ui_table_row($text{'edit_fromaddr'},
+	&ui_opt_textbox("fromaddr", $folder->{'fromaddr'}, 30,
+			$text{'default'})." ".
+	&address_button("fromaddr", 0, 1));
 
-print "<tr> <td><b>$text{'edit_hide'}</b></td>\n";
-print "<td>",&ui_yesno_radio("hide", int($_[0]->{'hide'})),"</td> </tr>\n";
+# Hide from folder list?
+print &ui_table_row($text{'edit_hide'},
+	&ui_yesno_radio("hide", $folder->{'hide'}));
 }
 
 # parse_folder_options(&folder, mode, &in)
@@ -1429,12 +1420,10 @@ sub show_mailbox_buttons
 local ($num, $folders, $folder, $mail) = @_;
 local $spacer = "&nbsp;\n";
 if (@$mail) {
-	print "<input type=submit name=mark$_[0] value=\"$text{'mail_mark'}\">";
-	print "<select name=mode$_[0]>\n";
-	print "<option value=1 checked>$text{'mail_mark1'}\n";
-	print "<option value=0>$text{'mail_mark0'}\n";
-	print "<option value=2>$text{'mail_mark2'}\n";
-	print "</select>";
+	# Mark as buttons
+	foreach my $i (0 .. 2) {
+		print &ui_submit($text{'view_markas'.$i}, 'markas'.$i);
+		}
 	print $spacer;
 
 	if (@$folders > 1) {
@@ -1443,27 +1432,27 @@ if (@$mail) {
 		}
 
 	if ($userconfig{'open_mode'}) {
-		print "<input type=submit name=forward value=\"$text{'mail_forward'}\" onClick='args = \"folder=$folder->{'index'}\"; for(i=0; i<form.d.length; i++) { if (form.d[i].checked) { args += \"&mailforward=\"+escape(form.d[i].value); } } window.open(\"reply_mail.cgi?\"+args, \"compose\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>";
+		print &ui_submit($text{'mail_forward'}, "forward", undef,
+			"onClick='args = \"folder=$folder->{'index'}\"; for(i=0; i<form.d.length; i++) { if (form.d[i].checked) { args += \"&mailforward=\"+escape(form.d[i].value); } } window.open(\"reply_mail.cgi?\"+args, \"compose\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>");
 		}
 	else {
 		# Forward button can just be a normal submit
-		print "<input type=submit name=forward value=\"$text{'mail_forward'}\">";
+		print &ui_submit($text{'mail_forward'}, "forward");
 		}
 	print $spacer;
 
-	print "<input type=submit name=delete value=\"$text{'mail_delete'}\" ",
-	      "onClick='return check_clicks(form)'>";
+	print &ui_submit($text{'mail_delete'}, "delete");
 	print $spacer;
 
 	if (&can_report_spam($folder) &&
 	    $userconfig{'spam_buttons'} =~ /list/ ||
 	    $folder->{'spam'}) {
-		print "<input type=submit value=\"$text{'mail_black'}\" name=black>";
+		print &ui_submit($text{'mail_black'}, "black");
 		if ($userconfig{'spam_del'}) {
-			print "<input type=submit value=\"$text{'view_razordel'}\" name=razor>";
+			print &ui_submit($text{'view_razordel'}, "razor");
 			}
 		else {
-			print "<input type=submit value=\"$text{'view_razor'}\" name=razor>";
+			print &ui_submit($text{'view_razor'}, "razor");
 			}
 		print $spacer;
 		}
@@ -1471,8 +1460,8 @@ if (@$mail) {
 	if (&can_report_ham($folder) &&
 	    $userconfig{'ham_buttons'} =~ /list/ ||
 	    $folder->{'spam'}) {
-		print "<input type=submit value=\"$text{'mail_white'}\" name=white>";
-		print "<input type=submit value=\"$text{'view_ham'}\" name=ham>";
+		print &ui_submit($text{'mail_white'}, "white");
+		print &ui_submit($text{'view_ham'}, "ham");
 		print $spacer;
 		}
 
@@ -1480,19 +1469,19 @@ if (@$mail) {
 
 if ($userconfig{'open_mode'}) {
 	# Show mass open button
-	print "<input type=submit name=new value=\"$text{'mail_open'}\" ",
-	      "onClick='for(i=0; i<form.d.length; i++) { if (form.d[i].checked) { window.open(\"view_mail.cgi?folder=$folder->{'index'}&idx=\"+escape(form.d[i].value), \"view\"+i, \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); } } return false'>";
+	print &ui_submit($text{'mail_open'}, "new", undef,
+	      "onClick='for(i=0; i<form.d.length; i++) { if (form.d[i].checked) { window.open(\"view_mail.cgi?folder=$folder->{'index'}&idx=\"+escape(form.d[i].value), \"view\"+i, \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); } } return false'>");
 	print $spacer;
 	}
 
 if ($userconfig{'open_mode'}) {
 	# Compose button needs to pop up a window
-	print "<input type=submit name=new value=\"$text{'mail_compose'}\" ",
-	      "onClick='window.open(\"reply_mail.cgi?new=1\", \"compose\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>";
+	print &ui_submit($text{'mail_compose'}, "new", undef,
+	      "onClick='window.open(\"reply_mail.cgi?new=1\", \"compose\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>");
 	}
 else {
 	# Compose button can just submit and redirect
-	print "<input type=submit name=new value=\"$text{'mail_compose'}\">";
+	print &ui_submit($text{'mail_compose'}, "new");
 	}
 print "<br>\n";
 }
@@ -1861,6 +1850,14 @@ if ($userconfig{'white_book'} && &foreign_installed("spam")) {
 	&spam::save_directives($conf, "whitelist_from", \@white, 1);
 	&flush_file_lines();
 	}
+}
+
+# left_right_align(left, right)
+# Returns a table for left and right aligning some HTML
+sub left_right_align
+{
+local ($l, $r) = @_;
+return "<table cellpadding=0 cellspacing=0 width=100%><tr><td align=left>$l</td><td align=right>$r</td></tr></table>";
 }
 
 1;

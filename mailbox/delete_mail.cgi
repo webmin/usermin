@@ -8,21 +8,23 @@ require './mailbox-lib.pl';
 @folders = &list_folders();
 $folder = $folders[$in{'folder'}];
 
+$mark = $in{'markas0'} ? 0 : $in{'markas1'} ? 1 : $in{'markas2'} ? 2 :
+	  $in{'mark1'} ? $in{'mode1'} : $in{'mark2'} ? $in{'mode2'} : undef;
+
 if (!$in{'new'}) {
 	# Get the messages
-	$headersonly = $in{'mark1'} || $in{'mark2'} || $in{'delete'};
+	$headersonly = defined($mark) || $in{'delete'};
 	@delmail = &mailbox_select_mails($folder, \@ids, $headersonly);
 	}
 
-if ($in{'mark1'} || $in{'mark2'}) {
+if (defined($mark)) {
 	# Marking emails with some status
 	@ids || &error($text{'delete_emnone'});
 	&open_read_hash();
-	local $m = $in{'mark1'} ? $in{'mode1'} : $in{'mode2'};
 	foreach $mail (@delmail) {
 		local $hid = $mail->{'header'}->{'message-id'};
-		if ($m) {
-			$read{$hid} = $m;
+		if ($mark) {
+			$read{$hid} = $mark;
 			}
 		else {
 			delete($read{$hid});
@@ -158,11 +160,13 @@ elsif ($in{'delete'}) {
 			}
 		print "<center><b>\n";
 		if ($in{'all'}) {
-			print &text('confirm_warnall'),"<br>\n";
+			print &text('confirm_warnallf', $folder->{'name'});
 			}
 		else {
-			print &text('confirm_warn', scalar(@delmail)),"<br>\n";
+			print &text('confirm_warnf', scalar(@delmail),
+				    $folder->{'name'});
 			}
+		print "<br>\n";
 		if ($userconfig{'delete_warn'} ne 'y') {
 			# Only show a warning about not touching mailbox if
 			# folder is too large

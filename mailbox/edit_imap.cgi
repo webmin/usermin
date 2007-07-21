@@ -16,60 +16,50 @@ else {
 	$mode = $folder->{'mode'};
 	}
 
-print "<form action=save_imap.cgi>\n";
-print "<input type=hidden name=idx value='$in{'idx'}'>\n";
-print "<input type=hidden name=new value='$in{'new'}'>\n";
-print "<input type=hidden name=mode value='$mode'>\n";
-print "<table border>\n";
-print "<tr $tb> <td><b>$text{'edit_header'}</b></td> </tr>\n";
-print "<tr $cb> <td><table>\n";
+# Form and table start
+print &ui_form_start("save_imap.cgi");
+print &ui_hidden("idx", $in{'idx'});
+print &ui_hidden("new", $in{'new'});
+print &ui_hidden("mode", $mode);
+print &ui_table_start($text{'edit_header'}, undef, 2, [ "width=30%" ]);
 
-print "<tr> <td><b>$text{'edit_mode'}</b></td>\n";
-print "<td>$text{'edit_imap'}</td> </tr>\n";
+# Folder type
+print &ui_table_row($text{'edit_mode'}, $text{'edit_imap'});
 
-print "<tr> <td><b>$text{'edit_name'}</b></td>\n";
-printf "<td><input name=name size=40 value='%s'></td> </tr>\n",
-	$folder->{'name'};
+# Folder name
+print &ui_table_row($text{'edit_name'},
+	&ui_textbox("name", $folder->{'name'}, 40));
 
-print "<tr> <td><b>$text{'edit_iserver'}</b></td>\n";
-printf "<td><input name=server size=30 value='%s'></td> </tr>\n",
-	$folder->{'server'};
+# IMAP server
+print &ui_table_row($text{'edit_iserver'},
+	&ui_textbox("server", $folder->{'server'}, 40));
 
-print "<tr> <td><b>$text{'edit_port'}</b></td> <td>\n";
-printf "<input type=radio name=port_def value=1 %s> %s (%d)\n",
-	$folder->{'port'} ? "" : "checked", $text{'default'}, $imap_port;
-printf "<input type=radio name=port_def value=0 %s>\n",
-	$folder->{'port'} ? "checked" : "";
-printf "<input name=port size=6 value='%s'></td> </tr>\n",
-	$folder->{'port'};
+# IMAP port
+print &ui_table_row($text{'edit_port'},
+	&ui_opt_textbox("port", $folder->{'port'}, 6,
+			$text{'default'}." ($imap_port)"));
 
-print "<tr> <td><b>$text{'edit_user'}</b></td>\n";
-printf "<td><input name=user size=20 value='%s'></td> </tr>\n",
-	$folder->{'user'};
+# Login and password
+print &ui_table_row($text{'edit_user'},
+	&ui_textbox("user", $folder->{'user'}, 20));
+print &ui_table_row($text{'edit_pass'},
+	&ui_password("pass", $folder->{'pass'}, 20));
 
-print "<tr> <td><b>$text{'edit_pass'}</b></td>\n";
-printf "<td><input type=password name=pass size=20 value='%s'></td> </tr>\n",
-	$folder->{'pass'};
-
-print "<tr> <td><b>$text{'edit_mailbox'}</b></td>\n";
-printf "<td><input type=radio name=mailbox_def value=1 %s> %s\n",
-	$folder->{'mailbox'} ? "" : "checked", $text{'edit_imapinbox'};
-printf "<input type=radio name=mailbox_def value=0 %s> %s\n",
-	$folder->{'mailbox'} ? "checked" : "", $text{'edit_imapother'};
-printf "<input name=mailbox size=20 value='%s'></td> </tr>\n",
-	$folder->{'mailbox'};
+# Remote mailbox
+print &ui_table_row($text{'edit_mailbox'},
+	&ui_opt_textbox("mailbox", $folder->{'mailbox'}, 20,
+			$text{'edit_imapinbox'}, $text{'edit_imapother'}));
 
 &show_folder_options($folder);
 
-print "</table></td></tr></table>\n";
+print &ui_table_end();
 if ($in{'new'}) {
-	print "<input type=submit value='$text{'create'}'>\n";
+	print &ui_form_end([ [ undef, $text{'create'} ] ]);
 	}
 else {
-	print "<input type=submit value='$text{'save'}'>\n";
-	print "<input type=submit name=delete value='$text{'delete'}'>\n";
+	print &ui_form_end([ [ undef, $text{'save'} ],
+			     [ 'delete', $text{'delete'} ] ]);
 	}
-print "</form>\n";
 
 &ui_print_footer("list_folders.cgi", $text{'folders_return'});
 

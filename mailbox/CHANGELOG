@@ -76,3 +76,4 @@ When using the Advanced Search page, you can now search on both the message head
 Implemented a completely new mail indexing system, based on a unique ID for each message that corresponds to its phyiscal storage location (such as a Maildir file, IMAP UID or position in an mbox). This is much more resilient to mailbox modification by other programs (such as IMAP servers), and should speed up searching for and displaying email.
 Added a link when composing email to switch between HTML and plain-text modes.
 Updated all user interface code to use the new Usermin-standard UI functions, leading to a more themable and consistent look.
+Messages marked as 'Special' are now automatically added to a virtual folder named 'Special', which makes them easier to find.

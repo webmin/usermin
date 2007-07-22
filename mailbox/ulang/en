@@ -4,6 +4,7 @@ mail_none=There are no messages in folder $1
 mail_pos=Messages $1 to $2 of $3 in folder $4
 mail_return=mailbox
 mail_quota=Using $1 out of $2
+mail_special=Special
 
 send_efile=Attached file $1 is not readable or does not exist
 send_nobody=nobody

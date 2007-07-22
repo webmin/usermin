@@ -20,17 +20,9 @@ if (!$in{'new'}) {
 if (defined($mark)) {
 	# Marking emails with some status
 	@ids || &error($text{'delete_emnone'});
-	&open_read_hash();
 	foreach $mail (@delmail) {
-		local $hid = $mail->{'header'}->{'message-id'};
-		if ($mark) {
-			$read{$hid} = $mark;
-			}
-		else {
-			delete($read{$hid});
-			}
+		&set_mail_read($folder, $mail, $mark);
 		}
-	dbmclose(%read);
 	$perpage = $folder->{'perpage'} || $userconfig{'perpage'};
 	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}");
 	}

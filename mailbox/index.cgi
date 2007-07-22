@@ -5,7 +5,6 @@
 require './mailbox-lib.pl';
 &ReadParse();
 
-&open_read_hash();
 &open_dsn_hash();
 
 @folders = &list_folders_sorted();
@@ -156,11 +155,12 @@ for(my $i=int($in{'start'}); $i<scalar(@mail) && $i<$in{'start'}+$perpage; $i++)
 	local ($bs, $be);
 	$m = $mail[$i];
 	$mid = $m->{'header'}->{'message-id'};
-	if ($read{$mid} == 2) {
+	$r = &get_mail_read($folder, $m);
+	if ($r == 2) {
 		# Special
 		($bs, $be) = ("<b><i>", "</i></b>");
 		}
-	elsif ($read{$mid} == 0) {
+	elsif ($r == 0) {
 		# Unread
 		($bs, $be) = ("<b>", "</b>");
 		}
@@ -194,7 +194,7 @@ for(my $i=int($in{'start'}); $i<scalar(@mail) && $i<$in{'start'}+$perpage; $i++)
 		}
 
 	# Subject column, with read/special icons
-	local @icons = &message_icons($m, $folder->{'sent'});
+	local @icons = &message_icons($m, $folder->{'sent'}, $folder);
 	push(@cols, $bs.&simplify_subject($m->{'header'}->{'subject'}).
 		    " ".join("&nbsp;", @icons).$be);
 

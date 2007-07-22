@@ -137,16 +137,10 @@ else {
 	elsif ($in{'mark1'} || $in{'mark2'} ||
 	       $in{'markas0'} || $in{'markas1'} || $in{'markas2'}) {
 		# Just mark the message
-		&open_read_hash();
 		$mode = $in{'markas0'} ? 0 : $in{'markas1'} ? 1 :
 			$in{'markas2'} ? 2 :
 			  $in{'mark1'} ? $in{'mode1'} : $in{'mode2'};
-		if ($mode) {
-			$read{$mail->{'header'}->{'message-id'}} = $mode;
-			}
-		else {
-			delete($read{$mail->{'header'}->{'message-id'}});
-			}
+		&set_mail_read($folder, $mail, $mode);
 		&redirect_to_previous();
 		exit;
 		}

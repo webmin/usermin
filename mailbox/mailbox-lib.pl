@@ -22,6 +22,7 @@ $folders_dir = "$remote_user_info[7]/$userconfig{'mailbox_dir'}";
 %folder_types = map { $_, 1 } (split(/,/, $config{'folder_types'}),
 			       split(/,/, $config{'folder_virts'}));
 $search_folder_id = 1;
+$special_folder_id = 2;
 $auto_cmd = "$user_module_config_directory/auto.pl";
 
 # mailbox_file()
@@ -174,6 +175,9 @@ else {
 #               3 = inbox/drafts/trash
 sub list_folders
 {
+if (defined(@list_folders_cache)) {
+	return @list_folders_cache;
+	}
 local (@rv, $f, $o, %done);
 if ($config{'mail_system'} == 2) {
 	# POP3 inbox
@@ -616,6 +620,7 @@ foreach my $f (@rv) {
 		}
 	}
 
+@list_folders_cache = @rv;
 return @rv;
 }
 
@@ -818,6 +823,18 @@ elsif ($folder->{'mode'} == 2) {
 		if ($folder->{'fromaddr'});
 	&save_user_module_config();
 	}
+# Add to or update cache
+if (defined(@list_folders_cache)) {
+	if ($old) {
+		local $idx = &indexof($old, @list_folders_cache);
+		if ($idx >= 0) {
+			$list_folders_cache[$idx] = $folder;
+			}
+		}
+	else {
+		push(@list_folders_cache, $folder);
+		}
+	}
 }
 
 # delete_folder(&folder)
@@ -875,6 +892,10 @@ elsif ($folder->{'mode'} == 1) {
 	delete($userconfig{'fromaddr_'.$folder->{'file'}});
 	$userconfig{'mailboxes'} = join("\t", @mailboxes);
 	&save_user_module_config();
+	}
+# Remove from cache
+if (defined(@list_folders_cache)) {
+	@list_folders_cache = grep { $_ ne $folder } @list_folders_cache;
 	}
 }
 
@@ -1309,6 +1330,109 @@ if (!defined(%read)) {
 	}
 }
 
+# get_special_folder()
+# Returns the virtual folder containing messages marked as 'special', or undef
+# if not defined yet.
+sub get_special_folder
+{
+if (defined($special_folder_cache)) {
+	return $special_folder_cache || undef;
+	}
+else {
+	# Find for real
+	local @folders = &list_folders();
+	local ($s) = grep { $_->{'type'} == 6 &&
+			    $_->{'id'} == $special_folder_id } @folders;
+	$special_folder_cache = $s ? $s : "";
+	return $s;
+	}
+}
+
+# get_mail_read(&folder, &mail)
+# Returns the read-mode flag for some email (0=unread, 1=read, 2=special)
+# Checks the special folder first, then the read DBM
+sub get_mail_read
+{
+local ($folder, $mail) = @_;
+&open_read_hash();
+local $sfolder = &get_special_folder();
+if ($sfolder) {
+	# Is it in the special folder?
+	local ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
+	local ($spec) = grep { $_->[0] eq $realfolder &&
+			       $_->[1] eq $realid } @{$sfolder->{'members'}};
+	if ($spec) {
+		return 2;
+		}
+	}
+# Finally check read hash
+return $read{$mail->{'header'}->{'message-id'}};
+}
+
+# set_mail_read(&folder, &mail, read)
+# Sets the read flag for some email, possibly updating the special folder
+sub set_mail_read
+{
+local ($folder, $mail, $read) = @_;
+&open_read_hash();
+local $sfolder = &get_special_folder();
+if ($sfolder || $read == 2) {
+	local ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
+	local $spec;
+	if ($sfolder) {
+		# Is it already there?
+		($spec) = grep { $_->[0] eq $realfolder &&
+				 $_->[1] eq $realid } @{$sfolder->{'members'}};
+		}
+	if ($read == 2 && !$spec) {
+		# Add to special folder
+		if (!$sfolder) {
+			# Create first
+			$sfolder = { 'id' => $special_folder_id,
+				     'type' => 6,
+				     'name' => $text{'mail_special'},
+				     'delete' => 1,
+				     'members' => [ [ $realfolder,$realid ] ],
+				   };
+			&save_folder($sfolder);
+			$special_folder_cache = $sfolder;
+			}
+		else {
+			# Just add
+			push(@{$sfolder->{'members'}}, [ $realfolder,$realid ]);
+			&save_folder($sfolder, $sfolder);
+			}
+		}
+	elsif ($read != 2 && $spec) {
+		# Remove from special folder
+		$sfolder->{'members'} =
+			[ grep { $_ ne $spec } @{$sfolder->{'members'}} ];
+		&save_folder($sfolder, $sfolder);
+		}
+	}
+# Update read hash
+if ($read == 0) {
+	delete($mail->{'header'}->{'message-id'});
+	}
+else {
+	$mail->{'header'}->{'message-id'} = $read;
+	}
+}
+
+# get_underlying_folder(&folder, &mail)
+# For mail in some virtual folder, returns the real folder and ID
+sub get_underlying_folder
+{
+local ($realfolder, $mail) = @_;
+local $realid = $mail->{'id'};
+while($realfolder->{'type'} == 5 || $realfolder->{'type'} == 6) {
+	local ($sfn, $sid) = split(/\t+/, $realid, 2);
+	$realfolder = &find_subfolder($realfolder, $sfn);
+	$realid = $sid;
+	}
+return ($realfolder, $realid);
+}
+
 # spam_report_cmd()
 # Returns a command for reporting spam, or undef if none
 sub spam_report_cmd
@@ -1371,27 +1495,27 @@ dbmclose(%read);
 return @rv;
 }
 
-# message_icons(&mail, showto)
+# message_icons(&mail, showto, &folder)
 # Returns a list of icon images for some mail
 sub message_icons
 {
+local ($mail, $showto, $folder) = @_;
 &open_dsn_hash();
-&open_read_hash();
 local @rv;
-if ($_[0]->{'header'}->{'content-type'} =~ /multipart\/\S+/i) {
+if ($mail->{'header'}->{'content-type'} =~ /multipart\/\S+/i) {
 	push(@rv, "<img src=images/attach.gif>");
 	}
-local $p = int($_[0]->{'header'}->{'x-priority'});
+local $p = int($mail->{'header'}->{'x-priority'});
 if ($p == 1) {
 	push(@rv, "<img src=images/p1.gif>");
 	}
 elsif ($p == 2) {
 	push(@rv, "<img src=images/p2.gif>");
 	}
-local $mid = $_[0]->{'header'}->{'message-id'};
-if (!$_[1]) {
+local $mid = $mail->{'header'}->{'message-id'};
+if (!$showto) {
 	# Show icon if special
-	if ($read{$mid} == 2) {
+	if (&get_mail_read($folder, $mail) == 2) {
 		push(@rv, "<img src=images/special.gif>");
 		}
 	#elsif ($read{$mid} == 1) {
@@ -1419,18 +1543,9 @@ sub show_mailbox_buttons
 {
 local ($num, $folders, $folder, $mail) = @_;
 local $spacer = "&nbsp;\n";
-if (@$mail) {
-	# Mark as buttons
-	foreach my $i (0 .. 2) {
-		print &ui_submit($text{'view_markas'.$i}, 'markas'.$i);
-		}
-	print $spacer;
 
-	if (@$folders > 1) {
-		print &movecopy_select($_[0], $folders, $folder);
-		print $spacer;
-		}
-
+# Forward selected
+if (@mail) {
 	if ($userconfig{'open_mode'}) {
 		print &ui_submit($text{'mail_forward'}, "forward", undef,
 			"onClick='args = \"folder=$folder->{'index'}\"; for(i=0; i<form.d.length; i++) { if (form.d[i].checked) { args += \"&mailforward=\"+escape(form.d[i].value); } } window.open(\"reply_mail.cgi?\"+args, \"compose\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>");
@@ -1440,40 +1555,9 @@ if (@$mail) {
 		print &ui_submit($text{'mail_forward'}, "forward");
 		}
 	print $spacer;
-
-	print &ui_submit($text{'mail_delete'}, "delete");
-	print $spacer;
-
-	if (&can_report_spam($folder) &&
-	    $userconfig{'spam_buttons'} =~ /list/ ||
-	    $folder->{'spam'}) {
-		print &ui_submit($text{'mail_black'}, "black");
-		if ($userconfig{'spam_del'}) {
-			print &ui_submit($text{'view_razordel'}, "razor");
-			}
-		else {
-			print &ui_submit($text{'view_razor'}, "razor");
-			}
-		print $spacer;
-		}
-
-	if (&can_report_ham($folder) &&
-	    $userconfig{'ham_buttons'} =~ /list/ ||
-	    $folder->{'spam'}) {
-		print &ui_submit($text{'mail_white'}, "white");
-		print &ui_submit($text{'view_ham'}, "ham");
-		print $spacer;
-		}
-
 	}
 
-if ($userconfig{'open_mode'}) {
-	# Show mass open button
-	print &ui_submit($text{'mail_open'}, "new", undef,
-	      "onClick='for(i=0; i<form.d.length; i++) { if (form.d[i].checked) { window.open(\"view_mail.cgi?folder=$folder->{'index'}&idx=\"+escape(form.d[i].value), \"view\"+i, \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); } } return false'>");
-	print $spacer;
-	}
-
+# Compose button
 if ($userconfig{'open_mode'}) {
 	# Compose button needs to pop up a window
 	print &ui_submit($text{'mail_compose'}, "new", undef,
@@ -1483,6 +1567,57 @@ else {
 	# Compose button can just submit and redirect
 	print &ui_submit($text{'mail_compose'}, "new");
 	}
+print $spacer;
+
+# Mark as buttons
+if (@$mail) {
+	foreach my $i (0 .. 2) {
+		print &ui_submit($text{'view_markas'.$i}, 'markas'.$i);
+		}
+	print $spacer;
+	}
+	
+# Copy/move to folder
+if (@mail && @$folders > 1) {
+	print &movecopy_select($_[0], $folders, $folder);
+	print $spacer;
+	}
+
+# Delete
+if (@mail) {
+	print &ui_submit($text{'mail_delete'}, "delete");
+	print $spacer;
+	}
+
+# Blacklist / report spam
+if (@mail && (&can_report_spam($folder) &&
+    	      $userconfig{'spam_buttons'} =~ /list/ || $folder->{'spam'})) {
+	print &ui_submit($text{'mail_black'}, "black");
+	if ($userconfig{'spam_del'}) {
+		print &ui_submit($text{'view_razordel'}, "razor");
+		}
+	else {
+		print &ui_submit($text{'view_razor'}, "razor");
+		}
+	print $spacer;
+	}
+
+# Whitelist / report ham
+if (@mail && (&can_report_ham($folder) &&
+	      $userconfig{'ham_buttons'} =~ /list/ ||
+	      $folder->{'spam'})) {
+	print &ui_submit($text{'mail_white'}, "white");
+	print &ui_submit($text{'view_ham'}, "ham");
+	print $spacer;
+	}
+
+if ($userconfig{'open_mode'}) {
+	# Show mass open button
+	print &ui_submit($text{'mail_open'}, "new", undef,
+	      "onClick='for(i=0; i<form.d.length; i++) { if (form.d[i].checked) { window.open(\"view_mail.cgi?folder=$folder->{'index'}&idx=\"+escape(form.d[i].value), \"view\"+i, \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); } } return false'>");
+	print $spacer;
+	}
+
 print "<br>\n";
 }
 

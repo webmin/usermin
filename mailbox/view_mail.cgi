@@ -9,7 +9,7 @@ require './mailbox-lib.pl';
 
 &ReadParse();
 foreach $a (&list_addresses()) {
-	$inbook{$a->[0]}++;
+	$inbook{lc($a->[0])}++;
 	}
 
 # Get the actual email being viewed, even if is a sub-message
@@ -468,7 +468,7 @@ print $spacer;
 if (!$_[1]) {
 	# Show mark buttons, except for current mode
 	if (!$folder->{'sent'} && !$folder->{'drafts'}) {
-		$m = $read{$mail->{'header'}->{'message-id'}};
+		$m = &get_mail_read($folder, $mail);
 		foreach $i (0 .. 2) {
 			if ($m != $i) {
 				print &ui_submit($text{'view_markas'.$i},
@@ -527,7 +527,7 @@ local @addrs = &split_addresses(&eucconv(&decode_mimewords($_[0])));
 local @rv;
 foreach $a (@addrs) {
 	## TODO: is $inbook{} MIME or locale-encoded?
-	if ($inbook{$a->[0]}) {
+	if ($inbook{lc($a->[0])}) {
 		push(@rv, &eucconv_and_escape($a->[2]));
 		}
 	else {

@@ -12,8 +12,10 @@ $mark = $in{'markas0'} ? 0 : $in{'markas1'} ? 1 : $in{'markas2'} ? 2 :
 	  $in{'mark1'} ? $in{'mode1'} : $in{'mark2'} ? $in{'mode2'} : undef;
 
 if (!$in{'new'}) {
-	# Get the messages
-	$headersonly = defined($mark) || $in{'delete'};
+	# Get the messages. We only need the headers when marking, or when
+	# deleting unless moving to the trash
+	$headersonly = defined($mark) ||
+		       $in{'delete'} && $userconfig{'delete_mode'} != 1;
 	@delmail = &mailbox_select_mails($folder, \@ids, $headersonly);
 	}
 

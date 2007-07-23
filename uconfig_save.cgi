@@ -13,6 +13,7 @@ $m = $in{'module'};
 &read_acl(\%acl);
 &error_setup($text{'config_err'});
 $acl{$base_remote_user,$m} || &error($text{'config_eaccess'});
+$mdir = &module_root_directory($m);
 
 mkdir("$user_config_directory/$m", 0700);
 &lock_file("$user_config_directory/$m/config");
@@ -20,7 +21,7 @@ mkdir("$user_config_directory/$m", 0700);
 &read_file("$config_directory/$m/canconfig", \%canconfig);
 %oldconfig = %config;
 
-if (-r "$m/uconfig_info.pl") {
+if (-r "$mdir/uconfig_info.pl") {
 	# Module has a custom config editor
 	&foreign_require($m, "uconfig_info.pl");
 	local $fn = "${m}::config_form";
@@ -34,7 +35,7 @@ if (-r "$m/uconfig_info.pl") {
 	}
 if (!$func) {
 	# Use config.info to parse config inputs
-	&parse_config(\%config, "$m/uconfig.info", undef,
+	&parse_config(\%config, "$mdir/uconfig.info", undef,
 		      %canconfig ? \%canconfig : undef);
 	}
 &write_file("$user_config_directory/$m/config", \%config);

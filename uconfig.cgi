@@ -14,17 +14,18 @@ require './ui-lib.pl';
 %module_info = &get_module_info($m);
 $desc = &text('config_dir', $module_info{'desc'});
 &ui_print_header($desc, $text{'config_title'}, "", undef, 0, 1);
+$mdir = &module_root_directory($m);
 
 print &ui_form_start("uconfig_save.cgi", "post");
 print &ui_hidden("module", $m);
 print &ui_table_start(&text('config_header', $module_info{'desc'}),
 		      "width=100%", 2);
-&read_file("$m/defaultuconfig", \%config);
+&read_file("$mdir/defaultuconfig", \%config);
 &read_file("$config_directory/$m/uconfig", \%config);
 &read_file("$user_config_directory/$m/config", \%config);
 &read_file("$config_directory/$m/canconfig", \%canconfig);
 
-if (-r "$m/uconfig_info.pl") {
+if (-r "$mdir/uconfig_info.pl") {
 	# Module has a custom config editor
 	&foreign_require($m, "uconfig_info.pl");
 	local $fn = "${m}::config_form";
@@ -35,7 +36,7 @@ if (-r "$m/uconfig_info.pl") {
 	}
 if (!$func) {
 	# Use config.info to create config inputs
-	&generate_config(\%config, "$m/uconfig.info", undef,
+	&generate_config(\%config, "$mdir/uconfig.info", undef,
 			 %canconfig ? \%canconfig : undef);
 	}
 print &ui_table_end();

@@ -31,7 +31,7 @@ find . -name "*~" -o -name "*.rej" -o -name "*.orig" | xargs rm
 
  - Update freshmeat.net entry
 
- x Send to mailing list
+ - Send to mailing list
 
  x Add version to bug tracker
 

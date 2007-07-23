@@ -608,7 +608,8 @@ if ($in{'new'}) {
 	}
 
 # Output message body input
-print &ui_table_start($text{'reply_body'}.$modelink, "width=100%", 2);
+print &ui_table_start(&left_right_align("<b>$text{'reply_body'}</b>",$modelink),
+		      "width=100%", 2);
 if ($html_edit) {
 	# Output HTML editor textarea
 	print <<EOF;

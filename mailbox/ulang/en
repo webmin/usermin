@@ -168,8 +168,8 @@ reply_tabsigning=Signing
 reply_taboptions=Options
 reply_addattach=Add attachment field.
 reply_addssattach=Add server-side attachment field.
-reply_html0=(Compose text)
-reply_html1=(Compose HTML)
+reply_html0=Compose text
+reply_html1=Compose HTML
 
 search_virtualize=Create Virtual Folder Named:
 search_dest=Store results in

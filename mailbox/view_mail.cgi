@@ -451,9 +451,6 @@ else {
 	}
 print $spacer;
 
-print &ui_submit($text{'view_forward'}, "forward");
-print $spacer;
-
 if ($userconfig{'open_mode'}) {
 	# Compose button needs to pop up a window
 	print &ui_submit($text{'mail_compose'}, "new", undef,
@@ -463,6 +460,9 @@ else {
 	# Compose button can just submit and redirect
 	print &ui_submit($text{'mail_compose'}, "new");
 	}
+print $spacer;
+
+print &ui_submit($text{'view_forward'}, "forward");
 print $spacer;
 
 if (!$_[1]) {

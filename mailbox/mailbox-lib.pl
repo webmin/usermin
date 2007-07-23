@@ -1412,10 +1412,10 @@ if ($sfolder || $read == 2) {
 	}
 # Update read hash
 if ($read == 0) {
-	delete($mail->{'header'}->{'message-id'});
+	delete($read{$mail->{'header'}->{'message-id'}});
 	}
 else {
-	$mail->{'header'}->{'message-id'} = $read;
+	$read{$mail->{'header'}->{'message-id'}} = $read;
 	}
 }
 

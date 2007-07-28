@@ -22,7 +22,7 @@ else {
 	# Save the folder
 	$folder->{'type'} = 6;
 	$folder->{'name'} = $in{'name'};
-	$folder->{'delete'} = $in{'delete'};
+	$folder->{'delete'} = $in{'deletesub'};
 	$folder->{'perpage'} = $in{'perpage_def'} ? undef : $in{'perpage'};
 	$folder->{'fromaddr'} = $in{'fromaddr_def'} ? undef : $in{'fromaddr'};
 	$folder->{'sent'} = $in{'sent'};

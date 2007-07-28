@@ -28,7 +28,7 @@ print &ui_table_row($text{'edit_name'},
 
 # Deletion mode
 print &ui_table_row($text{'edit_delete'},
-	&ui_yesno_radio("delete", $folder->{'delete'}));
+	&ui_yesno_radio("deletesub", $folder->{'delete'}));
 
 &show_folder_options($folder);
 

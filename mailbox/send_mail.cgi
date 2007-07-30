@@ -36,7 +36,7 @@ else {
 $in{'to'} = &expand_to($in{'to'});
 $in{'cc'} = &expand_to($in{'cc'});
 $in{'bcc'} = &expand_to($in{'bcc'});
-$newmid = "<".time().".".$$."\@".&get_system_hostname().">";
+$newmid = &generate_message_id($in{'from'});
 $mail->{'headers'} = [ [ 'From', $in{'from'} ],
 		       [ 'Subject', $in{'subject'} ],
 		       [ 'To', $in{'to'} ],

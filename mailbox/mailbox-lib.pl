@@ -221,12 +221,13 @@ elsif ($config{'mail_system'} == 4) {
 		local @irv = &imap_command($ih, "list \"\" \"*\"");
 		if ($irv[0]) {
 			foreach my $l (@{$irv[1]}) {
-				if ($l =~ /LIST\s+\(.*\)\s+"(.*)"\s+"(.*)"/ &&
-				    $2 ne "INBOX") {
+				if ($l =~ /LIST\s+\(.*\)\s+("(.*)"|\S+)\s+("(.*)"|\S+)/) {
 					# Found a folder line
+					local $fn = $4 || $3;
+					next if ($fn eq "INBOX");
 					push(@rv,
-					  { 'name' => $2,
-					    'id' => $2,
+					  { 'name' => $fn,
+					    'id' => $fn,
 					    'type' => 4,
 					    'server' => $imapserver,
 					    'user' => $rv[0]->{'user'},
@@ -234,9 +235,9 @@ elsif ($config{'mail_system'} == 4) {
 					    'mode' => 0,
 					    'remote' => 1,
 					    'imapauto' => 1,
-					    'mailbox' => $2,
+					    'mailbox' => $fn,
 					    'index' => scalar(@rv) });
-					&read_file("$user_module_config_directory/$2.imap", $rv[$#rv]);
+					&read_file("$user_module_config_directory/$fn.imap", $rv[$#rv]);
 					}
 				}
 			}

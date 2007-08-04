@@ -311,8 +311,8 @@ if (@mail && ($folder->{'trash'} || $userconfig{'show_delall'})) {
 	}
 
 print &ui_grid_table(\@grid, 3, 100,
-		[ "align=left", "align=center", "align=right" ],
-		"cellpadding=0 cellspacing=0");
+  [ "align=left width=33%", "align=center width=33%", "align=right width=33%" ],
+  "cellpadding=0 cellspacing=0");
 
 &ui_print_footer("/", $text{'index'});
 &pop3_logout();

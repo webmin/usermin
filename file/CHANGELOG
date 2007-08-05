@@ -29,3 +29,5 @@ Removed the HTML editing button, and changed the Edit button to detect HTML file
 Added a button for creating a new HTML file.
 ---- Changes since 1.260 ----
 Replaced the HTMLarea widget for editing .html pages with Xinha.
+---- Changes since 1.290 ----
+Added a Preferences option to specify file extensions to treat as HTML, rather than always using only .html and .htm.

@@ -5,3 +5,4 @@ width=Width for scaled images,3,Default (300 pixels)
 fixed=Font size for text,3,Default (12 points)
 small_fixed=Font size for buttons,3,Default (10 points)
 force_text=Editor for HTML files,1,1-Text editor,0-HTML editor
+htmlexts=File extensions to edit as HTML,3,Default (.htm and .html)

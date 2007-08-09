@@ -12,7 +12,15 @@ $source_dir = "$base_dir/SOURCES";
 $rpms_dir = "$base_dir/RPMS/noarch";
 $srpms_dir = "$base_dir/SRPMS";
 
-$ver = $ARGV[0] || die "usage: makerpm.pl <version> [release]";
+if ($ARGV[0] eq "--nosign" || $ARGV[0] eq "-nosign") {
+	$nosign = 1;
+	shift(@ARGV);
+	}
+if ($ARGV[0] eq "--webmail" || $ARGV[0] eq "-webmail") {
+	$webmail = 1;
+	shift(@ARGV);
+	}
+$ver = $ARGV[0] || die "usage: makerpm.pl [--webmail] <version> [release]";
 $rel = $ARGV[1] || "1";
 
 $oscheck = <<EOF;
@@ -48,25 +56,27 @@ $maketemp =~ s/\\/\\\\/g;
 $maketemp =~ s/`/\\`/g;
 $maketemp =~ s/\$/\\\$/g;
 
-system("cp tarballs/usermin-$ver.tar.gz $source_dir");
-open(SPEC, ">$spec_dir/usermin-$ver.spec");
+$pkgname = $webmail ? "usermin-webmail" : "usermin";
+system("cp tarballs/$pkgname-$ver.tar.gz $source_dir") &&
+	die "Source file tarballs/$pkgname-$ver.tar.gz not found!";
+open(SPEC, ">$spec_dir/$pkgname-$ver.spec");
 print SPEC <<EOF;
 #%define BuildRoot /tmp/%{name}-%{version}
 %define __spec_install_post %{nil}
 
 Summary: A web-based user account administration interface
-Name: usermin
+Name: $pkgname
 Version: $ver
 Release: $rel
 Provides: %{name}-%{version}
 PreReq: /bin/sh /usr/bin/perl /bin/rm
 Requires: /bin/sh /usr/bin/perl /bin/rm
-Copyright: Freeware
+License: Freeware
 Group: System/Tools
 Source: http://www.webmin.com/download/%{name}-%{version}.tar.gz
 Vendor: Jamie Cameron
 BuildRoot: /tmp/%{name}-%{version}
-BuildArchitectures: noarch
+BuildArch: noarch
 AutoReq: 0
 %description
 A web-based user account administration interface for Unix systems.
@@ -100,6 +110,7 @@ ln -s /etc/init.d/usermin %{buildroot}/etc/rc.d/rc0.d/K10usermin
 ln -s /etc/init.d/usermin %{buildroot}/etc/rc.d/rc1.d/K10usermin
 ln -s /etc/init.d/usermin %{buildroot}/etc/rc.d/rc6.d/K10usermin
 echo rpm >%{buildroot}/usr/libexec/usermin/install-type
+echo $pkgname >%{buildroot}/usr/libexec/usermin/rpm-name
 
 %clean
 #%{rmDESTDIR}
@@ -233,13 +244,14 @@ fi
 EOF
 close(SPEC);
 
-system("rpm -ba --target=noarch $spec_dir/usermin-$ver.spec") && exit;
-system("mv /usr/src/OpenLinux/RPMS/noarch/usermin-$ver-$rel.noarch.rpm rpm/usermin-$ver-$rel.noarch.rpm");
-print "Moved to rpm/usermin-$ver-$rel.noarch.rpm\n";
-system("mv /usr/src/OpenLinux/SRPMS/usermin-$ver-$rel.src.rpm rpm/usermin-$ver-$rel.src.rpm");
-print "Moved to rpm/usermin-$ver-$rel.src.rpm\n";
-system("chown jcameron: rpm/usermin-$ver-$rel.noarch.rpm rpm/usermin-$ver-$rel.src.rpm");
-#system("su jcameron -c 'ssh lentor rpm --resign /usr/local/download/rpm/usermin-$ver-$rel.noarch.rpm /usr/local/download/rpm/usermin-$ver-$rel.src.rpm'");
-system("rpm --resign rpm/usermin-$ver-$rel.noarch.rpm rpm/usermin-$ver-$rel.src.rpm");
+system("rpm -ba --target=noarch $spec_dir/$pkgname-$ver.spec") && exit;
+system("mv /usr/src/OpenLinux/RPMS/noarch/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.noarch.rpm");
+print "Moved to rpm/$pkgname-$ver-$rel.noarch.rpm\n";
+system("mv /usr/src/OpenLinux/SRPMS/$pkgname-$ver-$rel.src.rpm rpm/$pkgname-$ver-$rel.src.rpm");
+print "Moved to rpm/$pkgname-$ver-$rel.src.rpm\n";
+system("chown jcameron: rpm/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.src.rpm");
+if (!$nosign) {
+	system("rpm --resign rpm/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.src.rpm");
+	}
 
 

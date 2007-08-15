@@ -77,3 +77,5 @@ Implemented a completely new mail indexing system, based on a unique ID for each
 Added a link when composing email to switch between HTML and plain-text modes.
 Updated all user interface code to use the new Usermin-standard UI functions, leading to a more themable and consistent look.
 Messages marked as 'Special' are now automatically added to a virtual folder named 'Special', which makes them easier to find.
+---- Changes since 1.290 ----
+When deleted email is references by a virtual folder, the folder will be updated to remove the email from its index.

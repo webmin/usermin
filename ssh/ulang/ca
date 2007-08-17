@@ -1,0 +1,83 @@
+index_title=Configuració de SSH
+index_setup=Encara no s'ha configurat SSH per al teu compte. Fes clic al botó de sota per configurar-lo, després d'introduir una contrasenya SSH opcional addicional.
+index_sok=Configura SSH amb la contrasenya:
+index_essh=No s'ha trobat al sistema l'ordre $1. Molt probablement, SSH no està instal·lat.
+index_return=al menú de SSH
+
+setup_err=No he pogut configurar SSH
+
+auths_title=Claus Autoritzades
+auths_desc=Aquesta pàgina llista les claus públiques SSH que es poden utilitzar per entrar en aquest servidor, sense donar cap contrasenya.
+auths_name=Nom de la Clau
+auths_key=Dígits de la Clau
+auths_none=No s'ha registrat cap clau autoritzada.
+auths_add1=Afegeix una nova clau autoritzada SSH 1.
+auths_add2=Afegeix una nova clau autoritzada SSH 2.
+auths_return=a les claus autoritzades
+
+auth_edit=Edició de Clau Autoritzada
+auth_create=Addició de Clau Autoritzada
+auth_desc1=Aquesta pàgina permet afegir una nova clau autoritzada, que permetrà al seu propietari d'entrar al teu compte d'aquest servidor. Els detalls de la clau de sota haurien de provenir de la clau pública de l'usuari al qual estàs permetent l'entrada.
+auth_header1=Detalls i opcions de la clau autoritzada SSH 1
+auth_header2=Detalls i opcions de la clau autoritzada SSH 2
+auth_name=Nom de la clau
+auth_bits=Bits de la clau
+auth_exp=Exponent de la clau
+auth_key=Dígits de la clau
+auth_from=Permet l'entrada des dels hosts
+auth_from_all=Tots els hosts
+auth_from_sel=Només els hosts llistats
+auth_command=Permet només l'execució de l'ordre
+auth_noport=Permet el reenviament de ports
+auth_nox11=permet el reenviament X11
+auth_noagent=Permet el reenviament d'agents
+auth_nopty=Permet la ubicació de PTYs
+auth_err=No he pogut desar la clau autoritzada
+auth_ename=Hi falta el nom de la clau o bé és invàlid
+auth_ebits=Hi falta el nombre de bits o bé és invàlid
+auth_eexp=Hi falta l'exponent de la clau o bé és invàlid
+auth_ekey=Hi falten els dígits de la clau o bé són invàlids
+auth_ekey2=Hi falten els dígits del text de la clau o bé són invàlids
+auth_keytype=Tipus de clau SSH
+auth_dss=DSS
+auth_rsa=RSA
+
+knowns_title=Hosts Remots Coneguts
+knowns_desc=Aquesta pàgina llista les claus SSH conegudes dels servidors remots als quals has entrat, cosa que permet els programes client SSH de verificar que realment s'estan connectant a aquest host per a futures sessions.
+knowns_hosts=Nom(s) de Host
+knowns_key=Dígits de la clau
+knowns_add=Afegeix un nou host conegut.
+knowns_none=Encara no s'ha registrat cap host remot conegut.
+knowns_return=als hosts remots coneguts
+knowns_delete=Suprimeix els Hosts Remots Seleccionats
+
+known_edit=Edició de Host Remot
+known_create=Addició de Host Remot
+known_desc1=Aquesta pàgina permet afegir la clau pública d'un host remot al qual vols entrar amb SSH, de manera que les connexions a aquest host no es puguin interceptar. Això succeeix automàticament quan entres a un host remot al qual no t'havies connectat mai.
+known_header=Detalls del host remot conegut
+known_hosts=Noms de host / adreces IP
+known_bits=Bits de la clau
+known_exp=Exponent de la clau
+known_key=Dígits de la clau
+known_comment=Comentari del host
+known_err=No he pogut desar el host conegut
+known_ehosts=No has introduït cap nom de host
+
+keys_title=Les Teves Claus
+keys_desc1=La teva clau privada SSH és emprada pels programes clients SSH per autenticar-te davant els hosts remots quan hi entres. Si canvies aquesta clau, també hauràs de canviar la teva clau d'autorització a tots els hosts remots on entris.
+keys_download=Descarrega Clau
+keys_downloadmsg=Fes clic sobre aquest botó per descarregar la teva clau privada SSH. Un cop baixada, es pot pujar a un altre servidor utilitzant aquesta pàgina.
+keys_upload=Puja la Clau:
+keys_uploadmsg=Fes clic sobre aquest botó per pujar una nova clau privada SSH. Ha de set un fitxer de clau SSH 1.0 vàlid d'un altre servidor o compte.
+keys_desc2=La teva clau pública SSH no s'utilitza per a cap autenticació ni entrada remota en aquest servidor, però es pot copiar a la llista de claus autoritzades de qualsevol host al qual vulguis entrar. Si canvies la teva clau privada, també s'hauria d'actualitzar aquesta clau pública a partir de la mateixa font.
+keys_public=Clau pública SSH
+keys_perr=No he pogut desar la clau pública
+keys_epublic=Hi falta el text de la clau pública
+keys_epubwrite=No he pogut gravar el fitxer de clau pública: $1
+keys_err=No he pogut desar la clau privada
+keys_eprivate=No has seleccionat cap clau privada per pujar
+keys_eformat=No sembla que el fitxer pujat sigui una clau privada
+keys_epriwrite=No he pogut gravar el fitxer de clau privada: $1
+
+hosts_title=Opcions del Host
+

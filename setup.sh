@@ -423,6 +423,11 @@ else
 	echo "pam=usermin" >> $cfile
 	#echo "denyusers=root" >> $cfile
 
+	# Append package-specific info to config file
+	if [ -r "$wadir/miniserv-conf" ]; then
+		cat "$wadir/miniserv-conf" >>$cfile
+	fi
+
 	ufile=$config_dir/miniserv.users
 	echo "user:x:0::" > $ufile
 	chmod 644 $ufile
@@ -459,9 +464,13 @@ EOF
 	echo ""
 
 	echo "Creating access control file.."
+	defmods=`cat "$wadir/defaultmodules" 2>/dev/null`
+	if [ "$defmods" = "" ]; then
+		defmods="$allmods"
+	fi
 	afile=$config_dir/webmin.acl
 	rm -f $afile
-	echo "user: $allmods" >> $afile
+	echo "user: $defmods" >> $afile
 	chmod 644 $afile
 	echo "..done"
 	echo ""

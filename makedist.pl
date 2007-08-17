@@ -1,7 +1,12 @@
 #!/usr/local/bin/perl
 
+if ($ARGV[0] eq "--webmail" || $ARGV[0] eq "--webmail") {
+	# Modding for webmail
+	$webmail = 1;
+	shift(@ARGV);
+	}
 if (@ARGV != 1) {
-	die "usage: makedist.pl <version>";
+	die "usage: makedist.pl [--webmail] <version>";
 	}
 $vers = $ARGV[0];
 
@@ -37,10 +42,21 @@ $vers = $ARGV[0];
 	  "htaccess-htpasswd", "schedule", "mailcap", "blue-theme",
 	  "filter",
 	 );
+if ($webmail) {
+	@mlist = grep { $_ ne "blue-theme" &&
+			$_ ne "caldera" &&
+			$_ ne "mscstyle3" } @mlist;
+	push(@mlist, "virtual-server-theme");
+	}
 
 chdir("/usr/local/useradmin");
 system("./koi8-to-cp1251.pl");
-$dir = "usermin-$vers";
+if ($webmail) {
+	$dir = "usermin-webmail-$vers";
+	}
+else {
+	$dir = "usermin-$vers";
+	}
 system("rm -rf tarballs/$dir");
 mkdir("tarballs/$dir", 0755);
 
@@ -64,6 +80,36 @@ foreach $m (@mlist) {
 		}
 	closedir(DIR);
 	system("cp -r -L $flist tarballs/$dir/$m");
+	}
+
+if ($webmail) {
+	# Change default configs for IMAP-based webmail, with framed theme
+	# and limited set of modules
+	system("echo virtual-server-theme >tarballs/$dir/defaulttheme");
+	foreach $cf (glob("tarballs/$dir/mailbox/config-*")) {
+		local %mconfig;
+		&read_file($cf, \%mconfig);
+		$mconfig{'from_map'} = "/etc/postfix/virtual";
+		$mconfig{'from_format'} = 1;
+		$mconfig{'mail_system'} = 4;
+		$mconfig{'pop3_server'} = 'localhost';
+		$mconfig{'mail_qmail'} = undef;
+		$mconfig{'mail_dir_qmail'} = 'Maildir';
+		$mconfig{'server_attach'} = 0;
+		&write_file($cf, \%mconfig);
+		}
+	system("echo changepass theme filter mailbox spam gnupg >tarballs/$dir/defaultmodules");
+	foreach $cf ("tarballs/$dir/config", glob("tarballs/$dir/config-*")) {
+		next if ($cf =~ /config\-lib\.pl$/);
+		local %uconfig;
+		&read_file($cf, \%uconfig);
+		$uconfig{'gotomodule'} = 'mailbox';
+		&write_file($cf, \%uconfig);
+		}
+	local %mconf;
+	$mconf{'session'} = 0;
+	$mconf{'pass_password'} = 1;
+	&write_file("tarballs/$dir/miniserv-conf", \%mconf);
 	}
 
 # Update module.info and theme.info files with depends and version
@@ -92,32 +138,44 @@ while($d = readdir(DIR)) {
 closedir(DIR);
 
 # Remove useless .bak, test and other files, and create the tar.gz file
-print "Creating usermin-$vers.tar.gz\n";
+if ($webmail) {
+	print "Creating usermin-webmail-$vers.tar.gz\n";
+	}
+else {
+	print "Creating usermin-$vers.tar.gz\n";
+	}
 system("find tarballs/$dir -name '*.bak' -o -name test -o -name '*.tmp' -o -name '*.site' -o -name core -o -name .xvpics -o -name .svn | xargs rm -rf");
-system("cd tarballs ; tar chf - $dir | gzip -c >usermin-$vers.tar.gz");
-
-# Create per-module .wbm files
-print "Creating modules\n";
-opendir(DIR, "tarballs/$dir");
-while($d = readdir(DIR)) {
-	# create the module.wbm file
-	local $minfo = "tarballs/$dir/$d/module.info";
-	next if (!-r $minfo);
-	unlink("umodules/$d.wbm", "umodules/$d.wbm.gz");
-	system("(cd tarballs/$dir ; tar chf - $d | gzip -c) >umodules/$d.wbm.gz");
+if ($webmail) {
+	system("cd tarballs ; tar chf - $dir | gzip -c >usermin-webmail-$vers.tar.gz");
 	}
-closedir(DIR);
-
-# Create the signature file
-unlink("sigs/usermin-$vers.tar.gz-sig.asc");
-system("gpg --armor --output sigs/usermin-$vers.tar.gz-sig.asc --default-key jcameron\@webmin.com --detach-sig tarballs/usermin-$vers.tar.gz");
-
-# Create a change log for this version
-$lastvers = sprintf("%.2f0", $vers - 0.005);	# round down to last stable
-if ($lastvers == $vers) {
-	$lastvers = sprintf("%.2f0", $vers-0.006);
+else {
+	system("cd tarballs ; tar chf - $dir | gzip -c >usermin-$vers.tar.gz");
 	}
-system("./showchangelog.pl --html $lastvers >/home/jcameron/webmin.com/uchanges-$vers.html");
+
+if (!$webmail) {
+	# Create per-module .wbm files
+	print "Creating modules\n";
+	opendir(DIR, "tarballs/$dir");
+	while($d = readdir(DIR)) {
+		# create the module.wbm file
+		local $minfo = "tarballs/$dir/$d/module.info";
+		next if (!-r $minfo);
+		unlink("umodules/$d.wbm", "umodules/$d.wbm.gz");
+		system("(cd tarballs/$dir ; tar chf - $d | gzip -c) >umodules/$d.wbm.gz");
+		}
+	closedir(DIR);
+
+	# Create the signature file
+	unlink("sigs/usermin-$vers.tar.gz-sig.asc");
+	system("gpg --armor --output sigs/usermin-$vers.tar.gz-sig.asc --default-key jcameron\@webmin.com --detach-sig tarballs/usermin-$vers.tar.gz");
+
+	# Create a change log for this version
+	$lastvers = sprintf("%.2f0", $vers - 0.005);	# round down to last stable
+	if ($lastvers == $vers) {
+		$lastvers = sprintf("%.2f0", $vers-0.006);
+		}
+	system("./showchangelog.pl --html $lastvers >/home/jcameron/webmin.com/uchanges-$vers.html");
+	}
 
 # read_file(file, &assoc, [&order])
 # Fill an associative array with name=value pairs from a file

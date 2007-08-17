@@ -1,0 +1,34 @@
+index_title=Canvi de Contrasenya
+index_desc1=Fes servir aquesta pàgina per canviar la contrasenya que utilitzes per entrar al servidor via SSH, telnet o FTP, o per recuperar correu via POP3.
+index_desc2=També es canviarà la contrasenya Samba utilitzada en accedir als fitxers del servidor des d'un sistema Windows.
+index_for=Canviant la contrasenya de l'usuari
+index_old=Contrasenya actual
+index_new1=Nova contrasenya
+index_new2=Altre cop la nova contrasenya
+index_change=Canvia-la Ara
+index_return=al formulari de canvi de contrasenya
+
+change_err=No he pogut canviar la contrasenya
+change_title=Contrasenya Canviada
+change_ok=La teva contrasenya de $1 s'ha canviat correctament. D'ara en endavant, totes les entrades telnet, SSH, FTP o POP3 demanaran aquesta contrasenya.
+change_enew1=Hi falta la nova contrasenya
+change_enew2=Les noves contrasenyes no són iguals
+change_eold=La contrasenya antiga és incorrecta
+change_epam2=Error PAM: $1
+change_samba=La contrasenya Samba de compartició de fitxers windows també s'ha canviat.
+change_samba2=No obstant, la teva contrasenya Samba no s'ha canviat: $1
+change_mysql=La contrasenya de bases de dades MySQL també s'ha canviat.
+change_mysql2=No obstant, la contrasenya de bases de dades MySQL no s'ha canviat: $1
+change_ecmd=$1 ha fallat: $2
+change_epasswd=No s'ha trobat al sistema l'ordre $1, i el mòdul Authen::PAM de perl no està instal·lat. Almenys un dels dos ha d'estar disponible per poder canviar contrasenyes.
+change_inbox=La teva contrasenya $1 de la bústia d'entrada també s'ha canviat.
+change_folder=La teva contrasenya de la carpeta $1 a $2 també s'ha canviat.
+change_euser=No he trobat el teu nom al fitxer de contrasenyes
+change_epasswd_min=La contrasenya ha de tenir almenys $1 lletres de llarg
+change_epasswd_re=La contrasenya no coincideix amb el patró $1
+change_epasswd_dict=La contrasenya és una paraula de diccionari
+change_epasswd_same=La contrasenya conté o és igual que el nom d'usuari
+change_epasswd_new=La contrasenya és igual que la contrasenya antiga
+change_emysql=L'entrada actual al mòdul MySQL és incorrecta.
+
+

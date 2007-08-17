@@ -1,0 +1,32 @@
+main_title=Usermin $1 a $2 ($3)
+main_title2=Usermin
+main_none=No tens accés a cap mòdul Usermin.
+
+category_mail=Correu
+category_usermin=Usermin
+category_login=Entrada
+category_apps=Aplicacions
+
+longcategory_usermin=Mòduls per configurar el propi Usermin
+longcategory_mail=Mòduls per llegir, recuperar i processar correu electrònic
+longcategory_login=Mòduls relacionats amb l'entrada al sistema
+longcategory_apps=Mòduls per a bases de dades, xifratge, llocs web i altres aplicacions
+
+header_webmin=Índex d'Usermin
+header_config=Preferències
+
+programname=Usermin
+
+config_title=Preferències
+
+feedback_title=Informe d'Usermin
+feedback_desc=Aquest formulari permet informar d'errors o fer suggerències als desenvolupadors d'Usermin sobre qualsevol problema o característica inexistent que puguis haver trobat. Quan facis clic sobre el botó Envia, els detalls introduïts al formulari s'enviaran per correu electrònic a $1.
+feedback_desc2=Aquest informe s'enviarà al desenvolupador d'Usermin, no a l'administrador del teu sistema, ISP ni companyia d'hostalatge. Si et plau, escriu el teu informe en anglès, encara que estiguis executant Webmin en un altre idioma.
+feedback_configdesc=Si selecciones aquesta opció el correu inclourà les teves preferències del mòdul implicat i el contingut de qualsevol fitxer de configuració utilitzat pel mòdul.
+
+session_header=Entrada a Usermin
+session_mesg=Per entrar al servidor Usermin de $1, has d'introduir un nom d'usuari i una contrasenya.
+
+pam_header=Entrada a Webmin
+pam_mesg=Per entrar al servidor Webmin de $1, has de respondre la pregunta de sota.
+

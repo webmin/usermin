@@ -19,6 +19,8 @@ find . -name "*~" -o -name "*.rej" -o -name "*.orig" | xargs rm
 
  x Build .tar.gz, RPM and Debian packages
 
+ x create -webmail packages, and upload
+
  x Upload files to sourceforge
 
  x Upload signatures to sourceforge (with copy-sigs.sh)
@@ -27,15 +29,17 @@ find . -name "*~" -o -name "*.rej" -o -name "*.orig" | xargs rm
 
  x Copy module .wbm files to sourceforge (with modules-release.sh)
 
- x Update and upload website HTML, including lang_list.html and standard.html
+ x Upload Debian files to site, with :
+	scp deb/usermin_*.dsc deb/usermin_*.diff download.webmin.com:htdocs/download/deb/
+
+ x Update and upload website HTML, including ulang_list.html and ustandard.html
 
  - Update freshmeat.net entry
 
- - Send to mailing list
+ x Send to mailing list
 
  x Add version to bug tracker
 
  x Add new modules to bug tracker
 
  x notify sourceforge file users
-

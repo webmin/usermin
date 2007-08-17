@@ -1,0 +1,15 @@
+index_title=Fitxers d'Opcions d'Apache
+index_desc=Aquest mòdul permet editar els fitxers $1 que configuren opcions dels directoris servits pel servidor web Apache. Les opcions s'apliquen a tots els fitxers del directori i a tots els subdirectoris, excepte quan són redefinides per un altre fitxer d'opcions.
+index_header=Fitxers d'Opcions Existents
+index_none=Encara no s'ha creat cap fitxer d'opcions.
+index_create=Afegeix opcions a:
+index_createdesc=Crea un nou fitxer d'opcions al directori especificat.
+index_find=Busca fitxers d'opcions a:
+index_finddesc=Busca dins el directori introduït qualsevol fitxer $1 que s'hagi creat a mà. Fins que no s'hagin trobat fitxers creats a mà, no es poden editar utilitzant aquest mòdul.
+index_return=a la llista de fitxers d'opcions
+index_apache=No s'ha trobat la versió d'Apache ni la informació del mòdul al directori de configuració $1 de Webmin. Aquest mòdul necessita que Webmin estigui instal·lat i els seu mòdul Apache estigui apropiadament configurat.
+
+find_title=Cerca de Fitxers d'Opcions
+find_list=S'han trobat els següents fitxers sota $1...
+find_none=No s'ha trobat cap fitxer d'opcions $1 sota $2.
+

@@ -7,3 +7,4 @@ desc_ja_JP.euc=¥é¥ó¥Ë¥ó¥° ¥×¥í¥»¥¹
 os_support=solaris *-linux hpux freebsd osf1 irix unixware openserver macos aix netbsd openbsd qnx
 longdesc=View all processes running on the system, kill those belonging to your, and start new ones.
 desc_fr=Gestionnaire de processus
+desc_ca=Processos en Execució

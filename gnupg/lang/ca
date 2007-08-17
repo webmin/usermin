@@ -1,0 +1,197 @@
+index_title=Xifratge GnuPG
+index_setupdesc=Encara no s'ha configurat GnuPG al teu compte. Utilitza el formulari de sota per crear una nova clau privada GnuPG, que necessitaràs fer xifrar i signar.
+index_name=El teu nom
+index_email=Adreça e-mail
+index_comment=Comentari de la clau
+index_size=Mida de la clau
+index_pass=Frase de pas
+index_setup=Configura GnuPG
+index_return=a l'índex de GnuPG
+index_egpg=No s'ha trobat al sistema l'ordre $1 de GnuPG. Pot ser que no estigui instal·lada.
+
+setup_err=No he pogut configurar GnuPG
+setup_ename=Hi falta el nom de la clau
+setup_enamelen=El nom de la clau ha de tenir almenys $1 caràcters de llarg
+setup_eemail=Hi falta l'adreça e-mail de la clau
+setup_title=Configuració de GnuPG
+setup_ok=GnuPG s'ha configurat correctament i s'ha generat una clau secreta.
+setup_failed=No he pogut crear la clau secreta: $1
+setup_emkdir=No he pogut crear el directori .gnupg: $1
+
+keys_title=Gestió de Claus
+keys_desc=Aquesta pàgina llista totes les claus públiques del teu clauer GnuPG. Per tal de xifrar un fitxer destinat a algú, has d'importar la seva clau pública de manera que aparegui en aquesta pàgina.
+keys_id=ID de la clau
+keys_secret=Clau secreta
+keys_date=Data de creació
+keys_name=Nom del propietari
+keys_email=E-mail del propietari
+keys_importdesc=Si t'han donat la clau d'un altre usuari de GnuPG en un fitxer, has d'utilitzar aquest formulari per importar-la a la teva llista de claus.
+keys_import=Importa la Clau
+keys_recvdesc=També es poden obtenir claus del servidor $1 si coneixes l'ID de la clau que vols.
+keys_recv=Obtingues ID de clau del servidor de claus:
+keys_return=a la llista de claus
+keys_from=Importa la clau de
+keys_mode0=Un fitxer pujat
+keys_mode1=Un fitxer del servidor
+keys_delete=Suprimeix les Claus Seleccionades
+
+import_err=No he pogut importar la clau
+import_ekey=No has seleccionat cap fitxer de claus
+import_egpg=GnuPG ha fallat: $1
+import_efile=Hi falta el fitxer de claus o bé és invàlid
+
+key_title=Detalls de la Clau Pública
+key_header=Detalls de la clau
+key_id=Key ID
+key_date=Data de creació
+key_owner=Detalls del propietari
+key_oname=Nom i comentari
+key_oemail=Email address
+key_addowner=Afegeix
+key_finger=Empremta digital de la clau
+key_ascii=Clau en format ascii
+key_sign=Signa la Clau
+key_exportform=Exporta
+key_desc=Aquesta pàgina mostra els detalls complets d'una de les claus del teu clauer. Si vols donar aquesta clau a algú altre per tal que hi pugui xifrar fitxers, utilitza els botons del peu de la pàgina per exportar-la a un fitxer.
+key_send=Envia-la al Servidor de Claus
+key_changepass=Canvia la frase de pas a
+key_setpass=Estableix la frase de pas a
+key_passdesc=Aquesta clau encara no té cap frase de pas, així que n'has d'introduir una aquí.
+key_passdesc2=Aquesta clau ja té una frase de pas, així que probablement no cal que la canviïs.
+key_trust=Nivell de confiança de la clau
+key_trust_0=Encara no establert
+key_trust_1=Nivell de confiança desconegut
+key_trust_2=No fiable
+key_trust_3=Marginalment fiable
+key_trust_4=Completament fiable
+key_changetrust=Canvia
+key_del=Suprimeix la Clau
+
+encrypt_title=Xifratge de Fitxer
+encrypt_desc=Utilitza aquesta pàgina per xifrar un fitxer amb GnuPG i una clau pública triada. Un cop xifrat, el resultat serà desxifrable només pel propietari de la clau privada corresponent.
+encrypt_mode=Fitxer a xifrar
+encrypt_mode0=Fitxer pujat
+encrypt_mode1=Fitxer local
+encrypt_key=Emprant la clau pública
+encrypt_ascii=Xifra a fitxer ASCII
+encrypt_ok=Xifra'l Ara
+encrypt_err=No he pogut xifrar el fitxer
+encrypt_eupload=No has seleccionat cap fitxer per xifrar
+encrypt_elocal=El fitxer seleccionat no existeix o bé no és legible
+encrypt_egpg=GnuPG ha fallat: $1
+
+decrypt_title=Desxifratge de Fitxer
+decrypt_desc=Utilitza aquesta pàgina per desxifrar un fitxer que ha estat xifrat utilitzant la teva clau pública, ja sigui per tu mateix o per qualsevol altre que tingui la teva clau.
+decrypt_mode=Fitxer a desxifrar
+decrypt_mode0=Fitxer pujat
+decrypt_mode1=Fitxer local
+decrypt_pass=Frase de pas de la clau privada
+decrypt_ok=Desxifra'l Ara
+decrypt_def=Frase de pas actual
+decrypt_err=No he pogut desxifra el fitxer
+decrypt_eupload=No has seleccionat cap fitxer per desxifrar
+decrypt_elocal=El fitxer seleccionat no existeix o bé no és legible
+decrypt_egpg=GnuPG ha fallat: $1
+
+sign_title=Signatura de Fitxer
+sign_desc=Utilitza aquesta pàgina per signar un fitxer de forma que es pugui verificar que l'has signat tu i que no ha estat modificat d'ençà de la signatura.
+sign_mode=Fitxer a signar
+sign_mode0=Fitxer pujat
+sign_mode1=Fitxer local
+sign_key=Signa emprant la clau secreta
+sign_ascii=Afegeix la signatura com a text al final del fitxer
+sign_ok=Signa'l Ara
+sign_err=No he pogut signar el fitxer
+sign_eupload=No has seleccionat cap fitxer per signar
+sign_elocal=El fitxer seleccionat no existeix o bé no és legible
+sign_egpg=GnuPG ha fallat: $1
+sign_epass=Encara no s'ha establert cap frase de pas per a la clau secreta triada
+sign_sep=Retorna només la signatura
+
+verify_title=Verificació de Signatura de Fitxer
+verify_desc=Utilitza aquesta pàgina per verificar un fitxer que ha estat signat amb GnuPG, per tal de comprovar que no ha estat modificat i saber qui l'ha signat. Si vols extreure les dades originals d'un fitxer binari signat, utilitza la <a href='$1'>pàgina de desxifratge</a>.
+verify_mode=Fitxer a verificar
+verify_mode0=Fitxer pujat
+verify_mode1=Fitxer local
+verify_sig=Signatura del fitxer
+verify_mode2=Cap (part del fitxer signat)
+verify_ok=Verifica'l Ara
+verify_err=No he pogut verificar el fitxer
+verify_eupload=No has seleccionat cap fitxer per verificar
+verify_elocal=El fitxer seleccionat no existeix o bé no és legible
+verify_esigupload=No has seleccionat cap fitxer de signatura
+verify_esiglocal=El fitxer de signatura no existeix o bé no és legible
+verify_egpg=GnuPG ha fallat: $1
+verify_good=El fitxer té una signatura vàlida de $1.
+verify_bad=El fitxer té una signatura de $1, però no és vàlida.
+verify_noid=La clau pública amb ID $1 no està disponible per a la seva verificació.
+verify_failed=No he pogut verificar la signatura: $1
+verify_warning=Atenció - Aquesta clau no ha estat verificada i signada a la teva pàgina de gestió de claus.
+
+signkey_title=Clau de Signatura
+signkey_confirm=Segur que vols signar la clau pertanyent a $1 $2 ? Això indicarà que has confirmat la validesa de la clau fent clic sobre la seva empremta digital ($3) amb el propietari.
+signkey_failed=No he pogut signar la clau pertanyent a $1: $2
+signkey_success=He signat correctament la clau pertanyent a $1.
+signkey_already=La clau pertanyent a $1 ja ha estat signada.
+signkey_trust=amb nivell de confiança
+signkey_trust0=Sense resposta
+signkey_trust1=Sense verificació
+signkey_trust2=Comprovada per sobre
+signkey_trust3=Comprovada acuradament
+
+send_title=Tramesa al Servidor de Claus
+send_desc=Enviant la clau $1 al servidor de claus $2...
+send_failed=No he pogut enviar la clau: $1
+send_success=Clau enviada correctament. Ara, els altres usuaris de GnuPG podran obtenir la teva clau pública per enviar correu i xifrar fitxers.
+
+recv_title=Obtenció a Partir del Servidor de Claus
+recv_desc=Obtenint l'ID de clau $1 del servidor de claus $2...
+recv_failed=No he pogut obtenir la clau: $1
+recv_same=Ja tens la clau de $1.
+recv_success=He importat correctament la calu de $1.
+
+secret_title=Addició de Clau Secreta
+secret_desc=Utilitza aquesta pàgina per generar una clau secreta addicional que pots fer servir per signar i desxifrar.
+secret_err=No he pogut afegir la clau secreta
+secret_ok=S'ha generat correctament una nova clau secreta.
+secret_name=Nom de la nova clau
+secret_setup=Crea la Nova Clau
+
+gnupg_esignpass=Encara no has establert cap frase de pas per a la clau de signatura
+gnupg_ecryptid=La clau secreta de xifratge no està disponible
+gnupg_ecryptkey=L'ID de clau secreta de xifratge $1 no està disponible
+gnupg_ecryptpass=Encara no s'ha establert scap frase de pas per a la clau secreta $1
+gnupg_canset=Per establir una frase de pas per a una clau existent, visita la <a href='$1'>pàgina de detalls de clau</a>
+
+trust_title=Establiment del Nivell de Confiança
+trust_echoice=Has de triar un nivell de confiança, no 'Encara no establert'.
+trust_done=He establert correctament el nivell de confiança de la clau $1.
+
+owner_err1=No he pogut afegir el propietari
+owner_ename=No has introduït cap nom
+owner_err2=No hepogut suprimir el propietari
+owner_elast=No òts suprimir els detalls del darrer propietari
+
+delkey_title=Supressió de Clau
+delkey_rusure=Segur que vols suprimir la clau secreta $1 $2? Els fitxers o correus xifrats amb ella ja no seran desxifrables!
+delkey_ok=Sí, suprimeix-la!
+
+delkeys_err=No he pogut suprimir les claus
+delkeys_enone=No has seleccionat cap clau
+
+export_title=Exportació de Clau
+export_desc=Aquesta pàgina permet exportar la clau $1 $2 del clauer, bé a un fitxer, bé per descarregar-la des del navegador.
+export_to=Mode d'exportació
+export_mode0=Mostra al navegador
+export_mode1=Desa a fitxer/directori
+export_format=Format d'exportació
+export_ascii=Text ASCII
+export_binary=Binari
+export_smode=Clau a exportar
+export_secret=La clau secreta i pública completes
+export_public=Només la clau pública
+export_ok=Exporta-la Ara
+export_err=No he pogut exportar la clau
+export_efile=No has introduït cap fitxer ni cap directori
+export_done=He desat la clau correctament al fitxer $1.
+

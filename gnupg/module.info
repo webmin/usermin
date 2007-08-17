@@ -7,3 +7,4 @@ desc_ja_JP.euc=GnuPG °Å¹æ²½
 desc_es=Encriptación usando GnuPG
 longdesc=Encrypt, decrypt, sign and verify files with GnuPG. Also supports key management and key generation.
 desc_de=GnuPG Verschl&#252;sselung
+desc_ca=Xifratge GnuPG

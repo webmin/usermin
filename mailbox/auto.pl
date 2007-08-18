@@ -19,10 +19,12 @@ foreach $f (@folders) {
 		# Find messages that are too old
 		@mails = &mailbox_list_mails(undef, undef, $f, 1);
 		$cutoff = time() - $auto->{'days'}*24*60*60;
+		$future = time() + 7*24*60*60;
 		foreach $m (@mails) {
 			$time = &parse_mail_date($m->{'header'}->{'date'});
 			if ($time && $time < $cutoff ||
-			    !$time && $auto->{'invalid'}) {
+			    !$time && $auto->{'invalid'} ||
+			    $time > $future && $auto->{'invalid'}) {
 				push(@delmails, $m);
 				}
 			}

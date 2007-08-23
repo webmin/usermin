@@ -431,7 +431,7 @@ dbmclose(%read);
 # Show footer links
 local @sr = !@sub ? ( ) :
     ( "view_mail.cgi?id=$qid&folder=$in{'folder'}", $text{'view_return'} ),
-&mail_page_footer(@sub ? ( "view_mail.cgi?dx=$qid&folder=$in{'folder'}",
+&mail_page_footer(@sub ? ( "view_mail.cgi?idx=$qid&folder=$in{'folder'}",
 		 $text{'view_return'} ) : ( ),
 	"index.cgi?folder=$in{'folder'}&start=$in{'start'}",
 	$text{'mail_return'});

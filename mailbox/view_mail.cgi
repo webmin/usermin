@@ -395,7 +395,7 @@ if ($deccode) {
 
 # Display DSN status
 if ($sent_dsn_to || $send_dsn_button || $got_dsn || @delmsgs) {
-	print &ui_table_row($text{'view_dsn'}, "width=100%", 1);
+	print &ui_table_start($text{'view_dsn'}, "width=100%", 1);
 	if ($sent_dsn_to) {
 		print &ui_table_row(undef,
 		      &text($sent_dsn ? 'view_dnsnow' : 'view_dsnbefore',

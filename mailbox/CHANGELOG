@@ -79,3 +79,4 @@ Updated all user interface code to use the new Usermin-standard UI functions, le
 Messages marked as 'Special' are now automatically added to a virtual folder named 'Special', which makes them easier to find.
 ---- Changes since 1.290 ----
 When deleted email is references by a virtual folder, the folder will be updated to remove the email from its index.
+Added a Save and Edit button to the compose mail form, to save a draft copy of a message and return to editing it immediately. This makes it easier to save large emails before sending them.

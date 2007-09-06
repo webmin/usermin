@@ -593,7 +593,8 @@ print &ui_tabs_end();
 print &ui_table_row($text{'mail_subject'},
 	&ui_textbox("subject", $subject, 40, 0, undef, "style='width:70%'").
 	"&nbsp;".&ui_submit($text{'reply_send'}).
-	"&nbsp;".&ui_submit($text{'reply_draft'}, "draft"),
+	"&nbsp;".&ui_submit($text{'reply_draft'}, "draft").
+	"&nbsp;".&ui_submit($text{'reply_save'}, "save"),
 	1, \@tds);
 print &ui_table_end(),"<p>\n";
 
@@ -749,7 +750,9 @@ print &ui_table_row(undef, &ui_links_row(\@addlinks), 2);
 print &ui_table_end();
 
 print &ui_form_end([ [ "send", $text{'reply_send'} ],
-		     [ "draft", $text{'reply_draft'} ] ]);
+		     [ "draft", $text{'reply_draft'} ],
+		     [ "save", $text{'reply_save'} ],
+		   ]);
 
 &mail_page_footer("index.cgi?folder=$in{'folder'}", $text{'mail_return'});
 &pop3_logout_all();

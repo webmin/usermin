@@ -21,6 +21,7 @@ if (!$in{'subject'}) {
 	}
 @sub = split(/\0/, $in{'sub'});
 $subs = join("", map { "&sub=$_" } @sub);
+$draft = $in{'draft'} || $in{'save'};
 
 # Construct the email
 if ($config{'edit_from'} == 2) {
@@ -229,7 +230,7 @@ if (@mailfwdids) {
 			      });
 		}
 	}
-if ($in{'sign'} ne '' && !$in{'draft'}) {
+if ($in{'sign'} ne '' && !$draft) {
 	# Put all the attachments into a single attachment, with the signature
 	# as the second attachment
 	&foreign_require("gnupg", "gnupg-lib.pl");
@@ -277,7 +278,7 @@ if ($in{'sign'} ne '' && !$in{'draft'}) {
 	}
 $mail->{'attach'} = \@attach;
 
-if ($in{'crypt'} ne '' && !$in{'draft'}) {
+if ($in{'crypt'} ne '' && !$draft) {
 	# Encrypt the entire mail
 	&foreign_require("gnupg", "gnupg-lib.pl");
 	local @keys = &foreign_call("gnupg", "list_keys");
@@ -344,13 +345,16 @@ $textonly = $userconfig{'no_mime'} && !$quoted_printable &&
 	    $mail->{'attach'}->[0] eq $bodyattach && !$in{'html_edit'};
 
 # Tell the user what is happening
-&mail_page_header($text{'send_title'});
-@tos = ( split(/,/, $in{'to'}), split(/,/, $in{'cc'}), split(/,/, $in{'bcc'}) );
-$tos = join(" , ", map { "<tt>".&html_escape($_)."</tt>" } @tos);
-print &text($in{'draft'} ? 'send_draft' : 'send_sending',
-		  $tos || $text{'send_nobody'}),"<p>\n";
+if (!$in{'save'}) {
+	&mail_page_header($draft ? $text{'send_title2'} : $text{'send_title'});
+	@tos = ( split(/,/, $in{'to'}), split(/,/, $in{'cc'}),
+		 split(/,/, $in{'bcc'}) );
+	$tos = join(" , ", map { "<tt>".&html_escape($_)."</tt>" } @tos);
+	print &text($draft ? 'send_draft' : 'send_sending',
+		    $tos || $text{'send_nobody'}),"<p>\n";
+	}
 
-if ($in{'draft'}) {
+if ($draft) {
 	# Save in the drafts folder
 	($dfolder) = grep { $_->{'drafts'} } @folders;
 	$qerr = &would_exceed_quota($dfolder, $mail);
@@ -420,6 +424,12 @@ if ($userconfig{'white_rec'}) {
 		    	  &split_addresses($in{'bcc'}) );
 	local @recip_addrs = map { $_->[0] } @recips;
 	&addressbook_add_whitelist(@recip_addrs);
+	}
+
+if ($in{'save'}) {
+	# Redirect back to editing the email
+	&redirect("reply_mail.cgi?folder=$dfolder->{'index'}&id=$mail->{'id'}&enew=1");
+	exit;
 	}
 
 if ($userconfig{'send_return'}) {

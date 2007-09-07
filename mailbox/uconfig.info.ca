@@ -1,0 +1,66 @@
+line0=Interfície d'usuari,11
+perpage=Missatges de correu a mostrar per pàgina,0,5
+wrap_width=Amplada de tall del text dels missatges,0,5
+top_buttons=Mostra a dalt els botons de,1,2-Bústies i correus,1-Només bústies,0-Mai
+arrows=Mostra a baix les fletxes de paginació de,1,2-Bústies i correus,1-Només bústies,0-Mai
+Mai
+show_to=Mostra l'adreça To: a les bústies,1,1-Sí,0-No
+auto_mark=Marca automàticament els missatges llegits,1,1-Sí,0-No
+refresh=Segons entre refrescs automàtics de la bústia,3,No la refresquis
+view_html=Mostra el cos del missatge com,4,0-Sempre text planer,1-Text si és possible&#44; HTML altrament,2-HTML si és possible&#44; text altrament,3-Converteix HTML a text planer
+head_html=Inclou a la pàgina el codi HTML de la secció <head> del missatge,1,1-Sí,0-No
+html_edit=Utilitza un editor HTML per a redactar,1,2-Sempre,1-En respondre un email HTML,0-Mai
+html_quote=Estil de citat HTML,1,1-Missatge sota &lt;hr&gt;,0-Missatge dins de &lt;blockquote&gt;
+reply_date=Inclou la data en citar correus,1,1-Sí,0-No
+check_mod=Comprova les modificacions de la bústia en suprimir correu,1,1-Sí,0-No
+open_mode=Obre els missatges,1,1-En una finestra nova,0-A la finestra de la llista
+link_mode=Obre els enllaços,1,1-En una finestra nova,0-A la mateixa finestra
+spell_check=Activa la correcció ortogràfica per defecte,1,1-Sí,0-No
+date_fmt=Format de la data a la llista de correus,1,dmy-DD/MM/AAAA,mdy-MM/DD/AAAA,ymd-AAAA/MM/DD
+date_tz=Zona horària per a mostrar les dates,3,Valor per defecte del sistema
+
+line1=Tramesa de correu,11
+no_mime=Envia missatges només text quan sigui possible,1,1-Sí,0-No
+save_sent=Desa el correu enviat,1,1-Sí,0-No
+real_name=Inclou el nom real a l'adreça From:,1,1-Sí,0-No
+charset=Joc de caràcters del correu enviat,0,15
+sig_file=Fitxer de signatura,10,*-Cap,.signature-~/.signature,Un altre fitxer
+self_crypt=Xifra també el correu amb la teva clau secreta,1,1-Sí,0-No
+fwd_mode=Reenvia els missatges citats,1,0-Sí,1-No
+from_in_to=Mostra les adreces From: en seleccionar una adreça To:,1,1-Sí,0-No
+sort_addrs=Ordena la llibreta d'adreces per,1,0-Ordre d'addició,1-Nom real,2-Adreça e-mail
+reply_to=Adreça Reply-to:,10,x-Cap,*-Tria&3045;la en enviar,Adreça...
+req_dsn=Demana confirmació de lectura,1,1-Sempre,2-Opcionalment,0-No
+send_dsn=Respon les peticions de confirmació de lectura,1,1-Automàticament,2-Manualment,0-No
+req_del=Demana confirmació de recepció,1,1-Sempre,2-Opcionalment,0-No
+bcc_to=Fes còpia cega dels missatges enviats a,0
+add_abook=Afegeix els destinataris del correu a la llibreta d'adreces,1,1-Sí,0-No
+real_expand=Consulta els noms reals en enviar,1,1-Sí,0-No
+force_subject=Acció si hi manca l'assumpte del missatge a enviar,10,-No facis res,error-Mostra un missatge d'error,Estableix a
+send_return=Després d'enviar el correu&#44; mostra,1,1-La llista de correus,0-La pàgina de Correu Enviat
+def_attach=Nombre per defecte d'adjuncions pujades,0,8
+
+line3=Carpetes de correu,11
+mailbox_dir=Directori de bústies sota el directori arrel,0,30
+mailbox_recur=Tracta els subdirectoris de bústies com,1,1-Carpetes,0-Subdirectoris
+default_folder=Fitxer de carpetes per defecte,3,Entrada
+delete_warn=Demana confirmació abans de suprimir,10,y-Sí,n-No,Per a fitxers mbox més grans de
+delete_mode=En suprimir correu,1,0-Esborra'l del fitxer de correu,1-Desplaça'l a la Paperera
+folder_sort=Mode d'ordenació de les carpetes,4,0-Integrat&#44; llavors ~/mail&#44; llavors extern,1-Integrat&#44; llavors la resta ordenades per nom,2-Totes ordenades per nom
+related_search=Busca el mateix assumpte o el mateix remitent a,1,1-Totes les carpetes,2-Totes les carpetes locals,0-La carpeta actual
+search_latest=Missatges a buscar,10,-Tots els missatges,Només els més recents
+show_body=Mostra previsualitzacions del cos del missatge a la llista,1,1-Sí,0-No
+show_delall=Mostra el botó per suprimir tota la bústia,1,1-Sí,0-No
+sent_name=Fitxer de carpeta de correu enviat,3,Automàtic
+drafts_name=Fitxer de carpeta d'esborranys,3,Automàtic
+
+line4=Opcions de spam,11
+spam_buttons=Mostra els botons d'informe de spam de,2,list-Les bústies,mail-Els missatges
+ham_buttons=Mostra els botons d'informe de no-spam de,2,list-Les bústies,mail-Els missatges
+spam_del=Suprimeix el spam després d'informar-lo,1,1-Sí,0-No
+white_rec=Afegeix els destinataris del correu a la llista blanca,1,1-Sí,0-No
+white_book=Afegeix totes les entrades de la llibreta d'adreces a la llista blanca,1,1-Sí,0-No
+
+line5=Opcions d'adjunció,11
+thumbnails=Mostra les imatges adjuntades com a miniatures,1,1-Sí,0-No
+download=Tipus MIME d'adjuncions que sempre s'han de descarregar,9,20,4,\t

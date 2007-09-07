@@ -1,0 +1,48 @@
+line1=Format i ubicació de la bústia d'entrada,11
+mail_system=Format d'emmagatzematge de la bústia d'entrada,4,0-Fitxer únic estil Sendmail (mbox),1-Directori estil Qmail (Maildir),3-Directori estil MH (MH),2-Servidor POP3 remot,4-Servidor IMAP remot
+mail_dir=Ubicació del fitxer de correu Sendmail,3,Fitxer al directori arrel
+mail_file=Fitxer de correu Sendmail al directori arrel,0
+mail_qmail=Ubicació del directori Qmail o MH,3,Subdirectori del directori arrel
+mail_dir_qmail=Directori Qmail o MH directori al directori arrel,0
+mail_style=Estil de carpetes de correu,4,0-mail/usuari,1-mail/u/usuari,2-mail/u/us/usuari,3-mail/u/s/usuari
+pop3_server=Nom del servidor POP3 o IMAP,3,<tt>localhost</tt>
+
+line2=Tramesa de correu,11
+send_mode=Envia el correu a través d'una connexió amb,3,l'executable Sendmail
+no_crlf=Afegeix un retorn de carro (\r) a cada línia,1,0-Sí,1-No
+smtp_user=Nom d'usuari per al servidor de correu SMTP,3,Cap
+smtp_pass=Contrasenya per al servidor de correu SMTP,3,Cap
+smtp_auth=Mètode d'autenticació de SMTP,4,-Per defecte,Cram-MD5-Cram&#45;MD5,Digest-MD5-Digest&#45;MD5,Plain-Planer,Login-Login
+sendmail_path=Ordre de Sendmail,0
+
+line3=Usuari de les adreces,11
+server_name=Nom de host per defecte de les adreces From:,10,-El nom de host real,*-El d'un URL,ldap-Consulta LDAP
+edit_from=Permet l'edició de les adreces From:,1,1-Sí,0-No (sempre usuari@nomdehost),2-Només la part de l'usuari
+from_map=Fitxer de mapejat d'adreces From:,3,Cap
+from_format=Format del fitxer de mapejat d'adreces,1,0-Usuari a adreça (genericstable),1-Adreça a usuari (virtusertable)
+
+line3.5=Opcions de Qmail+LDAP,11
+ldap_host=Servidor LDAP,3,No utilitzat
+ldap_port=Port LDAP,3,Per defecte
+ldap_login=Usuari del servidor LDAP,0
+ldap_pass=Contrasenya del servidor LDAP,0
+ldap_base=Base dels usuaris de correu,0
+
+line3.6=Opcions de spam,11
+spam_report=Informa del spam utilitzant,1,sa_learn-sa&$45;learn --spam,spamassassin-spamassasin -r,-Decidex-ho automàticament
+spam_always=Mostra les opcions de spam si el mòdul de SpamAssassin,1,1-Està instal·lat,0-Està instal·lat i disponible
+
+line3.7=Opcions de quota de correu,11
+max_quota=Mida màxima permesa de toptes les carpetes (bytes),3,Il·limitada
+ldap_quotas=Força quotes LDAP,1,1-Sí,0-No
+
+line4=Altres configuracions i restriccions,11
+server_attach=Permet l'accés als fitxers del cantó del servidor,1,2-Adjunció i desadjunció,1-Només adjunció,0-No
+max_attach=Mida màxima total de les adjuncions,3,Il·limitada
+global_address=Fitxer de llibreta d'adreces global,3,Cap
+global_address_group=Fitxer de llibreta d'adreces de grup global,3,Cap
+folder_types=Tipus de carpetes reals permeses,2,local-Fitxer sota ~/mail,ext-Fitxer extern,pop3-Servidor POP3,imap-Servidor IMAP
+folder_virts=Tipus de carpetes virtuals permeses,2,virt-Virtuals,comp-Compostes
+pop_locks=Comprova els fitxers de blocatge POP3,1,1-Sí,0-No
+shortindex=Nom de fitxer base dels fitxer d'índex,1,1-La darrera part del nom del fitxer,0-Nom del fitxer complet
+

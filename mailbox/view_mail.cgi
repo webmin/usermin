@@ -309,26 +309,28 @@ if ($dstatus) {
 
 # Display other attachments
 if (@attach) {
-	print &ui_table_start($text{'view_attach'}, "width=100%", 1);
 	foreach $a (@attach) {
 		local $fn;
-		$size = (int(length($a->{'data'})/1000)+1)." Kb";
+		$size = &nice_size(length($a->{'data'}));
 		local $cb;
 		if ($a->{'type'} eq 'message/rfc822') {
-			push(@titles, "$text{'view_sub'}<br>$size");
+			push(@files, $text{'view_sub'});
 			}
 		elsif ($a->{'filename'}) {
-			push(@titles, &decode_mimewords($a->{'filename'}).
-				      "<br>$size");
+			# Known filename
+			push(@files, &decode_mimewords($a->{'filename'}));
 			$fn = &decode_mimewords($a->{'filename'});
 			push(@detach, [ $a->{'idx'}, $fn ]);
 			}
 		else {
-			push(@titles, "$a->{'type'}<br>$size");
+			# No filename
+			push(@files, "<i>$text{'view_anofile'}</i>");
 			$a->{'type'} =~ /\/(\S+)$/;
 			$fn = "file.$1";
 			push(@detach, [ $a->{'idx'}, $fn ]);
 			}
+		push(@sizes, $size);
+		push(@titles, $files[$#files]."<br>".$size);
 		if ($a->{'error'}) {
 			$titles[$#titles] .= "<br><font size=-1>($a->{'error'})</font>";
 			}
@@ -354,11 +356,23 @@ if (@attach) {
 			push(@icons, "images/boxes.gif");
 			}
 		}
-	print &ui_table_row(undef,
-		&capture_function_output(\&icons_table,
-			\@links, \@titles, \@icons, 6, undef,
-			$imgicons ? ( 0, 0 ) : ( )));
+	print &ui_columns_start([
+		$text{'view_afile'},
+		$text{'view_atype'},
+		$text{'view_asize'},
+		], 100, 0, [ "width=60%", "width=25%", "width=15%" ]);
+	for(my $i=0; $i<@files; $i++) {
+		print &ui_columns_row([
+			"<a href='$links[$i]'>$files[$i]</a>",
+			$attach[$i]->{'type'},
+			$sizes[$i],
+			]);
+		}
+	print &ui_columns_end();
+
+	# Show form to detact to server
 	if ($config{'server_attach'} == 2 && @detach) {
+		print &ui_table_start($text{'view_dheader'}, "width=100%", 1);
 		$dtach = &ui_submit($text{'view_detach'}, 'detach');
 		$dtach .= &ui_hidden("bindex", $body->{'idx'}) if ($body);
 		$dtach .= &ui_hidden("sindex", $sindex) if (defined($sindex));
@@ -369,8 +383,8 @@ if (@attach) {
 		$dtach .= &ui_textbox("dir", undef, 60)." ".
 			  &file_chooser_button("dir", 1);
 		print &ui_table_row(undef, $dtach);
+		print &ui_table_end();
 		}
-	print &ui_table_end();
 	}
 
 # Display GnuPG results

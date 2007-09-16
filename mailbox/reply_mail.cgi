@@ -681,7 +681,7 @@ if (@fwdmail) {
 	}
 
 # Javascript to increase attachments fields
-$uploader = &ui_upload("NAME", 60, 0, "style='width:100%'");
+$uploader = &ui_upload("NAME", 80, 0, "style='width:100%'");
 $uploader =~ s/\r|\n//g;
 $uploader =~ s/"/\\"/g;
 $ssider = &ui_textbox("NAME", undef, 60, 0, undef, "style='width:95%'").
@@ -723,7 +723,7 @@ print &ui_table_start($config{'server_attach'} ? $text{'reply_attach2'}
 # Uploaded attachments
 $atable = "";
 for($i=0; $i<$userconfig{'def_attach'}; $i++) {
-	$atable .= &ui_upload("attach$i", 60, 0, "style='width:100%'")."<br>";
+	$atable .= &ui_upload("attach$i", 80, 0, "style='width:100%'")."<br>";
 	}
 print &ui_hidden("attachcount", int($i)),"\n";
 print &ui_table_row(undef, $atable, 2, [ undef, "id=attachblock" ]);

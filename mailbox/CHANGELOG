@@ -80,3 +80,4 @@ Messages marked as 'Special' are now automatically added to a virtual folder nam
 ---- Changes since 1.290 ----
 When deleted email is references by a virtual folder, the folder will be updated to remove the email from its index.
 Added a Save and Edit button to the compose mail form, to save a draft copy of a message and return to editing it immediately. This makes it easier to save large emails before sending them.
+When viewing a message, attachments are now shown in a table instead of using icons.

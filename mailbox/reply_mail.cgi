@@ -414,6 +414,7 @@ print &ui_form_start("send_mail.cgi?id=$upid", "form-data", undef,
 print "<input type=hidden name=ouser value='$ouser'>\n";
 print "<input type=hidden name=id value='$in{'id'}'>\n";
 print "<input type=hidden name=folder value='$in{'folder'}'>\n";
+print "<input type=hidden name=start value='$in{'start'}'>\n";
 print "<input type=hidden name=new value='$in{'new'}'>\n";
 print "<input type=hidden name=enew value='$in{'enew'}'>\n";
 foreach $s (@sub) {
@@ -754,7 +755,8 @@ print &ui_form_end([ [ "send", $text{'reply_send'} ],
 		     [ "save", $text{'reply_save'} ],
 		   ]);
 
-&mail_page_footer("index.cgi?folder=$in{'folder'}", $text{'mail_return'});
+&mail_page_footer("index.cgi?folder=$in{'folder'}&start=$in{'start'}",
+		  $text{'mail_return'});
 &pop3_logout_all();
 
 sub decode_and_sub

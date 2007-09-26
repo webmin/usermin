@@ -435,7 +435,7 @@ if ($in{'save'}) {
 if ($userconfig{'send_return'}) {
 	# Return to mail list
 	print "<script>\n";
-	print "window.location = 'index.cgi?folder=$in{'folder'}';\n";
+	print "window.location = 'index.cgi?folder=$in{'folder'}&start=$in{'start'}';\n";
 	print "</script>\n";
 	}
 
@@ -443,15 +443,17 @@ if ($userconfig{'send_return'}) {
 print "$text{'send_done'}<p>\n";
 if ($in{'id'} ne '') {
 	&mail_page_footer(
-	    "view_mail.cgi?id=".&urlize($in{'id'})."&folder=$in{'folder'}$subs",
+	    "view_mail.cgi?id=".&urlize($in{'id'}).
+	    "&folder=$in{'folder'}&start=$in{'start'}$subs",
 	     $text{'view_return'},
-	    "index.cgi?folder=$in{'folder'}", $text{'mail_return'});
+	    "index.cgi?folder=$in{'folder'}&start=$in{'start'}",
+	     $text{'mail_return'});
 	}
 else {
 	&mail_page_footer(
-	       "reply_mail.cgi?new=1&folder=$in{'folder'}",
+	       "reply_mail.cgi?new=1&folder=$in{'folder'}&start=$in{'start'}",
 			 $text{'reply_return'},
-			 "index.cgi?folder=$in{'folder'}",
+			 "index.cgi?folder=$in{'folder'}&start=$in{'start'}",
 			 $text{'mail_return'});
 	}
 

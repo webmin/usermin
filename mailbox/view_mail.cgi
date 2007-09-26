@@ -145,6 +145,7 @@ print &ui_hidden("id", $in{'id'}),"\n";
 print &ui_hidden("folder", $in{'folder'}),"\n";
 print &ui_hidden("mod", &modification_time($folder)),"\n";
 print &ui_hidden("body", $in{'body'}),"\n";
+print &ui_hidden("start", $in{'start'}),"\n";
 foreach $s (@sub) {
 	print &ui_hidden("sub", $s),"\n";
 	}
@@ -198,12 +199,12 @@ if ($userconfig{'top_buttons'} == 2 && &editable_mail($mail)) {
 
 # Start of headers section
 if ($in{'headers'}) {
-	$hmode = "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=0&folder=$in{'folder'}$subs'>$text{'view_noheaders'}</a>\n";
+	$hmode = "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=0&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_noheaders'}</a>\n";
 	}
 else {
-	$hmode = "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=1&folder=$in{'folder'}$subs'>$text{'view_allheaders'}</a>\n";
+	$hmode = "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=1&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_allheaders'}</a>\n";
 	}
-$hmode .= "&nbsp;&nbsp;<a href='view_mail.cgi?id=$qid&raw=1&folder=$in{'folder'}$subs'>$text{'view_raw'}</a>";
+$hmode .= "&nbsp;&nbsp;<a href='view_mail.cgi?id=$qid&raw=1&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_raw'}</a>";
 print &ui_table_start(&left_right_align("<b>$text{'view_headers'}</b>", $hmode),
 		      "width=100%", 2, [ "width=10% nowrap" ]);
 
@@ -265,7 +266,7 @@ if ($body && $body->{'data'} =~ /\S/) {
 			}
 		$bodycontents .= "</pre>";
 		if ($htmlbody) {
-			$bodyright = "<a href='view_mail.cgi?id=$qid&body=2&headers=$in{'headers'}&folder=$in{'folder'}$subs'>$text{'view_ashtml'}</a>";
+			$bodyright = "<a href='view_mail.cgi?id=$qid&body=2&headers=$in{'headers'}&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_ashtml'}</a>";
 			}
 		}
 	elsif ($body eq $htmlbody) {
@@ -275,7 +276,7 @@ if ($body && $body->{'data'} =~ /\S/) {
 			"detach.cgi?id=$qid&folder=$in{'folder'}$subs",
 			\@cidattach);
 		if ($textbody) {
-			$bodyright = "<a href='view_mail.cgi?id=$qid&body=1&headers=$in{'headers'}&folder=$in{'folder'}$subs'>$text{'view_astext'}</a>";
+			$bodyright = "<a href='view_mail.cgi?id=$qid&body=1&headers=$in{'headers'}&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_astext'}</a>";
 			}
 		%ciddone = map { $_->{'index'}, 1 } @cidattach;
 		@attach = grep { !$ciddone{$_->{'index'}} } @attach;
@@ -549,7 +550,7 @@ foreach $a (@addrs) {
 		## is feeded with EUC converted value.
 		push(@rv, "<a href='add_address.cgi?addr=".&urlize($a->[0]).
 			  "&name=".&urlize($a->[1])."&id=$qid".
-			  "&folder=$in{'folder'}$subs'>".
+			  "&folder=$in{'folder'}&start=$in{'start'}$subs'>".
 			  &eucconv_and_escape($a->[2])."</a>");
 		}
 	}
@@ -569,7 +570,7 @@ if (!@sub) {
 	if ($mail->{'sortidx'} != 0) {
 		local $mailprv = $beside[$prv];
 		print "<a href='view_mail.cgi?id=",&urlize($mailprv->{'id'}),
-		      "&folder=$in{'folder'}'>",
+		      "&folder=$in{'folder'}&start=$in{'start'}'>",
 		      "<img src=../images/left.gif border=0 ",
 		      "align=middle></a>\n";
 		}
@@ -581,7 +582,7 @@ if (!@sub) {
 	if ($mail->{'sortidx'} < $c-1) {
 		local $mailnxt = $beside[$nxt];
 		print "<a href='view_mail.cgi?id=",&urlize($mailnxt->{'id'}),
-		      "&folder=$in{'folder'}'>",
+		      "&folder=$in{'folder'}&start=$in{'start'}'>",
 		      "<img src=../images/right.gif border=0 ",
 		      "align=middle></a>\n";
 		}

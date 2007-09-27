@@ -202,6 +202,7 @@ elsif ($config{'mail_system'} == 4) {
 		    'server' => $imapserver,
 		    'mode' => 3,
 		    'remote' => 1,
+		    'flags' => 1,
 		    'inbox' => 1,
 		    'index' => 0 });
 	&read_file("$user_module_config_directory/inbox.imap", $rv[$#rv]);
@@ -236,6 +237,7 @@ elsif ($config{'mail_system'} == 4) {
 					    'pass' => $rv[0]->{'pass'},
 					    'mode' => 0,
 					    'remote' => 1,
+		    			    'flags' => 1,
 					    'imapauto' => 1,
 					    'mailbox' => $fn,
 					    'index' => scalar(@rv) });
@@ -258,6 +260,7 @@ elsif ($config{'mail_system'} == 4) {
 				  'pass' => $rv[0]->{'pass'},
 				  'mode' => 2,
 				  'remote' => 1,
+				  'flags' => 1,
 				  'imapauto' => 1,
 				  'mailbox' => $sf,
 			          'index' => scalar(@rv) };
@@ -287,6 +290,7 @@ elsif ($config{'mail_system'} == 4) {
 				    'pass' => $rv[0]->{'pass'},
 				    'mode' => 3,
 				    'remote' => 1,
+				    'flags' => 1,
 				    'imapauto' => 1,
 				    'mailbox' => $df,
 			            'index' => scalar(@rv) };
@@ -1357,19 +1361,27 @@ else {
 sub get_mail_read
 {
 local ($folder, $mail) = @_;
-&open_read_hash();
 local $sfolder = &get_special_folder();
+local ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
 if ($sfolder) {
 	# Is it in the special folder?
-	local ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
 	local ($spec) = grep { $_->[0] eq $realfolder &&
 			       $_->[1] eq $realid } @{$sfolder->{'members'}};
 	if ($spec) {
 		return 2;
 		}
 	}
-# Finally check read hash
-return $read{$mail->{'header'}->{'message-id'}};
+if ($realfolder->{'flags'}) {
+	# For folders which can store the flags in the message itself (such
+	# as IMAP), use that
+	return $mail->{'special'} ? 2 :
+	       $mail->{'read'} ? 1 : 0;
+	}
+else {
+	# Check read hash
+	&open_read_hash();
+	return $read{$mail->{'header'}->{'message-id'}};
+	}
 }
 
 # set_mail_read(&folder, &mail, read)
@@ -1377,10 +1389,9 @@ return $read{$mail->{'header'}->{'message-id'}};
 sub set_mail_read
 {
 local ($folder, $mail, $read) = @_;
-&open_read_hash();
 local $sfolder = &get_special_folder();
+local ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
 if ($sfolder || $read == 2) {
-	local ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
 	local $spec;
 	if ($sfolder) {
 		# Is it already there?
@@ -1413,12 +1424,23 @@ if ($sfolder || $read == 2) {
 		&save_folder($sfolder, $sfolder);
 		}
 	}
-# Update read hash
-if ($read == 0) {
-	delete($read{$mail->{'header'}->{'message-id'}});
+if ($realfolder->{'flags'}) {
+	# Set the flag in the email itself, such as on an IMAP server
+	local $mail->{'id'} = $realid;	# So that IMAP can find it by UID
+	&mailbox_set_read_flag($realfolder, $mail,
+			       $read >= 1 ? 1 : 0,  # Read
+			       $read == 2 ? 1 : 0,  # Special
+			       undef);              # Replied
 	}
 else {
-	$read{$mail->{'header'}->{'message-id'}} = $read;
+	# Update read hash
+	&open_read_hash();
+	if ($read == 0) {
+		delete($read{$mail->{'header'}->{'message-id'}});
+		}
+	else {
+		$read{$mail->{'header'}->{'message-id'}} = $read;
+		}
 	}
 }
 

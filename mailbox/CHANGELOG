@@ -81,3 +81,6 @@ Messages marked as 'Special' are now automatically added to a virtual folder nam
 When deleted email is references by a virtual folder, the folder will be updated to remove the email from its index.
 Added a Save and Edit button to the compose mail form, to save a draft copy of a message and return to editing it immediately. This makes it easier to save large emails before sending them.
 When viewing a message, attachments are now shown in a table instead of using icons.
+---- Changes since 1.300 ----
+The current folder position is now preserved when reading and replying to email.
+When using an IMAP inbox, the read and special flags are now fetched from and updated on the IMAP server, rather than in a separate file kept by Virtualmin. This allows them to be synced with other IMAP clients like Thunderbird and Outlook.

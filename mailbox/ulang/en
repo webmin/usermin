@@ -142,6 +142,7 @@ save_efromaddr=Missing or invalid From: address
 save_emailbox=Failed to open IMAP mailbox : $1
 save_emailbox2=Missing or invalid IMAP mailbox
 save_edelete=Failed to delete mail : $1
+save_eflag=Failed to set IMAP flags : $1
 save_eappend=Failed to add mail to IMAP mailbox : $1
 save_esearch=Failed to search IMAP mailbox : $1
 

@@ -5,6 +5,8 @@
 require './mailbox-lib.pl';
 &ui_print_header(undef, $text{'folders_title'}, "");
 
+# Help text
+print &ui_hidden_start($text{'folders_instr'}, "instr", 0, "list_folders.cgi");
 print "$text{'folders_desc2'}<br>\n";
 print "<ul>\n";
 foreach $ft ('sys', 'local', 'ext', 'pop3', 'imap', 'comp', 'virt') {
@@ -12,6 +14,7 @@ foreach $ft ('sys', 'local', 'ext', 'pop3', 'imap', 'comp', 'virt') {
 		if ($ft eq "sys" || $folder_types{$ft});
 	}
 print "</ul>\n";
+print &ui_hidden_end("instr");
 
 print &ui_form_start("delete_folders.cgi", "post");
 @tds = ( "width=5" );

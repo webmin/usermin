@@ -58,7 +58,7 @@ if ($in{'mode'} == 0) {
 		}
 	else {
 		# Creating or renaming a folder within ~/mail
-		$in{'name'} =~ /^\S+$/ || &error($text{'save_ename'});
+		$in{'name'} =~ /\S/ || &error($text{'save_ename'});
 		$in{'name'} =~ /\.\./ && &error($text{'save_ename2'});
 		$in{'name'} ne 'sentmail' && $in{'name'} ne 'drafts' ||
 			&error($text{'save_esys'});

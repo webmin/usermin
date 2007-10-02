@@ -592,7 +592,7 @@ print &ui_tabs_end();
 
 # Field for subject is always at the bottom
 print &ui_table_row($text{'mail_subject'},
-	&ui_textbox("subject", $subject, 40, 0, undef, "style='width:70%'").
+	&ui_textbox("subject", $subject, 40, 0, undef, "style='width:60%'").
 	"&nbsp;".&ui_submit($text{'reply_send'}).
 	"&nbsp;".&ui_submit($text{'reply_draft'}, "draft").
 	"&nbsp;".&ui_submit($text{'reply_save'}, "save"),

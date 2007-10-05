@@ -80,6 +80,12 @@ elsif ($in{'black'} || $in{'white'}) {
 	push(@from, @newaddrs);
 	&spam::save_directives($conf, $dir, \@from, 1);
 	&flush_file_lines();
+
+	# Also move messages to inbox
+	$inbox = &get_spam_inbox_folder();
+	if ($userconfig{'white_move'} && $folder->{'spam'} && $in{'white'}) {
+		&mailbox_move_mail($folder, $inbox, @delmail);
+		}
 	&redirect("index.cgi?folder=$in{'folder'}");
 	}
 elsif ($in{'razor'} || $in{'ham'}) {
@@ -125,10 +131,20 @@ elsif ($in{'razor'} || $in{'ham'}) {
 		print "<b>$text{'razor_err'}</b><p>\n";
 		}
 	else {
+		$inbox = &get_spam_inbox_folder();
 		if ($userconfig{'spam_del'} && $in{'razor'}) {
+			# Tell user it was deleted
 			print "<b>$text{'razor_deleted'}</b><p>\n";
 			}
+		elsif ($userconfig{'white_move'} &&
+		       $folder->{'spam'} && $in{'ham'}) {
+			# Move mail to inbox and tell user
+			&mailbox_move_mail($folder, $inbox, @delmail);
+			print "<b>",&text('razor_moved', $inbox->{'name'}),
+			      "</b><p>\n";
+			}
 		else {
+			# Tell user it was done
 			print "<b>$text{'razor_done'}</b><p>\n";
 			}
 		print "<script>\n";

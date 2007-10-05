@@ -57,7 +57,8 @@ line4=Spam options,11
 spam_buttons=Show spam reporting buttons for,2,list-Mailboxes,mail-Messages
 ham_buttons=Show ham reporting buttons for,2,list-Mailboxes,mail-Messages
 spam_del=Delete spam when reporting?,1,1-Yes,0-No
-ham_move=Move to inbox when whitelisting?,1,1-Yes,0-No
+white_move=Move mail to inbox when whitelisting?,1,1-Yes,0-No
+ham_move=Move ham to inbox when reporting?,1,1-Yes,0-No
 white_book=Add all addressbook entries to whitelist?,1,1-Yes,0-No
 white_rec=Add email recipients to whitelist?,1,1-Yes,0-No
 

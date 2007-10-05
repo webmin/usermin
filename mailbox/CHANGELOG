@@ -86,3 +86,4 @@ The current folder position is now preserved when reading and replying to email.
 When using an IMAP inbox, the read and special flags are now fetched from and updated on the IMAP server, rather than in a separate file kept by Virtualmin. This allows them to be synced with other IMAP clients like Thunderbird and Outlook.
 Many improvements to the way attachments are displayed when reading or forwarding mail, such as use of tables, links to download and view, and nicer type descriptions.
 When replying to or forwarding an HTML message with inline images, they are properly preserved in the new email.
+Added Preferences page options to move email to the inbox when whitelisting or reporting a non-spam.

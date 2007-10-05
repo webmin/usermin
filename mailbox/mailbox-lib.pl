@@ -631,6 +631,14 @@ foreach my $f (@rv) {
 return @rv;
 }
 
+# get_spam_inbox_folder()
+# Returns the folder to which spam should be moved
+sub get_spam_inbox_folder
+{
+local ($inbox) = grep { $_->{'inbox'} } &list_folders();
+return $inbox;
+}
+
 # save_folder(&folder, [&old])
 # Creates or updates a folder
 sub save_folder
@@ -1631,8 +1639,18 @@ if (@mail && (&can_report_spam($folder) &&
 if (@mail && (&can_report_ham($folder) &&
 	      $userconfig{'ham_buttons'} =~ /list/ ||
 	      $folder->{'spam'})) {
-	print &ui_submit($text{'mail_white'}, "white");
-	print &ui_submit($text{'view_ham'}, "ham");
+	if ($userconfig{'white_move'} && $folder->{'spam'}) {
+		print &ui_submit($text{'mail_whitemove'}, "white");
+		}
+	else {
+		print &ui_submit($text{'mail_white'}, "white");
+		}
+	if ($userconfig{'ham_move'} && $folder->{'spam'}) {
+		print &ui_submit($text{'view_hammove'}, "ham");
+		}
+	else {
+		print &ui_submit($text{'view_ham'}, "ham");
+		}
 	print $spacer;
 	}
 

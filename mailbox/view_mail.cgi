@@ -462,8 +462,18 @@ if (!$_[1]) {
 		}
 	if (&can_report_ham($folder) &&
 	    $userconfig{'ham_buttons'} =~ /mail/) {
-		pritn &ui_submit($text{'view_white'}, "white");
-		pritn &ui_submit($text{'view_ham'}, "ham");
+		if ($userconfig{'white_move'} && $folder->{'spam'}) {
+			print &ui_submit($text{'view_whitemove'}, "white");
+			}
+		else {
+			print &ui_submit($text{'view_white'}, "white");
+			}
+		if ($userconfig{'ham_move'} && $folder->{'spam'}) {
+			print &ui_submit($text{'view_hammove'}, "ham");
+			}
+		else {
+			print &ui_submit($text{'view_ham'}, "ham");
+			}
 		print $spacer;
 		}
 	}

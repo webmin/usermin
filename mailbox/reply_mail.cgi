@@ -271,9 +271,21 @@ else {
 					  "<tt>$spamfrom</tt>"),"</b><p>\n";
 			}
 
-		&mail_page_footer(
-			$viewlink, $text{'view_return'},
-			"index.cgi?folder=$in{'folder'}", $text{'mail_return'});
+		# Also move message to inbox
+		$inbox = &get_spam_inbox_folder();
+		if ($userconfig{'white_move'} && $folder->{'spam'} &&
+		    $in{'white'}) {
+			&mailbox_move_mail($folder, $inbox, $mail);
+			&mail_page_footer(
+				"index.cgi?folder=$in{'folder'}",
+				  $text{'mail_return'});
+			}
+		else {
+			&mail_page_footer(
+				$viewlink, $text{'view_return'},
+				"index.cgi?folder=$in{'folder'}",
+				  $text{'mail_return'});
+			}
 		exit;
 		}
 	elsif ($in{'razor'} || $in{'ham'}) {
@@ -313,16 +325,25 @@ else {
 				# Delete message too
 				print "<b>$text{'razor_deleted'}</b><p>\n";
 				$deleted = 1;
-				print "<script>\n";
-				print "window.location = 'index.cgi?folder=$in{'folder'}';\n";
-				print "</script>\n";
+				$loc = "index.cgi?folder=$in{'folder'}";
+				}
+			elsif ($userconfig{'white_move'} &&
+			       $folder->{'spam'} && $in{'ham'}) {
+				# Move mail to inbox and tell user
+				&mailbox_move_mail($folder, $inbox, $mail);
+				print "<b>",&text('razor_moved',
+						  $inbox->{'name'}),"</b><p>\n";
+				$deleted = 1;
+				$loc = "index.cgi?folder=$in{'folder'}";
 				}
 			else {
+				# Tell user it was done 
 				print "<b>",$text{'razor_done'},"</b><p>\n";
-				print "<script>\n";
-				print "window.location = '$viewlink';\n";
-				print "</script>\n";
+				$loc = $viewlink;
 				}
+			print "<script>\n";
+			print "window.location = '$loc';\n";
+			print "</script>\n";
 			}
 
 		&mail_page_footer(

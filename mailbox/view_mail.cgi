@@ -188,8 +188,9 @@ if (&has_command("gpg") && &foreign_check("gnupg")) {
 		}
 	}
 
-# Strip out attachments not to display as icons
-@attach = grep { $_ ne $body && $_ ne $dstatus } @attach;
+# Strip out attachments not to display
+@attach = grep { $_ ne $body && $_ ne $dstatus &&
+		 $_ ne $htmlbody && $_ ne $textbody } @attach;
 @attach = grep { !$_->{'attach'} } @attach;
 
 if ($userconfig{'top_buttons'} == 2 && &editable_mail($mail)) {
@@ -310,68 +311,10 @@ if ($dstatus) {
 
 # Display other attachments
 if (@attach) {
-	foreach $a (@attach) {
-		local $fn;
-		$size = &nice_size(length($a->{'data'}));
-		local $cb;
-		if ($a->{'type'} eq 'message/rfc822') {
-			push(@files, $text{'view_sub'});
-			}
-		elsif ($a->{'filename'}) {
-			# Known filename
-			push(@files, &decode_mimewords($a->{'filename'}));
-			$fn = &decode_mimewords($a->{'filename'});
-			push(@detach, [ $a->{'idx'}, $fn ]);
-			}
-		else {
-			# No filename
-			push(@files, "<i>$text{'view_anofile'}</i>");
-			$a->{'type'} =~ /\/(\S+)$/;
-			$fn = "file.$1";
-			push(@detach, [ $a->{'idx'}, $fn ]);
-			}
-		push(@sizes, $size);
-		push(@titles, $files[$#files]."<br>".$size);
-		if ($a->{'error'}) {
-			$titles[$#titles] .= "<br><font size=-1>($a->{'error'})</font>";
-			}
-		$fn =~ s/ /_/g;
-		$fn =~ s/\#/_/g;
-		$fn = &html_escape($fn);
-		if ($a->{'type'} eq 'message/rfc822') {
-			push(@links, "view_mail.cgi?id=$qid&folder=$in{'folder'}$subs&sub=$a->{'idx'}");
-			}
-		else {
-			push(@links, "detach.cgi/$fn?id=$qid&folder=$in{'folder'}&attach=$a->{'idx'}$subs");
-			}
-		if ($userconfig{'thumbnails'} &&
-		    ($a->{'type'} =~ /image\/gif/i && &has_command("giftopnm")&&
-		     &has_command("pnmscale") && &has_command("cjpeg") ||
-		     $a->{'type'} =~ /image\/jpeg/i && &has_command("djpeg") &&
-		     &has_command("pnmscale") && &has_command("cjpeg"))) {
-			# Can show an image icon
-			push(@icons, "detach.cgi?scale=1&id=$qid&folder=$in{'folder'}&attach=$a->{'idx'}$subs");
-			$imgicons++;
-			}
-		else {
-			push(@icons, "images/boxes.gif");
-			}
-		}
-	print &ui_columns_start([
-		$text{'view_afile'},
-		$text{'view_atype'},
-		$text{'view_asize'},
-		], 100, 0, [ "width=60%", "width=25%", "width=15%" ]);
-	for(my $i=0; $i<@files; $i++) {
-		print &ui_columns_row([
-			"<a href='$links[$i]'>$files[$i]</a>",
-			$attach[$i]->{'type'},
-			$sizes[$i],
-			]);
-		}
-	print &ui_columns_end();
+	# The table
+	@detach = &attachments_table(\@attach, $folder, $in{'id'}, $subs);
 
-	# Show form to detact to server
+	# Show form to detact to server, if enabled
 	if ($config{'server_attach'} == 2 && @detach) {
 		print &ui_table_start($text{'view_dheader'}, "width=100%", 1);
 		$dtach = &ui_submit($text{'view_detach'}, 'detach');

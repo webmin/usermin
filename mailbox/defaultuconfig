@@ -29,6 +29,7 @@ req_dsn=0
 send_dsn=2
 req_del=0
 spam_del=0
+ham_move=0
 white_book=0
 spam_buttons=mail
 reply_date=0

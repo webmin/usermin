@@ -652,6 +652,8 @@ print &ui_hidden("html_edit", $html_edit);
 
 # Display forwarded attachments
 if (@attach) {
+	&attachments_table(\@attach, $folder, $in{'id'}, $subs);
+	# XXX remove
 	print "<table width=100% border=1>\n";
 	print "<tr> <td $tb><b>$text{'reply_attach'}</b></td> </tr>\n";
 	print "<tr> <td $cb>\n";

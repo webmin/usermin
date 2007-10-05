@@ -2020,5 +2020,83 @@ local ($l, $r) = @_;
 return "<table cellpadding=0 cellspacing=0 width=100%><tr><td align=left>$l</td><td align=right>$r</td></tr></table>";
 }
 
+# attachments_table(&attach, folder, messageid, subs)
+# Prints an HTML table of attachments. Returns a list of those that can be
+# server-side detached.
+sub attachments_table
+{
+local ($attach, $folder, $id, $subs) = @_;
+local $qid = &urlize($id);
+local $rv;
+local (@files, @actions, @detach, @sizes, @titles, @links);
+foreach my $a (@$attach) {
+	local $fn;
+	local $size = &nice_size(length($a->{'data'}));
+	local $cb;
+	if ($a->{'type'} eq 'message/rfc822') {
+		# Attached email
+		local $amail = &extract_mail($a->{'data'});
+		if ($amail && $amail->{'header'}->{'from'}) {
+			push(@files, &text('view_sub2',
+					$amail->{'header'}->{'from'}));
+			}
+		else {
+			push(@files, &text('view_sub'));
+			}
+		}
+	elsif ($a->{'filename'}) {
+		# Known filename
+		push(@files, &decode_mimewords($a->{'filename'}));
+		$fn = &decode_mimewords($a->{'filename'});
+		push(@detach, [ $a->{'idx'}, $fn ]);
+		}
+	else {
+		# No filename
+		push(@files, "<i>$text{'view_anofile'}</i>");
+		$a->{'type'} =~ /\/(\S+)$/;
+		$fn = "file.$1";
+		push(@detach, [ $a->{'idx'}, $fn ]);
+		}
+	push(@sizes, $size);
+	push(@titles, $files[$#files]."<br>".$size);
+	if ($a->{'error'}) {
+		$titles[$#titles] .= "<br><font size=-1>($a->{'error'})</font>";
+		}
+	$fn =~ s/ /_/g;
+	$fn =~ s/\#/_/g;
+	$fn = &html_escape($fn);
+	local @a;
+	if ($a->{'type'} eq 'message/rfc822') {
+		push(@links, "view_mail.cgi?id=$qid&folder=$folder->{'index'}$subs&sub=$a->{'idx'}");
+		}
+	else {
+		push(@links, "detach.cgi/$fn?id=$qid&folder=$folder->{'index'}&attach=$a->{'idx'}$subs");
+		}
+	push(@a, "<a href='$links[$#links]'>$text{'view_aview'}</a>");
+	push(@a, "<a href='detach.cgi/$fn?id=$qid&folder=$folder->{'index'}&attach=$a->{'idx'}&type=application/octet-steam$subs'>$text{'view_asave'}</a>");
+	if ($a->{'type'} eq 'message/rfc822') {
+		push(@a, "<a href='detach.cgi/$fn?id=$qid&folder=$folder->{'index'}&attach=$a->{'idx'}&type=text/plain$subs'>$text{'view_aplain'}</a>");
+		}
+	push(@actions, \@a);
+	}
+print &ui_columns_start([
+	$text{'view_afile'},
+	$text{'view_atype'},
+	$text{'view_asize'},
+	$text{'view_aactions'},
+	], 100, 0,
+	[ "width=50%", "width=25%", "width=15%", "width=10%" ]);
+for(my $i=0; $i<@files; $i++) {
+	print &ui_columns_row([
+		"<a href='$links[$i]'>$files[$i]</a>",
+		$attach[$i]->{'type'},
+		$sizes[$i],
+		&ui_links_row($actions[$i]),
+		]);
+	}
+print &ui_columns_end();
+return @detach;
+}
+
 1;
 

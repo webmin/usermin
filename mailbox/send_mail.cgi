@@ -229,7 +229,7 @@ if (@fwd) {
 			$a->{'headers'} = [ grep { lc($_->[0]) ne 'content-id' }
 					       @{$a->{'headers'}} ];
 			push(@{$a->{'headers'}},
-			     [ 'Content-Id', $cidmap{$f} ]);
+			     [ 'Content-Id', "<$cidmap{$f}>" ]);
 			}
 		push(@attach, $a);
 		}

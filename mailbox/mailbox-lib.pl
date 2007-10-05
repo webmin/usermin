@@ -2026,6 +2026,7 @@ return "<table cellpadding=0 cellspacing=0 width=100%><tr><td align=left>$l</td>
 sub attachments_table
 {
 local ($attach, $folder, $id, $subs, $cbs) = @_;
+local %typemap = map { $_->{'type'}, $_->{'desc'} } &list_mime_types();
 local $qid = &urlize($id);
 local $rv;
 local (@files, @actions, @detach, @sizes, @titles, @links);
@@ -2104,9 +2105,11 @@ print &ui_columns_start([
 	$text{'view_aactions'},
 	], 100, 0, \@tds);
 for(my $i=0; $i<@files; $i++) {
+	local $type = $attach[$i]->{'type'} || "message/rfc822";
+	local $typedesc = $typemap{lc($type)} || $type;
 	local @cols = (
 		"<a href='$links[$i]'>$files[$i]</a>",
-		$attach[$i]->{'type'} || "message/rfc822",
+		$typedesc,
 		$sizes[$i],
 		&ui_links_row($actions[$i]),
 		);

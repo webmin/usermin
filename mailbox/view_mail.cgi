@@ -188,11 +188,6 @@ if (&has_command("gpg") && &foreign_check("gnupg")) {
 		}
 	}
 
-# Strip out attachments not to display
-@attach = grep { $_ ne $body && $_ ne $dstatus &&
-		 $_ ne $htmlbody && $_ ne $textbody } @attach;
-@attach = grep { !$_->{'attach'} } @attach;
-
 if ($userconfig{'top_buttons'} == 2 && &editable_mail($mail)) {
 	&show_buttons(1, scalar(@sub));
 	print "<br>\n";
@@ -274,13 +269,10 @@ if ($body && $body->{'data'} =~ /\S/) {
 		# Attempt to show HTML
 		($bodycontents, $bodystuff) = &safe_html($body->{'data'});
 		$bodycontents = &fix_cids($bodycontents, \@attach,
-			"detach.cgi?id=$qid&folder=$in{'folder'}$subs",
-			\@cidattach);
+			"detach.cgi?id=$qid&folder=$in{'folder'}$subs");
 		if ($textbody) {
 			$bodyright = "<a href='view_mail.cgi?id=$qid&body=1&headers=$in{'headers'}&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_astext'}</a>";
 			}
-		%ciddone = map { $_->{'index'}, 1 } @cidattach;
-		@attach = grep { !$ciddone{$_->{'index'}} } @attach;
 		}
 	}
 if ($bodycontents) {
@@ -310,6 +302,8 @@ if ($dstatus) {
 	}
 
 # Display other attachments
+@attach = &remove_body_attachments($mail, \@attach);
+@attach = &remove_cid_attachments($mail, \@attach);
 if (@attach) {
 	# The table
 	@detach = &attachments_table(\@attach, $folder, $in{'id'}, $subs);

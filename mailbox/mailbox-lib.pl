@@ -2020,12 +2020,12 @@ local ($l, $r) = @_;
 return "<table cellpadding=0 cellspacing=0 width=100%><tr><td align=left>$l</td><td align=right>$r</td></tr></table>";
 }
 
-# attachments_table(&attach, folder, messageid, subs)
+# attachments_table(&attach, folder, messageid, subs, [show-checkboxes])
 # Prints an HTML table of attachments. Returns a list of those that can be
 # server-side detached.
 sub attachments_table
 {
-local ($attach, $folder, $id, $subs) = @_;
+local ($attach, $folder, $id, $subs, $cbs) = @_;
 local $qid = &urlize($id);
 local $rv;
 local (@files, @actions, @detach, @sizes, @titles, @links);
@@ -2033,7 +2033,13 @@ foreach my $a (@$attach) {
 	local $fn;
 	local $size = &nice_size(length($a->{'data'}));
 	local $cb;
-	if ($a->{'type'} eq 'message/rfc822') {
+	if (!$a->{'type'}) {
+		# An actual email
+		push(@files, &text('view_sub2', $a->{'header'}->{'from'}));
+		$fn = "mail.txt";
+		$size = &nice_size($a->{'size'});
+		}
+	elsif ($a->{'type'} eq 'message/rfc822') {
 		# Attached email
 		local $amail = &extract_mail($a->{'data'});
 		if ($amail && $amail->{'header'}->{'from'}) {
@@ -2043,6 +2049,7 @@ foreach my $a (@$attach) {
 		else {
 			push(@files, &text('view_sub'));
 			}
+		$fn = "mail.txt";
 		}
 	elsif ($a->{'filename'}) {
 		# Known filename
@@ -2066,33 +2073,50 @@ foreach my $a (@$attach) {
 	$fn =~ s/\#/_/g;
 	$fn = &html_escape($fn);
 	local @a;
-	if ($a->{'type'} eq 'message/rfc822') {
+	if (!$a->{'type'}) {
+		local $qmid = &urlize($a->{'id'});
+		push(@links, "view_mail.cgi?id=$qmid&folder=$folder->{'index'}");
+		}
+	elsif ($a->{'type'} eq 'message/rfc822') {
 		push(@links, "view_mail.cgi?id=$qid&folder=$folder->{'index'}$subs&sub=$a->{'idx'}");
 		}
 	else {
 		push(@links, "detach.cgi/$fn?id=$qid&folder=$folder->{'index'}&attach=$a->{'idx'}$subs");
 		}
 	push(@a, "<a href='$links[$#links]'>$text{'view_aview'}</a>");
-	push(@a, "<a href='detach.cgi/$fn?id=$qid&folder=$folder->{'index'}&attach=$a->{'idx'}&type=application/octet-steam$subs'>$text{'view_asave'}</a>");
+	if ($a->{'type'}) {
+		push(@a, "<a href='detach.cgi/$fn?id=$qid&folder=$folder->{'index'}&attach=$a->{'idx'}&type=application/octet-steam$subs'>$text{'view_asave'}</a>");
+		}
 	if ($a->{'type'} eq 'message/rfc822') {
 		push(@a, "<a href='detach.cgi/$fn?id=$qid&folder=$folder->{'index'}&attach=$a->{'idx'}&type=text/plain$subs'>$text{'view_aplain'}</a>");
 		}
 	push(@actions, \@a);
 	}
+local @tds = ( "width=50%", "width=25%", "width=15%", "width=10%" );
+if ($cbs) {
+	unshift(@tds, "width=5");
+	}
 print &ui_columns_start([
+	$cbs ? ( "" ) : ( ),
 	$text{'view_afile'},
 	$text{'view_atype'},
 	$text{'view_asize'},
 	$text{'view_aactions'},
-	], 100, 0,
-	[ "width=50%", "width=25%", "width=15%", "width=10%" ]);
+	], 100, 0, \@tds);
 for(my $i=0; $i<@files; $i++) {
-	print &ui_columns_row([
+	local @cols = (
 		"<a href='$links[$i]'>$files[$i]</a>",
-		$attach[$i]->{'type'},
+		$attach[$i]->{'type'} || "message/rfc822",
 		$sizes[$i],
 		&ui_links_row($actions[$i]),
-		]);
+		);
+	if ($cbs) {
+		print &ui_checked_columns_row(\@cols, \@tds,
+					      $cbs, $attach->[$i]->{'idx'}, 1);
+		}
+	else {
+		print &ui_columns_row(\@cols, \@tds);
+		}
 	}
 print &ui_columns_end();
 return @detach;

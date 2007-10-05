@@ -345,6 +345,7 @@ else {
 		exit;
 		}
 
+	# Get the forwarded message and its attachments
 	if (!@fwdmail) {
 		&parse_mail($mail);
 		&decrypt_attachments($mail);
@@ -390,11 +391,20 @@ else {
 	$sig = &get_signature();
 	($quote, $html_edit, $body) = &quoted_message($mail, $qu, $sig,
 						      $in{'body'});
-	if ($in{'forward'} || $in{'enew'}) {
-		@attach = grep { $_ ne $body } @attach;
+
+	# Don't include the original body as an attachment
+	@attach = &remove_body_attachments($mail, \@attach);
+	if (!$in{'forward'} && !$in{'enew'}) {
+		# When replying, lose non-cid attachments
+		@attach = grep { $_->{'header'}->{'content-id'} } @attach;
 		}
-	else {
-		undef(@attach);
+
+	# For a HTML reply or forward, fix up the cid: to refer to attachments
+	# in the original message.
+	if ($html_edit) {
+		$qmid = &urlize($mail->{'id'});
+		$quote = &fix_cids($quote, \@attach,
+			"detach.cgi?id=$qmid&folder=$in{'folder'}$subs");
 		}
 
 	&mail_page_header(
@@ -652,35 +662,12 @@ print &ui_hidden("html_edit", $html_edit);
 
 # Display forwarded attachments
 if (@attach) {
-	&attachments_table(\@attach, $folder, $in{'id'}, $subs);
-	# XXX remove
-	print "<table width=100% border=1>\n";
-	print "<tr> <td $tb><b>$text{'reply_attach'}</b></td> </tr>\n";
-	print "<tr> <td $cb>\n";
-	foreach $a (@attach) {
-		push(@titles, "<input type=checkbox name=forward value=$a->{'idx'} checked> ".($a->{'filename'} ? $a->{'filename'} : $a->{'type'}));
-		push(@links, "detach.cgi?id=".&urlize($in{'id'}).
-			     "&folder=$in{'folder'}&attach=$a->{'idx'}$subs");
-		push(@icons, "images/boxes.gif");
-		}
-	&icons_table(\@links, \@titles, \@icons, 8);
-	print "</td></tr></table><p>\n";
+	&attachments_table(\@attach, $folder, $in{'id'}, $subs, "forward");
 	}
 
 # Display forwarded mails
 if (@fwdmail) {
-	print "<table width=100% border=1>\n";
-	print "<tr> <td $tb><b>$text{'reply_mailforward'}</b></td> </tr>\n";
-	print "<tr> <td $cb>\n";
-	foreach $f (@fwdmail) {
-		push(@titles, &simplify_subject($f->{'header'}->{'subject'}));
-		push(@links, "view_mail.cgi?id=".&urlize($f->{'id'}).
-			     "&folder=$in{'folder'}");
-		push(@icons, "images/boxes.gif");
-		print &ui_hidden("mailforward", $f->{'id'});
-		}
-	&icons_table(\@links, \@titles, \@icons, 8);
-	print "</td></tr></table><p>\n";
+	&attachments_table(\@fwdmail, $folder, $in{'id'}, $subs);
 	}
 
 # Javascript to increase attachments fields

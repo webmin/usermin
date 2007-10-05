@@ -62,9 +62,11 @@ if ($in{'replyto'}) {
 			"\"$remote_user_info[6]\" <$r2parts->[0]>";
 	push(@{$mail->{'headers'}}, [ 'Reply-To', $r2 ]);
 	}
+
 $in{'body'} =~ s/\r//g;
+%cidmap = ( );
 if ($in{'body'} =~ /\S/) {
-	# Perform spell check if requested
+	# Perform spell check on body if requested
 	local $plainbody = $in{'html_edit'} ? &html_to_text($in{'body'})
 					    : $in{'body'};
 	if ($in{'spell'}) {
@@ -125,6 +127,14 @@ if ($in{'body'} =~ /\S/) {
 			exit;
 			}
 		}
+
+	# For a HTML body, replace images from detach.cgi on the original
+	# email with cid: references.
+	if ($in{'html_edit'}) {
+		$in{'body'} = &create_cids($in{'body'}, \%cidmap);
+		}
+
+	# Create the body attachment
 	local $mt = $in{'html_edit'} ? "text/html" : "text/plain";
 	$mt .= "; charset=$userconfig{'charset'}";
 	if ($in{'body'} =~ /[\177-\377]/) {
@@ -144,9 +154,10 @@ if ($in{'body'} =~ /\S/) {
 		}
 	$bodyattach = $attach[0];
 	}
+
+# Add uploaded attachments
 $attachsize = 0;
 for($i=0; defined($in{"attach$i"}); $i++) {
-	# Add uploaded attachment
 	next if (!$in{"attach$i"});
 	&test_max_attach($attachsize);
 	if ($config{'max_attach'} && $attachsize > $config{'max_attach'}) {
@@ -163,8 +174,9 @@ for($i=0; defined($in{"attach$i"}); $i++) {
 				       [ 'Content-Transfer-Encoding',
 					 'base64' ] ] });
 	}
+
+# Add server-side attachments
 for($i=0; defined($in{"file$i"}); $i++) {
-	# Add server-side attachment
 	next if (!$in{"file$i"} || !$config{'server_attach'});
 	if ($in{"file$i"} !~ /^\//) {
 		$in{"file$i"} = $remote_user_info[7]."/".$in{"file$i"};
@@ -203,14 +215,23 @@ if (@fwd) {
 	foreach $s (@sub) {
 		# We are looking at a mail within a mail ..
 		&decrypt_attachments($fwdmail);
-		local $amail = &extract_mail($fwdmail->{'attach'}->[$s]->{'data'});
+		local $amail = &extract_mail(
+			$fwdmail->{'attach'}->[$s]->{'data'});
 		&parse_mail($amail);
 		$fwdmail = $amail;
 		}
 
 	foreach $f (@fwd) {
 		&test_max_attach(length($fwdmail->{'attach'}->[$f]->{'data'}));
-		push(@attach, $fwdmail->{'attach'}->[$f]);
+		$a = $fwdmail->{'attach'}->[$f];
+		if ($cidmap{$f}) {
+			# This attachment has been inlined .. set a content-id
+			$a->{'headers'} = [ grep { lc($_->[0]) ne 'content-id' }
+					       @{$a->{'headers'}} ];
+			push(@{$a->{'headers'}},
+			     [ 'Content-Id', $cidmap{$f} ]);
+			}
+		push(@attach, $a);
 		}
 	}
 

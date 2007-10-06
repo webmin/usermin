@@ -1,0 +1,8 @@
+hide_dot_files=Mostra els fitxers que comencen amb un punt,1,0-Sí,1-No
+iconsize=Mida dels botons de la barra,1,1-Petits,0-Grans amb etiquetes
+nocharset=Intenta utilitzar el joc de caràcters apropiat,1,0-Sí,1-No
+width=Mida de les imatges escalades,3,Per defecte (300 píxels)
+fixed=Mida de la tipografia del text,3,Per defecte (12 punts)
+small_fixed=Mida de la tipografia dels botons,3,Per defecte (10 punts)
+force_text=Editor de fitxers HTML,1,1-Editor de text,0-Editor HTML
+htmlexts=Extensions de fitxers a editar com a HTML,3,Per defecte (.htm i .html)

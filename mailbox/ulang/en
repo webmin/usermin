@@ -223,3 +223,7 @@ fdelete_enone=None selected
 fdelete_rusure=Are you sure you want to delete the $1 selected folders? $2 of email will be deleted forever.
 fdelete_rusure2=Are you sure you want to delete the $1 selected folders?
 fdelete_delete=Delete Now
+
+detachall_err=Failed to save all attachments
+detachall_emkdir=Could not create temporary directory : $1
+detachall_ezip=ZIP failed : $1

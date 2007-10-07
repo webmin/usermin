@@ -305,8 +305,19 @@ if ($dstatus) {
 @attach = &remove_body_attachments($mail, \@attach);
 @attach = &remove_cid_attachments($mail, \@attach);
 if (@attach) {
-	# The table
+	# Table of attachments
 	@detach = &attachments_table(\@attach, $folder, $in{'id'}, $subs);
+
+	# Links to download all / slideshow
+	@links = ( );
+	if (@attach > 1 && &can_download_all()) {
+		push(@links, "<a href='detachall.cgi/attachments.zip?folder=$in{'folder'}&id=$qid$subs'>$text{'view_aall'}</a>");
+		}
+	@iattach = grep { $_->{'type'} =~ /^image\// } @attach;
+	if (@iattach) {
+		push(@links, "<a href='slideshow.cgi?folder=$in{'folder'}&id=$qid$subs'>$text{'view_aslideshow'}</a>");
+		}
+	print &ui_links_row(\@links) if (@links);
 
 	# Show form to detact to server, if enabled
 	if ($config{'server_attach'} == 2 && @detach) {

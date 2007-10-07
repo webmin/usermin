@@ -2079,8 +2079,7 @@ foreach my $a (@$attach) {
 	else {
 		# No filename
 		push(@files, "<i>$text{'view_anofile'}</i>");
-		$a->{'type'} =~ /\/(\S+)$/;
-		$fn = "file.$1";
+		$fn = "file.".&type_to_extension($a->{'type'});
 		push(@detach, [ $a->{'idx'}, $fn ]);
 		}
 	push(@sizes, $size);
@@ -2141,6 +2140,12 @@ for(my $i=0; $i<@files; $i++) {
 	}
 print &ui_columns_end();
 return @detach;
+}
+
+# Returns 1 if downloading all attachment is possible
+sub can_download_all
+{
+return &has_command("zip");
 }
 
 1;

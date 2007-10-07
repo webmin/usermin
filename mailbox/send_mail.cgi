@@ -226,8 +226,10 @@ if (@fwd) {
 		$a = $fwdmail->{'attach'}->[$f];
 		if ($cidmap{$f}) {
 			# This attachment has been inlined .. set a content-id
-			$a->{'headers'} = [ grep { lc($_->[0]) ne 'content-id' }
-					       @{$a->{'headers'}} ];
+			$a->{'headers'} = [
+				grep { lc($_->[0]) ne 'content-id' &&
+				       lc($_->[0]) ne 'content-location' }
+				     @{$a->{'headers'}} ];
 			push(@{$a->{'headers'}},
 			     [ 'Content-Id', "<$cidmap{$f}>" ]);
 			}

@@ -628,7 +628,7 @@ print &ui_table_row($text{'mail_subject'},
 	"&nbsp;".&ui_submit($text{'reply_draft'}, "draft").
 	"&nbsp;".&ui_submit($text{'reply_save'}, "save"),
 	1, \@tds);
-print &ui_table_end(),"<p>\n";
+print &ui_table_end();
 
 # Create link for switching to HTML/text mode
 if ($in{'new'}) {
@@ -678,7 +678,7 @@ if (&has_command("ispell") && !$userconfig{'nospell'}) {
 	      &ui_checkbox("spell", 1, $text{'reply_spell'},
 			   $userconfig{'spell_check'}), 2);
 	}
-print &ui_table_end(),"<p>\n";
+print &ui_table_end();
 print &ui_hidden("html_edit", $html_edit);
 
 # Display forwarded attachments

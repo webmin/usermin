@@ -314,7 +314,7 @@ if (@attach) {
 		push(@links, "<a href='detachall.cgi/attachments.zip?folder=$in{'folder'}&id=$qid$subs'>$text{'view_aall'}</a>");
 		}
 	@iattach = grep { $_->{'type'} =~ /^image\// } @attach;
-	if (@iattach) {
+	if (@iattach > 1) {
 		push(@links, "<a href='slideshow.cgi?folder=$in{'folder'}&id=$qid$subs'>$text{'view_aslideshow'}</a>");
 		}
 	print &ui_links_row(\@links) if (@links);

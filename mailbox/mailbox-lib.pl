@@ -2092,16 +2092,20 @@ foreach my $a (@$attach) {
 	$fn = &html_escape($fn);
 	local @a;
 	if (!$a->{'type'}) {
+		# Complete email for viewing
 		local $qmid = &urlize($a->{'id'});
 		push(@links, "view_mail.cgi?id=$qmid&folder=$folder->{'index'}");
 		}
 	elsif ($a->{'type'} eq 'message/rfc822') {
+		# Attached sub-email
 		push(@links, "view_mail.cgi?id=$qid&folder=$folder->{'index'}$subs&sub=$a->{'idx'}");
 		}
 	else {
+		# Regular attachment
 		push(@links, "detach.cgi/$fn?id=$qid&folder=$folder->{'index'}&attach=$a->{'idx'}$subs");
 		}
 	push(@a, "<a href='$links[$#links]'>$text{'view_aview'}</a>");
+	push(@a, "<a href='$links[$#links]' target=_new>$text{'view_aopen'}</a>");
 	if ($a->{'type'}) {
 		push(@a, "<a href='detach.cgi/$fn?id=$qid&folder=$folder->{'index'}&attach=$a->{'idx'}&type=application/octet-steam$subs'>$text{'view_asave'}</a>");
 		}
@@ -2110,7 +2114,7 @@ foreach my $a (@$attach) {
 		}
 	push(@actions, \@a);
 	}
-local @tds = ( "width=50%", "width=25%", "width=15%", "width=10%" );
+local @tds = ( "width=50%", "width=25%", "width=10%", "width=15%" );
 if ($cbs) {
 	unshift(@tds, "width=5");
 	}

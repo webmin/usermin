@@ -1,12 +1,13 @@
 local_cf=.spamassassin/user_prefs
 spamassassin=spamassassin
 sa_learn=sa-learn
-global_procmailrc=/usr/local/etc/procmailrc
-global_cf=/usr/local/etc/mail/spamassassin
+global_procmailrc=/etc/procmailrc
+global_cf=/etc/spamassassin
 show_global=0
-avail_icons=white,score,report,user,header,setup,mail
+avail_icons=white,score,report,user,header,setup,mail,procmail
 warn_procmail=1
 index_spam=0
 call_spam=1
+razor_admin=razor-admin
 mode=0
 readfiles=0

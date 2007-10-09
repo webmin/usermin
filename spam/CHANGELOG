@@ -18,3 +18,5 @@ When reading spam, the mail list is now simply a link to the Read Mail module, i
 ---- Changes since 1.230 ----
 Added Module Config options for commands to run before and after saving SpamAssassin config changes.
 Improved support for running under Virtualmin, where spamassassin is run globally.
+---- Changes since 1.300 ----
+Added global configuration settings to use MySQL, PostgreSQL or LDAP backends for storing preferences.

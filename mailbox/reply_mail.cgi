@@ -689,6 +689,9 @@ if (@attach) {
 # Display forwarded mails
 if (@fwdmail) {
 	&attachments_table(\@fwdmail, $folder, $in{'id'}, $subs);
+	foreach $fwdid (@mailforwardids) {
+		print &ui_hidden("mailforward", $fwdid);
+		}
 	}
 
 # Javascript to increase attachments fields

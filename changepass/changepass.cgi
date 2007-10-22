@@ -246,7 +246,9 @@ if ($config{'mailbox'} && &foreign_check("mailbox")) {
 	foreach $f (&mailbox::list_folders()) {
 		if (($f->{'type'} == 2 || $f->{'type'} == 4) &&
 		    $f->{'user'} eq $remote_user &&
-		    $f->{'pass'} eq $in{'old'}) {
+		    $f->{'pass'} eq $in{'old'} &&
+		    !$f->{'imapauto'} &&
+		    !$f->{'autouser'}) {
 			# Found one to change
 			local $type = $f->{'type'} == 2 ? "pop3" : "imap";
 			if ($f->{'inbox'}) {

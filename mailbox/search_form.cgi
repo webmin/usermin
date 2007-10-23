@@ -36,7 +36,7 @@ for($i=0; $i<=9; $i++) {
 
 	push(@cols, $text{'sform_text'});
 	push(@cols, &ui_textbox("what_$i", undef, 30));
-	$ctable .= &ui_columns_row(\@cols);
+	$ctable .= &ui_columns_row(\@cols, [ map { "nowrap" } @cols ]);
 	}
 $ctable .= &ui_columns_end();
 print &ui_table_row(" ", $ctable, 1);

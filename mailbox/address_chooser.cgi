@@ -140,7 +140,7 @@ else {
 	}
 
 # Show search form
-if (@addrs) {
+if (@addrs || $in{'search'}) {
 	print &ui_form_start("address_chooser.cgi", "post");
 	print "<b>$text{'address_search'}</b>\n";
 	print &ui_textbox("search", $in{'search'}, 20);

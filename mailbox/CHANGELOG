@@ -88,3 +88,4 @@ Many improvements to the way attachments are displayed when reading or forwardin
 When replying to or forwarding an HTML message with inline images, they are properly preserved in the new email.
 Added Preferences page options to move email to the inbox when whitelisting or reporting a non-spam.
 Added links to download all attachments from a message as a ZIP file, and to show all attached images on a single page as a slideshow.
+Embedded images from Outlook are properly displayed.

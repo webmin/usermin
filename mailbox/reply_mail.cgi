@@ -417,7 +417,8 @@ else {
 	@attach = &remove_body_attachments($mail, \@attach);
 	if (!$in{'forward'} && !$in{'enew'}) {
 		# When replying, lose non-cid attachments
-		@attach = grep { $_->{'header'}->{'content-id'} } @attach;
+		@attach = grep { $_->{'header'}->{'content-id'} ||
+				 $_->{'header'}->{'content-location'} } @attach;
 		}
 
 	# For a HTML reply or forward, fix up the cid: to refer to attachments

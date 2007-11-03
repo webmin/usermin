@@ -1,6 +1,7 @@
 line0=User interface,11
 perpage=Mail messages to display per page,0,5
-wrap_width=Width to wrap mail messages at,0,5
+wrap_width=Width to wrap displayed mail messages at,0,5
+wrap_compose=Width to wrap composed mail messages at,10,-Don't wrap,80-80 columns (standard),Other size
 top_buttons=Show buttons at top for,1,2-Mailboxes and mails,1-Mailboxes only,0-Never
 arrows=Show pager arrows at bottom for,1,2-Mailboxes and mails,1-Mailboxes only,0-Never
 show_to=Show To: address in mailboxes?,1,1-Yes,0-No

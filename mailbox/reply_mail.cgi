@@ -670,9 +670,13 @@ else {
 	# Show text editing area
 	$wm = $config{'wrap_mode'};
 	$wm =~ s/^wrap=//g;
+	$wcols = $userconfig{'wrap_compose'};
 	print &ui_table_row(undef,
-		&ui_textarea("body", $quote, 20, 80, $wm, 0,
-			     "style='width:100%'"), 2);
+		&ui_textarea("body", $quote, 20,
+			     $wcols || 80,
+			     $wcols ? "hard" : "",
+			     0,
+			     $wcols ? "" : "style='width:100%'"), 2);
 	}
 if (&has_command("ispell") && !$userconfig{'nospell'}) {
 	print &ui_table_row(undef,

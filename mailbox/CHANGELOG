@@ -89,3 +89,4 @@ When replying to or forwarding an HTML message with inline images, they are prop
 Added Preferences page options to move email to the inbox when whitelisting or reporting a non-spam.
 Added links to download all attachments from a message as a ZIP file, and to show all attached images on a single page as a slideshow.
 Embedded images from Outlook are properly displayed.
+Added a Preferences page option to control the wrapping of text messages.

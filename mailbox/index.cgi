@@ -90,6 +90,11 @@ if ($in{'start'} >= @mail && $in{'jump'}) {
 # Show page flipping arrows
 &show_arrows();
 
+# Work out displayed range
+$start = int($in{'start'});
+$end = $in{'start'}+$perpage-1;
+$end = scalar(@mail)-1 if ($end >= scalar(@mail));
+
 # Start of form
 print &ui_form_start("delete_mail.cgi", "post");
 print &ui_hidden("folder", $folder->{'index'});
@@ -100,7 +105,14 @@ print &ui_hidden("start", $in{'start'});
 if ($userconfig{'top_buttons'} && @mail) {
 	&show_mailbox_buttons(1, \@folders, $folder, \@mail);
 	@links = ( &select_all_link("d", 1),
-		   &select_invert_link("d", 1) );
+		   &select_invert_link("d", 1),
+		   &select_status_link("d", 1, $folder, \@mail, $start, $end,
+				       0, $text{'mail_selread'}),
+		   &select_status_link("d", 1, $folder, \@mail, $start, $end,
+				       1, $text{'mail_selunread'}),
+		   &select_status_link("d", 1, $folder, \@mail, $start, $end,
+				       2, $text{'mail_selspecial'}),
+		 );
 	($sortfield, $sortdir) = &get_sort_field($folder);
 	if ($sortfield) {
 		# Show un-sort link
@@ -151,7 +163,7 @@ if (@error) {
 	}
 
 # Show the actual email
-for(my $i=int($in{'start'}); $i<scalar(@mail) && $i<$in{'start'}+$perpage; $i++) {
+for(my $i=$start; $i<=$end; $i++) {
 	local ($bs, $be);
 	$m = $mail[$i];
 	$mid = $m->{'header'}->{'message-id'};

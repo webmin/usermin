@@ -1369,6 +1369,10 @@ else {
 sub get_mail_read
 {
 local ($folder, $mail) = @_;
+if (defined($get_mail_read_cache{$mail->{'id'}})) {
+	# Already checked
+	return $get_mail_read_cache{$mail->{'id'}};
+	}
 local $sfolder = &get_special_folder();
 local ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
 if ($sfolder) {
@@ -1376,20 +1380,24 @@ if ($sfolder) {
 	local ($spec) = grep { $_->[0] eq $realfolder &&
 			       $_->[1] eq $realid } @{$sfolder->{'members'}};
 	if ($spec) {
+		$get_mail_read_cache{$mail->{'id'}} = 2;
 		return 2;
 		}
 	}
+local $rv;
 if ($realfolder->{'flags'}) {
 	# For folders which can store the flags in the message itself (such
 	# as IMAP), use that
-	return $mail->{'special'} ? 2 :
-	       $mail->{'read'} ? 1 : 0;
+	$rv = $mail->{'special'} ? 2 :
+	      $mail->{'read'} ? 1 : 0;
 	}
 else {
 	# Check read hash
 	&open_read_hash();
-	return $read{$mail->{'header'}->{'message-id'}};
+	$rv = int($read{$mail->{'header'}->{'message-id'}});
 	}
+$get_mail_read_cache{$mail->{'id'}} = $rv;
+return $rv;
 }
 
 # set_mail_read(&folder, &mail, read)
@@ -1450,6 +1458,7 @@ else {
 		$read{$mail->{'header'}->{'message-id'}} = $read;
 		}
 	}
+$get_mail_read_cache{$mail->{'id'}} = $read;
 }
 
 # get_underlying_folder(&folder, &mail)
@@ -2150,6 +2159,24 @@ return @detach;
 sub can_download_all
 {
 return &has_command("zip");
+}
+
+# select_status_link(name, form, &folder, &mails, start, end, status, label)
+# Returns HTML for selecting messages
+sub select_status_link
+{
+return &theme_select_status_link(@_) if (defined(&theme_select_status_link));
+local ($name, $formno, $folder, $mail, $start, $end, $status, $label) = @_;
+$formno = int($formno);
+local @sel;
+for(my $i=$start; $i<=$end; $i++) {
+	local $m = $mail->[$i];
+	push(@sel, &get_mail_read($folder, $m) == $status ? 1 : 0);
+	}
+local $js = "var sel = [ ".join(",", @sel)." ]; ";
+$js .= "for(var i=0; i<sel.length; i++) { document.forms[$formno].${name}[i].checked = sel[i]; }";
+$js .= "return false;";
+return "<a href='#' onClick='$js'>$label</a>";
 }
 
 1;

@@ -107,9 +107,9 @@ if ($userconfig{'top_buttons'} && @mail) {
 	@links = ( &select_all_link("d", 1),
 		   &select_invert_link("d", 1),
 		   &select_status_link("d", 1, $folder, \@mail, $start, $end,
-				       0, $text{'mail_selread'}),
+				       1, $text{'mail_selread'}),
 		   &select_status_link("d", 1, $folder, \@mail, $start, $end,
-				       1, $text{'mail_selunread'}),
+				       0, $text{'mail_selunread'}),
 		   &select_status_link("d", 1, $folder, \@mail, $start, $end,
 				       2, $text{'mail_selspecial'}),
 		 );

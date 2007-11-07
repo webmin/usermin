@@ -14,6 +14,12 @@ if (!&has_command($gpgpath)) {
 @keys = &list_keys();
 if (!@keys) {
 	# Offer to setup GNUPG
+	if (&foriegn_check("mailbox")) {
+		&foreign_require("mailbox", "mailbox-lib.pl");
+		($froms, $doms) = &mailbox::list_from_addresses();
+		$email = @$froms ? $froms->[0] : $remote_user."\@".
+						 &get_system_hostname();
+		}
 	print "$text{'index_setupdesc'}<br>\n";
 	print "<form action=secret.cgi method=post>\n";
 	print "<table>\n";
@@ -21,7 +27,7 @@ if (!@keys) {
 	$remote_user_info[6] =~ s/,.*$//;
 	print "<td><input name=name size=30 value='$remote_user_info[6]'></td> </tr>\n";
 	print "<tr> <td><b>$text{'index_email'}</b></td>\n";
-	print "<td><input name=email size=30></td> </tr>\n";
+	print "<td><input name=email size=30 value='$email'></td> </tr>\n";
 	print "<tr> <td><b>$text{'index_comment'}</b></td>\n";
 	print "<td><input name=comment size=30></td> </tr>\n";
 	print "<tr> <td><b>$text{'index_size'}</b></td>\n";

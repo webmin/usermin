@@ -33,7 +33,7 @@ $vers = $ARGV[0];
 	  "javascript-lib.pl", "usermin-pam-osx",
 	  "config-lib.pl", "entities_map.txt",
 	  "password_form.cgi", "password_change.cgi", "ui-lib.pl",
-	  "pam_login.cgi", "Webmin", "uptracker.cgi" );
+	  "pam_login.cgi", "Webmin", "uptracker.cgi", "webmin_search.cgi" );
 @mlist = ("cshrc", "file", "forward", "language", "mailbox", "mscstyle3",
 	  "plan", "ssh", "telnet", "theme", "gnupg", "proc", "cron",
 	  "changepass", "shell", "at", "fetchmail", "quota", "mysql",

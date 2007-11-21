@@ -18,3 +18,4 @@ button_mkdir=New (create directory),1,1-Yes,0-No
 button_makelink=New (create symbolic link),1,1-Yes,0-No
 button_rename=Rename (rename file),1,1-Yes,0-No
 button_copy=Copy Cut and Paste,1,1-Yes,0-No
+button_preview=Preview (show scaled-down image),1,1-Yes,0-No

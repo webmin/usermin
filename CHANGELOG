@@ -33,3 +33,6 @@ Added support for Slam64 Linux.
 Fixed XSS bugs in pam_login.cgi.
 ---- Changes since 1.280 ----
 Added support for blocking users with too many failed logins, configurable in Webmin's Usermin Configuration module.
+---- Changes since 1.310 ----
+Added a search box to the left frame of the blue theme, for finding modules, config options, help pages and text.
+All images, CSS and other static content served by Usermin has an HTTP Expires for 1 week in the future, to improve cachability.

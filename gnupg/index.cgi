@@ -14,7 +14,7 @@ if (!&has_command($gpgpath)) {
 @keys = &list_keys();
 if (!@keys) {
 	# Offer to setup GNUPG
-	if (&foriegn_check("mailbox")) {
+	if (&foreign_check("mailbox")) {
 		&foreign_require("mailbox", "mailbox-lib.pl");
 		($froms, $doms) = &mailbox::list_from_addresses();
 		$email = @$froms ? $froms->[0] : $remote_user."\@".

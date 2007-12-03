@@ -44,14 +44,13 @@ print &check_clicks_function();
 # Check if this is a POP3 or IMAP inbox with no login set
 if (($folder->{'type'} == 2 || $folder->{'type'} == 4) &&
     $folder->{'mode'} == 3 && !$folder->{'autouser'} && !$folder->{'user'}) {
-	print "<center>\n";
 	print &ui_form_start("inbox_login.cgi", "post");
 	print &ui_hidden("folder", $folder->{'index'}),"\n";
 	print &ui_table_start(
 	      $folder->{'type'} == 2 ? $text{'mail_loginheader'}
 				     : $text{'mail_loginheader2'}, undef, 2);
-	print "<tr $cb> <td align=middle colspan=2>",&text('mail_logindesc',
-			"<tt>$folder->{'server'}</tt>"),"</td> </tr>\n";
+	print &ui_table_row(undef, &text('mail_logindesc',
+					 "<tt>$folder->{'server'}</tt>"), 2);
 
 	print &ui_table_row($text{'mail_loginuser'},
 			    &ui_textbox("user", $remote_user, 30));
@@ -60,7 +59,6 @@ if (($folder->{'type'} == 2 || $folder->{'type'} == 4) &&
 
 	print &ui_table_end();
 	print &ui_form_end([ [ "login", $text{'mail_login'} ] ]);
-	print "</center>\n";
 
 	&ui_print_footer("/", $text{'index'});
 	exit;

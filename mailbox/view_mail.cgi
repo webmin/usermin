@@ -194,13 +194,16 @@ if ($userconfig{'top_buttons'} == 2 && &editable_mail($mail)) {
 	}
 
 # Start of headers section
+@hmode = ( );
 if ($in{'headers'}) {
-	$hmode = "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=0&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_noheaders'}</a>\n";
+	push(@hmode, "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=0&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_noheaders'}</a>");
 	}
 else {
-	$hmode = "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=1&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_allheaders'}</a>\n";
+	push(@hmode, "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=1&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_allheaders'}</a>");
 	}
-$hmode .= "&nbsp;&nbsp;<a href='view_mail.cgi?id=$qid&raw=1&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_raw'}</a>";
+push(@hmode, "<a href='view_mail.cgi?id=$qid&raw=1&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_raw'}</a>");
+$hmode = &ui_links_row(\@hmode);
+$hmode =~ s/<br>//g;
 print &ui_table_start(&left_right_align("<b>$text{'view_headers'}</b>", $hmode),
 		      "width=100%", 2, [ "width=10% nowrap" ]);
 
@@ -489,30 +492,6 @@ if (!$_[1]) {
 		}
 	}
 print "<br>\n";
-}
-
-# address_link(address)
-sub address_link
-{
-## split_addresses() pattern-matches "[<>]", so 7-bit encodings
-## such as ISO-2022-JP must be converted to EUC before feeding.
-local @addrs = &split_addresses(&eucconv(&decode_mimewords($_[0])));
-local @rv;
-foreach $a (@addrs) {
-	## TODO: is $inbook{} MIME or locale-encoded?
-	if ($inbook{lc($a->[0])}) {
-		push(@rv, &eucconv_and_escape($a->[2]));
-		}
-	else {
-		## name= will be EUC encoded now since split_addresses()
-		## is feeded with EUC converted value.
-		push(@rv, "<a href='add_address.cgi?addr=".&urlize($a->[0]).
-			  "&name=".&urlize($a->[1])."&id=$qid".
-			  "&folder=$in{'folder'}&start=$in{'start'}$subs'>".
-			  &eucconv_and_escape($a->[2])."</a>");
-		}
-	}
-return join(" , ", @rv);
 }
 
 sub show_arrows

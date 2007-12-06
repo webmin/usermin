@@ -1545,20 +1545,20 @@ local ($mail, $showto, $folder) = @_;
 &open_dsn_hash();
 local @rv;
 if ($mail->{'header'}->{'content-type'} =~ /multipart\/\S+/i) {
-	push(@rv, "<img src=images/attach.gif>");
+	push(@rv, "<img src=images/attach.gif alt='A'>");
 	}
 local $p = int($mail->{'header'}->{'x-priority'});
 if ($p == 1) {
-	push(@rv, "<img src=images/p1.gif>");
+	push(@rv, "<img src=images/p1.gif alt='P1'>");
 	}
 elsif ($p == 2) {
-	push(@rv, "<img src=images/p2.gif>");
+	push(@rv, "<img src=images/p2.gif alt='P2'>");
 	}
 local $mid = $mail->{'header'}->{'message-id'};
 if (!$showto) {
 	# Show icon if special
 	if (&get_mail_read($folder, $mail) == 2) {
-		push(@rv, "<img src=images/special.gif>");
+		push(@rv, "<img src=images/special.gif alt='*'>");
 		}
 	#elsif ($read{$mid} == 1) {
 	#	push(@rv, "<img src=images/read.gif>");
@@ -1567,13 +1567,13 @@ if (!$showto) {
 else {
 	# Show icons if DSNs received
 	if ($dsnreplies{$mid}) {
-		push(@rv, "<img src=images/dsn.gif>");
+		push(@rv, "<img src=images/dsn.gif alt='R'>");
 		}
 	if ($delreplies{$mid}) {
 		local ($bounce) = grep { /^\!/ }
 			split(/\s+/, $delreplies{$mid});
 		local $img = $bounce ? "red.gif" : "box.gif";
-		push(@rv, "<img src=images/$img>");
+		push(@rv, "<img src=images/$img alt='D'>");
 		}
 	}
 return @rv;
@@ -2177,6 +2177,31 @@ local $js = "var sel = [ ".join(",", @sel)." ]; ";
 $js .= "for(var i=0; i<sel.length; i++) { document.forms[$formno].${name}[i].checked = sel[i]; }";
 $js .= "return false;";
 return "<a href='#' onClick='$js'>$label</a>";
+}
+
+# address_link(address)
+# Turns an address into a link for adding it to the addressbook
+sub address_link
+{
+## split_addresses() pattern-matches "[<>]", so 7-bit encodings
+## such as ISO-2022-JP must be converted to EUC before feeding.
+local @addrs = &split_addresses(&eucconv(&decode_mimewords($_[0])));
+local @rv;
+foreach $a (@addrs) {
+	## TODO: is $inbook{} MIME or locale-encoded?
+	if ($inbook{lc($a->[0])}) {
+		push(@rv, &eucconv_and_escape($a->[2]));
+		}
+	else {
+		## name= will be EUC encoded now since split_addresses()
+		## is feeded with EUC converted value.
+		push(@rv, "<a href='add_address.cgi?addr=".&urlize($a->[0]).
+			  "&name=".&urlize($a->[1])."&id=$qid".
+			  "&folder=$in{'folder'}&start=$in{'start'}$subs'>".
+			  &eucconv_and_escape($a->[2])."</a>");
+		}
+	}
+return join(" , ", @rv);
 }
 
 1;

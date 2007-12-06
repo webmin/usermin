@@ -623,12 +623,21 @@ print &ui_tabs_end_tabletab();
 print &ui_tabs_end();
 
 # Field for subject is always at the bottom
-print &ui_table_row($text{'mail_subject'},
-	&ui_textbox("subject", $subject, 40, 0, undef, "style='width:60%'").
-	"&nbsp;".&ui_submit($text{'reply_send'}).
-	"&nbsp;".&ui_submit($text{'reply_draft'}, "draft").
-	"&nbsp;".&ui_submit($text{'reply_save'}, "save"),
-	1, \@tds);
+if ($userconfig{'send_buttons'}) {
+	print &ui_table_row($text{'mail_subject'},
+		&ui_textbox("subject", $subject, 40, 0, undef,
+			    "style='width:60%'").
+		&ui_submit($text{'reply_send'}).
+		&ui_submit($text{'reply_draft'}, "draft").
+		&ui_submit($text{'reply_save'}, "save"),
+		1, \@tds);
+	}
+else {
+	# Subject only
+	print &ui_table_row($text{'mail_subject'},
+		&ui_textbox("subject", $subject, 40, 0, undef,
+			    "style='width:95%'"), 1, \@tds);
+	}
 print &ui_table_end();
 
 # Create link for switching to HTML/text mode
@@ -699,15 +708,19 @@ if (@fwdmail) {
 		}
 	}
 
-# Javascript to increase attachments fields
-$uploader = &ui_upload("NAME", 80, 0, "style='width:100%'");
-$uploader =~ s/\r|\n//g;
-$uploader =~ s/"/\\"/g;
-$ssider = &ui_textbox("NAME", undef, 60, 0, undef, "style='width:95%'").
-	  &file_chooser_button("NAME");
-$ssider =~ s/\r|\n//g;
-$ssider =~ s/"/\\"/g;
-print <<EOF;
+# Work out if any attachments are supported
+$any_attach = $config{'server_attach'} || !$main::no_browser_uploads;
+
+if ($any_attach && &supports_javascript()) {
+	# Javascript to increase attachments fields
+	$uploader = &ui_upload("NAME", 80, 0, "style='width:100%'");
+	$uploader =~ s/\r|\n//g;
+	$uploader =~ s/"/\\"/g;
+	$ssider = &ui_textbox("NAME", undef, 60, 0, undef, "style='width:95%'").
+		  &file_chooser_button("NAME");
+	$ssider =~ s/\r|\n//g;
+	$ssider =~ s/"/\\"/g;
+	print <<EOF;
 <script>
 function add_attachment()
 {
@@ -734,18 +747,22 @@ return false;
 </script>
 EOF
 
-# Show form for attachments (both uploaded and server-side)
-print &ui_table_start($config{'server_attach'} ? $text{'reply_attach2'}
-					       : $text{'reply_attach3'},
-		      "width=100%", 2);
+	# Show form for attachments (both uploaded and server-side)
+	print &ui_table_start($config{'server_attach'} ? $text{'reply_attach2'}
+						       : $text{'reply_attach3'},
+			      "width=100%", 2);
+	}
 
 # Uploaded attachments
-$atable = "";
-for($i=0; $i<$userconfig{'def_attach'}; $i++) {
-	$atable .= &ui_upload("attach$i", 80, 0, "style='width:100%'")."<br>";
+if (!$main::no_browser_uploads) {
+	$atable = "";
+	for($i=0; $i<$userconfig{'def_attach'}; $i++) {
+		$atable .= &ui_upload("attach$i", 80, 0,
+				      "style='width:100%'")."<br>";
+		}
+	print &ui_hidden("attachcount", int($i)),"\n";
+	print &ui_table_row(undef, $atable, 2, [ undef, "id=attachblock" ]);
 	}
-print &ui_hidden("attachcount", int($i)),"\n";
-print &ui_table_row(undef, $atable, 2, [ undef, "id=attachblock" ]);
 if ($config{'server_attach'}) {
 	$atable = "";
 	for($i=0; $i<$userconfig{'def_attach'}; $i++) {
@@ -758,15 +775,18 @@ if ($config{'server_attach'}) {
 	}
 
 # Links to add more fields
-@addlinks = ( "<a href='' onClick='return add_attachment()'>".
-	      "$text{'reply_addattach'}</a>" );
-if ($config{'server_attach'}) {
+if (!$main::no_browser_uploads && &supports_javascript()) {
+	push(@addlinks, "<a href='' onClick='return add_attachment()'>".
+		        "$text{'reply_addattach'}</a>" );
+	}
+if ($config{'server_attach'} && &supports_javascript()) {
 	push(@addlinks, "<a href='' onClick='return add_ss_attachment()'>".
 			"$text{'reply_addssattach'}</a>" );
 	}
-print &ui_table_row(undef, &ui_links_row(\@addlinks), 2);
-
-print &ui_table_end();
+if ($any_attach) {
+	print &ui_table_row(undef, &ui_links_row(\@addlinks), 2);
+	print &ui_table_end();
+	}
 
 print &ui_form_end([ [ "send", $text{'reply_send'} ],
 		     [ "draft", $text{'reply_draft'} ],

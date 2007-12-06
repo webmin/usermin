@@ -46,3 +46,4 @@ date_fmt=dmy
 send_return=0
 def_attach=2
 white_rec=0
+send_buttons=1

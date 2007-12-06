@@ -39,6 +39,7 @@ real_expand=Lookup real names when sending?,1,1-Yes,0-No
 force_subject=Action if sent email subject is missing,10,-Do nothing,error-Display error,Set to
 send_return=After sending mail&#44; show,1,1-Mail list,0-Mail Sent page
 def_attach=Default number of uploaded attachments,0,8
+send_buttons=Show mail sending buttons,1,1-At top and bottom,0-At bottom only
 
 line3=Mail folders,11
 mailbox_dir=Mailboxes directory under home directory,0,30

@@ -157,6 +157,9 @@ sub delete_address
 # Returns HTML for an address-book popup button
 sub address_button
 {
+if (defined(&theme_address_button)) {
+	return &theme_address_button(@_);
+	}
 local $form = @_ > 1 ? $_[1] : 0;
 local $mode = @_ > 2 ? $_[2] : 0;
 local $nogroups = @_ > 4 ? $_[4] : 0;

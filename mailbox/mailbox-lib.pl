@@ -9,7 +9,7 @@ require '../ui-lib.pl';
 do 'boxes-lib.pl';
 do 'folders-lib.pl';
 
-open(DEBUG, ">>/tmp/mailbox.debug");
+#open(DEBUG, ">>/tmp/mailbox.debug");
 
 if ($config{'mail_qmail'}) {
 	$qmail_maildir = &mail_file_style($remote_user, $config{'mail_qmail'},

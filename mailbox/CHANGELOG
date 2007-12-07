@@ -91,3 +91,5 @@ Added links to download all attachments from a message as a ZIP file, and to sho
 Embedded images from Outlook are properly displayed.
 Added a Preferences page option to control the wrapping of text messages.
 Added links to select read, unread and special messages.
+---- Changes since 1.310 ----
+User interface cleanups, such as tabs on the address book page.

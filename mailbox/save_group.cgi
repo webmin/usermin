@@ -19,6 +19,6 @@ else {
 		&modify_address_group($in{'gedit'}, $in{'group'}, $in{'members'});
 		}
 	}
-&redirect("list_addresses.cgi#groups");
+&redirect("list_addresses.cgi?mode=groups");
 
 

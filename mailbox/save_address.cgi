@@ -32,6 +32,6 @@ else {
 		}
 	&addressbook_to_whitelist();
 	}
-&redirect("list_addresses.cgi");
+&redirect("list_addresses.cgi?mode=users");
 
 

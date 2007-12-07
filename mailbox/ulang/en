@@ -32,7 +32,7 @@ address_m=$1 members
 address_search=Find addresses matching:
 address_ok=Search
 address_users=Email addresses
-address_groups=Email groups
+address_groups=Email nicknames
 
 group_err=Failed to save address group
 group_egroup=Missing or invalid group name

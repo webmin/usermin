@@ -4,9 +4,11 @@
 
 require './mailbox-lib.pl';
 &ui_print_header(undef, $text{'folders_title'}, "");
+&ReadParse();
 
 # Help text
-print &ui_hidden_start($text{'folders_instr'}, "instr", 0, "list_folders.cgi");
+print &ui_hidden_start($text{'folders_instr'}, "instr", $in{'instr'},
+		       "list_folders.cgi");
 print "$text{'folders_desc2'}<br>\n";
 print "<ul>\n";
 foreach $ft ('sys', 'local', 'ext', 'pop3', 'imap', 'comp', 'virt') {

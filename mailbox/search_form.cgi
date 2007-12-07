@@ -20,7 +20,7 @@ print &ui_table_row($text{'sform_andmode'},
 # Criteria table
 $ctable = &ui_columns_start([ ], 50, 1);
 
-for($i=0; $i<=9; $i++) {
+for($i=0; $i<=4; $i++) {
 	local @cols;
 	push(@cols, $text{'sform_where'});
 	push(@cols, &ui_select("field_$i", undef,
@@ -58,7 +58,7 @@ print &ui_table_row($text{'search_latest'},
 
 # Destination for search
 print &ui_table_row($text{'search_dest'},
-	&ui_opt_textbox("dest", undef, 30, $text{'search_dest1'},
+	&ui_opt_textbox("dest", undef, 30, $text{'search_dest1'}."<br>",
 					   $text{'search_dest0'}));
 
 # Folder to search

@@ -401,10 +401,17 @@ push(@rv, { 'name' => $text{'folder_drafts'},
 
 # If using a trash folder, add it
 if ($userconfig{'delete_mode'} == 1) {
-	local $tf = "$folders_dir/trash";
-	if (!-e $tf && $userconfig{'mailbox_dir'} eq "Maildir") {
-		$tf = "$folders_dir/.trash";
+	local $tn = $userconfig{'trash_name'};
+	if ($tn && $userconfig{'mailbox_dir'} eq "Maildir" && $tn !~ /^\./) {
+		# Maildir++ folders always start with .
+		$tn = ".".$tn;
 		}
+	local $tf = $tn ? "$folders_dir/$tn" :
+		    -r "$folders_dir/Trash" ? "$folders_dir/Trash" :
+		    -r "$folders_dir/.Trash" ? "$folders_dir/.Trash" :
+		    -r "$folders_dir/.trash" ? "$folders_dir/.trash" :
+		    $userconfig{'mailbox_dir'} eq "Maildir" ?
+			"$folders_dir/.trash" : "$folders_dir/trash";
 	$done{$tf}++;
 	local $tft = -e $tf ? &folder_type($tf) :
 		     $userconfig{'mailbox_dir'} eq "Maildir" ? 1 : 0;

@@ -93,3 +93,4 @@ Added a Preferences page option to control the wrapping of text messages.
 Added links to select read, unread and special messages.
 ---- Changes since 1.310 ----
 User interface cleanups, such as tabs on the address book page.
+Added a Preferences option to specify the Trash folder name.

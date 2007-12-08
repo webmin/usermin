@@ -30,6 +30,9 @@ foreach $s (@sub) {
         $mail = $amail;
         }
 
+# Work out base URL for self links
+$baseurl = "view_mail.cgi?id=$qid&folder=$in{'folder'}&start=$in{'start'}$subs";
+
 # Mark this mail as read
 &open_read_hash();
 $mid = $mail->{'header'}->{'message-id'};
@@ -196,12 +199,12 @@ if ($userconfig{'top_buttons'} == 2 && &editable_mail($mail)) {
 # Start of headers section
 @hmode = ( );
 if ($in{'headers'}) {
-	push(@hmode, "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=0&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_noheaders'}</a>");
+	push(@hmode, "<a href='$baseurl&body=$in{'body'}&headers=0&images=$in{'images'}'>$text{'view_noheaders'}</a>");
 	}
 else {
-	push(@hmode, "<a href='view_mail.cgi?id=$qid&body=$in{'body'}&headers=1&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_allheaders'}</a>");
+	push(@hmode, "<a href='$baseurl&body=$in{'body'}&headers=1&images=$in{'images'}'>$text{'view_allheaders'}</a>");
 	}
-push(@hmode, "<a href='view_mail.cgi?id=$qid&raw=1&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_raw'}</a>");
+push(@hmode, "<a href='$baseurl&body=$in{'body'}&raw=1&images=$in{'images'}'>$text{'view_raw'}</a>");
 $hmode = &ui_links_row(\@hmode);
 $hmode =~ s/<br>//g;
 print &ui_table_start(&left_right_align("<b>$text{'view_headers'}</b>", $hmode),
@@ -254,6 +257,8 @@ else {
 print &ui_table_end();
 
 # Show body attachment, with properly linked URLs
+$image_mode = defined($in{'images'}) ? $in{'images'}
+				     : $userconfig{'view_images'};
 if ($body && $body->{'data'} =~ /\S/) {
 	if ($body eq $textbody) {
 		# Show plain text
@@ -265,20 +270,33 @@ if ($body && $body->{'data'} =~ /\S/) {
 			}
 		$bodycontents .= "</pre>";
 		if ($htmlbody) {
-			$bodyright = "<a href='view_mail.cgi?id=$qid&body=2&headers=$in{'headers'}&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_ashtml'}</a>";
+			# Link to show HTML
+			push(@bodyright, "<a href='$baseurl&body=2&headers=$in{'headers'}'>$text{'view_ashtml'}</a>");
 			}
 		}
 	elsif ($body eq $htmlbody) {
 		# Attempt to show HTML
 		($bodycontents, $bodystuff) = &safe_html($body->{'data'});
+		@imagesurls = ( );
+		$bodycontents = &disable_html_images($bodycontents, $image_mode,
+						     \@imageurls);
 		$bodycontents = &fix_cids($bodycontents, \@attach,
 			"detach.cgi?id=$qid&folder=$in{'folder'}$subs");
 		if ($textbody) {
-			$bodyright = "<a href='view_mail.cgi?id=$qid&body=1&headers=$in{'headers'}&folder=$in{'folder'}&start=$in{'start'}$subs'>$text{'view_astext'}</a>";
+			# Link to show text
+			push(@bodyright, "<a href='$baseurl&body=1&headers=$in{'headers'}&images=$in{'images'}'>$text{'view_astext'}</a>");
+			}
+		if (@imageurls && $image_mode) {
+			# Link to show images
+			push(@bodyright, "<a href='$baseurl&body=$in{'body'}&headers=$in{'headers'}&images=0'>$text{'view_images'}</a>");
 			}
 		}
 	}
 if ($bodycontents) {
+	if (@bodyright) {
+		$bodyright = &ui_links_row(\@bodyright);
+		$bodyright =~ s/<br>\s*$//;
+		}
 	print &ui_table_start(
 		&left_right_align("<b>$text{'view_body'}</b>", $bodyright),
 		"width=100%", 1);
@@ -346,9 +364,8 @@ if (defined($sigcode)) {
 	$sigmessage = $sigmessage if ($sigcode == 4);
 	print &ui_table_row(undef, &text('view_gnupg_'.$sigcode, $sigmessage));
 	if ($sigcode == 3) {
-		local $url = "/$module_name/view_mail.cgi?id=$qid&folder=$in{'folder'}$subs";
 		print &ui_table_row(undef,
-			&text('view_recv', $sigmessage, "/gnupg/recv.cgi?id=$sigmessage&return=".&urlize($url)."&returnmsg=".&urlize($text{'view_return'})));
+			&text('view_recv', $sigmessage, "/gnupg/recv.cgi?id=$sigmessage&return=".&urlize($baseurl)."&returnmsg=".&urlize($text{'view_return'})));
 		}
 	print &ui_table_end();
 	}

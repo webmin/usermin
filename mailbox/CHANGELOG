@@ -93,4 +93,6 @@ Added a Preferences page option to control the wrapping of text messages.
 Added links to select read, unread and special messages.
 ---- Changes since 1.310 ----
 User interface cleanups, such as tabs on the address book page.
-Added a Preferences option to specify the Trash folder name.
+The Trash folder name can now be set using a new Preferences page option.
+Inline or remote images can be hidden by default by a setting on the Preferences page, then displayed with a link on the Read Mail page.
+

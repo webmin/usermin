@@ -76,7 +76,7 @@ Group: System/Tools
 Source: http://www.webmin.com/download/%{name}-%{version}.tar.gz
 Vendor: Jamie Cameron
 BuildRoot: /tmp/%{name}-%{version}
-BuildArch: noarch
+BuildArchitectures: noarch
 AutoReq: 0
 %description
 A web-based user account administration interface for Unix systems.
@@ -159,6 +159,7 @@ if [ ! -r /etc/usermin/config ]; then
 		exit 3
 	fi
 fi
+/bin/true
 
 %post
 inetd=`grep "^inetd=" /etc/usermin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g'`
@@ -219,6 +220,7 @@ else
 	echo "Usermin install complete. You can now login to http://\$host:\$port/"
 fi
 echo "as any user on your system."
+/bin/true
 
 %preun
 if [ "\$1" = 0 ]; then
@@ -227,9 +229,9 @@ if [ "\$1" = 0 ]; then
 		# RPM is being removed, and no new version of usermin
 		# has taken it's place. Stop the server
 		/etc/init.d/usermin stop >/dev/null 2>&1
-		/bin/true
 	fi
 fi
+/bin/true
 
 %postun
 if [ "\$1" = 0 ]; then
@@ -240,6 +242,7 @@ if [ "\$1" = 0 ]; then
 		rm -rf /etc/usermin /var/usermin
 	fi
 fi
+/bin/true
 
 EOF
 close(SPEC);

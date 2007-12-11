@@ -13,51 +13,45 @@ else {
 	print "$text{'index_desc2'}<p>\n";
 	}
 
-print "<form action=save.cgi method=post>\n";
-print "<table border>\n";
-print "<tr $tb> <td><b>$text{'index_header'}</b></td> </tr>\n";
-print "<tr $cb> <td><table>\n";
+print &ui_form_start("save.cgi", "post");
+print &ui_table_start($text{'index_header'}, undef, 2, [ "width=30%" ]);
 
 @uinfo = split(/,/, $remote_user_info[6]);
 if ($config{'change_real'}) {
-	print "<tr> <td><b>$text{'index_real'}</b></td>\n";
-	print "<td><input name=real size=20 value='$uinfo[0]'></td>\n";
+	print &ui_table_row($text{'index_real'},
+		&ui_textbox("real", $uinfo[0], 40));
 	}
 
 if ($config{'change_office'}) {
-	print "<td><b>$text{'index_office'}</b></td>\n";
-	print "<td><input name=office size=20 value='$uinfo[1]'></td> </tr>\n";
+	print &ui_table_row($text{'index_office'},
+		&ui_textbox("office", $uinfo[1], 40));
 	}
 
 if ($config{'change_ophone'}) {
-	print "<tr> <td><b>$text{'index_ophone'}</b></td>\n";
-	print "<td><input name=ophone size=20 value='$uinfo[2]'></td>\n";
+	print &ui_table_row($text{'index_ophone'},
+		&ui_textbox("ophone", $uinfo[2], 40));
 	}
 
 if ($config{'change_hphone'}) {
-	print "<td><b>$text{'index_hphone'}</b></td>\n";
-	print "<td><input name=hphone size=20 value='$uinfo[3]'></td> </tr>\n";
+	print &ui_table_row($text{'index_hphone'},
+		&ui_textbox("hphone", $uinfo[3], 40));
 	}
 
 if ($config{'change_shell'}) {
-	print "<tr> <td><b>$text{'index_shell'}</b></td>\n";
-	print "<td><select name=shell>\n";
 	open(SHELL, $config{'shells'} || "/etc/shells");
 	while($s = <SHELL>) {
 		$s =~ s/\r|\n//g;
 		$s =~ s/#.*$//;
 		next if ($s !~ /\S/);
-		printf "<option %s>%s\n",
-			$remote_user_info[8] eq $s ? "selected" : "", $s;
-		$found++ if ($remote_user_info[8] eq $s);
+		push(@opts, $s);
 		}
 	close(SHELL);
-	print "<option selected>$remote_user_info[8]\n" if (!$found);
-	print "</select></td> </tr>\n";
+	print &ui_table_row($text{'index_shell'},
+		&ui_select("shell", $remote_user_info[8], \@opts, 1, 0, 1));
 	}
 
-print "</table></td></tr></table>\n";
-print "<input type=submit value='$text{'save'}'></form>\n";
+print &ui_table_end();
+print &ui_form_end([ [ undef, $text{'save'} ] ]);
 
 &ui_print_footer("/", $text{'index'});
 

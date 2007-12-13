@@ -95,4 +95,4 @@ Added links to select read, unread and special messages.
 User interface cleanups, such as tabs on the address book page.
 The Trash folder name can now be set using a new Preferences page option.
 Inline or remote images can be hidden by default by a setting on the Preferences page, then displayed with a link on the Read Mail page.
-
+When viewing a message you can now reply from the same page using the new 'Quick reply' collapsible section.

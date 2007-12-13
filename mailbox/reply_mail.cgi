@@ -7,6 +7,7 @@ require './mailbox-lib.pl';
 &set_module_index($in{'folder'});
 @folders = &list_folders();
 $folder = $folders[$in{'folder'}];
+
 if ($in{'new'}) {
 	# Composing a new email
 	if (defined($in{'html'})) {
@@ -27,6 +28,145 @@ if ($in{'new'}) {
 	&mail_page_header($text{'compose_title'},
 			  undef,
 			  $html_edit ? "onload='initEditor()'" : "");
+	}
+elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
+	# Sending a quick reply
+	$mail = &mailbox_get_mail($folder, $in{'id'}, 0);
+	$mail || &error($text{'view_egone'});
+	&decode_and_sub();
+	$in{'quick'} =~ s/\r//g;
+	$textonly = $userconfig{'no_mime'};
+
+	if ($in{'quick_quote'}) {
+		# Get the original body to construct the email
+		$sig = &get_signature();
+		($quote, $html_edit, $body) = &quoted_message($mail, 1, $sig,
+							     $in{'body'});
+		if ($html_edit) {
+			# HTML quoting
+			$quick_type = "text/html";
+			$quick_body = "<pre>".$in{'quick'}."</pre>".
+				      "<p>\n".$quote;
+			$textonly = 0;
+			}
+		else {
+			# Text quoting
+			$quick_type = "text/plain";
+			$in{'quick'} =~ s/\s*$//g;
+			$quick_body = $in{'quick'}."\n\n".$quote;
+			}
+		}
+	else {
+		# Body is just text
+		$quick_body = $in{'quick'};
+		$quick_type = "text/plain";
+		}
+
+	# Work out From: address
+	($froms, $doms) = &list_from_addresses();
+	($defaddr) = grep { $_->[3] == 2 } &list_addresses();
+	if ($defaddr) {
+		# From address book
+		$from = $defaddr->[1] ? "\"$defaddr->[1]\" <$defaddr->[0]>"
+				      : $defaddr->[0];
+		}
+	else {
+		# Account default
+		$from = $froms->[0];
+		}
+
+	# Work out the subject and recipients
+	$subject = &decode_mimewords($mail->{'header'}->{'subject'});
+	$subject = "Re: ".$subject if ($subject !~ /^Re/i);
+	$to = $mail->{'header'}->{'reply-to'} ||
+	      $mail->{'header'}->{'from'};
+	$cc = "";
+	if ($in{'quick_all'}) {
+		$cc = $mail->{'header'}->{'to'};
+		$cc .= ", ".$mail->{'header'}->{'cc'}
+			if ($mail->{'header'}->{'cc'});
+		}
+
+	# Construct the email
+	$newmid = &generate_message_id($from);
+	$qmail->{'headers'} = [ [ 'From', $from ],
+			        [ 'Subject', $subject ],
+			        [ 'To', $to ],
+			        [ 'Cc', $cc ],
+			        [ 'X-Originating-IP', $ENV{'REMOTE_ADDR'} ],
+			        [ 'X-Mailer',"Usermin ".&get_webmin_version() ],
+			        [ 'Message-Id', $newmid ] ];
+	$qmail->{'header'}->{'message-id'} = $newmid;
+	$rid = $mail->{'header'}->{'message-id'};
+	push(@{$qmail->{'headers'}}, [ 'In-Reply-To', $rid ]) if ($rid);
+	if ($userconfig{'req_dsn'} == 1) {
+		push(@{$mail->{'headers'}},
+		     [ 'Disposition-Notification-To', $from ]);
+		push(@{$mail->{'headers'}}, [ 'Read-Receipt-To', $from ]);
+		}
+
+	# Add the body
+	$mt = $quick_type;
+	$mt .= "; charset=$userconfig{'charset'}";
+	if ($quick_body =~ /[\177-\377]/) {
+		# Contains 8-bit characters .. need to make quoted-printable
+		$textonly = 0;
+		@attach = ( { 'headers' => [ [ 'Content-Type', $mt ],
+					     [ 'Content-Transfer-Encoding',
+					       'quoted-printable' ] ],
+			      'data' => quoted_encode($quick_body) } );
+		}
+	else {
+		# Plain 7-bit ascii text
+		@attach = ( { 'headers' => [ [ 'Content-Type', $mt ],
+					     [ 'Content-Transfer-Encoding',
+					       '7bit' ] ],
+			      'data' => $quick_body } );
+		}
+
+	# Inline HTML images
+	# XXX
+
+	# Tell the user
+	&mail_page_header($draft ? $text{'send_title2'} : $text{'send_title'});
+	@tos = ( split(/,/, $to), split(/,/, $cc) );
+	$tos = join(" , ", map { "<tt>".&html_escape($_)."</tt>" } @tos);
+	print &text('send_sending', $tos || $text{'send_nobody'}),"<p>\n";
+
+	# Sent it off
+	$qmail->{'attach'} = \@attach;
+	local $sfolder;
+	if ($userconfig{'save_sent'}) {
+		($sfolder) = grep { $_->{'sent'} } @folders;
+		if ($sfolder) {
+			$qerr = &would_exceed_quota($sfolder, $qmail);
+			&error($qerr) if ($qerr);
+			}
+		}
+	$notify = $userconfig{'req_del'} == 1;
+	&send_mail($qmail, undef, $textonly, $config{'no_crlf'},
+		   undef, undef, undef, undef,
+		   $notify);
+	if ($sfolder) {
+		&lock_folder($sfolder);
+		&write_mail_folder($qmail, $sfolder, $textonly) if ($sfolder);
+		&unlock_folder($sfolder);
+		}
+	&set_mail_read($sfolder, $qmail, 1);
+	print "$text{'send_done'}<p>\n";
+
+	if ($userconfig{'send_return'}) {
+		# Return to mail list
+		print "<script>\n";
+		print "window.location = 'index.cgi?folder=$in{'folder'}&".
+		      "start=$in{'start'}';\n";
+		print "</script>\n";
+		}
+
+	&mail_page_footer(
+		 "index.cgi?folder=$in{'folder'}&start=$in{'start'}",
+		 $text{'mail_return'});
+	return;
 	}
 else {
 	# Replying or forwarding

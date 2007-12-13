@@ -46,6 +46,7 @@ $mail->{'headers'} = [ [ 'From', $in{'from'} ],
 		       [ 'X-Originating-IP', $ENV{'REMOTE_ADDR'} ],
 		       [ 'X-Mailer', "Usermin ".&get_webmin_version() ],
 		       [ 'Message-Id', $newmid ] ];
+$mail->{'header'}->{'message-id'} = $newmid;
 push(@{$mail->{'headers'}}, [ 'X-Priority', $in{'pri'} ]) if ($in{'pri'});
 push(@{$mail->{'headers'}}, [ 'In-Reply-To', $in{'rid'} ]) if ($in{'rid'});
 if ($userconfig{'req_dsn'} == 1 ||
@@ -420,10 +421,7 @@ else {
 	}
 
 # Mark the new message as read
-&open_read_hash();
-if ($userconfig{'auto_mark'}) {
-	$read{$newmid} ||= 1;
-	}
+&set_mail_read($folder, $mail, 1);
 
 if ($in{'abook'}) {
 	# Add all recipients to the address book, if missing

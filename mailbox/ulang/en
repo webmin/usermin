@@ -161,8 +161,8 @@ view_delfailed=This message could not be delivered to $1 on $2.
 view_delok=This message was delivered to $1 on $2.
 view_quick=Quick reply
 view_quick_all=Reply to all
-view_quick_quote=Quote original message
-view_quick_send=Send Reply
+view_quick_quote=Quote original
+view_quick_send=Send
 
 reply_dsn=Request read status notification?
 reply_del=Request delivery status notification?

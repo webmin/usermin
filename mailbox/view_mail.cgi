@@ -402,16 +402,20 @@ if ($sent_dsn_to || $send_dsn_button || $got_dsn || @delmsgs) {
 	print &ui_table_end();
 	}
 
-# Show quick reply form
-print &ui_hidden_table_start($text{'view_quick'}, "width=100%", 1, "quick", 0);
-$wcols = $userconfig{'wrap_compose'};
-print &ui_table_row(undef,
-	&ui_textarea("quick", undef, 5, $wcols || 80, $wcols ? "hard" : "",
-		     0, $wcols ? "" : "style='width:100%'"), 2);
-print &ui_table_row(undef,
-	&ui_submit($text{'view_quick_send'}, "quick_send")." ".
-	&ui_checkbox("quick_all", 1, $text{'view_quick_all'}, 0)." ".
-	&ui_checkbox("quick_quote", 1, $text{'view_quick_quote'}, 1), 2);
+if (!$folder->{'sent'} && !$folder->{'drafts'}) {
+	# Show quick reply form
+	print &ui_hidden_table_start($text{'view_quick'}, "width=100%", 1,
+				     "quick", 0);
+	$wcols = $userconfig{'wrap_compose'};
+	print &ui_table_row(undef,
+		&ui_textarea("quick", undef, 5, $wcols || 80,
+			     $wcols ? "hard" : "",
+			     0, $wcols ? "" : "style='width:100%'"), 2);
+	print &ui_table_row(undef,
+		&ui_submit($text{'view_quick_send'}, "quick_send")." ".
+		&ui_checkbox("quick_all", 1, $text{'view_quick_all'}, 0)." ".
+		&ui_checkbox("quick_quote", 1, $text{'view_quick_quote'}, 1),2);
+	}
 		     
 print &ui_hidden_table_end();
 

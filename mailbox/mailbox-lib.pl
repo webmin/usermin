@@ -637,6 +637,13 @@ foreach my $f (@rv) {
 		}
 	}
 
+# For Maildir folders, check if we can get the read flag from the folder files
+foreach my $f (@rv) {
+	if ($f->{'type'} == 1) {
+		$f->{'flags'} = 2;
+		}
+	}
+
 @list_folders_cache = @rv;
 return @rv;
 }
@@ -1401,8 +1408,9 @@ if ($realfolder->{'flags'}) {
 	$rv = $mail->{'special'} ? 2 :
 	      $mail->{'read'} ? 1 : 0;
 	}
-else {
-	# Check read hash
+if (!$realfolder->{'flags'} || ($realfolder->{'flags'} == 2 && !$rv)) {
+	# Check read hash if this folder doesn't support flagging, or if
+	# it couldn't give us an answer.
 	&open_read_hash();
 	$rv = int($read{$mail->{'header'}->{'message-id'}});
 	}
@@ -1458,7 +1466,7 @@ if ($realfolder->{'flags'}) {
 			       $read == 2 ? 1 : 0,  # Special
 			       undef);              # Replied
 	}
-else {
+if (!$realfolder->{'flags'} || $realfolder->{'flags'} == 2) {
 	# Update read hash
 	&open_read_hash();
 	if ($read == 0) {

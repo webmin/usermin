@@ -24,7 +24,7 @@ $vers = $ARGV[0];
 	  "lang_list.txt", "usermin-init", "usermin-daemon",
 	  "config-openbsd",
 	  "config-macos", "LICENCE", "PATENTS",
-	  "session_login.cgi", "referer_save.cgi",
+	  "session_login.cgi",
 	  "defaultacl", "date_chooser.cgi",
 	  "install-module.pl", "LICENCE.ja",
 	  "favicon.ico", "config-netbsd",

@@ -1,3 +1,4 @@
 login=MySQL login,0
 pass=MySQL password,12
 max_dbs=Maximum number of databases and tables to display,0
+charset=Character set for MySQL data,0

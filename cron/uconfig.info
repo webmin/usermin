@@ -1,2 +1,3 @@
 show_time=Show job schedules?,1,1-Yes,0-No
 show_comment=Show job comments?,1,1-Yes,0-No
+max_jobs=Maximum Cron jobs to show,3,Unlimited

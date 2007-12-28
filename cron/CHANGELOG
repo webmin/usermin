@@ -6,3 +6,5 @@ In addition to the normal method of specifying the times that a cron job runs at
 Added a field for entering comments from Cron jobs, and a Preferences option to display comments in the list.
 ---- Changes since 1.170 ----
 Multiple Cron jobs can be deleted at once, using checkboxes on the module's main page.
+---- Changes since 1.310 ----
+If there are more than 100 jobs (by default), a search form is shown instead.

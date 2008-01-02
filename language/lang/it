@@ -1,7 +1,7 @@
 index_title=Lingua
-index_title2=Lingua Usermin
-index_lang=Scritte in lingua:
-index_intro=Questa pagina permette di impostare la lingua del sistema Usermin.
+index_title2=Lingua di Usermin
+index_lang=Lingua:
+index_intro=Questa pagina ti permette di impostare la lingua preferita<br>da utilizzare per l'interfaccia utente di Usermin.<br><br>
 index_ok=Cambia
 index_global=Default Globale
 

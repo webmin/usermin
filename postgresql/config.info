@@ -1,6 +1,3 @@
-perpage=Number of rows to display per page,0
-add_mode=Use vertical row editing interface,1,1-Yes,0-No
-blob_mode=Show blob and text fields as,1,0-Data in table,1-Links to download
 nodbi=Use DBI to connect if available?,1,0-Yes,1-No
 psql=Path to psql command,0
 plib=Path to PostgreSQL shared libraries,3,Not needed

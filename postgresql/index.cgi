@@ -75,12 +75,27 @@ else {
 
 	# List the databases
 	print &ui_subheading($text{'index_dbs'});
+	@icons = map { "images/db.gif" } @titles;
+	@links = map { "edit_dbase.cgi?db=$_" } @titles;
 	if (!@titles) {
 		print "<b>$text{'index_nodbs'}</b> <p>\n";
 		}
+	elsif ($displayconfig{'style'}) {
+		@tables = map { if (&accepting_connections($_)) {
+					my @t = &list_tables($_);
+					scalar(@t);
+					}
+				else {
+					"-";
+					}
+				} @titles;
+		@titles = map { &html_escape($_) } @titles;
+		&split_table([ $text{'index_db'},
+			       $text{'index_tables'} ],
+			     undef, \@links, \@titles, \@tables)
+			if (@titles);
+		}
 	else {
-		@icons = map { "images/db.gif" } @titles;
-		@links = map { "edit_dbase.cgi?db=$_" } @titles;
 		@titles = map { &html_escape($_) } @titles;
 		&icons_table(\@links, \@titles, \@icons);
 		}

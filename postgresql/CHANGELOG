@@ -10,3 +10,5 @@ Added a configuration option to restrict users to seeing only their own database
 Added support for editing data in tables under PostgreSQL version 8, which does not use OID columns.
 Merged the table data editor code with the MySQL module.
 Column headings in the Table Data page can be clicked to sort the data by that column.
+---- Changes since 1.320 ----
+Made user interface settings such as the display mode for tables and databases, the number of rows to show, and how blobs are edited settable at the per-user level rather than globally.

@@ -1,1 +1,5 @@
 max_dbs=50
+style=0
+add_mode=1
+blob_mode=0
+perpage=25

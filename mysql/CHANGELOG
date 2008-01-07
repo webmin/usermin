@@ -12,3 +12,5 @@ Column headings in the Table Data page can be clicked to sort the data by that c
 Added options on the backup form for selecting a compatability format for exporting to other database types.
 ---- Changes since 1.310 ----
 The character set to use for MySQL output can now be set on the Preferences page.
+---- Changes since 1.320 ----
+Made user interface settings such as the display mode for tables and databases, the number of rows to show, and how blobs are edited settable at the per-user level rather than globally.

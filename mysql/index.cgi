@@ -72,12 +72,14 @@ else {
 		if (!@titles) {
 			print "<b>$text{'index_nodbs'}</b> <p>\n";
 			}
-		elsif ($config{'style'}) {
+		elsif ($displayconfig{'style'}) {
 			@tables = map { @t = &list_tables($_); scalar(@t) }
 				      @titles;
 			@titles = map { &html_escape($_) } @titles;
-			&split_table([ $text{'index_db'}, $text{'index_tables'} ],
-				     \@links, \@titles, \@tables) if (@titles);
+			&split_table([ $text{'index_db'},
+				       $text{'index_tables'} ],
+				     undef, \@links, \@titles, \@tables)
+				if (@titles);
 			}
 		else {
 			@titles = map { &html_escape($_) } @titles;

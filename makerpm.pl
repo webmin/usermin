@@ -189,6 +189,7 @@ nouninstall=1
 nostart=1
 export config_dir var_dir perl autoos port ssl nochown autothird noperlpath nouninstall nostart allow
 ./setup.sh >/tmp/.webmin/usermin-setup.out 2>&1
+chmod 600 /tmp/.webmin/usermin-setup.out
 rm -f /var/lock/subsys/usermin
 if [ "$inetd" != "1" ]; then
 	/etc/init.d/usermin start >/dev/null 2>&1 </dev/null

@@ -76,7 +76,7 @@ elsif ($in{'black'} || $in{'white'}) {
 	local @from = map { @{$_->{'words'}} }
 			  &spam::find($dir, $conf);
 	local %already = map { $_, 1 } @from;
-	@newaddrs = grep { !$already{$_} } &unique(@addrs);
+	@newaddrs = grep { !$already{$_} && /\@/ } &unique(@addrs);
 	push(@from, @newaddrs);
 	&spam::save_directives($conf, $dir, \@from, 1);
 	&flush_file_lines();

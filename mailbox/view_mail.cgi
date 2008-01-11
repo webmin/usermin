@@ -31,7 +31,7 @@ foreach $s (@sub) {
         }
 
 # Work out base URL for self links
-$baseurl = "view_mail.cgi?id=$qid&folder=$in{'folder'}&start=$in{'start'}$subs";
+$baseurl = "$gconfig{'webprefix'}/$module_name/view_mail.cgi?id=$qid&folder=$in{'folder'}&start=$in{'start'}$subs";
 
 # Mark this mail as read
 &open_read_hash();

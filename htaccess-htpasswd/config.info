@@ -6,3 +6,4 @@ can_htgroups=Allow creation of groups files?,1,1-Yes,0-No
 dirs=Allowed directories for options files,9,0,0,\t
 home=Include home directory in allowed list?,1,1-Yes,0-No
 extra_directives=Extra directives to include in .htaccess,9,0,0,\t
+nocreate=Can add and edit protected directories?,1,0-Yes,1-No

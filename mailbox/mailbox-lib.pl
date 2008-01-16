@@ -2141,7 +2141,7 @@ foreach my $a (@$attach) {
 		}
 	push(@actions, \@a);
 	}
-local @tds = ( "width=50%", "width=25%", "width=10%", "width=15%" );
+local @tds = ( "width=50%", "width=25%", "width=10%", "width=15% nowrap" );
 if ($cbs) {
 	unshift(@tds, "width=5");
 	}

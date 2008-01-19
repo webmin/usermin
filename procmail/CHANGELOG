@@ -1,2 +1,4 @@
 ---- Changes since 1.200 ----
 Added a button for deleting multiple recipes at once.
+---- Changes since 1.320 ----
+Converted all code to use the new Webmin UI library, for a more consistent look.

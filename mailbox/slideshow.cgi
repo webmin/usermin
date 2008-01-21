@@ -54,7 +54,7 @@ foreach $a (@iattach) {
 
 	# Actual image
 	print "<img src='detach.cgi?id=".&urlize($in{'id'}).
-	      "&folder=$in{'folder'}&attach=$a->{'idx'}'><br>\n";
+	      "&folder=$in{'folder'}&attach=$a->{'idx'}$subs'><br>\n";
 	$n++;
 	}
 

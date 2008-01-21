@@ -281,7 +281,7 @@ else {
 			$in{'markas2'} ? 2 :
 			  $in{'mark1'} ? $in{'mode1'} : $in{'mode2'};
 		&set_mail_read($folder, $mail, $mode);
-		&redirect_to_previous();
+		&redirect_to_previous(1);
 		exit;
 		}
 	elsif ($in{'move1'} || $in{'move2'}) {
@@ -957,13 +957,14 @@ foreach $s (@sub) {
 
 sub redirect_to_previous
 {
+local ($refresh) = @_;
 local $perpage = $folder->{'perpage'} || $userconfig{'perpage'};
 local $s = int($mail->{'sortidx'} / $perpage) * $perpage;
 if ($userconfig{'open_mode'}) {
 	&redirect($viewlink);
 	}
 else {
-	&redirect("index.cgi?folder=$in{'folder'}&start=$s");
+	&redirect("index.cgi?folder=$in{'folder'}&start=$s&refresh=$refresh");
 	}
 }
 

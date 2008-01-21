@@ -324,6 +324,15 @@ print &ui_grid_table(\@grid, 3, 100,
   [ "align=left width=33%", "align=center width=33%", "align=right width=33%" ],
   "cellpadding=0 cellspacing=0");
 
+if ($in{'refresh'}) {
+	# Previous CGI has asked for a theme refresh, due to read counts
+	# possibly changing or a folder being added
+	if (defined(&theme_post_save_folder)) {
+		&theme_post_save_folder($folder,
+			$in{'refresh'} == 2 ? 'create' : 'read');
+		}
+	}
+
 &ui_print_footer("/", $text{'index'});
 &pop3_logout();
 

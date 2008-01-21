@@ -97,3 +97,5 @@ The Trash folder name can now be set using a new Preferences page option.
 Inline or remote images can be hidden by default by a setting on the Preferences page, then displayed with a link on the Read Mail page.
 When viewing a message you can now reply from the same page using the new 'Quick reply' collapsible section.
 When mail in a Maildir format folder is marked as read or special, flags on the underlying filename are also updated so that the new status is visible to IMAP clients.
+---- Changes since 1.320 ----
+The number of unread messages in each folder can be displayed using a new Preferences option in the 'Mail folders' section. By default this is only enabled for IMAP folders, as computing the unread count for other folder types can be slow for if they contain a large number of messages.

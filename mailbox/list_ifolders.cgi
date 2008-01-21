@@ -78,5 +78,13 @@ print &ui_columns_end();
 print &ui_links_row(\@adders);
 print &ui_form_end([ [ "delete", $text{'folders_delete'} ] ]);
 
+# Refresh left frame if needed
+if ($in{'refresh'}) {
+	($folder) = grep { $_->{'name'} eq $in{'refresh'} } @folders;
+	if (defined(&theme_post_save_folder)) {
+		&theme_post_save_folder($folder, 'modify');
+		}
+	}
+
 &ui_print_footer("", $text{'index'});
 

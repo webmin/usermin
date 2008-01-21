@@ -106,7 +106,7 @@ elsif ($in{'mode'} == 2) {
 		}
 	&save_folder($folder);
 	}
-&redirect("list_folders.cgi");
+&redirect("list_folders.cgi?refresh=".&urlize($folder->{'name'}));
 
 sub verify_external
 {

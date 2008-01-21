@@ -59,5 +59,5 @@ else {
 	&save_folder($folder);
 	}
 
-&redirect("list_ifolders.cgi");
+&redirect("list_ifolders.cgi?refresh=".&urlize($folder->{'name'}));
 

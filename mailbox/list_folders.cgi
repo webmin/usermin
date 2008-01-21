@@ -147,5 +147,13 @@ if (@can_folder_progs) {
 	}
 print &ui_form_end();
 
+# Refresh left frame if needed
+if ($in{'refresh'}) {
+	($folder) = grep { $_->{'name'} eq $in{'refresh'} } @folders;
+	if (defined(&theme_post_save_folder)) {
+		&theme_post_save_folder($folder, 'modify');
+		}
+	}
+
 &ui_print_footer("", $text{'index'});
 

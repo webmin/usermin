@@ -48,3 +48,4 @@ def_attach=2
 white_rec=0
 send_buttons=1
 view_images=0
+show_unread=1

@@ -34,10 +34,13 @@ foreach $s (@sub) {
 $baseurl = "$gconfig{'webprefix'}/$module_name/view_mail.cgi?id=$qid&folder=$in{'folder'}&start=$in{'start'}$subs";
 
 # Mark this mail as read
-&open_read_hash();
 $mid = $mail->{'header'}->{'message-id'};
 if ($userconfig{'auto_mark'}) {
-	eval { $read{$mid} = 1 } if (!$read{$mid});
+	$wasread = &get_mail_read($folder, $mail);
+	if (!$wasread) {
+		&set_mail_read($folder, $mail, 1);
+		$refresh = 1;
+		}
 	}
 
 # Possibly send a DSN, or check if one is needed
@@ -426,7 +429,12 @@ if ($userconfig{'arrows'} == 2 && !@sub) {
 	}
 print "</form>\n";
 
-dbmclose(%read);
+if ($refresh) {
+	# Refresh left frame if we have changed the read status
+	if (defined(&theme_post_save_folder)) {
+		&theme_post_save_folder($folder, 'read');
+		}
+	}
 
 # Show footer links
 local @sr = !@sub ? ( ) :

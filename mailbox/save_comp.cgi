@@ -35,6 +35,6 @@ else {
 	$folder->{'sent'} = $in{'sent'};
 	&save_folder($folder, $old);
 	}
-&redirect($config{'mail_system'} == 4 ? "list_ifolders.cgi"
-				      : "list_folders.cgi");
-
+&redirect(($config{'mail_system'} == 4 ? "list_ifolders.cgi"
+				      : "list_folders.cgi").
+	  "?refresh=".&urlize($folder->{'name'}));

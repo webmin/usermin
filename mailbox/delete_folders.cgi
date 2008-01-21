@@ -20,7 +20,7 @@ if ($in{'confirm'}) {
 	foreach $f (@dfolders) {
 		&delete_folder($f);
 		}
-	&redirect($redir);
+	&redirect($redir."?refresh=".&urlize($dfolders[0]->{'name'}));
 	}
 else {
 	# Ask the user if he is sure

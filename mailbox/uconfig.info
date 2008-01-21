@@ -56,6 +56,7 @@ show_delall=Show button to delete entire mailbox?,1,1-Yes,0-No
 sent_name=Sent mail folder file,3,Automatic
 drafts_name=Drafts folder file,3,Automatic
 trash_name=Trash folder file,3,Automatic
+show_unread=Show unread messages count,1,2-Yes,1-Only for IMAP,0-No
 
 line4=Spam options,11
 spam_buttons=Show spam reporting buttons for,2,list-Mailboxes,mail-Messages

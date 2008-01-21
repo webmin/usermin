@@ -175,6 +175,6 @@ else {
 &save_folder($virt, $virt);
 
 # Redirect to it
-&redirect("index.cgi?id=$virt->{'id'}");
+&redirect("index.cgi?id=$virt->{'id'}&refresh=2");
 &pop3_logout_all();
 

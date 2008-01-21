@@ -26,7 +26,7 @@ if (defined($mark)) {
 		&set_mail_read($folder, $mail, $mark);
 		}
 	$perpage = $folder->{'perpage'} || $userconfig{'perpage'};
-	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}");
+	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=1");
 	}
 elsif ($in{'move1'} || $in{'move2'}) {
 	# Moving mails to some other folder

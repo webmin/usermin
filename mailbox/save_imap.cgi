@@ -27,7 +27,7 @@ else {
 		&error($text{'save_eserver'});
 	$in{'port_def'} || $in{'port'} =~ /^\d+$/ ||
 		&error($text{'save_eport'});
-	$in{'user'} =~ /\S/ || &error($text{'save_euser'});
+	$in{'user_def'} || $in{'user'} =~ /\S/ || &error($text{'save_euser'});
 	$in{'mailbox_def'} || $in{'mailbox'} =~ /^\S+$/ ||
 		&error($text{'save_emailbox2'});
 	&parse_folder_options($folder, 0, \%in);
@@ -36,7 +36,7 @@ else {
 	$folder->{'name'} = $in{'name'};
 	$folder->{'server'} = $in{'server'};
 	$folder->{'port'} = $in{'port_def'} ? undef : $in{'port'};
-	$folder->{'user'} = $in{'user'};
+	$folder->{'user'} = $in{'user_def'} ? '*' : $in{'user'};
 	$folder->{'pass'} = $in{'pass'};
 	$folder->{'perpage'} = $in{'perpage_def'} ? undef : $in{'perpage'};
 	$folder->{'fromaddr'} = $in{'fromaddr_def'} ? undef : $in{'fromaddr'};

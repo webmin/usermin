@@ -41,7 +41,8 @@ print &ui_table_row($text{'edit_port'},
 
 # Login and password
 print &ui_table_row($text{'edit_user'},
-	&ui_textbox("user", $folder->{'user'}, 20));
+	&ui_opt_textbox("user", $folder->{'user'} eq '*' ? undef :
+			$folder->{'user'}, 20, $text{'edit_usersame'}));
 print &ui_table_row($text{'edit_pass'},
 	&ui_password("pass", $folder->{'pass'}, 20));
 

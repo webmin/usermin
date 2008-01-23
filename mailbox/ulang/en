@@ -108,6 +108,7 @@ edit_server=POP3 server
 edit_port=Port number
 edit_iserver=IMAP server
 edit_user=Username on server
+edit_usersame=Same as Usermin login
 edit_pass=Password on server
 edit_mailbox=IMAP mailbox
 edit_imapinbox=User's inbox

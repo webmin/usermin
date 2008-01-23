@@ -71,9 +71,10 @@ foreach $f (@folders) {
 		}
 	if ($f->{'type'} == 2 || $f->{'type'} == 4) {
 		# Show mail server
+		$user = $f->{'user'} eq '*' ? $remote_user : $f->{'user'};
 		push(@cols, &text(
 			$f->{'port'} ? 'folders_servp' : 'folders_serv',
-			"<tt>$f->{'user'}</tt>", "<tt>$f->{'server'}</tt>",
+			"<tt>$user</tt>", "<tt>$f->{'server'}</tt>",
 			"<tt>$f->{'port'}</tt>"));
 		push(@cols, $f->{'type'} == 2 ? "POP3" : "IMAP");
 		push(@cols, undef);

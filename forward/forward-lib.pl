@@ -14,7 +14,8 @@ foreach $script ("autoreply.pl", "filter.pl") {
 	local @rst = stat($rpath);
 	local @cst = stat($cpath);
 	if (!@cst || $cst[7] != $rst[7]) {
-		system("cp $rpath $cpath");
+		&copy_source_dest($rpath, $cpath);
+		&set_ownership_permissions(undef, undef, 0755, $cpath);
 		}
 	if ($config{'smrsh_dir'} && !-r "$config{'smrsh_dir'}/$script") {
 		symlink($cpath, "$config{'smrsh_dir'}/$script");

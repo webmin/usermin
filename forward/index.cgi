@@ -70,7 +70,7 @@ if ($in{'simple'} && $simple) {
 	$df = &mailbox::get_preferred_from_address();
 	print &ui_table_row($text{'index_from'},
 		&ui_radio("from_def", $simple->{'from'} ||
-				      !$simple->{'auto'} ? 0 : 1,
+				      !$simple->{'autotext'} ? 0 : 1,
 			  [ [ 1, $text{'index_fromauto'} ],
 			    [ 0, &ui_textbox("from", $simple->{'from'} || $df,
 					     50) ] ]));

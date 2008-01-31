@@ -62,18 +62,8 @@ elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
 		$quick_type = "text/plain";
 		}
 
-	# Work out From: address
-	($froms, $doms) = &list_from_addresses();
-	($defaddr) = grep { $_->[3] == 2 } &list_addresses();
-	if ($defaddr) {
-		# From address book
-		$from = $defaddr->[1] ? "\"$defaddr->[1]\" <$defaddr->[0]>"
-				      : $defaddr->[0];
-		}
-	else {
-		# Account default
-		$from = $froms->[0];
-		}
+	# Work out From: address for quick reply
+	$from = &get_preferred_from_address();
 
 	# Work out the subject and recipients
 	$subject = &decode_mimewords($mail->{'header'}->{'subject'});

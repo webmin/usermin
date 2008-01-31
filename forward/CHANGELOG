@@ -12,3 +12,5 @@ Files to attach to an autoresponder can now be specified.
 Added a global configuration option to disable attachments.
 ---- Changes since 1.230 ----
 Users with an @ in their names on Postfix settings can now have mail properly delivered to their mailboxes.
+---- Changes since 1.320 ----
+The default From: address for autoreplies now respects the default address set in the user's address book.

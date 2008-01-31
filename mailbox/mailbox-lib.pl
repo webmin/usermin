@@ -2222,5 +2222,24 @@ foreach $a (@addrs) {
 return join(" , ", @rv);
 }
 
+# get_preferred_from_address()
+# Returns the from address for the current user, which may come from their
+# address book, or from the module config. Will include the real name too,
+# where possible.
+sub get_preferred_from_address
+{
+local ($froms, $doms) = &list_from_addresses();
+local ($defaddr) = grep { $_->[3] == 2 } &list_addresses();
+if ($defaddr) {
+	# From address book
+	return $defaddr->[1] ? "\"$defaddr->[1]\" <$defaddr->[0]>"
+			      : $defaddr->[0];
+	}
+else {
+	# Account default
+	return $froms->[0];
+	}
+}
+
 1;
 

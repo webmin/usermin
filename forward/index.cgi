@@ -39,7 +39,7 @@ if ($in{'simple'} && $simple) {
 			    &ui_checkbox("forward", 1,$text{'index_forwardyes'},
 					 $simple->{'forward'})." ".
 			    &ui_textbox("forwardto", $simple->{'forward'} ||
-					     $userconfig{'forwardto'}, 40));
+					     $userconfig{'forwardto'}, 50));
 
 	# Autoreply active and text
 	print &ui_table_row($text{'index_auto'},
@@ -67,13 +67,13 @@ if ($in{'simple'} && $simple) {
 	    &ui_opt_textbox("period", $period, 3, $text{'index_noperiod'})." ".
 	    $text{'index_mins'});
 
-	($froms, $doms) = &mailbox::list_from_addresses();
-	$df = $froms->[0];
+	$df = &mailbox::get_preferred_from_address();
 	print &ui_table_row($text{'index_from'},
-		&ui_radio("from_def", $simple->{'from'} ? 0 : 1,
+		&ui_radio("from_def", $simple->{'from'} ||
+				      !$simple->{'auto'} ? 0 : 1,
 			  [ [ 1, $text{'index_fromauto'} ],
 			    [ 0, &ui_textbox("from", $simple->{'from'} || $df,
-					     40) ] ]));
+					     50) ] ]));
 	
 	print &ui_table_end();
 	print &ui_form_end([ [ "save", $text{'save'} ] ]);

@@ -64,6 +64,10 @@ if ($in{'replyto'}) {
 	push(@{$mail->{'headers'}}, [ 'Reply-To', $r2 ]);
 	}
 
+# Make sure we have a recipient
+$in{'to'} =~ /\S/ || $in{'cc'} =~ /\S/ || $in{'bcc'} =~ /\S/ || $draft ||
+	&error($text{'send_eto'});
+
 $in{'body'} =~ s/\r//g;
 %cidmap = ( );
 if ($in{'body'} =~ /\S/) {

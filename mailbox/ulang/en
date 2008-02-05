@@ -8,6 +8,8 @@ mail_special=Special
 
 send_efile=Attached file $1 is not readable or does not exist
 send_nobody=nobody
+send_etomsg=No To, Cc or Bcc address was entered
+send_esubjectmsg=No Subject was entered - hope that's OK
 
 address_chooser=Select Address..
 address_addr=Email address

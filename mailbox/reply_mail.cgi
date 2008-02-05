@@ -567,10 +567,34 @@ else {
 		$html_edit ? "onload='initEditor()'" : "");
 	}
 
+# Script to validate fields
+$noto_msg = &quote_escape($text{'send_etomsg'}, '"');
+$nosubject_msg = &quote_escape($text{'send_esubjectmsg'}, '"');
+print <<EOF;
+<script>
+function check_fields()
+{
+form = document.forms[0];
+if (form.to.value == '' && form.cc.value == '' && form.bcc.value == '' &&
+    !form.draft_clicked) {
+	alert("$noto_msg");
+	return false;
+	}
+if (form.subject.value == '') {
+	if (!confirm("$nosubject_msg")) {
+		return false;
+		}
+	}
+return true;
+}
+</script>
+EOF
+
 # Show form start, with upload progress tracker hook
 $upid = time().$$;
-print &ui_form_start("send_mail.cgi?id=$upid", "form-data", undef,
-      &read_parse_mime_javascript($upid, [ map { "attach$_" } (0..10) ]));
+$onsubmit = &read_parse_mime_javascript($upid, [ map { "attach$_" } (0..10) ]);
+$onsubmit =~ s/='/='ok = check_fields(); if (!ok) { return false; } /;
+print &ui_form_start("send_mail.cgi?id=$upid", "form-data", undef, $onsubmit);
 
 # Output various hidden fields
 print "<input type=hidden name=ouser value='$ouser'>\n";
@@ -758,8 +782,10 @@ if ($userconfig{'send_buttons'}) {
 		&ui_textbox("subject", $subject, 40, 0, undef,
 			    "style='width:60%'").
 		&ui_submit($text{'reply_send'}).
-		&ui_submit($text{'reply_draft'}, "draft").
-		&ui_submit($text{'reply_save'}, "save"),
+		&ui_submit($text{'reply_draft'}, "draft", undef,
+			   "onClick='form.draft_clicked = 1'").
+		&ui_submit($text{'reply_save'}, "save", undef,
+			   "onClick='form.draft_clicked = 1'"),
 		1, \@tds);
 	}
 else {
@@ -919,8 +945,10 @@ if ($any_attach) {
 	}
 
 print &ui_form_end([ [ "send", $text{'reply_send'} ],
-		     [ "draft", $text{'reply_draft'} ],
-		     [ "save", $text{'reply_save'} ],
+		     [ "draft", $text{'reply_draft'}, undef, undef,
+		       "onClick='form.draft_clicked = 1'" ],
+		     [ "save", $text{'reply_save'}, undef, undef,
+		       "onClick='form.draft_clicked = 1'" ],
 		   ]);
 
 &mail_page_footer("index.cgi?folder=$in{'folder'}&start=$in{'start'}",

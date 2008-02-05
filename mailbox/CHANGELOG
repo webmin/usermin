@@ -101,3 +101,4 @@ When mail in a Maildir format folder is marked as read or special, flags on the 
 The number of unread messages in each folder can be displayed using a new Preferences option in the 'Mail folders' section. By default this is only enabled for IMAP folders, as computing the unread count for other folder types can be slow for if they contain a large number of messages.
 IMAP and POP3 folders can now have their logins set to be the same as the Usermin login.
 When deleting or moving all messages in the search results folder, the original emails are correctly deleted.
+Added warnings if a message it sent with no recipient or subject.

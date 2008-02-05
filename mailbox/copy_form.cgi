@@ -10,7 +10,7 @@ $folder = $folders[$in{'idx'}];
 
 print &ui_form_start("copy.cgi");
 print &ui_hidden("idx", $in{'idx'});
-print &ui_table_start($text{'copy_header'}, undef, 2);
+print &ui_table_start($text{'copy_header'}, undef, 2, [ "width=30%" ]);
 
 # Source folder
 print &ui_table_row($text{'copy_source'}, $folder->{'name'});

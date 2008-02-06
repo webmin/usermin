@@ -30,7 +30,7 @@ if ($config{'passwd_dict'} && $_[0] =~ /^[A-Za-z\'\-]+$/ &&
 	if (&has_command("ispell")) {
 		open(SPELL, "ispell -a <$temp |");
 		while(<SPELL>) {
-			if (/^(#|\&|\?)/) {
+			if (/^(\#|\&|\?)/) {
 				$unknown++;
 				}
 			}

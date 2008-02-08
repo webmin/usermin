@@ -547,12 +547,12 @@ if [ "$upgrading" != 1 ]; then
 	echo "nofeedbackconf=1" >> $config_dir/config
 
 	# Disallow unknown referers by default
-	echo "referers_none=1" >>$cfile
+	echo "referers_none=1" >> $config_dir/config
 else
 	# Disallow unknown referers if not set
-	grep referers_none= $cfile >/dev/null
+	grep referers_none= $config_dir/config >/dev/null
 	if [ "$?" != "0" ]; then
-		echo "referers_none=1" >>$cfile
+		echo "referers_none=1" >> $config_dir/config
 	fi
 fi
 echo $ver > $config_dir/version

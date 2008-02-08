@@ -545,6 +545,15 @@ if [ "$upgrading" != 1 ]; then
 	echo "overlang=ulang" >> $config_dir/config
 	echo "nofeedbackcc=2" >> $config_dir/config
 	echo "nofeedbackconf=1" >> $config_dir/config
+
+	# Disallow unknown referers by default
+	echo "referers_none=1" >>$cfile
+else
+	# Disallow unknown referers if not set
+	grep referers_none= $cfile >/dev/null
+	if [ "$?" != "0" ]; then
+		echo "referers_none=1" >>$cfile
+	fi
 fi
 echo $ver > $config_dir/version
 echo "..done"

@@ -26,13 +26,9 @@ if (-r "$updates_dir/$ARGV[0]-$version-$ARGV[1].$ext.gz") {
 	die "Update $ARGV[0]-$version-$ARGV[1].$ext.gz already exists";
 	}
 
-$minfo{'version'} = $version + $ARGV[1]/1000.0;
-&write_file($ifile, \%minfo);
+$uversion = $version + $ARGV[1]/1000.0;
 
-system("tar cvhzf $updates_dir/$ARGV[0]-$version-$ARGV[1].$ext.gz $ARGV[0]") && die "tar failed";
-
-delete($minfo{'version'});
-&write_file($ifile, \%minfo);
+system("./create-module.pl $updates_dir/$ARGV[0]-$version-$ARGV[1].$ext.gz $ARGV[0]/$uversion") && die "tar failed";
 
 if ($ARGV[2]) {
 	$os_support = $minfo{'os_support'} ? $minfo{'os_support'} : "0";
@@ -52,7 +48,7 @@ if ($ARGV[2]) {
 	foreach $u (@updates) {
 		print UPDATES $u;
 		if ($u =~ /<!--\s+new\s+update/i) {
-			print UPDATES "<tr class=mainbody> <td>$minfo{'desc'}</td> <td>$version</td> <td>$ARGV[2]</td> <td nowrap><a href=updates/$ARGV[0]-$version-$ARGV[1].$ext.gz>New module</a></td> </tr>\n\n";
+			print UPDATES "<tr class=mainbody> <td>$minfo{'desc'}</td> <td>$version</td> <td>$ARGV[2]</td> <td nowrap><a href=uupdates/$ARGV[0]-$version-$ARGV[1].$ext.gz>New module</a></td> </tr>\n\n";
 			}
 		}
 	close(UPDATES);

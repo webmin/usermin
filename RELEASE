@@ -19,9 +19,9 @@ find . -name "*~" -o -name "*.rej" -o -name "*.orig" | xargs rm
 
  x Build .tar.gz, RPM and Debian packages
 
- x create -webmail packages, and upload
-
  x Upload files to sourceforge
+
+ x create -webmail packages, and upload
 
  x Upload signatures to sourceforge (with copy-sigs.sh)
 
@@ -32,9 +32,13 @@ find . -name "*~" -o -name "*.rej" -o -name "*.orig" | xargs rm
  x Upload Debian files to site, with :
 	scp deb/usermin_*.dsc deb/usermin_*.diff download.webmin.com:htdocs/download/deb/
 
+ x Generate MD5 checksums with :
+	cd ~/webmin.com ; make-umd5.pl 1.xxx >umd5.html
+
  x Update and upload website HTML, including ulang_list.html and ustandard.html
 
- - Update freshmeat.net entry
+ x Update freshmeat.net entry
+        x for webmail too
 
  x Send to mailing list
 

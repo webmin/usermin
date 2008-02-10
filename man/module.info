@@ -17,6 +17,6 @@ desc_hu=Programleírások
 desc_ru_RU=Ñòğàíèöû Ğóêîâîäñòâà
 desc_ca=Documentació del Sistema
 desc_de=Systemdokumentation
-desc_cz=Manualove stranky
+desc_cz=Manualové stránky
 usermin=1
 longdesc=Search man pages and other system documentation, just like in the Webmin module of the same name.

@@ -104,3 +104,4 @@ When deleting or moving all messages in the search results folder, the original 
 Added warnings if a message it sent with no recipient or subject.
 ---- Changes since 1.330 ----
 Messages that the IMAP server indicates are flagged for deletion are now struck through on the mail list.
+The icon on the mail list indicating if a message has an attachments is now 100% accurate, rather than being based on a header check only. This will slightly slow down the mail list the first time it is used though.

@@ -1562,7 +1562,7 @@ sub message_icons
 local ($mail, $showto, $folder) = @_;
 &open_dsn_hash();
 local @rv;
-if ($mail->{'header'}->{'content-type'} =~ /multipart\/\S+/i) {
+if (&mail_has_attachments($mail, $folder)) {
 	push(@rv, "<img src=images/attach.gif alt='A'>");
 	}
 local $p = int($mail->{'header'}->{'x-priority'});

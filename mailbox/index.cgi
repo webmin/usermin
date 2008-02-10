@@ -208,6 +208,13 @@ for(my $i=$start; $i<=$end; $i++) {
 	push(@cols, $bs.&simplify_subject($m->{'header'}->{'subject'}).
 		    " ".join("&nbsp;", @icons).$be);
 
+	# Detect IMAP deleted mail
+	if ($m->{'deleted'}) {
+		foreach my $c (@cols) {
+			$c = "<strike>$c</strike>";
+			}
+		}
+
 	if (&editable_mail($m)) {
 		print &ui_checked_columns_row(\@cols, \@tds, "d", $id);
 		}

@@ -102,3 +102,5 @@ The number of unread messages in each folder can be displayed using a new Prefer
 IMAP and POP3 folders can now have their logins set to be the same as the Usermin login.
 When deleting or moving all messages in the search results folder, the original emails are correctly deleted.
 Added warnings if a message it sent with no recipient or subject.
+---- Changes since 1.330 ----
+Messages that the IMAP server indicates are flagged for deletion are now struck through on the mail list.

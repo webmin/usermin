@@ -39,3 +39,5 @@ All images, CSS and other static content served by Usermin has an HTTP Expires f
 Changed the error message that appears when Webmin detects a link from another web page.
 ---- Changes since 1.320 ----
 Links from unknown referers are now blocked by default, to prevent XSS attacks. This may break browsers that don't supply a Referer: HTTP header.
+---- Changes since 1.330 ----
+Big Czech translation updates, thanks to Petr Vanek and the Czech translation team.

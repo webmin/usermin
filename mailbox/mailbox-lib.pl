@@ -508,6 +508,7 @@ foreach $f (readdir(DIR)) {
 		$imap{'type'} = 4;
 		$imap{'mode'} = 0;
 		$imap{'remote'} = 1;
+		$imap{'flags'} = 1;
 		$imap{'index'} = scalar(@rv);
 		push(@rv, \%imap);
 		}

@@ -418,9 +418,8 @@ if (!$folder->{'sent'} && !$folder->{'drafts'}) {
 		&ui_submit($text{'view_quick_send'}, "quick_send")." ".
 		&ui_checkbox("quick_all", 1, $text{'view_quick_all'}, 0)." ".
 		&ui_checkbox("quick_quote", 1, $text{'view_quick_quote'}, 1),2);
+	print &ui_hidden_table_end();
 	}
-		     
-print &ui_hidden_table_end();
 
 &show_buttons(2, scalar(@sub)) if (&editable_mail($mail));
 if ($userconfig{'arrows'} == 2 && !@sub) {

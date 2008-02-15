@@ -11,7 +11,7 @@ $mail = &mailbox_get_mail($folder, $in{'id'}, 0);
 $mail || &error($text{'view_egone'});
 &parse_mail($mail);
 @sub = split(/\0/, $in{'sub'});
-$subs = join("", map { "&sub=$_" } @sub);
+$subs = join("", map { "&sub=".&urlize($_) } @sub);
 foreach $s (@sub) {
         # We are looking at a mail within a mail ..
 	&decrypt_attachments($mail);

@@ -2,6 +2,7 @@
 # address_chooser.cgi
 # Display a list of entries from the address book
 
+$trust_unknown_referers = 1;
 require './mailbox-lib.pl';
 &ReadParse();
 

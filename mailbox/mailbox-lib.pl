@@ -1138,23 +1138,35 @@ sub delete_address_group
 sub list_folders_sorted
 {
 local @folders = &list_folders();
+local @rv;
 if ($userconfig{'folder_sort'} == 0) {
+	# Builtin, then ~/mail, then external
 	local @builtin = grep { $_->{'mode'} >= 2 } @folders;
 	local @local = grep { $_->{'mode'} == 0 } @folders;
 	local @external = grep { $_->{'mode'} == 1 } @folders;
-	return (@builtin,
+	@rv = (@builtin,
 		(sort { lc($a->{'name'}) cmp lc($b->{'name'}) } @local),
 		(sort { lc($a->{'name'}) cmp lc($b->{'name'}) } @external));
 	}
 elsif ($userconfig{'folder_sort'} == 1) {
+	# Builtin, then rest sorted by name
 	local @builtin = grep { $_->{'mode'} >= 2 } @folders;
 	local @extra = grep { $_->{'mode'} < 2 } @folders;
-	return (@builtin,
+	@rv = (@builtin,
 		sort { lc($a->{'name'}) cmp lc($b->{'name'}) } @extra);
 	}
 elsif ($userconfig{'folder_sort'} == 2) {
-	return sort { lc($a->{'name'}) cmp lc($b->{'name'}) } @folders;
+	# All by name
+	@rv = sort { lc($a->{'name'}) cmp lc($b->{'name'}) } @folders;
 	}
+if ($userconfig{'default_folder'} && $userconfig{'folder_sort'} <= 1) {
+	# Move default folder to top of the list
+	local $df = &find_named_folder($userconfig{'default_folder'}, \@rv);
+	if ($df) {
+		@rv = ( $df, grep { $_ ne $df } @rv );
+		}
+	}
+return @rv;
 }
 
 # group_subs(filename)

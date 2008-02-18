@@ -1914,7 +1914,7 @@ local $img = $sortfield eq $field && $dir ? "sortascgrey.gif" :
 	     $sortfield eq $field && !$dir ? "sortdescgrey.gif" :
 	     $dir ? "sortasc.gif" : "sortdesc.gif";
 if ($folder->{'sortable'}) {
-	return "<table cellpadding=0 cellspacing=0><tr><td><a href='sort.cgi?field=$field&dir=$dir&folder=$folder->{'index'}&start=$start'><b>$title</b></td> <td align=right><img valign=middle src=../images/$img border=0></td> </tr></table>";
+	return "<table cellpadding=0 cellspacing=0><tr><td><a href='sort.cgi?field=".&urlize($field)."&dir=".&urlize($dir)."&folder=".&urlize($folder->{'index'})."&start=".&urlize($start)."'><b>$title</b></td> <td align=right><img valign=middle src=../images/$img border=0></td> </tr></table>";
 	}
 else {
 	return "<b>$title</b>";
@@ -1926,7 +1926,8 @@ sub view_mail_link
 {
 local ($folder, $id, $start, $txt) = @_;
 local $qid = &urlize($id);
-local $url = "view_mail.cgi?start=$start&id=$qid&folder=$folder->{'index'}";
+local $qstart = &urlize($start);
+local $url = "view_mail.cgi?start=$qstart&id=$qid&folder=$folder->{'index'}";
 if ($userconfig{'open_mode'}) {
 	return "<a href='' onClick='window.open(\"$url\", \"viewmail\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>".
 	       &simplify_from($txt)."</a>";

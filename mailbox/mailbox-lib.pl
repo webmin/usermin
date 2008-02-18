@@ -1436,50 +1436,56 @@ return $rv;
 sub set_mail_read
 {
 local ($folder, $mail, $read) = @_;
-local $sfolder = &get_special_folder();
-local ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
-if ($sfolder || $read == 2) {
-	local $spec;
-	if ($sfolder) {
-		# Is it already there?
-		($spec) = grep { $_->[0] eq $realfolder &&
-				 $_->[1] eq $realid } @{$sfolder->{'members'}};
-		}
-	if ($read == 2 && !$spec) {
-		# Add to special folder
-		if (!$sfolder) {
-			# Create first
-			$sfolder = { 'id' => $special_folder_id,
-				     'type' => 6,
-				     'name' => $text{'mail_special'},
-				     'delete' => 1,
-				     'members' => [ [ $realfolder,$realid ] ],
-				   };
-			&save_folder($sfolder);
-			$special_folder_cache = $sfolder;
+local ($realfolder, $realid);
+if ($mail->{'id'}) {
+	local $sfolder = &get_special_folder();
+	($realfolder, $realid) = &get_underlying_folder($folder, $mail);
+	if ($sfolder || $read == 2) {
+		local $spec;
+		if ($sfolder) {
+			# Is it already there?
+			($spec) = grep { $_->[0] eq $realfolder &&
+					 $_->[1] eq $realid }
+				       @{$sfolder->{'members'}};
 			}
-		else {
-			# Just add
-			push(@{$sfolder->{'members'}}, [ $realfolder,$realid ]);
+		if ($read == 2 && !$spec) {
+			# Add to special folder
+			if (!$sfolder) {
+				# Create first
+				$sfolder = { 'id' => $special_folder_id,
+					     'type' => 6,
+					     'name' => $text{'mail_special'},
+					     'delete' => 1,
+					     'members' => [ [
+						$realfolder, $realid ] ],
+					   };
+				&save_folder($sfolder);
+				$special_folder_cache = $sfolder;
+				}
+			else {
+				# Just add
+				push(@{$sfolder->{'members'}},
+				     [ $realfolder,$realid ]);
+				&save_folder($sfolder, $sfolder);
+				}
+			}
+		elsif ($read != 2 && $spec) {
+			# Remove from special folder
+			$sfolder->{'members'} =
+			    [ grep { $_ ne $spec } @{$sfolder->{'members'}} ];
 			&save_folder($sfolder, $sfolder);
 			}
 		}
-	elsif ($read != 2 && $spec) {
-		# Remove from special folder
-		$sfolder->{'members'} =
-			[ grep { $_ ne $spec } @{$sfolder->{'members'}} ];
-		&save_folder($sfolder, $sfolder);
+	if ($realfolder->{'flags'}) {
+		# Set the flag in the email itself, such as on an IMAP server
+		local $mail->{'id'} = $realid; # So that IMAP can find it by UID
+		&mailbox_set_read_flag($realfolder, $mail,
+				       $read >= 1 ? 1 : 0,  # Read
+				       $read == 2 ? 1 : 0,  # Special
+				       undef);              # Replied
 		}
 	}
-if ($realfolder->{'flags'}) {
-	# Set the flag in the email itself, such as on an IMAP server
-	local $mail->{'id'} = $realid;	# So that IMAP can find it by UID
-	&mailbox_set_read_flag($realfolder, $mail,
-			       $read >= 1 ? 1 : 0,  # Read
-			       $read == 2 ? 1 : 0,  # Special
-			       undef);              # Replied
-	}
-if (!$realfolder->{'flags'} || $realfolder->{'flags'} == 2) {
+if (!$realfolder || !$realfolder->{'flags'} || $realfolder->{'flags'} == 2) {
 	# Update read hash
 	&open_read_hash();
 	if ($read == 0) {
@@ -1489,7 +1495,9 @@ if (!$realfolder->{'flags'} || $realfolder->{'flags'} == 2) {
 		$read{$mail->{'header'}->{'message-id'}} = $read;
 		}
 	}
-$get_mail_read_cache{$mail->{'id'}} = $read;
+if ($mail->{'id'}) {
+	$get_mail_read_cache{$mail->{'id'}} = $read;
+	}
 }
 
 # get_underlying_folder(&folder, &mail)

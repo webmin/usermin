@@ -382,6 +382,7 @@ if (!$in{'save'}) {
 		    $tos || $text{'send_nobody'}),"<p>\n";
 	}
 
+$savefolder = $folder;
 if ($draft) {
 	# Save in the drafts folder
 	($dfolder) = grep { $_->{'drafts'} } @folders;
@@ -400,6 +401,7 @@ if ($draft) {
 		&write_mail_folder($mail, $dfolder, $textonly);
 		}
 	&unlock_folder($dfolder);
+	$savefolder = $dfolder;
 	}
 else {
 	# Send it off and optionally save in sent mail
@@ -419,13 +421,14 @@ else {
 		   $notify);
 	if ($sfolder) {
 		&lock_folder($sfolder);
-		&write_mail_folder($mail, $sfolder, $textonly) if ($sfolder);
+		&write_mail_folder($mail, $sfolder, $textonly);
 		&unlock_folder($sfolder);
+		$savefolder = $sfolder;
 		}
 	}
 
 # Mark the new message as read
-&set_mail_read($folder, $mail, 1);
+&set_mail_read($savefolder, $mail, 1);
 
 if ($in{'abook'}) {
 	# Add all recipients to the address book, if missing

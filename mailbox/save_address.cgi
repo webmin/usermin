@@ -14,7 +14,7 @@ if ($in{'delete'} ne '') {
 else {
 	&error_setup($text{'address_err'});
 	$in{'addr'} =~ /^\S+\@\S+$/ || &error($text{'address_eaddr'});
-	$in{'addr'} =~ /[,<>"'\(\)]/ && &error($text{'address_eaddr'});
+	$in{'addr'} =~ /[,<>"\(\)]/ && &error($text{'address_eaddr'});
 	if ($in{'from'} == 2) {
 		# Turn off default for all others
 		foreach $a (@addrs) {

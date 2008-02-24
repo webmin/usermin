@@ -24,7 +24,7 @@ else {
 $root = join(" ", @allowed_roots);
 $noroot = join(" ", @denied_roots);
 if ($in{'open'}) {
-	$open = "<param name=open value=\"$in{'open'}\">\n";
+	$open = "<param name=open value=\"".&html_escape($in{'open'})."\">\n";
 	}
 if ($session_id) {
 	$session = "<param name=session value=\"usid=$session_id\">\n";

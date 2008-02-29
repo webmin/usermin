@@ -128,14 +128,12 @@ if (@mail) {
 	if ($showfrom) {
 		push(@cols, &field_sort_link($text{'mail_from'}, "from",
 					     $folder, $in{'start'}));
-		push(@tds, $showto ? "nowrap width=15%"
-				   : "nowrap width=30%");
+		push(@tds, $showto ? "width=15%" : "width=30%");
 		}
 	if ($showto) {
 		push(@cols, &field_sort_link($text{'mail_to'}, "to",
 					     $folder, $in{'start'}));
-		push(@tds, $showfrom ? "nowrap width=15%"
-				     : "nowrap width=30%");
+		push(@tds, $showfrom ? "width=15%" : "width=30%");
 		}
 	push(@cols, &field_sort_link($text{'mail_date'}, "date",
                                       $folder, $in{'start'}));

@@ -519,7 +519,18 @@ else {
 			$to = $mail->{'header'}->{'reply-to'};
 			$to = $mail->{'header'}->{'from'} if (!$to);
 			}
-		if ($in{'rall'}) {
+		if ($in{'ereply'}) {
+			# Replying to our own sent email - to should be
+			# original to
+			$to = $mail->{'header'}->{'to'};
+			}
+		elsif ($in{'erall'}) {
+			# Replying to all of our own email - set to and cc
+			$to = $mail->{'header'}->{'to'};
+			$cc = $mail->{'header'}->{'cc'};
+			$bcc = $mail->{'header'}->{'bcc'};
+			}
+		elsif ($in{'rall'}) {
 			# If replying to all, add any addresses in the original
 			# To: or Cc: to our new Cc: address.
 			$cc = $mail->{'header'}->{'to'};
@@ -606,7 +617,7 @@ print "<input type=hidden name=enew value='$in{'enew'}'>\n";
 foreach $s (@sub) {
 	print "<input type=hidden name=sub value='$s'>\n";
 	}
-if ($in{'reply'}) {
+if ($in{'reply'} || $in{'rall'} || $in{'ereply'} || $in{'erall'}) {
 	print "<input type=hidden name=rid value='".
 		&html_escape($mail->{'header'}->{'message-id'})."'>\n";
 	}

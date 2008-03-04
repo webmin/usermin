@@ -451,6 +451,8 @@ sub show_buttons
 local $spacer = "&nbsp;\n";
 if ($folder->{'sent'} || $folder->{'drafts'}) {
 	print &ui_submit($text{'view_enew'}, "enew");
+	print &ui_submit($text{'view_reply'}, "ereply");
+	print &ui_submit($text{'view_reply2'}, "erall");
 	}
 else {
 	print &ui_submit($text{'view_reply'}, "reply");

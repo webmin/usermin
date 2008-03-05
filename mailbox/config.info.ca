@@ -29,7 +29,7 @@ ldap_pass=Contrasenya del servidor LDAP,0
 ldap_base=Base dels usuaris de correu,0
 
 line3.6=Opcions de spam,11
-spam_report=Informa del spam utilitzant,1,sa_learn-sa&$45;learn --spam,spamassassin-spamassasin -r,-Decidex-ho automàticament
+spam_report=Informa del spam utilitzant,1,sa_learn-sa&#45;learn  &#45;&#45;spam,spamassassin-spamassasin &#45;r,-Decidex-ho automàticament
 spam_always=Mostra les opcions de spam si el mòdul de SpamAssassin,1,1-Està instal·lat,0-Està instal·lat i disponible
 
 line3.7=Opcions de quota de correu,11

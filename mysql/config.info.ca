@@ -1,0 +1,12 @@
+mysqlshow=Camí de l'ordre <tt>mysqlshow</tt>,0
+mysqladmin=Camí de l'ordre <tt>mysqladmin</tt>,0
+mysql=Camí de l'ordre <tt>mysql</tt>,0
+mysqldump=Camí de l'ordre <tt>mysqldump</tt>,0
+mysqlimport=Camí de l'ordre <tt>mysqlimport</tt>,0
+start_cmd=Ordre per iniciar el servidor MySQL,0
+stop_cmd=Ordre per aturar el servidor MySQL,3,Automàtica
+mysql_libs=Camí del directori de llibrerires compartides de MySQL,3,Cap
+host=Host MySQL a connectar to,3,localhost
+sock=Fitxer de sòcol MySQL,3,Per defecte
+nodbi=Utilitza DBI per connectar si està disponible,1,0-Sí,1-No
+access=Llista de control d'accés a la base de dades&#44;<br>en format <tt>usuari: db1 db2</tt>.<br>També s'aplica als permisos de MySQL,9,0,0,\t

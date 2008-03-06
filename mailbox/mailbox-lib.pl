@@ -1,5 +1,4 @@
 # mailbox-lib.pl
-# XXX don't reply-to our address
 
 do '../web-lib.pl';
 &init_config();
@@ -2260,6 +2259,36 @@ if ($defaddr) {
 else {
 	# Account default
 	return $froms->[0];
+	}
+}
+
+# remove_own_email(addresses)
+# Given a string containing email addresses, remove those belonging to the user
+sub remove_own_email
+{
+local ($addrs) = @_;
+local @addrs = &split_addresses($addrs);
+
+# Build our own addresses
+local %own;
+foreach my $a (&list_addresses()) {
+	$own{$a->[0]}++ if ($a->[3]);
+	}
+local ($froms) = &list_from_addresses();
+foreach my $f (@$froms) {
+	local ($addr) = &split_addresses($f);
+	$own{$addr->[0]}++;
+	}
+
+# See what we have to remove
+local @others = grep { !$own{$_->[0]} } @addrs;
+if (scalar(@others) == scalar(@addrs) || !scalar(@others)) {
+	# No need to change the string
+	return $addrs;
+	}
+else {
+	# Return just those left
+	return join(", ", map { $_->[2] } @others);
 	}
 }
 

@@ -537,6 +537,14 @@ else {
 			$cc .= ", ".$mail->{'header'}->{'cc'}
 				if ($mail->{'header'}->{'cc'});
 			}
+
+		# Remove our own emails from to/cc addresses
+		if (($in{'rall'} || $in{'erall'}) &&
+		    !$userconfig{'reply_self'}) {
+			$to = &remove_own_email($to);
+			$cc = &remove_own_email($cc);
+			$bcc = &remove_own_email($bcc);
+			}
 		}
 
 	# Work out new subject, depending on whether we are replying

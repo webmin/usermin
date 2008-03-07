@@ -1251,7 +1251,8 @@ else {
 	@froms = map { $ru.'@'.$_ } @doms;
 	}
 local @mfroms;
-if ($config{'from_map'}) {
+if ($config{'from_map'} && $remote_user !~ /\@/) {
+	# Lookup username in from address mapping file, to get email.
 	open(MAP, $config{'from_map'});
 	while(<MAP>) {
 		s/\r|\n//g;
@@ -1271,7 +1272,16 @@ if ($config{'from_map'}) {
 		}
 	close(MAP);
 	}
-@froms = @mfroms if (@mfroms > 0);
+if (@mfroms > 0) {
+	# Got some results from mapping file .. use them
+	if ($remote_user =~ /\@/) {
+		# But still keep email-style login as the default
+		@froms = ( $froms[0], @mfroms );
+		}
+	else {
+		@froms = @mfroms;
+		}
+	}
 local $ureal = $remote_user_info[6];
 $ureal =~ s/,.*$//;
 foreach $f (@froms) {

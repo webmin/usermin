@@ -221,47 +221,44 @@ else {
 			&find_body($mail, $userconfig{'view_html'});
 
 		# Output HTML header
-		&PrintHeader();
-		print "<html><head>\n";
-		print "<title>",&html_escape(&decode_mimewords(
-			$mail->{'header'}->{'subject'})),"</title></head>\n";
-		print "<body bgcolor=#ffffff onLoad='window.print()'>\n";
+		&ui_print_header(undef, &decode_mimewords(
+					$mail->{'header'}->{'subject'}));
 
 		# Display the headers
-		print "<table width=100% border=1>\n";
-		print "<tr $tb> <td><b>$text{'view_headers'}</b></td> </tr>\n";
-		print "<tr $cb> <td><table width=100%>\n";
-		print "<tr> <td><b>$text{'mail_from'}</b></td> ",
-		      "<td>",&eucconv_and_escape($mail->{'header'}->{'from'}),"</td> </tr>\n";
-		print "<tr> <td><b>$text{'mail_to'}</b></td> ",
-		      "<td>",&eucconv_and_escape($mail->{'header'}->{'to'}),"</td> </tr>\n";
-		print "<tr> <td><b>$text{'mail_cc'}</b></td> ",
-		      "<td>",&eucconv_and_escape($mail->{'header'}->{'cc'}),"</td> </tr>\n"
-			if ($mail->{'header'}->{'cc'});
-		print "<tr> <td><b>$text{'mail_date'}</b></td> ",
-		      "<td>",&eucconv_and_escape(&html_escape($mail->{'header'}->{'date'})),
-		      "</td> </tr>\n";
-		print "<tr> <td><b>$text{'mail_subject'}</b></td> ",
-		      "<td>",&eucconv_and_escape(&decode_mimewords(
-			$mail->{'header'}->{'subject'})),"</td> </tr>\n";
-		print "</table></td></tr></table><p>\n";
+		print &ui_table_start($text{'view_headers'}, "width=100%", 2);
+		print &ui_table_row($text{'mail_from'},
+			&eucconv_and_escape($mail->{'header'}->{'from'}));
+		print &ui_table_row($text{'mail_to'},
+			&eucconv_and_escape($mail->{'header'}->{'to'}));
+		if ($mail->{'header'}->{'cc'}) {
+			print &ui_table_row($text{'mail_cc'},
+				&eucconv_and_escape($mail->{'header'}->{'cc'}));
+			}
+		print &ui_table_row($text{'mail_date'},
+			&eucconv_and_escape($mail->{'header'}->{'date'}));
+		print &ui_table_row($text{'mail_subject'},
+		        &eucconv_and_escape(&decode_mimewords(
+				$mail->{'header'}->{'subject'})));
+		print &ui_table_end(),"<br>\n";
 
 		# Just display the mail body for printing
+		print &ui_table_start(undef, "width=100%", 2);
 		if ($body eq $textbody) {
-			print "<table border width=100%><tr $cb><td><pre>";
+			$plain = "";
 			foreach $l (&wrap_lines($body->{'data'},
 						$userconfig{'wrap_width'})) {
-				print &eucconv_and_escape($l),"\n";
+				$plain .= &eucconv_and_escape($l)."\n";
 				}
-			print "</pre></td></tr></table>\n";
+			print &ui_table_row(undef, "<pre>$plain</pre>", 2);
 			}
 		elsif ($body eq $htmlbody) {
-			print "<table border width=100%><tr><td>\n";
-			print &safe_html($body->{'data'});
-			print "</td></tr></table>\n";
+			print &ui_table_row(undef,
+				&safe_html($body->{'data'}), 2);
 			}
+		print &ui_table_end();
 
-		print "</body></html>\n";
+		print "<script>window.print();</script>\n";
+		&ui_print_footer();
 		exit;
 		}
 	elsif ($in{'mark1'} || $in{'mark2'} ||

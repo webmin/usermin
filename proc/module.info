@@ -8,3 +8,4 @@ os_support=solaris *-linux hpux freebsd osf1 irix unixware openserver macos aix 
 longdesc=View all processes running on the system, kill those belonging to your, and start new ones.
 desc_fr=Gestionnaire de processus
 desc_ca=Processos en Execució
+desc_cz=Bì¾ící procesy

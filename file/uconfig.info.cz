@@ -1,0 +1,8 @@
+hide_dot_files=Zobrazit i soubory zaèínající teèkou?,1,0-Ano,1-Ne
+iconsize=Velikost tlaèítek v panelu nástrojù,1,1-Malý,0-Velký s nadpisy
+nocharset=Pokusit se pou¾ívat správnou znakovou sadu?,1,0-Ano,1-Ne
+width=©íøka pro ¹kálované obrázky,3,Výchozí (300 pixels)
+fixed=Velikost fontu pro text,3,Výchozí (12 points)
+small_fixed=Velikost fontu pro tlaèítka,3,Výchozí (10 points)
+force_text=Editor pro HTML soubory,1,1-Text editor,0-HTML editor
+htmlexts=Pøípony souborù pro úpravu jako HTML,3,Výchozí (.htm a .html)

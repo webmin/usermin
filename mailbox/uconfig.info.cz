@@ -54,6 +54,7 @@ show_delall=Zobrazovat tlaèítko pro smazání celé schránky?,1,1-Ano,0-Ne
 sent_name=Soubor pro slo¾ku odeslaných zpráv,3,Automaticky
 drafts_name=Soubor pro slo¾ku s Koncepty,3,Automaticky
 trash_name=Soubor pro slo¾ku ko¹e,3,Automaticky
+show_unread=Zobrazit poèet nepøeètených zpráv,1,2-Ano,1-Pouze pro IMAP,0-No
 line4=Volby pro Spam,11
 spam_buttons=Tlaèítka pro hlá¹ení SPAMu zobrazovat,2,list-Seznamech zpráv,mail-Zprávách
 ham_buttons=Tlaèítka pro oznaèení za platné (HAM) zobrazovat pro,2,list-Seznamy zpráv,mail-Zprávy

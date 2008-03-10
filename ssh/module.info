@@ -5,3 +5,4 @@ longdesc=Edit your SSH client configuration, private key and lists of authorized
 desc_nl=Ssh-client instellen
 desc_de=SSH-Client Konfiguration
 desc_ca=Configuració de SSH
+desc_cz=SSH konfigurace

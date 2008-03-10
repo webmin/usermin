@@ -6,3 +6,4 @@ usermin=1
 longdesc=Mount and unmount filesystems that have been marked as managable by normal users.
 desc_de=Dateisysteme mounten
 desc_ca=Muntatge de Sistemes de Fitxers
+desc_cz=Pøipojení souborových systémù

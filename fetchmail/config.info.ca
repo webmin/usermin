@@ -1,0 +1,2 @@
+fetchmail_path=Camí del programa fetchmail,0
+mda_command=Ordre de lliurament de correu,3,Utilitza SMTP

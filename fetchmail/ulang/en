@@ -2,3 +2,4 @@ index_efetchmail=The fetchmail program $1 was not found on your system.
 index_noservers=No servers to fetch mail from have been configured yet.
 index_stopmsg=Click this button to stop the fetchmail daemon currently automatically checking for new mail every $1 seconds.
 index_startmsg=Click this button to start the fetchmail daemon on this server, and have it check for mail every $1 seconds, using the configuration above.
+index_none=No mail servers to check have been defined yet.

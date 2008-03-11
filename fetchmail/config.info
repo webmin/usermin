@@ -1,2 +1,4 @@
 fetchmail_path=Path to fetchmail program,0
 mda_command=Mail delivery command,3,Use SMTP
+can_cron=Allow configuration of scheduled checking?,1,1-Yes,0-No
+can_daemon=Allow configuration of Fetchmail daemon?,1,1-Yes,0-No

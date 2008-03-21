@@ -307,6 +307,37 @@ elsif ($config{'mail_system'} == 4) {
 		$drafts->{'mode'} = 3;
 		}
 
+	# Find or create the IMAP trash folder
+	if ($userconfig{'delete_mode'} == 1) {
+		local $tf = $userconfig{'trash_name'} || 'trash';
+		local ($trash) = grep { lc($_->{'name'}) eq $tf } @rv;
+		if (!$trash) {
+			local @irv = &imap_command($ih, "create \"$tf\"");
+			if ($irv[0]) {
+				$trash = { 'id' => $tf,
+					    'type' => 4,
+					    'server' => $imapserver,
+					    'user' => $rv[0]->{'user'},
+					    'pass' => $rv[0]->{'pass'},
+					    'mode' => 3,
+					    'remote' => 1,
+					    'flags' => 1,
+					    'imapauto' => 1,
+					    'mailbox' => $tf,
+					    'index' => scalar(@rv) };
+				push(@rv, $trash);
+				&read_file(
+				    "$user_module_config_directory/$tf.imap",
+				    $trash);
+				}
+			}
+		if ($trash) {
+			$trash->{'name'} = $text{'folder_trash'};
+			$trash->{'trash'} = 1;
+			$trash->{'mode'} = 3;
+			}
+		}
+
 	# For each IMAP folder, guess the underlying file
 	foreach my $f (@rv) {
 		if ($f->{'inbox'}) {

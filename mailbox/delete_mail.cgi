@@ -39,7 +39,7 @@ elsif ($in{'move1'} || $in{'move2'}) {
 	&mailbox_move_mail($folder, $mfolder, @delmail);
 	&unlock_folder($mfolder);
 	&unlock_folder($folder);
-	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}");
+	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=1");
 	}
 elsif ($in{'copy1'} || $in{'copy2'}) {
 	# Copying mails to some other folder
@@ -51,7 +51,7 @@ elsif ($in{'copy1'} || $in{'copy2'}) {
 	&lock_folder($cfolder);
 	&mailbox_copy_mail($folder, $cfolder, @delmail);
 	&unlock_folder($cfolder);
-	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}");
+	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=1");
 	}
 elsif ($in{'forward'}) {
 	# Forwarding selected mails .. redirect
@@ -218,7 +218,7 @@ elsif ($in{'delete'}) {
 			&mailbox_delete_mail($folder, @delmail);
 			}
 		&unlock_folder($folder);
-		&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}");
+		&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=1");
 		}
 	}
 else {

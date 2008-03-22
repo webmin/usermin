@@ -110,3 +110,4 @@ Added reply buttons when viewing a sent message, for continuing a thread you las
 Your own email address is no longer included in the CC list when replying to all, by default. The old behaviour can be returned using a new Preferences page option.
 The Print button now opens email in a separate window so that frames don't appear in the printout, and the page that appears now uses standard the Usermin UI library.
 The trash folder is now created and used when all folders are fetched from an IMAP server.
+Fixed a bug that broke searching by message body contents.

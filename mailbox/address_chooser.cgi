@@ -6,7 +6,8 @@ $trust_unknown_referers = 1;
 require './mailbox-lib.pl';
 &ReadParse();
 
-&popup_header($text{'address_choose'});
+&popup_header($text{'address_choose'}, undef,
+	"onLoad='document.forms[0].search.focus()'");
 print <<EOF;
 <script>
 function makeaddress(a, n)

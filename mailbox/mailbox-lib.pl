@@ -1633,18 +1633,13 @@ if ($p == 1) {
 elsif ($p == 2) {
 	push(@rv, "<img src=images/p2.gif alt='P2'>");
 	}
-local $mid = $mail->{'header'}->{'message-id'};
-if (!$showto) {
-	# Show icon if special
-	if (&get_mail_read($folder, $mail) == 2) {
-		push(@rv, "<img src=images/special.gif alt='*'>");
-		}
-	#elsif ($read{$mid} == 1) {
-	#	push(@rv, "<img src=images/read.gif>");
-	#	}
+# Show icon if special
+if (&get_mail_read($folder, $mail) == 2) {
+	push(@rv, "<img src=images/special.gif alt='*'>");
 	}
-else {
+if ($showto) {
 	# Show icons if DSNs received
+	local $mid = $mail->{'header'}->{'message-id'};
 	if ($dsnreplies{$mid}) {
 		push(@rv, "<img src=images/dsn.gif alt='R'>");
 		}

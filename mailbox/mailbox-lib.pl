@@ -1487,6 +1487,7 @@ if ($mail->{'id'}) {
 			($spec) = grep { $_->[0] eq $realfolder &&
 					 $_->[1] eq $realid }
 				       @{$sfolder->{'members'}};
+			print DEBUG "spec=$spec\n";
 			}
 		if ($read == 2 && !$spec) {
 			# Add to special folder
@@ -1523,6 +1524,16 @@ if ($mail->{'id'}) {
 				       $read >= 1 ? 1 : 0,  # Read
 				       $read == 2 ? 1 : 0,  # Special
 				       undef);              # Replied
+		if ($realid ne $mail->{'id'} && $read == 2 && !$spec) {
+			# ID changed .. fix in special folder
+			($spec) = grep { $_->[0] eq $realfolder &&
+					 $_->[1] eq $realid }
+				       @{$sfolder->{'members'}};
+			if ($spec) {
+				$spec->[1] = $mail->{'id'};
+				&save_folder($sfolder, $sfolder);
+				}
+			}
 		}
 	}
 if (!$realfolder || !$realfolder->{'flags'} || $realfolder->{'flags'} == 2) {

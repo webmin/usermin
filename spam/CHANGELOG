@@ -20,3 +20,5 @@ Added Module Config options for commands to run before and after saving SpamAssa
 Improved support for running under Virtualmin, where spamassassin is run globally.
 ---- Changes since 1.300 ----
 Added global configuration settings to use MySQL, PostgreSQL or LDAP backends for storing preferences.
+---- Changes since 1.340 ----
+Added a page for viewing and removing entries from the user's auto-whitelist file.

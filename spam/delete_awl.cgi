@@ -1,0 +1,1 @@
+../../webadmin/spam/delete_awl.cgi

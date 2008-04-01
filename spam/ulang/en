@@ -1,1 +1,4 @@
 index_edb=Failed to connect to the SpamAssassin configuration database : $1. Ask your system administrator to check the module configuration settings.
+
+awl_title=Manage Auto-Whitelist
+awl_deleteonedesc=Remove all your current auto-whitelist entries

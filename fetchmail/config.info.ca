@@ -1,2 +1,4 @@
 fetchmail_path=Camí del programa fetchmail,0
 mda_command=Ordre de lliurament de correu,3,Utilitza SMTP
+can_cron=Permet la configuració de comprovacions planificades,1,1-Yes,0-No
+can_daemon=Permet la configuració del dimoni Fetchmail,1,1-Yes,0-No

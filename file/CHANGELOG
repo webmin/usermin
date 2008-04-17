@@ -33,3 +33,5 @@ Replaced the HTMLarea widget for editing .html pages with Xinha.
 Added a Preferences option to specify file extensions to treat as HTML, rather than always using only .html and .htm.
 ---- Changes since 1.310 ----
 Use of the preview button can now be controlled by the administrator.
+---- Changes since 1.340 ----
+Fixed a bug that broke the file manager when referrer checking is enabled.

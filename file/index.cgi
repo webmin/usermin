@@ -45,6 +45,23 @@ foreach $k (keys %tconfig) {
 		}
 	}
 
+if ($gconfig{'referers_none'}) {
+	# Because java applet HTTP requests don't always include a referer:
+	# header, we need to use a DBM of trust keys to identify trusted applets
+	if (defined(&seed_random)) { &seed_random(); }
+	else { srand(time() ^ $$); }
+	$trust = int(rand(1000000000));
+	local $now = time();
+	&open_trust_db();
+	foreach $k (keys %trustdb) {
+		if ($now - $trustdb{$k} > 30*24*60*60) {
+			delete($trustdb{$k});
+			}
+		}
+	$trustdb{$trust} = $now;
+	dbmclose(%trustdb);
+	}
+
 $mounting = &foreign_check("usermount");
 
 print <<EOF;
@@ -66,6 +83,7 @@ open("edit_html.cgi?file="+escape(file)+"&dir="+escape(dir)+"&trust=$trust", "ht
 <param name=ro value="0">
 <param name=sharing value="0">
 <param name=mounting value="$mounting">
+<param name=trust value="$trust">
 <param name=home value="$real_home_dir">
 <param name=goto value="$config{'goto'}">
 <param name=iconsize value=$iconsize>

@@ -357,7 +357,14 @@ elsif ($config{'mail_system'} == 4) {
 				# Try . at start of folder names
 				local $n = $f->{'id'};
 				$n =~ s/^\.//;
-				$n =~ s/\//\/\./;
+				if ($n =~ /\//) {
+					# Turn foo/bar to foo/.bar
+					$n =~ s/\//\/\./;
+					}
+				else {
+					# Turn foo to .foo
+					$n = ".".$n;
+					}
 				$path = "$folders_dir/$n";
 				$f->{'file'} = $path if (-e $path);
 				}

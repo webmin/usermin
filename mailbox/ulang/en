@@ -125,6 +125,7 @@ edit_delete=Delete real message when deleting from folder?
 save_err=Failed to save folder
 save_ecannot=You are not allowed to use this type of folder
 save_ename=Missing folder name
+save_ename4=Folder names can only contain letters, numbers and the characters dot, dash and underscore
 save_ecompsame=A composite folder cannot contain the same sub-folder twice
 save_ename2=Folder names cannot contain ..
 save_ename3=The folder name INBOX is reserved for the IMAP server

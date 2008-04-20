@@ -44,8 +44,9 @@ if ($in{'delete'}) {
 else {
 	# Validate and store inputs
 	if ($in{'new'} || $in{'name'} ne $folder->{'name'}) {
-		$in{'name'} =~ /^[a-z0-9\.\-\/]+$/ ||
-			&error($text{'save_ename'});
+		$in{'name'} =~ /\S/ || &error($text{'save_ename'});
+		$in{'name'} =~ /^[a-zA-Z0-9\.\-\/]+$/ ||
+			&error($text{'save_ename4'});
 		$in{'name'} =~ /\.\./ && 
 			&error($text{'save_ename2'});
 		lc($in{'name'}) eq 'inbox' && 

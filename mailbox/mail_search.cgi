@@ -53,6 +53,10 @@ if ($in{'id'}) {
 elsif ($in{'folder'} >= 0) {
 	$folder = $folders[$in{'folder'}];
 	}
+if ($folder && $folder->{'id'} eq $search_folder_id) {
+	# Cannot search searchs!
+	&error($text{'search_eself'});
+	}
 
 if ($in{'simple'}) {
 	# Just search by Subject and From (or To) in one folder

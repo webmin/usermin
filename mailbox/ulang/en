@@ -188,6 +188,7 @@ search_dest=Store results in
 search_dest1=Search Results folder
 search_dest0=New virtual folder named
 search_edest=Missing virtual folder name for results
+search_eself=The search results folder cannot be searched
 
 virtualize_ename=Missing virtual folder name
 

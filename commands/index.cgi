@@ -42,7 +42,7 @@ elsif ($config{'display_mode'} == 0) {
 				print "<form action=run.cgi method=get>\n";
 				}
 			}
-		print "<input type=hidden name=idx value='$c->{'index'}'>\n";
+		print "<input type=hidden name=id value='$c->{'id'}'>\n";
 		print "<table border cellpadding=3><tr $cb><td>\n";
 		print "<input type=submit value='",&html_escape($c->{'desc'}),
 		      "'><br>\n";
@@ -108,11 +108,11 @@ else {
 	print "<td><b>$text{'index_desc'}</b></td> </tr>\n";
 	foreach $c (@cust) {
 		if ($c->{'edit'} && !@{$c->{'args'}}) {
-			print "<tr $cb> <td><a href='view.cgi?idx=$c->{'index'}'>",
+			print "<tr $cb> <td><a href='view.cgi?id=$c->{'id'}'>",
 			      &html_escape($c->{'desc'}),"</a>\n";
 			}
 		else {
-			print "<tr $cb> <td><a href='form.cgi?idx=$c->{'index'}'>",
+			print "<tr $cb> <td><a href='form.cgi?id=$c->{'id'}'>",
 			      &html_escape($c->{'desc'}),"</a></td>\n";
 			}
 		print "</td> <td>$c->{'html'}<br></td>\n";

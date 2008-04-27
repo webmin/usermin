@@ -113,3 +113,4 @@ The trash folder is now created and used when all folders are fetched from an IM
 Fixed a bug that broke searching by message body contents.
 ---- Changes since 1.340 ----
 Messages flagged as deleted in a Maildir folder (typically by an IMAP server) are now skipped by default.
+Better syncing between IMAP flags and Maildir filenames.

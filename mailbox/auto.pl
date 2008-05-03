@@ -22,6 +22,7 @@ foreach $f (@folders) {
 		$future = time() + 7*24*60*60;
 		foreach $m (@mails) {
 			$time = &parse_mail_date($m->{'header'}->{'date'});
+			$time ||= $m->{'time'};
 			if ($time && $time < $cutoff ||
 			    !$time && $auto->{'invalid'} ||
 			    $time > $future && $auto->{'invalid'}) {

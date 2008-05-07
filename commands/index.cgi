@@ -21,105 +21,134 @@ if (!@cust) {
 	}
 elsif ($config{'display_mode'} == 0) {
 	# Show command buttons
-	print "<table width=100%><tr><td valign=top>\n";
+	@grid = ( );
 	$form = 0;
 	for($i=0; $i<@cust; $i++) {
 		$c = $cust[$i];
+		@a = @{$c->{'args'}};
+		local $html;
 		if ($c->{'edit'}) {
-			@a = ( );
-			print "<form action=view.cgi>\n";
+			$html .= &ui_form_start("view.cgi");
+			}
+		elsif ($c->{'sql'}) {
+			$html .= &ui_form_start("sql.cgi");
 			}
 		else {
-			@a = @{$c->{'args'}};
-			local ($up) = grep { $_->{'type'} == 10 } @a;
-			if ($up) {
-				print "<form action=run.cgi method=post enctype=multipart/form-data>\n";
+			local @up = grep { $_->{'type'} == 10 } @a;
+			if (@up) {
+				# Has upload fields
+				@ufn = map { $_->{'name'} } @up;
+				$upid = time().$$;
+				$html .= &ui_form_start("run.cgi?id=$upid",
+				  "form-data", undef,
+				  &read_parse_mime_javascript($upid, \@ufn));
 				}
 			elsif (@a) {
-				print "<form action=run.cgi method=post>\n";
+				$html .= &ui_form_start("run.cgi", "post");
 				}
 			else {
-				print "<form action=run.cgi method=get>\n";
+				$html .= &ui_form_start("run.cgi");
 				}
 			}
-		print "<input type=hidden name=id value='$c->{'id'}'>\n";
-		print "<table border cellpadding=3><tr $cb><td>\n";
-		print "<input type=submit value='",&html_escape($c->{'desc'}),
-		      "'><br>\n";
-		print &filter_javascript($c->{'html'}),"\n";
-		print "<table>\n";
+		$html .= &ui_hidden("id", $c->{'id'});
+		$w = $config{'columns'} == 2 ? 2 : 4;
+		$html .= &ui_table_start(undef, undef, $w,
+		   $config{'columns'} == 1 ? [ "width=20%", "width=30%" ]
+					   : [ "width=30%" ]);
+		$html .= &ui_table_row(undef, &ui_submit($c->{'desc'}), $w, []);
+		if ($c->{'html'}) {
+			$html .= &ui_table_row(undef,
+				&filter_javascript($c->{'html'}), $w, []);
+			}
 		foreach $a (@a) {
-			print "<tr> <td><b>",&html_escape($a->{'desc'}),
-			      "</b></td> <td>\n";
-			$n = $a->{'name'};
-			if ($a->{'type'} == 0) {
-				print "<input name=$n size=30>\n";
-				}
-			elsif ($a->{'type'} == 1 || $a->{'type'} == 2) {
-				print "<input name=$n size=8> ",
-					&user_chooser_button($n, 0, $form);
-				}
-			elsif ($a->{'type'} == 3 || $a->{'type'} == 4) {
-				print "<input name=$n size=8> ",
-					&group_chooser_button($n, 0, $form);
-				}
-			elsif ($a->{'type'} == 5 || $a->{'type'} == 6) {
-				print "<input name=$n size=30 ",
-				      "value='$a->{'opts'}'> ",
-					&file_chooser_button(
-					  $n, $a->{'type'}-5, $form);
-				}
-			elsif ($a->{'type'} == 7) {
-				print "<input type=radio name=$n value=1> $text{'yes'}\n";
-				print "<input type=radio name=$n value=0 checked> $text{'no'}\n";
-				}
-			elsif ($a->{'type'} == 8) {
-				print "<input name=$n type=password size=30>\n";
-				}
-			elsif ($a->{'type'} == 9) {
-				print "<select name=$n>\n";
-				foreach $l (&read_opts_file($a->{'opts'})) {
-					print "<option value='$l->[0]'>",
-					      "$l->[1]\n";
-					}
-				print "</select>\n";
-				}
-			elsif ($a->{'type'} == 10) {
-				print "<input name=$n type=file size=20>\n";
-				}
-			elsif ($a->{'type'} == 11) {
-				print "<textarea name=$n rows=4 cols=30>".
-				      "</textarea>\n";
-				}
-			print "</td> </tr>\n";
+			$html .= &ui_table_row(&html_escape($a->{'desc'}),
+					&show_parameter_input($a, $formno));
 			}
-		print "</table></td></tr></table></form>\n";
+		if (scalar(@a)%2 && $w == 4) {
+			# Hack to make spacing nicer
+			$html .= &ui_table_row(" ", " ");
+			}
+		if ($access{'edit'}) {
+			if ($c->{'edit'}) {
+				$link = "<a href='edit_file.cgi?id=$c->{'id'}'>$text{'index_fedit'}</a>";
+				}
+			elsif ($c->{'sql'}) {
+				$link = "<a href='edit_sql.cgi?id=$c->{'id'}'>$text{'index_sedit'}</a>";
+				}
+			else {
+				$link = "<a href='edit_cmd.cgi?id=$c->{'id'}'>$text{'index_edit'}</a>";
+				}
+			$html .= &ui_table_row(undef,
+					&ui_links_row([ $link ]), $w);
+			}
+		$html .= &ui_table_end();
+		$html .= &ui_form_end();
+		push(@grid, $html);
 		$form++;
-		if ($i == int((@cust-1)/2) && $config{'columns'} == 2) {
-			print "</td><td valign=top>\n";
-			}
 		}
-	print "</td></tr></table>\n";
+	print &ui_grid_table(\@grid, $config{'columns'} || 1, 100,
+	     $config{'columns'} == 2 ? [ "width=50%", "width=50%" ] : [ ]);
 	}
 else {
 	# Just show table of commands
-	print "<table border width=100%>\n";
-	print "<tr $tb> <td><b>$text{'index_cmd'}</b></td>\n";
-	print "<td><b>$text{'index_desc'}</b></td> </tr>\n";
+	print &ui_links_row(\@links);
+	@tds = ( "width=30%", "width=60%", "width=10% nowrap" );
+	print &ui_columns_start([
+		$text{'index_cmd'},
+		$text{'index_desc'},
+		$text{'index_acts'},
+		], 100, 0, \@tds);
 	foreach $c (@cust) {
+		@cols = ( );
+		local @links = ( );
+		if ($access{'edit'}) {
+			local $e = $c->{'edit'} ? "edit_file.cgi" :
+				   $c->{'sql'} ? "edit_sql.cgi" :
+						 "edit_cmd.cgi";
+			push(@links, "<a href='$e?id=$c->{'id'}'>".
+				     "$text{'index_ed'}</a>");
+			}
 		if ($c->{'edit'} && !@{$c->{'args'}}) {
-			print "<tr $cb> <td><a href='view.cgi?id=$c->{'id'}'>",
-			      &html_escape($c->{'desc'}),"</a>\n";
+			# Open file editor directly, as file is known
+			push(@cols, "<a href='view.cgi?id=$c->{'id'}'>".
+				    &html_escape($c->{'desc'})."</a>");
+			push(@links, "<a href='view.cgi?id=$c->{'id'}'>".
+				     $text{'index_acted'}."</a>");
+			}
+		elsif ($c->{'sql'} && !@{$c->{'args'}}) {
+			# Execute SQL directorly, as no args
+			push(@cols, "<a href='sql.cgi?id=$c->{'id'}'>".
+			      	    &html_escape($c->{'desc'})."</a>");
+			push(@links, "<a href='sql.cgi?id=$c->{'id'}'>".
+				     $text{'index_actrun'}."</a>");
+			}
+		elsif ($c->{'sql'}) {
+			# Link to SQL query form
+			push(@cols, "<a href='sqlform.cgi?id=$c->{'id'}'>".
+			      	    &html_escape($c->{'desc'})."</a>");
+			push(@links, "<a href='sqlform.cgi?id=$c->{'id'}'>".
+				     $text{'index_actsql'}."</a>");
+			}
+		elsif (!@{$c->{'args'}}) {
+			# Link direct to execute page
+			push(@cols, "<a href='run.cgi?id=$c->{'id'}'>".
+			      	    &html_escape($c->{'desc'})."</a>");
+			push(@links, "<a href='run.cgi?id=$c->{'id'}'>".
+				     $text{'index_actrun'}."</a>");
 			}
 		else {
-			print "<tr $cb> <td><a href='form.cgi?id=$c->{'id'}'>",
-			      &html_escape($c->{'desc'}),"</a></td>\n";
+			# Link to parameters form
+			push(@cols, "<a href='form.cgi?id=$c->{'id'}'>".
+			      	    &html_escape($c->{'desc'})."</a>");
+			push(@links, "<a href='form.cgi?id=$c->{'id'}'>".
+				     $text{'index_actform'}."</a>");
 			}
-		print "</td> <td>$c->{'html'}<br></td>\n";
-		print "</tr>\n";
+		push(@cols, $c->{'html'});
+		push(@cols, &ui_links_row(\@links));
+		print &ui_columns_row(\@cols, \@tds);
 		}
-	print "</table>\n";
-	}
+	print &ui_columns_end();
+}
 
 &ui_print_footer("/", $text{'index'});
 

@@ -3,3 +3,5 @@ Added a module configuration field to control user access to commands.
 ---- Changes since 1.180 ----
 The output from a command is now shown as it is generated, for commands run locally.
 Added a Module Config parameter to change the number of columns used to display command buttons in.
+---- Changes since 1.340 ----
+Make the UI consistent with Webmin, support SQL custom commands, and display the upload progress window.

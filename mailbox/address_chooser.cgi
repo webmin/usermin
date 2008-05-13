@@ -162,7 +162,11 @@ if (@addrs) {
 	print "<tr>\n";
 	print "<td><br></td>\n" if (!$in{'mode'});
 	print "<td><b>$text{'address_addr'}</b></td>\n";
-	print "<td><b>$text{'address_name'}</b></td> </tr>\n";
+	print "<td><b>$text{'address_name'}</b></td>\n";
+	if ($in{'mode'} == 0) {
+		print "<td></td>\n";
+		}
+	print "</tr>\n";
 	$i = 0;
 	foreach $a (@addrs) {
 		if ($i == $addrs_count && $i) {
@@ -186,6 +190,11 @@ if (@addrs) {
 		else {
 			print "<td>$href$a->[0]</a></td>\n";
 			print "<td>$href",($a->[1] ? $a->[1] : "<br>"),"</a></td>\n";
+			}
+		if ($in{'mode'} == 0) {
+			# Show button to select just this one
+			print "<td><a href='' onClick='select(\"".&html_escape($a->[0])."\", \"".&html_escape($a->[1])."\"); return false'><img src=images/ok.gif border=0></a></td>\n";
+			
 			}
 		print "</tr>\n";
 		$i++;

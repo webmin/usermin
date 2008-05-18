@@ -261,13 +261,11 @@ else {
 		&ui_print_footer();
 		exit;
 		}
-	elsif ($in{'mark1'} || $in{'mark2'} ||
-	       $in{'markas0'} || $in{'markas1'} || $in{'markas2'}) {
-		# Just mark the message
-		$mode = $in{'markas0'} ? 0 : $in{'markas1'} ? 1 :
-			$in{'markas2'} ? 2 :
-			  $in{'mark1'} ? $in{'mode1'} : $in{'mode2'};
-		&set_mail_read($folder, $mail, $mode);
+	elsif ($in{'markas0'} || $in{'markas1'} || $in{'markas2'}) {
+		# Just mark the message as read/special
+		$oldread = &get_mail_read($folder, $mail);
+		$mark = $in{'markas0'} ? 0 : $in{'markas1'} ? 1 : 2;
+		&set_mail_read($folder, $mail, ($oldread&4)+$mark);
 		&redirect_to_previous(1);
 		exit;
 		}
@@ -613,18 +611,19 @@ $onsubmit =~ s/='/='ok = check_fields(); if (!ok) { return false; } /;
 print &ui_form_start("send_mail.cgi?id=$upid", "form-data", undef, $onsubmit);
 
 # Output various hidden fields
-print "<input type=hidden name=ouser value='$ouser'>\n";
-print "<input type=hidden name=id value='$in{'id'}'>\n";
-print "<input type=hidden name=folder value='$in{'folder'}'>\n";
-print "<input type=hidden name=start value='$in{'start'}'>\n";
-print "<input type=hidden name=new value='$in{'new'}'>\n";
-print "<input type=hidden name=enew value='$in{'enew'}'>\n";
+print &ui_hidden("ouser", $ouser);
+print &ui_hidden("id", $in{'id'});
+print &ui_hidden("folder", $in{'folder'});
+print &ui_hidden("start", $in{'start'});
+print &ui_hidden("new", $in{'new'});
+print &ui_hidden("enew", $in{'enew'});
 foreach $s (@sub) {
-	print "<input type=hidden name=sub value='$s'>\n";
+	print &ui_hidden("sub", $s);
 	}
 if ($in{'reply'} || $in{'rall'} || $in{'ereply'} || $in{'erall'}) {
-	print "<input type=hidden name=rid value='".
-		&html_escape($mail->{'header'}->{'message-id'})."'>\n";
+	# Message ID and usermin ID being replied to
+	print &ui_hidden("rid", $mail->{'header'}->{'message-id'});
+	print &ui_hidden("replyid", $mail->{'id'});
 	}
 
 # Start tabs for from / to / cc / bcc / signing / options

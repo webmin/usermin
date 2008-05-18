@@ -167,11 +167,11 @@ for(my $i=$start; $i<=$end; $i++) {
 	$m = $mail[$i];
 	$mid = $m->{'header'}->{'message-id'};
 	$r = &get_mail_read($folder, $m);
-	if ($r == 2) {
+	if ($r&2) {
 		# Special
 		($bs, $be) = ("<b><i>", "</i></b>");
 		}
-	elsif ($r == 0) {
+	elsif (($r&1) == 0) {
 		# Unread
 		($bs, $be) = ("<b>", "</b>");
 		}

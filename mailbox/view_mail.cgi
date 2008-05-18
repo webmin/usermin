@@ -37,8 +37,8 @@ $baseurl = "$gconfig{'webprefix'}/$module_name/view_mail.cgi?id=$qid&folder=$in{
 $mid = $mail->{'header'}->{'message-id'};
 if ($userconfig{'auto_mark'}) {
 	$wasread = &get_mail_read($folder, $mail);
-	if (!$wasread) {
-		&set_mail_read($folder, $mail, 1);
+	if (($wasread&1) == 0) {
+		&set_mail_read($folder, $mail, $wasread+1);
 		$refresh = 1;
 		}
 	}

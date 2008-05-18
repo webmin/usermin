@@ -1447,26 +1447,27 @@ sub get_mail_read
 {
 local ($folder, $mail) = @_;
 if (defined($get_mail_read_cache{$mail->{'id'}})) {
-	# Already checked
+	# Already checked in this run
 	return $get_mail_read_cache{$mail->{'id'}};
 	}
 local $sfolder = &get_special_folder();
 local ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
+local $special = 0;
 if ($sfolder) {
-	# Is it in the special folder?
+	# Is it in the special folder? If so, definately special
 	local ($spec) = grep { $_->[0] eq $realfolder &&
 			       $_->[1] eq $realid } @{$sfolder->{'members'}};
 	if ($spec) {
-		$get_mail_read_cache{$mail->{'id'}} = 2;
-		return 2;
+		$special = 2;
 		}
 	}
 local $rv;
 if ($realfolder->{'flags'}) {
 	# For folders which can store the flags in the message itself (such
 	# as IMAP), use that
-	$rv = $mail->{'special'} ? 2 :
-	      $mail->{'read'} ? 1 : 0;
+	$rv = ($mail->{'read'} ? 1 : 0) +
+	      ($mail->{'special'} ? 2 : 0) +
+	      ($mail->{'replied'} ? 4 : 0);
 	}
 if (!$realfolder->{'flags'} || ($realfolder->{'flags'} == 2 && !$rv)) {
 	# Check read hash if this folder doesn't support flagging, or if
@@ -1474,12 +1475,14 @@ if (!$realfolder->{'flags'} || ($realfolder->{'flags'} == 2 && !$rv)) {
 	&open_read_hash();
 	$rv = int($read{$mail->{'header'}->{'message-id'}});
 	}
+$rv = ($rv|$special);
 $get_mail_read_cache{$mail->{'id'}} = $rv;
 return $rv;
 }
 
 # set_mail_read(&folder, &mail, read)
-# Sets the read flag for some email, possibly updating the special folder
+# Sets the read flag for some email, possibly updating the special folder.
+# Read flags are 0=unread, 1=read, 2=special. Add 4 for replied.
 sub set_mail_read
 {
 local ($folder, $mail, $read) = @_;
@@ -1487,7 +1490,7 @@ local ($realfolder, $realid);
 if ($mail->{'id'}) {
 	local $sfolder = &get_special_folder();
 	($realfolder, $realid) = &get_underlying_folder($folder, $mail);
-	if ($sfolder || $read == 2) {
+	if ($sfolder || ($read&2) != 0) {
 		local $spec;
 		if ($sfolder) {
 			# Is it already there?
@@ -1496,7 +1499,7 @@ if ($mail->{'id'}) {
 				       @{$sfolder->{'members'}};
 			print DEBUG "spec=$spec\n";
 			}
-		if ($read == 2 && !$spec) {
+		if (($read&2) != 0 && !$spec) {
 			# Add to special folder
 			if (!$sfolder) {
 				# Create first
@@ -1517,7 +1520,7 @@ if ($mail->{'id'}) {
 				&save_folder($sfolder, $sfolder);
 				}
 			}
-		elsif ($read != 2 && $spec) {
+		elsif (($read&2) == 0 && $spec) {
 			# Remove from special folder
 			$sfolder->{'members'} =
 			    [ grep { $_ ne $spec } @{$sfolder->{'members'}} ];
@@ -1528,10 +1531,10 @@ if ($mail->{'id'}) {
 		# Set the flag in the email itself, such as on an IMAP server
 		local $mail->{'id'} = $realid; # So that IMAP can find it by UID
 		&mailbox_set_read_flag($realfolder, $mail,
-				       $read >= 1 ? 1 : 0,  # Read
-				       $read == 2 ? 1 : 0,  # Special
-				       undef);              # Replied
-		if ($realid ne $mail->{'id'} && $read == 2 && !$spec) {
+				       ($read&1),	    # Read
+				       ($read&2),	    # Special
+				       ($read&4));	    # Replied
+		if ($realid ne $mail->{'id'} && ($read&2) && !$spec) {
 			# ID changed .. fix in special folder
 			($spec) = grep { $_->[0] eq $realfolder &&
 					 $_->[1] eq $realid }
@@ -1651,10 +1654,16 @@ if ($p == 1) {
 elsif ($p == 2) {
 	push(@rv, "<img src=images/p2.gif alt='P2'>");
 	}
-# Show icon if special
-if (&get_mail_read($folder, $mail) == 2) {
+
+# Show icons if special or replied to
+local $read = &get_mail_read($folder, $mail);
+if ($read&2) {
 	push(@rv, "<img src=images/special.gif alt='*'>");
 	}
+if ($read&4) {
+	push(@rv, "<img src=images/replied.gif alt='R'>");
+	}
+
 if ($showto) {
 	# Show icons if DSNs received
 	local $mid = $mail->{'header'}->{'message-id'};
@@ -2263,8 +2272,16 @@ local ($name, $formno, $folder, $mail, $start, $end, $status, $label) = @_;
 $formno = int($formno);
 local @sel;
 for(my $i=$start; $i<=$end; $i++) {
-	local $m = $mail->[$i];
-	push(@sel, &get_mail_read($folder, $m) == $status ? 1 : 0);
+	local $read = &get_mail_read($folder, $mail->[$i]);
+	if ($status == 0) {
+		push(@sel, ($read&1) ? 0 : 1);
+		}
+	elsif ($status == 1) {
+		push(@sel, ($read&1) ? 1 : 0);
+		}
+	elsif ($status == 2) {
+		push(@sel, ($read&2) ? 1 : 0);
+		}
 	}
 local $js = "var sel = [ ".join(",", @sel)." ]; ";
 $js .= "for(var i=0; i<sel.length; i++) { document.forms[$formno].${name}[i].checked = sel[i]; }";

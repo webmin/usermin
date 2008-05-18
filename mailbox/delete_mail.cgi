@@ -8,9 +8,6 @@ require './mailbox-lib.pl';
 @folders = &list_folders();
 $folder = $folders[$in{'folder'}];
 
-$mark = $in{'markas0'} ? 0 : $in{'markas1'} ? 1 : $in{'markas2'} ? 2 :
-	  $in{'mark1'} ? $in{'mode1'} : $in{'mark2'} ? $in{'mode2'} : undef;
-
 if (!$in{'new'}) {
 	# Get the messages. We only need the headers when marking, or when
 	# deleting unless moving to the trash
@@ -19,11 +16,13 @@ if (!$in{'new'}) {
 	@delmail = &mailbox_select_mails($folder, \@ids, $headersonly);
 	}
 
+$mark = $in{'markas0'} ? 0 : $in{'markas1'} ? 1 : $in{'markas2'} ? 2 : undef;
 if (defined($mark)) {
 	# Marking emails with some status
 	@ids || &error($text{'delete_emnone'});
 	foreach $mail (@delmail) {
-		&set_mail_read($folder, $mail, $mark);
+		$oldread = &get_mail_read($folder, $mail);
+		&set_mail_read($folder, $mail, ($oldread&4)+$mark);
 		}
 	$perpage = $folder->{'perpage'} || $userconfig{'perpage'};
 	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=1");

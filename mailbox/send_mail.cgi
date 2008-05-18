@@ -430,6 +430,16 @@ else {
 # Mark the new message as read
 &set_mail_read($savefolder, $mail, 1);
 
+if ($in{'replyid'}) {
+	# Mark the original as being replied to
+	($replymail) = &mailbox_select_mails($folder, [ $in{'replyid'} ], 1);
+	if ($replymail) {
+		$replyread = &get_mail_read($folder, $replymail);
+		$replyread = ($replyread|4);
+		&set_mail_read($folder, $replymail, $replyread);
+		}
+	}
+
 if ($in{'abook'}) {
 	# Add all recipients to the address book, if missing
 	local @recips = ( &split_addresses($in{'to'}),

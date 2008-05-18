@@ -2209,7 +2209,7 @@ foreach my $a (@$attach) {
 	push(@a, "<a href='$links[$#links]'>$text{'view_aview'}</a>");
 	push(@a, "<a href='$links[$#links]' target=_new>$text{'view_aopen'}</a>");
 	if ($a->{'type'}) {
-		push(@a, "<a href='detach.cgi/$fn?id=$qid&folder=$folder->{'index'}&attach=$a->{'idx'}&type=application/octet-steam$subs'>$text{'view_asave'}</a>");
+		push(@a, "<a href='detach.cgi/$fn?id=$qid&folder=$folder->{'index'}&attach=$a->{'idx'}&save=1$subs'>$text{'view_asave'}</a>");
 		}
 	if ($a->{'type'} eq 'message/rfc822') {
 		push(@a, "<a href='detach.cgi/$fn?id=$qid&folder=$folder->{'index'}&attach=$a->{'idx'}&type=text/plain$subs'>$text{'view_aplain'}</a>");

@@ -75,9 +75,8 @@ else {
 		}
 	else {
 		# Auto-detect type
-		@download = split(/\t+/, $userconfig{'download'});
-		if (&indexof($attach->{'type'}, @download) >= 0) {
-			# Force download in IE
+		if ($in{'save'}) {
+			# Force download
 			print "Content-Disposition: Attachment\n";
 			}
 		if ($attach->{'type'} eq 'message/delivery-status') {

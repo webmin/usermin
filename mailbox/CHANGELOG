@@ -116,3 +116,4 @@ Messages flagged as deleted in a Maildir folder (typically by an IMAP server) ar
 Better syncing between IMAP flags and Maildir filenames.
 Added a button in the popup address chooser to select a single address.
 Sped up the display of new messages in large mailboxes, by checking for attachments all at once.
+Always set Content-Disposition: Attachment when saving attachments, to force the save dialog.

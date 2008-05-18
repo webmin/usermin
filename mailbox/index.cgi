@@ -158,6 +158,9 @@ if (@error) {
 	print "</font></b></center>\n";
 	}
 
+# Pre-check for attachments for the whole list
+&mail_has_attachments([ map { $mail[$i] } ($start .. $end) ], $folder);
+
 # Show the actual email
 for(my $i=$start; $i<=$end; $i++) {
 	local ($bs, $be);

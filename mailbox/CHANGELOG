@@ -117,3 +117,4 @@ Better syncing between IMAP flags and Maildir filenames.
 Added a button in the popup address chooser to select a single address.
 Sped up the display of new messages in large mailboxes, by checking for attachments all at once.
 Always set Content-Disposition: Attachment when saving attachments, to force the save dialog.
+Messages that have been replied to are now tracked and flagged by a small icon in the mail list. When using Maildir folders, the mesage files are also updated to synchronize with IMAP clients.

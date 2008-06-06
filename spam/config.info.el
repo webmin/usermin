@@ -1,0 +1,16 @@
+local_cf=SpamAssassin αρχείο ή φάκελος ρυθμίσεων,0
+avail_icons=Εικονίδια διαθέσιμα στους χρήστες,13,white-Επιτρεπτές και Απορριφθέντες Διευθύνσεις,score-Κατάταξη Spam,report-Ρύθμιση Μηνύματος,user-Διάφορες Επιλογές Χρήστη,header-Τεστ Επικεφαλίδας και Σώματος Κειμένου,setup-Ρύθμιση Procmail για SpamAssassin,mail-Ανάγνωση Spam mail,razor-Ρύθμιση Razor,procmail-Αλλαγή Παράδοσης Procmail
+warn_procmail=Προειδοποίηση χρηστών εάν το SpamAssassin δεν είναι ρυθμισμένο;,1,1-Ναι,0-Όχι
+index_spam=Δημιουργία ευρετηρίου φακέλου spam,1,1-Ναι,0-Όχι
+global_cf=Αρχείο καθολικών ρυθμίσεων συστήματος SpamAssassin,0
+show_global=Εμφάνιση στους χρήστες, των γενικά ρυθμισμένων καθολικών επιτρεπτών και απορριπτέων διευθύνσεων;,1,1-Ναι,0-Όχι
+spamassassin=Πλήρης διαδρομή στην εντολή SpamAssassin,0
+sa_learn=Πλήρης διαδρομή στην εντολή sa-learn,0
+procmail_cmd=SpamAssassin εντολή ρύθμισης Procmail,3,Απλά εκτέλεσε <tt>spamassassin</tt>
+procmailrc=Procmail αρχείο ρυθμίσεων,3,Από το άρθρωμα Procmail
+global_procmailrc=Καθολικό αρχείο ρυθμίσεων συστήματος Procmail,0
+call_spam=Προσθήκη κλήσης του SpamAssassin κατά την ρύθμιση του procmail;,1,1-Ναι,0-Όχι
+extra_procmail=Επιπλέον γραμμές procmail για προσθήκη στην αρχή,9,40,3,\t
+razor_admin=Πλήρες μονοπάτι για την εντολή razor-admin,0
+before_cmd=Εντολή προς εκτέλεση πριν αλλάξουν οι κανόνες,3,Καμία
+after_cmd=Εντολή προς εκτέλεση αφού αλλάξουν οι κανόνες,3,Καμία

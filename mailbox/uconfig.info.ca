@@ -57,10 +57,10 @@ drafts_name=Fitxer de carpeta d'esborranys,3,Automàtic
 line4=Opcions de spam,11
 spam_buttons=Mostra els botons d'informe de spam de,2,list-Les bústies,mail-Els missatges
 ham_buttons=Mostra els botons d'informe de no-spam de,2,list-Les bústies,mail-Els missatges
+maildir_deleted=Omet els missatges marcats com a suprimits,1,1-Sí,0-No
 spam_del=Suprimeix el spam després d'informar-lo,1,1-Sí,0-No
 white_rec=Afegeix els destinataris del correu a la llista blanca,1,1-Sí,0-No
 white_book=Afegeix totes les entrades de la llibreta d'adreces a la llista blanca,1,1-Sí,0-No
 
 line5=Opcions d'adjunció,11
 thumbnails=Mostra les imatges adjuntades com a miniatures,1,1-Sí,0-No
-download=Tipus MIME d'adjuncions que sempre s'han de descarregar,9,20,4,\t

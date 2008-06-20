@@ -45,3 +45,5 @@ All popups in Usermin are now XSS-safe, and thus do not need protection from unk
 All Usermin session IDs are now stored MD5 hashed, to prevent sessions from being captured if the sessiondb DBM is somehow read by an attacker.
 ---- Changes since 1.340 ----
 Many Greek translation updates, thanks to Vagelis Koutsomitros.
+---- Changes since 1.350 ----
+Catalan translation updates by Jaume Badiella.

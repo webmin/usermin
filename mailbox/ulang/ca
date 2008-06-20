@@ -8,6 +8,8 @@ mail_special=Especial
 
 send_efile=El fitxer adjuntat $1 no és legible o bé no existeix
 send_nobody=nobody
+send_etomsg=No has introduït cap adreça To, Cc ni Bcc
+send_esubjectmsg=No has introduït cap Assumpte - espero que sigui correcte
 
 address_chooser=Selecciona una Adreça...
 address_addr=Adreça E-mail
@@ -31,12 +33,15 @@ address_members=Adreces E-mail
 address_m=$1 membres
 address_search=Busca adreces que coincideixin amb:
 address_ok=Busca
+address_users=Adreces de correu
+address_groups=Sobrenoms de correu
 
 group_err=No he pogut desar el grup d'adreces
 group_egroup=Hi falta el nom del grup o bé és invàlid
 group_emembers=No has introduït cap adreça de membres del grup
 
 folders_title=Gestió de Carpetes
+folders_instr=Ajuda i tipus de carpetes
 folders_desc2=Cadascuna de les carpetes de sota pot contenir correu que tu hi has desplaçat, o bé correu que s'hi ha desat automàticament. Hi ha disponibles els següents tipus de carpetes:
 folders_descsys=Carpetes de sistema com ara Entrada, Esborranys i Enviat, que sempre existeixen.
 folders_desclocal=Carpetes del directori <tt>mail</tt> que poden haver estat creades o suprimides per Usermin.
@@ -105,6 +110,7 @@ edit_server=POP3 server
 edit_port=Número de port
 edit_iserver=Servidor IMAP
 edit_user=Usuari  del servidor
+edit_usersame=EL mateix que l'usuari Usermin
 edit_pass=Contrasenya del servidor
 edit_mailbox=Bústia IMAP
 edit_imapinbox=Entrada de l'Usuari
@@ -125,6 +131,7 @@ save_ename3=El nom de carpeta INBOX està reservat per al servidor IMAP
 save_esys=El nom de la carpeta està en conflicte amb una de les carpetes del sistema
 save_eclash=Ja existeix una carpeta amb aquest nom
 save_embox=No sembla que '$1' sigui un fitxer de bústia vàlid
+save_ename4=Els noms de carpetes només poden contenir lletres, números i els caràcters punt, guió i subguió.
 save_emaildir=No sembla que '$1' sigui un directori de correu Qmail o MH vàlid
 save_efile='$1' no existeix o bé no és accessible
 save_eindir=Els fitxers de correu externs no poden estar sota el directori de carpetes $1
@@ -142,6 +149,7 @@ save_efromaddr=Hi falta l'adreça From: o bé és invàlida
 save_emailbox=No he pogut obrir al bústia IMAP: $1
 save_emailbox2=Hi falta la bústia IMAP o bé és invàlida
 save_edelete=No he pogut suprimir el coreu: $1
+save_eflag=No he pogut establir les banderes IMAP: $1
 save_eappend=No he pogut afegir el correu a la bústia IMAP: $1
 save_esearch=No he pogut buscar a la bústia IMAP mailbox: $1
 
@@ -155,6 +163,10 @@ view_dsnsend=Envia Ara la Notificació
 view_dsngot=Aquest missatge ha estat llegit per $1 a $2.
 view_delfailed=Aquest missatge no s'ha pogut lliurar a $1 a $2.
 view_delok=Aquest missatge s'ha lliurat a $1 a $2.
+view_quick=Resposta ràpida
+view_quick_all=Respon a tots
+view_quick_quote=Cita l'original
+view_quick_send=Envia
 
 reply_dsn=Demana notificació d'estat de lectura
 reply_del=Demana notificació d'estat de lliurament
@@ -176,6 +188,7 @@ search_dest=Emmagatzema els resultats a
 search_dest1=Busca la carpeta de Resultats
 search_dest0=Nova carpeta virtual anomenada
 search_edest=Hi falta el nom de la carpeta virtuals dels resultats
+search_eself=No es pot cercar a la carpeta de resultats de la recerca
 
 virtualize_ename=Hi falta el nom de la carpeta virtual
 
@@ -221,3 +234,7 @@ fdelete_enone=No n'has seleccionat cap
 fdelete_rusure=Segur que vols suprimir les $1 carpetes seleccionades? Se suprimirà per sempre $2 de correu.
 fdelete_rusure2=Segur que vols suprimir les $1 carpetes seleccionades?
 fdelete_delete=Suprimeix-les Ara
+
+detachall_err=No he pogut desar totes les adjuncions
+detachall_emkdir=No he pogut crear el directori temporal: $1
+detachall_ezip=ZIP ha fallat: $1

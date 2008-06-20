@@ -1,0 +1,6 @@
+spam_file=Fitxer de correu de spam,3,Cap
+full_from=Mostra les adreces From: completes a la llista de spam,1,1-Sí,0-No
+refresh=Segons entre refrescs automàtics de la llista de spam,3,No la refresquis
+inbox=Nom de la carpeta per emmagatzemar el correu No-spam,3,Entrada
+search_body=En buscar spam&#44; comprova,1,1-El missatge sencer,0-Només l'assumpte i les capçaleres
+max_awl=Nombre màxim d'entrades de llista blanca automàtica a mostrar,0,5

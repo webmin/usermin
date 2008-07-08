@@ -135,7 +135,7 @@ elsif ($in{'razor'} || $in{'ham'}) {
 			# Tell user it was deleted
 			print "<b>$text{'razor_deleted'}</b><p>\n";
 			}
-		elsif ($userconfig{'white_move'} &&
+		elsif ($userconfig{'ham_move'} &&
 		       $folder->{'spam'} && $in{'ham'}) {
 			# Move mail to inbox and tell user
 			&mailbox_move_mail($folder, $inbox, @delmail);

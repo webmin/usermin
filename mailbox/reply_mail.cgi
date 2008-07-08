@@ -452,7 +452,7 @@ else {
 				$deleted = 1;
 				$loc = "index.cgi?folder=$in{'folder'}";
 				}
-			elsif ($userconfig{'white_move'} &&
+			elsif ($userconfig{'ham_move'} &&
 			       $folder->{'spam'} && $in{'ham'}) {
 				# Move mail to inbox and tell user
 				&mailbox_move_mail($folder, $inbox, $mail);

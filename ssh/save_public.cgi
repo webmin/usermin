@@ -12,6 +12,7 @@ $public || &error($text{'keys_epublic'});
 if (-r "$ssh_directory/id_rsa.pub") {
 	&open_tempfile(PUBLIC, ">$ssh_directory/id_rsa.pub", 1) ||
 		&error(&text('keys_epubwrite', $!));
+	}
 else {
 	if (-r "$ssh_directory/id_dsa.pub") {
 		&open_tempfile(PUBLIC, ">$ssh_directory/id_dsa.pub", 1) ||

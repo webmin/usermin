@@ -5,3 +5,5 @@ Added support for SSH 2 private and public keys.
 SSH 2 authorized keys can also be edited.
 ---- Changes since 1.250 ----
 Added checkboxes and a button for deleting multiple known remote hosts at once.
+---- Changes since 1.350 ----
+Improved support for SSH version 2 keys, thanks to Sean Cox.

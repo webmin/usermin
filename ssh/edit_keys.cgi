@@ -7,7 +7,18 @@ require './ssh-lib.pl';
 
 print "$text{'keys_desc1'}<br>\n";
 
-$keyfile = -r "$ssh_directory/id_dsa" ? "id_dsa" : "identity";
+if (-r "$ssh_directory/id_rsa") {
+	$keyfile = "id_rsa";
+	}
+else {
+	if (-r "$ssh_directory/id_dsa") {
+		$keyfile = "id_dsa";
+		}
+	else {
+		$keyfile = "identity";
+		}
+	}
+
 print "<form action=save_private.cgi/$keyfile method=post enctype=multipart/form-data>\n";
 print "<table width=100%>\n";
 print "<tr> <td><input type=submit name=download ",
@@ -26,11 +37,13 @@ print "$text{'keys_desc2'}<br>\n";
 print "<table border>\n";
 print "<tr $tb> <td><b>$text{'keys_public'}</b></td> </tr>\n";
 print "<tr $cb> <td><textarea name=public rows=15 cols=70 wrap=on>";
-open(PRIVATE, "$ssh_directory/id_dsa.pub") ||
+open(PRIVATE, "$ssh_directory/id_rsa.pub") ||
+	open(PRIVATE, "$ssh_directory/id_dsa.pub") ||
 	open(PRIVATE, "$ssh_directory/identity.pub");
 while(<PRIVATE>) { print; }
 close(PRIVATE);
 print "</textarea></td></tr></table>\n";
+#print $ssh_directory;
 print "<input type=submit value='$text{'save'}'></form>\n";
 
 &ui_print_footer("", $text{'index_return'});

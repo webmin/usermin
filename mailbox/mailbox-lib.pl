@@ -315,16 +315,16 @@ elsif ($config{'mail_system'} == 4) {
 			local @irv = &imap_command($ih, "create \"$tf\"");
 			if ($irv[0]) {
 				$trash = { 'id' => $tf,
-					    'type' => 4,
-					    'server' => $imapserver,
-					    'user' => $rv[0]->{'user'},
-					    'pass' => $rv[0]->{'pass'},
-					    'mode' => 3,
-					    'remote' => 1,
-					    'flags' => 1,
-					    'imapauto' => 1,
-					    'mailbox' => $tf,
-					    'index' => scalar(@rv) };
+					   'type' => 4,
+					   'server' => $imapserver,
+					   'user' => $rv[0]->{'user'},
+					   'pass' => $rv[0]->{'pass'},
+					   'mode' => 3,
+					   'remote' => 1,
+					   'flags' => 1,
+					   'imapauto' => 1,
+					   'mailbox' => $tf,
+					   'index' => scalar(@rv) };
 				push(@rv, $trash);
 				&read_file(
 				    "$user_module_config_directory/$tf.imap",

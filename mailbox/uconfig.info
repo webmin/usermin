@@ -53,9 +53,9 @@ related_search=Search for same subject or sender in,1,1-All folders,2-All local 
 search_latest=Messages to search,10,-All messages,Only latest
 show_body=Show message body previews in list?,1,1-Yes,0-No
 show_delall=Show button to delete entire mailbox?,1,1-Yes,0-No
-sent_name=Sent mail folder file,3,Automatic
-drafts_name=Drafts folder file,3,Automatic
-trash_name=Trash folder file,3,Automatic
+sent_name=Sent mail folder name,3,Automatic
+drafts_name=Drafts folder name,3,Automatic
+trash_name=Trash folder name,3,Automatic
 show_unread=Show unread messages count,1,2-Yes,1-Only for IMAP,0-No
 maildir_deleted=Skip messages flagged as deleted in Maildir?,1,1-Yes,0-No
 

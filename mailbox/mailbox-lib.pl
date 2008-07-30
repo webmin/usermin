@@ -251,7 +251,7 @@ elsif ($config{'mail_system'} == 4) {
 
 	# Find or create the IMAP sent mail folder
 	local $sf = $userconfig{'sent_name'} || 'sent';
-	local ($sent) = grep { lc($_->{'name'}) eq $sf } @rv;
+	local ($sent) = grep { lc($_->{'name'}) eq lc($sf) } @rv;
 	if (!$sent) {
 		local @irv = &imap_command($ih, "create \"$sf\"");
 		if ($irv[0]) {
@@ -281,7 +281,7 @@ elsif ($config{'mail_system'} == 4) {
 
 	# Find or create the IMAP drafts folder
 	local $df = $userconfig{'drafts_name'} || 'drafts';
-	local ($drafts) = grep { lc($_->{'name'}) eq $df } @rv;
+	local ($drafts) = grep { lc($_->{'name'}) eq lc($df) } @rv;
 	if (!$drafts) {
 		local @irv = &imap_command($ih, "create \"$df\"");
 		if ($irv[0]) {
@@ -310,7 +310,7 @@ elsif ($config{'mail_system'} == 4) {
 	# Find or create the IMAP trash folder
 	if ($userconfig{'delete_mode'} == 1) {
 		local $tf = $userconfig{'trash_name'} || 'trash';
-		local ($trash) = grep { lc($_->{'name'}) eq $tf } @rv;
+		local ($trash) = grep { lc($_->{'name'}) eq lc($tf) } @rv;
 		if (!$trash) {
 			local @irv = &imap_command($ih, "create \"$tf\"");
 			if ($irv[0]) {

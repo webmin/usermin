@@ -13,7 +13,7 @@ $in{'pass_def'} || $in{'pass'} =~ /\S/ || &error($text{'razor_epass'});
 &ui_print_header(undef, $text{'razor_title'}, "");
 
 print "<p>$text{'razor_doing'}<br>\n";
-$cmd = "$config{'razor_admin'} -register";
+$cmd = "$config{'razor_admin'} -create -register";
 $cmd .= " -user ".quotemeta($in{'user'}) if (!$in{'user_def'});
 $cmd .= " -pass ".quotemeta($in{'pass'}) if (!$in{'pass_def'});
 $out = `cd $remote_user_info[7] ; $cmd 2>&1 </dev/null`;

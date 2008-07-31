@@ -1490,6 +1490,7 @@ local ($realfolder, $realid);
 if ($mail->{'id'}) {
 	local $sfolder = &get_special_folder();
 	($realfolder, $realid) = &get_underlying_folder($folder, $mail);
+	print DEBUG "id=$mail->{'id'} realid=$realid\n";
 	if ($sfolder || ($read&2) != 0) {
 		local $spec;
 		if ($sfolder) {

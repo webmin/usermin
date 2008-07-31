@@ -247,7 +247,8 @@ else {
 			&address_link($mail->{'header'}->{'bcc'}));
 		}
 	print &ui_table_row($text{'mail_date'},
-		&eucconv_and_escape($mail->{'header'}->{'date'}));
+		&eucconv_and_escape(
+			&simplify_date($mail->{'header'}->{'date'})));
 
 	local $subj = $mail->{'header'}->{'subject'};
 	$subj =~ s/^((Re:|Fwd:|\[\S+\])\s*)+//g;

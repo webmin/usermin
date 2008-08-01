@@ -504,7 +504,7 @@ else {
 		# Editing an existing message, so keep same fields
 		$to = $mail->{'header'}->{'to'};
 		$rto = $mail->{'header'}->{'reply-to'};
-		$from = $mail->{'header'}->{'from'};
+		$from = &decode_mimewords($mail->{'header'}->{'from'});
 		$cc = $mail->{'header'}->{'cc'};
 		$bcc = $mail->{'header'}->{'bcc'};
 		$ouser = $1 if ($from =~ /^(\S+)\@/);
@@ -538,7 +538,6 @@ else {
 	# Convert MIMEwords in headers to 8 bit for display
 	$to = &decode_mimewords($to);
 	$rto = &decode_mimewords($rto);
-	$from = &decode_mimewords($from);
 	$cc = &decode_mimewords($cc);
 	$bcc = &decode_mimewords($bcc);
 

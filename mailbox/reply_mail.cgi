@@ -533,14 +533,21 @@ else {
 			$cc .= ", ".$mail->{'header'}->{'cc'}
 				if ($mail->{'header'}->{'cc'});
 			}
+		}
 
-		# Remove our own emails from to/cc addresses
-		if (($in{'rall'} || $in{'erall'}) &&
-		    !$userconfig{'reply_self'}) {
-			$to = &remove_own_email($to);
-			$cc = &remove_own_email($cc);
-			$bcc = &remove_own_email($bcc);
-			}
+	# Convert MIMEwords in headers to 8 bit for display
+	$to = &decode_mimewords($to);
+	$rto = &decode_mimewords($rto);
+	$from = &decode_mimewords($from);
+	$cc = &decode_mimewords($cc);
+	$bcc = &decode_mimewords($bcc);
+
+	# Remove our own emails from to/cc addresses
+	if (($in{'rall'} || $in{'erall'}) && !$in{'enew'} &&
+	    !$userconfig{'reply_self'}) {
+		$to = &remove_own_email($to);
+		$cc = &remove_own_email($cc);
+		$bcc = &remove_own_email($bcc);
 		}
 
 	# Work out new subject, depending on whether we are replying

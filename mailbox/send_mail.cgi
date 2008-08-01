@@ -38,11 +38,11 @@ $in{'to'} = &expand_to($in{'to'});
 $in{'cc'} = &expand_to($in{'cc'});
 $in{'bcc'} = &expand_to($in{'bcc'});
 $newmid = &generate_message_id($in{'from'});
-$mail->{'headers'} = [ [ 'From', $in{'from'} ],
-		       [ 'Subject', $in{'subject'} ],
-		       [ 'To', $in{'to'} ],
-		       [ 'Cc', $in{'cc'} ],
-		       [ 'Bcc', $in{'bcc'} ],
+$mail->{'headers'} = [ [ 'From', &encode_mimewords($in{'from'}) ],
+		       [ 'Subject', &encode_mimewords($in{'subject'}) ],
+		       [ 'To', &encode_mimewords($in{'to'}) ],
+		       [ 'Cc', &encode_mimewords($in{'cc'}) ],
+		       [ 'Bcc', &encode_mimewords($in{'bcc'}) ],
 		       [ 'X-Originating-IP', $ENV{'REMOTE_ADDR'} ],
 		       [ 'X-Mailer', "Usermin ".&get_webmin_version() ],
 		       [ 'Message-Id', $newmid ] ];
@@ -51,8 +51,10 @@ push(@{$mail->{'headers'}}, [ 'X-Priority', $in{'pri'} ]) if ($in{'pri'});
 push(@{$mail->{'headers'}}, [ 'In-Reply-To', $in{'rid'} ]) if ($in{'rid'});
 if ($userconfig{'req_dsn'} == 1 ||
     $userconfig{'req_dsn'} == 2 && $in{'dsn'}) {
-	push(@{$mail->{'headers'}}, [ 'Disposition-Notification-To', $in{'from'} ]);
-	push(@{$mail->{'headers'}}, [ 'Read-Receipt-To', $in{'from'} ]);
+	push(@{$mail->{'headers'}}, [ 'Disposition-Notification-To',
+				      &encode_mimewords($in{'from'}) ]);
+	push(@{$mail->{'headers'}}, [ 'Read-Receipt-To',
+				      &encode_mimewords($in{'from'}) ]);
 	}
 if ($in{'replyto'}) {
 	# Add real name to reply-to address, if not given and if possible
@@ -61,7 +63,7 @@ if ($in{'replyto'}) {
 	$r2 = $r2parts->[1] || !$userconfig{'real_name'} ||
 		    !$remote_user_info[6] ? $in{'replyto'} :
 			"\"$remote_user_info[6]\" <$r2parts->[0]>";
-	push(@{$mail->{'headers'}}, [ 'Reply-To', $r2 ]);
+	push(@{$mail->{'headers'}}, [ 'Reply-To', &encode_mimewords($r2) ]);
 	}
 
 # Make sure we have a recipient
@@ -472,9 +474,7 @@ if ($in{'save'}) {
 
 if ($userconfig{'send_return'}) {
 	# Return to mail list
-	print "<script>\n";
-	print "window.location = 'index.cgi?folder=$in{'folder'}&start=$in{'start'}';\n";
-	print "</script>\n";
+	&js_redirect("index.cgi?folder=$in{'folder'}&start=$in{'start'}");
 	}
 
 # Print footer

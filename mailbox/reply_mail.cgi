@@ -79,10 +79,10 @@ elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
 
 	# Construct the email
 	$newmid = &generate_message_id($from);
-	$qmail->{'headers'} = [ [ 'From', $from ],
-			        [ 'Subject', $subject ],
-			        [ 'To', $to ],
-			        [ 'Cc', $cc ],
+	$qmail->{'headers'} = [ [ 'From', &encode_mimewords($from) ],
+			        [ 'Subject', &encode_mimewords($subject) ],
+			        [ 'To', &encode_mimewords($to) ],
+			        [ 'Cc', &encode_mimewords($cc) ],
 			        [ 'X-Originating-IP', $ENV{'REMOTE_ADDR'} ],
 			        [ 'X-Mailer',"Usermin ".&get_webmin_version() ],
 			        [ 'Message-Id', $newmid ] ];
@@ -90,9 +90,10 @@ elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
 	$rid = $mail->{'header'}->{'message-id'};
 	push(@{$qmail->{'headers'}}, [ 'In-Reply-To', $rid ]) if ($rid);
 	if ($userconfig{'req_dsn'} == 1) {
-		push(@{$mail->{'headers'}},
-		     [ 'Disposition-Notification-To', $from ]);
-		push(@{$mail->{'headers'}}, [ 'Read-Receipt-To', $from ]);
+		push(@{$mail->{'headers'}}, [ 'Disposition-Notification-To',
+					      &encode_mimewords($from) ]);
+		push(@{$mail->{'headers'}}, [ 'Read-Receipt-To',
+					      &encode_mimewords($from) ]);
 		}
 
 	# Add the body

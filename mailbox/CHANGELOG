@@ -120,3 +120,4 @@ Always set Content-Disposition: Attachment when saving attachments, to force the
 Messages that have been replied to are now tracked and flagged by a small icon in the mail list. When using Maildir folders, the mesage files are also updated to synchronize with IMAP clients.
 ---- Changes since 1.350 ----
 When copying or moving mail between IMAP folders, the current read status is preserved. This also applies when mail is moved to the trash.
+Email headers such as the subject and from address that use 8-bit characters are now properly MIME-words encoded.

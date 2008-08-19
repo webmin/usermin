@@ -474,7 +474,7 @@ if ($in{'save'}) {
 
 if ($userconfig{'send_return'}) {
 	# Return to mail list
-	&js_redirect("index.cgi?folder=$in{'folder'}&start=$in{'start'}");
+	print &js_redirect("index.cgi?folder=$in{'folder'}&start=$in{'start'}");
 	}
 
 # Print footer

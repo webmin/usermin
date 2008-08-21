@@ -10,6 +10,7 @@ require './ssh-lib.pl';
 	   "<a href='edit_known.cgi?new=1'>$text{'knowns_add'}</a>" );
 
 print "$text{'knowns_desc'}<p>\n";
+
 @knowns = &list_knowns();
 if (@knowns) {
 	print &ui_form_start("delete_knowns.cgi", "post");
@@ -17,11 +18,13 @@ if (@knowns) {
 	@tds = ( "width=5" );
 	print &ui_columns_start([ "",
 			 	  $text{'knowns_hosts'},
+				  $text{'knowns_type'},
 				  $text{'knowns_key'} ], undef, 0, \@tds);
 	foreach $k (@knowns) {
 		print &ui_checked_columns_row([
 			"<a href='edit_known.cgi?idx=$k->{'index'}'>".
 		      	  join("&nbsp;|&nbsp;", @{$k->{'hosts'}})."</a>",
+			$k->{'type'},
 			"<tt>".substr($k->{'key'}, 0, 40)." ... ".
 		      	  substr($k->{'key'}, -40)."</tt>"
 			], \@tds, "d", $k->{'index'});

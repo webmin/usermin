@@ -277,9 +277,47 @@ open(KNOWNS, $known_hosts);
 while(<KNOWNS>) {
 	s/\r|\n//g;
 	s/#.*$//;
-	if (/^(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s*(.*)$/) {
+	#Handle hashed type 2 keys
+	if (/^\|1\|(\S+=)\|(\S+=)\s(.+)\s(\S+=)\s*(.*)$/) {
 		local $known = { 'comment' => $5,
 				 'key' => $4,
+				 'salt' => $1,
+				 'hash' => $2,
+				 'type' => $3,
+				 'hosts' => [ split(/,/, '*HASHED*') ],
+				 'line' => $lnum,
+				 'index' => scalar(@rv) };
+		push(@rv, $known);
+		}
+	#Handle hashed type 1 keys
+	elsif (/^\|1\|(\S+=)\|(\S+=)\s(\d+)\s(\d+)\s(\S+)\s*(.*)$/) {
+		local $known = { 'comment' => $6,
+				 'key' => $5,
+				 'type' => 'ssh-rsa1',
+				 'salt' => $1,
+				 'hash' => $2,
+				 'exp' => $4,
+				 'bits' => $3,
+				 'hosts' => [ split(/,/, '*HASHED*') ],
+				 'line' => $lnum,
+				 'index' => scalar(@rv) };
+		push(@rv, $known);
+		}
+	#Handle type 2 keys
+	elsif (/^(\S+)\s+(.+)\s(\S+=)\s*(.*)$/) {
+		local $known = { 'comment' => $4,
+				 'key' => $3,
+				 'type' => $2,
+				 'hosts' => [ split(/,/, $1) ],
+				 'line' => $lnum,
+				 'index' => scalar(@rv) };
+		push(@rv, $known);
+		}
+	#Handle type 1 keys
+	elsif (/^(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s*(.*)$/) {
+		local $known = { 'comment' => $5,
+				 'key' => $4,
+				 'type' => 'ssh-rsa1',
 				 'exp' => $3,
 				 'bits' => $2,
 				 'hosts' => [ split(/,/, $1) ],

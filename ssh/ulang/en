@@ -45,11 +45,12 @@ auth_rsa=RSA
 knowns_title=Known Remote Hosts
 knowns_desc=This page lists the known SSH keys for remote servers that you have logged into, which allows SSH client programs to verify that they really are connecting to that host for future sessions.
 knowns_hosts=Host Name(s)
-knowns_key=Key Digits
+knowns_key=Key string
 knowns_add=Add a new known host.
 knowns_none=No known remote hosts have been registered.
 knowns_return=known remote hosts
 knowns_delete=Delete Selected Known Hosts
+knowns_type=Key type
 
 known_edit=Edit Known Host
 known_create=Add Known Host
@@ -58,10 +59,11 @@ known_header=Known remote host details
 known_hosts=Host names / IP addresses
 known_bits=Key bits
 known_exp=Key exponent
-known_key=Key digits
+known_key=Key string
 known_comment=Host comment
 known_err=Failed to save known host
 known_ehosts=No host names entered
+
 
 keys_title=Your Keys
 keys_desc1=Your SSH private key is used by the SSH client programs to authenticate you to remote servers when you login. If this key is changed, you will need to change your authorized key on all the remote hosts that you login to.
@@ -80,4 +82,6 @@ keys_eformat=Uploaded file does not look like a private key
 keys_epriwrite=Failed to write to private key file : $1
 
 hosts_title=Host Options
+
+hash_support=Direct editing of hashed entries is not (yet) supported.
 

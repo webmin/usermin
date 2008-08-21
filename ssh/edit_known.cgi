@@ -27,14 +27,16 @@ print "<tr> <td valign=top><b>$text{'known_hosts'}</b></td>\n";
 print "<td colspan=3><textarea name=hosts rows=3 cols=50>",
 	join("\n", @{$known->{'hosts'}}),"</textarea></td> </tr>\n";
 
-print "<tr> <td><b>$text{'known_bits'}</b></td>\n";
-printf "<td><input name=bits size=5 value='%s'></td>\n",
-	$known->{'bits'};
+if (($known->{'type'} eq 'ssh-rsa1') or $in{'new'}) {
+	print "<tr> <td><b>$text{'known_bits'}</b></td>\n";
+	printf "<td><input name=bits size=5 value='%s'></td>\n",
+		$known->{'bits'};
 
-print "<td><b>$text{'known_exp'}</b></td>\n";
-printf "<td><input name=exp size=5 value='%s'></td> </tr>\n",
-	$known->{'exp'};
-
+	print "<td><b>$text{'known_exp'}</b></td>\n";
+	printf "<td><input name=exp size=5 value='%s'></td> </tr>\n",
+		$known->{'exp'};
+}
+	
 print "<tr> <td valign=top><b>$text{'known_key'}</b></td>\n";
 print "<td colspan=3><textarea name=key rows=10 cols=50 wrap=on>$known->{'key'}",
       "</textarea></td> </tr>\n";
@@ -49,10 +51,20 @@ print "<table width=100%><tr>\n";
 if ($in{'new'}) {
 	print "<td><input type=submit value='$text{'create'}'></td>\n";
 	}
-else {
+elsif (($known->{'type'} eq 'ssh-rsa') or ($known->{'type'} eq 'ssh-dss')) {
+	print "<td>Saving for type 2 keys not (yet) implemented.</td>\n";#"<td><input type=submit value='$text{'save'}'></td>\n";
+	print "<td align=right><input type=submit name=delete ",
+		"value='$text{'delete'}'></td>\n";
+	}
+elsif (!$known->{'hash'}) {
 	print "<td><input type=submit value='$text{'save'}'></td>\n";
 	print "<td align=right><input type=submit name=delete ",
-	      "value='$text{'delete'}'></td>\n";
+		"value='$text{'delete'}'></td>\n";
+	}
+else {
+	print "<td>$text{'hash_support'}</td></tr>\n";
+	print "<tr><td align=left><input type=submit name=delete ",
+		"value='$text{'delete'}'></td>\n";
 	}
 print "</tr></table></form>\n";
 

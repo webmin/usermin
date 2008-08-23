@@ -63,7 +63,7 @@ known_key=Key string
 known_comment=Host comment
 known_err=Failed to save known host
 known_ehosts=No host names entered
-
+known_type=Key type
 
 keys_title=Your Keys
 keys_desc1=Your SSH private key is used by the SSH client programs to authenticate you to remote servers when you login. If this key is changed, you will need to change your authorized key on all the remote hosts that you login to.

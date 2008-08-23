@@ -357,8 +357,14 @@ $lref->[$_[0]->{'line'}] = &known_line($_[0]);
 
 sub known_line
 {
-return join(" ", join(",", @{$_[0]->{'hosts'}}), $_[0]->{'bits'}, $_[0]->{'exp'},
-	    $_[0]->{'key'}, $_[0]->{'comment'} ? ( $_[0]->{'comment'} ) : ( ) );
+if ($_[0]->{'type'} eq 'ssh-rsa1') {
+	return join(" ", join(",", @{$_[0]->{'hosts'}}), $_[0]->{'bits'}, $_[0]->{'exp'},
+			$_[0]->{'key'}, $_[0]->{'comment'} ? ( $_[0]->{'comment'} ) : ( ) );
+	}
+else {
+	return join(" ", join(",", @{$_[0]->{'hosts'}}), $_[0]->{'type'},
+			$_[0]->{'key'}, $_[0]->{'comment'} ? ( $_[0]->{'comment'} ) : ( ) );
+}
 }
 
 # get_ssh_type()

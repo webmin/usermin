@@ -16,12 +16,19 @@ else {
 	&error_setup($text{'known_err'});
 	$in{'hosts'} =~ /\S/ || &error($text{'known_ehosts'});
 	$known->{'hosts'} = [ split(/\s+/, $in{'hosts'}) ];
-	$in{'bits'} =~ /^\d+$/ || &error($text{'auth_ebits'});
-	$known->{'bits'} = $in{'bits'};
-	$in{'exp'} =~ /^\d+$/ || &error($text{'auth_eexp'});
-	$known->{'exp'} = $in{'exp'};
-	$in{'key'} =~ s/\r|\n//g;
-	$in{'key'} =~ /^\d+$/ || &error($text{'auth_ekey'});
+	if ($in{type} eq 'ssh-rsa1') {
+		$in{'bits'} =~ /^\d+$/ || &error($text{'auth_ebits'});
+		$known->{'bits'} = $in{'bits'};
+		$in{'exp'} =~ /^\d+$/ || &error($text{'auth_eexp'});
+		$known->{'exp'} = $in{'exp'};
+		$in{'key'} =~ s/\r|\n//g;
+		$in{'key'} =~ /^\d+$/ || &error($text{'auth_ekey'});
+		}
+	else {
+		$known->{'type'} = $in{'type'};
+		$in{'key'} =~ s/\r|\n//g;
+		$in{'key'} =~ /^\S+$/ || &error($text{'auth_ekey'});
+		}
 	$known->{'key'} = $in{'key'};
 	$known->{'comment'} = $in{'comment'};
 

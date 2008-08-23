@@ -32,11 +32,26 @@ if (($known->{'type'} eq 'ssh-rsa1') or $in{'new'}) {
 	printf "<td><input name=bits size=5 value='%s'></td>\n",
 		$known->{'bits'};
 
-	print "<td><b>$text{'known_exp'}</b></td>\n";
+	print "<tr> <td><b>$text{'known_exp'}</b></td>\n";
 	printf "<td><input name=exp size=5 value='%s'></td> </tr>\n",
 		$known->{'exp'};
-}
-	
+	printf "<input type=hidden name=type value='%s'>\n", 
+		$known->{'type'};
+	}
+
+if ($in{'new'}) {
+	print "<tr> <td><b>$text{'known_type'}</b></td>\n";
+	print "<td><select name=type>";
+	print "<option value=\"ssh-rsa\">ssh-rsa</option>";
+	print "<option value=\"ssh-dss\">ssh-dss</option>";
+	print "<option value=\"ssh-rsa1\">ssh-rsa1</option></td>\n";
+	}
+else {
+	print "<tr> <td><b>$text{'known_type'}</b></td>\n";
+	printf "<td><input readonly name=type size=7 value='%s'>\n",
+		$known->{'type'};
+	}
+
 print "<tr> <td valign=top><b>$text{'known_key'}</b></td>\n";
 print "<td colspan=3><textarea name=key rows=10 cols=50 wrap=on>$known->{'key'}",
       "</textarea></td> </tr>\n";
@@ -52,7 +67,7 @@ if ($in{'new'}) {
 	print "<td><input type=submit value='$text{'create'}'></td>\n";
 	}
 elsif (($known->{'type'} eq 'ssh-rsa') or ($known->{'type'} eq 'ssh-dss')) {
-	print "<td>Saving for type 2 keys not (yet) implemented.</td>\n";#"<td><input type=submit value='$text{'save'}'></td>\n";
+	print "<td><input type=submit value='$text{'save'}'></td>\n";
 	print "<td align=right><input type=submit name=delete ",
 		"value='$text{'delete'}'></td>\n";
 	}

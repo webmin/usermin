@@ -9,4 +9,4 @@ Added checkboxes and a button for deleting multiple known remote hosts at once.
 Improved support for SSH version 2 keys, thanks to Sean Cox.
 ---- Changes since 1.360 ----
 Added ability to view and delete both Type 2 and Hashed keys, thanks to Sean Cox.
-
+Added ability to manually add Type 2 keys.

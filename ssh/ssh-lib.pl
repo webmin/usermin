@@ -357,16 +357,27 @@ $lref->[$_[0]->{'line'}] = &known_line($_[0]);
 
 sub known_line
 {
-if ($_[0]->{'type'} eq 'ssh-rsa1') {
-	return join(" ", join(",", @{$_[0]->{'hosts'}}), $_[0]->{'bits'}, $_[0]->{'exp'},
+if ($_[0]->{'hash'}) {
+	if ($_[0]->{'type'} eq 'ssh-rsa1') {
+		return join(" ", '|1|' . $_[0]->{'salt'} . '|' . $_[0]->{'hash'}, $_[0]->{'bits'}, $_[0]->{'exp'},
 			$_[0]->{'key'}, $_[0]->{'comment'} ? ( $_[0]->{'comment'} ) : ( ) );
+		}
+	else {
+		return join(" ", '|1|' . $_[0]->{'salt'} . '|' . $_[0]->{'hash'}, $_[0]->{'type'},
+			$_[0]->{'key'}, $_[0]->{'comment'} ? ( $_[0]->{'comment'} ) : ( ) );
+		}
 	}
 else {
-	return join(" ", join(",", @{$_[0]->{'hosts'}}), $_[0]->{'type'},
+	if ($_[0]->{'type'} eq 'ssh-rsa1') {
+		return join(" ", join(",", @{$_[0]->{'hosts'}}), $_[0]->{'bits'}, $_[0]->{'exp'},
 			$_[0]->{'key'}, $_[0]->{'comment'} ? ( $_[0]->{'comment'} ) : ( ) );
+		}
+	else {
+		return join(" ", join(",", @{$_[0]->{'hosts'}}), $_[0]->{'type'},
+			$_[0]->{'key'}, $_[0]->{'comment'} ? ( $_[0]->{'comment'} ) : ( ) );
+		}
+	}
 }
-}
-
 # get_ssh_type()
 # Returns either 'openssh' or 'ssh'
 sub get_ssh_type

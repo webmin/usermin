@@ -14,9 +14,11 @@ if ($in{'delete'}) {
 else {
 	# Validate inputs
 	&error_setup($text{'known_err'});
-	$in{'hosts'} =~ /\S/ || &error($text{'known_ehosts'});
-	$known->{'hosts'} = [ split(/\s+/, $in{'hosts'}) ];
-	if ($in{type} eq 'ssh-rsa1') {
+	if ($in{'hosts'}) {
+		$in{'hosts'} =~ /\S/ || &error($text{'known_ehosts'});
+		$known->{'hosts'} = [ split(/\s+/, $in{'hosts'}) ];
+		}
+		if ($in{type} eq 'ssh-rsa1') {
 		$in{'bits'} =~ /^\d+$/ || &error($text{'auth_ebits'});
 		$known->{'bits'} = $in{'bits'};
 		$in{'exp'} =~ /^\d+$/ || &error($text{'auth_eexp'});

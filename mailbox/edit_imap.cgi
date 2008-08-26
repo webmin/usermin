@@ -21,7 +21,7 @@ print &ui_form_start("save_imap.cgi");
 print &ui_hidden("idx", $in{'idx'});
 print &ui_hidden("new", $in{'new'});
 print &ui_hidden("mode", $mode);
-print &ui_table_start($text{'edit_header'}, undef, 2, [ "width=30%" ]);
+print &ui_table_start($text{'edit_header'}, undef, 2);
 
 # Folder type
 print &ui_table_row($text{'edit_mode'}, $text{'edit_imap'});

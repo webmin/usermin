@@ -1977,10 +1977,10 @@ local $img = $sortfield eq $field && $dir ? "sortascgrey.gif" :
 	     $sortfield eq $field && !$dir ? "sortdescgrey.gif" :
 	     $dir ? "sortasc.gif" : "sortdesc.gif";
 if ($folder->{'sortable'}) {
-	return "<table cellpadding=0 cellspacing=0><tr><td><a href='sort.cgi?field=".&urlize($field)."&dir=".&urlize($dir)."&folder=".&urlize($folder->{'index'})."&start=".&urlize($start)."'><b>$title</b></td> <td align=right><img valign=middle src=../images/$img border=0></td> </tr></table>";
+	return "<a href='sort.cgi?field=".&urlize($field)."&dir=".&urlize($dir)."&folder=".&urlize($folder->{'index'})."&start=".&urlize($start)."'>$title <img valign=middle src=../images/$img border=0>";
 	}
 else {
-	return "<b>$title</b>";
+	return $title;
 	}
 }
 

@@ -200,7 +200,7 @@ if ($userconfig{'top_buttons'} == 2 && &editable_mail($mail)) {
 	}
 
 # Start of headers section
-@hmode = ( );
+@hmode = ( $text{'view_headers'} );
 if ($in{'headers'}) {
 	push(@hmode, "<a href='$baseurl&body=$in{'body'}&headers=0&images=$in{'images'}'>$text{'view_noheaders'}</a>");
 	}
@@ -208,9 +208,7 @@ else {
 	push(@hmode, "<a href='$baseurl&body=$in{'body'}&headers=1&images=$in{'images'}'>$text{'view_allheaders'}</a>");
 	}
 push(@hmode, "<a href='$baseurl&body=$in{'body'}&raw=1&images=$in{'images'}'>$text{'view_raw'}</a>");
-$hmode = &ui_links_row(\@hmode);
-$hmode =~ s/<br>//g;
-print &ui_table_start(&left_right_align("<b>$text{'view_headers'}</b>", $hmode),
+print &ui_table_start(&ui_links_row(\@hmode),
 		      "width=100%", 2, [ "width=10% nowrap" ]);
 
 if ($in{'headers'}) {
@@ -263,6 +261,7 @@ print &ui_table_end();
 # Show body attachment, with properly linked URLs
 $image_mode = defined($in{'images'}) ? $in{'images'}
 				     : $userconfig{'view_images'};
+@bodyright = ( $text{'view_body'} );
 if ($body && $body->{'data'} =~ /\S/) {
 	if ($body eq $textbody) {
 		# Show plain text
@@ -297,13 +296,7 @@ if ($body && $body->{'data'} =~ /\S/) {
 		}
 	}
 if ($bodycontents) {
-	if (@bodyright) {
-		$bodyright = &ui_links_row(\@bodyright);
-		$bodyright =~ s/<br>\s*$//;
-		}
-	print &ui_table_start(
-		&left_right_align("<b>$text{'view_body'}</b>", $bodyright),
-		"width=100%", 1);
+	print &ui_table_start(&ui_links_row(\@bodyright), "width=100%", 1);
 	print &ui_table_row(undef, $bodycontents, undef, [ undef, $bodystuff ]);
 	print &ui_table_end();
 	}

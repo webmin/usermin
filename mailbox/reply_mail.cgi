@@ -819,18 +819,18 @@ else {
 print &ui_table_end();
 
 # Create link for switching to HTML/text mode
+@bodylinks = ( $text{'reply_body'} );
 if ($in{'new'}) {
 	if ($html_edit) {
-		$modelink = " </b><a href='reply_mail.cgi?folder=$in{'folder'}&new=1&html=0'>$text{'reply_html0'}</a><b>";
+		push(@bodylinks, "<a href='reply_mail.cgi?folder=$in{'folder'}&new=1&html=0'>$text{'reply_html0'}</a>");
 		}
 	else {
-		$modelink = " </b><a href='reply_mail.cgi?folder=$in{'folder'}&new=1&html=1'>$text{'reply_html1'}</a><b>";
+		push(@bodylinks, "<a href='reply_mail.cgi?folder=$in{'folder'}&new=1&html=1'>$text{'reply_html1'}</a>");
 		}
 	}
 
 # Output message body input
-print &ui_table_start(&left_right_align("<b>$text{'reply_body'}</b>",$modelink),
-		      "width=100%", 2);
+print &ui_table_start(&ui_links_row(\@bodylinks), "width=100%", 2);
 if ($html_edit) {
 	# Output HTML editor textarea
 	print <<EOF;

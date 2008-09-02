@@ -15,7 +15,7 @@ else {
 	$data = &read_entire_file($in{'local'});
 	}
 
-@keys = &list_keys();
+@keys = &list_keys_sorted();
 @keys = map { $keys[$_] } split(/\0/, $in{'idx'});
 $rv = &encrypt_data($data, \$crypt, \@keys, $in{'ascii'});
 if ($rv) {

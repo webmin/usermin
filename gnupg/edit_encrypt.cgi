@@ -6,28 +6,29 @@ require './gnupg-lib.pl';
 &ui_print_header(undef, $text{'encrypt_title'}, "");
 
 print "$text{'encrypt_desc'}<p>\n";
-print "<form action=encrypt.cgi/output.gpg method=post enctype=multipart/form-data>\n";
-print "<table>\n";
-print "<tr> <td valign=top><b>$text{'encrypt_mode'}</b></td>\n";
-print "<td><input type=radio name=mode value=0 checked> $text{'encrypt_mode0'}\n";
-print "<input type=file name=upload><br>\n";
-print "<input type=radio name=mode value=1> $text{'encrypt_mode1'}\n";
-print "<input name=local size=35> ",&file_chooser_button("local"),"</td> </tr>\n";
+print &ui_form_start("encrypt.cgi/output.gpg", "form-data");
+print &ui_table_start(undef, undef, 2);
 
-@keys = &list_keys();
-print "<tr> <td valign=top><b>$text{'encrypt_key'}</b></td>\n";
-print "<td><select name=idx size=5 multiple>\n";
-foreach $k (@keys) {
-	print "<option value=$k->{'index'}>$k->{'name'}->[0]\n";
-	}
-print "</select></td> </tr>\n";
+# Plain file source
+print &ui_table_row($text{'encrypt_mode'},
+	&ui_radio_table("mode", 0,
+		[ [ 0, $text{'encrypt_mode0'}, &ui_upload("upload", 40) ],
+		  [ 1, $text{'encrypt_mode1'},
+		       &ui_filebox("local", undef, 40) ] ]));
 
-print "<tr> <td><b>$text{'encrypt_ascii'}</b></td>\n";
-print "<td><input type=radio name=ascii value=1> $text{'yes'}\n";
-print "<input type=radio name=ascii value=0 checked> $text{'no'}</td> </tr>\n";
+# Encrypt with keys
+@keys = &list_keys_sorted();
+print &ui_table_row($text{'encrypt_key'},
+	&ui_select("idx", undef,
+		   [ map { [ $_->{'index'}, $_->{'name'}->[0] ] } @keys ],
+		   5, 1));
 
-print "</table>\n";
-print "<input type=submit value='$text{'encrypt_ok'}'></form>\n";
+# ASCII armour
+print &ui_table_row($text{'encrypt_ascii'},
+	&ui_yesno_radio("ascii", 0));
+
+print &ui_table_end();
+print &ui_form_end([ [ undef, $text{'encrypt_ok'} ] ]);
 
 &ui_print_footer("", $text{'index_return'});
 

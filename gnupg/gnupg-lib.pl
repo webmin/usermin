@@ -61,6 +61,14 @@ close(GPG);
 return @rv;
 }
 
+# list_keys_sorted()
+# Returns a list of all keys, sorted by name
+sub list_keys_sorted
+{
+return sort { lc($a->{'name'}->[0]) cmp lc($b->{'name'}->[0]) }
+	    &list_keys();
+}
+
 # list_secret_keys()
 # List list_keys, but only returns secret ones
 sub list_secret_keys

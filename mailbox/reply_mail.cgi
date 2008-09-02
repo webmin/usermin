@@ -638,7 +638,7 @@ if ($in{'reply'} || $in{'rall'} || $in{'ereply'} || $in{'erall'}) {
 print &ui_table_start($text{'reply_headers'}, "width=100%", 2);
 if (&has_command("gpg") && &foreign_check("gnupg")) {
 	&foreign_require("gnupg", "gnupg-lib.pl");
-	@keys = &foreign_call("gnupg", "list_keys");
+	@keys = &gnupg::list_keys_sorted();
 	$has_gpg = @keys ? 1 : 0;
 	}
 @tds = ( "width=10%", "width=90% nowrap" );

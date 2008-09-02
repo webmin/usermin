@@ -5,7 +5,7 @@
 require './gnupg-lib.pl';
 &ui_print_header(undef, $text{'keys_title'}, "");
 
-@keys = &list_keys();
+@keys = &list_keys_sorted();
 print "$text{'keys_desc'}<p>\n";
 
 # List of existing keys

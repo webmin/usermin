@@ -6,16 +6,16 @@ require './gnupg-lib.pl';
 &ui_print_header(undef, $text{'decrypt_title'}, "");
 
 print "$text{'decrypt_desc'}<p>\n";
-print "<form action=decrypt.cgi/output.txt method=post enctype=multipart/form-data>\n";
-print "<table>\n";
-print "<tr> <td valign=top><b>$text{'decrypt_mode'}</b></td>\n";
-print "<td><input type=radio name=mode value=0 checked> $text{'decrypt_mode0'}\n";
-print "<input type=file name=upload><br>\n";
-print "<input type=radio name=mode value=1> $text{'decrypt_mode1'}\n";
-print "<input name=local size=35> ",&file_chooser_button("local"),"</td> </tr>\n";
-
-print "</table>\n";
-print "<input type=submit value='$text{'decrypt_ok'}'></form>\n";
+print &ui_form_start("decrypt.cgi/output.txt", "form-data");
+print &ui_table_start(undef, undef, 2);
+print &ui_table_row($text{'decrypt_mode'},
+	&ui_radio_table("mode", 0,
+		[ [ 0, $text{'decrypt_mode0'},
+		    &ui_upload("upload", 40) ],
+		  [ 1, $text{'decrypt_mode1'},
+		    &ui_filebox("local", undef, 40) ] ]));
+print &ui_table_end();
+print &ui_form_end([ [ undef, $text{'decrypt_ok'} ] ]);
 
 &ui_print_footer("", $text{'index_return'});
 

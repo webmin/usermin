@@ -28,6 +28,12 @@ while(<GPG>) {
 			     'name' => $4 ? [ $4 ] : [ ],
 			     'email' => $5 ? [ $5 ] : $4 ? [ "" ] : [ ],
 			     'index' => scalar(@rv) };
+		if ($k->{'name'}->[0] =~ /\[(expires|expired):\s+(\S+)\]/) {
+			# Expiry date, the actual name
+			$k->{'expires'} = $2;
+			$k->{'expired'} = 1 if ($1 eq 'expired');
+			shift(@{$k->{'name'}});
+			}
 		$kmap{$k->{'key'}} = $k;
 		while(1) {
 			$_ = <GPG>;

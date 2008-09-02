@@ -6,16 +6,23 @@ require './gnupg-lib.pl';
 &ReadParseMime();
 
 if ($in{'mode'} == 0) {
+	# Uploaded file
 	$in{'upload'} || &error($text{'encrypt_eupload'});
 	$data = $in{'upload'};
 	}
-else {
+elsif ($in{'mode'} == 1) {
+	# File on server
 	$in{'local'} || &error($text{'encrypt_eupload'});
 	-r $in{'local'} || &error($text{'encrypt_elocal'});
 	$data = &read_entire_file($in{'local'});
 	}
+elsif ($in{'mode'} == 2) {
+	# Pasted text
+	$data = $in{'text'};
+	$data =~ s/\r//g;
+	}
 
-@keys = &list_keys_sorted();
+@keys = &list_keys();
 @keys = map { $keys[$_] } split(/\0/, $in{'idx'});
 $rv = &encrypt_data($data, \$crypt, \@keys, $in{'ascii'});
 if ($rv) {

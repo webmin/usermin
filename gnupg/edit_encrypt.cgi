@@ -12,9 +12,12 @@ print &ui_table_start(undef, undef, 2);
 # Plain file source
 print &ui_table_row($text{'encrypt_mode'},
 	&ui_radio_table("mode", 0,
-		[ [ 0, $text{'encrypt_mode0'}, &ui_upload("upload", 40) ],
+		[ [ 0, $text{'encrypt_mode0'},
+		       &ui_upload("upload", 40) ],
 		  [ 1, $text{'encrypt_mode1'},
-		       &ui_filebox("local", undef, 40) ] ]));
+		       &ui_filebox("local", undef, 40) ],
+		  [ 2, $text{'encrypt_mode2'},
+		       &ui_textarea("text", undef, 5, 40) ] ]));
 
 # Encrypt with keys
 @keys = &list_keys_sorted();

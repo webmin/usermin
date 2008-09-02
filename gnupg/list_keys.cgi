@@ -41,26 +41,31 @@ print &ui_links_row(\@links);
 print &ui_form_end([ [ "delete", $text{'keys_delete'} ] ]);
 
 # Form for adding a key
-print "<hr>\n";
+print &ui_hr();
 print "$text{'keys_importdesc'}<p>\n";
-print "<form action=import.cgi method=post enctype=multipart/form-data>\n";
-print "<table>\n";
+print &ui_form_start("import.cgi", "form-data");
+print &ui_table_start(undef, undef, 2);
 
-print "<tr> <td valign=top><b>$text{'keys_from'}</b></td>\n";
-print "<td><input type=radio name=mode value=0 checked> $text{'keys_mode0'}\n";
-print "<input type=file name=key><br>\n";
+# Source of key
+print &ui_table_row($text{'keys_from'},
+	&ui_radio_table("mode", 0,
+		[ [ 0, $text{'encrypt_mode0'},
+		       &ui_upload("upload", 40) ],
+		  [ 1, $text{'encrypt_mode1'},
+		       &ui_filebox("local", undef, 40) ],
+		  [ 2, $text{'encrypt_mode2'},
+		       &ui_textarea("text", undef, 5, 40) ] ]));
 
-print "<input type=radio name=mode value=1> $text{'keys_mode1'}\n";
-print "<input name=file size=35> ",&file_chooser_button("to"),"</td> </tr>\n";
+print &ui_table_end();
+print &ui_form_end([ [ undef, $text{'keys_import'} ] ]);
 
-print "</table>\n";
-print "<input type=submit value='$text{'keys_import'}'></form>\n";
-
-print "<hr>\n";
+# Form for fetching a key from a keyserver
+print &ui_hr();
 print &text('keys_recvdesc', "<tt>$config{'keyserver'}</tt>"),"<p>\n";
-print "<form action=recv.cgi>\n";
-print "<input type=submit value='$text{'keys_recv'}'>\n";
-print "<input name=id size=10></form>\n";
+print &ui_form_start("recv.cgi");
+print &ui_submit($text{'keys_recv'});
+print &ui_textbox("id", undef, 20);
+print &ui_form_end();
 
 &ui_print_footer("", $text{'index_return'});
 

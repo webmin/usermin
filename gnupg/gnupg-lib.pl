@@ -367,5 +367,20 @@ sleep(1);
 close($fh);
 }
 
+# default_email_address()
+# Returns the current user's email address, or undef if not possible
+sub default_email_address
+{
+if (&foreign_check("mailbox")) {
+	&foreign_require("mailbox", "mailbox-lib.pl");
+	($fromaddr) = &mailbox::split_addresses(
+			&mailbox::get_preferred_from_address());
+	if ($fromaddr) {
+		return $fromaddr->[0];
+		}
+	}
+return undef;
+}
+
 1;
 

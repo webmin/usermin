@@ -10,10 +10,14 @@ if ($in{'mode'} == 0) {
 	$in{'upload'} || &error($text{'verify_eupload'});
 	$data = $in{'upload'};
 	}
-else {
+elsif ($in{'mode'} == 1) {
 	$in{'local'} || &error($text{'verify_eupload'});
 	-r $in{'local'} || &error($text{'verify_elocal'});
 	$data = &read_entire_file($in{'local'});
+	}
+elsif ($in{'mode'} == 3) {
+	$data = $in{'text'};
+	$data =~ s/\r//g;
 	}
 
 # Get signature data
@@ -25,6 +29,10 @@ elsif ($in{'sigmode'} == 1) {
 	$in{'siglocal'} || &error($text{'verify_esigupload'});
 	-r $in{'siglocal'} || &error($text{'verify_esiglocal'});
 	$sigdata = &read_entire_file($in{'siglocal'});
+	}
+elsif ($in{'mode'} == 3) {
+	$sigdata = $in{'sigtext'};
+	$sigdata =~ s/\r//g;
 	}
 else {
 	$sigdata = undef;

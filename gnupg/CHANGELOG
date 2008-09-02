@@ -4,3 +4,6 @@ A separate signature file can now be selected on the Verify Signed File page.
 Added checkboxes and a button for deleting multiple public keys at once.
 ---- Changes since 1.300 ----
 Email address is automatically detected when setting up a new key.
+---- Changes since 1.360 ----
+Converted all pages to use the new Webmin UI library, for a more consistent look.
+Added text boxes to encryption, decryption, signing and verification pages for working on pasted text.

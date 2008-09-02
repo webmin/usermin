@@ -5,25 +5,34 @@
 require './gnupg-lib.pl';
 &ui_print_header(undef, $text{'verify_title'}, "");
 
+# Form start
 print &text('verify_desc', 'edit_decrypt.cgi'),"<p>\n";
-print "<form action=verify.cgi method=post enctype=multipart/form-data>\n";
-print "<table>\n";
+print &ui_form_start("verify.cgi", "form-data");
+print &ui_table_start(undef, undef, 2);
 
-print "<tr> <td valign=top><b>$text{'verify_mode'}</b></td> <td>\n";
-print "<input type=radio name=mode value=0 checked> $text{'verify_mode0'}\n";
-print "<input type=file name=upload><br>\n";
-print "<input type=radio name=mode value=1> $text{'verify_mode1'}\n";
-print "<input name=local size=35> ",&file_chooser_button("local"),"</td> </tr>\n";
+# Source for original data
+print &ui_table_row($text{'verify_mode'},
+	&ui_radio_table("mode", 0,
+		[ [ 0, $text{'verify_mode0'},
+		       &ui_upload("file", 40) ],
+		  [ 1, $text{'verify_mode1'},
+		       &ui_filebox("local", undef, 40) ],
+		  [ 3, $text{'verify_mode3'},
+		       &ui_textarea("text", undef, 5, 40) ] ]));
 
-print "<tr> <td valign=top><b>$text{'verify_sig'}</b></td> <td>\n";
-print "<input type=radio name=sigmode value=2 checked> $text{'verify_mode2'}<br>\n";
-print "<input type=radio name=sigmode value=0> $text{'verify_mode0'}\n";
-print "<input type=file name=sigupload><br>\n";
-print "<input type=radio name=sigmode value=1> $text{'verify_mode1'}\n";
-print "<input name=siglocal size=35> ",&file_chooser_button("local"),"</td> </tr>\n";
+# Source for signature
+print &ui_table_row($text{'verify_sig'},
+	&ui_radio_table("sigmode", 2,
+		[ [ 2, $text{'verify_mode2'} ],
+		  [ 0, $text{'verify_mode0'},
+		       &ui_upload("sigfile", 40) ],
+		  [ 1, $text{'verify_mode1'},
+		       &ui_filebox("siglocal", undef, 40) ],
+		  [ 3, $text{'verify_mode3'},
+		       &ui_textarea("sigtext", undef, 5, 40) ] ]));
 
-print "</table>\n";
-print "<input type=submit value='$text{'verify_ok'}'></form>\n";
+print &ui_table_end();
+print &ui_form_end([ [ undef, $text{'verify_ok'} ] ]);
 
 &ui_print_footer("", $text{'index_return'});
 

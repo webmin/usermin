@@ -14,33 +14,36 @@ if (!&has_command($gpgpath)) {
 @keys = &list_keys();
 if (!@keys) {
 	# Offer to setup GNUPG
-	if (&foreign_check("mailbox")) {
-		&foreign_require("mailbox", "mailbox-lib.pl");
-		($froms, $doms) = &mailbox::list_from_addresses();
-		$email = @$froms ? $froms->[0] : $remote_user."\@".
-						 &get_system_hostname();
-		}
 	print "$text{'index_setupdesc'}<br>\n";
-	print "<form action=secret.cgi method=post>\n";
-	print "<table>\n";
-	print "<tr> <td><b>$text{'index_name'}</b></td>\n";
-	$remote_user_info[6] =~ s/,.*$//;
-	print "<td><input name=name size=30 value='$remote_user_info[6]'></td> </tr>\n";
-	print "<tr> <td><b>$text{'index_email'}</b></td>\n";
-	print "<td><input name=email size=30 value='$email'></td> </tr>\n";
-	print "<tr> <td><b>$text{'index_comment'}</b></td>\n";
-	print "<td><input name=comment size=30></td> </tr>\n";
-	print "<tr> <td><b>$text{'index_size'}</b></td>\n";
+	print &ui_form_start("secret.cgi", "post");
+	print &ui_table_start(undef, undef, 2);
+
+	$remote_user_info[6] =~ s/,*$//;
+	print &ui_table_row($text{'index_name'},
+		&ui_textbox("name", $remote_user_info[6], 40));
+
+	print &ui_table_row($text{'index_email'},
+		&ui_textbox("email", &default_email_address(), 40));
+
+	print &ui_table_row($text{'index_comment'},
+		&ui_textbox("comment", undef, 40));
+
+	print &ui_table_row($text{'index_size'},
+		&ui_select("size", undef,
+			[ [ '', $text{'default'} ],
+			  768, 1024, 2048, 4096, 8192 ]));
+
+	print &ui_table_row($text{'index_pass'},
+		&ui_password("pass", undef, 20));
+
+	print &ui_table_end();
+	print &ui_form_end([ [ undef, $text{'index_setup'} ] ]);
+
 	print "<td><select name=size>\n";
 	print "<option selected value=''>$text{'default'}\n";
 	foreach $s (768, 1024, 2048, 4096, 8192) {
 		print "<option>$s\n";
 		}
-	print "</select></td> </tr>\n";
-	print "<tr> <td><b>$text{'index_pass'}</b></td>\n";
-	print "<td><input name=pass type=password size=20></td> </tr>\n";
-	print "</table>\n";
-	print "<input type=submit value='$text{'index_setup'}'></form>\n";
 	}
 else {
 	# Show table of options

@@ -5,14 +5,22 @@
 require './gnupg-lib.pl';
 &ReadParseMime();
 
+# Get the data to sign
 if ($in{'mode'} == 0) {
+	# Uploaded file
 	$in{'upload'} || &error($text{'sign_eupload'});
 	$data = $in{'upload'};
 	}
-else {
+elsif ($in{'mode'} == 1) {
+	# Local file
 	$in{'local'} || &error($text{'sign_eupload'});
 	-r $in{'local'} || &error($text{'sign_elocal'});
 	$data = &read_entire_file($in{'local'});
+	}
+elsif ($in{'mode'} == 2) {
+	# Text box
+	$data = $in{'text'};
+	$data =~ s/\r//g;
 	}
 
 @keys = &list_keys();

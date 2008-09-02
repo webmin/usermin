@@ -6,13 +6,20 @@ require './gnupg-lib.pl';
 &ReadParseMime();
 
 if ($in{'mode'} == 0) {
+	# Uploaded file
 	$in{'upload'} || &error($text{'decrypt_eupload'});
 	$data = $in{'upload'};
 	}
-else {
+elsif ($in{'mode'} == 1) {
+	# File on server
 	$in{'local'} || &error($text{'decrypt_eupload'});
 	-r $in{'local'} || &error($text{'decrypt_elocal'});
 	$data = &read_entire_file($in{'local'});
+	}
+elsif ($in{'mode'} == 2) {
+	# Pasted text
+	$data = $in{'text'};
+	$data =~ s/\r//g;
 	}
 
 $rv = &decrypt_data($data, \$plain);

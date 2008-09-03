@@ -66,21 +66,16 @@ if ($in{'confirm'}) {
 	}
 else {
 	# Ask the user if he is sure
-	print &text('signkey_confirm', "<tt>$key->{'name'}->[0]</tt>",
+	print &ui_confirmation_form("signkey.cgi", 
+	  &text('signkey_confirm', "<tt>$key->{'name'}->[0]</tt>",
 	  $key->{'email'}->[0] ? "&lt;<tt>$key->{'email'}->[0]</tt>&gt;" : "",
-	  "<tt>".&key_fingerprint($key)."</tt>"),"<p>\n";
-	print "<center><form action=signkey.cgi>\n";
-	print "<input type=hidden name=idx value='$key->{'index'}'>\n";
-	print "<input type=hidden name=confirm value=1>\n";
-	print "<input type=submit value='$text{'key_sign'}'>\n";
-	print "$text{'signkey_trust'}\n";
-	print "<select name=trust>\n";
-	print "<option selected value=0>$text{'signkey_trust0'}\n";
-	print "<option value=1>$text{'signkey_trust1'}\n";
-	print "<option value=2>$text{'signkey_trust2'}\n";
-	print "<option value=3>$text{'signkey_trust3'}\n";
-	print "</select>\n";
-	print "</form></center>\n";
+	  "<tt>".&key_fingerprint($key)."</tt>"),
+	  [ [ "idx", $key->{'index'} ] ],
+	  [ [ "confirm", $text{'key_sign'} ] ],
+	  $text{'signkey_trustlevel'}." ".
+	  &ui_select("trust", 0,
+		     [ map { [ $_, $text{'signkey_trust'.$_} ] } (0..3) ])
+	  );
 	}
 
 &ui_print_footer("list_keys.cgi", $text{'keys_return'},

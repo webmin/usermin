@@ -15,109 +15,89 @@ else {
 
 &ui_print_header(undef, $text{'key_title'}, "");
 
+# Form start
 print "$text{'key_desc'}<p>\n";
+print &ui_form_start("save_key.cgi");
+print &ui_hidden("idx", $in{'idx'});
+print &ui_table_start($text{'key_header'}, "width=100%", 4);
 
-print "<table border width=100%>\n";
-print "<tr $tb> <td><b>$text{'key_header'}</b></td> </tr>\n";
-print "<tr $cb> <td><table width=100%>\n";
+# Key ID
+print &ui_table_row($text{'key_id'}, "<tt>$key->{'key'}</tt>");
 
-print "<tr> <td><b>$text{'key_id'}</b></td>\n";
-print "<td><tt>$key->{'key'}</tt></td>\n";
+# Creation date
+print &ui_table_row($text{'key_date'}, $key->{'date'});
 
-print "<td><b>$text{'key_date'}</b></td>\n";
-print "<td>$key->{'date'}</tt></td> </tr>\n";
-
-if ($key->{'secret'}) {
-	print "<form action=owner.cgi>\n";
-	print "<input type=hidden name=idx value='$in{'idx'}'>\n";
-	}
-print "<tr> <td valign=top><b>$text{'key_owner'}</b></td>\n";
-print "<td valign=top colspan=3><table border=0>\n";
-print "<tr> <td><b>$text{'key_oname'}</b></td> ",
-      "<td><b>$text{'key_oemail'}</b></td> </tr>\n";
-for($i=0; $i<@{$key->{'name'}}; $i++) {
-	print "<tr>\n";
-	print "<td>",$key->{'name'}->[$i],"</td>\n";
-	print "<td>",$key->{'email'}->[$i] || "<br>","</td>\n";
-	if ($key->{'secret'}) {
-		print "<td><input type=submit name=$i value='$text{'delete'}'></td>\n";
-		}
-	print "</tr>\n";
+# Table of owner emails
+@table = ( );
+@names = @{$key->{'name'}};
+for($i=0; $i<@names; $i++) {
+	push(@table, [ $key->{'name'}->[$i],
+		       $key->{'email'}->[$i],
+		       !$key->{'secret'} ? ( ) :
+		       @names == 1 ? ( "" ) :
+			( &ui_submit($text{'delete'}, 'delete_'.$i) ) ]);
 	}
 if ($key->{'secret'}) {
-	print "</form>\n";
-	print "<form action=owner.cgi>\n";
-	print "<input type=hidden name=idx value='$in{'idx'}'>\n";
-	print "<tr>\n";
-	print "<td><input name=name size=30></td>\n";
-	print "<td><input name=email size=30></td>\n";
-	print "<td><input name=add type=submit value='$text{'key_addowner'}'></td>\n";
-	print "</tr>\n";
+	# Fields to add
+	push(@table, [ &ui_textbox("name", undef, 30),
+		       &ui_textbox("email", undef, 30),
+		       &ui_submit($text{'key_addowner'}, 'add') ]);
 	}
-print "</table>\n";
-print "</form>\n" if ($key->{'secret'});
-print "</td> </tr>\n";
+print &ui_table_row($text{'key_owner'},
+	&ui_columns_table([ $text{'key_oname'}, $text{'key_oemail'},
+			    $key->{'secret'} ? ( "" ) : ( ) ],
+			  100, \@table, undef, 1), 3);
 
-print "<tr> <td><b>$text{'key_finger'}</b></td>\n";
-print "<td colspan=3><tt>",&key_fingerprint($key),"</tt></td> </tr>\n";
-
-#print "<tr> <td valign=top><b>$text{'key_ascii'}</b>",
-#      "<br>$text{'key_asciidesc'}</td>\n";
-#print "<td colspan=3><pre>";
-#open(GPG, "$gpgpath --armor --export \"$key->{'name'}->[0]\" |");
-#while(<GPG>) {
-#	print &html_escape($_);
-#	}
-#close(GPG);
-#print "</pre></td> </tr>\n";
+# Fingerprint
+print &ui_table_row($text{'key_finger'},
+	"<tt>".&key_fingerprint($key)."</tt>");
 
 if ($key->{'secret'}) {
 	# Offer to change usermin's passphrase
 	$pass = &get_passphrase($key);
-	print "<form action=save_pass.cgi>\n";
-	print "<input type=hidden name=idx value='$in{'idx'}'>\n";
-	print "<tr> <td valign=top><b>",defined($pass) ? $text{'key_changepass'}
-					    : $text{'key_setpass'},"</b></td>\n";
-	print "<td colspan=3><input type=password name=pass size=20> ",
-	      "<input type=submit value='$text{'save'}'><br>\n";
-	print defined($pass) ? $text{'key_passdesc2'} : $text{'key_passdesc'},"\n";
-	print "</td></tr></form>\n";
+	print &ui_table_row(defined($pass) ? $text{'key_changepass'}
+					   : $text{'key_setpass'},
+		&ui_password("pass", undef, 20)."<br>".
+		(defined($pass) ? $text{'key_passdesc2'}
+				: $text{'key_passdesc'}), 3);
 	}
 else {
 	# Offer to set trust level
 	$tr = &get_trust_level($key);
-	print "<form action=change_trust.cgi>\n";
-	print "<input type=hidden name=idx value='$in{'idx'}'>\n";
-	print "<tr> <td><b>$text{'key_trust'}</b></td>\n";
-	print "<td><select name=trust>\n";
-	foreach $t (0 .. 4) {
-		printf "<option value=%d %s>%s\n",
-			$t, $t eq $tr ? "selected" : "", $text{"key_trust_$t"};
-		}
-	print "</select>\n";
-	print "<input type=submit value='$text{'key_changetrust'}'>\n";
-	print "</td></tr></form>\n";
+	print &ui_table_row($text{'key_trust'},
+		&ui_select("trust", $tr,
+			[ map { [ $_, $text{"key_trust_".$_} ] } (0..4) ],
+			1, 0, 1));
 	}
 
-print "</table></td></tr></table>\n";
+print &ui_table_end();
+print &ui_form_end([ [ undef, $text{'save'} ] ]);
 
-print "<table width=100%><tr>\n";
-print "<form action=edit_export.cgi>\n";
-print "<input type=hidden name=idx value='$key->{'index'}'>\n";
-print "<td width=25%><input type=submit value='$text{'key_exportform'}'></td></form>\n";
+print &ui_hr();
+print &ui_buttons_start();
+# XXX
 
-print "<form action=send.cgi>\n";
-print "<input type=hidden name=idx value='$key->{'index'}'>\n";
-print "<td align=middle width=25%><input type=submit value='$text{'key_send'}'></td></form>\n";
+# Export key form
+print &ui_buttons_row("edit_export.cgi", $text{'key_exportform'},
+		      $text{'key_exportformdesc'},
+		      &ui_hidden("idx", $key->{'index'}));
 
-print "<form action=signkey.cgi>\n";
-print "<input type=hidden name=idx value='$key->{'index'}'>\n";
-print "<td align=middle width=25%><input type=submit value='$text{'key_sign'}'></td></form>\n";
+# Send to keyserver
+print &ui_buttons_row("send.cgi", $text{'key_send'},
+		      $text{'key_senddesc'},
+		      &ui_hidden("idx", $key->{'index'}));
 
-print "<form action=delkey.cgi>\n";
-print "<input type=hidden name=idx value='$key->{'index'}'>\n";
-print "<td align=right width=25%><input type=submit value='$text{'key_del'}'></td></form>\n";
-print "</tr></table>\n";
+# Sign key
+print &ui_buttons_row("signkey.cgi", $text{'key_sign'},
+		      $text{'key_signdesc'},
+		      &ui_hidden("idx", $key->{'index'}));
+
+# Delete key
+print &ui_buttons_row("delkey.cgi", $text{'key_del'},
+		      $text{'key_deldesc'},
+		      &ui_hidden("idx", $key->{'index'}));
+
+print &ui_buttons_end();
 
 &ui_print_footer("list_keys.cgi", $text{'keys_return'},
 	"", $text{'index_return'});

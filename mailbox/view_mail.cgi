@@ -159,40 +159,8 @@ foreach $s (@sub) {
 # Find any delivery status attachment
 ($dstatus) = grep { $_->{'type'} eq 'message/delivery-status' } @attach;
 
-# XXX look for text/calendar body
-
 # Check for signing
-if (&has_command("gpg") && &foreign_check("gnupg")) {
-	# Check for GnuPG signatures
-	local $sig;
-	foreach $a (@attach) {
-		$sig = $a if ($a->{'type'} =~ /^application\/pgp-signature/);
-		}
-	if ($sig) {
-		# Verify the signature against the rest of the attachment
-		&foreign_require("gnupg", "gnupg-lib.pl");
-		local $rest = $sig->{'parent'}->{'attach'}->[0];
-		$rest->{'raw'} =~ s/\r//g;
-		$rest->{'raw'} =~ s/\n/\r\n/g;
-		($sigcode, $sigmessage) = &foreign_call("gnupg",
-				"verify_data", $rest->{'raw'}, $sig->{'data'});
-		@attach = grep { $_ ne $sig } @attach;
-		$sindex = $sig->{'idx'};
-		}
-	elsif ($textbody && $textbody->{'data'} =~ /(-+BEGIN PGP SIGNED MESSAGE-+\n(Hash:\s+(\S+)\n\n)?([\000-\377]+\n)-+BEGIN PGP SIGNATURE-+\n([\000-\377]+)-+END PGP SIGNATURE-+\n)/i) {
-		# Signature is in body text!
-		local $sig = $1;
-		local $text = $4;
-		&foreign_require("gnupg", "gnupg-lib.pl");
-		($sigcode, $sigmessage) = &foreign_call("gnupg",
-							"verify_data", $sig);
-		$body = $textbody;
-		if ($sigcode == 0 || $sigcode == 1) {
-			# XXX what about replying?
-			$body->{'data'} = $text;
-			}
-		}
-	}
+($sigcode, $sigmessage) = &check_signature_attachments(\@attach, $textbody);
 
 if ($userconfig{'top_buttons'} == 2 && &editable_mail($mail)) {
 	&show_buttons(1, scalar(@sub));

@@ -37,6 +37,11 @@ elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
 	$in{'quick'} =~ s/\r//g;
 	$textonly = $userconfig{'no_mime'};
 
+	# Remove signature
+	($textbody, $htmlbody, $body) =
+		&find_body($mail, $userconfig{'view_html'});
+	&check_signature_attachments($mail->{'attach'}, $textbody);
+
 	if ($in{'quick_quote'}) {
 		# Get the original body to construct the email
 		$sig = &get_signature();
@@ -178,6 +183,10 @@ else {
 		    "&folder=$in{'folder'}";
 	$mail || &error($text{'mail_eexists'});
 
+	# Find the body parts
+	($textbody, $htmlbody, $body) =
+		&find_body($mail, $userconfig{'view_html'});
+
 	if ($in{'delete'}) {
 		# Just delete the email
 		if (!$in{'confirm'} && &need_delete_warn($folder)) {
@@ -217,10 +226,6 @@ else {
 		exit;
 		}
 	elsif ($in{'print'}) {
-		# Extract the mail body
-		($textbody, $htmlbody, $body) =
-			&find_body($mail, $userconfig{'view_html'});
-
 		# Output HTML header
 		&ui_print_header(undef, &decode_mimewords(
 					$mail->{'header'}->{'subject'}));
@@ -558,6 +563,9 @@ else {
 				       !@fwdmail && !$in{'enew'});
 	$subject = "Fwd: ".$subject if ($subject !~ /^Fwd/i &&
 					($in{'forward'} || @fwdmail));
+
+	# Remove signature
+	&check_signature_attachments($mail->{'attach'}, $textbody);
 
 	# Construct the initial mail text
 	$sig = &get_signature();

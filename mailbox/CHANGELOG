@@ -121,3 +121,5 @@ Messages that have been replied to are now tracked and flagged by a small icon i
 ---- Changes since 1.350 ----
 When copying or moving mail between IMAP folders, the current read status is preserved. This also applies when mail is moved to the trash.
 Email headers such as the subject and from address that use 8-bit characters are now properly MIME-words encoded.
+---- Changes since 1.360 ----
+When replying to a signed email, the PGP signature is no longer included in the response.

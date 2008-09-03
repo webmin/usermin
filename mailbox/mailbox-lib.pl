@@ -70,14 +70,16 @@ local $a;
 local $cc = 0;
 local $ok = 3;
 foreach $a (@{$_[0]->{'attach'}}) {
-	if ($a->{'type'} =~ /^(text|application\/pgp-encrypted)/i && $a->{'data'} =~ /BEGIN PGP MESSAGE/ && $a->{'data'} =~ /([\000-\377]*)(-----BEGIN PGP MESSAGE-+\n([\000-\377]+)-+END PGP MESSAGE-+\n)([\000-\377]*)/i) {
+	if ($a->{'type'} =~ /^(text|application\/pgp-encrypted)/i &&
+	    $a->{'data'} =~ /BEGIN PGP MESSAGE/ &&
+	    $a->{'data'} =~ /([\000-\377]*)(-----BEGIN PGP MESSAGE-+\r?\n([\000-\377]+)-+END PGP MESSAGE-+\r?\n)([\000-\377]*)/i) {
 		local ($before, $enc, $after) = ($1, $2, $4);
 		return (1) if (!$hasgpg);
 		&foreign_require("gnupg", "gnupg-lib.pl");
 		$cc++;
-		local $pass = &foreign_call("gnupg", "get_passphrase");
+		local $pass = &gnupg::get_passphrase();
 		local $plain;
-		local $rv = &foreign_call("gnupg", "decrypt_data", $enc, \$plain, $pass);
+		local $rv = &gnupg::decrypt_data($enc, \$plain, $pass);
 		return (2, $rv) if ($rv);
 		$ok = 4 if ($before =~ /\S/ || $after =~ /\S/);
 		if ($a->{'type'} !~ /^text/) {
@@ -87,6 +89,45 @@ foreach $a (@{$_[0]->{'attach'}}) {
 		}
 	}
 return $cc ? ( $ok ) : ( 0 );
+}
+
+# check_signature_attachments(&attach, &textbody-attach)
+# Checks for a signature attachment, and verifies it. Returns the signature
+# status code and message.
+sub check_signature_attachments
+{
+my ($attach, $textbody) = @_;
+my ($sigcode, $sigmessage);
+if (&has_command("gpg") && &foreign_check("gnupg")) {
+	# Check for GnuPG signatures
+	my $sig;
+	foreach my $a (@$attach) {
+		$sig = $a if ($a->{'type'} =~ /^application\/pgp-signature/);
+		}
+	if ($sig) {
+		# Verify the signature against the rest of the attachment
+		&foreign_require("gnupg", "gnupg-lib.pl");
+		my $rest = $sig->{'parent'}->{'attach'}->[0];
+		$rest->{'raw'} =~ s/\r//g;
+		$rest->{'raw'} =~ s/\n/\r\n/g;
+		($sigcode, $sigmessage) =
+			&gnupg::verify_data($rest->{'raw'}, $sig->{'data'});
+		@$attach = grep { $_ ne $sig } @$attach;
+		$sindex = $sig->{'idx'};
+		}
+	elsif ($textbody && $textbody->{'data'} =~ /(-+BEGIN PGP SIGNED MESSAGE-+\r?\n(Hash:\s+(\S+)\r?\n\r?\n)?([\000-\377]+\r?\n)-+BEGIN PGP SIGNATURE-+\r?\n([\000-\377]+)-+END PGP SIGNATURE-+\r?\n)/i) {
+		# Signature is in body text!
+		my $sig = $1;
+		my $text = $4;
+		&foreign_require("gnupg", "gnupg-lib.pl");
+		($sigcode, $sigmessage) = &gnupg::verify_data($sig);
+		$body = $textbody;
+		if ($sigcode == 0 || $sigcode == 1) {
+			$body->{'data'} = $text;
+			}
+		}
+	}
+return ($sigcode, $sigmessage);
 }
 
 # list_addresses()

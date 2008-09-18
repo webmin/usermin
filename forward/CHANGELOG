@@ -14,3 +14,5 @@ Added a global configuration option to disable attachments.
 Users with an @ in their names on Postfix settings can now have mail properly delivered to their mailboxes.
 ---- Changes since 1.320 ----
 The default From: address for autoreplies now respects the default address set in the user's address book.
+---- Changes since 1.360 ----
+Autoreply messages containing non-ASCII characters are now properly quoted-printable encoded.

@@ -10,13 +10,13 @@ server_attach=1
 mail_style=0
 mail_file=mbox
 mail_dir_qmail=Maildir
-from_map=/etc/mail/generics
+from_map=/etc/mail/virtusertable
 
 
 folder_types=local,ext,pop3,imap
 pop_locks=1
 no_crlf=0
-from_format=0
+from_format=1
 spam_report=
 spam_always=0
 folder_virts=virt,comp

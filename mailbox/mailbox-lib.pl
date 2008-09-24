@@ -252,12 +252,12 @@ elsif ($config{'mail_system'} == 4) {
 
 	# Use HTTP username and password, if available and if logging in to
 	# a local IMAP server.
-	if ($remote_user && $remote_pass &&
+	if ($remote_user && $main::remote_pass &&
 	    (&to_ipaddress($rv[0]->{'server'}) eq '127.0.0.1' ||
 	     &to_ipaddress($rv[0]->{'server'}) eq
 	      &to_ipaddress(&get_system_hostname()))) {
 		$rv[0]->{'user'} = $remote_user;
-		$rv[0]->{'pass'} = $remote_pass;
+		$rv[0]->{'pass'} = $main::remote_pass;
 		$rv[0]->{'autouser'} = 1;
 		}
 

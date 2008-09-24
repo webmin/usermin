@@ -827,7 +827,7 @@ else {
 print &ui_table_end();
 
 # Create link for switching to HTML/text mode
-@bodylinks = ( $text{'reply_body'} );
+@bodylinks = ( );
 if ($in{'new'}) {
 	if ($html_edit) {
 		push(@bodylinks, "<a href='reply_mail.cgi?folder=$in{'folder'}&new=1&html=0'>$text{'reply_html0'}</a>");
@@ -838,7 +838,8 @@ if ($in{'new'}) {
 	}
 
 # Output message body input
-print &ui_table_start(&ui_links_row(\@bodylinks), "width=100%", 2);
+print &ui_table_start($text{'reply_body'}, "width=100%", 2, undef,
+		      &ui_links_row(\@bodylinks));
 if ($html_edit) {
 	# Output HTML editor textarea
 	print <<EOF;

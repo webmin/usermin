@@ -565,9 +565,11 @@ else {
 	$fid = $in{'folder'};
 	}
 if ($_[1]) {
+	local $txt = &quote_escape($_[2]);
 	return "<a href='mail_search.cgi?field_0=".&urlize($_[0]).
 	       "&what_0=".&urlize($_[1]).
-	       "&folder=".$fid."'>$_[2]</a>";
+	       "&folder=".$fid."'><img src=images/search.gif ".
+	       "alt='$txt' title='$txt' border=0></a>";
 	}
 else {
 	return undef;

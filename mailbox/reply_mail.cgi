@@ -883,13 +883,17 @@ print &ui_table_end();
 print &ui_hidden("html_edit", $html_edit);
 
 # Display forwarded attachments
+$viewurl = "view_mail.cgi?id=".&urlize($in{'id'}).
+	   "&folder=$folder->{'index'}$subs";
+$detachurl = "detach.cgi?id=".&urlize($in{'id'}).
+	     "&folder=$folder->{'index'}$subs";
 if (@attach) {
-	&attachments_table(\@attach, $folder, $in{'id'}, $subs, "forward");
+	&attachments_table(\@attach, $folder, $viewurl, $detachurl, "forward");
 	}
 
 # Display forwarded mails
 if (@fwdmail) {
-	&attachments_table(\@fwdmail, $folder, $in{'id'}, $subs);
+	&attachments_table(\@fwdmail, $folder, $viewurl, $detachurl);
 	foreach $fwdid (@mailforwardids) {
 		print &ui_hidden("mailforward", $fwdid);
 		}

@@ -273,20 +273,7 @@ if ($bodycontents) {
 
 # If *this* message is a delivery status, display it
 if ($dstatus) {
-	local $ds = &parse_delivery_status($dstatus->{'data'});
-	$dtxt = $ds->{'status'} =~ /^2\./ ? $text{'view_dstatusok'}
-					  : $text{'view_dstatus'};
-	print &ui_table_start($dtxt, "width=100%", 2, [ "width=10% nowrap" ]);
-
-	foreach $dsh ('final-recipient', 'diagnostic-code',
-		      'remote-mta', 'reporting-mta') {
-		if ($ds->{$dsh}) {
-			$ds->{$dsh} =~ s/^\S+;//;
-			print &ui_table_row($text{'view_'.$dsh},
-					    &html_escape($ds->{$dsh}));
-			}
-		}
-	print &ui_table_end();
+	&show_delivery_status($dstatus);
 	}
 
 # Display other attachments
@@ -294,7 +281,11 @@ if ($dstatus) {
 @attach = &remove_cid_attachments($mail, \@attach);
 if (@attach) {
 	# Table of attachments
-	@detach = &attachments_table(\@attach, $folder, $in{'id'}, $subs);
+	$viewurl = "view_mail.cgi?id=".&urlize($in{'id'}).
+		   "&folder=$folder->{'index'}$subs";
+	$detachurl = "detach.cgi?id=".&urlize($in{'id'}).
+		     "&folder=$folder->{'index'}$subs";
+	@detach = &attachments_table(\@attach, $folder, $viewurl, $detachurl);
 
 	# Links to download all / slideshow
 	@links = ( );

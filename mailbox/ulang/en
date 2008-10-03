@@ -168,21 +168,6 @@ view_quick_all=Reply to all
 view_quick_quote=Quote original
 view_quick_send=Send
 
-reply_dsn=Request read status notification?
-reply_del=Request delivery status notification?
-reply_aboot=Add recipients to addressbook?
-reply_tabfrom=From
-reply_tabto=To
-reply_tabreplyto=Reply-To
-reply_tabcc=Cc
-reply_tabbcc=Bcc
-reply_tabsigning=Signing
-reply_taboptions=Options
-reply_addattach=Add attachment field.
-reply_addssattach=Add server-side attachment field.
-reply_html0=Compose text
-reply_html1=Compose HTML
-
 search_virtualize=Create Virtual Folder Named:
 search_dest=Store results in
 search_dest1=Search Results folder

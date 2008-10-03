@@ -285,7 +285,8 @@ if (@attach) {
 		   "&folder=$folder->{'index'}$subs";
 	$detachurl = "detach.cgi?id=".&urlize($in{'id'}).
 		     "&folder=$folder->{'index'}$subs";
-	@detach = &attachments_table(\@attach, $folder, $viewurl, $detachurl);
+	@detach = &attachments_table(\@attach, $folder, $viewurl, $detachurl,
+				     undef, undef, undef);
 
 	# Links to download all / slideshow
 	@links = ( );

@@ -192,25 +192,16 @@ else {
 		if (!$in{'confirm'} && &need_delete_warn($folder)) {
 			# Need to ask for confirmation before deleting
 			&mail_page_header($text{'confirm_title'});
-			print &check_clicks_function();
-
-			print "<form action=reply_mail.cgi>\n";
-			foreach $i (keys %in) {
-				foreach $v (split(/\0/, $in{$i})) {
-					print &ui_hidden($i, $v),"\n";
-					}
-				}
-			print "<center><b>$text{'confirm_warn3'}<br>\n";
-			if ($userconfig{'delete_warn'} ne 'y') {
-				print "$text{'confirm_warn2'}<p>\n"
-				}
-			elsif ($folder->{'type'} == 0) {
-				print "$text{'confirm_warn4'}<p>\n"
-				}
-			print "</b><p><input type=submit name=confirm ",
-			      "value='$text{'confirm_ok'}' ",
-			      "onClick='return check_clicks(form)'></center></form>\n";
-			
+			print &ui_confirmation_form(
+				"reply_mail.cgi",
+				$text{'confirm_warn3'}."<br>".
+				($userconfig{'delete_warn'} ne 'y' ?
+					$text{'confirm_warn2'}."<p>" :
+				 $folder->{'type'} == 0 ?
+					$text{'confirm_warn4'}."<p>" : ""),
+				[ &inputs_to_hiddens(\%in) ],
+                                [ [ 'confirm', $text{'confirm_ok'} ] ],
+                                );
 			&mail_page_footer(
 				$viewlink,
 				$text{'view_return'},
@@ -226,43 +217,10 @@ else {
 		exit;
 		}
 	elsif ($in{'print'}) {
-		# Output HTML header
+		# Show email in format suitable for printing
 		&ui_print_header(undef, &decode_mimewords(
 					$mail->{'header'}->{'subject'}));
-
-		# Display the headers
-		print &ui_table_start($text{'view_headers'}, "width=100%", 2);
-		print &ui_table_row($text{'mail_from'},
-			&eucconv_and_escape($mail->{'header'}->{'from'}));
-		print &ui_table_row($text{'mail_to'},
-			&eucconv_and_escape($mail->{'header'}->{'to'}));
-		if ($mail->{'header'}->{'cc'}) {
-			print &ui_table_row($text{'mail_cc'},
-				&eucconv_and_escape($mail->{'header'}->{'cc'}));
-			}
-		print &ui_table_row($text{'mail_date'},
-			&eucconv_and_escape($mail->{'header'}->{'date'}));
-		print &ui_table_row($text{'mail_subject'},
-		        &eucconv_and_escape(&decode_mimewords(
-				$mail->{'header'}->{'subject'})));
-		print &ui_table_end(),"<br>\n";
-
-		# Just display the mail body for printing
-		print &ui_table_start(undef, "width=100%", 2);
-		if ($body eq $textbody) {
-			$plain = "";
-			foreach $l (&wrap_lines($body->{'data'},
-						$userconfig{'wrap_width'})) {
-				$plain .= &eucconv_and_escape($l)."\n";
-				}
-			print &ui_table_row(undef, "<pre>$plain</pre>", 2);
-			}
-		elsif ($body eq $htmlbody) {
-			print &ui_table_row(undef,
-				&safe_html($body->{'data'}), 2);
-			}
-		print &ui_table_end();
-
+		&show_mail_printable($mail, $body, $textbody, $htmlbody);
 		print "<script>window.print();</script>\n";
 		&ui_print_footer();
 		exit;
@@ -774,7 +732,7 @@ if ($has_gpg) {
 	print &ui_tabs_end_tabletab();
 	}
 
-# Show tabs for options
+# Show tab for options
 print &ui_tabs_start_tabletab("tab", "options");
 print &ui_table_row($text{'mail_pri'},
 		&ui_select("pri", "",
@@ -826,7 +784,7 @@ else {
 	}
 print &ui_table_end();
 
-# Create link for switching to HTML/text mode
+# Create link for switching to HTML/text mode for new mail
 @bodylinks = ( );
 if ($in{'new'}) {
 	if ($html_edit) {
@@ -887,97 +845,23 @@ $viewurl = "view_mail.cgi?id=".&urlize($in{'id'}).
 	   "&folder=$folder->{'index'}$subs";
 $detachurl = "detach.cgi?id=".&urlize($in{'id'}).
 	     "&folder=$folder->{'index'}$subs";
+$mailurl = "view_mail.cgi?folder=$folder->{'index'}$subs";
 if (@attach) {
-	&attachments_table(\@attach, $folder, $viewurl, $detachurl, "forward");
+	&attachments_table(\@attach, $folder, $viewurl, $detachurl,
+			   $mailurl, 'id', "forward");
 	}
 
 # Display forwarded mails
 if (@fwdmail) {
-	&attachments_table(\@fwdmail, $folder, $viewurl, $detachurl);
+	&attachments_table(\@fwdmail, $folder, $viewurl, $detachurl,
+			   $mailurl, 'id', undef);
 	foreach $fwdid (@mailforwardids) {
 		print &ui_hidden("mailforward", $fwdid);
 		}
 	}
 
-# Work out if any attachments are supported
-$any_attach = $config{'server_attach'} || !$main::no_browser_uploads;
-
-if ($any_attach && &supports_javascript()) {
-	# Javascript to increase attachments fields
-	$uploader = &ui_upload("NAME", 80, 0, "style='width:100%'");
-	$uploader =~ s/\r|\n//g;
-	$uploader =~ s/"/\\"/g;
-	$ssider = &ui_textbox("NAME", undef, 60, 0, undef, "style='width:95%'").
-		  &file_chooser_button("NAME");
-	$ssider =~ s/\r|\n//g;
-	$ssider =~ s/"/\\"/g;
-	print <<EOF;
-<script>
-function add_attachment()
-{
-var block = document.getElementById("attachblock");
-var uploader = "$uploader";
-if (block) {
-	var count = 0;
-	while(document.forms[0]["attach"+count]) { count++; }
-	block.innerHTML += uploader.replace("NAME", "attach"+count)+"<br>\\n";
-	}
-return false;
-}
-function add_ss_attachment()
-{
-var block = document.getElementById("ssattachblock");
-var uploader = "$ssider";
-if (block) {
-	var count = 0;
-	while(document.forms[0]["file"+count]) { count++; }
-	block.innerHTML += uploader.replace("NAME", "file"+count)+"<br>\\n";
-	}
-return false;
-}
-</script>
-EOF
-
-	# Show form for attachments (both uploaded and server-side)
-	print &ui_table_start($config{'server_attach'} ? $text{'reply_attach2'}
-						       : $text{'reply_attach3'},
-			      "width=100%", 2);
-	}
-
-# Uploaded attachments
-if (!$main::no_browser_uploads) {
-	$atable = "";
-	for($i=0; $i<$userconfig{'def_attach'}; $i++) {
-		$atable .= &ui_upload("attach$i", 80, 0,
-				      "style='width:100%'")."<br>";
-		}
-	print &ui_hidden("attachcount", int($i)),"\n";
-	print &ui_table_row(undef, $atable, 2, [ undef, "id=attachblock" ]);
-	}
-if ($config{'server_attach'}) {
-	$atable = "";
-	for($i=0; $i<$userconfig{'def_attach'}; $i++) {
-		$atable .= &ui_textbox("file$i", undef, 60, 0, undef,
-				       "style='width:95%'").
-			   &file_chooser_button("file$i"),"<br>\n";
-		}
-	print &ui_table_row(undef, $atable, 2, [ undef, "id=ssattachblock" ]);
-	print &ui_hidden("ssattachcount", int($i)),"\n";
-	}
-
-# Links to add more fields
-if (!$main::no_browser_uploads && &supports_javascript()) {
-	push(@addlinks, "<a href='' onClick='return add_attachment()'>".
-		        "$text{'reply_addattach'}</a>" );
-	}
-if ($config{'server_attach'} && &supports_javascript()) {
-	push(@addlinks, "<a href='' onClick='return add_ss_attachment()'>".
-			"$text{'reply_addssattach'}</a>" );
-	}
-if ($any_attach) {
-	print &ui_table_row(undef, &ui_links_row(\@addlinks), 2);
-	print &ui_table_end();
-	}
+# Display new attachment fields
+&show_attachments_fields($userconfig{'def_attach'}, $config{'server_attach'});
 
 print &ui_form_end([ [ "send", $text{'reply_send'} ],
 		     [ "draft", $text{'reply_draft'}, undef, undef,

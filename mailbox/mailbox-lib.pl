@@ -2068,23 +2068,6 @@ if (!$job) {
 &cron::create_wrapper($auto_cmd, $module_name, "auto.pl");
 }
 
-# ui_address_field(name, value, from-mode?, multi-line?)
-# Returns HTML for a field for selecting an email address
-sub ui_address_field
-{
-return &theme_ui_address_field(@_) if (defined(&theme_ui_address_field));
-local ($name, $value, $from, $multi) = @_;
-local @faddrs = grep { $_->[3] } &list_addresses();
-local $f = $multi ? &ui_textarea($name, $value, 3, 40, undef, 0,
-				 "style='width:95%'")
-		  : &ui_textbox($name, $value, 40, 0, undef,
-				"style='width:95%'");
-if (!$from || @faddrs) {
-	$f .= " ".&address_button($name, 0, $from);
-	}
-return $f;
-}
-
 # addressbook_to_whitelist()
 # If SpamAssassin is installed, update the user's whitelist with all
 # addressbook entries

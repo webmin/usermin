@@ -159,38 +159,22 @@ elsif ($in{'delete'}) {
 	if (!$in{'confirm'} && (&need_delete_warn($folder) || $in{'all'})) {
 		# Need to ask for confirmation before deleting
 		&ui_print_header(undef, $text{'confirm_title'}, "");
-		print &check_clicks_function();
-
-		print "<form action=delete_mail.cgi method=post>\n";
-		foreach $i (keys %in) {
-			foreach $v (split(/\0/, $in{$i})) {
-				print &ui_hidden($i, $v);
-				}
-			}
-		print "<center><b>\n";
-		if ($in{'all'}) {
-			print &text('confirm_warnallf', $folder->{'name'});
-			}
-		else {
-			print &text('confirm_warnf', scalar(@delmail),
-				    $folder->{'name'});
-			}
-		print "<br>\n";
-		if ($userconfig{'delete_warn'} ne 'y') {
-			# Only show a warning about not touching mailbox if
-			# folder is too large
-			print "$text{'confirm_warn2'}<p>\n"
-			}
-		elsif ($folder->{'type'} == 0) {
-			# For mbox format folders, show a warning about not
-			# touching the mailbox
-			print "$text{'confirm_warn4'}<p>\n"
-			}
-		print "</b><p><input type=submit name=confirm ",
-		      "value='$text{'confirm_ok'}' ",
-		      "onClick='return check_clicks(form)'></center></form>\n";
-		
-		&ui_print_footer("index.cgi?start=$in{'start'}&folder=$in{'folder'}", $text{'index'});
+		print &ui_confirmation_form(
+			"delete_mail.cgi",
+			($in{'all'} ?
+				&text('confirm_warnallf', $folder->{'name'}) :
+				&text('confirm_warnf', scalar(@delmail),
+						       $folder->{'name'})).
+			"<br>".
+			($userconfig{'delete_warn'} ne 'y' ?
+				$text{'confirm_warn2'}."<p>" :
+			 $folder->{'type'} == 0 ?
+				$text{'confirm_warn4'}."<p>" : ""),
+			[ &inputs_to_hiddens(\%in) ],
+			[ [ 'confirm', $text{'confirm_ok'} ] ],
+			);
+		&ui_print_footer("index.cgi?start=$in{'start'}&".
+				 "folder=$in{'folder'}", $text{'index'});
 		}
 	else {
 		# Go ahead and delete
@@ -207,7 +191,8 @@ elsif ($in{'delete'}) {
 			else {
 				# Delete all mail except the first
 				local $fsz = &mailbox_folder_size($folder);
-				@mail = &mailbox_list_mails_sorted(1, $fsz-1, $folder);
+				@mail = &mailbox_list_mails_sorted(1,
+					$fsz-1, $folder);
 				@delmailrest = @mail[0..$#mail];
 				&mailbox_delete_mail($folder, @delmailrest);
 				}

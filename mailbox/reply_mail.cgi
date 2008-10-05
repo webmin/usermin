@@ -762,7 +762,7 @@ print &ui_table_row(" ",
     1, \@tds);
 print &ui_tabs_end_tabletab();
 
-print &ui_tabs_end();
+print &ui_table_row(undef, &ui_tabs_end());
 
 # Field for subject is always at the bottom
 if ($userconfig{'send_buttons'}) {

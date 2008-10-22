@@ -419,7 +419,7 @@ else
 		echo "session=1" >> $cfile
 	fi
 	echo "unixauth=user" >> $cfile
-	echo "localauth=1" >> $cfile
+	echo "localauth=lsof" >> $cfile
 	echo "pam=usermin" >> $cfile
 	#echo "denyusers=root" >> $cfile
 

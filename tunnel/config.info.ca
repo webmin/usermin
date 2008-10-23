@@ -1,0 +1,4 @@
+url=URL a connectar,0
+loginmode=Entra al servidor remot,1,0-No,1-Sí&#44; amb l'usuari fixat,2-Sí&#44; amb l'usuari proporcionat per l'usuari
+user=Usuari fixat,0
+pass=Contrasenya fixada,12

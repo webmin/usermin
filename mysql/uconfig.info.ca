@@ -1,0 +1,3 @@
+login=Usuari de MySQL,0
+pass=Contrasenya de MySQL,12
+max_dbs=Nombre màxim de bases de dades i taules a mostrar,0

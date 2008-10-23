@@ -1,0 +1,5 @@
+mail_system=Sistema de correu instal·lat,1,0-Sendmail,1-Qmail
+types=Tipus de reenviament permesos,13,1-Adreça,2-Adreces del fitxer,3-Fitxer,4-Programa,5-Autoresposta,6-Filtre,7-Bústia d'usuari
+edit=Permet l'edició del fitxer .forward,1,1-Sí,0-No
+attach=Permet l'adjunció de fitxers,1,1-Sí,0-No
+smrsh_dir=Directori SMRSH,3,Cap

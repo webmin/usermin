@@ -1,0 +1,13 @@
+passwd_cmd=Canvia-la,10,-Amb l'ordre PAM o <tt>passwd</tt>,file-Actualitzant el fitxer directament,Utilitza l'ordre
+md5=Mètode de xifratge de la contrasenya,1,1-MD5,0-Xifratge DES
+cmd_mode=Executa l'ordre com a,1,0-L'usuari que s'està modificant,1-<tt>root</tt> (i afegeix-hi l'usuari)
+smbpasswd=Fes servir també l'ordre per canviar la contrasenya de Samba,3,No la canviïs
+mysql=Canvia també la contrasenya de MySQL,1,1-Sí,0-No
+mailbox=Canvia també les contrasenyes de les bústies POP3,1,1-Sí,0-No
+post_command=Ordre a executar després de canviar la contrasenya,0
+passwd_min=Llargada mínima de la contrasenya,0,5
+passwd_dict=Evita contrasenyes de diccionari,1,1-Sí,0-No
+passwd_re=Expressió regular Perl per verificar la contrasenya,3,Cap
+passwd_same=Evita que la contrasenya contingui el nom d'usuari,1,1-Sí,0-No
+passwd_new=La contrasenya nova ha de ser diferent de l'anterior,1,1-Sí,0-No
+passwd_prog=Programa extern de verificació de contrasenyes,3,Cap

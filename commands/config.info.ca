@@ -1,0 +1,10 @@
+line1=Opcions configurables,11
+display_mode=La pàgina principal mostra,1,0-Totes les ordres i els seus paràmetres,1-Enllaços a les ordres
+width=Amplada de la finestra de l'editor de fitxers,3,Per defecte (80 caràcters)
+height=Alçada de la finestra de l'editor de fitxers,3,Per defecte (20 caràcters)
+wrap=Mode de tall de l'editor de fitxers,1,-Per defecte (Soft),hard-Hard,off-Desactivat
+columns=Columnes per mostrar-hi les ordres,1,2-2,1-1
+access=Llista de control d'accés a les ordres&#44;<br>en format <tt>usuari: id1 id2</tt>.,9,0,0,\t
+line2=Configuració del sistema,11
+webmin_config=Directori de configuració d'ordres personalitzades de Webmin,0
+su_shell=L'ordre <tt>su</tt> suporta l'opció -s shell,1,1-Sí,0-No

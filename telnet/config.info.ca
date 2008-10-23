@@ -1,0 +1,2 @@
+telnet_port=Número de port Telnet,3,Per defecte (23)
+ssh_port=Número de port SSH,3,Per defecte (22)

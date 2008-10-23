@@ -47,6 +47,7 @@ if ($webmail) {
 			$_ ne "caldera" &&
 			$_ ne "mscstyle3" } @mlist;
 	push(@mlist, "virtual-server-theme");
+	push(@mlist, "virtual-server-mobile");
 	}
 
 chdir("/usr/local/useradmin");
@@ -84,7 +85,7 @@ foreach $m (@mlist) {
 
 if ($webmail) {
 	# Change default configs for IMAP-based webmail, with framed theme
-	# and limited set of modules
+	# and limited set of modules. Also enable mobile theme.
 	system("echo virtual-server-theme >tarballs/$dir/defaulttheme");
 	foreach $cf (glob("tarballs/$dir/mailbox/config-*")) {
 		local %mconfig;
@@ -98,6 +99,12 @@ if ($webmail) {
 		$mconfig{'server_attach'} = 0;
 		&write_file($cf, \%mconfig);
 		}
+	foreach $cf (glob("tarballs/$dir/config-*")) {
+		local %uconfig;
+                &read_file($cf, \%uconfig);
+		$uconfig{'mobile_theme'} = 'virtual-server-mobile';
+		&write_file($cf, \%uconfig);
+		}
 	system("echo changepass theme filter mailbox spam gnupg >tarballs/$dir/defaultmodules");
 	foreach $cf ("tarballs/$dir/config", glob("tarballs/$dir/config-*")) {
 		next if ($cf =~ /config\-lib\.pl$/);
@@ -109,6 +116,7 @@ if ($webmail) {
 	local %mconf;
 	$mconf{'session'} = 0;
 	$mconf{'pass_password'} = 1;
+	$mconf{'mobile_preroot'} = 'virtual-server-mobile';
 	&write_file("tarballs/$dir/miniserv-conf", \%mconf);
 	}
 

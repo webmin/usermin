@@ -1,1 +1,0 @@
-../webadmin/install-module.pl

@@ -12,6 +12,7 @@ else {
 	&error_setup($text{'group_err'});
 	$in{'group'} =~ /\S/ || &error($text{'group_egroup'});
 	$in{'members'} =~ /\S/ || &error($text{'group_emembers'});
+	$in{'members'} =~ s/\r|\n/ /g;
 	if ($in{'gadd'}) {
 		&create_address_group($in{'group'}, $in{'members'});
 		}

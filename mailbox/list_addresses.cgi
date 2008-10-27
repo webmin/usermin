@@ -106,7 +106,7 @@ if (@gaddrs || $in{'gadd'}) {
 	      "<td width=70%><b>$text{'address_members'}</b></td> ",
 	      "</tr>\n";
 	foreach $a (@gaddrs) {
-		print "<tr> <td width=5%>\n";
+		print "<tr> <td width=5% valign=top>\n";
 		if ($in{'gedit'} ne $a->[2]) {
 			print "<a href='list_addresses.cgi?mode=groups&",
 			      "gedit=$a->[2]#editing'>",
@@ -116,32 +116,41 @@ if (@gaddrs || $in{'gadd'}) {
 			print "<a href=list_addresses.cgi?mode=groups>",
 			      "$text{'cancel'}</a>\n";
 			}
-		print "</td> <td width=5%>\n";
+		print "</td> <td width=5% valign=top>\n";
 		print "<a href='save_group.cgi?gdelete=$a->[2]'>",
 		      "$text{'address_delete'}</a></td>\n";
 
 		if ($in{'gedit'} eq $a->[2]) {
-			print "<td width=20%><input name=group size=15 value='",
-				&html_escape($a->[0]),"'><a name=editing></td>\n";
-			print "<td width=70%><input name=members size=60 value='",
-				&html_escape($a->[1]),"'> ",
-				&address_button("members", 0, 0, 0, 1),"\n";
-			print "<input type=submit value='$text{'save'}'></td>\n";
+			# Editing a group
+			print "<td width=20% valign=top>",
+			      &ui_textbox("group", $a->[0], 20),"</td>\n";
+			print "<td width=70% valign=top>",
+			      &ui_textarea("members", $a->[1], 5, 60),
+			      " ",&address_button("members", 0, 0, 0, 1)," ",
+			      &ui_submit($text{'save'}),"</td>\n";
 			}
 		else {
-			print "<td width=20%>$a->[0]</td>\n";
-			print "<td width=70%>",&html_escape($a->[1]),"</td>\n";
+			# Just show group
+			print "<td width=20% valign=top>",
+			      &html_escape($a->[0]),"</td>\n";
+			print "<td width=70% valign=top>",
+			      &html_escape($a->[1]),"</td>\n";
 			}
 		print "</tr>\n";
 		}
 	if ($in{'gadd'}) {
-		print "<tr> <td width=5%><a href='list_addresses.cgi?",
-		      "mode=groups'>$text{'cancel'}</a></td>\n";
-		print "<td width=5%><a name=adding></td>\n";
-		print "<td width=20%><input name=group size=20></td>\n";
-		print "<td width=70%><input name=members size=60> ",
-		      &address_button("members", 0, 0, 0, 1),"\n";
-		print "<input type=submit value='$text{'save'}'></td>\n";
+		# Adding a group
+		print "<tr> <td width=5% valign=top>",
+		      "<a href='list_addresses.cgi?mode=groups'>",
+		      "$text{'cancel'}</a></td>\n";
+		print "<td width=5% valign=top><a name=adding></td>\n";
+		print "<td width=20% valign=top>",
+		      &ui_textbox("group", undef, 20),
+		      "</td>\n";
+		print "<td width=70% valign=top>",
+		      &ui_textarea("members", undef, 5, 60),
+		      " ",&address_button("members", 0, 0, 0, 1)," ",
+		      &ui_submit($text{'save'}),"</td>\n";
 		print "</tr>\n";
 		}
 	print "</table>\n";

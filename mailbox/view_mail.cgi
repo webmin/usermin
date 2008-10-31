@@ -199,12 +199,12 @@ else {
 				$mail->{'header'}->{'to'}));
 	print &ui_table_row($text{'mail_from'},
 		&left_right_align(&address_link($mail->{'header'}->{'from'}),
-				  &search_link("from", $addrs[0]->[0],
-					       $text{'mail_fromsrch'})));
+			  &search_link("from", $text{'mail_fromsrch'},
+				       $addrs[0]->[0], $addrs[0]->[1])));
 	print &ui_table_row($text{'mail_to'},
 		&left_right_align(&address_link($mail->{'header'}->{'to'}),
-				  &search_link("to", $toaddrs[0]->[0],
-					       $text{'mail_tosrch'})));
+			  &search_link("to", $text{'mail_tosrch'},
+				       $toaddrs[0]->[0], $toaddrs[0]->[1])));
 	if ($mail->{'header'}->{'cc'}) {
 		print &ui_table_row($text{'mail_cc'},
 			&address_link($mail->{'header'}->{'cc'}));
@@ -222,8 +222,8 @@ else {
 	print &ui_table_row($text{'mail_subject'},
 		&left_right_align(&eucconv_and_escape(&decode_mimewords(
 					$mail->{'header'}->{'subject'})),
-				  &search_link("subject", $subj,
-					       $text{'mail_subsrch'})));
+				  &search_link("subject", $text{'mail_subsrch'},
+					       $subj)));
 	}
 print &ui_table_end();
 
@@ -535,9 +535,11 @@ else {
 print "</center>\n";
 }
 
-# search_link(field, what, text)
+# search_link(field, text, what, ...)
+# Returns HTML for a link to search for mails with the same sender or subject
 sub search_link
 {
+local ($field, $text, @what) = @_;
 local $fid;
 if ($userconfig{'related_search'}) {
 	# Search is across all folders
@@ -557,11 +559,21 @@ else {
 	$fid = $in{'folder'};
 	}
 if ($_[1]) {
-	local $txt = &quote_escape($_[2]);
-	return "<a href='mail_search.cgi?field_0=".&urlize($_[0]).
-	       "&what_0=".&urlize($_[1]).
-	       "&folder=".$fid."'><img src=images/search.gif ".
-	       "alt='$txt' title='$txt' border=0></a>";
+	local $qtext = &quote_escape($text);
+	local $whats;
+	local $fields;
+	local $i = 0;
+	foreach my $w (@what) {
+		if ($w) {
+			$fields .= "&field_".$i."=".&urlize($field);
+			$whats .= "&what_".$i."=".&urlize($w);
+			$i++;
+			}
+		}
+	return "<a href='mail_search.cgi?folder=".$fid."&and=0".
+	       $fields.$whats.
+	       "'><img src=images/search.gif ".
+	       "alt='$qtext' title='$qtext' border=0></a>";
 	}
 else {
 	return undef;

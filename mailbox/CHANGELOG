@@ -123,3 +123,5 @@ When copying or moving mail between IMAP folders, the current read status is pre
 Email headers such as the subject and from address that use 8-bit characters are now properly MIME-words encoded.
 ---- Changes since 1.360 ----
 When replying to a signed email, the PGP signature is no longer included in the response.
+---- Changes since 1.370 ----
+Fixed the search for messages from the same sender in Maildir folders.

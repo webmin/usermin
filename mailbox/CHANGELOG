@@ -125,3 +125,4 @@ Email headers such as the subject and from address that use 8-bit characters are
 When replying to a signed email, the PGP signature is no longer included in the response.
 ---- Changes since 1.370 ----
 Fixed the search for messages from the same sender in Maildir folders.
+HTML messages now have a converted plain-text attachment automatically added, for mail clients that only support text.

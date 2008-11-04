@@ -33,6 +33,13 @@ foreach $s (@sub) {
 # Work out base URL for self links
 $baseurl = "$gconfig{'webprefix'}/$module_name/view_mail.cgi?id=$qid&folder=$in{'folder'}&start=$in{'start'}$subs";
 
+# Check if we can create email filters
+$can_create_filter = 0;
+if (&foreign_available("filter")) {
+	&foreign_require("filter", "filter-lib.pl");
+	$can_create_filter = !&filter::no_user_procmailrc();
+	}
+
 # Mark this mail as read
 $mid = $mail->{'header'}->{'message-id'};
 if ($userconfig{'auto_mark'}) {
@@ -200,11 +207,15 @@ else {
 	print &ui_table_row($text{'mail_from'},
 		&left_right_align(&address_link($mail->{'header'}->{'from'}),
 			  &search_link("from", $text{'mail_fromsrch'},
-				       $addrs[0]->[0], $addrs[0]->[1])));
+				       $addrs[0]->[0], $addrs[0]->[1]).
+			  &filter_link("From", $text{'mail_fromfilter'},
+				       $addrs[0]->[0])));
 	print &ui_table_row($text{'mail_to'},
 		&left_right_align(&address_link($mail->{'header'}->{'to'}),
 			  &search_link("to", $text{'mail_tosrch'},
-				       $toaddrs[0]->[0], $toaddrs[0]->[1])));
+				       $toaddrs[0]->[0], $toaddrs[0]->[1]).
+			  &filter_link("To", $text{'mail_tofilter'},
+				       $toaddrs[0]->[0])));
 	if ($mail->{'header'}->{'cc'}) {
 		print &ui_table_row($text{'mail_cc'},
 			&address_link($mail->{'header'}->{'cc'}));
@@ -221,9 +232,11 @@ else {
 	$subj =~ s/^((Re:|Fwd:|\[\S+\])\s*)+//g;
 	print &ui_table_row($text{'mail_subject'},
 		&left_right_align(&eucconv_and_escape(&decode_mimewords(
-					$mail->{'header'}->{'subject'})),
-				  &search_link("subject", $text{'mail_subsrch'},
-					       $subj)));
+				  $mail->{'header'}->{'subject'})),
+			  &search_link("subject", $text{'mail_subsrch'},
+				       $subj).
+			  &filter_link("Subject", $text{'mail_subfilter'},
+				       $subj)));
 	}
 print &ui_table_end();
 
@@ -578,5 +591,17 @@ if ($_[1]) {
 else {
 	return undef;
 	}
+}
+
+# filter_link(field, text, value)
+# Returns HTML for creating an email filter matching some field, if possible
+sub filter_link
+{
+local ($field, $text, $what) = @_;
+return undef if (!$can_create_filter);
+local $qtext = &quote_escape($text);
+return "<a href='../filter/edit.cgi?new=1&header=".&urlize($field).
+       "&value=".&urlize($what)."'><img src=images/filter.gif ".
+       "alt='$qtext' title='$qtext' border=0></a>";
 }
 

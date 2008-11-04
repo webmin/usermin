@@ -236,7 +236,7 @@ else {
 			  &search_link("subject", $text{'mail_subsrch'},
 				       $subj).
 			  &filter_link("Subject", $text{'mail_subfilter'},
-				       $subj)));
+				       ".*".$subj)));
 	}
 print &ui_table_end();
 

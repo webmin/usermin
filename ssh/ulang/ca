@@ -45,11 +45,12 @@ auth_rsa=RSA
 knowns_title=Hosts Remots Coneguts
 knowns_desc=Aquesta pàgina llista les claus SSH conegudes dels servidors remots als quals has entrat, cosa que permet els programes client SSH de verificar que realment s'estan connectant a aquest host per a futures sessions.
 knowns_hosts=Nom(s) de Host
-knowns_key=Dígits de la clau
+knowns_key=Text de la clau
 knowns_add=Afegeix un nou host conegut.
 knowns_none=Encara no s'ha registrat cap host remot conegut.
 knowns_return=als hosts remots coneguts
 knowns_delete=Suprimeix els Hosts Remots Seleccionats
+knowns_type=Tipus de clau
 
 known_edit=Edició de Host Remot
 known_create=Addició de Host Remot
@@ -58,10 +59,13 @@ known_header=Detalls del host remot conegut
 known_hosts=Noms de host / adreces IP
 known_bits=Bits de la clau
 known_exp=Exponent de la clau
-known_key=Dígits de la clau
+known_key=Text de la clau
 known_comment=Comentari del host
 known_err=No he pogut desar el host conegut
 known_ehosts=No has introduït cap nom de host
+known_type=Tipus de clau
+known_salt=Sal del nom de host
+known_hash=Hash del nom de host
 
 keys_title=Les Teves Claus
 keys_desc1=La teva clau privada SSH és emprada pels programes clients SSH per autenticar-te davant els hosts remots quan hi entres. Si canvies aquesta clau, també hauràs de canviar la teva clau d'autorització a tots els hosts remots on entris.
@@ -80,4 +84,6 @@ keys_eformat=No sembla que el fitxer pujat sigui una clau privada
 keys_epriwrite=No he pogut gravar el fitxer de clau privada: $1
 
 hosts_title=Opcions del Host
+
+hash_support=L'edició directa de les entrades hash (encara) no està suportada.
 

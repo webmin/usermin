@@ -168,21 +168,6 @@ view_quick_all=Respon a tots
 view_quick_quote=Cita l'original
 view_quick_send=Envia
 
-reply_dsn=Demana notificació d'estat de lectura
-reply_del=Demana notificació d'estat de lliurament
-reply_aboot=Afegeix els destinataris a la llibreta d'adreces
-reply_tabfrom=De
-reply_tabto=A
-reply_tabreplyto=Respon-A
-reply_tabcc=Cc
-reply_tabbcc=Bcc
-reply_tabsigning=Signatura
-reply_taboptions=Opcions
-reply_addattach=Afegeix-hi un camp d'adjunció.
-reply_addssattach=Afegeix-hi un camp d'adjunció del cantó del servidor.
-reply_html0=Redacta en text planer
-reply_html1=Redacta en HTML
-
 search_virtualize=Crea una Carpeta Virtual Anomenada:
 search_dest=Emmagatzema els resultats a
 search_dest1=Busca la carpeta de Resultats

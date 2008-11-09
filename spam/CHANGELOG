@@ -24,3 +24,5 @@ Added global configuration settings to use MySQL, PostgreSQL or LDAP backends fo
 Added a page for viewing and removing entries from the user's auto-whitelist file.
 ---- Changes since 1.360 ----
 Added buttons to the auto-whitelist page for permanently allowing or denying selected addresses.
+---- Changes since 1.370 ----
+Corrected the columns on the auto-whitelist page, to show the message count and score.

@@ -43,7 +43,7 @@ else {
 	else {
 		$w = 590; $h = 360;
 		}
-	$jar = $userconfig{'applet'} ? "jta25.jar" : "jta20.jar";
+	$jar = "jta26.jar";
 	print "<applet archive=\"$jar\" code=de.mud.jta.Applet ",
 	      "width=$w height=$h>\n";
 	printf "<param name=config value=%s>\n",
@@ -62,9 +62,7 @@ else {
 	if ($config{'port'}) {
 		print "<param name=Socket.port value=$port>\n";
 		}
-        if ($config{'applet'}) {
-                print "<param name=Socket.host value=$ENV{'SERVER_NAME'}>\n";
-                }
+	print "<param name=Socket.host value=$ENV{'SERVER_NAME'}>\n";
 	print "</applet><br>\n";
 
 	print &text('index_credits',

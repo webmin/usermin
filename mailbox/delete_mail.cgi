@@ -7,6 +7,7 @@ require './mailbox-lib.pl';
 @ids = sort { $a <=> $b } split(/\0/, $in{'d'});
 @folders = &list_folders();
 $folder = $folders[$in{'folder'}];
+$r = time().$$;
 
 if (!$in{'new'}) {
 	# Get the messages. We only need the headers when marking, or when
@@ -25,7 +26,7 @@ if (defined($mark)) {
 		&set_mail_read($folder, $mail, ($oldread&4)+$mark);
 		}
 	$perpage = $folder->{'perpage'} || $userconfig{'perpage'};
-	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=1");
+	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=$r");
 	}
 elsif ($in{'move1'} || $in{'move2'}) {
 	# Moving mails to some other folder
@@ -38,7 +39,7 @@ elsif ($in{'move1'} || $in{'move2'}) {
 	&mailbox_move_mail($folder, $mfolder, @delmail);
 	&unlock_folder($mfolder);
 	&unlock_folder($folder);
-	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=1");
+	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=$r");
 	}
 elsif ($in{'copy1'} || $in{'copy2'}) {
 	# Copying mails to some other folder
@@ -50,7 +51,7 @@ elsif ($in{'copy1'} || $in{'copy2'}) {
 	&lock_folder($cfolder);
 	&mailbox_copy_mail($folder, $cfolder, @delmail);
 	&unlock_folder($cfolder);
-	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=1");
+	&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=$r");
 	}
 elsif ($in{'forward'}) {
 	# Forwarding selected mails .. redirect
@@ -202,7 +203,7 @@ elsif ($in{'delete'}) {
 			&mailbox_delete_mail($folder, @delmail);
 			}
 		&unlock_folder($folder);
-		&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=1");
+		&redirect("index.cgi?start=$in{'start'}&folder=$in{'folder'}&refresh=$r");
 		}
 	}
 else {

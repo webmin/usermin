@@ -895,6 +895,7 @@ foreach $s (@sub) {
 sub redirect_to_previous
 {
 local ($refresh) = @_;
+$refresh = time().$$ if ($refresh);
 local $perpage = $folder->{'perpage'} || $userconfig{'perpage'};
 local $s = int($mail->{'sortidx'} / $perpage) * $perpage;
 if ($userconfig{'open_mode'}) {

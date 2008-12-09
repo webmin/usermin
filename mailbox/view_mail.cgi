@@ -279,7 +279,8 @@ if ($body && $body->{'data'} =~ /\S/) {
 	}
 if ($bodycontents) {
 	print &ui_table_start($text{'view_body'}, "width=100%", 1,
-			      undef, &ui_links_row(\@bodyright));
+			      undef, @bodyright ? &ui_links_row(\@bodyright)
+						: undef);
 	print &ui_table_row(undef, $bodycontents, undef, [ undef, $bodystuff ]);
 	print &ui_table_end();
 	}

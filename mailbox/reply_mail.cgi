@@ -567,7 +567,7 @@ if (form.to.value == '' && form.cc.value == '' && form.bcc.value == '' &&
 	alert("$noto_msg");
 	return false;
 	}
-if (form.subject.value == '') {
+if (form.subject.value == '' && !form.draft_clicked) {
 	if (!confirm("$nosubject_msg")) {
 		return false;
 		}

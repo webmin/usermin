@@ -35,6 +35,10 @@ address_search=Find addresses matching:
 address_ok=Search
 address_users=Email addresses
 address_groups=Email nicknames
+address_allow=Allowed addresses
+address_deny=Denied addresses
+address_allowdesc=Email from the following addresses will always be accepted, and never classified as spam.
+address_denydesc=Email from the following addresses will always be classified as spam, and either placed into your spam folder or deleted.
 
 group_err=Failed to save address group
 group_egroup=Missing or invalid group name
@@ -223,3 +227,8 @@ fdelete_delete=Delete Now
 detachall_err=Failed to save all attachments
 detachall_emkdir=Could not create temporary directory : $1
 detachall_ezip=ZIP failed : $1
+
+allow_err=Failed to save allowed addresses
+deny_err=Failed to save denied addresses
+allow_eaddr='$1' is not a valid email address
+

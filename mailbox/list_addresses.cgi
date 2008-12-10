@@ -1,16 +1,23 @@
 #!/usr/local/bin/perl
-# list_addresses.cgi
-# Display contents of the user's address book
+# Display contents of the user's address book, and allowed and denied addresses
 
 require './mailbox-lib.pl';
 &ReadParse();
 &ui_print_header(undef, $text{'address_title'}, "");
 
-# Start tabs for users and groups
+# Build tabs
 $prog = "list_addresses.cgi?mode=";
-print &ui_tabs_start([ [ "users", $text{'address_users'}, $prog."users" ],
-		       [ "groups", $text{'address_groups'}, $prog."groups" ] ],
-		     "mode", $in{'mode'} || "users", 1);
+@tabs = ( [ "users", $text{'address_users'}, $prog."users" ],
+	  [ "groups", $text{'address_groups'}, $prog."groups" ] );
+if (&foreign_installed("spam")) {
+	if (!$userconfig{'white_rec'}) {
+		push(@tabs, [ "allow", $text{'address_allow'}, $prog."allow" ]);
+		}
+	push(@tabs, [ "deny", $text{'address_deny'}, $prog."deny" ]);
+	}
+
+# Start tabs for users and groups, and maybe spam addresses
+print &ui_tabs_start(\@tabs, "mode", $in{'mode'} || "users", 1);
 
 print &ui_tabs_start_tab("mode", "users");
 @addrs = &list_addresses();
@@ -165,8 +172,32 @@ print "<a href='list_addresses.cgi?mode=groups&gadd=1#adding'>",
       "$text{'address_gadd'}</a> <br>\n"
 	if (!$in{'gadd'});
 print &ui_tabs_end_tab();
-print &ui_tabs_end(1);
 
+# Show allowed / denied addresses tabs
+if (&foreign_installed("spam")) {
+	&foreign_require("spam", "spam-lib.pl");
+	local $conf = &spam::get_config();
+
+	foreach $m ($userconfig{'white_rec'} ? ( ) :
+			( [ "allow", "whitelist_from" ] ),
+	 	    [ "deny", "blacklist_from" ]) {
+		($mode, $opt) = @$m;
+
+		print &ui_tabs_start_tab("mode", $mode);
+		print $text{'address_'.$mode.'desc'},"<p>\n";
+		print &ui_form_start("save_allow.cgi", "post");
+		print &ui_hidden("mode", $mode);
+
+		@addrs = map { @{$_->{'words'}} } &spam::find($opt, $conf);
+		print &ui_textarea("addrs", join("\n", @addrs)."\n", 20, 80,
+				   undef, 0, "style='width:90%'");
+
+		print &ui_form_end([ [ undef, $text{'save'} ] ]);
+		print &ui_tabs_end_tab();
+		}
+	}
+
+print &ui_tabs_end(1);
 &ui_print_footer("", $text{'mail_return'});
 
 sub from_sel

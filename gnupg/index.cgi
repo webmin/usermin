@@ -38,12 +38,6 @@ if (!@keys) {
 
 	print &ui_table_end();
 	print &ui_form_end([ [ undef, $text{'index_setup'} ] ]);
-
-	print "<td><select name=size>\n";
-	print "<option selected value=''>$text{'default'}\n";
-	foreach $s (768, 1024, 2048, 4096, 8192) {
-		print "<option>$s\n";
-		}
 	}
 else {
 	# Show table of options

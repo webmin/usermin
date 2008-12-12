@@ -224,6 +224,12 @@ if (defined(@list_folders_cache)) {
 	return @list_folders_cache;
 	}
 local (@rv, $f, $o, %done);
+
+# Read the module's config directory, to find folders files
+opendir(DIR, $user_module_config_directory);
+local @folderfiles = readdir(DIR);
+closedir(DIR);
+
 if ($config{'mail_system'} == 2) {
 	# POP3 inbox
 	push(@rv, { 'name' => $text{'folder_inbox'},
@@ -568,8 +574,7 @@ if ($folder_types{'ext'}) {
 	}
 
 # Add user-defined POP3	and IMAP folders
-opendir(DIR, $user_module_config_directory);
-foreach $f (readdir(DIR)) {
+foreach $f (@folderfiles) {
 	if ($f =~ /^(\d+)\.pop3$/ && $folder_types{'pop3'}) {
 		local %pop3 = ( 'id' => $1 );
 		&read_file("$user_module_config_directory/$f", \%pop3);
@@ -591,15 +596,13 @@ foreach $f (readdir(DIR)) {
 		push(@rv, \%imap);
 		}
 	}
-closedir(DIR);
 
 # When in IMAP inbox mode, we goto this label to skip all local folders
 IMAPONLY:
 
 # Add user-defined composite folders
 local %fcache;
-opendir(DIR, $user_module_config_directory);
-foreach $f (readdir(DIR)) {
+foreach $f (@folderfiles) {
 	if ($f =~ /^(\d+)\.comp$/) {
 		local %comp = ( 'id' => $1 );
 		&read_file("$user_module_config_directory/$f", \%comp);
@@ -615,7 +618,6 @@ foreach $f (readdir(DIR)) {
 		push(@rv, \%comp);
 		}
 	}
-closedir(DIR);
 
 # Add spam folder as specified in spamassassin module, in case it is
 # outside of the folders we scan
@@ -660,8 +662,7 @@ if (&foreign_check("spam")) {
 
 # Add virtual folders. This has to be last, so that other folders can be found
 # based on virtual/composite indexes.
-opendir(DIR, $user_module_config_directory);
-foreach $f (readdir(DIR)) {
+foreach $f (@folderfiles) {
 	if ($f =~ /^(\d+)\.virt$/) {
 		local %virt = ( 'id' => $1 );
 		&read_file("$user_module_config_directory/$f", \%virt);
@@ -674,7 +675,6 @@ foreach $f (readdir(DIR)) {
 		push(@rv, \%virt);
 		}
 	}
-closedir(DIR);
 
 # Expand virtual folder sub-folders
 foreach my $virt (grep { $_->{'type'} == 6 } @rv) {

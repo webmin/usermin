@@ -1732,8 +1732,8 @@ if (@mail) {
 	}
 
 # Blacklist / report spam
-if (@mail && (&can_report_spam($folder) &&
-    	      $userconfig{'spam_buttons'} =~ /list/ || $folder->{'spam'})) {
+if (@mail && ($folder->{'spam'} || $userconfig{'spam_buttons'} =~ /list/ &&
+				   &can_report_spam($folder))) {
 	print &ui_submit($text{'mail_black'}, "black");
 	if ($userconfig{'spam_del'}) {
 		print &ui_submit($text{'view_razordel'}, "razor");
@@ -1745,9 +1745,8 @@ if (@mail && (&can_report_spam($folder) &&
 	}
 
 # Whitelist / report ham
-if (@mail && (&can_report_ham($folder) &&
-	      $userconfig{'ham_buttons'} =~ /list/ ||
-	      $folder->{'spam'})) {
+if (@mail && ($folder->{'spam'} || $userconfig{'ham_buttons'} =~ /list/ &&
+				   &can_report_ham($folder))) {
 	if ($userconfig{'white_move'} && $folder->{'spam'}) {
 		print &ui_submit($text{'mail_whitemove'}, "white");
 		}

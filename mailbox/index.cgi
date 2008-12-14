@@ -99,6 +99,13 @@ print &ui_hidden("folder", $folder->{'index'});
 print &ui_hidden("mod", &modification_time($folder));
 print &ui_hidden("start", $in{'start'});
 
+if (@error) {
+	print "<center><b><font color=#ff0000>\n";
+	print &text('mail_err', $error[0] == 0 ? $error[1] :
+			      &text('save_elogin', $error[1])),"\n";
+	print "</font></b></center>\n";
+	}
+
 # Buttons at top
 if ($userconfig{'top_buttons'} && @mail) {
 	&show_mailbox_buttons(1, \@folders, $folder, \@mail);
@@ -128,34 +135,28 @@ if (@mail) {
 	if ($showfrom) {
 		push(@cols, &field_sort_link($text{'mail_from'}, "from",
 					     $folder, $in{'start'}));
-		push(@tds, $showto ? "width=15%" : "width=30%");
+		push(@tds, "");
 		}
 	if ($showto) {
 		push(@cols, &field_sort_link($text{'mail_to'}, "to",
 					     $folder, $in{'start'}));
-		push(@tds, $showfrom ? "width=15%" : "width=30%");
+		push(@tds, "");
 		}
 	push(@cols, &field_sort_link($text{'mail_date'}, "date",
                                       $folder, $in{'start'}));
-	push(@tds, "nowrap width=15%");
+	push(@tds, "nowrap");
 	push(@cols, &field_sort_link($text{'mail_size'}, "size",
                                       $folder, $in{'start'}));
-	push(@tds, "nowrap width=10%");
+	push(@tds, "nowrap");
 	if ($folder->{'spam'}) {
-		push(@cols, &field_sort_link($text{'mail_level'}, "x-spam-status",
-					      $folder, $in{'start'}));
-		push(@tds, "width=2%");
+		push(@cols, &field_sort_link($text{'mail_level'},
+				"x-spam-status", $folder, $in{'start'}));
+		push(@tds, "");
 		}
 	push(@cols, &field_sort_link($text{'mail_subject'}, "subject",
                                       $folder, $in{'start'}));
-	push(@tds, "width=50%");
-	print &ui_columns_start(\@cols, "100", 0, \@tds);
-	}
-if (@error) {
-	print "<center><b><font color=#ff0000>\n";
-	print &text('mail_err', $error[0] == 0 ? $error[1] :
-			      &text('save_elogin', $error[1])),"\n";
-	print "</font></b></center>\n";
+	push(@tds, "");
+	print &ui_columns_start(\@cols, 100, 0, \@tds);
 	}
 
 # Pre-check for attachments for the whole list

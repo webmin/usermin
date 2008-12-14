@@ -512,41 +512,31 @@ print "<br>\n";
 
 sub show_arrows
 {
-print "<center>\n";
 if (!@sub) {
 	# Get next and previous emails, where they exist
 	local $c = &mailbox_folder_size($folder, 1);
 	local $prv = $mail->{'sortidx'} == 0 ? 0 : $mail->{'sortidx'}-1;
 	local $nxt = $mail->{'sortidx'} == $c-1 ? $c-1 : $mail->{'sortidx'}+1;
 	local @beside = &mailbox_list_mails_sorted($prv, $nxt, $folder, 1);
+	local ($left, $right);
 
 	if ($mail->{'sortidx'} != 0) {
 		local $mailprv = $beside[$prv];
-		print "<a href='view_mail.cgi?id=",&urlize($mailprv->{'id'}),
-		      "&folder=$in{'folder'}&start=$in{'start'}'>",
-		      "<img src=../images/left.gif border=0 ",
-		      "align=middle></a>\n";
+		$left = "view_mail.cgi?id=".&urlize($mailprv->{'id'}).
+			"&folder=$in{'folder'}&start=$in{'start'}";
 		}
-	else {
-		print "<img src=../images/left-grey.gif align=middle>\n";
-		}
-	print "<font size=+1>",&text('view_desc', $mail->{'sortidx'}+1,
-			$folder->{'name'}),"</font>\n";
 	if ($mail->{'sortidx'} < $c-1) {
 		local $mailnxt = $beside[$nxt];
-		print "<a href='view_mail.cgi?id=",&urlize($mailnxt->{'id'}),
-		      "&folder=$in{'folder'}&start=$in{'start'}'>",
-		      "<img src=../images/right.gif border=0 ",
-		      "align=middle></a>\n";
+		$right = "view_mail.cgi?id=".&urlize($mailnxt->{'id'}).
+		      	 "&folder=$in{'folder'}&start=$in{'start'}";
 		}
-	else {
-		print "<img src=../images/right-grey.gif align=middle>\n";
-		}
+	print &ui_page_flipper(&text('view_desc', $mail->{'sortidx'}+1,
+				     $folder->{'name'}),
+			       undef, undef, $left, $right);
 	}
 else {
-	print "<font size=+1>$text{'view_sub'}</font>\n";
+	print "<center>$text{'view_sub'}</center>\n";
 	}
-print "</center>\n";
 }
 
 # search_link(field, text, what, ...)

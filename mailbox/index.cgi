@@ -348,63 +348,27 @@ if ($in{'refresh'}) {
 # Prints HTML for previous/next page arrows
 sub show_arrows
 {
-print "<center>\n";
-print "<form action=index.cgi><font size=+1>\n";
-
-# Show left arrow to go to start of folder
-if ($in{'start'}) {
-	printf "<a href='index.cgi?start=%d&folder=%d'>%s</a>\n",
-		0, $in{'folder'},
-		'<img src=../images/first.gif border=0 align=middle>';
-	}
-else {
-	print "<img src=../images/first-grey.gif align=middle>\n";
-	}
-
-# Show left arrow to decrease start
-if ($in{'start'}) {
-	printf "<a href='index.cgi?start=%d&folder=%d'>%s</a>\n",
-		$in{'start'}-$perpage, $in{'folder'},
-		'<img src=../images/left.gif border=0 align=middle>';
-	}
-else {
-	print "<img src=../images/left-grey.gif align=middle>\n";
-	}
-
-local $s = $in{'start'}+1;
-local $e = $in{'start'}+$perpage;
-$e = scalar(@mail) if ($e > @mail);
-if (@mail) {
-	print &text('mail_pos', $s, $e, scalar(@mail), $sel);
-	}
-else {
-	print &text('mail_none', $sel);
-	}
-print "</font><input type=submit value='$text{'mail_fchange'}'>\n";
-
-# Show right arrow to increase start
-if ($in{'start'}+$perpage < @mail) {
-	printf "<a href='index.cgi?start=%d&folder=%d'>%s</a>\n",
-		$in{'start'}+$perpage, $in{'folder'},
-		'<img src=../images/right.gif border=0 align=middle>';
-	}
-else {
-	print "<img src=../images/right-grey.gif align=middle>\n";
-	}
-
-# Show right arrow to go to end
-if ($in{'start'}+$perpage < @mail) {
-	printf "<a href='index.cgi?start=%d&folder=%d'>%s</a>\n",
-		int((scalar(@mail)-$perpage-1)/$perpage + 1)*$perpage, $in{'folder'},
-		'<img src=../images/last.gif border=0 align=middle>';
-	}
-else {
-	print "<img src=../images/last-grey.gif align=middle>\n";
-	}
-
-if ($folder->{'msg'}) {
-	print "<br>$folder->{'msg'}\n";
-	}
-print "</form></center>\n";
+my $link = "index.cgi?folder=".$in{'folder'};
+my $left = $in{'start'} ?
+           $link."&start=".($in{'start'}-$perpage) : undef;
+my $right = $in{'start'}+$perpage < @mail ?
+            $link."&start=".($in{'start'}+$perpage) : undef;
+my $first = $in{'start'} ?
+            $link."&start=0" : undef;
+my $last = $in{'start'}+$perpage < @mail ?
+           $link."&start=".(int((scalar(@mail)-$perpage-1)/$perpage + 1)*$perpage) : undef;
+my $s = @mail-$in{'start'};
+my $e = @mail-$in{'start'}-$perpage+1;
+print &ui_page_flipper(
+	@mail ? &text('mail_pos', $s, $e < 1 ? 1 : $e, scalar(@mail), $sel)
+	      : &text('mail_none', $sel),
+	&ui_submit($text{'mail_fchange'}).&ui_hidden("user", $in{'user'}),
+	"index.cgi",
+	$left,
+	$right,
+	$first,
+	$last,
+	$folder->{'msg'},
+	);
 }
 

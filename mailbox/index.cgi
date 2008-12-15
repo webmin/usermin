@@ -131,7 +131,7 @@ $showto = $folder->{'show_to'};
 $showfrom = $folder->{'show_from'};
 if (@mail) {
 	@cols = ( "" );
-	@tds = ( "width=5" );
+	@tds = ( "width=15" );
 	if ($showfrom) {
 		push(@cols, &field_sort_link($text{'mail_from'}, "from",
 					     $folder, $in{'start'}));

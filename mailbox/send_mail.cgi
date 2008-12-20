@@ -149,7 +149,7 @@ for($i=0; defined($in{"attach$i"}); $i++) {
 	$filename =~ s/^.*(\\|\/)//;
 	local $type = $in{"attach${i}_content_type"}."; name=\"".
 		      $filename."\"";
-	local $disp = "inline; filename=\"".$filename."\"";
+	local $disp = "attachment; filename=\"".$filename."\"";
 	push(@attach, { 'data' => $in{"attach${i}"},
 			'headers' => [ [ 'Content-type', $type ],
 				       [ 'Content-Disposition', $disp ],
@@ -177,7 +177,7 @@ for($i=0; defined($in{"file$i"}); $i++) {
 	$in{"file$i"} =~ s/^.*\///;
 	local $type = &guess_mime_type($in{"file$i"}).
 		      "; name=\"".$in{"file$i"}."\"";
-	local $disp = "inline; filename=\"".$in{"file$i"}."\"";
+	local $disp = "attachments; filename=\"".$in{"file$i"}."\"";
 	push(@attach, { 'data' => $data,
 			'headers' => [ [ 'Content-type', $type ],
 				       [ 'Content-Disposition', $disp ],

@@ -361,7 +361,7 @@ my $last = $in{'start'}+$perpage < @mail ?
 my $s = @mail-$in{'start'};
 my $e = @mail-$in{'start'}-$perpage+1;
 print &ui_page_flipper(
-	@mail ? &text('mail_pos', $s, $e < 1 ? 1 : $e, scalar(@mail), $sel)
+	@mail ? &text('mail_pos', $e < 1 ? 1 : $e, $s, scalar(@mail), $sel)
 	      : &text('mail_none', $sel),
 	&ui_submit($text{'mail_fchange'}).&ui_hidden("user", $in{'user'}),
 	"index.cgi",

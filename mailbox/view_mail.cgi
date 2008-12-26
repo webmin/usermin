@@ -479,8 +479,8 @@ print $spacer;
 
 if (!$_[1]) {
 	# Show spam and/or ham report buttons
-	if (&can_report_spam($folder) &&
-	    $userconfig{'spam_buttons'} =~ /mail/) {
+	if ($userconfig{'spam_buttons'} =~ /mail/ &&
+	    &can_report_spam($folder)) {
 		print &ui_submit($text{'view_black'}, "black");
 		if ($userconfig{'spam_del'}) {
 			print &ui_submit($text{'view_razordel'}, "razor");
@@ -490,8 +490,8 @@ if (!$_[1]) {
 			}
 		print $spacer;
 		}
-	if (&can_report_ham($folder) &&
-	    $userconfig{'ham_buttons'} =~ /mail/) {
+	if ($userconfig{'ham_buttons'} =~ /mail/ &&
+	    &can_report_ham($folder)) {
 		if ($userconfig{'white_move'} && $folder->{'spam'}) {
 			print &ui_submit($text{'view_whitemove'}, "white");
 			}

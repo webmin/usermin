@@ -5,8 +5,8 @@ do '../web-lib.pl';
 require '../ui-lib.pl';
 &switch_to_remote_user();
 &create_user_config_dirs();
-do 'boxes-lib.pl';
-do 'folders-lib.pl';
+do "$module_root_directory/boxes-lib.pl";
+do "$module_root_directory/folders-lib.pl";
 
 #open(DEBUG, ">>/tmp/mailbox.debug");
 

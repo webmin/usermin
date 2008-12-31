@@ -28,31 +28,37 @@ foreach $s (@sub) {
         &parse_mail($amail, undef, $in{'raw'});
         $mail = $amail;
         }
+$mid = $mail->{'header'}->{'message-id'};
+
+# Special mode - viewing whole raw message. After this, there is no need to
+# do anyting else
+if ($in{'raw'}) {
+	print "Content-type: text/plain\n\n";
+	if ($mail->{'fromline'}) {
+		print $mail->{'fromline'},"\n";
+		}
+	if (defined($mail->{'rawheaders'})) {
+		#$mail->{'rawheaders'} =~ s/(\S)\t/$1\n\t/g;
+		print $mail->{'rawheaders'};
+		}
+	else {
+		foreach $h (@{$mail->{'headers'}}) {
+			#$h->[1] =~ s/(\S)\t/$1\n\t/g;
+			print "$h->[0]: $h->[1]\n";
+			}
+		}
+	print "\n";
+	print $mail->{'body'};
+	exit;
+	}
 
 # Work out base URL for self links
 $baseurl = "$gconfig{'webprefix'}/$module_name/view_mail.cgi?id=$qid&folder=$in{'folder'}&start=$in{'start'}$subs";
 
-# Check if we can create email filters
-$can_create_filter = 0;
-if (&foreign_available("filter")) {
-	&foreign_require("filter", "filter-lib.pl");
-	$can_create_filter = !&filter::no_user_procmailrc();
-	}
-
-# Mark this mail as read
-$mid = $mail->{'header'}->{'message-id'};
-if ($userconfig{'auto_mark'}) {
-	$wasread = &get_mail_read($folder, $mail);
-	if (($wasread&1) == 0) {
-		&set_mail_read($folder, $mail, $wasread+1);
-		$refresh = 1;
-		}
-	}
-
 # Possibly send a DSN, or check if one is needed
 $dsn_req = &requires_delivery_notification($mail);
 if (!@sub && $dsn_req && !$folder->{'sent'} && !$folder->{'drafts'}) {
-	dbmopen(%dsn, "$user_module_config_directory/dsn", 0600);
+	&open_dbm_db(\%dsn, "$user_module_config_directory/dsn", 0600);
 	if ($userconfig{'send_dsn'} == 1 && !$dsn{$mid}) {
 		# Send a DSN for this mail now
 		local $dsnaddr = &send_delivery_notification($mail, undef, 0);
@@ -87,27 +93,6 @@ if (defined($delreplies{$mid}) && $delreplies{$mid} != 1) {
 			push(@delmsgs, &text('view_delok', $del[$i+1], $tm));
 			}
 		}
-	}
-
-if ($in{'raw'}) {
-	# Special mode - viewing whole raw message
-	print "Content-type: text/plain\n\n";
-	if ($mail->{'fromline'}) {
-		print $mail->{'fromline'},"\n";
-		}
-	if (defined($mail->{'rawheaders'})) {
-		#$mail->{'rawheaders'} =~ s/(\S)\t/$1\n\t/g;
-		print $mail->{'rawheaders'};
-		}
-	else {
-		foreach $h (@{$mail->{'headers'}}) {
-			#$h->[1] =~ s/(\S)\t/$1\n\t/g;
-			print "$h->[0]: $h->[1]\n";
-			}
-		}
-	print "\n";
-	print $mail->{'body'};
-	exit;
 	}
 
 # Check for encryption
@@ -167,6 +152,13 @@ foreach $s (@sub) {
 
 # Check for signing
 ($sigcode, $sigmessage) = &check_signature_attachments(\@attach, $textbody);
+
+# Check if we can create email filters
+$can_create_filter = 0;
+if (&foreign_available("filter")) {
+	&foreign_require("filter", "filter-lib.pl");
+	$can_create_filter = !&filter::no_user_procmailrc();
+	}
 
 if ($userconfig{'top_buttons'} == 2 && &editable_mail($mail)) {
 	&show_buttons(1, scalar(@sub));
@@ -396,6 +388,15 @@ if ($userconfig{'arrows'} == 2 && !@sub) {
 	&show_arrows();
 	}
 print "</form>\n";
+
+# Mark this mail as read
+if ($userconfig{'auto_mark'}) {
+	$wasread = &get_mail_read($folder, $mail);
+	if (($wasread&1) == 0) {
+		&set_mail_read($folder, $mail, $wasread+1);
+		$refresh = 1;
+		}
+	}
 
 if ($refresh) {
 	# Refresh left frame if we have changed the read status

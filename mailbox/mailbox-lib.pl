@@ -37,6 +37,17 @@ else {
 	}
 }
 
+# supports_gpg()
+# Returns 1 if GPG is installed and the module is available
+sub supports_gpg
+{
+if (!defined($supports_gpg_cache)) {
+	$supports_gpg_cache = &has_command("gpg") &&
+			      &foreign_check("gnupg") ? 1 : 0;
+	}
+return $supports_gpg_cache;
+}
+
 # decrypt_attachments(&mail)
 # If the attachments on a mail are encrypted, converts them into unencrypted
 # form. Returns a code and message, valid codes being: 0 = not encrypted,
@@ -52,7 +63,7 @@ if ($_[0]->{'header'}->{'content-type'} =~ /^multipart\/encrypted/ &&
     $first->{'type'} =~ /^application\/pgp-encrypted/ &&
     $first->{'data'} =~ /Version:\s+1/i) {
 	# RFC 2015 PGP encryption of entire message
-	return (1) if (!$hasgpg);
+	return (1) if (!&supports_gpg());
 	&foreign_require("gnupg", "gnupg-lib.pl");
 	local $plain;
 	local $enc = $_[0]->{'attach'}->[1];
@@ -74,7 +85,7 @@ foreach $a (@{$_[0]->{'attach'}}) {
 	    $a->{'data'} =~ /BEGIN PGP MESSAGE/ &&
 	    $a->{'data'} =~ /([\000-\377]*)(-----BEGIN PGP MESSAGE-+\r?\n([\000-\377]+)-+END PGP MESSAGE-+\r?\n)([\000-\377]*)/i) {
 		local ($before, $enc, $after) = ($1, $2, $4);
-		return (1) if (!$hasgpg);
+		return (1) if (!&supports_gpg());
 		&foreign_require("gnupg", "gnupg-lib.pl");
 		$cc++;
 		local $pass = &gnupg::get_passphrase();

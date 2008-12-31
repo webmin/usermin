@@ -18,7 +18,6 @@ foreach $a (&list_addresses()) {
 $qid = &urlize($in{'id'});
 $mail = &mailbox_get_mail($folder, $in{'id'}, 0);
 $mail || &error($text{'view_egone'});
-&notes_decode($mail, $folder);
 &parse_mail($mail, undef, $in{'raw'});
 @sub = split(/\0/, $in{'sub'});
 $subs = join("", map { "&sub=$_" } @sub);

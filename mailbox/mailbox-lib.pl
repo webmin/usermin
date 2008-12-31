@@ -688,13 +688,6 @@ foreach my $virt (grep { $_->{'type'} == 6 } @rv) {
 		}
 	}
 
-# Mark folders are using Notes mail encoding
-foreach $f (@rv) {
-	if ($f->{'file'} && $userconfig{"notes_".$f->{'file'}}) {
-		$f->{'notes_decode'} = 1;
-		}
-	}
-
 # Work out last-modified time of all folders, and set sortable flag
 &set_folder_lastmodified(\@rv);
 
@@ -1007,43 +1000,6 @@ elsif ($folder->{'mode'} == 1) {
 # Remove from cache
 if (defined(@list_folders_cache)) {
 	@list_folders_cache = grep { $_ ne $folder } @list_folders_cache;
-	}
-}
-
-# notes_decode(&mail, &folder)
-# Given a message forwarded by lotus notes, extra the real from and subject
-# lines from the body
-sub notes_decode
-{
-return if (!$_[1]->{'notes_decode'});
-local ($from, $subject, $h);
-if ($_[0]->{'body'} =~ /(^|Content-type:.*)\n\s*\nFrom: +(.*)/) {
-	$from = $2;
-	}
-elsif ($_[0]->{'body'} =~ /(^|Content-type:.*)\n\s*\n(\([^\)]+\)\s*)?(\S.*)/) {
-	$from = $3;
-	}
-$from =~ s/\s+on.*//;
-$from =~ s/\d+\/\d+\/\d+\s+\d+:\d+\s*//;
-$from = undef if ($from =~ /:/);
-if ($_[0]->{'body'} =~ /\nSubject: +(.*)/) {
-	$subject = $1;
-	}
-local ($ofrom) = &address_parts($_[0]->{'header'}->{'from'});
-if ($from && $from !~ /\@\S+\.\S+/) {
-	$from = "\"$from\" <$ofrom>";
-	}
-foreach $h ([ 'From', $from ],
-	    [ 'Subject', $subject ]) {
-	next if (!$h->[1]);
-	local ($eh) = grep { lc($_->[0]) eq lc($h->[0]) } @{$_[0]->{'headers'}};
-	if ($eh) {
-		$eh->[1] = $h->[1];
-		}
-	else {
-		push(@{$_[0]->{'headers'}}, $h);
-		}
-	$_[0]->{'header'}->{lc($h->[0])} = $h->[1];
 	}
 }
 

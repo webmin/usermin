@@ -877,7 +877,6 @@ print &ui_form_end([ [ "send", $text{'reply_send'} ],
 sub decode_and_sub
 {
 return if (!$mail);
-&notes_decode($mail, $folder);
 &parse_mail($mail);
 @sub = split(/\0/, $in{'sub'});
 $subs = join("", map { "&sub=$_" } @sub);

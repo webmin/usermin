@@ -176,7 +176,6 @@ for(my $i=$start; $i<=$end; $i++) {
 		# Unread
 		($bs, $be) = ("<b>", "</b>");
 		}
-	&notes_decode($m, $folder);
 	local $idx = $m->{'idx'};
 	local $id = $m->{'id'};
 	local @cols;

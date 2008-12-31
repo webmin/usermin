@@ -95,6 +95,15 @@ if (defined($delreplies{$mid}) && $delreplies{$mid} != 1) {
 		}
 	}
 
+# Mark this mail as read
+if ($userconfig{'auto_mark'}) {
+	$wasread = &get_mail_read($folder, $mail);
+	if (($wasread&1) == 0) {
+		&set_mail_read($folder, $mail, $wasread+1);
+		$refresh = 1;
+		}
+	}
+
 # Check for encryption
 ($deccode, $decmessage) = &decrypt_attachments($mail);
 @attach = @{$mail->{'attach'}};
@@ -388,15 +397,6 @@ if ($userconfig{'arrows'} == 2 && !@sub) {
 	&show_arrows();
 	}
 print "</form>\n";
-
-# Mark this mail as read
-if ($userconfig{'auto_mark'}) {
-	$wasread = &get_mail_read($folder, $mail);
-	if (($wasread&1) == 0) {
-		&set_mail_read($folder, $mail, $wasread+1);
-		$refresh = 1;
-		}
-	}
 
 if ($refresh) {
 	# Refresh left frame if we have changed the read status

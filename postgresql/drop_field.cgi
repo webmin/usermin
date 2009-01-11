@@ -1,1 +1,0 @@
-../../webadmin/postgresql/drop_field.cgi

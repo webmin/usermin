@@ -12,3 +12,6 @@ Merged the table data editor code with the MySQL module.
 Column headings in the Table Data page can be clicked to sort the data by that column.
 ---- Changes since 1.320 ----
 Made user interface settings such as the display mode for tables and databases, the number of rows to show, and how blobs are edited settable at the per-user level rather than globally.
+---- Changes since 1.370 ----
+Re-wrote the entire user interface to use Webmin's new UI library, for a more consistent and themable look.
+Added a history of previous commands to the Execute SQL page.

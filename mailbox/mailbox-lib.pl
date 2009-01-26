@@ -971,7 +971,7 @@ elsif ($folder->{'type'} == 4) {
 		# Remove actual folder from IMAP server too
 		local ($ok, $ih) = &imap_login($folder);
 		local @irv = &imap_command($ih, "delete \"$folder->{'name'}\"");
-		$irv[0] || &error($irv[2]);
+		$irv[0] || &error($irv[2] || "Unknown IMAP error");
 		}
 	}
 elsif ($folder->{'type'} == 5) {

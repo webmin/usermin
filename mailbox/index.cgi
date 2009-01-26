@@ -31,7 +31,7 @@ if ($totalquota) {
 	}
 if (($folder->{'type'} == 2 || $folder->{'type'} == 4) &&
     $folder->{'mode'} == 3 && defined($folder->{'user'}) &&
-    !$folder->{'autouser'}) {
+    !$folder->{'autouser'} && !$folder->{'nologout'}) {
 	push(@topright, "<a href='inbox_logout.cgi?folder=$folder->{'index'}'>".
 			($folder->{'type'} == 2 ? $text{'mail_logout'}
 						: $text{'mail_logout2'}).

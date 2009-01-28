@@ -4,3 +4,5 @@ Added the ability to manage groups too, and to specify which users and groups fr
 Added the ability to specify extra directives to be added to .htaccess files, thanks to Charlie Garrison <charlie@make-tracks.com.au>
 ---- Changes since 1.320 ----
 Added a configuration option to deny users the ability to add or edit protected directories.
+---- Changes since 1.380 ----
+Added a Module Config option to set permissions on created .htaccess and .htpasswd files, which defaults to 644.

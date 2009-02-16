@@ -6,26 +6,26 @@ require './spam-lib.pl';
 
 if (!&has_command($config{'razor_admin'})) {
 	# Not installed
-	print "<p>",&text('razor_ecmd', "<tt>$config{'razor_admin'}</tt>"),"<p>\n";
+	print &text('razor_ecmd', "<tt>$config{'razor_admin'}</tt>"),"<p>\n";
 	}
 else {
 	# Show form
-	print "<form action=setup_razor.cgi>\n";
 	print "$text{'razor_desc'}<p>\n";
-	print "<table>\n";
+	print &ui_form_start("setup_razor.cgi", "post");
+	print &ui_table_start(undef, undef, 2);
 
-	foreach $w ("user", "pass") {
-		print "<tr> <td><b>",$text{'razor_'.$w},"</b></td> <td>\n";
-		print "<input type=radio name=${w}_def value=1 checked> ",
-		      "$text{'razor_auto'}\n";
-		print "<input type=radio name=${w}_def value=0> ",
-		      "$text{'razor_enter'}\n";
-		$t = $w eq "user" ? "text" : "password";
-		print "<input name=$w type=$t size=25></td> </tr>\n";
-		}
+	# Username for Razor account
+	print &ui_table_row($text{'razor_user'},
+		&ui_opt_textbox("user", undef, 25, $text{'razor_auto'},
+				$text{'razor_enter'}));
 
-	print "</table>\n";
-	print "<input type=submit value='$text{'razor_ok'}'></form>\n";
+	# Password for Razor account
+	print &ui_table_row($text{'razor_pass'},
+		&ui_opt_textbox("pass", undef, 25, $text{'razor_auto'},
+				$text{'razor_enter'}));
+
+	print &ui_table_end();
+	print &ui_form_end([ [ undef, $text{'razor_ok'} ] ]);
 	}
 
 &ui_print_footer("", $text{'index_return'});

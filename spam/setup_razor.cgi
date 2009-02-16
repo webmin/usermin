@@ -16,8 +16,18 @@ print "<p>$text{'razor_doing'}<br>\n";
 $cmd = "$config{'razor_admin'} -create -register";
 $cmd .= " -user ".quotemeta($in{'user'}) if (!$in{'user_def'});
 $cmd .= " -pass ".quotemeta($in{'pass'}) if (!$in{'pass_def'});
-$out = `cd $remote_user_info[7] ; $cmd 2>&1 </dev/null`;
+$out = &backquote_command(
+	"(cd ".quotemeta($remote_user_info[7])." && $cmd) 2>&1 </dev/null");
 print "<pre>$out</pre>\n";
+if (!$? && !-r "$remote_user_info[7]/.razor/identity") {
+	# Also need to run razor-report once
+	$cmd = $config{'razor_admin'};
+	$cmd =~ s/-admin$/-report/g;
+	$cmd .= "</dev/null 2>&1";
+	$out = &backquote_command(
+	  "(cd ".quotemeta($remote_user_info[7])." && $cmd) 2>&1 </dev/null");
+	print "<pre>$out</pre>\n";
+	}
 if ($? || !-r "$remote_user_info[7]/.razor/identity") {
 	print "$text{'razor_failed'}<p>\n";
 	}

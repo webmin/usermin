@@ -128,3 +128,5 @@ Fixed the search for messages from the same sender in Maildir folders.
 HTML messages now have a converted plain-text attachment automatically added, for mail clients that only support text.
 Added links from the View Mail page to quickly create email filters based on a message's sender, recipient or subject.
 Added allowed and denied addresses tabs to the Address Book page, for easily mananging spam-blocked email addresses.
+---- Changes since 1.380 ----
+Added Module Config options to not include the X-Mailer and X-Originating-IP headers in sent mail.

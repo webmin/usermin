@@ -19,3 +19,5 @@ spam_report=
 spam_always=0
 folder_virts=virt,comp
 shortindex=0
+no_mailer=0
+no_orig_ip=0

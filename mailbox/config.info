@@ -14,6 +14,8 @@ smtp_user=SMTP login name for mail server,3,None
 smtp_pass=SMTP password for mail server,3,None
 smtp_auth=SMTP authentication method,4,-Default,Cram-MD5-Cram&#45;MD5,Digest-MD5-Digest&#45;MD5,Plain-Plain,Login-Login
 sendmail_path=Sendmail command,0
+no_orig_ip=Include browser IP in X-Originating-IP header?,1,0-Yes,1-No
+no_mailer=Include Webmin version in X-Mailer header?,1,0-Yes,1-No
 
 line3=User From addresses,11
 server_name=Default hostname for From: addresses,10,-From real hostname,*-From URL,ldap-Lookup in LDAP

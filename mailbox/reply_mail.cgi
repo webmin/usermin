@@ -88,9 +88,8 @@ elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
 			        [ 'Subject', &encode_mimewords($subject) ],
 			        [ 'To', &encode_mimewords($to) ],
 			        [ 'Cc', &encode_mimewords($cc) ],
-			        [ 'X-Originating-IP', $ENV{'REMOTE_ADDR'} ],
-			        [ 'X-Mailer',"Usermin ".&get_webmin_version() ],
 			        [ 'Message-Id', $newmid ] ];
+	&add_mailer_ip_headers($qmail->{'headers'});
 	$qmail->{'header'}->{'message-id'} = $newmid;
 	$rid = $mail->{'header'}->{'message-id'};
 	push(@{$qmail->{'headers'}}, [ 'In-Reply-To', $rid ]) if ($rid);

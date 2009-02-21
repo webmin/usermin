@@ -16,93 +16,69 @@ else {
 
 # Show main key details
 print "$msg<p>\n" if ($msg);
-print "<form action=save_known.cgi>\n";
-print "<input type=hidden name=idx value='$in{'idx'}'>\n";
-print "<input type=hidden name=new value='$in{'new'}'>\n";
-print "<table border width=100%>\n";
-print "<tr $tb> <td><b>$text{'known_header'}</b></td> </tr>\n";
-print "<tr $cb> <td><table width=100%>\n";
+print &ui_form_start("save_known.cgi", "post");
+print &ui_hidden("idx", $in{'idx'});
+print &ui_hidden("new", $in{'new'});
+print &ui_table_start($text{'known_header'}, "width=100%", 2);
 
 if (!$known->{'hash'}) {
-	print "<tr> <td valign=top><b>$text{'known_hosts'}</b></td>\n";
-	print "<td colspan=3>";
-	print "<textarea name=hosts rows=3 cols=50>",
-		join("\n", @{$known->{'hosts'}}),
-		"</textarea></td> </tr>\n";
+	# Show actual hostnames
+	print &ui_table_row($text{'known_hosts'},
+		&ui_textarea("hosts", join("\n", @{$known->{'hosts'}}),
+			     3, 50));
 	}
 else {
-	print "<tr> <td valign=top><b>$text{'known_salt'}</b></td>\n";
-	print "<td colspan=3>";
-	printf "<input name=salt readonly size=30 value='%s'>",
-		$known->{'salt'},
-		"</input></td> </tr>\n";
-	print "<tr> <td valign=top><b>$text{'known_hash'}</b></td>\n";
-	print "<td colspan=3>";
-	printf "<input name=hash readonly size=30 value='%s'>",
-		$known->{'hash'},
-		"</textarea></td> </tr>\n";
-}
+	# Show hashed hostname
+	print &ui_table_row($text{'known_salt'},
+		&ui_textbox("salt", $known->{'salt'}, 50, undef, undef,
+			    "editable=false"));
+	print &ui_table_row($text{'known_hash'},
+		&ui_textbox("hash", $known->{'hash'}, 50, undef, undef,
+			    "editable=false"));
+	}
 
 if (($known->{'type'} eq 'ssh-rsa1') or $in{'new'}) {
-	print "<tr> <td><b>$text{'known_bits'}</b></td>\n";
-	printf "<td><input name=bits size=5 value='%s'></td>\n",
-		$known->{'bits'};
-
-	print "<tr> <td><b>$text{'known_exp'}</b></td>\n";
-	printf "<td><input name=exp size=5 value='%s'></td> </tr>\n",
-		$known->{'exp'};
+	# Bits and exponent
+	print &ui_table_row($text{'known_bits'},
+		&ui_textbox("bits", $known->{'bits'}, 5));
+	print &ui_table_row($text{'known_exp'},
+		&ui_textbox("exp", $known->{'exp'}, 5));
 	}
 	
+# Key type
 if ($known->{'type'} eq 'ssh-rsa1') {
-	printf "<input type=hidden name=type value='%s'>\n", 
-		$known->{'type'};
+	print &ui_hidden("type", $known->{'type'});
 	}
-
-if ($in{'new'}) {
-	
-	print "<tr> <td><b>$text{'known_type'}</b></td>\n<td>";
-	print &ui_select("type", "",
-		[ [ "ssh-rsa1", $text{'index_rsa1'} ],
-		  [ "ssh-rsa", $text{'index_rsa'} ],
-		  [ "ssh-dsa", $text{'index_dsa'} ] ]),"</td>\n";
+elsif ($in{'new'}) {
+	print &ui_table_row($text{'known_type'},
+		&ui_select("type", "",
+			[ [ "ssh-rsa1", $text{'index_rsa1'} ],
+			  [ "ssh-rsa", $text{'index_rsa'} ],
+			  [ "ssh-dsa", $text{'index_dsa'} ] ]));
 	}
 else {
-	print "<tr> <td><b>$text{'known_type'}</b></td>\n";
-	printf "<td><input readonly name=type size=7 value='%s'>\n",
-		$known->{'type'};
+	print &ui_table_row($text{'known_type'},
+		&ui_textbox("type", $known->{'type'}, 7, undef, undef,
+			    "editable=false"));
 	}
 
-print "<tr> <td valign=top><b>$text{'known_key'}</b></td>\n";
-print "<td colspan=3><textarea name=key rows=10 cols=50 wrap=on>$known->{'key'}",
-      "</textarea></td> </tr>\n";
+# Key text
+print &ui_table_row($text{'known_key'},
+	&ui_textarea("key", $known->{'key'}, 5, 50, "on"));
 
-print "<tr> <td valign=top><b>$text{'known_comment'}</b></td>\n";
-printf "<td colspan=3><input name=comment size=40 value='%s'></td> </tr>\n",
-	$known->{'comment'};
+# Comment on key
+print &ui_table_row($text{'known_comment'},
+	&ui_textbox("comment", $known->{'comment'}, 50));
 
-print "</table></td></tr></table>\n";
-print "<table width=100%><tr>\n";
+print &ui_table_end();
 
-#~ if  ($known->{'hash'}){
-	#~ print "<td>$text{'hash_support'}</td></tr>\n";
-	#~ print "<tr><td align=left><input type=submit name=delete ",
-		#~ "value='$text{'delete'}'></td>\n";
-	#~ }
 if ($in{'new'}) {
-	print "<td><input type=submit value='$text{'create'}'></td>\n";
-	}
-elsif (($known->{'type'} eq 'ssh-rsa') or ($known->{'type'} eq 'ssh-dss')) {
-	print "<td><input type=submit value='$text{'save'}'></td>\n";
-	print "<td align=right><input type=submit name=delete ",
-		"value='$text{'delete'}'></td>\n";
+	print &ui_form_end([ [ undef, $text{'create'} ] ]);
 	}
 else {
-	print "<td><input type=submit value='$text{'save'}'></td>\n";
-	print "<td align=right><input type=submit name=delete ",
-		"value='$text{'delete'}'></td>\n";
+	print &ui_form_end([ [ undef, $text{'save'} ],
+			     [ 'delete', $text{'delete'} ] ]);
 	}
-
-print "</tr></table></form>\n";
 
 &ui_print_footer("list_knowns.cgi", $text{'knowns_return'},
 	"", $text{'index_return'});

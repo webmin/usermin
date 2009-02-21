@@ -15,7 +15,7 @@ print "$text{'knowns_desc'}<p>\n";
 if (@knowns) {
 	print &ui_form_start("delete_knowns.cgi", "post");
 	print &ui_links_row(\@links);
-	@tds = ( "width=5" );
+	@tds = ( "width=5", undef, "nowrap" );
 	print &ui_columns_start([ "",
 			 	  $text{'knowns_hosts'},
 				  $text{'knowns_type'},
@@ -23,10 +23,12 @@ if (@knowns) {
 	foreach $k (@knowns) {
 		print &ui_checked_columns_row([
 			"<a href='edit_known.cgi?idx=$k->{'index'}'>".
-		      	  join("&nbsp;|&nbsp;", @{$k->{'hosts'}})."</a>",
-			$k->{'type'},
-			"<tt>".substr($k->{'key'}, 0, 40)." ... ".
-		      	  substr($k->{'key'}, -40)."</tt>"
+		      	  join("&nbsp;|&nbsp;",
+			     map { &html_escape($_) } @{$k->{'hosts'}})."</a>",
+			&html_escape($k->{'type'}),
+			"<tt>".&html_escape(substr($k->{'key'}, 0, 40)).
+			" ... ".
+			&html_escape(substr($k->{'key'}, -40))."</tt>"
 			], \@tds, "d", $k->{'index'});
 		}
 	print &ui_columns_end();

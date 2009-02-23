@@ -9,3 +9,7 @@ Added checkboxes and a button for deleting multiple known remote hosts at once.
 Improved support for SSH version 2 keys, thanks to Sean Cox.
 ---- Changes since 1.360 ----
 Full support for type 2 keys, thans to Sean Cox.
+---- Changes since 1.380 ----
+Re-wrote the entire user interface to use the new Webmin UI library, for a more consistent look.
+Updated the Host Options section to support all recent client options.
+Re-designed the Your SSH Keys section to support multiple keys of different types.

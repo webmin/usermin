@@ -11,6 +11,8 @@ $ssh_client_config = "$ssh_directory/config";
 $authorized_keys = "$ssh_directory/authorized_keys";
 $known_hosts = "$ssh_directory/known_hosts";
 
+@ssh_key_types = ( 'rsa1', 'rsa', 'dsa' );
+
 # find_value(name, &config)
 sub find_value
 {
@@ -423,6 +425,24 @@ return &ui_radio($name, lc($value) eq 'yes' ? 1 :
 			lc($value) eq 'no' ? 0 : 2,
 		 [ [ 1, $text{'yes'} ], [ 0, $text{'no'} ],
 		   [ 2, $text{'default'} ] ]);
+}
+
+# list_ssh_keys()
+# Returns a list of the current user's private SSH keys
+sub list_ssh_keys
+{
+local @rv;
+foreach my $t ([ 'identity', 'rsa1' ], [ 'id_dsa', 'dsa' ],
+	       [ 'id_rsa', 'rsa']) {
+	local $private_file = "$ssh_directory/$t->[0]";
+	if (-r $private_file) {
+		push(@rv, { 'type' => $t->[1],
+			    'private_file' => $private_file,
+			    'public_file' => $private_file.".pub",
+			  });
+		}
+	}
+return @rv;
 }
 
 1;

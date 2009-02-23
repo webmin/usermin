@@ -11,27 +11,33 @@ if (!&has_command("ssh")) {
 	exit;
 	}
 
-if (!-d $ssh_directory) {
+if (!-d $ssh_directory || !&list_ssh_keys()) {
 	# Offer to setup SSH
-	print "<center><form action=setup.cgi method=post>\n";
+	print &ui_form_start("setup.cgi", "post");
 	print "$text{'index_setup'}<p>\n";
-	print "<input type=submit value='$text{'index_sok'}'>\n";
-	print "<input type=password name=pass size=25><p>\n";
+	print &ui_table_start(undef, undef, 2);
+
+	# Key type
 	if (&get_ssh_version() >= 2) {
-		print $text{'index_type'},"\n";
-		print &ui_select("type", "",
-			[ [ "rsa1", $text{'index_rsa1'} ],
-			  [ "rsa", $text{'index_rsa'} ],
-			  [ "dsa", $text{'index_dsa'} ] ]),"\n";
+		print &ui_table_row($text{'index_type'},
+			&ui_select("type", "dsa",
+				[ map { [ $_, $text{'index_'.$_} ] }
+				      @ssh_key_types ]));
 		}
-	print "</form></center>\n";
+
+	# Passphrase
+	print &ui_table_row($text{'index_pass'},
+		&ui_password("pass", undef, 25));
+
+	print &ui_table_end();
+	print &ui_form_end([ [ undef, $text{'index_sok2'} ] ]);
 	}
 else {
 	# Show table of options
 	@links = ( "list_auths.cgi", "list_knowns.cgi",
-		   "edit_keys.cgi", "list_hosts.cgi" );
+		   "list_keys.cgi", "list_hosts.cgi" );
 	@titles = ( $text{'auths_title'}, $text{'knowns_title'},
-		    $text{'keys_title'}, $text{'hosts_title'} );
+		    $text{'lkeys_title'}, $text{'hosts_title'} );
 	@icons = ( "images/auths.gif", "images/knowns.gif",
 		   "images/keys.gif", "images/hosts.gif" );
 	&icons_table(\@links, \@titles, \@icons);

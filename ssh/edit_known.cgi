@@ -31,10 +31,10 @@ else {
 	# Show hashed hostname
 	print &ui_table_row($text{'known_salt'},
 		&ui_textbox("salt", $known->{'salt'}, 50, undef, undef,
-			    "editable=false"));
+			    "readonly=true"));
 	print &ui_table_row($text{'known_hash'},
 		&ui_textbox("hash", $known->{'hash'}, 50, undef, undef,
-			    "editable=false"));
+			    "readonly=true"));
 	}
 
 if (($known->{'type'} eq 'ssh-rsa1') or $in{'new'}) {
@@ -59,7 +59,7 @@ elsif ($in{'new'}) {
 else {
 	print &ui_table_row($text{'known_type'},
 		&ui_textbox("type", $known->{'type'}, 7, undef, undef,
-			    "editable=false"));
+			    "readonly=true"));
 	}
 
 # Key text

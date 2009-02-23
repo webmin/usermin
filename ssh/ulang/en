@@ -1,6 +1,8 @@
 index_title=SSH Configuration
 index_setup=SSH has not yet been setup for your account. Click the button below to set it up, after entering an optional additional SSH password.
-index_sok=Setup SSH with password:
+index_sok2=Setup SSH Keys
+index_pass=Key password
+index_type=Key type
 index_essh=The command $1 was not found on your system. Most likely SSH is not installed.
 index_return=SSH menu
 
@@ -67,21 +69,27 @@ known_type=Key type
 known_salt=Hostname salt
 known_hash=Hostname hash
 
-keys_title=Your Keys
-keys_desc1=Your SSH private key is used by the SSH client programs to authenticate you to remote servers when you login. If this key is changed, you will need to change your authorized key on all the remote hosts that you login to.
-keys_download=Download Key
-keys_downloadmsg=Click this button to download your SSH private key. Once downloaded, it can be uploaded to another server using this page.
-keys_upload=Upload Key:
-keys_uploadmsg=Click this button to upload a new SSH private key. This must be a valid SSH 1.0 key file from another server or account.
-keys_desc2=Your SSH public key is not used for any authentication or remote logins on this server, but can be copied to the authorized keys list of any hosts that you want to login to. If you change your private key, this public key should be updated as well from the same source.
-keys_public=Public SSH key
-keys_perr=Failed to save public key
-keys_epublic=Missing public key text
-keys_epubwrite=Failed to write to public key file : $1
-keys_err=Failed to save private key
-keys_eprivate=No private key selected to upload
-keys_eformat=Uploaded file does not look like a private key
-keys_epriwrite=Failed to write to private key file : $1
+lkeys_title=Your SSH Keys
+lkeys_desc=Your SSH private key is used by the SSH client programs to authenticate you to remote servers when you login. If a key is changed, you will need to change your authorized key on all the remote hosts that you login to.
+lkeys_type=Key type
+lkeys_private=Private key path
+lkeys_public=Public key path
+lkeys_new=Use this form to generate a new key of some type that you don't yet have.
+lkeys_sok2=Generate SSH Key
+lkeys_return=SSH keys list
+
+ekey_title=SSH Key Details
+ekey_header=SSH key components
+ekey_private=Private key text
+ekey_public=Public key text
+ekey_save=Update Private Key
+ekey_egone=Key no longer exists!
+ekey_private1=Current private key
+ekey_down=Download data..
+ekey_private2=Upload new private key
+ekey_err=Failed to save SSH key
+ekey_eprivate=No private key data entered
+ekey_epublic=Failed to generate public key from new private key!
 
 hosts_title=Host Options
 

@@ -20,7 +20,7 @@ if (@links) {
 	&icons_table(\@links, \@titles, \@icons);
 	}
 else {
-	print "<b>$text{'hosts_none'}</b>\n";
+	print "<b>$text{'hosts_none'}</b><p>\n";
 	}
 print &ui_links_row(\@rowlinks);
 

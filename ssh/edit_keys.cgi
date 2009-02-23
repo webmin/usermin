@@ -1,12 +1,14 @@
 #!/usr/local/bin/perl
 # edit_keys.cgi
 # Display the user's private and public keys
+# XXX should find all of them!!
 
 require './ssh-lib.pl';
 &ui_print_header(undef, $text{'keys_title'}, "");
 
 print "$text{'keys_desc1'}<br>\n";
 
+# Find the key
 if (-r "$ssh_directory/id_rsa") {
 	$keyfile = "id_rsa";
 	}

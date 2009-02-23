@@ -1,0 +1,1 @@
+../../webadmin/sshd/edit_host.cgi

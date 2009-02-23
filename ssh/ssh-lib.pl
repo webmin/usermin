@@ -378,6 +378,7 @@ else {
 		}
 	}
 }
+
 # get_ssh_type()
 # Returns either 'openssh' or 'ssh'
 sub get_ssh_type
@@ -413,6 +414,15 @@ elsif (($out = $config{'sshd_version'}) && ($out =~ /(Sun_SSH_([0-9\.]+))/i)) {
 else {
 	return undef;
 	}
+}
+
+sub yes_no_default_radio
+{
+local ($name, $value) = @_;
+return &ui_radio($name, lc($value) eq 'yes' ? 1 :
+			lc($value) eq 'no' ? 0 : 2,
+		 [ [ 1, $text{'yes'} ], [ 0, $text{'no'} ],
+		   [ 2, $text{'default'} ] ]);
 }
 
 1;

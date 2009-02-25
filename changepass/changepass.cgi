@@ -241,34 +241,8 @@ if ($config{'mysql'} && &foreign_check("mysql")) {
 	}
 
 # Change matching stored POP3 passwords in read mail module
-if ($config{'mailbox'} && &foreign_check("mailbox")) {
-	&foreign_require("mailbox", "mailbox-lib.pl");
-	foreach $f (&mailbox::list_folders()) {
-		if (($f->{'type'} == 2 || $f->{'type'} == 4) &&
-		    $f->{'user'} eq $remote_user &&
-		    $f->{'pass'} eq $in{'old'} &&
-		    !$f->{'imapauto'} &&
-		    !$f->{'autouser'}) {
-			# Found one to change
-			local $type = $f->{'type'} == 2 ? "pop3" : "imap";
-			if ($f->{'inbox'}) {
-				# Need to change special inbox password file
-				$file = "$mailbox::user_module_config_directory/inbox";
-				push(@pc, &text('change_inbox', uc($type)));
-				}
-			else {
-				# Need to change folder's file
-				$file = "$mailbox::user_module_config_directory/$f->{'id'}";
-				push(@pc, &text('change_folder', uc($type), $f->{'server'}));
-				}
-			$file .= ".".$type;
-			local %data;
-			&read_file($file, \%data);
-			$data{'pass'} = $in{'new1'};
-			&write_file($file, \%data);
-			}
-		}
-	}
+$msg = &change_mailbox_passwords($remote_user, $in{'old'}, $in{'new1'});
+push(@pc, $msg) if ($msg);
 
 &ui_print_header(undef, $text{'change_title'}, "");
 

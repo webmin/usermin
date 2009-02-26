@@ -2,4 +2,3 @@ sizemode=Mida de l'applet,1,0-80x24 caràcters (amb la tipografia per defecte),1-
 size=Amplada x alçada personalitzada,0
 fontsize=Mida de la tipografia en punts,3,Per defecte
 detach=Mode de finestra separada,1,1-Sí,0-No
-applet=Applet SSH a utilitzar,1,1-Versió nova (SSH 1 i 2),0-Versió antiga (només SSH 1)

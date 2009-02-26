@@ -35,6 +35,10 @@ address_search=Busca adreces que coincideixin amb:
 address_ok=Busca
 address_users=Adreces de correu
 address_groups=Sobrenoms de correu
+address_allow=Adreces permeses
+address_deny=Adreces denegades
+address_allowdesc=El correu provinent d'aquestes adreces s'acceptarà sempre i no es classificarà mai com a spam.
+address_denydesc=EL correu provinent d'aquestes adreces sempre es classificarà com a spam, i es posarà a la teva carpeta de spam o bé se suprimirà.
 
 group_err=No he pogut desar el grup d'adreces
 group_egroup=Hi falta el nom del grup o bé és invàlid
@@ -223,3 +227,8 @@ fdelete_delete=Suprimeix-les Ara
 detachall_err=No he pogut desar totes les adjuncions
 detachall_emkdir=No he pogut crear el directori temporal: $1
 detachall_ezip=ZIP ha fallat: $1
+
+allow_err=No he pogut desar les adreces permeses
+deny_err=No he pogut desar les adreces denegades
+allow_eaddr='$1' no és una adreça vàlida de correu electrònic
+

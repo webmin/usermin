@@ -1,9 +1,9 @@
 # forward-lib.pl
 # Common functions for editing .forward
 
-do '../web-lib.pl';
+BEGIN { push(@INC, ".."); };
+use WebminCore;
 &init_config();
-do '../ui-lib.pl';
 do 'autoreply-file-lib.pl';
 
 # Copy scripts to /etc/usermin and set up smrsh if needed while we still can

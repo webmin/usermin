@@ -1,9 +1,9 @@
 # ssh-lib.pl
 # Common functions for manipulating the users .ssh directory files
 
-do '../web-lib.pl';
+BEGIN { push(@INC, ".."); };
+use WebminCore;
 &init_config();
-require '../ui-lib.pl';
 &switch_to_remote_user();
 
 $ssh_directory = "$remote_user_info[7]/.ssh";

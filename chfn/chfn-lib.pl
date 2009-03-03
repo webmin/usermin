@@ -1,8 +1,8 @@
 # chfn-lib.pl
 
-do '../web-lib.pl';
+BEGIN { push(@INC, ".."); };
+use WebminCore;
 &init_config();
-require '../ui-lib.pl';
 if ($gconfig{'os_type'} =~ /-linux$/) {
 	do "linux-lib.pl";
 	}

@@ -2,9 +2,9 @@
 # Common functions for mounting and unmounting filesystems with the 'user'
 # option set.
 
-do '../web-lib.pl';
+BEGIN { push(@INC, ".."); };
+use WebminCore;
 &init_config();
-require '../ui-lib.pl';
 &switch_to_remote_user();
 do 'linux-lib.pl';
 

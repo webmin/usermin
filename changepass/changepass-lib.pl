@@ -1,8 +1,8 @@
 # changepass-lib.pl
 
-do '../web-lib.pl';
+BEGIN { push(@INC, ".."); };
+use WebminCore;
 &init_config();
-require '../ui-lib.pl';
 require 'md5-lib.pl';
 
 # check_password(password, username)

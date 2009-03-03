@@ -1,11 +1,12 @@
 # gnupg-lib.pl
 # Functions for managing gnupg keys, signing, encrypting and so on
 
+BEGIN { push(@INC, ".."); };
+use WebminCore;
+
 if (!$module_name) {
 	# Only do this if we are the primary library for the usermin gnupg mod
-	do '../web-lib.pl';
 	&init_config();
-	do '../ui-lib.pl';
 	&switch_to_remote_user();
 	&create_user_config_dirs();
 	}
@@ -281,7 +282,7 @@ else {
 #&wait_for($fh);
 #close($fh);
 #local $out = $wait_for_input;
-local $out = `$cmd 2>&1 </dev/null`;
+local $out = &backquote_command("$cmd 2>&1 </dev/null");
 unlink($datafile);
 unlink($sigfile) if ($sigfile);
 if ($out =~ /BAD signature from "(.*)"/i) {

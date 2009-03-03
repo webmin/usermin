@@ -1,8 +1,8 @@
 # theme-lib.pl
 
-do '../web-lib.pl';
+BEGIN { push(@INC, ".."); };
+use WebminCore;
 &init_config();
-require '../ui-lib.pl';
 
 # list_themes()
 # Returns an array of all installed themes

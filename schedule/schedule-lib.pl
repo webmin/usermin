@@ -1,6 +1,8 @@
 # Functions for scheduled email notification
 
-do '../web-lib.pl';
+BEGIN { push(@INC, ".."); };
+use WebminCore;
+use Time::Local;
 &init_config();
 
 $cron_cmd = "$module_config_directory/email.pl";
@@ -16,8 +18,6 @@ if (!-x $atmode_cmd && $< == 0) {
 &create_user_config_dirs();
 &foreign_require("cron", "cron-lib.pl");
 &foreign_require("mailbox", "mailbox-lib.pl");
-do '../ui-lib.pl';
-use Time::Local;
 
 $schedules_dir = "$user_module_config_directory/schedules";
 $messages_dir = "$user_module_config_directory/messages";

@@ -1,8 +1,8 @@
 # mailbox-lib.pl
 
-do '../web-lib.pl';
+BEGIN { push(@INC, ".."); };
+use WebminCore;
 &init_config();
-require '../ui-lib.pl';
 &switch_to_remote_user();
 &create_user_config_dirs();
 do "$module_root_directory/boxes-lib.pl";

@@ -1,8 +1,8 @@
 # man-lib.pl
 
-do '../web-lib.pl';
+BEGIN { push(@INC, ".."); };
+use WebminCore;
 &init_config();
-require '../ui-lib.pl';
 &switch_to_remote_user();
 
 $google_host = "www.google.com";

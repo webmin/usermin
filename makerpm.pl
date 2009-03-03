@@ -248,10 +248,11 @@ fi
 EOF
 close(SPEC);
 
-system("rpm -ba --target=noarch $spec_dir/$pkgname-$ver.spec") && exit;
-system("mv /usr/src/OpenLinux/RPMS/noarch/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.noarch.rpm");
+$cmd = -x "/usr/bin/rpmbuild" ? "rpmbuild" : "rpm";
+system("$cmd -ba --target=noarch $spec_dir/$pkgname-$ver.spec") && exit;
+system("mv $base_dir/RPMS/noarch/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.noarch.rpm");
 print "Moved to rpm/$pkgname-$ver-$rel.noarch.rpm\n";
-system("mv /usr/src/OpenLinux/SRPMS/$pkgname-$ver-$rel.src.rpm rpm/$pkgname-$ver-$rel.src.rpm");
+system("mv $base_dir/SRPMS/$pkgname-$ver-$rel.src.rpm rpm/$pkgname-$ver-$rel.src.rpm");
 print "Moved to rpm/$pkgname-$ver-$rel.src.rpm\n";
 system("chown jcameron: rpm/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.src.rpm");
 if (!$nosign) {

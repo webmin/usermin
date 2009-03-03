@@ -20,6 +20,7 @@ find . -name "*~" -o -name "*.rej" -o -name "*.orig" | xargs rm
  x Build .tar.gz, RPM and Debian packages
 
  x Upload files to sourceforge
+	scp /tmp/devel/*/*$ver* web.sf.net:uploads/
 
  x create -webmail packages, and upload
 

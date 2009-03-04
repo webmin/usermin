@@ -421,7 +421,7 @@ else
 	echo "unixauth=user" >> $cfile
 	echo "localauth=lsof" >> $cfile
 	echo "pam=usermin" >> $cfile
-	#echo "denyusers=root" >> $cfile
+	echo premodules=WebminCore >> $cfile
 
 	# Append package-specific info to config file
 	if [ -r "$wadir/miniserv-conf" ]; then

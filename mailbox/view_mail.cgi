@@ -472,7 +472,7 @@ else {
 		}
 	}
 print &ui_submit($text{'view_print'}, "print", undef,
-	"onClick='window.open(\"reply_mail.cgi?print=1&id=".&urlize($in{'id'}).
+	"onClick='window.open(\"print_mail.cgi?id=".&urlize($in{'id'}).
 	"&folder=".&urlize($in{'folder'}).
 	"&print=1\", \"print\"); return false'");
 print $spacer;

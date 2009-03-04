@@ -215,15 +215,6 @@ else {
 		&redirect_to_previous();
 		exit;
 		}
-	elsif ($in{'print'}) {
-		# Show email in format suitable for printing
-		&ui_print_header(undef, &decode_mimewords(
-					$mail->{'header'}->{'subject'}));
-		&show_mail_printable($mail, $body, $textbody, $htmlbody);
-		print "<script>window.print();</script>\n";
-		&ui_print_footer();
-		exit;
-		}
 	elsif ($in{'markas0'} || $in{'markas1'} || $in{'markas2'}) {
 		# Just mark the message as read/special
 		$oldread = &get_mail_read($folder, $mail);

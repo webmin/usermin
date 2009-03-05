@@ -101,6 +101,7 @@ if ($webmail) {
 		&write_file($cf, \%mconfig);
 		}
 	foreach $cf (glob("tarballs/$dir/config-*")) {
+		next if ($cf =~ /\.(pl|info)$/);
 		local %uconfig;
                 &read_file($cf, \%uconfig);
 		$uconfig{'mobile_theme'} = 'virtual-server-mobile';

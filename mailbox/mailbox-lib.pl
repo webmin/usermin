@@ -2,6 +2,7 @@
 
 BEGIN { push(@INC, ".."); };
 use WebminCore;
+use Socket;
 &init_config();
 &switch_to_remote_user();
 &create_user_config_dirs();

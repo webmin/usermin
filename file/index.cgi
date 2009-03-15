@@ -26,8 +26,8 @@ $noroot = join(" ", @denied_roots);
 if ($in{'open'}) {
 	$open = "<param name=open value=\"".&html_escape($in{'open'})."\">\n";
 	}
-if ($session_id) {
-	$session = "<param name=session value=\"usid=$session_id\">\n";
+if ($main::session_id) {
+	$session = "<param name=session value=\"usid=$main::session_id\">\n";
 	}
 if (!$config{'noprefs'}) {
 	$config = "<param name=config value=\"$gconfig{'webprefix'}/uconfig.cgi?$module_name\">\n";

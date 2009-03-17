@@ -2108,26 +2108,19 @@ return &has_command("zip");
 # Returns HTML for selecting messages
 sub select_status_link
 {
-return &theme_select_status_link(@_) if (defined(&theme_select_status_link));
 local ($name, $formno, $folder, $mail, $start, $end, $status, $label) = @_;
 $formno = int($formno);
 local @sel;
 for(my $i=$start; $i<=$end; $i++) {
-	local $read = &get_mail_read($folder, $mail->[$i]);
-	if ($status == 0) {
-		push(@sel, ($read&1) ? 0 : 1);
-		}
-	elsif ($status == 1) {
-		push(@sel, ($read&1) ? 1 : 0);
-		}
-	elsif ($status == 2) {
-		push(@sel, ($read&2) ? 1 : 0);
+	local $m = $mail->[$i];
+	local $read = &get_mail_read($folder, $m);
+	if ($status == 0 && !($read&1) ||
+	    $status == 1 && ($read&1) ||
+	    $status == 2 && ($read&2)) {
+		push(@sel, $m->{'id'});
 		}
 	}
-local $js = "var sel = [ ".join(",", @sel)." ]; ";
-$js .= "for(var i=0; i<sel.length; i++) { document.forms[$formno].${name}[i].checked = sel[i]; }";
-$js .= "return false;";
-return "<a href='#' onClick='$js'>$label</a>";
+return &select_rows_link($name, $formno, $label, \@sel);
 }
 
 # address_link(address)

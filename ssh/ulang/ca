@@ -1,6 +1,8 @@
 index_title=Configuració de SSH
 index_setup=Encara no s'ha configurat SSH per al teu compte. Fes clic al botó de sota per configurar-lo, després d'introduir una contrasenya SSH opcional addicional.
-index_sok=Configura SSH amb la contrasenya:
+index_sok2=Configuració de Claus SSH
+index_pass=Contrasenya de la clau
+index_type=Tipus de clau
 index_essh=No s'ha trobat al sistema l'ordre $1. Molt probablement, SSH no està instal·lat.
 index_return=al menú de SSH
 
@@ -67,8 +69,28 @@ known_type=Tipus de clau
 known_salt=Sal del nom de host
 known_hash=Hash del nom de host
 
-keys_title=Les Teves Claus
-keys_desc1=La teva clau privada SSH és emprada pels programes clients SSH per autenticar-te davant els hosts remots quan hi entres. Si canvies aquesta clau, també hauràs de canviar la teva clau d'autorització a tots els hosts remots on entris.
+lkeys_title=Les Teves Claus SSH
+lkeys_desc=La teva clau privada SSH és emprada pels programes clients SSH per autenticar-te davant els hosts remots quan hi entres. Si canvies aquesta clau, també hauràs de canviar la teva clau d'autorització a tots els hosts remots on entris.
+lkeys_type=Tipus de clau
+lkeys_private=Camí de la clau privada
+lkeys_public=Camí de la clau pública
+lkeys_new=Utilitza aquest formulari per generar una nova clau d'algun tipus que encara no tinguis.
+lkeys_sok2=Genera Clau SSH
+lkeys_return=a la llista de claus SSH
+
+ekey_title=Detalls de la clau SSH
+ekey_header=Components de la clau SSH
+ekey_private=Text de la clau privada
+ekey_public=Text de la clau pública
+ekey_save=Actualitza la Clau Privada
+ekey_egone=La clau ja no existeix!
+ekey_private1=Clau privada actual
+ekey_down=Descarrega les dades...
+ekey_private2=Puja la nova clau privada
+ekey_err=No he pogut desar la clau SSH
+ekey_eprivate=No has introduït les dades de la clau privada
+ekey_epublic=No he pogut generar la clau pública a partir de la nova clau privada!
+
 keys_download=Descarrega Clau
 keys_downloadmsg=Fes clic sobre aquest botó per descarregar la teva clau privada SSH. Un cop baixada, es pot pujar a un altre servidor utilitzant aquesta pàgina.
 keys_upload=Puja la Clau:

@@ -134,6 +134,11 @@ if ($in{'body'} =~ /\S/) {
 					     '7bit' ] ],
 			    'data' => $plainbody });
 			}
+
+		# Set content type to multipart/alternative, to tell mail
+		# clients about the optional body
+		push(@{$mail->{'headers'}}, [ 'Content-Type',
+					      'multipart/alternative' ]);
 		}
 	}
 

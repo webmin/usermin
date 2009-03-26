@@ -1329,6 +1329,8 @@ if (@mfroms > 0) {
 		@froms = @mfroms;
 		}
 	}
+
+# Add user's real name
 local $ureal = $remote_user_info[6];
 $ureal =~ s/,.*$//;
 foreach $f (@froms) {

@@ -469,6 +469,7 @@ else {
 			# Replying to a message, so set To: field
 			$to = $mail->{'header'}->{'reply-to'};
 			$to = $mail->{'header'}->{'from'} if (!$to);
+			$replyfrom = $mail->{'header'}->{'to'};
 			}
 		if ($in{'ereply'}) {
 			# Replying to our own sent email - to should be
@@ -495,6 +496,14 @@ else {
 	$rto = &decode_mimewords($rto);
 	$cc = &decode_mimewords($cc);
 	$bcc = &decode_mimewords($bcc);
+
+	# If replying, work out address it was sent to - this can be later used
+	# as the from address
+	if ($replyfrom) {
+		$replyfrom = &decode_mimewords($replyfrom);
+		@replyfrom = &split_addresses($replyfrom);
+		$replyfrom = @replyfrom ? $replyfrom[0]->[0] : undef;
+		}
 
 	# Remove our own emails from to/cc addresses
 	if (($in{'rall'} || $in{'erall'}) && !$in{'enew'} &&
@@ -613,17 +622,26 @@ print &ui_table_row(undef, &ui_tabs_start(\@tabs, "tab", "to", 0), 2);
 
 # From address tab
 if ($from) {
-	# Got From address
+	# Got From address already, such as when editing old email
 	@froms = ( $from );
 	}
 else {
-	# Work out From: address
+	# Work out From: addresses
 	local ($froms, $doms) = &list_from_addresses();
 	@froms = @$froms;
 	}
 
+# Find preferred From address from addressbook, if set
 @faddrs = grep { $_->[3] } &list_addresses();
 ($defaddr) = grep { $_->[3] == 2 } @faddrs;
+
+# If replying to an email and the original to address is in our addressbook,
+# use that as the from address
+if ($replyfrom) {
+	($replyaddr) = grep { $_->[0] eq $replyfrom } @faddrs;
+	$defaddr = $replyaddr if ($replyaddr);
+	}
+
 if ($folder->{'fromaddr'}) {
 	# Folder has a specified From: address
 	($defaddr) = &split_addresses($folder->{'fromaddr'});
@@ -632,10 +650,13 @@ if ($config{'edit_from'} == 1) {
 	# User can enter any from address he wants
 	if ($defaddr) {
 		# Address book contains a default from address
-		$froms[0] = $defaddr->[1] ? "\"$defaddr->[1]\" <$defaddr->[0]>"
-					  : $defaddr->[0];
+		$deffrom = $defaddr->[1] ? "\"$defaddr->[1]\" <$defaddr->[0]>"
+					 : $defaddr->[0];
 		}
-	$frominput = &ui_address_field("from", $froms[0], 1, 0);
+	else {
+		$deffrom = $froms[0];
+		}
+	$frominput = &ui_address_field("from", $deffrom, 1, 0);
 	}
 elsif ($config{'edit_from'} == 2) {
 	# Only the real name and username part is editable
@@ -663,7 +684,18 @@ elsif ($config{'edit_from'} == 2) {
 else {
 	# A fixed From address, or a choice of fixed options
 	if (@froms > 1) {
-		$frominput = &ui_select("from", undef,
+		$deffrom = $froms[0];
+		if ($replyfrom) {
+			# Use from address from original email if possible
+			foreach my $f (@froms) {
+				my @f = &split_addresses($f);
+				if (@f && $f[0]->[0] eq $replyfrom) {
+					$deffrom = $f;
+					last;
+					}
+				}
+			}
+		$frominput = &ui_select("from", $deffrom,
 				[ map { [ $_, &html_escape($_) ] } @froms ]);
 		}
 	else {

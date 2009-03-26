@@ -130,3 +130,5 @@ Added links from the View Mail page to quickly create email filters based on a m
 Added allowed and denied addresses tabs to the Address Book page, for easily mananging spam-blocked email addresses.
 ---- Changes since 1.380 ----
 Added Module Config options to not include the X-Mailer and X-Originating-IP headers in sent mail.
+---- Changes since 1.400 ----
+When replying to a message, the original character set is used. Also, a bug that prevented the character set from being displayed when viewing a message is fixed.

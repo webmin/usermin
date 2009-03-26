@@ -118,26 +118,8 @@ if ($body && $body eq $htmlbody && $userconfig{'head_html'}) {
 	$headstuff = &head_html($body->{'data'});
 	}
 
-# Get the character set
-if ($body) {
-	$ctype = $body->{'header'}->{'content-type'} ||
-		 $mail->{'header'}->{'content-type'};
-	if ($ctype =~ /charset="([a-z0-9\-]+)"/i ||
-	    $ctype =~ /charset='([a-z0-9\-]+)'/i ||
-	    $ctype =~ /charset=([a-z0-9\-]+)/i) {
-		$charset = $1;
-		}
-	}
-## Special handling of HTML header charset ($force_charset):
-## For japanese text(ISO-2022-JP/EUC=JP/SJIS), the HTML output and
-## text contents ($bodycontents) are already converted to EUC,
-## so overriding HTML charset to that in the mail header ($charset)
-## is generally wrong. (cf. mailbox/boxes-lib.pl:eucconv())
-if ( &get_charset() =~ /^EUC/i ) {	# EUC-JP,EUC-KR
-	# use default charset output for HTML
-} else {
-	$force_charset = $charset;
-}
+# Set the character set for the page to match email
+$main::force_charset = &get_mail_charset($mail, $body);
 
 &set_module_index($in{'folder'});
 &mail_page_header($text{'view_title'}, $headstuff);

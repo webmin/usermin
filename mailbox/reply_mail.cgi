@@ -25,6 +25,7 @@ if ($in{'new'}) {
 		$quote = "\n\n$sig" if ($sig);
 		}
 	$to = $in{'to'};
+	$main::force_charset = $userconfig{'charset'};
 	&mail_page_header($text{'compose_title'},
 			  undef,
 			  $html_edit ? "onload='initEditor()'" : "");
@@ -182,9 +183,10 @@ else {
 		    "&folder=$in{'folder'}";
 	$mail || &error($text{'mail_eexists'});
 
-	# Find the body parts
+	# Find the body parts and set the character set
 	($textbody, $htmlbody, $body) =
 		&find_body($mail, $userconfig{'view_html'});
+	$main::force_charset = &get_mail_charset($mail, $body);
 
 	if ($in{'delete'}) {
 		# Just delete the email
@@ -588,6 +590,7 @@ if ($in{'reply'} || $in{'rall'} || $in{'ereply'} || $in{'erall'}) {
 	print &ui_hidden("rid", $mail->{'header'}->{'message-id'});
 	print &ui_hidden("replyid", $mail->{'id'});
 	}
+print &ui_hidden("charset", $main::force_charset);
 
 # Start tabs for from / to / cc / bcc / signing / options
 # Subject is separate

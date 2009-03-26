@@ -29,7 +29,7 @@ else {
 	# Get the total folder size, where mail will actually be lost
 	local $sz = 0;
 	foreach $f (@dfolders) {
-		if ($d->{'type'} == 0) {
+		if ($f->{'type'} == 0) {
 			$sz += &folder_size($f);
 			}
 		}

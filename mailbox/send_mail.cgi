@@ -98,7 +98,8 @@ if ($in{'body'} =~ /\S/) {
 
 	# Create the body attachment
 	local $mt = $in{'html_edit'} ? "text/html" : "text/plain";
-	$mt .= "; charset=$userconfig{'charset'}";
+	$charset = $in{'charset'} || $userconfig{'charset'};
+	$mt .= "; charset=$charset";
 	if ($in{'body'} =~ /[\177-\377]/) {
 		# Contains 8-bit characters .. need to make quoted-printable
 		$quoted_printable++;
@@ -118,7 +119,7 @@ if ($in{'body'} =~ /\S/) {
 
 	if ($in{'html_edit'}) {
 		# Prepend the plain-text body
-		local $mt = "text/plain; charset=$userconfig{'charset'}";
+		local $mt = "text/plain; charset=$charset";
 		if ($plainbody =~ /[\177-\377]/) {
 			unshift(@attach,
 			  { 'headers' => [ [ 'Content-Type', $mt ],

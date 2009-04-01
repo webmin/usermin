@@ -211,7 +211,7 @@ else {
 			&simplify_date($mail->{'header'}->{'date'})));
 
 	local $subj = $mail->{'header'}->{'subject'};
-	$subj =~ s/^((Re:|Fwd:|\[\S+\])\s*)+//g;
+	$subj =~ s/^((Re:|Fwd:|\[\S+\])\s*)+//ig;
 	print &ui_table_row($text{'mail_subject'},
 		&left_right_align(&eucconv_and_escape(&decode_mimewords(
 				  $mail->{'header'}->{'subject'})),

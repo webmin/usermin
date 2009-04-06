@@ -13,6 +13,7 @@ no_crlf=Add carriage return ( \r ) to each line?,1,0-Yes,1-No
 smtp_user=SMTP login name for mail server,3,None
 smtp_pass=SMTP password for mail server,3,None
 smtp_auth=SMTP authentication method,4,-Default,Cram-MD5-Cram&#45;MD5,Digest-MD5-Digest&#45;MD5,Plain-Plain,Login-Login
+smtp_port=Port number for SMTP,1,Default (25)
 sendmail_path=Sendmail command,0
 no_orig_ip=Include browser IP in X-Originating-IP header?,1,0-Yes,1-No
 no_mailer=Include Webmin version in X-Mailer header?,1,0-Yes,1-No

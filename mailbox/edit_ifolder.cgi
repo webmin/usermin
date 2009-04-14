@@ -17,7 +17,7 @@ else {
 print &ui_form_start("save_ifolder.cgi");
 print &ui_hidden("new", $in{'new'}),"\n";
 print &ui_hidden("idx", $in{'idx'}),"\n";
-print &ui_table_start($text{'edit_header'}, undef, 2, [ "width=30%" ]);
+print &ui_table_start($text{'edit_header'}, undef, 2);
 
 # IMAP folder name
 print &ui_table_row($text{'edit_name'},

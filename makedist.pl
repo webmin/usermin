@@ -23,7 +23,7 @@ $vers = $ARGV[0];
 	  "config-openserver", "switch_user.cgi", "lang", "ulang",
 	  "lang_list.txt", "usermin-init", "usermin-daemon",
 	  "config-openbsd",
-	  "config-macos", "LICENCE", "PATENTS",
+	  "config-macos", "LICENCE",
 	  "session_login.cgi",
 	  "defaultacl", "date_chooser.cgi",
 	  "install-module.pl", "LICENCE.ja",

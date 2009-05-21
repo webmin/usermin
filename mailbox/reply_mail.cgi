@@ -582,6 +582,9 @@ EOF
 $upid = time().$$;
 $onsubmit = &read_parse_mime_javascript($upid, [ map { "attach$_" } (0..10) ]);
 $onsubmit =~ s/='/='ok = check_fields(); if (!ok) { return false; } /;
+if ($main::force_charset) {
+	$onsubmit .= " accept-charset=$main::force_charset";
+	}
 print &ui_form_start("send_mail.cgi?id=$upid", "form-data", undef, $onsubmit);
 
 # Output various hidden fields

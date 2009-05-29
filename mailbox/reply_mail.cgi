@@ -436,7 +436,7 @@ else {
 		}
 	elsif ($in{'dsn'}) {
 		# Send DSN to sender
-		dbmopen(%dsn, "$user_module_config_directory/dsn", 0600);
+		&open_dbm_db(%dsn, "$user_module_config_directory/dsn", 0600);
 		$dsnaddr = &send_delivery_notification($mail, undef, 1);
 		if ($dsnaddr) {
 			$mid = $mail->{'header'}->{'message-id'};

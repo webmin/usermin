@@ -1636,16 +1636,14 @@ return (&foreign_available("spam") || $config{'spam_always'}) &&
 # Returns only messages with a particular status
 sub filter_by_status
 {
-local %read;
-dbmopen(%read, "$user_module_config_directory/read", 0600);
 local (@rv, $mail);
+&open_read_hash();
 foreach $mail (@{$_[0]}) {
 	local $mid = $mail->{'header'}->{'message-id'};
 	if ($read{$mid} == $_[1]) {
 		push(@rv, $mail);
 		}
 	}
-dbmclose(%read);
 return @rv;
 }
 

@@ -19,7 +19,7 @@ $gpgpath = $config{'gpg'} || "gpg";
 sub list_keys
 {
 local (@rv, %kmap);
-open(GPG, "$gpgpath --list-keys 2>/dev/null |");
+open(GPG, "LC_ALL='' LANG='' $gpgpath --list-keys 2>/dev/null |");
 while(<GPG>) {
 	if (/^pub\s+(\S+)\/(\S+)\s+(\S+)\s+(.*)\s+<(\S+)>/ ||
 	    /^pub\s+(\S+)\/(\S+)\s+(\S+)\s+(.*)/) {
@@ -52,7 +52,7 @@ while(<GPG>) {
 		}
 	}
 close(GPG);
-open(GPG, "$gpgpath --list-secret-keys 2>/dev/null |");
+open(GPG, "LC_ALL='' LANG='' $gpgpath --list-secret-keys 2>/dev/null |");
 while(<GPG>) {
 	if (/^sec\s+(\S+)\/(\S+)\s+(\S+)\s+(.*)/ && $kmap{$2}) {
 		$kmap{$2}->{'secret'}++;
@@ -82,7 +82,7 @@ sub key_fingerprint
 {
 local $fp;
 local $_;
-open(GPG, "$gpgpath --fingerprint \"$_[0]->{'name'}->[0]\" |");
+open(GPG, "LC_ALL='' LANG='' $gpgpath --fingerprint \"$_[0]->{'name'}->[0]\" |");
 while(<GPG>) {
 	if (/fingerprint\s+=\s+(.*)/) {
 		$fp = $1;
@@ -125,7 +125,7 @@ local $dstfile = &transname();
 local $ascii = $_[3] ? "--armor" : "";
 local $comp = $config{'compress'} eq '' ? "" :
 		" --compress-algo $config{'compress'}";
-local $cmd = "$gpgpath --output $dstfile $rcpt $ascii $comp --encrypt $srcfile";
+local $cmd = "LC_ALL='' LANG='' $gpgpath --output $dstfile $rcpt $ascii $comp --encrypt $srcfile";
 local ($fh, $fpid) = &foreign_call("proc", "pty_process_exec", $cmd);
 while(1) {
 	$rv = &wait_for($fh, "anyway");
@@ -157,7 +157,7 @@ sub decrypt_data
 local $srcfile = &transname();
 &write_entire_file($srcfile, $_[0]);
 local $dstfile = &transname();
-local $cmd = "$gpgpath --output $dstfile --decrypt $srcfile";
+local $cmd = "LC_ALL='' LANG='' $gpgpath --output $dstfile --decrypt $srcfile";
 local ($fh, $fpid) = &foreign_call("proc", "pty_process_exec", $cmd);
 local ($error, $seen_pass, $pass, $key, $keyid);
 while(1) {
@@ -222,6 +222,7 @@ elsif ($_[3] == 1) {
 elsif ($_[3] == 2) {
 	$cmd = "$gpgpath --armor --output $dstfile --default-key $_[2]->{'key'} --detach-sig $srcfile";
 	}
+$cmd = "LC_ALL='' LANG='' $cmd";
 local ($fh, $fpid) = &foreign_call("proc", "pty_process_exec", $cmd);
 local ($error, $seen_pass);
 local $pass = &get_passphrase($_[2]);
@@ -271,12 +272,12 @@ local $datafile = &transname();
 local $cmd;
 local $sigfile;
 if (!$_[1]) {
-	$cmd = "$gpgpath --verify $datafile";
+	$cmd = "LC_ALL='' LANG='' $gpgpath --verify $datafile";
 	}
 else {
 	$sigfile = &transname();
 	&write_entire_file($sigfile, $_[1]);
-	$cmd = "$gpgpath --verify $sigfile $datafile";
+	$cmd = "LC_ALL='' LANG='' $gpgpath --verify $sigfile $datafile";
 	}
 #local ($fh, $fpid) = &foreign_call("proc", "pty_process_exec", $cmd);
 #&wait_for($fh);
@@ -329,7 +330,7 @@ sub write_entire_file
 # Returns the trust level of a key
 sub get_trust_level
 {
-local $cmd = "$gpgpath --edit-key \"$_[0]->{'name'}->[0]\"";
+local $cmd = "LC_ALL='' LANG='' $gpgpath --edit-key \"$_[0]->{'name'}->[0]\"";
 local ($fh, $fpid) = &foreign_call("proc", "pty_process_exec", $cmd);
 local $rv = &wait_for($fh, "trust:\\s+(.)", "command>");
 local $tr;
@@ -351,7 +352,7 @@ sub delete_key
 {
 local ($key) = @_;
 if ($key->{'secret'}) {
-	local $cmd = "$gpgpath --delete-secret-key \"$key->{'name'}->[0]\"";
+	local $cmd = "LC_ALL='' LANG='' $gpgpath --delete-secret-key \"$key->{'name'}->[0]\"";
 	local ($fh, $fpid) = &foreign_call("proc", "pty_process_exec", $cmd);
 	&wait_for($fh, "\\?");
 	syswrite($fh, "y\n");
@@ -360,7 +361,7 @@ if ($key->{'secret'}) {
 	sleep(1);
 	close($fh);
 	}
-local $cmd = "$gpgpath --delete-key \"$key->{'name'}->[0]\"";
+local $cmd = "LC_ALL='' LANG='' $gpgpath --delete-key \"$key->{'name'}->[0]\"";
 local ($fh, $fpid) = &foreign_call("proc", "pty_process_exec", $cmd);
 &wait_for($fh, "\\?");
 syswrite($fh, "y\n");

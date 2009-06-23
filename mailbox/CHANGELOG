@@ -136,3 +136,5 @@ Messages with alternate HTML and text bodies are now send with the multipart/alt
 When replying to a message, if the original to address is in your list of allowed addresses or marked as a from address in your addressbook, it will be used as the default sender in the response.
 The original sender's email address is now included in the 'wrote' line when replying to or forwarding a message.
 Added an SMTP port option to the module configuration.
+---- Changes since 1.410 ----
+Split up preferences page into more user-friendly sections.

@@ -1,25 +1,27 @@
-line0=User interface,11
+line0=Mail list,11
 perpage=Mail messages to display per page,0,5
-wrap_width=Width to wrap displayed mail messages at,0,5
-wrap_compose=Width to wrap composed mail messages at,10,-Don't wrap,80-80 columns (standard),Other size
 top_buttons=Show buttons at top for,1,2-Mailboxes and mails,1-Mailboxes only,0-Never
 arrows=Show pager arrows at bottom for,1,2-Mailboxes and mails,1-Mailboxes only,0-Never
-send_buttons=Show mail sending buttons,1,1-At top and bottom,0-At bottom only
 show_to=Show To: address in mailboxes?,1,1-Yes,0-No
-auto_mark=Automatically mark read messages?,1,1-Yes,0-No
 refresh=Seconds between automatic mailbox refreshes,3,Don't refresh
+open_mode=Open messages in,1,1-New window,0-List window
+show_body=Show message body previews in list?,1,1-Yes,0-No
+
+line0.5=Reading email,11
+wrap_width=Width to wrap displayed mail messages at,0,5
+auto_mark=Automatically mark read messages?,1,1-Yes,0-No
 view_html=Show message body as,4,0-Always plain text,1-Text if possible&#44; HTML otherwise,2-HTML if possible&#44; text otherwise,3-Convert HTML to plain text
-html_edit=Use HTML editor for composing?,4,2-Always,1-When replying to HTML email,0-Never
 view_images=Show inline images by default?,1,0-Yes,1-No external images,2-No
 head_html=Include HTML from message <head> section on page?,1,1-Yes,0-No
-html_quote=HTML quoting mode,1,1-Message below &lt;hr&gt;,0-Message inside &lt;blockquote&gt;
-reply_date=Include date when quoting email,1,1-Yes,0-No
 check_mod=Check for mailbox modification when deleting mail?,1,1-Yes,0-No
-open_mode=Open messages in,1,1-New window,0-List window
 link_mode=Open links in,1,1-New window,0-Same window
+
+line0.7=Writing email,11
+wrap_compose=Width to wrap composed mail messages at,10,-Don't wrap,80-80 columns (standard),Other size
+send_buttons=Show mail sending buttons,1,1-At top and bottom,0-At bottom only
+html_edit=Use HTML editor for composing?,4,2-Always,1-When replying to HTML email,0-Never
+html_quote=HTML quoting mode,1,1-Message below &lt;hr&gt;,0-Message inside &lt;blockquote&gt;
 spell_check=Enable spell checking by default?,1,1-Yes,0-No
-date_fmt=Date format in mail list,1,dmy-DD/MM/YYYY,mdy-MM/DD/YYYY,ymd-YYYY/MM/DD
-date_tz=Timezone for date displays,3,System default
 
 line1=Sending email,11
 no_mime=Send text-only messages when possible?,1,1-Yes,0-No
@@ -32,9 +34,6 @@ fwd_mode=Forward messages with quoting?,1,0-Yes,1-No
 from_in_to=Show From: addresses when selecting a To: address?,1,1-Yes,0-No
 sort_addrs=Sort address book by,1,0-Order added,1-Real name,2-Email address
 reply_to=Reply-to: address,10,x-None,*-Choose when sending,Address..
-req_dsn=Request read status notifications?,1,1-Always,2-Optionally,0-No
-send_dsn=Respond to read status notifications?,1,1-Automatically,2-Manually,0-No
-req_del=Request delivery status notifications?,1,1-Always,2-Optionally,0-No
 bcc_to=Bcc: sent messages to,0
 add_abook=Add email recipients to address book?,1,1-Yes,0-No
 real_expand=Lookup real names when sending?,1,1-Yes,0-No
@@ -42,21 +41,32 @@ force_subject=Action if sent email subject is missing,10,-Do nothing,error-Displ
 send_return=After sending mail&#44; show,1,1-Mail list,0-Mail Sent page
 reply_self=Include own email address when replying to all?,1,1-Yes,0-No
 
+line1.5=Delivery notifications,11
+req_dsn=Request read status notifications?,1,1-Always,2-Optionally,0-No
+send_dsn=Respond to read status notifications?,1,1-Automatically,2-Manually,0-No
+req_del=Request delivery status notifications?,1,1-Always,2-Optionally,0-No
+
+line2=Date and time settings,11
+date_fmt=Date format in mail list,1,dmy-DD/MM/YYYY,mdy-MM/DD/YYYY,ymd-YYYY/MM/DD
+date_tz=Timezone for date displays,3,System default
+reply_date=Include date when quoting email,1,1-Yes,0-No
+
 line3=Mail folders,11
-mailbox_dir=Mailboxes directory under home directory,0,30
 mailbox_recur=Treat mailbox subdirectories as,1,1-Folders,0-Subdirectories
 default_folder=Default folder file,3,Inbox
-delete_warn=Ask for confirmation before deleting?,10,y-Yes,n-No,For mbox files larger than
-delete_mode=When deleting mail,1,0-Just delete from mail file,1-Move to Trash folder
 folder_sort=Folder sort mode,4,0-Builtin&#44; then ~/mail&#44; then external,1-Builtin&#44; then rest sorted by name,2-All sorted by name
-related_search=Search for same subject or sender in,1,1-All folders,2-All local folders,0-Current folder
-search_latest=Messages to search,10,-All messages,Only latest
-show_body=Show message body previews in list?,1,1-Yes,0-No
-show_delall=Show button to delete entire mailbox?,1,1-Yes,0-No
 sent_name=Sent mail folder name,3,Automatic
 drafts_name=Drafts folder name,3,Automatic
 trash_name=Trash folder name,3,Automatic
 show_unread=Show unread messages count,1,2-Yes,1-Only for IMAP,0-No
+related_search=Search for same subject or sender in,1,1-All folders,2-All local folders,0-Current folder
+search_latest=Messages to search,10,-All messages,Only latest
+mailbox_dir=Mailboxes directory under home directory,0,30
+
+line3.5=Deleting email,11
+delete_warn=Ask for confirmation before deleting?,10,y-Yes,n-No,For mbox files larger than
+delete_mode=When deleting mail,1,0-Just delete from mail file,1-Move to Trash folder
+show_delall=Show button to delete entire mailbox?,1,1-Yes,0-No
 maildir_deleted=Skip messages flagged as deleted in Maildir?,1,1-Yes,0-No
 
 line4=Spam options,11

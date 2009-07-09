@@ -37,7 +37,7 @@ print &ui_table_row($text{'edit_server'},
 # POP3 port
 print &ui_table_row($text{'edit_port'},
 	&ui_opt_textbox("port", $folder->{'port'}, 6,
-			$text{'default'}." ($imap_port)"));
+			$text{'default'}." ($pop3_port)"));
 
 # Login and password
 print &ui_table_row($text{'edit_user'},

@@ -259,4 +259,8 @@ if (!$nosign) {
 	system("rpm --resign rpm/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.src.rpm");
 	}
 
+if (-d "/usr/local/webadmin/rpm/yum") {
+	# Add to our repository
+	system("cp rpm/$pkgname-$ver-$rel.noarch.rpm /usr/local/webadmin/rpm/yum");
+	}
 

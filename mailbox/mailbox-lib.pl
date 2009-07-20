@@ -1,4 +1,5 @@
 # mailbox-lib.pl
+# foo
 
 BEGIN { push(@INC, ".."); };
 use WebminCore;

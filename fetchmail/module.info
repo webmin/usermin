@@ -7,3 +7,4 @@ longdesc=Configure Fetchmail to download email from a remote POP3 or IMAP server
 desc_de=Fetchmail E-Mail-Empfang
 desc_cz=Fetchmail - stahování po¹ty
 desc_ca=Lliurament de Correu Fetchmail
+desc_nl=Fetchmail Mail Ontvangen

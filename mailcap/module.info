@@ -3,3 +3,4 @@ usermin=1
 longdesc=Edit the ~/.mailcap file, which maps MIME types to handler programs
 desc_ca=Programes de Tipus MIME
 desc_cz=Programy pro MIME typ
+desc_nl=MIME Type Programma's

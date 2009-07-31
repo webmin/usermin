@@ -20,3 +20,4 @@ desc_de=Systemdokumentation
 desc_cz=Manualové stránky
 usermin=1
 longdesc=Search man pages and other system documentation, just like in the Webmin module of the same name.
+desc_nl=Systeem Documentatie

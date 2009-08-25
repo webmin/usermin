@@ -138,3 +138,4 @@ The original sender's email address is now included in the 'wrote' line when rep
 Added an SMTP port option to the module configuration.
 ---- Changes since 1.410 ----
 Split up preferences page into more user-friendly sections.
+Mail with HTML and text bodies now uses a multipart/alternative sub-attachment, so that other attachments are shown properly in mail clients like Hotmail and Yahoo.

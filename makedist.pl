@@ -27,7 +27,7 @@ $vers = $ARGV[0];
 	  "session_login.cgi",
 	  "defaultacl", "date_chooser.cgi",
 	  "install-module.pl", "LICENCE.ja",
-	  "favicon.ico", "config-netbsd",
+	  "favicon.ico", "config-netbsd", "usermin-debian-pam",
 	  "defaulttheme", "feedback.cgi", "feedback_form.cgi", "usermin-pam",
 	  "uconfig.cgi", "uconfig_save.cgi", "acl_security.pl", "maketemp.pl",
 	  "javascript-lib.pl", "usermin-pam-osx",

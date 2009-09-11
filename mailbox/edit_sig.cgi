@@ -4,16 +4,13 @@
 
 require './mailbox-lib.pl';
 $sf = &get_signature_file();
-$sf || &error($text{'sig_enone'});
+$sf ||= ".signature";
 &ui_print_header(undef, $text{'sig_title'}, "");
 
 print &text('sig_desc', "<tt>$sf</tt>"),"<p>\n";
-print "<form action=save_sig.cgi method=post enctype=multipart/form-data>\n";
-print "<textarea name=sig rows=5 cols=80>\n",
-	&get_signature(),"</textarea><br>\n";
-print "<input type=submit value='$text{'save'}'>\n";
-print "<input type=reset value='$text{'sig_undo'}'>\n";
-print "</form>\n";
+print &ui_form_start("save_sig.cgi", "form-data");
+print &ui_textarea("sig", &get_signature(), 5, 80);
+print &ui_form_end([ [ undef, $text{'save'} ] ]);
 
 &ui_print_footer("", $text{'mail_return'});
 

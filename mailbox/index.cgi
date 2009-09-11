@@ -311,11 +311,9 @@ if (!$main::mailbox_no_folder_button) {
 	}
 
 # Sig editor
-if (&get_signature_file()) {
-	push(@grid, &ui_form_start("edit_sig.cgi").
-		    &ui_submit($text{'mail_sig'}).
-		    &ui_form_end());
-	}
+push(@grid, &ui_form_start("edit_sig.cgi").
+	    &ui_submit($text{'mail_sig'}).
+	    &ui_form_end());
 
 # Show button to delete all mail in folder
 if (@mail && ($folder->{'trash'} || $userconfig{'show_delall'})) {

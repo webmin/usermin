@@ -541,6 +541,7 @@ if ($folder_types{'local'}) {
 			    'type' => &folder_type($p),
 			    'perpage' => $userconfig{"perpage_$f"},
 			    'fromaddr' => $userconfig{"fromaddr_$f"},
+			    'show_to' => $userconfig{"show_to_$f"},
 			    'sent' => $userconfig{"sent_$f"},
 			    'hide' => $userconfig{"hide_$f"},
 			    'mode' => 0,
@@ -561,6 +562,7 @@ if ($inbox->{'type'} == 1 && $userconfig{'mailbox_dir'} ne "Maildir") {
 			    'type' => &folder_type($p),
 			    'perpage' => $userconfig{"perpage_$f"},
 			    'fromaddr' => $userconfig{"fromaddr_$f"},
+			    'show_to' => $userconfig{"show_to_$f"},
 			    'sent' => $userconfig{"sent_$f"},
 			    'hide' => $userconfig{"hide_$f"},
 			    'mode' => 0,
@@ -577,6 +579,7 @@ if ($folder_types{'ext'}) {
 			    'file' => $o,
 			    'perpage' => $userconfig{"perpage_$o"},
 			    'fromaddr' => $userconfig{"fromaddr_$o"},
+			    'show_to' => $userconfig{"show_to_$o"},
 			    'sent' => $userconfig{"sent_$o"},
 			    'hide' => $userconfig{"hide_$o"},
 			    'type' => &folder_type($o),
@@ -891,6 +894,7 @@ elsif ($folder->{'mode'} == 0) {
 		if ($folder->{'hide'});
 	$userconfig{'fromaddr_'.$folder->{'name'}} = $folder->{'fromaddr'}
 		if ($folder->{'fromaddr'});
+	$userconfig{'show_to_'.$folder->{'name'}} = $folder->{'show_to'};
 	&save_user_module_config();
 	$folder->{'file'} = $path;
 	}
@@ -917,6 +921,7 @@ elsif ($folder->{'mode'} == 1) {
 		if ($folder->{'hide'});
 	$userconfig{'fromaddr_'.$folder->{'file'}} = $folder->{'fromaddr'}
 		if ($folder->{'fromaddr'});
+	$userconfig{'show_to_'.$folder->{'file'}} = $folder->{'show_to'};
 	$userconfig{'mailboxes'} = join("\t", @mailboxes);
 	&save_user_module_config();
 	}

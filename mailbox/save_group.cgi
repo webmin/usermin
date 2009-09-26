@@ -3,7 +3,12 @@
 # Save, add or delete an address group entry
 
 require './mailbox-lib.pl';
-&ReadParse();
+if ($ENV{'REQUEST_METHOD'} eq 'GET') {
+	&ReadParse();
+	}
+else {
+	&ReadParseMime();
+	}
 
 if ($in{'gdelete'} ne '') {
 	&delete_address_group($in{'gdelete'});

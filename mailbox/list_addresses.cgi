@@ -103,7 +103,8 @@ print &ui_tabs_start_tab("mode", "groups");
 print "$text{'address_gdesc'}<p>\n";
 if (@gaddrs || $in{'gadd'}) {
 	if ($in{'gadd'} || $in{'gedit'} ne '') {
-		print "<form action=save_group.cgi>\n";
+		print "<form action=save_group.cgi ",
+		      "method=post enctype=multipart/form-data>\n";
 		print "<input type=hidden name=gadd value='$in{'gadd'}'>\n";
 		print "<input type=hidden name=gedit value='$in{'gedit'}'>\n";
 		}

@@ -28,7 +28,7 @@ if ($in{'new'}) {
 	$main::force_charset = $userconfig{'charset'};
 	&mail_page_header($text{'compose_title'},
 			  undef,
-			  $html_edit ? "onload='initEditor()'" : "");
+			  $html_edit ? "onload='xinha_init()'" : "");
 	}
 elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
 	# Sending a quick reply
@@ -552,7 +552,7 @@ else {
 		$in{'enew'} ? $text{'enew_title'} :
 			      $text{'reply_title'},
 		undef,
-		$html_edit ? "onload='initEditor()'" : "");
+		$html_edit ? "onload='xinha_init()'" : "");
 	}
 
 # Script to validate fields
@@ -833,14 +833,16 @@ if ($html_edit) {
   _editor_url = "$gconfig{'webprefix'}/$module_name/xinha/";
   _editor_lang = "en";
 </script>
-<script type="text/javascript" src="xinha/htmlarea.js"></script>
+<script type="text/javascript" src="xinha/XinhaCore.js"></script>
 
 <script type="text/javascript">
-var editor = null;
-function initEditor() {
-  editor = new HTMLArea("body");
-  editor.generate();
-  return false;
+xinha_init = function()
+{
+xinha_editors = [ "body" ];
+xinha_plugins = [ ];
+xinha_config = new Xinha.Config();
+xinha_editors = Xinha.makeEditors(xinha_editors, xinha_config, xinha_plugins);
+Xinha.startEditors(xinha_editors);
 }
 </script>
 EOF

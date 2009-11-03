@@ -1015,10 +1015,30 @@ elsif ($folder->{'mode'} == 1) {
 	$userconfig{'mailboxes'} = join("\t", @mailboxes);
 	&save_user_module_config();
 	}
+
 # Remove from cache
 if (defined(@list_folders_cache)) {
 	@list_folders_cache = grep { $_ ne $folder } @list_folders_cache;
 	}
+
+# Delete mbox or Maildir index
+if ($folder->{'type'} == 0) {
+	local $ifile = &user_index_file($folder->{'file'});
+	unlink(glob("$ifile.*"), $file);
+	}
+elsif ($folder->{'type'} == 1) {
+	local $cachefile = &get_maildir_cachefile($folder->{'file'});
+	unlink($cachefile);
+	}
+
+# Delete sort index
+local $ifile = &folder_new_sort_index_file($folder);
+unlink(glob("$ifile.*"), $file);
+
+# Delete sort direction file
+local $file = &folder_name($folder);
+$file =~ s/\//_/g;
+unlink("$user_module_config_directory/sort.$file");
 }
 
 # need_delete_warn(&folder)

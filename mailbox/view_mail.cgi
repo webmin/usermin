@@ -249,6 +249,9 @@ if ($body && $body->{'data'} =~ /\S/) {
 						     \@imageurls);
 		$bodycontents = &fix_cids($bodycontents, \@attach,
 			"detach.cgi?id=$qid&folder=$in{'folder'}$subs");
+		if ($userconfig{'link_mode'}) {
+			$bodycontents = &links_urls_new_target($bodycontents);
+			}
 		if ($textbody) {
 			# Link to show text
 			push(@bodyright, "<a href='$baseurl&body=1&headers=$in{'headers'}&images=$in{'images'}'>$text{'view_astext'}</a>");

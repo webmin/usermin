@@ -142,3 +142,5 @@ Mail with HTML and text bodies now uses a multipart/alternative sub-attachment, 
 ---- Changes since 1.420 ----
 Removed limits on the size of an address book group.
 Put text/plain alternative body part before text/html, to be compliant with RFC 2046.
+---- Changes since 1.430 ----
+Links in HTML email are now opened in new windows.

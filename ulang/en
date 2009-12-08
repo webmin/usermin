@@ -1,5 +1,6 @@
 main_title=Usermin $1 on $2 ($3)
 main_title2=Usermin
+main_title3=Usermin $1 ($2)
 main_none=You do not have access to any Usermin modules.
 
 category_mail=Mail

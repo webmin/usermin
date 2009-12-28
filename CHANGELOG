@@ -52,3 +52,5 @@ Converted all core modules to use the new WebminCore perl module instead of web-
 Dramatically improved Usermin's search function, to include links to pages that help or UI text comes from. Also changed the layout of results to a more Webmin-ish style.
 ---- Changes since 1.410 ----
 Dutch translation updates, thanks to Gandyman.
+---- Changes since 1.430 ----
+Added a robots.txt file to block indexing of Usermin by search engines.

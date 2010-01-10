@@ -402,6 +402,7 @@ else {
 			print "<b>",$text{'razor_err'},"</b><p>\n";
 			}
 		else {
+			$inbox = &get_spam_inbox_folder();
 			if ($userconfig{'spam_del'} && $mode eq "razor") {
 				# Delete message too
 				print "<b>$text{'razor_deleted'}</b><p>\n";

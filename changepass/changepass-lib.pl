@@ -68,7 +68,7 @@ if ($config{'mailbox'} && &foreign_check("mailbox")) {
 	&foreign_require("mailbox", "mailbox-lib.pl");
 	foreach my $f (&mailbox::list_folders()) {
 		if (($f->{'type'} == 2 || $f->{'type'} == 4) &&
-		    $f->{'user'} eq $user &&
+		    ($f->{'user'} eq $user || $f->{'user'} eq '*') &&
 		    $f->{'pass'} eq $oldpass &&
 		    !$f->{'imapauto'} &&
 		    !$f->{'autouser'}) {

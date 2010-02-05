@@ -58,12 +58,12 @@ case "$1" in
 		RETVAL=1
 	fi
 	;;
-'restart')
+'restart'|'reload')
 	$stop ; $start
 	RETVAL=$?
 	;;
 *)
-	echo "Usage: $0 { start | stop | restart }"
+	echo "Usage: $0 { start | stop | restart | reload }"
 	RETVAL=1
 	;;
 esac

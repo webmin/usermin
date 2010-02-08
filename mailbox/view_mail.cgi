@@ -475,7 +475,7 @@ if (!$_[1]) {
 			}
 		print $spacer;
 		}
-	if ($userconfig{'ham_buttons'} =~ /mail/ &&
+	if ($userconfig{'spam_buttons'} =~ /mail/ &&
 	    &can_report_ham($folder)) {
 		if ($userconfig{'white_move'} && $folder->{'spam'}) {
 			print &ui_submit($text{'view_whitemove'}, "white");

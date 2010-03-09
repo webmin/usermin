@@ -52,3 +52,4 @@ view_images=0
 show_unread=1
 reply_self=0
 maildir_deleted=1
+def_crypt=0

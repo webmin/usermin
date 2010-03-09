@@ -743,19 +743,29 @@ print &ui_tabs_end_tabletab();
 if ($has_gpg) {
 	print &ui_tabs_start_tabletab("tab", "signing");
 	@signs = ( );
+	$def_sign = "";
 	foreach $k (@keys) {
 		local $n = $k->{'name'}->[0];
 		$n = substr($n, 0, 40)."..." if (length($n) > 40);
 		if ($k->{'secret'}) {
 			push(@signs, [ $k->{'index'}, $n ]);
 			}
+		if ($k->{'secret'} && $userconfig{'def_sign'}) {
+			$def_signer = lc($userconfig{'def_sign'});
+			for(my $i=0; $i<@{$k->{'name'}}; $i++) {
+				if (lc($k->{'name'}->[$i]) eq $def_signer ||
+				    lc($k->{'email'}->[$i]) eq $def_signer) {
+					$def_sign = $k->{'index'};
+					}
+				}
+			}
 		push(@crypts, [ $k->{'index'}, $n ]);
 		}
 	print &ui_table_row($text{'mail_sign'},
-		&ui_select("sign", "", 
+		&ui_select("sign", $def_sign,
 		   [ [ "", $text{'mail_nosign'} ], @signs ]), 1, \@tds);
 	print &ui_table_row($text{'mail_crypt'},
-		&ui_select("crypt", "",
+		&ui_select("crypt", $userconfig{'def_crypt'} ? -1 : "",
 		   [ [ "", $text{'mail_nocrypt'} ],
 		     [ -1, $text{'mail_samecrypt'} ], @crypts ]), 1, \@tds);
 	print &ui_tabs_end_tabletab();

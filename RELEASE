@@ -18,11 +18,12 @@ find . -name "*~" -o -name "*.rej" -o -name "*.orig" | xargs rm
  x Update README and version files
 
  x Build .tar.gz, RPM and Debian packages
+	 x create -webmail packages
 
  x Upload files to sourceforge
-	scp /tmp/devel/*/*$ver* web.sf.net:uploads/
-
- x create -webmail packages, and upload
+	/usr/local/webadmin/copy-devels.sh
+	Create new dir at https://sourceforge.net/project/admin/explorer.php?group_id=17457
+	scp /tmp/devel/*/*$ver* jcameron,webadmin@frs.sourceforge.net:/home/frs/project/w/we/webadmin/usermin/$ver/
 
  x Upload signatures to sourceforge (with copy-sigs.sh)
 
@@ -31,7 +32,7 @@ find . -name "*~" -o -name "*.rej" -o -name "*.orig" | xargs rm
  x Copy module .wbm files to sourceforge (with modules-release.sh)
 
  x Upload Debian files to site, with :
-	scp deb/usermin_*.dsc deb/usermin_*.diff download.webmin.com:htdocs/download/deb/
+	scp deb/usermin_*.dsc deb/usermin_*.diff webadmin@download.webmin.com:domains/download.webmin.com/public_html/download/deb/
 
  x Generate MD5 checksums with :
 	cd ~/webmin.com ; make-umd5.pl 1.xxx >umd5.html
@@ -47,4 +48,12 @@ find . -name "*~" -o -name "*.rej" -o -name "*.orig" | xargs rm
 
  x Add new modules to bug tracker
 
- x notify sourceforge file users
+ x Copy APT repository with commands (on lentor)
+    /usr/local/download/deb/repository/make-repo.sh
+    rsync -rv --rsh=ssh --delete /usr/local/download/deb/repository webadmin@download.webmin.com:domains/download.webmin.com/public_html/download
+
+ x Create YUM repository with commands
+     /usr/local/download/rpm/yum/make-repo.sh
+     rsync -rv --rsh=ssh /usr/local/download/rpm/yum webadmin@download.webmin.com:domains/download.webmin.com/public_html/download
+
+

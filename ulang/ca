@@ -1,5 +1,6 @@
 main_title=Usermin $1 a $2 ($3)
 main_title2=Usermin
+main_title3=Usermin $1 ($2)
 main_none=No tens accés a cap mòdul Usermin.
 
 category_mail=Correu

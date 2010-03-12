@@ -147,3 +147,4 @@ Links in HTML email are now opened in new windows.
 When showing the mail list, use the most common character for the page.
 ---- Changes since 1.440 ----
 Added a preferences page option for setting the default GPG signing key, and enabling signing for recipients by default.
+When sending encrypted email using the recipient's key, it will be automatically fetched from a keyserver if not already in your keyring.

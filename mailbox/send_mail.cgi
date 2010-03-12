@@ -310,15 +310,25 @@ if ($in{'crypt'} ne '' && !$draft) {
 				 &address_parts($in{'bcc'}) );
 		local $a;
 		foreach $a (@addrs) {
-			local $found;
-			foreach $k (@keys) {
-				if (&indexof($a, @{$k->{'email'}}) >= 0) {
-					push(@ekeys, $k);
-					$found++;
-					last;
+			$k = &find_email_in_keys($a, \@keys);
+			if (!$k) {
+				# Check keyserver for it
+				@srv = grep { !$_->{'revoked'} }
+					    &gnupg::search_gpg_keys($a);
+				if (@srv) {
+					($ok, $msg) = &gnupg::fetch_gpg_key(
+						$srv[0]->{'key'});
+					if ($ok == 0) {
+						$k = $msg;
+						}
 					}
 				}
-			&error(&text('send_ekey', $a)) if (!$found);
+			if ($k) {
+				push(@ekeys, $k);
+				}
+			else {
+				&error(&text('send_ekey', $a));
+				}
 			}
 		}
 	else {
@@ -356,6 +366,7 @@ if ($in{'crypt'} ne '' && !$draft) {
 				   [ 'Content-Type', 'application/octet-stream' ] ],
 		    'data' => $crypted }
 		];
+	&error("<pre>$crypted</pre>");
 	}
 
 # Check for text-only email
@@ -520,4 +531,16 @@ if ($config{'max_attach'} && $attachsize > $config{'max_attach'}) {
 	}
 }
 
+# find_email_in_keys(email, &keys)
+# Given a list of keys, return the one that contains some email
+sub find_email_in_keys
+{
+local ($a, $keys) = @_;
+foreach my $k (@$keys) {
+	if (&indexoflc($a, @{$k->{'email'}}) >= 0) {
+		return $k;
+		}
+	}
+return undef;
+}
 

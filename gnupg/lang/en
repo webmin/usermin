@@ -34,6 +34,15 @@ keys_from=Import key from
 keys_mode0=Uploaded file
 keys_mode1=File on server
 keys_delete=Delete Selected Keys
+keys_tablist=Key list
+keys_tabimport=Import key
+keys_tabrecv=Fetch key
+keys_tabsearch=Search keyserver
+keys_searchclick=Click on a key ID below to import it into your keyring ..
+keys_search=Find keys matching:
+keys_searchok=Search
+keys_searchnone=No keys matching your search were found.
+keys_searchdesc=This page allows you to search the GPG keyserver $1 by name or email address, and import keys found.
 
 import_err=Failed to import key
 import_ekey=No key file selected

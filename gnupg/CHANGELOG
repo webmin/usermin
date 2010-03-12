@@ -7,3 +7,6 @@ Email address is automatically detected when setting up a new key.
 ---- Changes since 1.360 ----
 Converted all pages to use the new Webmin UI library, for a more consistent look.
 Added text boxes to encryption, decryption, signing and verification pages for working on pasted text.
+---- Changes since 1.440 ----
+Split the Manage Keys page up into separate tabs.
+Added a section to the keys page for searching a public keyserver by name or email, and importing keys found.

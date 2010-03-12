@@ -96,15 +96,19 @@ if ($in{'search'}) {
 		}
 	@data = ( );
 	foreach $k (@rv) {
+		($got) = grep { $_->{'key'} eq $k->{'key'} } @keys;
 		push(@data, [
-			"<a href='recv.cgi?id=$k->{'key'}'>$k->{'key'}</a>",
+			$got ? $k->{'key'} :
+			  "<a href='recv.cgi?id=$k->{'key'}'>$k->{'key'}</a>",
 			$k->{'date'},
+			$k->{'revoked'} ? $text{'key_revoked'} :
+			  $got ? $text{'key_got'} : $text{'key_miss'},
 			join("<br>", map { &html_escape($_) } @{$k->{'name'}}),
 			join("<br>", map { &html_escape($_) } @{$k->{'email'}}),
 			]);
 		}
 	print &ui_columns_table(
-		[ $text{'keys_id'}, $text{'keys_date'},
+		[ $text{'keys_id'}, $text{'keys_date'}, $text{'keys_status'},
 		  $text{'keys_name'}, $text{'keys_email'} ],
 		"100%", \@data, undef, 0, undef,
 		$text{'keys_searchnone'}

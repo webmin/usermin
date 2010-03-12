@@ -43,6 +43,7 @@ keys_search=Find keys matching:
 keys_searchok=Search
 keys_searchnone=No keys matching your search were found.
 keys_searchdesc=This page allows you to search the GPG keyserver $1 by name or email address, and import keys found.
+keys_status=Status
 
 import_err=Failed to import key
 import_ekey=No key file selected
@@ -80,6 +81,9 @@ key_trust_4=Fully trusted
 key_changetrust=Change
 key_del=Delete Key
 key_deldesc=Remove this key from your system, preventing it from being used for signing, encryption or decryption.
+key_revoked=<font color=red>Revoked</font>
+key_got=<font color=#00aa00>Imported</font>
+key_miss=Available
 
 encrypt_title=Encrypt File
 encrypt_desc=Use this page to encrypt a file with GnuPG and a chosen public key. Once encrypted, the result will only be decryptable by the owner of the matching private key.

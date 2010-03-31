@@ -747,6 +747,7 @@ if ($has_gpg) {
 	foreach $k (@keys) {
 		local $n = $k->{'name'}->[0];
 		$n = substr($n, 0, 40)."..." if (length($n) > 40);
+		$n .= " &lt;".$k->{'email'}->[0]."&gt;" if ($k->{'email'}->[0]);
 		if ($k->{'secret'}) {
 			push(@signs, [ $k->{'index'}, $n ]);
 			}

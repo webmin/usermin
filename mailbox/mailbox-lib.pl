@@ -1,5 +1,4 @@
 # mailbox-lib.pl
-# foo
 
 BEGIN { push(@INC, ".."); };
 use WebminCore;
@@ -302,10 +301,12 @@ elsif ($config{'mail_system'} == 4) {
 		    			    'flags' => 1,
 					    'imapauto' => 1,
 					    'mailbox' => $fn,
+					    'nologout' => $config{'nologout'},
 					    'index' => scalar(@rv) });
 					&read_file("$user_module_config_directory/$fn.imap", $rv[$#rv]);
 					}
 				}
+			$rv[0]->{'nologout'} = $config{'nologout'};
 			}
 		}
 

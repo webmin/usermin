@@ -6,6 +6,7 @@ mail_qmail=Qmail or MH directory location,3,Subdirectory under home directory
 mail_dir_qmail=Qmail or MH directory in home directory,0
 mail_style=Mail subdirectory style,4,0-mail/username,1-mail/u/username,2-mail/u/us/username,3-mail/u/s/username
 pop3_server=POP3 or IMAP server name,3,<tt>localhost</tt>
+nologout=Prevent POP3 or IMAP logout once logged in?,1,1-Yes,0-No
 
 line2=Sending email,11
 send_mode=Send mail via connection to,3,Sendmail executable

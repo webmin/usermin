@@ -6,3 +6,4 @@ longdesc=Upload files to your account or have Usermin download files from remote
 desc_de=Upload und Download
 depends=cron at
 desc_ca=Càrregues i Descàrregues
+desc_nl=Upload en Download

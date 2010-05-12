@@ -1,1 +1,1 @@
-includes=Laat de inhoud zien van include files?<br>(als er geen varibelen worden gebruikt in filenamen),1,1-Ja,0-Nee
+includes=Laat de inhoud zien van ingevoegde files?<br>(als er geen variabelen worden gebruikt in filenamen),1,1-Ja,0-Nee

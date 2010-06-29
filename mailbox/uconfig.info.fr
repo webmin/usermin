@@ -1,0 +1,2 @@
+auto_mark=Marquer automatiquement les messages comme lus ?,1,1-Oui,0-Non
+add_abook=Ajouter ces destinataires au carnet d'adresse ?,1,1-Oui,0-Non

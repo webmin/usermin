@@ -1,0 +1,1 @@
+search_body=Lors de la recherche de spam&#44; v&#233;rifier,1,1-Tout le message,0-Le sujet et l'exp&#233;diteur seulement

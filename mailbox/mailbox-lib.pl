@@ -1443,11 +1443,15 @@ if ($idx < 0) {
 # Ensure the %dsnreplies and %delreplies hashes are tied
 sub open_dsn_hash
 {
-if (!defined(%dsnreplies)) {
-	&open_dbm_db(\%dsnreplies, "$user_module_config_directory/dsnreplies", 0600);
+if (!$opened_dsnreplies) {
+	&open_dbm_db(\%dsnreplies,
+		     "$user_module_config_directory/dsnreplies", 0600);
+	$opened_dsnreplies = 1;
 	}
-if (!defined(%delreplies)) {
-	&open_dbm_db(\%delreplies, "$user_module_config_directory/delreplies", 0600);
+if (!$opened_delreplies) {
+	&open_dbm_db(\%delreplies,
+		     "$user_module_config_directory/delreplies", 0600);
+	$opened_delreplies = 1;
 	}
 }
 

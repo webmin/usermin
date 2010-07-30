@@ -1459,8 +1459,9 @@ if (!$opened_delreplies) {
 # Ensure the %read hash is tied
 sub open_read_hash
 {
-if (!defined(%read)) {
+if (!$opened_read) {
 	&open_dbm_db(\%read, "$user_module_config_directory/read", 0600);
+	$opened_read = 1;
 	}
 }
 
@@ -1778,12 +1779,14 @@ sub expand_to
 {
 $_[0] =~ s/\r//g;
 $_[0] =~ s/\n/ /g;
-%address_groups = map { $_->[0], $_->[1] } &list_address_groups()
-	if (!defined(%address_groups));
+if (!%address_groups) {
+	%address_groups = map { $_->[0], $_->[1] } &list_address_groups();
+	}
 if ($userconfig{'real_expand'}) {
-	%real_expand_names = map { $_->[1], $_->[0] }
-				 grep { $_->[1] } &list_addresses()
-		if (!defined(%real_expand_names));
+	if (!%real_expand_names) {
+		%real_expand_names = map { $_->[1], $_->[0] }
+					 grep { $_->[1] } &list_addresses()
+		}
 	}
 local @addrs = &split_addresses($_[0]);
 local (@alladdrs, $a, $expanded);

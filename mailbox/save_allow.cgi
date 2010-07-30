@@ -10,7 +10,8 @@ $conf = &spam::get_config();
 # Parse and save addresses
 foreach $l (split(/\r?\n/, $in{'addrs'})) {
 	foreach $e (&split_addresses($l)) {
-		$e->[0] =~ /^\S+\@\S+$/ ||
+		$e->[0] =~ /^\S+\@[a-z0-9\.\-\_\*]+$/i ||
+		    $e->[0] =~ /^[a-z0-9\.\-\_\*]+$/i ||
 			&error(&text('allow_eaddr', $e->[0]));
 		push(@addrs, $e->[0]);
 		}

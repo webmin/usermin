@@ -163,9 +163,14 @@ fi
 
 %post
 inetd=`grep "^inetd=" /etc/usermin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g'`
+startafter=0
 if [ "\$1" != 1 ]; then
 	# Upgrading the RPM, so stop the old usermin properly
 	if [ "$inetd" != "1" ]; then
+		kill -0 `cat /var/usermin/miniserv.pid 2>/dev/null` 2>/dev/null
+		if [ "\$?" = 0 ]; then
+		  startafter=1
+		fi
 		/etc/init.d/usermin stop >/dev/null 2>&1
 	fi
 fi
@@ -191,7 +196,7 @@ export config_dir var_dir perl autoos port ssl nochown autothird noperlpath noun
 ./setup.sh >/tmp/.webmin/usermin-setup.out 2>&1
 chmod 600 /tmp/.webmin/usermin-setup.out
 rm -f /var/lock/subsys/usermin
-if [ "$inetd" != "1" ]; then
+if [ "\$inetd" != "1" -a "\$startafter" = "1" ]; then
 	/etc/init.d/usermin start >/dev/null 2>&1 </dev/null
 fi
 cat >/etc/usermin/uninstall.sh <<EOFF

@@ -366,7 +366,6 @@ if ($in{'crypt'} ne '' && !$draft) {
 				   [ 'Content-Type', 'application/octet-stream' ] ],
 		    'data' => $crypted }
 		];
-	&error("<pre>$crypted</pre>");
 	}
 
 # Check for text-only email

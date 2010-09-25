@@ -6,6 +6,7 @@ mail_qmail=Ubicació del directori Qmail o MH,3,Subdirectori del directori arrel
 mail_dir_qmail=Directori Qmail o MH directori al directori arrel,0
 mail_style=Estil de carpetes de correu,4,0-mail/usuari,1-mail/u/usuari,2-mail/u/us/usuari,3-mail/u/s/usuari
 pop3_server=Nom del servidor POP3 o IMAP,3,<tt>localhost</tt>
+nologout=Evita la sortida de POP3 o IMAP un cop entrat,1,1-Sí,0-No
 
 line2=Tramesa de correu,11
 send_mode=Envia el correu a través d'una connexió amb,3,l'executable Sendmail

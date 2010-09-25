@@ -19,7 +19,7 @@ link_mode=Obre els enllaços,1,1-En una finestra nova,0-A la mateixa finestra
 line0.7=Escriptura del correu,11
 wrap_compose=Amplada de tall dels missatges de correu,10,-No els tallis,80-80 columnes (estàndard),Una altra mida
 send_buttons=Mostra els botons d'enviar correu,1,1-A dalt i a baix,0-Només a baix
-html_edit=Utilitza un editor HTML per a redactar,1,2-Sempre,1-En respondre un email HTML,0-Mai
+html_edit=Utilitza un editor HTML per a redactar,1,2-Sempre,1-En respondre un correu HTML,0-Mai
 html_quote=Estil de citat HTML,1,1-Missatge sota &lt;hr&gt;,0-Missatge dins de &lt;blockquote&gt;
 nospell=Mostra l'opció de correcció ortogràfica,1,0-Sí,1-No
 spell_check=Activa la correcció ortogràfica per defecte,1,1-Sí,0-No
@@ -30,7 +30,6 @@ save_sent=Desa el correu enviat,1,1-Sí,0-No
 real_name=Inclou el nom real a l'adreça From:,1,1-Sí,0-No
 charset=Joc de caràcters del correu enviat,0,15
 sig_file=Fitxer de signatura,10,*-Cap,.signature-~/.signature,Un altre fitxer
-self_crypt=Xifra també el correu amb la teva clau secreta,1,1-Sí,0-No
 fwd_mode=Reenvia els missatges citats,1,0-Sí,1-No
 from_in_to=Mostra les adreces From: en seleccionar una adreça To:,1,1-Sí,0-No
 sort_addrs=Ordena la llibreta d'adreces per,1,0-Ordre d'addició,1-Nom real,2-Adreça e-mail
@@ -41,6 +40,11 @@ real_expand=Consulta els noms reals en enviar,1,1-Sí,0-No
 force_subject=Acció si hi manca l'assumpte del missatge a enviar,10,-No facis res,error-Mostra un missatge d'error,Estableix a
 send_return=Després d'enviar el correu&#44; mostra,1,1-La llista de correus,0-La pàgina de Correu Enviat
 def_attach=Nombre per defecte d'adjuncions pujades,0,8
+
+line1.1=Xifratge GPG,11
+def_sign=Adreça de correu per defecte per signar,3,No signis per defecte
+def_crypt=Xifra per al destinatari per defecte,1,1-Sí,0-No
+self_crypt=Xifra el correu amb la teva clau secreta també,1,1-Sí,0-No
 
 line1.5=Notificacions de lliurament,11
 req_dsn=Demana confirmació de lectura,1,1-Sempre,2-Opcionalment,0-No
@@ -68,7 +72,7 @@ line3.5=Supressió de correu,11
 delete_warn=Demana confirmació abans de suprimir,10,y-Sí,n-No,Per a fitxers mbox més grans de
 delete_mode=En suprimir correu,1,0-Esborra'l del fitxer de correu,1-Desplaça'l a la Paperera
 show_delall=Mostra el botó per suprimir tota la bústia,1,1-Sí,0-No
-maildir_deleted=Skip messages flagged as deleted in Maildir?,1,1-Yes,0-No
+maildir_deleted=Omet els missatges marcats com a suprimits al directori de correu,1,1-Yes,0-No
 
 line4=Opcions de spam,11
 spam_buttons=Mostra els botons d'informe de spam de,2,list-Les bústies,mail-Els missatges

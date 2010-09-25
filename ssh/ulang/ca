@@ -6,7 +6,7 @@ index_type=Tipus de clau
 index_essh=No s'ha trobat al sistema l'ordre $1. Molt probablement, SSH no està instal·lat.
 index_return=al menú de SSH
 
-setup_err=No he pogut configurar SSH
+setup_err=No s'ha pogut configurar SSH
 
 auths_title=Claus Autoritzades
 auths_desc=Aquesta pàgina llista les claus públiques SSH que es poden utilitzar per entrar en aquest servidor, sense donar cap contrasenya.
@@ -34,7 +34,7 @@ auth_noport=Permet el reenviament de ports
 auth_nox11=permet el reenviament X11
 auth_noagent=Permet el reenviament d'agents
 auth_nopty=Permet la ubicació de PTYs
-auth_err=No he pogut desar la clau autoritzada
+auth_err=No s'ha pogut desar la clau autoritzada
 auth_ename=Hi falta el nom de la clau o bé és invàlid
 auth_ebits=Hi falta el nombre de bits o bé és invàlid
 auth_eexp=Hi falta l'exponent de la clau o bé és invàlid
@@ -45,7 +45,7 @@ auth_dss=DSS
 auth_rsa=RSA
 
 knowns_title=Hosts Remots Coneguts
-knowns_desc=Aquesta pàgina llista les claus SSH conegudes dels servidors remots als quals has entrat, cosa que permet els programes client SSH de verificar que realment s'estan connectant a aquest host per a futures sessions.
+knowns_desc=Aquesta pàgina llista les claus SSH conegudes dels servidors remots als quals has entrat, cosa que permet als programes client SSH de verificar que realment s'estan connectant a aquest host per a futures sessions.
 knowns_hosts=Nom(s) de Host
 knowns_key=Text de la clau
 knowns_add=Afegeix un nou host conegut.
@@ -63,14 +63,14 @@ known_bits=Bits de la clau
 known_exp=Exponent de la clau
 known_key=Text de la clau
 known_comment=Comentari del host
-known_err=No he pogut desar el host conegut
+known_err=No s'ha pogut desar el host conegut
 known_ehosts=No has introduït cap nom de host
 known_type=Tipus de clau
 known_salt=Sal del nom de host
 known_hash=Hash del nom de host
 
 lkeys_title=Les Teves Claus SSH
-lkeys_desc=La teva clau privada SSH és emprada pels programes clients SSH per autenticar-te davant els hosts remots quan hi entres. Si canvies aquesta clau, també hauràs de canviar la teva clau d'autorització a tots els hosts remots on entris.
+lkeys_desc=La teva clau privada SSH és utilitzada pels programes clients SSH per autenticar-te davant els hosts remots quan hi entres. Si canvies aquesta clau, també hauràs de canviar la teva clau d'autorització a tots els hosts remots on entris.
 lkeys_type=Tipus de clau
 lkeys_private=Camí de la clau privada
 lkeys_public=Camí de la clau pública
@@ -87,9 +87,9 @@ ekey_egone=La clau ja no existeix!
 ekey_private1=Clau privada actual
 ekey_down=Descarrega les dades...
 ekey_private2=Puja la nova clau privada
-ekey_err=No he pogut desar la clau SSH
+ekey_err=No s'ha pogut desar la clau SSH
 ekey_eprivate=No has introduït les dades de la clau privada
-ekey_epublic=No he pogut generar la clau pública a partir de la nova clau privada!
+ekey_epublic=No s'ha pogut generar la clau pública a partir de la nova clau privada!
 
 keys_download=Descarrega Clau
 keys_downloadmsg=Fes clic sobre aquest botó per descarregar la teva clau privada SSH. Un cop baixada, es pot pujar a un altre servidor utilitzant aquesta pàgina.
@@ -97,13 +97,13 @@ keys_upload=Puja la Clau:
 keys_uploadmsg=Fes clic sobre aquest botó per pujar una nova clau privada SSH. Ha de set un fitxer de clau SSH 1.0 vàlid d'un altre servidor o compte.
 keys_desc2=La teva clau pública SSH no s'utilitza per a cap autenticació ni entrada remota en aquest servidor, però es pot copiar a la llista de claus autoritzades de qualsevol host al qual vulguis entrar. Si canvies la teva clau privada, també s'hauria d'actualitzar aquesta clau pública a partir de la mateixa font.
 keys_public=Clau pública SSH
-keys_perr=No he pogut desar la clau pública
+keys_perr=No s'ha pogut desar la clau pública
 keys_epublic=Hi falta el text de la clau pública
-keys_epubwrite=No he pogut gravar el fitxer de clau pública: $1
-keys_err=No he pogut desar la clau privada
+keys_epubwrite=No s'ha pogut escriure el fitxer de clau pública: $1
+keys_err=No s'ha pogut desar la clau privada
 keys_eprivate=No has seleccionat cap clau privada per pujar
 keys_eformat=No sembla que el fitxer pujat sigui una clau privada
-keys_epriwrite=No he pogut gravar el fitxer de clau privada: $1
+keys_epriwrite=No s'ha pogut escriure el fitxer de clau privada: $1
 
 hosts_title=Opcions del Host
 

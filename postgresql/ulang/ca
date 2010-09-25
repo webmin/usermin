@@ -1,7 +1,7 @@
 index_title=Base de Dades PostgreSQL
 index_esql=No s'ha trobat al sistema el programa client $1 de PostgreSQL. Pot ser que PostgreSQL no estigui instal·lat, o bé que la configuració del mòdul sigui incorrecta.
-index_elibrary=No he pogut executar el programa client $1 de PostgreSQL perquè no he trobat les llibreries compartides de Postgres.
-index_superuser=No he pogut executar el programa client <tt>psql</tt> de PostgreSQL. Pot ser que PostgreSQL no estigui instal·lat, o bé que la configuració del mòdul sigui incorrecta.
+index_elibrary=No s'ha pogut executar el programa client $1 de PostgreSQL perquè no s'han trobat les llibreries compartides de Postgres.
+index_superuser=No s'ha pogut executar el programa client <tt>psql</tt> de PostgreSQL. Pot ser que PostgreSQL no estigui instal·lat, o bé que la configuració del mòdul sigui incorrecta.
 index_nopass=Has d'introduir un usuari i una contrasenya de PostgreSQL per tal de poder-te connectar a la base de dades.
 
 login_epass=Usuari o contrasenya de PostgreSQL incorrecta

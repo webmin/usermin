@@ -54,3 +54,5 @@ Dramatically improved Usermin's search function, to include links to pages that 
 Dutch translation updates, thanks to Gandyman.
 ---- Changes since 1.430 ----
 Added a robots.txt file to block indexing of Usermin by search engines.
+---- Changes since 1.440 ----
+Catalan translation updates by Jaume Badiella.

@@ -51,6 +51,10 @@ print &ui_table_row($text{'search_status'},
 			     [ 1, $text{'view_mark1'} ],
 			     [ 2, $text{'view_mark2'} ] ]));
 
+# With attachments?
+print &ui_table_row($text{'search_attach'},
+	&ui_yesno_radio("attach", 0));
+
 # Limit on number of messages to search
 print &ui_table_row($text{'search_latest'},
 	&ui_opt_textbox("limit", $userconfig{'search_latest'}, 10,

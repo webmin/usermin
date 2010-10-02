@@ -129,9 +129,19 @@ else {
 		foreach $mail (@frv) {
 			$mail->{'folder'} = $sf;
 			}
+		if ($in{'attach'}) {
+			# Limit to those with an attachment
+			@attach = &mail_has_attachments(\@frv, $sf);
+			@newfrv = ( );
+			for($i=0; $i<@frv; $i++) {
+				push(@newfrv, $frv[$i]) if ($attach[$i]);
+				}
+			@frv = @newfrv;
+			}
 		push(@rv, @frv);
 		}
 	if ($statusmsg) {
+		# Limit by status (read, unread, special)
 		@rv = &filter_by_status(\@rv, $in{'status'});
 		}
 	$msg = $text{'search_msg4'};

@@ -1,0 +1,3 @@
+awl_deleteonedesc=Entfernen Sie alle Ihre aktuellen Auto-Whitelist-Eintr&#228;ge
+awl_title=Verwalten von Auto-Whitelist
+index_edb=Fehler beim Herstellen einer Verbindung mit der SpamAssassin Konfigurationsdatenbank : $1. Bitten Sie den Systemadministrator die Modul-Konfigurationseinstellungen zu &#252;berpr&#252;fen.

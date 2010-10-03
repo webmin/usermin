@@ -3,3 +3,4 @@ full_from=Zeige komplette Absender&#45;E&#45;Mail&#45;Adresse in der Spamliste a
 refresh=Aktualisiere die Spamliste alle X Sekunden,3,Nicht aktualisieren
 inbox=In welchen Ordner soll Nicht&#45;Spam verschoben werden,3,Posteingang
 search_body=Wenn Spam klassifiziert wird&#44; teste,1,1-Gesamte Nachricht,0-Nur Betreff und Absender&#45;E&#45;Mail&#45;Adresse
+max_awl=Maximale Anzahl der anzuzeigenden Auto-Whitelist-Eintr&#228;ge,0,5

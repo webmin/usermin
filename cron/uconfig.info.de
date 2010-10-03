@@ -1,0 +1,3 @@
+show_time=Zeige Job Zeitpl&#228;ne?,1,1-Ja,-Nein
+show_comment=Zeige Job Kommentare?,1,1-Ja,-Nein
+max_jobs=Maximale Cron Jobs anzuzeigen,3,Unbegrenzt

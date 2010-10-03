@@ -2,4 +2,3 @@ sizemode=Aplett&#45;Gr&#246;&#223;e,1,0-80x24 Zeichen (mit Standard&#45;Font),1-
 size=Benutzerdefinierte Breite x H&#246;he,0
 fontsize=Font&#45;Gr&#246;&#223;e in Punkten,3,Standard
 detach=Separater Fenster&#45;Modus,1,1-Ja,0-Nein
-applet=Auswahl des SSH&#45;applet,1,1-Neue Version (SSH 1 und 2),0-Alte Version (nur SSH 1)

@@ -1,6 +1,6 @@
 line0=Configuration files and programs,11
 local_cf=Users' SpamAssassin configuration file,0
-avail_icons=Icons available to users,13,white-Allowed and Denied Addresses,score-Spam Classification,report-Message Modification,user-Miscellaneous User Options,header-Header and Body Tests,setup-Setup Procmail For SpamAssassin,mail-Read Spam mail,razor-Razor setup,procmail-Change Procmail Delivery
+avail_icons=Icons available to users,13,white-Allowed and Denied Addresses,score-Spam Classification,report-Message Modification,user-Miscellaneous User Options,header-Header and Body Tests,setup-Setup Procmail For SpamAssassin,mail-Read Spam mail,razor-Razor setup,procmail-Change Procmail Delivery,awl-Manage Auto Whitelist
 warn_procmail=Warn users if SpamAssassin is not set up?,1,1-Yes,0-No
 index_spam=Build index for spam folder,1,1-Yes,0-No
 global_cf=System-wide SpamAssassin configuration file,0

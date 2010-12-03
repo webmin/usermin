@@ -35,7 +35,6 @@ if ($config{'passwd_cmd'} eq 'file') {
 		}
 	defined($idx) || &error($text{'change_euser'});
 
-
 	# Work out password encryption type
 	if ($config{'md5'} && !&check_md5()) {
 		$type = 1;

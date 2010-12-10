@@ -8,10 +8,10 @@ require './gnupg-lib.pl';
 
 if ($in{'mode'} == 0) {
 	# From uploaded file, saved to temp
-	$in{'key'} || &error($text{'import_ekey'});
+	$in{'upload'} || &error($text{'import_ekey'});
 	$temp = &transname();
 	open(TEMP, ">$temp");
-	print TEMP $in{'key'};
+	print TEMP $in{'upload'};
 	close(TEMP);
 	$out = `$gpgpath --import $temp 2>&1`;
 	unlink($temp);

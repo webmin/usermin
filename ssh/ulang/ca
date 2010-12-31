@@ -91,20 +91,6 @@ ekey_err=No s'ha pogut desar la clau SSH
 ekey_eprivate=No has introduït les dades de la clau privada
 ekey_epublic=No s'ha pogut generar la clau pública a partir de la nova clau privada!
 
-keys_download=Descarrega Clau
-keys_downloadmsg=Fes clic sobre aquest botó per descarregar la teva clau privada SSH. Un cop baixada, es pot pujar a un altre servidor utilitzant aquesta pàgina.
-keys_upload=Puja la Clau:
-keys_uploadmsg=Fes clic sobre aquest botó per pujar una nova clau privada SSH. Ha de set un fitxer de clau SSH 1.0 vàlid d'un altre servidor o compte.
-keys_desc2=La teva clau pública SSH no s'utilitza per a cap autenticació ni entrada remota en aquest servidor, però es pot copiar a la llista de claus autoritzades de qualsevol host al qual vulguis entrar. Si canvies la teva clau privada, també s'hauria d'actualitzar aquesta clau pública a partir de la mateixa font.
-keys_public=Clau pública SSH
-keys_perr=No s'ha pogut desar la clau pública
-keys_epublic=Hi falta el text de la clau pública
-keys_epubwrite=No s'ha pogut escriure el fitxer de clau pública: $1
-keys_err=No s'ha pogut desar la clau privada
-keys_eprivate=No has seleccionat cap clau privada per pujar
-keys_eformat=No sembla que el fitxer pujat sigui una clau privada
-keys_epriwrite=No s'ha pogut escriure el fitxer de clau privada: $1
-
 hosts_title=Opcions del Host
 
 hash_support=L'edició directa de les entrades hash (encara) no està suportada.

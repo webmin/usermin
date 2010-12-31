@@ -10,6 +10,6 @@ category=login
 usermin=1
 desc_el=Κέλυφος Εντολών
 longdesc=Run simple shell commands and see their output.
-desc_nl=Commando's uitvoeren
+desc_nl=Opdrachten uitvoeren
 desc_fr=Commande Shell
 desc_cz=Pψνkazovύ ψαdek

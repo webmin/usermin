@@ -1,0 +1,97 @@
+﻿index_title=SSH Configuratie
+index_setup=SSH is niet opgezet voor uw account. Klik op de knop hieronder om dit op te zetten, nadat u een optioneel extra SSH wachtwoord heeft ingevuld.
+index_sok2=Opzetten SSH Sleutels
+index_pass=Sleutel wachtwoord
+index_type=Sleutel type
+index_essh=De opdracht $1 is niet gevonden op uw systeem. Waarschijnlijk is SSH niet geïnstalleerd.
+index_return=SSH menu
+
+setup_err=Mislukt om SSH op te zetten
+
+auths_title=Geautoriseerde sleutels
+auths_desc=Op deze pagina ziet een een lijst met publieke SSH sleutels die kunnen worden gebruikt om in te loggen op deze server, zonder gebruik te maken van een wachtwoord.
+auths_name=Sleutel Naam
+auths_key=Sleutel Cijfers
+auths_none=Er zijn geen geautoriseerde sleutels geregistreerd.
+auths_add1=Nieuwe SSH 1 geautoriseerde sleutel toevoegen
+auths_add2=Nieuwe SSH 2 geautoriseerde sleutel toevoegen.
+auths_return=geautoriseerde sleutels
+
+auth_edit=Bewerk geautoriseerde sleutel
+auth_create=Geautoriseerde sleutel toevoegen
+auth_desc1=Met deze pagina kunt u een nieuwe geautoriseerde sleutels toevoegen, waardoor de eigenaar van deze sleutel op deze server kan inloggen op uw account. De sleutel details moeten komen van de publieke sleutel van de gebruiker die van u mag inloggen.
+auth_header1=SSH 1 geautoriseerde sleutel details en opties
+auth_header2=SSH 2 geautoriseerde sleutel details en opties
+auth_name=Sleutel naam
+auth_bits=Sleutel bits
+auth_exp=Sleutel onderdeel
+auth_key=Sleutel cijfers
+auth_from=Inloggen van hosts toestaan
+auth_from_all=Alle hosts
+auth_from_sel=Alleen hosts in de lijst ..
+auth_command=Alleen uitvoeren van een opdracht toestaan
+auth_noport=Poort doorsturen toestaan?
+auth_nox11=X11 doorsturen toestaan?
+auth_noagent=Agent doorsturen toestaan?
+auth_nopty=PTY toewijzen toestaan?
+auth_err=Mislukt om geautoriseerde sleutel op te slaan
+auth_ename=Ontbrekende of ongeldige sleutel naam
+auth_ebits= Ontbrekende of ongeldige aantal sleutel bits
+auth_eexp= Ontbrekende of ongeldige sleutel exponent
+auth_ekey= Ontbrekende of ongeldige sleutel cijfers
+auth_ekey2= Ontbrekende of ongeldige sleutel tekst of cijfers
+auth_keytype=SSH sleutel type
+auth_dss=DSS
+auth_rsa=RSA
+
+knowns_title=Bekende Remote Hosts
+knowns_desc=Op deze pagina ziet u een lijst met bekende SSH sleutels van remote servers waar u was ingelogd, hiermee kunnen SSH cliënt programma's verifiëren dat zij werkelijk zijn verbonden bij de betreffende host in toekomstige sessies.
+knowns_hosts=Host Naam(en)
+knowns_key=Sleutel string
+knowns_add=Voeg een nieuwe bekende host toe.
+knowns_none=Er zijn geen  remote hosts geregistreerd.
+knowns_return=bekende remote hosts
+knowns_delete=Verwijder Geselecteerde Bekende Hosts
+knowns_type=Sleutel type
+
+known_edit=Bewerk Bekende Host
+known_create=Toevoegen Bekende Host
+known_desc1=Op deze pagina kunt u een publieke sleutel toevoegen voor een remote host waar u wilt inloggen met SSH, zodat verbindingen naar die host niet kunnen worden onderschept. Dit gebeurd dan ook automatisch zodra u voor de eerste keer inlogt bij een remote host.
+known_header=Bekende remote host details
+known_hosts=Host namen / IP adressen
+known_bits=Sleutel bits
+known_exp=Sleutel exponent
+known_key=Sleutel string
+known_comment=Host commentaar
+known_err=Mislukt om bekende host op te slaan
+known_ehosts=Geen host naam ingevuld
+known_type=Sleutel type
+known_salt=Hostnaam salt
+known_hash=Hostnaam hash
+
+lkeys_title=Uw SSH Sleutels
+lkeys_desc=Uw SSH private sleutel is gebruikt door de SSH cliënt programma's voor authenticatie bij remote servers tijdens het inloggen. Zodra een sleutel is gewijzigd moet u de geautoriseerde sleutel op alle remote host wijzigen om nog te kunnen inloggen.
+lkeys_type=Sleutel type
+lkeys_private=Private sleutel pad
+lkeys_public=Publieke sleutel pad
+lkeys_new=Gebruik dit formulier om een nieuwe sleutel te genereren welke u nog niet heeft.
+lkeys_sok2=Genereer SSH Sleutel
+lkeys_return=SSH sleutel lijst
+
+ekey_title=SSH Sleutel Details
+ekey_header=SSH sleutel componenten
+ekey_private=Privé sleutel tekst
+ekey_public=Publieke sleutel tekst
+ekey_save=Update Privé Sleutel
+ekey_egone=Sleutel bestaat niet meer!
+ekey_private1=Huidige private sleutel
+ekey_down=Download data..
+ekey_private2=Upload nieuwe private sleutel
+ekey_err=Mislukt om SSH sleutel op te slaan
+ekey_eprivate=Geen private sleutel data ingevuld
+ekey_epublic=Mislukt om publieke sleutel te genereren van nieuwe privé sleutel!
+
+hosts_title=Host Opties
+
+hash_support=Direct bewerken van hashed ingangen word (nog) niet ondersteund..
+

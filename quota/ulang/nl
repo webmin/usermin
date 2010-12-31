@@ -1,0 +1,4 @@
+﻿index_title=Disk Quota's
+index_quotas=Disk quota's voor $1 op ge-mount filesysteem
+index_none=U heeft nog geen gebruikers disk quota's op een ge-mount filesysteem.
+index_gquotas=Disk quota's voor groep $1 op ge-mount filesysteem

@@ -1,0 +1,12 @@
+mysqlshow=Pad naar mysqlshow opdracht,0
+mysqladmin=Pad naar mysqladmin opdracht,0
+mysql=Pad naar mysql opdracht,0
+mysqldump=Pad naar mysqldump opdracht,0
+mysqlimport=Pad naar mysqlimporteer opdracht,0
+start_cmd=Opdracht om de MySQL server te starten,0
+stop_cmd=Opdracht om de MySQL server te stoppen,3,Automatisch
+mysql_libs=Pad naar MySQL gedeelde bibliotheken directory,3,Geen
+host=MySQL host om mee te verbinden,3,Localhost
+sock=MySQL socket file,3,Standaard
+nodbi=Gebruik DBI om te verbinden indien beschikbaar?,1,0-Ja,1-Nee
+access=Database toegang controle lijst&#44;<br>in <tt>gebruikersnaam: db1 db2</tt> formaat.<br>MySQL permissies ook toevoegen,9,0,0,\t

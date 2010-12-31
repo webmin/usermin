@@ -1,0 +1,10 @@
+nodbi=Gebruik DBI om te verbinden indien beschikbaar?,1,0-Ja,1-Nee
+psql=Pad naar psql opdracht,0
+plib=Pad naar PostgreSQL gedeelde bibliotheken,3,Niet nodig
+basedb=Primaire PostgreSQL database,0
+host=PostgreSQL host om naar te verbinden,3,localhost
+port=PostgreSQL poort om naar te verbinden,3,Standaard
+dump_cmd=Pad naar pg_dump opdracht,0
+rstr_cmd=Pad naar pg_restore opdracht,0
+access=Database toegang controle lijst&#44;<br>in <tt>gebruikersnaam: db1 db2</tt> formaat.<br>MySQL permissies ook toevoegen,9,0,0,\t
+access_own=Alleen databases laten zien die in bezit van de gebruiker zijn?,1,1-Ja,0-Nee

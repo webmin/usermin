@@ -1,0 +1,219 @@
+index_title=GnuPG Versleuteling
+index_setupdesc=GnuPG is nog niet opgezet in uw account. Gebruik het formulier hieronder om een nieuwe GnuPG prive sleutel te genereren, welke u nodig heeft voor versleuteling en ondertekening.
+index_name=Uw naam
+index_email=Email adres
+index_comment=Sleutel commentaar
+index_size=Sleutel grote
+index_pass=Passphrase
+index_setup=Setup GnuPG
+index_return=GnuPG index
+index_egpg=De GnuPG opdracht $1 is niet gevonden op uw systeem. Misschien is het niet geinstalleerd.
+
+setup_err=Mislukt om GnuPG op te zetten
+setup_ename=Ontbrekende naam voor sleutel
+setup_enamelen=Naam voor sleutel moet op zijn minst $1 karakters lang zijn
+setup_eemail=Ontbrekend email adres voor sleutel
+setup_title=Setup GnuPG
+setup_ok=GnuPG is succesvol opgezet en er is een geheime sleutel gegenereerd.
+setup_failed=Geheime sleutel maken is mislukt : $1
+setup_emkdir=Een .gnupg directory aanmaken is mislukt : $1
+
+keys_title=Beheer Sleutels
+keys_desc=Op deze pagina ziet u de lijst met alle publieke sleutels die in uw GnuPG sleutel ring zitten. Deze zijn nodig om een file voor iemand te ontsleutelen, u moet hun publieke sleutel importeren zodat het op deze pagina verschijnt.
+keys_id=Sleutel ID
+keys_secret=Geheime sleutel?
+keys_date=Datum gemaakt
+keys_name=Eigenaars naam
+keys_email=Eigenaars email
+keys_importdesc=Indien een andermans GnuPG gebruiker sleutel aan u is gegeven in een file, moet u dit formulier gebruiken om het te importeren in uw lijst met sleutels.
+keys_import=Importeer Sleutel
+keys_recvdesc=Sleutel kunnen ook opgehaald worden van de sleutelserver $1 indien u de ID weet van de sleutel die u wilt hebben.
+keys_recv=Sleutel ID ophalen van de sleutelserver:
+keys_return=lijst met sleutels
+keys_from=Importeer sleutel van
+keys_mode0=Geuploade file
+keys_mode1=File op server
+keys_delete=Verwijder Geselecteerde Sleutels
+keys_tablist=Sleutel lijst
+keys_tabimport=Importeer sleutel
+keys_tabrecv=Sleutel ophalen
+keys_tabsearch=Zoek een sleutelserver
+keys_searchclick=Klik op een sleutel ID hieronder om het te importeren naar uw sleutelring ..
+keys_search=Zoek sleutels overeenkomend met :
+keys_searchok=Zoeken
+keys_searchnone=Er zijn geen sleutels gevonden die overeenkwamen.
+keys_searchdesc=Met deze pagina kunt u zoeken op de GPG sleutelserver $1 op naam of email adres, en gevonden sleutels importeren.
+keys_status=Status
+
+import_err=Sleutel importeren mislukt
+import_ekey=Geen sleutel file geselecteerd
+import_egpg=GnuPG mislukt : $1
+import_efile=Ontbrekende of ongeldige sleutel file
+import_etext=Geen sleutel tekst ingevuld
+
+key_title=Publieke Sleutel Details
+key_header=Sleutel Details
+key_id=Sleutel ID
+key_date=Datum gemaakt
+key_owner=Eigenaar details
+key_oname=Naam en commentaar
+key_oemail=Email adres
+key_addowner=Toevoegen
+key_finger=Sleutel vingerprint
+key_ascii=Sleutel in ascii formaat
+key_sign=Onderteken sleutel
+key_signdesc=Onderteken deze sleutel om aan te geven dat u de eigenaar gecontroleerd heeft.
+key_exportform=Exporteer Sleutel
+key_exportformdesc=Exporteer deze sleutel naar een file om het later te importeren in een ander systeem, of om de publieke sleutel naar iemand anders te versturen.
+key_desc=Deze pagina laat de alle details zien van 1 van de sleutels uit uw sleutelring. Indien u de sleutel aan iemand anders wilt geven zodat zij een file kunnen ontsleutelen moet u de knoppen aan de anderkant van deze pagina gebruiken om de sleutel naar een file te exporteren.
+key_send=Verstuur naar Sleutelserver
+key_senddesc=Verstuur deze sleutel naar een server zodat het automatisch kan worden gedownload door anderen die uw ondertekening willen controleren.
+key_changepass=Verander passphrase naar
+key_setpass=Zet passphrase naar
+key_passdesc=Op deze sleutel is nog geen passphrase gezet, dus u moet er hier 1 zetten.
+key_passdesc2=Op deze sleutel is reeds een passphrase gezet, dus u hoeft het waarschijnlijk niet te veranderen.
+key_trust=Vertrouwd sleutel niveau
+key_trust_0=Nog niet gezet
+key_trust_1=Vertrouwd niveau is onbekend
+key_trust_2=Niet vertrouwd
+key_trust_3=Klein beetje vertrouwd
+key_trust_4=Volledig vertrouwd
+key_changetrust=Verander
+key_del=Verwijder sleutel
+key_deldesc=Verwijder deze sleutel van uw systeem, waarmee u voorkomt dat het gebruikt word voor ondertekening, versleutelen of ontsleutelen.
+key_revoked=<font color=red>Intrekken</font>
+key_got=<font color=#00aa00>Geimporteerd</font>
+key_miss=Beschikbaar
+
+encrypt_title=Versleutel File
+encrypt_desc=Gebruik deze pagina om een file met GnuPG te versleutelen en kies een publieke sleutel. Eenmaal versleuteld, zal de file alleen maar ontsleuteld kunnen worden door de eigenaar met de overeenkomende sleutel.
+encrypt_mode=File om te ontsleutelen
+encrypt_mode0=Ge-uploade file
+encrypt_mode1=Locale file
+encrypt_mode2=Inhoud van tekst box
+encrypt_key=Gebruik een publieke sleutel
+encrypt_ascii=Versleutelen naar een ASCII file?
+encrypt_ok=Versleutel Nu
+encrypt_err=File versleutelen mislukt
+encrypt_eupload=Geen file gekozen om te versleutelen
+encrypt_elocal=Geselecteerde file bestaat niet of is niet leesbaar
+encrypt_egpg=GnuPG mislukt : $1
+
+decrypt_title=Ontsleutel File
+decrypt_desc=Gebruik deze pagina om een file te ontsleutelen die is versleuteld met uw publieke sleutel, of door uwzelf of door iemand die uw sleutel heeft.
+decrypt_mode=File om te ontsleutelen
+decrypt_mode0=Ge-uploade file
+decrypt_mode1=Locale file
+decrypt_mode2=Inhoud van de tekst box
+decrypt_pass=Passphrase voor prive sleutel
+decrypt_ok=Ontsleutel Nu
+decrypt_def=Huidige passphrase
+decrypt_err=Mislukt om file te ontsleutelen
+decrypt_eupload=Geen file geselecteerd om te ontsleutelen
+decrypt_elocal=Geselecteerde file bestaat niet of is niet leesbaar
+decrypt_egpg=GnuPG mislukt : $1
+
+sign_title=Onderteken File
+sign_desc=Gebruik deze pagina om een file te ondertekenen zodat u dit achteraf kunt verifieren en dat het niet in de tussentijd verandert is sinds de laatste ondertekening.
+sign_mode=File om te ondertekenen
+sign_mode0=Ge-uploade file
+sign_mode1=Locale file
+sign_mode2=Inhoud van de tekst box
+sign_key=Onderteken met geheime sleutel
+sign_ascii=Ondertekening als tekst toevoegen aan het einde van de?
+sign_ok=Onderteken Nu
+sign_err=File ondertekenen is mislukt
+sign_eupload=Geen file geselecteerd om te ondertekenen
+sign_elocal=Geselecteerde file bestaat niet of is niet leesbaar
+sign_egpg=GnuPG mislukt : $1
+sign_epass=Er is geen passphrase gezet voor de gekozen sleutel
+sign_sep=Alleen vrijgekomen ondertekening terug geven?
+
+verify_title=Verifieer Ondergetekende File
+verify_desc=Gebruik deze pagina om een file te verifieren die is ondertekend met GnuPG, om te controleren dat het niet is gewijzigd en uit te zoeken wie het ondertekend heeft. Indien de originele data wilt uitpakken van een van een ondertekende binare , moet u de <a href='$1'>ontsleutel pagina</a> gebruiken.
+verify_mode=File om te verifieren
+verify_mode0=Ge-uploade file
+verify_mode1=Locale file
+verify_sig=Ondertekening van de file
+verify_mode2=Geen (onderdeel van de ondertekende file)
+verify_mode3=Inhoud van de tekst box
+verify_ok=Verifieer Nu
+verify_err=Mislukt om de file te verifieren
+verify_eupload=Geen file geselecteerd om te verifieren
+verify_elocal=Geselecteerde file bestaat niet of is niet leesbaar
+verify_esigupload=Er is geen ondertekende file geselecteerd
+verify_esiglocal=Ondertekende file bestaat niet of is niet leesbaar
+verify_egpg=GnuPG mislukt : $1
+verify_good=File heeft een geldige ondertekening van $1.
+verify_bad=File heeft een ondertekening van $1, maar die is niet geldig.
+verify_noid=Publieke sleutel met ID $1 is niet beschikbaar voor verificatie.
+verify_failed=Mislukt om ondertekening te verificeren : $1
+verify_warning=Waarschuwing - Deze sleutel is niet gecontroleerd en ondertekend vanuit uw sleutel management pagina.
+
+signkey_title=Onderteken Sleutel
+signkey_confirm=Weet u zeker dat u de sleutel wilt ondertekenen die behoort aan $1 $2 ? Dit geeft aan dat u gecontroleerd heeft dat de sleutel geldig is door de vingerafdruk ( $3 ) te controleren met de eigenaar.
+signkey_failed=Mislukt om de sleutel te ondertekenen die behoort aan $1 : $2
+signkey_success=Succesvol de sleutel ondertekend die behoort aan $1.
+signkey_already=Key belonging to $1 has already been signed.
+signkey_trustlevel=Ondertekend met betrouwbaarheids niveau
+signkey_trust0=Geen antwoord
+signkey_trust1=Niet gecontroleerd
+signkey_trust2=Normaal gecontroleerd
+signkey_trust3=Voorzichtig gecontroleerd
+
+send_title=Verstuurd naar sleutelserver
+send_desc=Verstuur sleutel $1 naar sleutelserver $2 ..
+send_failed=Mislukt om sleutel te versturen : $1
+send_success=Sleutel succesvol toegevoegd. Voor andere GnuPG gebruikers is het nu mogelijk om uw publieke sleutel op te halen voor het verzenden van email en versleutelde files.
+
+recv_title=Ophalen Van Sleutelserver
+recv_desc=Sleutel ID $1 ophalen van sleutelserver $2 ..
+recv_failed=Ophalen van sleutel mislukt : $1
+recv_same=U heeft reed de sleutel van $1.
+recv_success=Succesvol de sleutel geimporteerd van $1.
+
+secret_title=Geheime Sleutel Toevoegen
+secret_desc=Gebruik deze pagina om een extra geheime sleutel te genereren die kan worden gebruikt voor ondertekening en versleuteling.
+secret_err=Geheime sleutel toevoegen mislukt
+secret_ok=Er is succesvol een nieuwe sleutel genereerd.
+secret_name=Nieuwe sleutel naam
+secret_setup=Maak Nieuwe Sleutel
+
+gnupg_esignpass=Er is geen passphrase gezet om de sleutel te ondertekenen
+gnupg_ecryptid=Versleutelen van de geheime sleutel is niet beschikbaar
+gnupg_ecryptkey=Versleutelen van de geheime sleutel met ID $1 is niet beschikbaar
+gnupg_ecryptpass=Er is geen passphrase gezet voor de geheime sleutel $1
+gnupg_canset=Om een passphrase te zetten voor een bestaande sleutel, moet u kijken op de <a href='$1'>sleutel details pagina</a>
+
+trust_title=Vertrouwd Niveau Bepalen
+trust_echoice=U moet een vertrouwd niveau kiezen, niet 'Nog niet gezet'.
+trust_done=Succesvol vertrouwd niveau gezet voor sleutel $1.
+
+owner_err1=Mislukt om eigenaar toe te voegen
+owner_ename=Geen naam ingevuld
+owner_err2=Mislukt om eigenaar te verwijderen
+owner_elast=U kunt niet de laatste eigenaar details verwijderen
+
+delkey_title=Verwijder Sleutel
+delkey_rusure=Weet u zker dat u de geheime sleutel $1 $2 wilt verwijderen? Alle files of email die versleuteld zijn met deze sleutel kunnen nooit meer ontsleuteld worden!
+delkey_ok=Ja, Verwijder het
+
+delkeys_err=Sleutels verwijderen is mislukt
+delkeys_enone=Niets geselecteerd
+
+export_title=Exporteer Sleutel
+export_desc=Met deze pagina kunt u de sleutel $1 $2 van uw sleutelring exporteren, naar een file of om te downloaden met uw browser.
+export_to=Export mode
+export_mode0=Laat zien in browser
+export_mode1=Opslaan naar file/directory
+export_format=Export formaat
+export_ascii=ASCII tekst
+export_binary=Binary
+export_smode=Sleutel om te exporteren
+export_secret=Volledig geheime en publieke sleutel
+export_public=Alleen publieke sleutel
+export_ok=Exporteer Nu
+export_err=Exporteren van sleutel is mislukt
+export_efile=Geen file of directory ingevuld
+export_done=Sleutel is succesvol opgeslagen naar file $1.
+

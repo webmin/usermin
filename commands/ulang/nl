@@ -1,0 +1,2 @@
+index_nodir=De Webmin handmatige opdrachten directory $1 is niet gevonden op uw systeem. Voor deze module is het nodig dat Webmin is geinstalleerd zodat die gebruikt kan worden om de opdrachten te definieren.
+index_none=Er zijn nog geen handmatige opdrachten gedefinieerd of gemaakt in Webmin zodat ze beschikbaar zijn om uitgevoerd te worden in Usermin.

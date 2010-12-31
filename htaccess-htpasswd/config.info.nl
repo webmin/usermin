@@ -1,0 +1,10 @@
+htaccess=Apache optie file naam,0
+htpasswd=Gebruikers file naam,0
+htgroups=Groepen file naam,0
+can_htpasswd=Kiezen van gebruikers file toestaan?,1,1-Ja,0-Nee
+can_htgroups=Maken van groepen file toestaan?,1,1-Ja,0-Nee
+dirs=Toegestane directories voor optie files,9,0,0,\t
+home=Voeg de home directory toe in de toegestane lijst?,1,1-Ja,0-Nee
+extra_directives=Extra richtlijnen om toe te voegen aan .htaccess,9,0,0,\t
+nocreate=Mag beschermde directories toevoegen en bewerken?,1,0-Ja,1-Nee
+perms=Permissies voor aanmaken van files,3,Standaard (644)

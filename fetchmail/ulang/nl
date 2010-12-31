@@ -1,0 +1,5 @@
+index_efetchmail=Het fetchmail programma $1 is niet gevonden op uw systeem.
+index_noservers=Er zijn nog geen servers geconfigureerd om mail vanaf te halen.
+index_stopmsg=Klik op deze knop om de fetchmail daemon te stoppen die op dit moment automatisch iedere $1 seconden de mail controleerd.
+index_startmsg=Klik op deze knop om de fetchmail daemon te starten op deze server, en laat hem iedere $1 seconden de mail controleren, met gebruik van de configuratie hierboven.
+index_none=Er zijn geen mail servers gedefinieerd om mail van te controleren.

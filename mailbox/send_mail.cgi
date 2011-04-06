@@ -390,8 +390,9 @@ if ($draft) {
 	$qerr = &would_exceed_quota($dfolder, $mail);
 	&error($qerr) if ($qerr);
 	&lock_folder($dfolder);
-	if ($in{'enew'} && $folder->{'drafts'}) {
-		# Update existing draft mail
+	if ($in{'enew'} && $folder->{'drafts'} &&
+	    $folder->{'type'} != 2 && $folder->{'type'} != 4) {
+		# Update existing draft mail (unless on IMAP)
 		($dsortfield, $dsortdir) = &get_sort_field($dfolder);
 		$oldmail = &mailbox_get_mail($folder, $in{'id'}, 0);
 		$oldmail || &error($text{'view_egone'});

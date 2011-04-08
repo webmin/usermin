@@ -45,9 +45,8 @@ if ($config{'passwd_cmd'} eq 'file') {
 
 	# Validate old password
 	$oldpass = $line[$miniserv{'passwd_pindex'}];
-	&unix_crypt($in{'old'}, $oldpass) eq $oldpass ||
-	    $type == 1 && &encrypt_md5($in{'old'}, $oldpass) eq $oldpass ||
-			&error($text{'change_eold'});
+	&validate_password($in{'old'}, $oldpass) ||
+		&error($text{'change_eold'});
 
 	# Set new password and save file
 	if ($type == 0) {

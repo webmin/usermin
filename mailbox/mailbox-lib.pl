@@ -1338,13 +1338,21 @@ if ($config{'from_map'} && $remote_user !~ /\@/) {
 			push(@mfroms, $2);
 			}
 		elsif (/^\s*(\S+)\s+(\S+)/ &&
-		    ($2 eq $remote_user || &indexof($2, @froms) >= 0) &&
-		    $config{'from_format'} == 1) {
+		       ($2 eq $remote_user || &indexof($2, @froms) >= 0) &&
+		       $config{'from_format'} == 1) {
 			# Username on RHS matches
 			push(@mfroms, $1);
 			}
 		}
 	close(MAP);
+
+	# Prefer email where mailbox matches username
+	@mfroms = sort { my ($abox, $adom) = split(/\@/, $a);
+			 my ($bbox, $bdom) = split(/\@/, $b);
+			 $remote_user =~ /\Q$abox\E/ &&
+			  $remote_user !~ /\Q$bbox\E/ ? -1 :
+			 $remote_user !~ /\Q$abox\E/ &&
+			  $remote_user =~ /\Q$bbox\E/ ? 1 : 0 } @mfroms;
 	}
 if (@mfroms > 0) {
 	# Got some results from mapping file .. use them

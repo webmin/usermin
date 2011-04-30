@@ -1,6 +1,6 @@
 line0=Fitxers de configuració i programes,11
 local_cf=Fitxer de configuració de SpamAssassin d'usuaris,0
-avail_icons=Icones disponibles per als usuaris,13,white-Adreces Permeses i Denegades,score-Classificació de Spam,report-Modificació de Missatges,user-Opcions Miscel·lànies d'Usuari,header-Tests de Capçaleres i Cos,setup-Configuració de Procmail per a SpamAssassin,mail-Lectura de Correu Spam,razor-Configuració de Razor,procmail-Canvi del Lliurament Procmail
+avail_icons=Icones disponibles per als usuaris,13,white-Adreces Permeses i Denegades,score-Classificació de Spam,report-Modificació de Missatges,user-Opcions Miscel·lànies d'Usuari,header-Tests de Capçaleres i Cos,setup-Configuració de Procmail per a SpamAssassin,mail-Lectura de Correu Spam,razor-Configuració de Razor,procmail-Canvi del Lliurament Procmail,awl-Gestió de Llista Blanca Automàtica
 warn_procmail=Avisa els usuaris si SpamAssassin no està configurat,1,1-Sí,0-No
 index_spam=Construeix un índex per a la carpeta de spam,1,1-Sí,0-No
 global_cf=Fitxer global de configuració de SpamAssassin,0

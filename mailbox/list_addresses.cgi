@@ -81,7 +81,7 @@ if (@addrs || $in{'add'}) {
 		print "<td width=5%><a name=adding></td>\n";
 		print "<td width=40%><input name=addr size=30></td>\n";
 		print "<td width=40%><input name=name size=30></td>\n";
-		print &from_sel() if ($config{'edit_from'});
+		&from_sel() if ($config{'edit_from'});
 		print "<td><input type=submit value='$text{'save'}'></td>\n";
 		print "</tr>\n";
 		}

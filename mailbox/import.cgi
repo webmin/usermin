@@ -44,7 +44,6 @@ else {
 	$cards = Net::vCard->loadFile($temp);
 	&unlink_file($temp);
 	foreach $card (@$cards) {
-		next if (!$card->{'EMAIL'}->{'internet'});
 		my $n = $card->givenName;
 		$n .= " " if ($n);
 		$n .= $card->familyName;
@@ -64,7 +63,15 @@ print &ui_columns_start([ $text{'address_addr'}, $text{'address_name'},
 			  $text{'import_action'} ], 100);
 foreach $a (@addrs) {
 	$o = $old{lc($a->[0])};
-	if (!$o) {
+	$a->[0] =~ s/^\s+//; $a->[0] =~ s/\s+$//;
+	$a->[1] =~ s/^\s+//; $a->[1] =~ s/\s+$//;
+	if ($a->[2] !~ /^\S+\@\S+$/) {
+		# Invalid email
+		print &ui_columns_row([ &html_escape($a->[0]),
+					&html_escape($a->[1]),
+					$text{'import_noemail'} ]);
+		}
+	elsif (!$o) {
 		# Missing, need to add
 		print &ui_columns_row([ &html_escape($a->[0]),
 					&html_escape($a->[1]),

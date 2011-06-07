@@ -63,6 +63,7 @@ import_action=Action taken
 import_add=<font color=green>Added to address book</font>
 import_update=<font color=orange>Real name updated</font>
 import_readonly=<font color=red>Global entry, skipped</font>
+import_noemail=<font color=red>Missing or invalid email address</font>
 import_same=Unchanged, skipped
 import_skip=Duplicated address, skipped
 import_enetvcard=The <tt>Net::vCard</tt> Perl module is needed to read vCard format files

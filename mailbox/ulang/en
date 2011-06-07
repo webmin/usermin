@@ -39,6 +39,33 @@ address_allow=Allowed addresses
 address_deny=Denied addresses
 address_allowdesc=Email from the following addresses will always be accepted, and never classified as spam.
 address_denydesc=Email from the following addresses will always be classified as spam, and either placed into your spam folder or deleted.
+address_import=Import addresses
+address_importdesc=This form allows you to add addresses to Usermin from a file, typically exported from another mail client or contacts manager.
+address_importsrc=Import addresses from
+address_importsrc0=Uploaded file
+address_importsrc1=Pasted text
+address_importfmt=Source format
+address_importcsv=CSV (email, real name)
+address_importvcard=vCard
+address_importdup=Duplicate address handling
+address_importdup0=Ignore
+address_importdup1=Update name
+address_importok=Import Now
+address_return=address book
+
+import_err=Failed to import addresses
+import_title=Import Address Book
+import_doing=Results of address book import ..
+import_eupload=No file selected
+import_epaste=No addresses entered
+import_enone=Selected file does not contain any valid addresses
+import_action=Action taken
+import_add=<font color=green>Added to address book</font>
+import_update=<font color=orange>Real name updated</font>
+import_readonly=<font color=red>Global entry, skipped</font>
+import_same=Unchanged, skipped
+import_skip=Duplicated address, skipped
+import_enetvcard=The <tt>Net::vCard</tt> Perl module is needed to read vCard format files
 
 group_err=Failed to save address group
 group_egroup=Missing or invalid group name

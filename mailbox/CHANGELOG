@@ -150,3 +150,5 @@ Added a preferences page option for setting the default GPG signing key, and ena
 When sending encrypted email using the recipient's key, it will be automatically fetched from a keyserver if not already in your keyring.
 ---- Changes since 1.450 ----
 Added an option to the Advanced Search page to limit results to messages with attachments.
+---- Changes since 1.470 ----
+Added vCard and CSV import support to the address book page, thanks to Eric Holtzman.

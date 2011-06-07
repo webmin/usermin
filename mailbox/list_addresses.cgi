@@ -15,6 +15,7 @@ if (&foreign_installed("spam")) {
 		}
 	push(@tabs, [ "deny", $text{'address_deny'}, $prog."deny" ]);
 	}
+push(@tabs, [ "import", $text{'address_import'}, $prog."import" ]);
 
 # Start tabs for users and groups, and maybe spam addresses
 print &ui_tabs_start(\@tabs, "mode", $in{'mode'} || "users", 1);
@@ -197,6 +198,35 @@ if (&foreign_installed("spam")) {
 		print &ui_tabs_end_tab();
 		}
 	}
+
+# Show import tab
+print &ui_tabs_start_tab("mode", "import");
+
+print $text{'address_importdesc'},"<p>\n";
+print &ui_form_start("import.cgi", "form-data");
+print &ui_table_start(undef, undef, 2);
+
+# Import source
+print &ui_table_row($text{'address_importsrc'},
+	&ui_radio_table("src", 0,
+		[ [ 0, $text{'address_importsrc0'}, &ui_upload("upload") ],
+		  [ 1, $text{'address_importsrc1'},
+		    &ui_textarea("paste", undef, 5, 60) ] ]));
+
+# Import format
+print &ui_table_row($text{'address_importfmt'},
+	&ui_radio("fmt", "csv", [ [ 'csv', $text{'address_importcsv'} ],
+				  [ 'vcard', $text{'address_importvcard'} ] ]));
+
+# Duplicate handling
+print &ui_table_row($text{'address_importdup'},
+	&ui_radio("dup", 0, [ [ 0, $text{'address_importdup0'} ],
+			      [ 1, $text{'address_importdup1'} ] ]));
+
+print &ui_table_end();
+print &ui_form_end([ [ undef, $text{'address_importok'} ] ]);
+
+print &ui_tabs_end_tab();
 
 print &ui_tabs_end(1);
 &ui_print_footer("", $text{'mail_return'});

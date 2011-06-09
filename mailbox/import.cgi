@@ -65,7 +65,7 @@ foreach $a (@addrs) {
 	$o = $old{lc($a->[0])};
 	$a->[0] =~ s/^\s+//; $a->[0] =~ s/\s+$//;
 	$a->[1] =~ s/^\s+//; $a->[1] =~ s/\s+$//;
-	if ($a->[2] !~ /^\S+\@\S+$/) {
+	if ($a->[1] !~ /^\S+\@\S+$/) {
 		# Invalid email
 		print &ui_columns_row([ &html_escape($a->[0]),
 					&html_escape($a->[1]),

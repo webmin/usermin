@@ -48,7 +48,7 @@ else {
 		$n .= " " if ($n);
 		$n .= $card->familyName;
 		next if (!$n);
-		push(@addrs, [ $n, $card->{'EMAIL'}->{'internet'}, 0 ]);
+		push(@addrs, [ $card->{'EMAIL'}->{'internet'}, $n, 0 ]);
 		}
 	}
 @addrs || &error($text{'import_enone'});
@@ -65,7 +65,7 @@ foreach $a (@addrs) {
 	$o = $old{lc($a->[0])};
 	$a->[0] =~ s/^\s+//; $a->[0] =~ s/\s+$//;
 	$a->[1] =~ s/^\s+//; $a->[1] =~ s/\s+$//;
-	if ($a->[1] !~ /^\S+\@\S+$/) {
+	if ($a->[0] !~ /^\S+\@\S+$/) {
 		# Invalid email
 		print &ui_columns_row([ &html_escape($a->[0]),
 					&html_escape($a->[1]),

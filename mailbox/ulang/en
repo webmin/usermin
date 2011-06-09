@@ -44,6 +44,7 @@ address_importdesc=This form allows you to add addresses to Usermin from a file,
 address_importsrc=Import addresses from
 address_importsrc0=Uploaded file
 address_importsrc1=Pasted text
+address_importformat=Text should be in <tt>email@domain.com,Real Name</tt> format
 address_importfmt=Source format
 address_importcsv=CSV (email, real name)
 address_importvcard=vCard

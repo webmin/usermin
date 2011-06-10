@@ -229,7 +229,8 @@ if ($config{'mysql'} && &foreign_check("mysql")) {
 			# Worked! Save in MySQL config too
 			$mysql_ok = 1;
 			$mysql::userconfig{'pass'} = $in{'new1'};
-			&mysql::save_user_module_config();
+			&mysql::save_user_module_config(
+				\&mysql::userconfig, "mysql");
 			}
 		}
 	elsif ($myr == -1) {

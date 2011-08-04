@@ -883,15 +883,25 @@ if (&has_command("ispell") && !$userconfig{'nospell'}) {
 print &ui_table_end();
 print &ui_hidden("html_edit", $html_edit);
 
-# Display forwarded attachments
+# Display forwarded attachments - but exclude those referenced in the body,
+# as they get included automatically
 $viewurl = "view_mail.cgi?id=".&urlize($in{'id'}).
 	   "&folder=$folder->{'index'}$subs";
 $detachurl = "detach.cgi?id=".&urlize($in{'id'}).
 	     "&folder=$folder->{'index'}$subs";
 $mailurl = "view_mail.cgi?folder=$folder->{'index'}$subs";
 if (@attach) {
-	&attachments_table(\@attach, $folder, $viewurl, $detachurl,
+	@non_body_attach = &remove_cid_attachments($mail, \@attach);
+	}
+if (@non_body_attach) {
+	&attachments_table(\@non_body_attach, $folder, $viewurl, $detachurl,
 			   $mailurl, 'id', "forward");
+	}
+foreach $a (@attach) {
+	if (&indexof($a, @non_body_attach) < 0) {
+		# Body attachment .. always include
+		print &ui_hidden("forward", $a->{'idx'});
+		}
 	}
 
 # Display forwarded mails

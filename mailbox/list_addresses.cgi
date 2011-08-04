@@ -211,7 +211,8 @@ print &ui_table_row($text{'address_importsrc'},
 	&ui_radio_table("src", 0,
 		[ [ 0, $text{'address_importsrc0'}, &ui_upload("upload") ],
 		  [ 1, $text{'address_importsrc1'},
-		    &ui_textarea("paste", undef, 5, 60) ] ]));
+		    &ui_textarea("paste", undef, 5, 60) ] ])."<br>\n".
+	$text{'address_importformat'});
 
 # Import format
 print &ui_table_row($text{'address_importfmt'},

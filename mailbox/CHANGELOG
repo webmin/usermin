@@ -152,3 +152,4 @@ When sending encrypted email using the recipient's key, it will be automatically
 Added an option to the Advanced Search page to limit results to messages with attachments.
 ---- Changes since 1.470 ----
 Added vCard and CSV import support to the address book page, thanks to Eric Holtzman.
+When forwarding or replying to email with inline images, they are no longer shown as attachments.

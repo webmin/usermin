@@ -74,13 +74,14 @@ if ($in{'jump'} =~ /^\d+$/ && $in{'jump'} > 0) {
 # Get email to show, in order
 @mail = &mailbox_list_mails_sorted(
 		int($in{'start'}), int($in{'start'})+$perpage-1,
-	        $folder, 1, \@error);
+	        $folder, !$userconfig{'show_body'}, \@error);
 if ($in{'start'} >= @mail && $in{'jump'}) {
 	# Jumped too far!
 	$in{'start'} = @mail - $perpage;
 	@mail = &mailbox_list_mails_sorted(int($in{'start'}),
 					   int($in{'start'})+$perpage-1,
-					   $folder, 1, \@error);
+					   $folder, !$userconfig{'show_body'},
+					   \@error);
 	}
 
 # Work out character sets

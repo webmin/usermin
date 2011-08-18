@@ -22,6 +22,7 @@ if (!$in{'subject'}) {
 @sub = split(/\0/, $in{'sub'});
 $subs = join("", map { "&sub=$_" } @sub);
 $draft = $in{'draft'} || $in{'save'};
+$main::force_charset = $in{'charset'};
 
 # Construct the email
 if ($config{'edit_from'} == 2) {
@@ -41,9 +42,13 @@ $newmid = &generate_message_id($in{'from'});
 $mail->{'headers'} = [ [ 'From', &encode_mimewords($in{'from'}) ],
 		       [ 'Subject', &encode_mimewords($in{'subject'}) ],
 		       [ 'To', &encode_mimewords($in{'to'}) ],
-		       [ 'Cc', &encode_mimewords($in{'cc'}) ],
-		       [ 'Bcc', &encode_mimewords($in{'bcc'}) ],
 		       [ 'Message-Id', $newmid ] ];
+if ($in{'cc'}) {
+	push(@{$mail->{'headers'}}, [ 'Cc', &encode_mimewords($in{'cc'}) ]);
+	}
+if ($in{'bcc'}) {
+	push(@{$mail->{'headers'}}, [ 'Bcc', &encode_mimewords($in{'bcc'}) ]);
+	}
 &add_mailer_ip_headers($mail->{'headers'});
 $mail->{'header'}->{'message-id'} = $newmid;
 push(@{$mail->{'headers'}}, [ 'X-Priority', $in{'pri'} ]) if ($in{'pri'});

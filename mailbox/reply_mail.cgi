@@ -85,11 +85,14 @@ elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
 
 	# Construct the email
 	$newmid = &generate_message_id($from);
+	%enc = ( 'Charset' => $in{'charset'} );	# XXX
 	$qmail->{'headers'} = [ [ 'From', &encode_mimewords($from) ],
 			        [ 'Subject', &encode_mimewords($subject) ],
 			        [ 'To', &encode_mimewords($to) ],
-			        [ 'Cc', &encode_mimewords($cc) ],
 			        [ 'Message-Id', $newmid ] ];
+	if ($cc) {
+		push(@{$qmail->{'headers'}}, [ 'Cc', &encode_mimewords($cc) ]);
+		}
 	&add_mailer_ip_headers($qmail->{'headers'});
 	$qmail->{'header'}->{'message-id'} = $newmid;
 	$rid = $mail->{'header'}->{'message-id'};

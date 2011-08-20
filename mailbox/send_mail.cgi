@@ -39,15 +39,18 @@ $in{'to'} = &expand_to($in{'to'});
 $in{'cc'} = &expand_to($in{'cc'});
 $in{'bcc'} = &expand_to($in{'bcc'});
 $newmid = &generate_message_id($in{'from'});
+%enc = ( 'Charset' => $in{'charset'} );
 $mail->{'headers'} = [ [ 'From', &encode_mimewords($in{'from'}) ],
 		       [ 'Subject', &encode_mimewords($in{'subject'}) ],
-		       [ 'To', &encode_mimewords($in{'to'}) ],
+		       [ 'To', &encode_mimewords_address($in{'to'}, %enc) ],
 		       [ 'Message-Id', $newmid ] ];
 if ($in{'cc'}) {
-	push(@{$mail->{'headers'}}, [ 'Cc', &encode_mimewords($in{'cc'}) ]);
+	push(@{$mail->{'headers'}},
+	     [ 'Cc', &encode_mimewords_address($in{'cc'}, %enc) ]);
 	}
 if ($in{'bcc'}) {
-	push(@{$mail->{'headers'}}, [ 'Bcc', &encode_mimewords($in{'bcc'}) ]);
+	push(@{$mail->{'headers'}},
+	     [ 'Bcc', &encode_mimewords_address($in{'bcc'}, %enc) ]);
 	}
 &add_mailer_ip_headers($mail->{'headers'});
 $mail->{'header'}->{'message-id'} = $newmid;
@@ -56,9 +59,9 @@ push(@{$mail->{'headers'}}, [ 'In-Reply-To', $in{'rid'} ]) if ($in{'rid'});
 if ($userconfig{'req_dsn'} == 1 ||
     $userconfig{'req_dsn'} == 2 && $in{'dsn'}) {
 	push(@{$mail->{'headers'}}, [ 'Disposition-Notification-To',
-				      &encode_mimewords($in{'from'}) ]);
+			      &encode_mimewords_address($in{'from'}, %enc) ]);
 	push(@{$mail->{'headers'}}, [ 'Read-Receipt-To',
-				      &encode_mimewords($in{'from'}) ]);
+			      &encode_mimewords_address($in{'from'}, %enc) ]);
 	}
 if ($in{'replyto'}) {
 	# Add real name to reply-to address, if not given and if possible
@@ -67,7 +70,8 @@ if ($in{'replyto'}) {
 	$r2 = $r2parts->[1] || !$userconfig{'real_name'} ||
 		    !$remote_user_info[6] ? $in{'replyto'} :
 			"\"$remote_user_info[6]\" <$r2parts->[0]>";
-	push(@{$mail->{'headers'}}, [ 'Reply-To', &encode_mimewords($r2) ]);
+	push(@{$mail->{'headers'}}, [ 'Reply-To',
+				&encode_mimewords_address($r2, %enc) ]);
 	}
 
 # Make sure we have a recipient

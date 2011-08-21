@@ -85,13 +85,16 @@ elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
 
 	# Construct the email
 	$newmid = &generate_message_id($from);
-	%enc = ( 'Charset' => $in{'charset'} );	# XXX
-	$qmail->{'headers'} = [ [ 'From', &encode_mimewords($from) ],
-			        [ 'Subject', &encode_mimewords($subject) ],
-			        [ 'To', &encode_mimewords($to) ],
-			        [ 'Message-Id', $newmid ] ];
+	$charset = &get_mail_charset($mail, $body);
+	%enc = ( 'Charset' => $charset );
+	$qmail->{'headers'} = [
+		[ 'From', &encode_mimewords_address($from, %enc) ],
+		[ 'Subject', &encode_mimewords($subject) ],
+		[ 'To', &encode_mimewords_address($to, %enc) ],
+		[ 'Message-Id', $newmid ] ];
 	if ($cc) {
-		push(@{$qmail->{'headers'}}, [ 'Cc', &encode_mimewords($cc) ]);
+		push(@{$qmail->{'headers'}},
+			[ 'Cc', &encode_mimewords_address($cc, %enc) ]);
 		}
 	&add_mailer_ip_headers($qmail->{'headers'});
 	$qmail->{'header'}->{'message-id'} = $newmid;
@@ -106,7 +109,7 @@ elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
 
 	# Add the body
 	$mt = $quick_type;
-	$mt .= "; charset=$userconfig{'charset'}";
+	$mt .= "; charset=$charset";
 	if ($quick_body =~ /[\177-\377]/) {
 		# Contains 8-bit characters .. need to make quoted-printable
 		$textonly = 0;
@@ -127,9 +130,11 @@ elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
 	# XXX
 
 	# Tell the user
+	$main::force_charset = $charset;
 	&mail_page_header($draft ? $text{'send_title2'} : $text{'send_title'});
 	@tos = ( split(/,/, $to), split(/,/, $cc) );
-	$tos = join(" , ", map { "<tt>".&html_escape($_)."</tt>" } @tos);
+	$tos = join(" , ", map { "<tt>".&html_escape(
+				   &decode_mimewords($_))."</tt>" } @tos);
 	print &text('send_sending', $tos || $text{'send_nobody'}),"<p>\n";
 
 	# Sent it off

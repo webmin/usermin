@@ -72,7 +72,8 @@ if ($in{'simple'} && $simple) {
 		&ui_radio("from_def", $simple->{'from'} ||
 				      !$simple->{'autotext'} ? 0 : 1,
 			  [ [ 1, $text{'index_fromauto'} ],
-			    [ 0, &ui_textbox("from", $simple->{'from'} || $df,
+			    [ 0, $text{'index_fromaddr'}." ".
+				 &ui_textbox("from", $simple->{'from'} || $df,
 					     50) ] ]));
 	
 	print &ui_table_end();

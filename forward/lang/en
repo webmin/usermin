@@ -19,7 +19,8 @@ index_period=Minimum time between autoreplies
 index_noperiod=No minimum
 index_mins=minutes
 index_from=From: address for replies
-index_fromauto=Determine automatically
+index_fromauto=Guess based on recipient
+index_fromaddr=Use address
 
 aliases_to=Forward to..
 aliases_from=Mail for..

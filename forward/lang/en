@@ -21,6 +21,7 @@ index_mins=minutes
 index_from=From: address for replies
 index_fromauto=Guess based on recipient
 index_fromaddr=Use address
+index_fromdef=Your default address
 
 aliases_to=Forward to..
 aliases_from=Mail for..

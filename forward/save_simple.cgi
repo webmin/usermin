@@ -34,8 +34,11 @@ if ($in{'autotext'}) {
 		$simple->{'replies'} ||=
 			"$user_module_config_directory/replies";
 		}
-	if ($in{'from_def'}) {
+	if ($in{'from_def'} == 1) {
 		delete($simple->{'from'});
+		}
+	elsif ($in{'from_def'} == 2) {
+		$simple->{'from'} = &mailbox::get_preferred_from_address();
 		}
 	else {
 		$in{'from'} =~ /\S/ || &error($text{'simple_efrom'});

@@ -68,10 +68,12 @@ if ($in{'simple'} && $simple) {
 	    $text{'index_mins'});
 
 	$df = &mailbox::get_preferred_from_address();
+	$mode = $simple->{'from'} eq $df || !$simple->{'autotext'} ? 2 :
+		$simple->{'from'} ? 0 : 1,
 	print &ui_table_row($text{'index_from'},
-		&ui_radio("from_def", $simple->{'from'} ||
-				      !$simple->{'autotext'} ? 0 : 1,
+		&ui_radio("from_def", $mode,
 			  [ [ 1, $text{'index_fromauto'} ],
+			    [ 2, $text{'index_fromdef'} ],
 			    [ 0, $text{'index_fromaddr'}." ".
 				 &ui_textbox("from", $simple->{'from'} || $df,
 					     50) ] ]));

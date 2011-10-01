@@ -122,7 +122,7 @@ else {
 		# render tables
 		print "<table width=100%> <tr><td width=50% valign=top>\n";
 		&dotqmail_table(@aliases[0..$mid-1]);
-		print "</td><td width=50% valign=top>\n";
+		print "</td> <td>&nbsp;</td> <td width=50% valign=top>\n";
 		if ($mid < @aliases) { &dotqmail_table(@aliases[$mid..$#aliases]); }
 		print "</td></tr> </table>\n";
 		}
@@ -132,32 +132,34 @@ else {
 	}
 
 if (!$in{'simple'} || !$simple) {
-	print "<a href='edit_alias.cgi?new=1'>$text{'index_add'}</a>\n";
-	print "&nbsp;&nbsp;&nbsp;<a href='edit_forward.cgi'>",
-	      &text('index_edit', "<tt>.forward</tt>"),"</a>\n"
-		if ($config{'mail_system'} == 0 && $config{'edit'});
-	print "<p>\n";
+	@links = ( "<a href='edit_alias.cgi?new=1'>$text{'index_add'}</a>" );
+	if ($config{'mail_system'} == 0 && $config{'edit'}) {
+		push(@links, "<a href='edit_forward.cgi'>".
+		      	     &text('index_edit', "<tt>.forward</tt>")."</a>");
+		}
+	print &ui_links_row(\@links);
 	}
 
 &ui_print_footer("/", $text{'index'});
 
 sub aliases_table
 {
-print "<table border width=100%>\n";
-print "<tr $tb> <td><b>$text{'aliases_to'}</b></td> <td><b>$text{'aliases_enabled'}</b></td> </tr>\n";
-foreach $a (@_) {
-	print "<tr $cb>\n";
-	print "<td><a href=\"edit_alias.cgi?num=$a->{'num'}\">";
+print &ui_columns_start([ $text{'aliases_to'},
+			  $text{'aliases_enabled'} ], 100, 2);
+foreach my $a (@_) {
+	my @cols;
+	my $e = "<a href=\"edit_alias.cgi?num=$a->{'num'}\">";
 	foreach $v (@{$a->{'values'}}) {
 		($anum, $astr) = &alias_type($v);
-		print &text("aliases_type$anum", "<tt>$astr</tt>"),"<br>\n";
+		$e .= &text("aliases_type$anum", "<tt>$astr</tt>")."<br>\n";
 		}
-	print "</td>\n";
-	printf "<td>%s</td>\n", $a->{'enabled'} ? $text{'yes'} :
-		"<font color=#ff0000>$text{'no'}</font>";
-	print "</tr>\n";
+	$e .= "</a>";
+	push(@cols, $e);
+	push(@cols, $a->{'enabled'} ? $text{'yes'} :
+                	"<font color=#ff0000>$text{'no'}</font>");
+	print &ui_columns_row(\@cols);
 	}
-print "</table>\n";
+print &ui_columns_end();
 }
 
 sub dotqmail_table

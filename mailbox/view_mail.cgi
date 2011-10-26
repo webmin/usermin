@@ -269,6 +269,11 @@ if ($bodycontents) {
 	print &ui_table_row(undef, $bodycontents, undef, [ undef, $bodystuff ]);
 	print &ui_table_end();
 	}
+else {
+	print &ui_table_start($text{'view_body'}, "width=100%", 1);
+	print &ui_table_row(undef, "<b>$text{'view_nobody'}</b>");
+	print &ui_table_end();
+	}
 
 # If *this* message is a delivery status, display it
 if ($dstatus) {

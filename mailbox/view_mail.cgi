@@ -236,7 +236,7 @@ if ($body && $body->{'data'} =~ /\S/) {
 						$userconfig{'link_mode'})."\n";
 			}
 		$bodycontents .= "</pre>";
-		if ($htmlbody) {
+		if ($htmlbody && $userconfig{'view_html'} != 0) {
 			# Link to show HTML
 			push(@bodyright, "<a href='$baseurl&body=2&headers=$in{'headers'}'>$text{'view_ashtml'}</a>");
 			}

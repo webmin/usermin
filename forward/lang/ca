@@ -19,7 +19,9 @@ index_period=Temps mínim entre autorespostes
 index_noperiod=Sense mínim
 index_mins=minuts
 index_from=Adreça From: de les respostes
-index_fromauto=Determina-la automàticament
+index_fromauto=Endevina-la a partir del destinatari
+index_fromaddr=Utilitza l'adreça
+index_fromdef=La teva adreça per defecte
 
 aliases_to=Reenvia a...
 aliases_from=Correu de...

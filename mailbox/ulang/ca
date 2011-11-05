@@ -39,6 +39,35 @@ address_allow=Adreces permeses
 address_deny=Adreces denegades
 address_allowdesc=El correu provinent d'aquestes adreces s'acceptarà sempre i no es classificarà mai com a spam.
 address_denydesc=El correu provinent d'aquestes adreces sempre es classificarà com a spam, i es posarà a la teva carpeta de spam o bé se suprimirà.
+> address_import=Import addresses
+> address_importdesc=This form allows you to add addresses to Usermin from a file, typically exported from another mail client or contacts manager.
+> address_importsrc=Import addresses from
+> address_importsrc0=Uploaded file
+> address_importsrc1=Pasted text
+> address_importformat=Text should be in <tt>email@domain.com,Real Name</tt> format
+> address_importfmt=Source format
+> address_importcsv=CSV (email, real name)
+> address_importvcard=vCard
+> address_importdup=Duplicate address handling
+> address_importdup0=Ignore
+> address_importdup1=Update name
+> address_importok=Import Now
+> address_return=address book
+> 
+> import_err=Failed to import addresses
+> import_title=Import Address Book
+> import_doing=Results of address book import ..
+> import_eupload=No file selected
+> import_epaste=No addresses entered
+> import_enone=Selected file does not contain any valid addresses
+> import_action=Action taken
+> import_add=<font color=green>Added to address book</font>
+> import_update=<font color=orange>Real name updated</font>
+> import_readonly=<font color=red>Global entry, skipped</font>
+> import_noemail=<font color=red>Missing or invalid email address</font>
+> import_same=Unchanged, skipped
+> import_skip=Duplicated address, skipped
+> import_enetvcard=The <tt>Net::vCard</tt> Perl module is needed to read vCard format files
 
 group_err=No s'ha pogut desar el grup d'adreces
 group_egroup=Hi falta el nom del grup o bé és invàlid

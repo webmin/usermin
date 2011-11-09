@@ -153,3 +153,5 @@ Added an option to the Advanced Search page to limit results to messages with at
 ---- Changes since 1.470 ----
 Added vCard and CSV import support to the address book page, thanks to Eric Holtzman.
 When forwarding or replying to email with inline images, they are no longer shown as attachments.
+---- Changes since 1.490 ----
+Added a preferences option to control if the signature is appended or prepended.

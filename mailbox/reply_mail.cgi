@@ -46,8 +46,8 @@ elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
 	if ($in{'quick_quote'}) {
 		# Get the original body to construct the email
 		$sig = &get_signature();
-		($quote, $html_edit, $body) = &quoted_message($mail, 1, $sig,
-							     $in{'body'});
+		($quote, $html_edit, $body) = &quoted_message(
+			$mail, 1, $sig, $in{'body'}, $userconfig{'sig_mode'});
 		if ($html_edit) {
 			# HTML quoting
 			$quick_type = "text/html";
@@ -537,8 +537,8 @@ else {
 
 	# Construct the initial mail text
 	$sig = &get_signature();
-	($quote, $html_edit, $body) = &quoted_message($mail, $qu, $sig,
-						      $in{'body'});
+	($quote, $html_edit, $body) = &quoted_message(
+		$mail, $qu, $sig, $in{'body'}, $userconfig{'sig_mode'});
 
 	# Don't include the original body as an attachment
 	@attach = &remove_body_attachments($mail, \@attach);

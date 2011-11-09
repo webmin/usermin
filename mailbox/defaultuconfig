@@ -13,6 +13,7 @@ mailbox_recur=0
 charset=iso-8859-1
 delete_warn=y
 sig_file=*
+sig_mode=0
 self_crypt=1
 fwd_mode=0
 from_in_to=1

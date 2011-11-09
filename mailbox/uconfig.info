@@ -30,6 +30,7 @@ save_sent=Save sent mail?,1,1-Yes,0-No
 real_name=Include real name in From: address?,1,1-Yes,0-No
 charset=Character set for sent mail,0,15
 sig_file=Signature file,10,*-None,.signature-~/.signature,Other file
+sig_mode=Insert signature,1,0-At bottom,1-At top
 fwd_mode=Forward messages with quoting?,1,0-Yes,1-No
 from_in_to=Show From: addresses when selecting a To: address?,1,1-Yes,0-No
 sort_addrs=Sort address book by,1,0-Order added,1-Real name,2-Email address

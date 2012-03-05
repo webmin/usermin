@@ -30,6 +30,7 @@ save_sent=Desa el correu enviat,1,1-Sí,0-No
 real_name=Inclou el nom real a l'adreça From:,1,1-Sí,0-No
 charset=Joc de caràcters del correu enviat,0,15
 sig_file=Fitxer de signatura,10,*-Cap,.signature-~/.signature,Un altre fitxer
+sig_mode=Insereix la signatura,1,0-A baix,1-A dalt
 fwd_mode=Reenvia els missatges citats,1,0-Sí,1-No
 from_in_to=Mostra les adreces From: en seleccionar una adreça To:,1,1-Sí,0-No
 sort_addrs=Ordena la llibreta d'adreces per,1,0-Ordre d'addició,1-Nom real,2-Adreça e-mail

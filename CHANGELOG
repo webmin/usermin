@@ -58,3 +58,5 @@ Added a robots.txt file to block indexing of Usermin by search engines.
 Catalan translation updates by Jaume Badiella.
 ---- Changes since 1.460 ----
 Major dutch translation updates, thanks to Gandyman.
+---- Changes since 1.500 ----
+Added support for Ubuntu 12.04.

@@ -24,3 +24,4 @@ shortindex=0
 no_mailer=0
 no_orig_ip=0
 nologout=0
+noindex_hostname=0

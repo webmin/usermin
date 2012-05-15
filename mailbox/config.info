@@ -49,4 +49,4 @@ folder_types=Allowed real folder types,2,local-File under ~/mail,ext-External fi
 folder_virts=Allowed virtual folder types,2,virt-Virtual,comp-Composite
 pop_locks=Check for POP3 lock files?,1,1-Yes,0-No
 shortindex=Base filename for index files,1,1-Last part of filename,0-Full filename
-
+noindex_hostname=Include hostname in index files?,1,0-Yes,1-No

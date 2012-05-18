@@ -35,3 +35,5 @@ Added a Preferences option to specify file extensions to treat as HTML, rather t
 Use of the preview button can now be controlled by the administrator.
 ---- Changes since 1.340 ----
 Fixed a bug that broke the file manager when referrer checking is enabled.
+---- Changes since 1.500 ----
+The list of allow directories for users can now include variables like $USER and $GROUP.

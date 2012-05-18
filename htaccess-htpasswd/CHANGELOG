@@ -6,3 +6,5 @@ Added the ability to specify extra directives to be added to .htaccess files, th
 Added a configuration option to deny users the ability to add or edit protected directories.
 ---- Changes since 1.380 ----
 Added a Module Config option to set permissions on created .htaccess and .htpasswd files, which defaults to 644.
+---- Changes since 1.500 ----
+The list of allow directories for users can now include variables like $USER and $GROUP.

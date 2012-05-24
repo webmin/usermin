@@ -7,4 +7,3 @@ columns=Kolommen om de opdrachten in te laten zien,1,2-2,1-1
 access=Opdrachten toegangs controle lijst&#44;<br>in <tt>gebruikersnaam: id1 id2</tt> formaat.,9,0,0,\t
 line2=Systeem configuratie,11
 webmin_config=Webmin handmatige opdrachten config directory,0
-su_shell=<tt>su</tt> opdrachten ondersteuning -s shell optie?,1,1-Ja,0-Nee

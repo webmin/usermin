@@ -7,4 +7,3 @@ columns=Columnes per mostrar-hi les ordres,1,2-2,1-1
 access=Llista de control d'accés a les ordres&#44;<br>en format <tt>usuari: id1 id2</tt>.,9,0,0,\t
 line2=Configuració del sistema,11
 webmin_config=Directori de configuració d'ordres personalitzades de Webmin,0
-su_shell=L'ordre <tt>su</tt> suporta l'opció -s shell,1,1-Sí,0-No

@@ -13,8 +13,7 @@ if (!-d $config{'webmin_config'}) {
 	}
 
 @cust = grep { &can_run_command($_) } &list_commands();
-@cust = sort { local $o = $b->{'order'} <=> $a->{'order'};
-	       $o ? $o : $a->{'id'} <=> $b->{'id'} } @cust;
+@cust = &sort_commands(@cust);
 
 if (!@cust) {
 	print "<b>$text{'index_none'}</b> <p>\n";

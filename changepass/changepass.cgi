@@ -138,8 +138,8 @@ elsif ($config{'passwd_cmd'} || !$has_pam) {
 	$crv = close($fh);
 	sleep(1);
 	waitpid($fpid, 1);
-	$oldstars = ("*" x length($in{'old'});
-	$newstars = ("*" x length($in{'new1'});
+	$oldstars = ("*" x length($in{'old'}));
+	$newstars = ("*" x length($in{'new1'}));
 	$out =~ s/\Q$in{'old'}\E/$oldstars/g;
 	$out =~ s/\Q$in{'new1'}\E/$newstars/g;
 	&error(&text('change_ecmd', "<tt>$passwd_cmd</tt>", "<pre>$out</pre>"))

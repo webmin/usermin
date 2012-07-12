@@ -49,4 +49,4 @@ folder_types=Tipus de carpetes reals permeses,2,local-Fitxer sota ~/mail,ext-Fit
 folder_virts=Tipus de carpetes virtuals permeses,2,virt-Virtuals,comp-Compostes
 pop_locks=Comprova els fitxers de blocatge POP3,1,1-Sí,0-No
 shortindex=Nom de fitxer base dels fitxer d'índex,1,1-La darrera part del nom del fitxer,0-Nom del fitxer complet
-
+noindex_hostname=Inclou el nom de host als fitxers d'índex,1,0-Sí,1-No

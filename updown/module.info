@@ -7,3 +7,4 @@ desc_de=Upload und Download
 depends=cron at
 desc_ca=Càrregues i Descàrregues
 desc_nl=Upload en Download
+desc_no=Opp- og nedlasting

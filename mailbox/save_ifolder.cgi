@@ -45,7 +45,7 @@ else {
 	# Validate and store inputs
 	if ($in{'new'} || $in{'name'} ne $folder->{'name'}) {
 		$in{'name'} =~ /\S/ || &error($text{'save_ename'});
-		$in{'name'} =~ /^[a-zA-Z0-9\.\-\/]+$/ ||
+		$in{'name'} =~ /^[a-zA-Z0-9\.\-\/ ]+$/ ||
 			&error($text{'save_ename4'});
 		$in{'name'} =~ /\.\./ && 
 			&error($text{'save_ename2'});

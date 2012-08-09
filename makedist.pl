@@ -146,6 +146,11 @@ while($d = readdir(DIR)) {
 	}
 closedir(DIR);
 
+# Create UTF-8 encodings
+print "Creating UTF-8 language encodings\n";
+system("/usr/local/webadmin/koi8-to-cp1251.pl tarballs/$dir");
+system("/usr/local/webadmin/chinese-to-utf8.pl tarballs/$dir");
+
 # Remove useless .bak, test and other files, and create the tar.gz file
 if ($webmail) {
 	print "Creating usermin-webmail-$vers.tar.gz\n";

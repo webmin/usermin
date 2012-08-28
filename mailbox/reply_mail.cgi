@@ -616,7 +616,8 @@ print &ui_hidden("charset", $main::force_charset);
 # Start tabs for from / to / cc / bcc / signing / options
 # Subject is separate
 print &ui_table_start($text{'reply_headers'}, "width=100%", 2);
-if (&has_command("gpg") && &foreign_check("gnupg")) {
+if (&has_command("gpg") && &foreign_check("gnupg") &&
+    &foreign_available("gnupg")) {
 	&foreign_require("gnupg", "gnupg-lib.pl");
 	@keys = &gnupg::list_keys_sorted();
 	$has_gpg = @keys ? 1 : 0;

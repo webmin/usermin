@@ -44,7 +44,8 @@ sub supports_gpg
 {
 if (!defined($supports_gpg_cache)) {
 	$supports_gpg_cache = &has_command("gpg") &&
-			      &foreign_check("gnupg") ? 1 : 0;
+			      &foreign_check("gnupg") &&
+			      &foreign_available("gnupg") ? 1 : 0;
 	}
 return $supports_gpg_cache;
 }
@@ -59,7 +60,8 @@ sub decrypt_attachments
 local $first = $_[0]->{'attach'}->[0];
 local ($body) = grep { $_->{'type'} eq 'text/plain' || $_->{'type'} eq 'text' }
 		     @{$_[0]->{'attach'}};
-local $hasgpg = &has_command("gpg") && &foreign_check("gnupg");
+local $hasgpg = &has_command("gpg") && &foreign_check("gnupg") &&
+		&foreign_available("gnupg");
 if ($_[0]->{'header'}->{'content-type'} =~ /^multipart\/encrypted/ &&
     $first->{'type'} =~ /^application\/pgp-encrypted/ &&
     $first->{'data'} =~ /Version:\s+1/i) {
@@ -110,7 +112,7 @@ sub check_signature_attachments
 {
 my ($attach, $textbody) = @_;
 my ($sigcode, $sigmessage);
-if (&has_command("gpg") && &foreign_check("gnupg")) {
+if (&has_command("gpg") && &foreign_check("gnupg") && &foreign_available("gnupg")) {
 	# Check for GnuPG signatures
 	my $sig;
 	foreach my $a (@$attach) {

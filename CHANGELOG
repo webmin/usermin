@@ -60,3 +60,5 @@ Catalan translation updates by Jaume Badiella.
 Major dutch translation updates, thanks to Gandyman.
 ---- Changes since 1.500 ----
 Added support for Ubuntu 12.04.
+---- Changes since 1.510 ----
+Added the new Gray Framed Theme, and made it the default for new installs.

@@ -1,4 +1,4 @@
-index_edb=No s'ha pogut connectar amb la base de dades de configuraci√≥ de SpamAssassin: $1. Demana a l'administrador del sistema que comprovi la configuraci√≥ del m√≤dul.
+index_edb=No s'ha pogut connectar amb la base de dades de configuraciÛ de SpamAssassin: $1. Demana a l'administrador del sistema que comprovi la configuraciÛ del mÚdul.
 
-awl_title=Gestiona la Llista Blanca Autom√†tica
-awl_deleteonedesc=Elimina totes les entrades actuals de la llista blanca autom√†tica
+awl_title=Gestiona la Llista Blanca Autom‡tica
+awl_deleteonedesc=Elimina totes les entrades actuals de la llista blanca autom‡tica

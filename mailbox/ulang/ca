@@ -39,35 +39,35 @@ address_allow=Adreces permeses
 address_deny=Adreces denegades
 address_allowdesc=El correu provinent d'aquestes adreces s'acceptarà sempre i no es classificarà mai com a spam.
 address_denydesc=El correu provinent d'aquestes adreces sempre es classificarà com a spam, i es posarà a la teva carpeta de spam o bé se suprimirà.
-> address_import=Import addresses
-> address_importdesc=This form allows you to add addresses to Usermin from a file, typically exported from another mail client or contacts manager.
-> address_importsrc=Import addresses from
-> address_importsrc0=Uploaded file
-> address_importsrc1=Pasted text
-> address_importformat=Text should be in <tt>email@domain.com,Real Name</tt> format
-> address_importfmt=Source format
-> address_importcsv=CSV (email, real name)
-> address_importvcard=vCard
-> address_importdup=Duplicate address handling
-> address_importdup0=Ignore
-> address_importdup1=Update name
-> address_importok=Import Now
-> address_return=address book
-> 
-> import_err=Failed to import addresses
-> import_title=Import Address Book
-> import_doing=Results of address book import ..
-> import_eupload=No file selected
-> import_epaste=No addresses entered
-> import_enone=Selected file does not contain any valid addresses
-> import_action=Action taken
-> import_add=<font color=green>Added to address book</font>
-> import_update=<font color=orange>Real name updated</font>
-> import_readonly=<font color=red>Global entry, skipped</font>
-> import_noemail=<font color=red>Missing or invalid email address</font>
-> import_same=Unchanged, skipped
-> import_skip=Duplicated address, skipped
-> import_enetvcard=The <tt>Net::vCard</tt> Perl module is needed to read vCard format files
+address_import=Importa les adreces
+address_importdesc=Aquest formulari permet afegir adreces a Usermin a partir d'un fitxer, típicament exportat d'un altre client de correu o gestor de contactes.
+address_importsrc=Importa les adreces de
+address_importsrc0=Un fitxer pujat
+address_importsrc1=Text enganxat
+address_importformat=El text ha d'estar en format <tt>e-mail@domini.com,Nom Real</tt>
+address_importfmt=Format origen
+address_importcsv=CSV (e-mail, nom real)
+address_importvcard=vCard
+address_importdup=Gestió d'adreces duplicades
+address_importdup0=Ignora-les
+address_importdup1=Actualitza el nom
+address_importok=Importa-les Ara
+address_return=a la llibreta d'adreces
+
+import_err=NOs'han pogut importatr les adreces
+import_title=Importació de Llibreta d'Adreces
+import_doing=Resultats de la importació de la llibreta d'adreces...
+import_eupload=No has seleccionat cap fitxer
+import_epaste=No has introduït cap adreça
+import_enone=El fitxer seleccionat no conté cap adreça vàlida
+import_action=Acció presa
+import_add=<font color=green>S'ha afegit a la llibreta d'adreces</font>
+import_update=<font color=orange>S'ha actualitzat el nom real</font>
+import_readonly=<font color=red>Entrada global, s'ha omès</font>
+import_noemail=<font color=red>HI falta una adreça e-mail o bé és invàlida</font>
+import_same=Sense canvis, s'ha omès
+import_skip=Adreça duplicada, s'ha omès
+import_enetvcard=Cal el mòdul Perl <tt>Net::vCard</tt> per a llegir fitxers en format vCard
 
 group_err=No s'ha pogut desar el grup d'adreces
 group_egroup=Hi falta el nom del grup o bé és invàlid
@@ -158,13 +158,13 @@ edit_delete=Suprimeix el missatge real quan el suprimeixis de la carpeta
 save_err=No s'ha pogut desar la carpeta
 save_ecannot=No tens permís per utilitzar aquest tipus de carpeta
 save_ename=Hi falta el nom de la carpeta o bé és invàlid
+save_ename4=Els noms de carpeta només poden contenir lletres, números, espais i els caràcters de punt, guió i subguió
 save_ecompsame=Una carpeta composta no pot contenir dos cops la mateixa subcarpeta
 save_ename2=Els noms de carpetes no poden contenir...
 save_ename3=El nom de carpeta INBOX està reservat per al servidor IMAP
 save_esys=El nom de la carpeta està en conflicte amb una de les carpetes del sistema
 save_eclash=Ja existeix una carpeta amb aquest nom
 save_embox=No sembla que '$1' sigui un fitxer de bústia vàlid
-save_ename4=Els noms de carpetes només poden contenir lletres, números i els caràcters punt, guió i subguió.
 save_emaildir=No sembla que '$1' sigui un directori de correu Qmail o MH vàlid
 save_efile='$1' no existeix o bé no és accessible
 save_eindir=Els fitxers de correu externs no poden estar sota el directori de carpetes $1

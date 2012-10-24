@@ -191,7 +191,8 @@ if ($config{'post_command'}) {
 	}
 
 # Change samba password as well
-if (&has_command($config{'smbpasswd'})) {
+($smbpasswd_binary) = split(/\s+/, $config{'smbpasswd'});
+if (&has_command($smbpasswd_binary)) {
 	local $user = quotemeta($remote_user);
 	local $hout = `$config{'smbpasswd'} -h 2>&1`;
 	if ($hout =~ /\s-s\s/) {

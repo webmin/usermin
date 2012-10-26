@@ -199,6 +199,9 @@ if (&has_command($smbpasswd_binary)) {
 		# New version of smbpasswd which accepts the -s option
 		local $temp = &transname();
 		open(TEMP, ">$temp");
+		if ($config{'smbpasswd'} =~ /\s-r\s/) {
+			print TEMP $in{'old'},"\n";
+			}
 		print TEMP $in{'new1'},"\n",$in{'new1'},"\n";
 		close(TEMP);
 		$smbout = `$config{'smbpasswd'} -s $user 2>&1 <$temp`;

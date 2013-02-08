@@ -420,7 +420,6 @@ else
 		echo "session=1" >> $cfile
 	fi
 	echo "unixauth=user" >> $cfile
-	echo "localauth=lsof" >> $cfile
 	echo "pam=usermin" >> $cfile
 	echo premodules=WebminCore >> $cfile
 	echo "server=MiniServ/$ver" >> $cfile

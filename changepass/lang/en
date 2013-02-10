@@ -30,5 +30,6 @@ change_epasswd_dict=Password is a dictionary word
 change_epasswd_same=Password contains or is the same as username
 change_epasswd_new=Password is the same as the old password
 change_emysql=Current login in MySQL module is incorrect.
+change_eformat=The configured password hashing format is not supported
 
 

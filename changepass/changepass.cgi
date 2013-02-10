@@ -36,11 +36,12 @@ if ($config{'passwd_cmd'} eq 'file') {
 	defined($idx) || &error($text{'change_euser'});
 
 	# Work out password encryption type
-	if ($config{'md5'} && !&check_md5()) {
-		$type = 1;
-		}
-	else {
-		$type = 0;
+	$type = $config{'md5'};
+	$func = $type == 1 ? \&check_md5 :
+		$type == 2 ? \&check_blowfish :
+		$type == 3 ? \&check_sha512 : undef;
+	if ($func && &$func()) {
+		&error($text{'change_eformat'});
 		}
 
 	# Validate old password
@@ -55,9 +56,17 @@ if ($config{'passwd_cmd'} eq 'file') {
 		$line[$miniserv{'passwd_pindex'}] = &unix_crypt($in{'new1'},
 								$salt);
 		}
-	else {
+	elsif ($type == 1) {
 		# Do MD5 encryption
 		$line[$miniserv{'passwd_pindex'}] = &encrypt_md5($in{'new1'});
+		}
+	elsif ($type == 2) {
+		# Do Blowfish encryption
+		$line[$miniserv{'passwd_pindex'}] = &encrypt_blowfish($in{'new1'});
+		}
+	elsif ($type == 3) {
+		# Do SHA512 encryption
+		$line[$miniserv{'passwd_pindex'}] = &encrypt_sha512($in{'new1'});
 		}
 	if ($miniserv{'passwd_cindex'} ne '') {
 		$days = int(time()/(24*60*60));

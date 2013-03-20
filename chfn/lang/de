@@ -16,5 +16,5 @@ save_ereal=Realname darf weder <tt>&#44;</tt> noch <tt>&#58;</tt> enthalten
 save_ereal2=Fehlender Realname
 save_err=Konnte Benutzer-Details nicht &#228;ndern
 save_eshell=Login-Shell darf weder <tt>&#44;</tt> noch <tt>&#58;</tt> enthalten
-save_eshell2=Fehlender shell
+save_eshell2=Fehlende Shell
 save_title=Benutzer-Details ge&#228;ndert.

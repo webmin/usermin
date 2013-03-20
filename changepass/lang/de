@@ -1,10 +1,10 @@
 change_ecmd=$1 fehlgeschlagen : $2
-change_emysql=Das aktuelle Passwort im MySQL-Modul ist falsch
+change_emysql=Das aktuelle Passwort im MySQL-Modul ist falsch.
 change_enew1=Fehlendes neues Passwort
-change_enew2=Die Passworte stimmen nicht &#252;berein
+change_enew2=Die Passw&#246;rter stimmen nicht &#252;berein
 change_eold=Das alte Passwort ist falsch
 change_epam2=PAM Fehler : $1
-change_epasswd=Der Befehl <tt>$1</tt> wurde auf Ihrem System nicht gefunden und das <tt>Authen::PAM</tt>-Perlmodul ist nicht installiert. Zumindest eines der beiden mu&#223; jedoch vorhanden sein, damit Passworte ge&#228;ndert werden k&#246;nnen.
+change_epasswd=Der Befehl <tt>$1</tt> wurde auf Ihrem System nicht gefunden und das <tt>Authen::PAM</tt>-Perlmodul ist nicht installiert. Zumindest eines der beiden muss jedoch vorhanden sein, damit Passworte ge&#228;ndert werden k&#246;nnen.
 change_epasswd_dict=Das Passwort ist durch eine W&#246;rterbuchattacke zu leicht zu ermitteln und wird abgewiesen
 change_epasswd_min=Das Passwort mu&#223; mindestens $1 Zeichen lang sein
 change_epasswd_new=Das neue Passwort ist gleich dem alten Passwort und wird abgewiesen

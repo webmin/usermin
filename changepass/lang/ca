@@ -30,5 +30,5 @@ change_epasswd_dict=La contrasenya és una paraula de diccionari
 change_epasswd_same=La contrasenya conté o és igual que el nom d'usuari
 change_epasswd_new=La contrasenya és igual que la contrasenya antiga
 change_emysql=L'entrada actual al mòdul MySQL és incorrecta.
-
+change_eformat=EL format de hashing de contrasenya configurat no està suportat
 

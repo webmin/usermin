@@ -43,13 +43,24 @@ foreach $f (@folders) {
 		}
 
 	if (@delmails) {
-		if ($auto->{'all'}) {
+		if ($auto->{'all'} == 1) {
 			# Clear the whole folder
 			&mailbox_empty_folder($f);
 			}
-		else {
+		elsif ($auto->{'all'} == 0) {
 			# Just delete mails that are over the limit
 			&mailbox_delete_mail($f, reverse(@delmails));
+			}
+		elsif ($auto->{'all'} == 2) {
+			# Move to another folder
+			($dest) = grep { &folder_name($_) eq $auto->{'dest'} }
+				       @folders;
+			if (!$dest) {
+				print STDERR "destination folder ".
+					    "$auto->{'dest'} does not exist!\n";
+				next;
+				}
+			&mailbox_move_mail($f, $dest, reverse(@delmails));
 			}
 		}
 	}

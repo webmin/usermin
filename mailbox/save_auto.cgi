@@ -23,7 +23,7 @@ else {
 $auto->{'all'} = $in{'all'};
 if ($in{'all'} == 2) {
 	$auto->{'dest'} = $in{'dest'};
-	($dest) = grep { $_->{'id'} eq $in{'dest'} } @folders;
+	($dest) = grep { &folder_name($_) eq $in{'dest'} } @folders;
 	$dest || &error($text{'auto_edest'});
 	$dest->{'nowrite'} && &error($text{'auto_ewrite'});
 	}

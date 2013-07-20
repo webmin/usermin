@@ -32,8 +32,9 @@ print &ui_table_row($text{'auto_mode'},
 		     &ui_bytesbox("size", $auto->{'size'}, 5)) ] ]));
 
 # Delete whole mailbox, or just infringing mails, or move to another folder
-@fopts = map { [ $_->{'id'}, $_->{'name'} ] }
-	     grep { $_->{'id'} ne $folder->{'id'} } @folders;
+@fopts = map { [ &folder_name($_), $_->{'name'} ] }
+	     grep { &folder_name($_) ne &folder_name($folder) }
+		  @folders;
 print &ui_table_row($text{'auto_action'},
 		    &ui_radio("all", int($auto->{'all'}),
 			      [ [ 0, $text{'auto_action0'}."<br>" ],

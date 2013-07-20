@@ -31,11 +31,16 @@ print &ui_table_row($text{'auto_mode'},
 	  [ 1, &text('auto_size',
 		     &ui_bytesbox("size", $auto->{'size'}, 5)) ] ]));
 
-# Delete whole mailbox, or just infringing mails
+# Delete whole mailbox, or just infringing mails, or move to another folder
+@fopts = map { [ $_->{'id'}, $_->{'name'} ] }
+	     grep { $_->{'id'} ne $folder->{'id'} } @folders;
 print &ui_table_row($text{'auto_action'},
 		    &ui_radio("all", int($auto->{'all'}),
-			      [ [ 0, $text{'auto_action0'} ],
-				[ 1, $text{'auto_action1'} ] ]));
+			      [ [ 0, $text{'auto_action0'}."<br>" ],
+				[ 1, $text{'auto_action1'}."<br>" ],
+				[ 2, &text('auto_action2',
+					&ui_select("dest", $auto->{'dest'},
+						   \@fopts)) ] ]));
 
 print &ui_table_end();
 print &ui_form_end([ [ "save", $text{'save'} ] ]);

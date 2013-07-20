@@ -235,6 +235,9 @@ auto_invalid=Delete messages with invalid date
 auto_action=Action when messages to delete are found
 auto_action0=Delete matching messages
 auto_action1=Delete all messages in folder
+auto_action2=Move to folder $1
+auto_edest=Selected destination folder does not exist!
+auto_ewrite=Selected destination folder cannot be written to
 
 copy_title=Copy All Mail
 copy_header=Copy all messages in folder

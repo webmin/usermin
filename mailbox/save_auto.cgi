@@ -21,6 +21,12 @@ else {
 	$auto->{'size'} = $in{'size'}*$in{'size_units'};
 	}
 $auto->{'all'} = $in{'all'};
+if ($in{'all'} == 2) {
+	$auto->{'dest'} = $in{'dest'};
+	($dest) = grep { $_->{'id'} eq $in{'dest'} } @folders;
+	$dest || &error($text{'auto_edest'});
+	$dest->{'nowrite'} && &error($text{'auto_ewrite'});
+	}
 
 # Save schedule, and setup cron job
 &save_auto_schedule($folder, $auto);

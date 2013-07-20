@@ -1,4 +1,5 @@
 change_ecmd=$1 fehlgeschlagen : $2
+change_eformat=Das konfigurierte Kennwort-Hashing-Format wird nicht unterst&#252;tzt
 change_emysql=Das aktuelle Passwort im MySQL-Modul ist falsch.
 change_enew1=Fehlendes neues Passwort
 change_enew2=Die Passw&#246;rter stimmen nicht &#252;berein

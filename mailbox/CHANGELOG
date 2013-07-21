@@ -155,3 +155,5 @@ Added vCard and CSV import support to the address book page, thanks to Eric Holt
 When forwarding or replying to email with inline images, they are no longer shown as attachments.
 ---- Changes since 1.490 ----
 Added a preferences option to control if the signature is appended or prepended.
+---- Changes since 1.550 ----
+The automatic mailbox clearing page can now be also used to move mail to another folder.

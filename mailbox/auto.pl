@@ -15,9 +15,10 @@ foreach $f (@folders) {
 	next if (!$auto || !$auto->{'enabled'});
 
 	@delmails = ( );
+	$headersonly = $auto->{'all'} == 2 ? 0 : 1;
 	if ($auto->{'mode'} == 0) {
 		# Find messages that are too old
-		@mails = &mailbox_list_mails(undef, undef, $f, 1);
+		@mails = &mailbox_list_mails(undef, undef, $f, $headersonly);
 		$cutoff = time() - $auto->{'days'}*24*60*60;
 		$future = time() + 7*24*60*60;
 		foreach $m (@mails) {
@@ -33,7 +34,7 @@ foreach $f (@folders) {
 	else {
 		# Cut folder down to size, by deleting oldest first
 		$size = &folder_size($f);
-		@mails = &mailbox_list_mails(undef, undef, $f, 1);
+		@mails = &mailbox_list_mails(undef, undef, $f, $headersonly);
 		while($size > $auto->{'size'}) {
 			last if (!@mails);	# empty!
 			$oldmail = shift(@mails);

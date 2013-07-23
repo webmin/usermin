@@ -26,7 +26,7 @@ else {
 		if ($in{"field_$i"}) {
 			$in{"what_$i"} || &error(&text('search_ewhat', $i+1));
 			$neg = $in{"neg_$i"} ? "!" : "";
-			push(@fields, [ $neg.$in{"field_$i"}, $in{"what_$i"} ]);
+			push(@fields, [ $neg.$in{"field_$i"}, $in{"what_$i"}, $in{"re_$i"} ]);
 			}
 		}
 	@fields || $statusmsg || &error($text{'search_enone'});
@@ -93,7 +93,7 @@ if ($in{'simple'}) {
 	if ($statusmsg) {
 		@rv = &filter_by_status(\@rv, $in{'status'});
 		}
-	$msg = &text('search_msg2', $in{'search'});
+	$msg = &text('search_msg2', "<i>".$in{'search'}."</i>");
 	}
 elsif ($in{'spam'}) {
 	# Search by spam score, using X-Spam-Level header
@@ -144,7 +144,13 @@ else {
 		# Limit by status (read, unread, special)
 		@rv = &filter_by_status(\@rv, $in{'status'});
 		}
-	$msg = $text{'search_msg4'};
+	if (@fields == 1) {
+		$msg = &text('search_msg6', "<i>".$fields[0]->[1]."</i>",
+					    "<i>".$fields[0]->[0]."</i>");
+		}
+	else {
+		$msg = $text{'search_msg4'};
+		}
 	}
 $msg .= " $limitmsg" if ($limitmsg);
 $msg .= " $statusmsg" if ($statusmsg);

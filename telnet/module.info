@@ -19,3 +19,4 @@ usermin=1
 desc_el=Σύνδεση με SSH
 longdesc=Login to the server with SSH.
 desc_nl=SSH Login
+desc_hu=SSH belιpιs

@@ -12,3 +12,4 @@ desc_ca=Quotes de Disc
 desc_cz=Disková omezení (kvóty)
 desc_nl=Disk Quotas
 depends=usermount
+desc_hu=Lemezkvóták (Quota)

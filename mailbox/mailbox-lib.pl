@@ -234,7 +234,7 @@ else {
 #               3 = inbox/drafts/trash
 sub list_folders
 {
-if (defined(@list_folders_cache)) {
+if (@list_folders_cache) {
 	return @list_folders_cache;
 	}
 local (@rv, $f, $o, %done);
@@ -949,7 +949,7 @@ elsif ($folder->{'mode'} == 2) {
 	&save_user_module_config();
 	}
 # Add to or update cache
-if (defined(@list_folders_cache)) {
+if (@list_folders_cache) {
 	if ($old) {
 		local $idx = &indexof($old, @list_folders_cache);
 		if ($idx >= 0) {
@@ -1020,7 +1020,7 @@ elsif ($folder->{'mode'} == 1) {
 	}
 
 # Remove from cache
-if (defined(@list_folders_cache)) {
+if (@list_folders_cache) {
 	@list_folders_cache = grep { $_ ne $folder } @list_folders_cache;
 	}
 

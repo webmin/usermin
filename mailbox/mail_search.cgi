@@ -145,7 +145,10 @@ else {
 		@rv = &filter_by_status(\@rv, $in{'status'});
 		}
 	if (@fields == 1) {
-		$msg = &text('search_msg6', "<i>".$fields[0]->[1]."</i>",
+		$stext = $fields[0]->[1];
+		$stext =~ s/^(\.\*|\^)//;
+		$stext =~ s/(\.\*|\$)$//;
+		$msg = &text('search_msg6', "<i>".$stext."</i>",
 					    "<i>".$fields[0]->[0]."</i>");
 		}
 	else {

@@ -813,11 +813,20 @@ print &ui_tabs_end_tabletab();
 
 print &ui_table_row(undef, &ui_tabs_end());
 
+# JS to disable enter in subject field
+print <<EOF;
+<script type="text/javascript">
+function noenter() {
+	return !(window.event && window.event.keyCode == 13);
+	}
+</script>
+EOF
+
 # Field for subject is always at the bottom
 if ($userconfig{'send_buttons'}) {
 	print &ui_table_row($text{'mail_subject'},
 		&ui_textbox("subject", $subject, 40, 0, undef,
-			    "style='width:60%'").
+			    "style='width:60%' onKeyPress='return noenter()'").
 		&ui_submit($text{'reply_send'}).
 		&ui_submit($text{'reply_draft'}, "draft", undef,
 			   "onClick='form.draft_clicked = 1'").
@@ -829,7 +838,7 @@ else {
 	# Subject only
 	print &ui_table_row($text{'mail_subject'},
 		&ui_textbox("subject", $subject, 40, 0, undef,
-			    "style='width:95%'"), 1, \@tds);
+			    "style='width:95%' onKeyPress='return noenter()'"), 1, \@tds);
 	}
 print &ui_table_end();
 

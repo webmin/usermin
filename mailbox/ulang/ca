@@ -235,6 +235,9 @@ auto_invalid=Suprimeix els missatges amb una data invàlida
 auto_action=Acció quan es troben missatges per suprimir
 auto_action0=Suprimeix els missatges que coincideixin
 auto_action1=Suprimeix tots els missatges de la carpeta
+auto_action2=Desplaça a la carpeta $1
+auto_edest=La carpeta destí seleccionada no existeix!
+auto_ewrite=No es pot escriure a la carpeta destí seleccionada
 
 copy_title=Còpia de Tot el Correu
 copy_header=Copia tots els missatges de la carpeta

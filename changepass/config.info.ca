@@ -1,5 +1,5 @@
 passwd_cmd=Canvia-la,10,-Amb l'ordre PAM o <tt>passwd</tt>,file-Actualitzant el fitxer directament,Utilitza l'ordre
-md5=Mètode de xifratge de la contrasenya,1,1-MD5,0-Xifratge DES,2-Blowfish,3-SHA512
+md5=Mètode de xifratge de la contrasenya,1,1-MD5,0-Xifratge DES,2-Blowfishm3-SHA512
 cmd_mode=Executa l'ordre com a,1,0-L'usuari que s'està modificant,1-<tt>root</tt> (i afegeix-hi l'usuari)
 smbpasswd=Fes servir també l'ordre per canviar la contrasenya de Samba,3,No la canviïs
 mysql=Canvia també la contrasenya de MySQL,1,1-Sí,0-No

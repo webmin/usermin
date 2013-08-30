@@ -12,7 +12,7 @@ print "<p>",&text('recv_desc', $in{'id'},
 
 ($ok, $msg) = &fetch_gpg_key($in{'id'});
 if ($ok == 1 || $ok == 3) {
-	print "<p>",&text('recv_failed', "<pre>$out</pre>"),"<p>\n";
+	print "<p>",&text('recv_failed', "<pre>$msg</pre>"),"<p>\n";
 	}
 elsif ($ok == 2) {
 	print "<p>",&text('recv_same', $msg->{'name'}->[0]),"<p>\n";

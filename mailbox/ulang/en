@@ -126,6 +126,7 @@ edit_mode=Folder type
 edit_mode0=File under $1
 edit_mode1=External mail file
 edit_mode2=Sent mail file
+edit_mode3=Trash file
 edit_name=Folder name
 edit_type=Storage type
 edit_type0=Single file (mbox)

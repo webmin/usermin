@@ -30,7 +30,7 @@ if ($config{'passwd_prog'}) {
         # Run external program with username and password as args
         local $qu = quotemeta($username);
         local $qp = quotemeta($pass);
-        local $out = `$config{'passwd_prog'} $qu $qp 2>&1 </dev/null`;
+        local $out = &backquote_command("$config{'passwd_prog'} $qu $qp 2>&1 </dev/null");
         if ($?) {
                 return $out;
                 }

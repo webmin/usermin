@@ -12,7 +12,7 @@ wrap_width=Amplada de tall del text dels missatges,0,5
 auto_mark=Marca automàticament els missatges llegits,1,1-Sí,0-No
 view_html=Mostra el cos del missatge com,4,0-Sempre text planer,1-Text si és possible&#44; HTML altrament,2-HTML si és possible&#44; text altrament,3-Converteix HTML a text planer
 view_images=Mostra les imatges en línia per defecte,1,0-Sí,1-Sense imatges externes,2-No
-head_html=Inclou a la pàgina el codi HTML de la secció <head> del missatge,1,1-Sí,0-No
+head_html=Inclou a la pàgina el codi HTML de la secció &lt;head&gt; del missatge,1,1-Sí,0-No
 check_mod=Comprova les modificacions de la bústia en suprimir correu,1,1-Sí,0-No
 link_mode=Obre els enllaços,1,1-En una finestra nova,0-A la mateixa finestra
 

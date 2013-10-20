@@ -126,6 +126,7 @@ edit_mode=Tipus de carpeta
 edit_mode0=Fitxer sota $1
 edit_mode1=Fitxer de correu extern
 edit_mode2=Fitxer de correu enviat
+edit_mode3=Fitxer de paperera
 edit_name=Nom de la carpeta
 edit_type=Tipus d'emmagatzematge
 edit_type0=Fitxer simple (mbox)

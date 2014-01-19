@@ -20,6 +20,6 @@ spam_always=0
 folder_virts=virt,comp
 shortindex=0
 no_mailer=0
-no_orig_ip=0
+no_orig_ip=1
 nologout=0
 noindex_hostname=0

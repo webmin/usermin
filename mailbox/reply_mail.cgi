@@ -89,7 +89,7 @@ elsif ($in{'quick_send'} || $in{'quick'} && $in{'reply'}) {
 	%enc = ( 'Charset' => $charset );
 	$qmail->{'headers'} = [
 		[ 'From', &encode_mimewords_address($from, %enc) ],
-		[ 'Subject', &encode_mimewords($subject) ],
+		[ 'Subject', &encode_mimewords($subject, %enc) ],
 		[ 'To', &encode_mimewords_address($to, %enc) ],
 		[ 'Message-Id', $newmid ] ];
 	if ($cc) {

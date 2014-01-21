@@ -41,7 +41,7 @@ $in{'bcc'} = &expand_to($in{'bcc'});
 $newmid = &generate_message_id($in{'from'});
 %enc = ( 'Charset' => $in{'charset'} );
 $mail->{'headers'} = [ [ 'From', &encode_mimewords_address($in{'from'}, %enc) ],
-		       [ 'Subject', &encode_mimewords($in{'subject'}) ],
+		       [ 'Subject', &encode_mimewords($in{'subject'}, %enc) ],
 		       [ 'To', &encode_mimewords_address($in{'to'}, %enc) ],
 		       [ 'Message-Id', $newmid ] ];
 if ($in{'cc'}) {

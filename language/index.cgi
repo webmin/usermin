@@ -7,21 +7,15 @@ require './language-lib.pl';
 
 print $text{'index_intro'},"<p>\n";
 
-print "<form action=change_lang.cgi>\n";
+print &ui_form_start("change_lang.cgi");
 
 $ulang = $gconfig{'lang_'.$remote_user};
 print "<b>$text{'index_lang'}</b>\n";
-print "<select name=lang>\n";
-printf "<option value='' %s>%s\n",
-	$ulang ? '' : 'selected', $text{'index_global'};
-foreach $l (&list_languages()) {
-	printf "<option value=%s %s>%s (%s)\n",
-		$l->{'lang'},
-		$ulang eq $l->{'lang'} ? 'selected' : '',
-		$l->{'desc'}, uc($l->{'lang'});
-	}
-print "</select>\n";
-print "<input type=submit value=\"$text{'index_ok'}\"></form>\n";
+print &ui_select("lang", $ulang,
+	[ [ "", $text{'index_global'} ],
+	  map { [ $_->{'lang'}, $_->{'desc'}." (".uc($_->{'lang'}).")" ] }
+	      &list_languages() ]);
+print &ui_form_end([ [ undef, $text{'index_ok'} ] ]);
 
 &ui_print_footer("/", $text{'index'});
 

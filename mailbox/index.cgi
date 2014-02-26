@@ -84,20 +84,6 @@ if ($in{'start'} >= @mail && $in{'jump'}) {
 					   \@error);
 	}
 
-# Work out character sets
-foreach $m (@mail) {
-	$cs = &get_mail_charset($m, undef);
-	if ($cs && $cs ne &get_charset()) {
-		$charsets{$cs}++;
-		}
-	}
-
-# Use the most common
-($bestcs) = sort { $charsets{$b} <=> $charsets{$a} } keys %charsets;
-if ($bestcs) {
-	$main::force_charset = $bestcs;
-	}
-
 # Show page title
 &ui_print_header(undef, &text('index_title', $folder->{'name'}), "", undef,
 		 1, 1, 0, join("<br>", @topright));

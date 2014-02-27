@@ -2173,7 +2173,11 @@ sub address_link
 {
 ## split_addresses() pattern-matches "[<>]", so 7-bit encodings
 ## such as ISO-2022-JP must be converted to EUC before feeding.
-local @addrs = &split_addresses(&eucconv(&decode_mimewords($_[0])));
+local ($mw, $cs) = &decode_mimewords($_[0]);
+if (&get_charset() eq 'UTF-8' && &can_convert_to_utf8($mw, $cs)) {
+        $mw = &convert_to_utf8($mw, $cs);
+        }
+local @addrs = &split_addresses(&eucconv($mw));
 local @rv;
 foreach $a (@addrs) {
 	## TODO: is $inbook{} MIME or locale-encoded?

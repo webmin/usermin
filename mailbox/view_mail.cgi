@@ -118,8 +118,15 @@ if ($body && $body eq $htmlbody && $userconfig{'head_html'}) {
 	$headstuff = &head_html($body->{'data'});
 	}
 
-# Set the character set for the page to match email
-$main::force_charset = &get_mail_charset($mail, $body);
+$mail_charset = &get_mail_charset($mail, $body);
+if (&get_charset() eq 'UTF-8' && &can_convert_to_utf8(undef, $mail_charset)) {
+	# Convert to UTF-8
+	$body->{'data'} = &convert_to_utf8($body->{'data'}, $mail_charset);
+	}
+else {
+	# Set the character set for the page to match email
+	$main::force_charset = &get_mail_charset($mail, $body);
+	}
 
 &set_module_index($in{'folder'});
 &mail_page_header($text{'view_title'}, $headstuff);
@@ -213,8 +220,8 @@ else {
 	local $subj = $mail->{'header'}->{'subject'};
 	$subj =~ s/^((Re:|Fwd:|\[\S+\])\s*)+//ig;
 	print &ui_table_row($text{'mail_subject'},
-		&left_right_align(&eucconv_and_escape(&decode_mimewords(
-				  $mail->{'header'}->{'subject'})),
+		&left_right_align(&convert_header_for_display(
+				  $mail->{'header'}->{'subject'}),
 			  &search_link("subject", $text{'mail_subsrch'},
 				       $subj).
 			  &filter_link("Subject", $text{'mail_subfilter'},

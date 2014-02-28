@@ -25,7 +25,10 @@ if ($in{'new'}) {
 		$quote = "\n\n$sig" if ($sig);
 		}
 	$to = $in{'to'};
-	$main::force_charset = $userconfig{'charset'};
+	if ($userconfig{'charset'}) {
+		# Force this charset for compose
+		$main::force_charset = $userconfig{'charset'};
+		}
 	&mail_page_header($text{'compose_title'},
 			  undef,
 			  $html_edit ? "onload='xinha_init()'" : "");

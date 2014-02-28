@@ -55,7 +55,18 @@ else {
 	# Find the body parts and set the character set
 	($textbody, $htmlbody, $body) =
 		&find_body($mail, $userconfig{'view_html'});
-	$main::force_charset = &get_mail_charset($mail, $body);
+	$mail_charset = &get_mail_charset($mail, $body);
+	if (&get_charset() eq 'UTF-8' &&
+	    &can_convert_to_utf8(undef, $mail_charset)) {
+		# Convert to UTF-8
+		$body->{'data'} = &convert_to_utf8($body->{'data'},
+						   $mail_charset);
+		$main::force_charset = 'UTF-8';
+		}
+	else {
+		# Set the character set for the page to match email
+		$main::force_charset = $mail_charset;
+		}
 
 	if ($in{'delete'}) {
 		# Just delete the email
@@ -387,7 +398,7 @@ else {
 	# our forwarding a message (or neither)
 	local $qu = !$in{'enew'} &&
 		    (!$in{'forward'} || !$userconfig{'fwd_mode'});
-	$subject = &decode_mimewords($mail->{'header'}->{'subject'});
+	$subject = &convert_header_for_display($mail->{'header'}->{'subject'});
 	$subject = "Re: ".$subject if ($subject !~ /^Re/i && !$in{'forward'} &&
 				       !@fwdmail && !$in{'enew'});
 	$subject = "Fwd: ".$subject if ($subject !~ /^Fwd/i &&

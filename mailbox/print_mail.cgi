@@ -24,8 +24,17 @@ foreach $s (split(/\0/, $in{'sub'})) {
 &decrypt_attachments($mail);
 ($textbody, $htmlbody, $body) = &find_body($mail, $userconfig{'view_html'});
 
+$mail_charset = &get_mail_charset($mail, $body);
+if (&get_charset() eq 'UTF-8' && &can_convert_to_utf8(undef, $mail_charset)) {
+	$body->{'data'} = &convert_to_utf8($body->{'data'}, $mail_charset);
+	}
+else {
+	$main::force_charset = $mail_charset;
+	}
+
 # Show it
-&ui_print_header(undef, &decode_mimewords($mail->{'header'}->{'subject'}));
+&ui_print_header(undef,
+	&convert_header_for_display($mail->{'header'}->{'subject'}));
 &show_mail_printable($mail, $body, $textbody, $htmlbody);
 print "<script>window.print();</script>\n";
 &ui_print_footer();

@@ -125,7 +125,7 @@ if (&get_charset() eq 'UTF-8' && &can_convert_to_utf8(undef, $mail_charset)) {
 	}
 else {
 	# Set the character set for the page to match email
-	$main::force_charset = &get_mail_charset($mail, $body);
+	$main::force_charset = $mail_charset;
 	}
 
 &set_module_index($in{'folder'});

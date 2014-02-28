@@ -29,6 +29,9 @@ if ($in{'new'}) {
 		# Force this charset for compose
 		$main::force_charset = $userconfig{'charset'};
 		}
+	else {
+		$main::force_charset = &get_charset();
+		}
 	&mail_page_header($text{'compose_title'},
 			  undef,
 			  $html_edit ? "onload='xinha_init()'" : "");

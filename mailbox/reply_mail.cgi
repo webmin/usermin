@@ -634,7 +634,7 @@ if ($has_gpg) {
 		if ($k->{'email'}->[0]) {
 			$n .= " &lt;".$k->{'email'}->[0]."&gt;";
 			}
-		elsif (
+		else {
 			$n .= " ($k->{'key'})";
 			}
 		if ($k->{'secret'}) {

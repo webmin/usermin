@@ -198,7 +198,7 @@ for(my $i=$start; $i<=$end; $i++) {
 		}
 
 	# Date and size columns
-	push(@cols, $bs.&simplify_date($m->{'header'}->{'date'}).$be);
+	push(@cols, $bs.&eucconv_and_escape(&simplify_date($m->{'header'}->{'date'})).$be);
 	push(@cols, $bs.&nice_size($m->{'size'}, 1024).$be);
 
 	# Spam score

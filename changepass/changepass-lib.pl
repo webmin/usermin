@@ -78,5 +78,38 @@ if ($config{'mailbox'} && &foreign_check("mailbox")) {
 return $rv;
 }
 
+# change_samba_password(user, old, new)
+# Change a user's Samba password
+sub change_samba_password
+{
+local ($user, $oldpass, $newpass) = @_;
+local ($smbpasswd_binary) = split(/\s+/, $config{'smbpasswd'});
+local $smbout;
+if (&has_command($smbpasswd_binary)) {
+	$user = quotemeta($user);
+	local $hout = &backquote_command("$config{'smbpasswd'} -h 2>&1");
+	if ($hout =~ /\s-s\s/) {
+		# New version of smbpasswd which accepts the -s option
+		local $temp = &transname();
+		open(TEMP, ">$temp");
+		if ($config{'smbpasswd'} =~ /\s-r\s/) {
+			print TEMP $old,"\n";
+			}
+		print TEMP $new,"\n",$new,"\n";
+		close(TEMP);
+		$smbout = &backquote_command(
+			"$config{'smbpasswd'} -s $user 2>&1 <$temp");
+		unlink($temp);
+		}
+	else {
+		# Old version of smbpasswd which takes password on command line
+		local $pass = quotemeta($newpass);
+		$smbout = &backquote_command(
+			"$config{'smbpasswd'} $user $pass 2>&1 </dev/null");
+		}
+	}
+return $smbout;
+}
+
 1;
 

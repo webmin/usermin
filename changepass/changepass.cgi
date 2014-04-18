@@ -200,28 +200,7 @@ if ($config{'post_command'}) {
 	}
 
 # Change samba password as well
-($smbpasswd_binary) = split(/\s+/, $config{'smbpasswd'});
-if (&has_command($smbpasswd_binary)) {
-	local $user = quotemeta($remote_user);
-	local $hout = `$config{'smbpasswd'} -h 2>&1`;
-	if ($hout =~ /\s-s\s/) {
-		# New version of smbpasswd which accepts the -s option
-		local $temp = &transname();
-		open(TEMP, ">$temp");
-		if ($config{'smbpasswd'} =~ /\s-r\s/) {
-			print TEMP $in{'old'},"\n";
-			}
-		print TEMP $in{'new1'},"\n",$in{'new1'},"\n";
-		close(TEMP);
-		$smbout = `$config{'smbpasswd'} -s $user 2>&1 <$temp`;
-		unlink($temp);
-		}
-	else {
-		# Old version of smbpasswd which takes password on command line
-		local $pass = quotemeta($in{'new1'});
-		$smbout = `$config{'smbpasswd'} $user $pass 2>&1 </dev/null`;
-		}
-	}
+$smbout = &change_samba_password($remote_user, $in{'old'}, $in{'new1'});
 
 # Change MySQL password too, if possible
 if ($config{'mysql'} && &foreign_check("mysql")) {

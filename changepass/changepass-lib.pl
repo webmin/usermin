@@ -93,9 +93,9 @@ if (&has_command($smbpasswd_binary)) {
 		local $temp = &transname();
 		open(TEMP, ">$temp");
 		if ($config{'smbpasswd'} =~ /\s-r\s/) {
-			print TEMP $old,"\n";
+			print TEMP $oldpass,"\n";
 			}
-		print TEMP $new,"\n",$new,"\n";
+		print TEMP $newpass,"\n",$newpass,"\n";
 		close(TEMP);
 		$smbout = &backquote_command(
 			"$config{'smbpasswd'} -s $user 2>&1 <$temp");

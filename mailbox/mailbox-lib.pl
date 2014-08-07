@@ -318,7 +318,10 @@ elsif ($config{'mail_system'} == 4) {
 		($sent) = grep { lc($_->{'name'}) eq lc($sf) } @rv;
 		}
 	else {
-		($sent) = grep { $_->{'name'} =~ /sent/i } @rv;
+		($sent) = grep { lc($_->{'name'}) eq 'sent' } @rv;
+		if (!$sent) {
+			($sent) = grep { $_->{'name'} =~ /sent/i } @rv;
+			}
 		}
 	if (!$sent) {
 		local @irv = &imap_command($ih, "create \"$sf\"");

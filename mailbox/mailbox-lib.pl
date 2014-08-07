@@ -313,8 +313,13 @@ elsif ($config{'mail_system'} == 4) {
 		}
 
 	# Find or create the IMAP sent mail folder
-	local $sf = $userconfig{'sent_name'} || 'sent';
-	local ($sent) = grep { lc($_->{'name'}) eq lc($sf) } @rv;
+	local $sf;
+	if ($userconfig{'sent_name'}) {
+		($sent) = grep { lc($_->{'name'}) eq lc($sf) } @rv;
+		}
+	else {
+		($sent) = grep { $_->{'name'} =~ /sent/i } @rv;
+		}
 	if (!$sent) {
 		local @irv = &imap_command($ih, "create \"$sf\"");
 		if ($irv[0]) {

@@ -132,6 +132,7 @@ edit_type=Storage type
 edit_type0=Single file (mbox)
 edit_type1=Qmail mail directory (Maildir)
 edit_type3=MH directory (MH)
+edit_type7=Single file (MBX)
 edit_file=External mail file or directory
 edit_sent=Sent mail file or directory
 edit_sent1=Usermin default

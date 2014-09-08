@@ -448,6 +448,7 @@ print <<EOF;
 function check_fields()
 {
 form = document.forms[0];
+window.submit_clicked = true;
 if (form.to.value == '' && form.cc.value == '' && form.bcc.value == '' &&
     !form.draft_clicked) {
 	alert("$noto_msg");
@@ -463,6 +464,9 @@ return true;
 function prompt_save(event)
 {
 form = document.forms[0];
+if (window.submit_clicked) {
+	return null;
+	}
 if (form.body.value != '' &&
     form.body.value != '<html><body></body></html>') {
 	return "$close_msg";
@@ -470,6 +474,7 @@ if (form.body.value != '' &&
 return null;
 }
 window.onbeforeunload = prompt_save;
+window.submit_clicked = false;
 </script>
 EOF
 

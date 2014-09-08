@@ -442,6 +442,7 @@ else {
 # Script to validate fields
 $noto_msg = &quote_escape($text{'send_etomsg'}, '"');
 $nosubject_msg = &quote_escape($text{'send_esubjectmsg'}, '"');
+$close_msg = &quote_escape($text{'send_eclosemsg'}, '"');
 print <<EOF;
 <script>
 function check_fields()
@@ -459,6 +460,16 @@ if (form.subject.value == '' && !form.draft_clicked) {
 	}
 return true;
 }
+function prompt_save(event)
+{
+form = document.forms[0];
+if (form.body.value != '' &&
+    form.body.value != '<html><body></body></html>') {
+	return "$close_msg";
+	}
+return null;
+}
+window.onbeforeunload = prompt_save;
 </script>
 EOF
 

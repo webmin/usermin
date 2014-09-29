@@ -401,7 +401,8 @@ else {
 	# our forwarding a message (or neither)
 	local $qu = !$in{'enew'} &&
 		    (!$in{'forward'} || !$userconfig{'fwd_mode'});
-	$subject = &convert_header_for_display($mail->{'header'}->{'subject'});
+	$subject = &convert_header_for_display($mail->{'header'}->{'subject'},
+					       undef, 1);
 	$subject = "Re: ".$subject if ($subject !~ /^Re/i && !$in{'forward'} &&
 				       !@fwdmail && !$in{'enew'});
 	$subject = "Fwd: ".$subject if ($subject !~ /^Fwd/i &&

@@ -1,0 +1,3 @@
+awl_deleteonedesc=Usuñ wszystkie aktualne wpisy automatyczne na bia³ej li¶cie (whitelist )
+awl_title=Zarz±dzaj automatyczn± bia³± list± (whitelist)
+index_edb=B³±d po³±czenia do bazy danych konfiguracji SpamAssassin : $1. Popro¶ administratora systemu o sprawdzenie konfiguracji modu³u.

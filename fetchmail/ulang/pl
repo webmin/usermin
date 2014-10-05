@@ -1,0 +1,5 @@
+index_efetchmail=Program fetchmail $1 nie zosta³ znaleziony na tym systemie.
+index_none=Brak zdefiniowanych serwerów pocztowych do sprawdzenia.
+index_noservers=Brak skonfigurowanych serwerów do pobierania poczty,
+index_startmsg=Kliknij na ten przycisk, aby uruchomiæ daemon fetchmail na tym serwerze i sprawdzaæ maile co $1 sekund, u¿ywaj±c powy¿szej konfiguracji.
+index_stopmsg=Kliknij na ten przycisk, aby zatrzymaæ daemon fetchmail na tym serwerze i przestaæ sprawdzaæ maile co $1 sekund.

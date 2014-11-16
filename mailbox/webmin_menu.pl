@@ -4,9 +4,26 @@ require "mailbox-lib.pl";
 
 sub list_webmin_menu
 {
+my @rv;
+
+# Desired title
+push(@rv, { 'type' => 'title',
+	    'id' => 'title',
+	    'desc' => $text{'left_mail'} });
+
+# Show real name and address
 my ($fromaddr) = &mailbox::split_addresses(
 		&mailbox::get_preferred_from_address());
-my @rv;
+if ($fromaddr->[1]) {
+	push(@rv, { 'type' => 'text',
+		    'id' => 'realname',
+		    'desc' => $fromaddr->[1] });
+	}
+push(@rv, { 'type' => 'text',
+	    'id' => 'emailaddr',
+	    'desc' => $fromaddr->[0] });
+
+# Get all the folders
 my @folders = &list_folders_sorted();
 my $df = $userconfig{'default_folder'};
 my $dfolder = $df ? &find_named_folder($df, \@folders) :

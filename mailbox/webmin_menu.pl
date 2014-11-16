@@ -16,7 +16,7 @@ my $dfolder = $df ? &find_named_folder($df, \@folders) :
 foreach my $f (@folders) {
 	my $fid = &folder_name($f);
 	my $item = { 'type' => 'item',
-		     'id' => $fid,
+		     'id' => 'folder_'.$fid,
 		     'desc' => $f->{'name'},
 		     'link' => '/'.$module_name.
 			       '/index.cgi?id='.&urlize($fid) };
@@ -39,7 +39,7 @@ push(@rv, { 'type' => 'input',
 	    'id' => 'search',
 	    'name' => 'search',
 	    'size' => 15,
-	    'desc' => $text{'mail_search2'},
+	    'desc' => $text{'left_search'},
 	    'cgi' => '/'.$module_name.'/mail_search.cgi',
 	    'hidden' => [ [ 'simple', 1 ],
 			  [ 'folder', $dfolder->{'index'} ],
@@ -51,20 +51,56 @@ my $fprog = $mconfig{'mail_system'} == 4 ? "list_ifolders.cgi"
 					 : "list_folders.cgi";
 push(@rv, { 'type' => 'item',
 	    'id' => 'folders',
-	    'desc' => $text{'mail_folders'},
+	    'desc' => $text{'left_folders'},
 	    'link' => '/'.$module_name.'/'.$fprog });
 
 # Address book link
-# XXX
+push(@rv, { 'type' => 'item',
+            'id' => 'address',
+	    'desc' => $text{'left_addresses'},
+	    'link' => '/'.$module_name.'/list_addresses.cgi' });
 
 # Module config link
-# XXX
+if ($config{'noprefs'}) {
+	push(@rv, { 'type' => 'item',
+		    'id' => 'config',
+		    'desc' => $text{'left_prefs'},
+		    'link' => '/uconfig.cgi?'.$module_name });
+	}
 
 # Mail filter links
-# XXX
+if (&foreign_available("filter")) {
+	&foreign_require("filter");
+	if (!&filter::no_user_procmailrc()) {
+		# Forwarding link
+		if (&filter::can_simple_forward()) {
+			push(@rv, { 'type' => 'item',
+				    'id' => 'forward',
+				    'desc' => $text{'left_forward'},
+			            'link' => '/filter/edit_forward.cgi' });
+			}
+
+		# Autoreply link
+		if (&filter::can_simple_autoreply()) {
+			push(@rv, { 'type' => 'item',
+				    'id' => 'autoreply',
+				    'desc' => $text{'left_autoreply'},
+			            'link' => '/filter/edit_auto.cgi' });
+			}
+
+		# Filter management
+		push(@rv, { 'type' => 'item',
+			    'id' => 'filter',
+			    'desc' => $text{'left_filter'},
+			    'link' => '/filter/' });
+		}
+	}
 
 # Edit signature link
-# XXX
+push(@rv, { 'type' => 'item',
+            'id' => 'sig',
+	    'desc' => $text{'left_addresses'},
+	    'link' => '/'.$module_name.'/edit_sig.cgi' });
 
 return @rv;
 }

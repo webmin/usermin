@@ -28,6 +28,7 @@ from_format=Address mapping file format,1,0-Username to address (genericstable),
 line3.5=Qmail+LDAP options,11
 ldap_host=LDAP server,3,Not used
 ldap_port=LDAP port,3,Default
+ldap_tls=Use TLS for LDAP connection?,1,1-Yes,0-No
 ldap_login=Login for LDAP server,0
 ldap_pass=Password for LDAP server,0
 ldap_base=Base for mail users,0

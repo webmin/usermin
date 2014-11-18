@@ -55,7 +55,7 @@ push(@rv, { 'type' => 'hr' });
 push(@rv, { 'type' => 'input',
 	    'id' => 'search',
 	    'name' => 'search',
-	    'size' => 15,
+	    'size' => 10,
 	    'desc' => $text{'left_search'},
 	    'cgi' => '/'.$module_name.'/mail_search.cgi',
 	    'hidden' => [ [ 'simple', 1 ],
@@ -67,12 +67,14 @@ push(@rv, { 'type' => 'input',
 my $fprog = $mconfig{'mail_system'} == 4 ? "list_ifolders.cgi"
 					 : "list_folders.cgi";
 push(@rv, { 'type' => 'item',
+	    'icon' => '/'.$module_name.'/images/mail-small.gif',
 	    'id' => 'folders',
 	    'desc' => $text{'left_folders'},
 	    'link' => '/'.$module_name.'/'.$fprog });
 
 # Address book link
 push(@rv, { 'type' => 'item',
+	    'icon' => '/'.$module_name.'/images/address-small.gif',
             'id' => 'address',
 	    'desc' => $text{'left_addresses'},
 	    'link' => '/'.$module_name.'/list_addresses.cgi' });
@@ -80,6 +82,7 @@ push(@rv, { 'type' => 'item',
 # Module config link
 if ($config{'noprefs'}) {
 	push(@rv, { 'type' => 'item',
+		    'icon' => '/'.$module_name.'/images/usermin-small.gif',
 		    'id' => 'config',
 		    'desc' => $text{'left_prefs'},
 		    'link' => '/uconfig.cgi?'.$module_name });
@@ -92,6 +95,7 @@ if (&foreign_available("filter")) {
 		# Forwarding link
 		if (&filter::can_simple_forward()) {
 			push(@rv, { 'type' => 'item',
+				    'icon' => '/'.$module_name.'/images/forward.gif',
 				    'id' => 'forward',
 				    'desc' => $text{'left_forward'},
 			            'link' => '/filter/edit_forward.cgi' });
@@ -100,6 +104,7 @@ if (&foreign_available("filter")) {
 		# Autoreply link
 		if (&filter::can_simple_autoreply()) {
 			push(@rv, { 'type' => 'item',
+				    'icon' => '/'.$module_name.'/images/autoreply.gif',
 				    'id' => 'autoreply',
 				    'desc' => $text{'left_autoreply'},
 			            'link' => '/filter/edit_auto.cgi' });
@@ -107,6 +112,7 @@ if (&foreign_available("filter")) {
 
 		# Filter management
 		push(@rv, { 'type' => 'item',
+			    'icon' => '/'.$module_name.'/images/filters.gif',
 			    'id' => 'filter',
 			    'desc' => $text{'left_filter'},
 			    'link' => '/filter/' });
@@ -115,6 +121,7 @@ if (&foreign_available("filter")) {
 
 # Edit signature link
 push(@rv, { 'type' => 'item',
+	    'icon' => '/'.$module_name.'/images/sig.gif',
             'id' => 'sig',
 	    'desc' => $text{'left_addresses'},
 	    'link' => '/'.$module_name.'/edit_sig.cgi' });

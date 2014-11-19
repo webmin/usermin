@@ -9,6 +9,7 @@ my @rv;
 # Desired title
 push(@rv, { 'type' => 'title',
 	    'id' => 'title',
+	    'icon' => '/'.$module_name.'/images/mail.gif',
 	    'desc' => $text{'left_mail'} });
 
 # Show real name and address
@@ -67,14 +68,14 @@ push(@rv, { 'type' => 'input',
 my $fprog = $mconfig{'mail_system'} == 4 ? "list_ifolders.cgi"
 					 : "list_folders.cgi";
 push(@rv, { 'type' => 'item',
-	    'icon' => '/'.$module_name.'/images/mail-small.gif',
+	    'icon' => '/'.$module_name.'/images/mail.gif',
 	    'id' => 'folders',
 	    'desc' => $text{'left_folders'},
 	    'link' => '/'.$module_name.'/'.$fprog });
 
 # Address book link
 push(@rv, { 'type' => 'item',
-	    'icon' => '/'.$module_name.'/images/address-small.gif',
+	    'icon' => '/'.$module_name.'/images/address.gif',
             'id' => 'address',
 	    'desc' => $text{'left_addresses'},
 	    'link' => '/'.$module_name.'/list_addresses.cgi' });
@@ -82,7 +83,7 @@ push(@rv, { 'type' => 'item',
 # Module config link
 if ($config{'noprefs'}) {
 	push(@rv, { 'type' => 'item',
-		    'icon' => '/'.$module_name.'/images/usermin-small.gif',
+		    'icon' => '/'.$module_name.'/images/usermin.gif',
 		    'id' => 'config',
 		    'desc' => $text{'left_prefs'},
 		    'link' => '/uconfig.cgi?'.$module_name });

@@ -23,6 +23,7 @@ if ($fromaddr->[1]) {
 push(@rv, { 'type' => 'text',
 	    'id' => 'emailaddr',
 	    'desc' => $fromaddr->[0] });
+push(@rv, { 'type' => 'hr' });
 
 # Get all the folders
 my @folders = &list_folders_sorted();
@@ -31,6 +32,7 @@ my $dfolder = $df ? &find_named_folder($df, \@folders) :
                     $folders[0];
 
 # All the user's folders
+# XXX categories
 foreach my $f (@folders) {
 	my $fid = &folder_name($f);
 	my $item = { 'type' => 'item',
@@ -53,6 +55,7 @@ foreach my $f (@folders) {
 push(@rv, { 'type' => 'hr' });
 
 # Search box
+# XXX current folder?
 push(@rv, { 'type' => 'input',
 	    'id' => 'search',
 	    'name' => 'search',

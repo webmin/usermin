@@ -32,8 +32,8 @@ my $dfolder = $df ? &find_named_folder($df, \@folders) :
                     $folders[0];
 
 # All the user's folders
-# XXX categories
 foreach my $f (@folders) {
+	# Create the folder object
 	my $fid = &folder_name($f);
 	my $item = { 'type' => 'item',
 		     'id' => 'folder_'.$fid,
@@ -50,7 +50,32 @@ foreach my $f (@folders) {
 		my ($c, $u) = &mailbox_folder_unread($f);
 		$item->{'desc'} .= " ($u)" if ($u);
 		}
-	push(@rv, $item);
+
+	# Check if this is under a new heirarchy
+	my $sep = $f->{'name'} =~ /\// ? "/" : "\\.";
+	my $sepchar = $f->{'name'} =~ /\// ? "/" : ".";
+	my @w = split($sep, $f->{'name'});
+	if (@w > 1) {
+		my $hname = join($sepchar, @w[0..$#w-1]);
+		$item->{'desc'} =~ s/^\Q$hname$sepchar\E//;
+		if ($parent && $parent->{'id'} eq $hname) {
+			# Add to current parent
+			push(@{$parent->{'members'}}, $item);
+			}
+		else {
+			# Create new parent
+			my $newp = { 'type' => 'cat',
+				     'id' => $hname,
+				     'desc' => $hname,
+				     'members' => [ $item ] };
+			$parent = $newp;
+			push(@rv, $newp);
+			}
+		}
+	else {
+		# Add to top level
+		push(@rv, $item);
+		}
 	}
 push(@rv, { 'type' => 'hr' });
 

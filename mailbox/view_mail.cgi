@@ -394,6 +394,7 @@ local @sr = !@sub ? ( ) :
 	"index.cgi?folder=$in{'folder'}&start=$in{'start'}",
 	$text{'mail_return'});
 
+&save_last_folder_id($folder);
 &pop3_logout_all();
 
 # show_buttons(pos, submode)

@@ -26,6 +26,7 @@ $folders_dir = "$remote_user_info[7]/$userconfig{'mailbox_dir'}";
 $search_folder_id = 1;
 $special_folder_id = 2;
 $auto_cmd = "$user_module_config_directory/auto.pl";
+$last_folder_file = "$user_module_config_directory/lastfolder";
 
 # mailbox_file()
 sub mailbox_file
@@ -2247,6 +2248,28 @@ if (scalar(@others) == scalar(@addrs) || !scalar(@others)) {
 else {
 	# Return just those left
 	return join(", ", map { $_->[2] } @others);
+	}
+}
+
+# get_last_folder_id()
+# Returns the ID of the folder last opened, or undef
+sub get_last_folder_id
+{
+my $rv = &read_file_contents($last_folder_file);
+$rv =~ s/\r|\n//g;
+return $rv;
+}
+
+# save_last_folder_id(id|&folder)
+# Saves the last accessed folder ID
+sub save_last_folder_id
+{
+my ($id) = @_;
+$id = &folder_name($id) if (ref($id));
+if ($id ne $search_folder_id) {
+	&open_tempfile(LASTFOLDER, ">$last_folder_file");
+	&print_tempfile(LASTFOLDER, $id,"\n");
+	&close_tempfile(LASTFOLDER);
 	}
 }
 

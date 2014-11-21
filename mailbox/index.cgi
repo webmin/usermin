@@ -346,6 +346,7 @@ if ($in{'refresh'}) {
 		}
 	}
 
+&save_last_folder_id($folder);
 &ui_print_footer("/", $text{'index'});
 &pop3_logout();
 

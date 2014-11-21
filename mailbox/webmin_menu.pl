@@ -80,7 +80,6 @@ foreach my $f (@folders) {
 push(@rv, { 'type' => 'hr' });
 
 # Search box
-# XXX current folder?
 push(@rv, { 'type' => 'input',
 	    'id' => 'search',
 	    'name' => 'search',
@@ -88,6 +87,7 @@ push(@rv, { 'type' => 'input',
 	    'desc' => $text{'left_search'},
 	    'cgi' => '/'.$module_name.'/mail_search.cgi',
 	    'hidden' => [ [ 'simple', 1 ],
+			  [ 'lastfolder', 1 ],
 			  [ 'folder', $dfolder->{'index'} ],
 			  [ 'id', undef ] ],
 	  });

@@ -2267,7 +2267,7 @@ sub save_last_folder_id
 my ($id) = @_;
 $id = &folder_name($id) if (ref($id));
 if ($id ne $search_folder_id) {
-	&open_tempfile(LASTFOLDER, ">$last_folder_file");
+	&open_tempfile(LASTFOLDER, ">$last_folder_file", 1);
 	&print_tempfile(LASTFOLDER, $id,"\n");
 	&close_tempfile(LASTFOLDER);
 	}

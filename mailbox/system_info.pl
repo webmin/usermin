@@ -11,6 +11,7 @@ sub list_system_info
 my @table;
 my $table = { 'type' => 'table',
               'desc' => $text{'right_header'},
+	      'priority' => 10,
               'table' => \@table };
 
 # Hostname
@@ -35,3 +36,5 @@ push(@table, { 'desc' => $text{'right_time'},
 
 return ($table);
 }
+
+1;

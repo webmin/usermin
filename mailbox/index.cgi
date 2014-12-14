@@ -44,7 +44,6 @@ if (($folder->{'type'} == 2 || $folder->{'type'} == 4) &&
     $folder->{'mode'} == 3 && !$folder->{'autouser'} && !$folder->{'user'}) {
 	&ui_print_header(undef, &text('index_title', $folder->{'name'}), "",
 			 undef, 1, 1, 0, join("<br>", @topright));
-	print &check_clicks_function();
 	print &ui_form_start("inbox_login.cgi", "post");
 	print &ui_hidden("folder", $folder->{'index'}),"\n";
 	print &ui_table_start(
@@ -87,7 +86,6 @@ if ($in{'start'} >= @mail && $in{'jump'}) {
 # Show page title
 &ui_print_header(undef, &text('index_title', $folder->{'name'}), "", undef,
 		 1, 1, 0, join("<br>", @topright));
-print &check_clicks_function();
 
 # Get folder-selection HTML
 $sel = &folder_select(\@folders, $folder, "id", undef, 1, 1);

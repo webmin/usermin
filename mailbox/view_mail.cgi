@@ -130,7 +130,6 @@ else {
 
 &set_module_index($in{'folder'});
 &mail_page_header($text{'view_title'}, $headstuff);
-print &check_clicks_function();
 &show_arrows();
 print "<br>\n";
 

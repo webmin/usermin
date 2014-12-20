@@ -10,6 +10,7 @@ send_efile=El fitxer adjuntat $1 no és llegible o bé no existeix
 send_nobody=nobody
 send_etomsg=No has introduït cap adreça To, Cc ni Bcc
 send_esubjectmsg=No has introduït cap Assumpte - espero que sigui correcte
+send_eclosemsg=Segur que vols tancar aquesta pàgina i perdre el missatge en progrés?
 
 address_chooser=Selecciona una Adreça...
 address_addr=Adreça E-mail
@@ -132,6 +133,7 @@ edit_type=Tipus d'emmagatzematge
 edit_type0=Fitxer simple (mbox)
 edit_type1=Directori de correu Qmail (Maildir)
 edit_type3=Directori MH (MH)
+edit_type7=Fitxer simple (MBX)
 edit_file=Fitxer o directori de correu extern
 edit_sent=Fitxer o directori de correu enviat
 edit_sent1=Per defecte d'Usermin

@@ -28,6 +28,7 @@ from_format=Format del fitxer de mapejat d'adreces,1,0-Usuari a adreça (generics
 line3.5=Opcions de Qmail+LDAP,11
 ldap_host=Servidor LDAP,3,No utilitzat
 ldap_port=Port LDAP,3,Per defecte
+ldap_tls=Utilitza TLS per a la connexió LDAP,1,1-Sí,0-No
 ldap_login=Usuari del servidor LDAP,0
 ldap_pass=Contrasenya del servidor LDAP,0
 ldap_base=Base dels usuaris de correu,0

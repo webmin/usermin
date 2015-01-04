@@ -19,15 +19,10 @@ if (!-x $config{'mysql'}) {
 	&ui_print_footer("/", $text{'index'});
 	exit;
 	}
-$out = `$config{'mysql'} -V 2>&1`;
-if ($out =~ /lib\S+\.so/) {
-	&main_header();
-	print &text('index_elibrary',
-			  "<tt>$config{'mysql'}</tt>"),"<p>\n";
-	&ui_print_footer("/", $text{'index'});
-	exit;
-	}
-elsif ($out !~ /distrib\s+((3|4|5)\.[0-9\.]*)/i) {
+
+# Get and check the version
+$mysql_version = &get_mysql_version(\$out);
+if ($mysql_version < 0) {
 	&main_header();
 	print &text('index_ever', "<tt>$config{'mysql'}</tt>"),"<p>\n";
 	print &text('index_mysqlver', "$config{'mysql'} -V"),"\n";
@@ -110,7 +105,6 @@ if ($needpass) {
 	print "<input type=submit value='$text{'save'}'>\n";
 	print "<input type=reset value='$text{'index_clear'}'>\n";
 	print "</center></form>\n";
-
 	}
 
 &ui_print_footer("/", "index");

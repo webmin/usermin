@@ -35,12 +35,12 @@ open(VERSION, ">$user_module_config_directory/version");
 print VERSION $mysql_version,"\n";
 close(VERSION);
 
-if (!$userconfig{'login'} && $config{'useident'} != "yes") {
+if (!$userconfig{'login'} && $config{'useident'} ne "yes") {
 	# User has not set his password yet
 	$needpass = 1;
 	}
 else {
-	$r = &is_mysql_running();
+	($r, $rout) = &is_mysql_running();
 	if ($r == 0) {
 		# Not running
 		&main_header();
@@ -80,31 +80,30 @@ else {
 			@titles = map { &html_escape($_) } @titles;
 			&icons_table(\@links, \@titles, \@icons);
 			}
-
-		# Check if the user can create databases
-		#print "<a href=newdb_form.cgi>$text{'index_add'}</a> <p>\n";
 		}
 	}
 
 if ($needpass) {
 	# Need to ask for the password
 	&main_header();
-	print "<center>\n";
-	print "<p> <b>$text{'index_nopass'}</b> <p>\n";
-	print "<form action=login.cgi>\n";
-	print "<table border>\n";
-	print "<tr $tb> <td><b>$text{'index_ltitle'}</b></td> </tr>\n";
-	print "<tr $cb> <td><table cellpadding=2>\n";
-	print "<tr> <td><b>$text{'index_login'}</b></td>\n";
-	printf "<td><input name=login size=20 value='%s'></td> </tr>\n",
-		$userconfig{'login'} ? $userconfig{'login'} : $remote_user;
-	print "<tr> <td><b>$text{'index_pass'}</b></td>\n";
-	printf "<td><input name=pass size=20 type=password value='%s'></td>\n",
-		$userconfig{'pass'};
-	print "</tr> </table></td></tr></table>\n";
-	print "<input type=submit value='$text{'save'}'>\n";
-	print "<input type=reset value='$text{'index_clear'}'>\n";
-	print "</center></form>\n";
+
+        print "<b>$text{'index_nopass'}</b> <p>\n";
+
+        print &ui_form_start("login.cgi", "post");
+        print &ui_table_start($text{'index_ltitle'}, undef, 2);
+
+        print &ui_table_row($text{'index_login'},
+                &ui_textbox("login", $userconfig{'login'} || $remote_user, 40));
+
+        print &ui_table_row($text{'index_pass'},
+                &ui_password("pass", $userconfig{'pass'}, 40));
+
+        print &ui_table_end();
+        print &ui_form_end([ [ undef, $text{'save'} ] ]);
+
+	if ($rout) {
+		print &text('index_emsg', "<tt>$rout</tt>"),"<p>\n";
+		}
 	}
 
 &ui_print_footer("/", "index");

@@ -17,6 +17,7 @@ if ($n > 0) {
 	for(my $i=0; $i<$n; $i++) {
 		my $quota = $filesys{$i,'hblocks'} ||
 			    $filesys{$i,'sblocks'};
+		next if (!$quota);
 		my $usage = $filesys{$i,'ublocks'};
 		my $bsize = $config{'block_size'};
 		push(@chart, { 'desc' => $filesys{$i,'filesys'},
@@ -25,7 +26,9 @@ if ($n > 0) {
 					&nice_size($usage*$bsize),
 					&nice_size($quota*$bsize)), });
 		}
-	return ($chart);
+	return @chart ? ( $chart ) : ( );
 	}
 return ( );
 }
+
+1;

@@ -23,3 +23,4 @@ no_mailer=0
 no_orig_ip=1
 nologout=0
 noindex_hostname=0
+smtp_ssl=0

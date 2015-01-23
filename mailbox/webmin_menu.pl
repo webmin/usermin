@@ -152,7 +152,7 @@ if (&foreign_available("filter")) {
 push(@rv, { 'type' => 'item',
 	    'icon' => '/'.$module_name.'/images/sig.gif',
             'id' => 'sig',
-	    'desc' => $text{'left_addresses'},
+	    'desc' => $text{'left_sig'},
 	    'link' => '/'.$module_name.'/edit_sig.cgi' });
 
 return @rv;

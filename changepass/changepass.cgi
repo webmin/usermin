@@ -241,7 +241,7 @@ push(@pc, $msg) if ($msg);
 
 &ui_print_header(undef, $text{'change_title'}, "");
 
-print "<p>",&text('change_ok', "<tt>$remote_user</tt>"),"<p>\n";
+print "<p>",&text('change_oka', "<tt>$remote_user</tt>"),"<p>\n";
 if ($smbout =~ /changed/) {
 	print "<p>",&text('change_samba'),"<p>\n";
 	}

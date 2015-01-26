@@ -1,5 +1,5 @@
 index_title=Change Password
-index_desc1=Use this page to change the password you use for logging into the server via SSH, telnet or FTP, or for picking up email via POP3.
+index_desc1a=Use this page to change the password you use for logging into Usermin, accessing the server via SSH and FTP, or for downloading and sending email.
 index_desc2=Your Samba password used when accessing files on the server from a Windows system will also be changed.
 index_for=Changing for user
 index_old=Current password
@@ -10,7 +10,7 @@ index_return=password changing form
 
 change_err=Failed to change password
 change_title=Changed Password
-change_ok=Your password for $1 has been changed successfully. Any telnet, SSH, FTP or POP3 logins made from now on will require the new password.
+change_oka=Your password for $1 has been changed successfully. Any Usermin, SSH, FTP or email logins from now on will require the new password.
 change_enew1=Missing new password
 change_enew2=New passwords are not the same
 change_eold=Old password is incorrect
@@ -32,4 +32,4 @@ change_epasswd_new=Password is the same as the old password
 change_emysql=Current login in MySQL module is incorrect.
 change_eformat=The configured password hashing format is not supported
 
-
+left_changepass=Change Password

@@ -5,7 +5,7 @@
 require './changepass-lib.pl';
 &ui_print_header(undef, $text{'index_title'}, "", undef, 0, 1);
 
-print "$text{'index_desc1'}<br>\n";
+print "$text{'index_desc1a'}<br>\n";
 print "$text{'index_desc2'}<br>\n" if (&has_command($config{'smbpasswd'}));
 
 print &ui_form_start("changepass.cgi", "post");

@@ -117,7 +117,8 @@ return $smbout;
 sub get_recovery_address
 {
 my $rv = &eval_as_unix_user($remote_user,
-	sub { &read_file_contents($recovery_file) });
+	sub { &create_user_config_dirs();
+	      &read_file_contents($user_module_config_directory."/recovery") });
 $rv =~ s/\r|\n//g;
 return $rv;
 }
@@ -127,16 +128,14 @@ return $rv;
 sub save_recovery_address
 {
 my ($addr) = @_;
-if (defined($addr)) {
-	&eval_as_unix_user($remote_user,
-		sub { unlink($recovery_file) });
-	}
-else {
-	&eval_as_unix_user($remote_user,
-		sub { &open_tempfile(ADDR, ">$recovery_file");
-		      &print_tempfile(ADDR, $addr,"\n");
-		      &close_tempfile(ADDR) });
-	}
+&eval_as_unix_user($remote_user,
+	sub { &create_user_config_dirs();
+	      &open_tempfile(ADDR,
+		">".$user_module_config_directory."/recovery");
+	      if (defined($addr)) {
+	          &print_tempfile(ADDR, $addr,"\n");
+	          }
+	      &close_tempfile(ADDR) });
 }
 
 1;

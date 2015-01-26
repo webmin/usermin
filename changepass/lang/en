@@ -1,5 +1,5 @@
 index_title=Change Password
-index_desc1a=Use this page to change the password you use for logging into Usermin, accessing the server via SSH and FTP, or for downloading and sending email.
+index_desc1a=Use this form to change the password you use for logging into Usermin, accessing the server via SSH and FTP, or for downloading and sending email.
 index_desc2=Your Samba password used when accessing files on the server from a Windows system will also be changed.
 index_for=Changing for user
 index_old=Current password
@@ -7,6 +7,12 @@ index_new1=New password
 index_new2=New password again
 index_change=Change Now
 index_return=password changing form
+index_passtab=Password change
+index_recoverytab=Password recovery address
+index_desc3=Use this form to enter an alternate address that a temporary password can be sent to if you forget your current password.
+index_recovery=Alternate address for password recovery
+index_recoverydef=None set
+index_recoverysel=Send email to
 
 change_err=Failed to change password
 change_title=Changed Password

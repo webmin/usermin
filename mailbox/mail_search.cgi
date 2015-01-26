@@ -45,6 +45,15 @@ if ($limit && $limit->{'latest'}) {
 	}
 
 @folders = &list_folders();
+if ($in{'lastfolder'}) {
+	$fid = &get_last_folder_id();
+	if ($fid) {
+		$folder = &find_named_folder($fid, \@folders);
+		if ($folder) {
+			$in{'folder'} = $folder->{'index'};
+			}
+		}
+	}
 if ($in{'id'}) {
 	$folder = &find_named_folder($in{'id'}, \@folders);
 	$folder || &error("Failed to find folder $in{'id'}");

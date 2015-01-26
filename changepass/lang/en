@@ -13,6 +13,7 @@ index_desc3=Use this form to enter an alternate address that a temporary passwor
 index_recovery=Alternate address for password recovery
 index_recoverydef=None set
 index_recoverysel=Send email to
+index_return=password change form
 
 change_err=Failed to change password
 change_title=Changed Password
@@ -37,5 +38,11 @@ change_epasswd_same=Password contains or is the same as username
 change_epasswd_new=Password is the same as the old password
 change_emysql=Current login in MySQL module is incorrect.
 change_eformat=The configured password hashing format is not supported
+
+recovery_title=Recovery Address
+recovery_err=Failed to set recovery address
+recovery_eemail=A valid-looking email address was not entered
+recovery_cleared=The recovery address has been cleared.
+recovery_set=The recovery address for use when requesting a password reset has been set to $1.
 
 left_changepass=Change Password

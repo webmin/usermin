@@ -43,7 +43,7 @@ print &ui_tabs_end_tab("mode", "pass");
 print &ui_tabs_start_tab("mode", "recovery");
 
 print "$text{'index_desc3'}<p>\n";
-print &ui_form_start("save_recovery.cgi", "post");
+print &ui_form_start("recovery.cgi", "post");
 print &ui_table_start(undef, undef, 2);
 
 $recovery = &get_recovery_address();

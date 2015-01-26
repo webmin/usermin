@@ -4,6 +4,7 @@ BEGIN { push(@INC, ".."); };
 use WebminCore;
 &init_config();
 require 'md5-lib.pl';
+$recovery_file = $user_module_config_directory."/recovery";
 
 # check_password(password, username)
 # Returns an error message if a password is invalid
@@ -109,6 +110,33 @@ if (&has_command($smbpasswd_binary)) {
 		}
 	}
 return $smbout;
+}
+
+# get_recovery_address()
+# Returns the address from the recovery file
+sub get_recovery_address
+{
+my $rv = &eval_as_unix_user($remote_user,
+	sub { &read_file_contents($recovery_file) });
+$rv =~ s/\r|\n//g;
+return $rv;
+}
+
+# save_recovery_address(address)
+# Updates the user's password recovery address
+sub save_recovery_address
+{
+my ($addr) = @_;
+if (defined($addr)) {
+	&eval_as_unix_user($remote_user,
+		sub { unlink($recovery_file) });
+	}
+else {
+	&eval_as_unix_user($remote_user,
+		sub { &open_tempfile(ADDR, ">$recovery_file");
+		      &print_tempfile(ADDR, $addr,"\n");
+		      &close_tempfile(ADDR) });
+	}
 }
 
 1;

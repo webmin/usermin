@@ -93,8 +93,8 @@ push(@rv, { 'type' => 'input',
 	  });
 
 # Folder list link
-my $fprog = $mconfig{'mail_system'} == 4 ? "list_ifolders.cgi"
-					 : "list_folders.cgi";
+my $fprog = $config{'mail_system'} == 4 ? "list_ifolders.cgi"
+					: "list_folders.cgi";
 push(@rv, { 'type' => 'item',
 	    'icon' => '/'.$module_name.'/images/mail.gif',
 	    'id' => 'folders',

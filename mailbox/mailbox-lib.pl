@@ -324,7 +324,7 @@ elsif ($config{'mail_system'} == 4) {
 			($sent) = grep { $_->{'name'} =~ /sent/i } @rv;
 			}
 		}
-	if (!$sent) {
+	if (!$sent && $ok == 1) {
 		local @irv = &imap_command($ih, "create \"$sf\"");
 		if ($irv[0]) {
 			$sent = { 'id' => $sf,
@@ -354,7 +354,7 @@ elsif ($config{'mail_system'} == 4) {
 	# Find or create the IMAP drafts folder
 	local $df = $userconfig{'drafts_name'} || 'drafts';
 	local ($drafts) = grep { lc($_->{'name'}) eq lc($df) } @rv;
-	if (!$drafts) {
+	if (!$drafts && $ok == 1) {
 		local @irv = &imap_command($ih, "create \"$df\"");
 		if ($irv[0]) {
 			$drafts = { 'id' => $df,
@@ -383,7 +383,7 @@ elsif ($config{'mail_system'} == 4) {
 	if ($userconfig{'delete_mode'} == 1) {
 		local $tf = $userconfig{'trash_name'} || 'trash';
 		local ($trash) = grep { lc($_->{'name'}) eq lc($tf) } @rv;
-		if (!$trash) {
+		if (!$trash && $ok == 1) {
 			local @irv = &imap_command($ih, "create \"$tf\"");
 			if ($irv[0]) {
 				$trash = { 'id' => $tf,

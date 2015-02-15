@@ -4,3 +4,5 @@ Added an option to change the user's MySQL password at the same time, assuming t
 When using PAM to change passwords, restrictions on quality and length are now enforced by Usermin calling the PAM libraries in the correct way.
 ---- Changes since 1.150 ----
 Added a configuration option to use MD5 password encryption, which is enabled by default on Linux systems.
+---- Changes since 1.640 ----
+Added a tab for entering an offsite password recovery address.

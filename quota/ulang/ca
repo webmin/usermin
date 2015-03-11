@@ -2,3 +2,6 @@ index_title=Quotes de Disc
 index_quotas=Quotes de disc de $1 als sistemes de fitxers muntats
 index_none=No tens cap quota de disc a cap sistema de fitxers muntat.
 index_gquotas=Quotes de disc del grup $1 als sistemes de fitxers muntats
+
+right_header=Quotes de disc
+right_out=$1&nbsp;de&nbsp;$2

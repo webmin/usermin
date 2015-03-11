@@ -267,3 +267,8 @@ allow_err=No s'han pogut desar les adreces permeses
 deny_err=No s'han pogut desar les adreces denegades
 allow_eaddr='$1' no és una adreça vàlida de correu electrònic
 
+right_header=Informació del Sistema
+right_host=Nom de host del sistema
+right_os=Sistema operatiu
+right_usermin=Versió Usermin
+right_time=Hora del sistema

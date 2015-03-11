@@ -1,5 +1,5 @@
 index_title=Canvi de Contrasenya
-index_desc1=Fes servir aquesta pàgina per canviar la contrasenya que utilitzes per entrar al servidor via SSH, telnet o FTP, o per recuperar correu via POP3.
+index_desc1a=Fes servir aquest formulari per canviar la contrasenya que utilitzes per entrar a Usermin, bo i accedint al servidor via SSH, telnet o FTP, o per recuperar i enviar correu.
 index_desc2=També es canviarà la contrasenya Samba utilitzada en accedir als fitxers del servidor des d'un sistema Windows.
 index_for=Canviant la contrasenya de l'usuari
 index_old=Contrasenya actual
@@ -7,10 +7,17 @@ index_new1=Nova contrasenya
 index_new2=Altre cop la nova contrasenya
 index_change=Canvia-la Ara
 index_return=al formulari de canvi de contrasenya
+index_passtab=Canvi de contrasenya
+index_recoverytab=Adreça de recuperació de contrasenya
+index_desc3=Utilitza aquest formulari per a introduir una adreça alternativa a la qual es pugui enviar una contrasenya temporal si oblides la contrasenya actual.
+index_recovery=Adreça alternativa per a recuperació de contrasenya
+index_recoverydef=Cap
+index_recoverysel=Envia correu a
+index_return=al formulari de canvi de contrasenya
 
 change_err=No he pogut canviar la contrasenya
 change_title=Contrasenya Canviada
-change_ok=La teva contrasenya de $1 s'ha canviat correctament. D'ara en endavant, totes les entrades telnet, SSH, FTP o POP3 demanaran aquesta contrasenya.
+change_oka=La teva contrasenya de $1 s'ha canviat correctament. D'ara en endavant, totes les entrades Usermin, SSH, FTP o de correu demanaran aquesta contrasenya.
 change_enew1=Hi falta la nova contrasenya
 change_enew2=Les noves contrasenyes no són iguals
 change_eold=La contrasenya antiga és incorrecta
@@ -30,5 +37,12 @@ change_epasswd_dict=La contrasenya és una paraula de diccionari
 change_epasswd_same=La contrasenya conté o és igual que el nom d'usuari
 change_epasswd_new=La contrasenya és igual que la contrasenya antiga
 change_emysql=L'entrada actual al mòdul MySQL és incorrecta.
-change_eformat=EL format de hashing de contrasenya configurat no està suportat
+change_eformat=El format de hashing de contrasenya configurat no està suportat
 
+recovery_title=Adreça de Recuperació
+recovery_err=No s'ha pogut establir l'adreça de recuperació
+recovery_eemail=No s'ha introduït una adreça de correu que sembli vàlida
+recovery_cleared=S'ha esborrat l'adreça de recuperació.
+recovery_set=L'adreça de recuperació a utilitzar quan es demana un reinici de contrasenya s'ha establert a $1.
+
+left_changepass=Canvi de Contrasenya

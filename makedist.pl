@@ -41,7 +41,7 @@ $vers = $ARGV[0];
 	  "procmail", "chfn", "htaccess", "commands", "man", "usermount",
 	  "tunnel", "updown", "caldera", "postgresql", "spam",
 	  "htaccess-htpasswd", "schedule", "mailcap", "blue-theme",
-	  "filter", "gray-theme",
+	  "filter", "gray-theme", "authentic-theme",
 	 );
 if ($webmail) {
 	@mlist = grep { $_ ne "caldera" &&

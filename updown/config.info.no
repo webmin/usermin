@@ -1,0 +1,7 @@
+home_only=Begrens opplastinger og nedlastinger til hjemmekatalog?,1,1-Ja,0-Nei
+root=Andre kataloger &#229; tillate,9,30,4
+upload=Tillat opplasting av filer?,1,1-Ja,0-Nei
+download=Tillat nedlasting av filer fra URLer?,1,1-Ja,0-Nei
+fetch=Tillat nedlasting av filer til PC?,1,1-Ja,0-Nei
+background=Tillat nedlasting i bakgrunnen?1,1-Ja,0-Nei
+max=Maks. tillatt opplastingsst&#248;rrelse,3,Ubegrenset,8,,bytes

@@ -1,0 +1,13 @@
+find_list=F&#248;lgende innstillings-filer ble funnet under $1 ..
+find_none=Ingen $1 innstillings-filer ble funnet under $2.
+find_title=Finn innstillingsfiler
+index_apache=Apache versjons- og modulinformasjon ble ikke funnet i webmin konfigurasjonskatalogen $1. Denne modulen krever at Webmin er installert og at Apache modulen er konfigurert korrekt.
+index_create=Legg til innstillinger for:
+index_createdesc=Oppretter ny innstillings-fil i angitt katalog.
+index_desc=Denne modulen lar deg redigere $1 filer som setter innstillinger for kataloger betjent av Apache web-tjener. Innstillinger gjelder for alle filer i katalogen og alle underkataloger, med mindre de overstyres av en annen innstillings-fil.
+index_find=Finn innstillings-filer i:
+index_finddesc=S&#248;ker i angitt katalog etter $1 filer som er opprettet manuelt. F&#248;r manuelt opprettede filer blir funnet, kan de ikke redigeres vha. denne modulen.
+index_header=Eksisterende innstillingsfiler
+index_none=Ingen innstillings-filer er opprettet enda.
+index_return=liste med innstillings-filer
+index_title=Apache innstillings-filer

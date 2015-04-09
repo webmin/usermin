@@ -1,0 +1,1 @@
+sort=Sorter brukere etter,1,1-Brukenavn,0-Plassering i filen

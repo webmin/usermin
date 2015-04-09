@@ -1,0 +1,1 @@
+mailcap=File med MIMI type programmer,0

@@ -6,3 +6,4 @@ usermin=1
 desc_de=PostgreSQL Datenbank
 desc_ca=Base de dades PostgreSQL
 desc_hu=Adatbázis szerver (PostgresSQL)
+desc_no=PostgreSQL Database

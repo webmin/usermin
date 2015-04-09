@@ -1,0 +1,2 @@
+attach=Tillat e-post innhold fra en fil?,1,1-Ja,0-Nei
+upload=Tillat vedlagte filer?,1,1-Ja,0-Nei

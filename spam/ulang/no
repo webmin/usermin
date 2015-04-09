@@ -1,0 +1,3 @@
+awl_deleteonedesc=Fjern alle dine gjeldende auto-hvitliste oppf&#248;ringer
+awl_title=Administrer Auto-hvitliste
+index_edb=Kunne ikke koble til SpamAssassins konfigurasjonsdatabase : $1. Be din system administrator om &#229; sjekke modulens konfigurasjonsinnstillinger.

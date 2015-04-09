@@ -1,0 +1,10 @@
+cron_dir=Crontab katalog,0
+cron_user_get_command=Kommando for &#229; lese brukers cron-jobb,0
+cron_user_edit_command=Kommando for &#229; redigere brukerens cron-jobb,0
+cron_user_copy_command=Kommando for &#229; motta brukerens cron-jobb p&#229; stdin,0
+cron_user_delete_command=Kommando for &#229; slette brukerens cron-jobber,0
+cron_input=Cron st&#248;tter input til cron-jobber,1,1-Ja,0-Nei
+vixie_cron=St&#248;tter Vixie-Cron utvidelser,1,1-Ja,0-Nei
+system_crontab=Sti til Vixie-Cron system crontab fil,0
+cronfiles_dir=Sti til katalog med ekstra cron filer,3,Ingen
+run_parts=run-parts kommando,0

@@ -1,0 +1,2 @@
+telnet_port=Portnummer for Telnet,3,Standard (23)
+ssh_port=Portnummer for SSH,3,Standard (22)

@@ -1,0 +1,5 @@
+mail_system=E-post system installert,1,0-Sendmail,1-Qmail
+types=Tillatte videresendingstyper,13,1-Adresse,2-Adresser i fil,3-Fil,4-Program,5-Autosva,6-Filter,7-Bruker postboks
+edit=Tillat redigering av .forward fil?,1,1-Ja,0-Nei
+attach=Tillat vedlagte filer?,1,1-Ja,0-Nei
+smrsh_dir=SMRSH katalog,3,Ingen

@@ -1,0 +1,1 @@
+includes=Vis innhold i include filer?<br>(Hvis det ikke er brukt variabler i filnavn),1,1-Ja,0-Nei

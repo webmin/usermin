@@ -1,0 +1,6 @@
+change_real=Kan endre fullt navn?,1,1-Ja,0-Nei
+change_office=Kan endre kontor-nummer?1,1-Ja,0-Nei
+change_ophone=Kan endre jobb-telefon?1,1-Ja,0-Nei
+change_hphone=Kan endre privattelefon?,1,1-Ja,0-Nei
+change_shell=Kan endre skall?1,1-Ja,0-Nei
+shells=Hente liste med skall fra,3,/etc/shells

@@ -1,0 +1,2 @@
+www_root=Web-rot katalog,0
+show_names=Vis Apache direktiv-navn,1,1-Ja,0-Nei

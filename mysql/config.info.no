@@ -1,0 +1,12 @@
+mysqlshow=Sti til mysqlshow kommando,0
+mysqladmin=Sti til mysqladmin kommando,0
+mysql=Sti til mysql kommando,0
+mysqldump=Sti til mysqldump kommando,0
+mysqlimport=Sti til mysqlimport kommando,0
+start_cmd=Kommando for &#229; starte MySQL tjener,0
+stop_cmd=Kommando for &#229; stoppe MySQL tjener,3,Automatisk
+mysql_libs=Sti til katalog med MySQL delte biblioteker,3,Ingen
+host=MySQL vert det skal kobles til,3,Localhost
+sock=MySQL socket fil,3,Standard
+nodbi=Bruk DBI for tilkobling hvis tilgjengelig?,1,0-Ja,1-Nei
+access=Database tilgangskontrolliste&#44;<br>p&#229; <tt>brukernavn: db1 db2</tt> format.<br>MySQL tillatelser gjelder ogs&#229;,9,0,0,\t

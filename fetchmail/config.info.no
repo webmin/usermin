@@ -1,0 +1,4 @@
+fetchmail_path=Sti til fetchmail program,0
+mda_command=Kommando for e-post levering,3,Bruk SMTP
+can_cron=Tillat konfigurering av tidsplanlagt sjekking?,1,1-Ja,0-Nei
+can_daemon=Tillat konfigurering av Fetchmail daemon?,1,1-Ja,0-Nei

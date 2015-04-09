@@ -1,0 +1,7 @@
+index_eadmin=MySQL admin programmet $1 ble ikke funnet p&#229; systemet ditt. Kanskje MySQL ikke er installert, eller s&#229; er modulkonfigurasjonen feil.
+index_elibrary=MySQL klientprogrammet $1 kunne ikke kj&#248;re fordi det ikke kunne finne MySQLs delte biblioteker. Sjekk modulkonfigurasjonen og sjekk at <i>Sti til MySQL delte biblioteker</i> er satt.
+index_esql=MySQL klientprogrammet $1 ble ikke funnet p&#229; systemet ditt. Kanskje MySQL ikke er installert, eller s&#229; er modulkonfigurasjonen feil.
+index_ever=MySQL klientprogrammet $1 ser ikke ut til &#229; v&#230;re av riktig versjon,. Webmin st&#248;tter bare MySQL versjon 3 og nyere.
+index_nopass=Du m&#229; angi et MySQL brukernavn og passord for &#229; kunne koble til databasen.
+login_elogin=Feil brukernavn eller passord
+login_epass=Feil MySQL brukernavn eller passord

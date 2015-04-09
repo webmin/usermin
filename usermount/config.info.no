@@ -1,0 +1,4 @@
+long_fstypes=Vis lange filsystem typenavn,1,1-Ja,0-Nei
+fstab_file=Fil som angis filsystemer montert ved oppstart,0
+smbclient_path=Full sti til smbclient,3
+nmblookup_path=Full sti til nmblookup,3

@@ -1,0 +1,10 @@
+htaccess=Filnavn for Apache innstillingsfil,0
+htpasswd=Filnavn for fil med brukere,0
+htgroups=Filnavn for gruppefil,0
+can_htpasswd=Tillat valg av fil med brukere?,1,1-Ja,0-Nei
+can_htgroups=Tillat opprettelse av gruppe-filer?,1,1-Ja,0-Nei
+dirs=Tillatte kataloger for innstillings-filer,9,0,0,\t
+home=Ta med hjemmekatalog i tillatt liste?,1,1-Ja,0-Nei
+extra_directives=Ekstra direktiver som tas med i .htaccess,9,0,0,\t
+nocreate=Kan legge til og redigere beskyttede kataloger?,1,1-Ja,0-Nei
+perms=Tillatelser for opprettede filer,3,Standard (644)

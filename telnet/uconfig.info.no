@@ -1,0 +1,4 @@
+sizemode=Applet st&#248;rrelse,1,0-80x24 tegn (i standard skrift),1-Maksimum,2-Egendefinert st&#248;rrelse
+size=Egendefinert bredde x h&#248;yde,0
+fontsize=Skriftst&#248;rrelse i punkter,3,Standard
+detach=Separat vindu modus,1,1-Ja,0-Nei

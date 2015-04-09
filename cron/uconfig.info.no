@@ -1,0 +1,3 @@
+show_time=Vis tidsplaner for jobber?,1-Ja,0-Nei
+show_comment=Vis jobb-kommentarer?,1,1-Ja,0-Nei
+max_jobs=Maks. antall Cron jobber som skal vises,3,Ubegrenset

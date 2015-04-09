@@ -1,0 +1,5 @@
+index_efetchmail=Fetchmail-programmet $1 ble ikke funnet p&#229; systemet ditt.
+index_none=Ingen e-post tjenere som skal sjekkes, er definert enda.
+index_noservers=Ingen e-post tjenere som skal hentes e-post fra, er konfigurert enda.
+index_startmsg=Klikk p&#229; denne knappen for &#229; starte fetchmail bakgrunnsprogrammet p&#229; denne tjeneren, og la det se etter e-post hvert $1 sekund, og bruke konfigurasjonen ovenfor.
+index_stopmsg=Klikk p&#229; denne knappen for &#229; stoppe fetchmail bakgrunnsprogrammet, som for &#248;yeblikket ser etter e-post hvert $1 sekund.

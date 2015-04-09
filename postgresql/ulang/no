@@ -1,0 +1,6 @@
+index_elibrary=PostgreSQL klientprogrammet $1 kunne ikke kj&#248;res for det ikke kunne finne PostgreSQL delte biblioteker.
+index_esql=PostgreSQL klientprogrammet $1 ble ikke funnet p&#229; systemet ditt. Kanskje PostgreSQL ikke er installert, eller s&#229; er modulkonfigurasjonen feil.
+index_nopass=Du m&#229; angi et PostgreSQL brukernavn og passord for &#229; koble til databasen.
+index_superuser=PostgreSQL klientprogrammet psql kunne ikke kj&#248;re p&#229; systemet ditt. Kanskje PostgreSQL ikke er installert, eller s&#229; er modulkonfigurasjonen feil.
+index_title=PostgreSQL Database
+login_epass=Feil PostgreSQL brukernavn eller passord

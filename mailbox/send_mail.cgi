@@ -109,7 +109,14 @@ if ($in{'body'} =~ /\S/) {
 	local $mt = $in{'html_edit'} ? "text/html" : "text/plain";
 	$charset = $in{'charset'} || $userconfig{'charset'};
 	$mt .= "; charset=$charset";
-	if ($in{'body'} =~ /[\177-\377]/) {
+	if ($config{'html_base64'} == 2) {
+		# Use base64 encoding
+		@attach = ( { 'headers' => [ [ 'Content-Type', $mt ],
+					     [ 'Content-Transfer-Encoding',
+					       'base64' ] ],
+			      'data' => $in{'body'} } );
+		}
+	elsif ($in{'body'} =~ /[\177-\377]/ || $config{'html_base64'} == 1) {
 		# Contains 8-bit characters .. need to make quoted-printable
 		$quoted_printable++;
 		@attach = ( { 'headers' => [ [ 'Content-Type', $mt ],

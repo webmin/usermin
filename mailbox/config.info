@@ -19,6 +19,7 @@ smtp_ssl=Use SSL for SMTP connection?,3,1-Yes,0-No
 sendmail_path=Sendmail command,0
 no_orig_ip=Include browser IP in X-Originating-IP header?,1,0-Yes,1-No
 no_mailer=Include Webmin version in X-Mailer header?,1,0-Yes,1-No
+html_base64=Encoding for HTML email,1,2-Base64,1-Quoted Printable,0-Automatic
 
 line3=User From addresses,11
 server_name=Default hostname for From: addresses,10,-From real hostname,*-From URL,ldap-Lookup in LDAP

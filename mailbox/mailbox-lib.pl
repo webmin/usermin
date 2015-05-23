@@ -1071,13 +1071,7 @@ sub get_signature
 {
 local $sf = &get_signature_file();
 $sf || return undef;
-local $sig;
-&open_readfile(SIG, $sf) || return undef;
-while(<SIG>) {
-	$sig .= $_;
-	}
-close(SIG);
-return $sig;
+return &read_file_contents($sf);
 }
 
 # get_signature_file()

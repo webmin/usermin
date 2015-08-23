@@ -41,7 +41,7 @@ $vers = $ARGV[0];
 	  "procmail", "chfn", "htaccess", "commands", "man", "usermount",
 	  "tunnel", "updown", "caldera", "postgresql", "spam",
 	  "htaccess-htpasswd", "schedule", "mailcap", "blue-theme",
-	  "filter", "gray-theme", "authentic-theme",
+	  "filter", "gray-theme", "authentic-theme", "filemin",
 	 );
 if ($webmail) {
 	@mlist = grep { $_ ne "caldera" &&
@@ -75,8 +75,13 @@ foreach $m (@mlist) {
 	$flist = "";
 	opendir(DIR, $m);
 	foreach $f (readdir(DIR)) {
-		if ($f =~ /^\./ || $f eq "test" || $f =~ /\.bak$/ ||
-		    $f =~ /\.tmp$/ || $f =~ /\.site$/) { next; }
+                next if ($f =~ /^\./ || $f eq "test" || $f =~ /\.bak$/ ||
+                         $f =~ /\.tmp$/ || $f =~ /\.site$/ || $f eq ".builds" ||
+                         $f =~ /\.git$/ || $f eq ".build" || $f eq "distrib" ||
+                         $f =~ /\.(tar|wbm|wbt)\.gz$/ ||
+                         $f eq "README.md" || $f =~ /^makemodule.*\.pl$/ ||
+                         $f eq "linux.sh" || $f eq "freebsd.sh" ||
+                         $f eq "LICENCE" || $f eq "CHANGELOG.md");
 		$flist .= " $m/$f";
 		}
 	closedir(DIR);
@@ -133,6 +138,14 @@ while($d = readdir(DIR)) {
 		$minfo{'depends'} = join(" ", split(/\s+/, $minfo{'depends'}),
 					      $vers);
 		$minfo{'version'} = $vers;
+                if ($d eq "filemin") {
+			# Remove the Filemin prefix for packaging
+			foreach my $k (keys %minfo) {
+                                if ($k =~ /^desc/) {
+                                        $minfo{$k} =~ s/^Filemin\s+//;
+                                        }
+                                }
+                        }
 		&write_file($minfo, \%minfo);
 		}
 	elsif (-r $tinfo) {

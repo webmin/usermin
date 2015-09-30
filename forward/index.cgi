@@ -77,6 +77,20 @@ if ($in{'simple'} && $simple) {
 			    [ 0, $text{'index_fromaddr'}." ".
 				 &ui_textbox("from", $simple->{'from'} || $df,
 					     50) ] ]));
+
+	# Character set
+	$cs = $simple ? $simple->{'charset'} :
+	      &get_charset() eq $default_charset ? undef : &get_charset();
+	$csmode = $cs eq &get_charset() ? 2 :
+		  $cs ? 0 : 1;
+	print &ui_table_row($text{'index_charset'},
+		&ui_radio("charset_def", $csmode,
+			  [ [ 1, $text{'default'}." ($default_charset)" ],
+			    &get_charset() eq $default_charset ? ( ) :
+				( [ 2, $text{'index_charsetdef'}.
+				       " (".&get_charset().")" ] ),
+			    [ 0, $text{'index_charsetother'} ] ])." ".
+		&ui_textbox("charset", $csmode == 0 ? $cs : "", 20));
 	
 	print &ui_table_end();
 	print &ui_form_end([ [ "save", $text{'save'} ] ]);

@@ -44,6 +44,19 @@ if ($in{'autotext'}) {
 		$in{'from'} =~ /\S/ || &error($text{'simple_efrom'});
 		$simple->{'from'} = $in{'from'};
 		}
+
+	# Save character set
+	if ($in{'charset_def'} == 1) {
+		delete($simple->{'charset'});
+		}
+	elsif ($in{'charset_def'} == 2) {
+		$simple->{'charset'} = &get_charset();
+		}
+	else {
+		$in{'charset'} =~ /^[a-z0-9\.\-\_]+$/i ||
+			error($text{'save_echarset'});
+		$simple->{'charset'} = $in{'charset'};
+		}
 	}
 if ($in{'auto'}) {
 	$in{'autotext'} =~ /\S/ || &error($text{'simple_eautotext'});

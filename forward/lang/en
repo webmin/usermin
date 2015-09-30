@@ -22,6 +22,9 @@ index_from=From: address for replies
 index_fromauto=Guess based on recipient
 index_fromaddr=Use address
 index_fromdef=Your default address
+index_charset=Message character set
+index_charsetdef=From current language
+index_charsetother=Other character set
 
 aliases_to=Forward to..
 aliases_from=Mail for..

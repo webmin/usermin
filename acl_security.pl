@@ -3,68 +3,61 @@
 # Output HTML for editing global security options
 sub acl_security_form
 {
-local $o = $_[0];
+my ($o) = @_;
 
-print "<tr> <td><b>$text{'acl_root'}</b></td>\n";
-printf "<td><input type=radio name=root_def value=1 %s> %s\n",
-	$o->{'root'} ? '' : 'checked', $text{'acl_home'};
-printf "<input type=radio name=root_def value=0 %s>\n",
-	$o->{'root'} ? 'checked' : '';
-print "<input name=root size=30 value='$o->{'root'}'></td>\n";
+# Root directory for file browser
+print &ui_table_row($text{'acl_root'},
+	&ui_opt_textbox("root", $o->{'root'}, 40, $text{'acl_home'})." ".
+	&file_chooser_button("root", 1), 3);
 
-print "<tr> <td><b>$text{'acl_nodot'}</b></td>\n";
-print "<td>",&ui_yesno_radio("nodot", int($o->{'nodot'})),"</td> </tr>\n";
+# Can see dot files?
+print &ui_table_row($text{'acl_nodot'},
+	&ui_yesno_radio("nodot", int($o->{'nodot'})));
 
-print "<tr> <td colspan=2><hr></td> </tr>\n";
+# Users visible in chooser
+print &ui_table_row($text{'acl_uedit'},
+  &ui_radio_table("uedit_mode", int($o->{'uedit_mode'}),
+	[ [ 0, $text{'acl_uedit_all'} ],
+	  [ 1, $text{'acl_uedit_none'} ],
+	  [ 2, $text{'acl_uedit_only'},
+	       &ui_textbox("uedit_can",
+			   $o->{'uedit_mode'} == 2 ? $o->{'uedit'} : "", 40).
+	       " ".&user_chooser_button("uedit_can", 1) ],
+	  [ 3, $text{'acl_uedit_except'},
+	       &ui_textbox("uedit_cannot",
+			   $o->{'uedit_mode'} == 3 ? $o->{'uedit'} : "", 40).
+	       " ".&user_chooser_button("uedit_cannot", 1) ],
+	  [ 4, $text{'acl_uedit_uid'},
+	       &ui_textbox("uedit_uid",
+			   $o->{'uedit_mode'} == 4 ? $o->{'uedit'} : "", 6).
+	       " - ".
+	       &ui_textbox("uedit_uid2",
+			   $o->{'uedit_mode'} == 4 ? $o->{'uedit2'} : "", 6) ],
+	  [ 5, $text{'acl_uedit_group'},
+	       &ui_group_textbox("uedit_group",
+		$o->{'uedit_mode'} == 5 ? $dummy=getgrgid($o->{'uedit'}) : "")],
+	]), 3);
 
-print "<tr> <td valign=top><b>$text{'acl_uedit'}</b></td> <td colspan=3>\n";
-printf "<input type=radio name=uedit_mode value=0 %s> $text{'acl_uedit_all'}\n",
-	$o->{'uedit_mode'} == 0 ? "checked" : "";
-printf "<input type=radio name=uedit_mode value=1 %s> $text{'acl_uedit_none'}<br>\n",
-	$o->{'uedit_mode'} == 1 ? "checked" : "";
-printf "<input type=radio name=uedit_mode value=2 %s> $text{'acl_uedit_only'}\n",
-	$o->{'uedit_mode'} == 2 ? "checked" : "";
-printf "<input name=uedit_can size=40 value='%s'> %s<br>\n",
-	$o->{'uedit_mode'} == 2 ? $o->{'uedit'} : "",
-	&user_chooser_button("uedit_can", 1);
-printf "<input type=radio name=uedit_mode value=3 %s> $text{'acl_uedit_except'}\n",
-	$o->{'uedit_mode'} == 3 ? "checked" : "";
-printf "<input name=uedit_cannot size=40 value='%s'> %s<br>\n",
-	$o->{'uedit_mode'} == 3 ? $o->{'uedit'} : "",
-	&user_chooser_button("uedit_cannot", 1);
-printf "<input type=radio name=uedit_mode value=4 %s> $text{'acl_uedit_uid'}\n",
-	$o->{'uedit_mode'} == 4 ? "checked" : "";
-printf "<input name=uedit_uid size=6 value='%s'> - \n",
-	$o->{'uedit_mode'} == 4 ? $o->{'uedit'} : "";
-printf "<input name=uedit_uid2 size=6 value='%s'><br>\n",
-	$o->{'uedit_mode'} == 4 ? $o->{'uedit2'} : "";
-printf "<input type=radio name=uedit_mode value=5 %s> $text{'acl_uedit_group'}\n",
-	$o->{'uedit_mode'} == 5 ? "checked" : "";
-printf "<input name=uedit_group size=8 value='%s'> %s</td> </tr>\n",
-	$o->{'uedit_mode'} == 5 ? $dummy=getgrgid($o->{'uedit'}) : "",
-	&group_chooser_button("uedit_group", 0);
-
-print "<tr> <td valign=top><b>$text{'acl_gedit'}</b></td> <td colspan=3>\n";
-printf "<input type=radio name=gedit_mode value=0 %s> $text{'acl_gedit_all'}\n",
-	$o->{'gedit_mode'} == 0 ? "checked" : "";
-printf "<input type=radio name=gedit_mode value=1 %s> $text{'acl_gedit_none'}<br>\n",
-	$o->{'gedit_mode'} == 1 ? "checked" : "";
-printf "<input type=radio name=gedit_mode value=2 %s> $text{'acl_gedit_only'}\n",
-	$o->{'gedit_mode'} == 2 ? "checked" : "";
-printf "<input name=gedit_can size=40 value='%s'> %s<br>\n",
-	$o->{'gedit_mode'} == 2 ? $o->{'gedit'} : "",
-	&group_chooser_button("gedit_can", 1);
-printf "<input type=radio name=gedit_mode value=3 %s> $text{'acl_gedit_except'}\n",
-	$o->{'gedit_mode'} == 3 ? "checked" : "";
-printf "<input name=gedit_cannot size=40 value='%s'> %s<br>\n",
-	$o->{'gedit_mode'} == 3 ? $o->{'gedit'} : "",
-	&group_chooser_button("gedit_cannot", 1);
-printf "<input type=radio name=gedit_mode value=4 %s> $text{'acl_gedit_gid'}\n",
-	$o->{'gedit_mode'} == 4 ? "checked" : "";
-printf "<input name=gedit_gid size=6 value='%s'> -\n",
-	$o->{'gedit_mode'} == 4 ? $o->{'gedit'} : "";
-printf "<input name=gedit_gid2 size=6 value='%s'></td> </tr>\n",
-	$o->{'gedit_mode'} == 4 ? $o->{'gedit2'} : "";
+# Groups visible in chooser
+print &ui_table_row($text{'acl_gedit'},
+    &ui_radio_table("gedit_mode", int($o->{'gedit_mode'}),
+	[ [ 0, $text{'acl_gedit_all'} ],
+	  [ 1, $text{'acl_gedit_none'} ],
+	  [ 2, $text{'acl_gedit_only'},
+	       &ui_textbox("gedit_can",
+			   $o->{'gedit_mode'} == 2 ? $o->{'gedit'} : "", 40).
+	       " ".&group_chooser_button("gedit_can", 1) ],
+	  [ 3, $text{'acl_gedit_except'},
+	       &ui_textbox("gedit_cannot",
+			   $o->{'gedit_mode'} == 3 ? $o->{'gedit'} : "", 40).
+	       " ".&group_chooser_button("gedit_cannot", 1) ],
+	  [ 4, $text{'acl_gedit_gid'},
+	       &ui_textbox("gedit_gid",
+			   $o->{'gedit_mode'} == 4 ? $o->{'gedit'} : "", 6).
+	       " - ".
+	       &ui_textbox("gedit_gid2",
+			   $o->{'gedit_mode'} == 4 ? $o->{'gedit2'} : "", 6) ],
+	]), 3);
 }
 
 # acl_security_save(&options)

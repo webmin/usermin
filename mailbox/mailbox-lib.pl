@@ -569,7 +569,7 @@ if ($inbox->{'type'} == 1 && $userconfig{'mailbox_dir'} ne "Maildir") {
 		$f =~ s/^\Q$inbox->{'file'}\E\///;
 		local $name = $f;
 		$name =~ s/^\.// || $name =~ s/\/\./\//;
-		push(@rv, { 'name' => "$name (Courier)",
+		push(@rv, { 'name' => $name,
 			    'file' => $p,
 			    'type' => &folder_type($p),
 			    'perpage' => $userconfig{"perpage_$f"},

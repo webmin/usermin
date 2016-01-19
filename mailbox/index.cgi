@@ -312,7 +312,7 @@ if (!$main::mailbox_no_folder_button) {
 	push(@grid, &ui_form_start($config{'mail_system'} == 4 ?
 				"list_ifolders.cgi" : "list_folders.cgi").
 		    &ui_submit($text{'mail_folders'}).
-	    &ui_form_end());
+		    &ui_form_end());
 	}
 
 # Sig editor
@@ -328,6 +328,13 @@ if (@mail && ($folder->{'trash'} || $userconfig{'show_delall'})) {
 		    &ui_submit($folder->{'trash'} ? $text{'mail_deltrash'}
 						  : $text{'mail_delall'},
 			       "delete").
+		    &ui_form_end());
+	}
+
+# Show special sync button
+if ($folder->{'type'} == 6 && $folder->{'id'} == $special_folder_id) {
+	push(@grid, &ui_form_start("specialsync.cgi").
+		    &ui_submit($text{'mail_specialsync'}).
 		    &ui_form_end());
 	}
 

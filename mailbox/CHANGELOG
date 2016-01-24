@@ -161,3 +161,4 @@ The automatic mailbox clearing page can now be also used to move mail to another
 When a language with a UTF-8 character set is selected, email is converted to UTF-8 before being displayed. This allows an inbox with mixed language subject lines to be properly displayed.
 ---- Changes since 1.690 ----
 Added a button to sync the Special folder with messages actually marked as special by other mail clients.
+When attaching files to a message, multiple files can now be selected at the same time.

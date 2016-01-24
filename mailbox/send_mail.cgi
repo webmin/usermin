@@ -6,7 +6,10 @@ require './mailbox-lib.pl';
 
 # Check inputs
 &ReadParse(\%getin, "GET");
-&ReadParseMime(undef, \&read_parse_mime_callback, [ $getin{'id'} ]);
+&ReadParseMime(undef, \&read_parse_mime_callback, [ $getin{'id'} ], 1);
+foreach my $k (keys %in) {
+	$in{$k} = $in{$k}->[0] if ($k !~ /^attach\d+/);
+	}
 &set_module_index($in{'folder'});
 @folders = &list_folders();
 $folder = $folders[$in{'folder'}];
@@ -171,20 +174,20 @@ if ($in{'body'} =~ /\S/) {
 $attachsize = 0;
 for($i=0; defined($in{"attach$i"}); $i++) {
 	next if (!$in{"attach$i"});
-	&test_max_attach($attachsize);
-	if ($config{'max_attach'} && $attachsize > $config{'max_attach'}) {
-		&error(&text('send_eattachsize', $config{'max_attach'}));
+	for($j=0; $j<@{$in{"attach$i"}}; $j++) {
+		next if (!$in{"attach${i}"}->[$j]);
+		&test_max_attach(length($in{"attach${i}"}->[$j]));
+		local $filename = $in{"attach${i}_filename"}->[$j];
+		$filename =~ s/^.*(\\|\/)//;
+		local $type = $in{"attach${i}_content_type"}->[$j].
+			      "; name=\"".$filename."\"";
+		local $disp = "attachment; filename=\"".$filename."\"";
+		push(@attach, { 'data' => $in{"attach${i}"}->[$j],
+				'headers' => [ [ 'Content-type', $type ],
+					       [ 'Content-Disposition', $disp ],
+					       [ 'Content-Transfer-Encoding',
+						 'base64' ] ] });
 		}
-	local $filename = $in{"attach${i}_filename"};
-	$filename =~ s/^.*(\\|\/)//;
-	local $type = $in{"attach${i}_content_type"}."; name=\"".
-		      $filename."\"";
-	local $disp = "attachment; filename=\"".$filename."\"";
-	push(@attach, { 'data' => $in{"attach${i}"},
-			'headers' => [ [ 'Content-type', $type ],
-				       [ 'Content-Disposition', $disp ],
-				       [ 'Content-Transfer-Encoding',
-					 'base64' ] ] });
 	}
 
 # Add server-side attachments

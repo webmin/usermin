@@ -170,6 +170,7 @@ if (@mail) {
 # Show the actual email
 for(my $i=$start; $i<=$end; $i++) {
 	local ($bs, $be);
+	@rowtds = @tds;
 	$m = $mail[$i];
 	$mid = $m->{'header'}->{'message-id'};
 	$r = &get_mail_read($folder, $m);
@@ -198,6 +199,7 @@ for(my $i=$start; $i<=$end; $i++) {
 	# Date and size columns
 	push(@cols, $bs.&eucconv_and_escape(&simplify_date($m->{'header'}->{'date'})).$be);
 	push(@cols, $bs.&nice_size($m->{'size'}, 1024).$be);
+	$rowtds[$#cols] .= " data-sort=".$m->{'size'};
 
 	# Spam score
 	if ($folder->{'spam'}) {
@@ -222,10 +224,10 @@ for(my $i=$start; $i<=$end; $i++) {
 		}
 
 	if (&editable_mail($m)) {
-		print &ui_checked_columns_row(\@cols, \@tds, "d", $id);
+		print &ui_checked_columns_row(\@cols, \@rowtds, "d", $id);
 		}
 	else {
-		print &ui_columns_row([ "", @cols ], \@tds);
+		print &ui_columns_row([ "", @cols ], \@rowtds);
 		}
 	&update_delivery_notification($mail[$i], $folder);
 

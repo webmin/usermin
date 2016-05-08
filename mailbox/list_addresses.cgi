@@ -16,6 +16,7 @@ if (&foreign_installed("spam")) {
 	push(@tabs, [ "deny", $text{'address_deny'}, $prog."deny" ]);
 	}
 push(@tabs, [ "import", $text{'address_import'}, $prog."import" ]);
+push(@tabs, [ "export", $text{'address_export'}, $prog."export" ]);
 
 # Start tabs for users and groups, and maybe spam addresses
 print &ui_tabs_start(\@tabs, "mode", $in{'mode'} || "users", 1);
@@ -229,18 +230,37 @@ print &ui_form_end([ [ undef, $text{'address_importok'} ] ]);
 
 print &ui_tabs_end_tab();
 
+# Show export tab
+print &ui_tabs_start_tab("mode", "export");
+
+print $text{'address_exportdesc'},"<p>\n";
+print &ui_form_start("export.cgi", "form-data");
+print &ui_table_start(undef, undef, 2);
+
+# Import format
+print &ui_table_row($text{'address_exportfmt'},
+	&ui_radio("fmt", "csv", [ [ 'csv', $text{'address_importcsv'} ],
+				  [ 'vcard', $text{'address_importvcard'} ] ]));
+
+# Duplicate handling
+print &ui_table_row($text{'address_exportdup'},
+	&ui_radio("dup", 0, [ [ 0, $text{'address_exportdup0'} ],
+			      [ 1, $text{'address_exportdup1'} ] ]));
+
+print &ui_table_end();
+print &ui_form_end([ [ undef, $text{'address_exportok'} ] ]);
+
+print &ui_tabs_end_tab();
+
 print &ui_tabs_end(1);
 &ui_print_footer("", $text{'mail_return'});
 
 sub from_sel
 {
-print "<td><select name=from>\n";
-printf "<option value=0 %s> %s\n",
-	$_[0] == 0 ? "selected" : "", $text{'no'};
-printf "<option value=1 %s> %s\n",
-	$_[0] == 1 ? "selected" : "", $text{'yes'};
-printf "<option value=2 %s> %s\n",
-	$_[0] == 2 ? "selected" : "", $text{'address_yd'};
-print "</select></td>\n";
+my ($f) = @_;
+print "<td>".&ui_select("from", $f,
+			[ [ 0, $text{'no'} ],
+			  [ 1, $text{'yes'} ],
+			  [ 2, $text{'address_yd'} ] ])."</td>\n";
 }
 

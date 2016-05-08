@@ -54,6 +54,14 @@ address_importdup0=Ignore
 address_importdup1=Update name
 address_importok=Import Now
 address_return=address book
+address_exportdesc=This form allows you to download addresses from Usermin for import into other programs.
+address_export=Export addresses
+address_exportformat=Export in format
+address_exportdup=Duplicate address handling
+address_exportdup0=Include both
+address_exportdup1=Only include first one
+address_exportfmt=Export in format
+address_exportok=Export Now
 
 import_err=Failed to import addresses
 import_title=Import Address Book

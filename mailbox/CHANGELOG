@@ -162,3 +162,5 @@ When a language with a UTF-8 character set is selected, email is converted to UT
 ---- Changes since 1.690 ----
 Added a button to sync the Special folder with messages actually marked as special by other mail clients.
 When attaching files to a message, multiple files can now be selected at the same time.
+---- Changes since 1.710 ----
+Added a button to export the address book in vcard or CSV format.

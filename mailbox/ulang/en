@@ -78,6 +78,8 @@ import_same=Unchanged, skipped
 import_skip=Duplicated address, skipped
 import_enetvcard=The <tt>Net::vCard</tt> Perl module is needed to read vCard format files
 
+export_err=Failed to export addresses
+
 group_err=Failed to save address group
 group_egroup=Missing or invalid group name
 group_emembers=No member email addresses entered

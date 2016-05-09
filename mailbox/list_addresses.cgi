@@ -234,7 +234,7 @@ print &ui_tabs_end_tab();
 print &ui_tabs_start_tab("mode", "export");
 
 print $text{'address_exportdesc'},"<p>\n";
-print &ui_form_start("export.cgi", "form-data");
+print &ui_form_start("export.cgi");
 print &ui_table_start(undef, undef, 2);
 
 # Import format

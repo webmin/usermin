@@ -8,7 +8,7 @@ require './mailbox-lib.pl';
 &ReadParse(\%getin, "GET");
 &ReadParseMime(undef, \&read_parse_mime_callback, [ $getin{'id'} ], 1);
 foreach my $k (keys %in) {
-	$in{$k} = $in{$k}->[0] if ($k !~ /^attach\d+/);
+	$in{$k} = join("\0", @{$in{$k}}) if ($k !~ /^attach\d+/);
 	}
 &set_module_index($in{'folder'});
 @folders = &list_folders();

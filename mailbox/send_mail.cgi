@@ -110,6 +110,10 @@ if ($in{'body'} =~ /\S/) {
 
 	# Create the body attachment
 	local $mt = $in{'html_edit'} ? "text/html" : "text/plain";
+	local $wrapped_body = $in{'body'};
+	if (!$in{'html_edit'}) {
+		$wrapped_body = join("\n", &wrap_lines($wrapped_body, 1000));
+		}
 	$charset = $in{'charset'} || $userconfig{'charset'};
 	$mt .= "; charset=$charset";
 	if ($config{'html_base64'} == 2) {
@@ -117,7 +121,7 @@ if ($in{'body'} =~ /\S/) {
 		@attach = ( { 'headers' => [ [ 'Content-Type', $mt ],
 					     [ 'Content-Transfer-Encoding',
 					       'base64' ] ],
-			      'data' => $in{'body'} } );
+			      'data' => $wrapped_body } );
 		}
 	elsif ($in{'body'} =~ /[\177-\377]/ || $config{'html_base64'} == 1) {
 		# Contains 8-bit characters .. need to make quoted-printable
@@ -125,14 +129,14 @@ if ($in{'body'} =~ /\S/) {
 		@attach = ( { 'headers' => [ [ 'Content-Type', $mt ],
 					     [ 'Content-Transfer-Encoding',
 					       'quoted-printable' ] ],
-			      'data' => quoted_encode($in{'body'}) } );
+			      'data' => quoted_encode($wrapped_body) } );
 		}
 	else {
 		# Plain 7-bit ascii text
 		@attach = ( { 'headers' => [ [ 'Content-Type', $mt ],
 					     [ 'Content-Transfer-Encoding',
 					       '7bit' ] ],
-			      'data' => $in{'body'} } );
+			      'data' => $wrapped_body } );
 		}
 	$bodyattach = $attach[0];
 

@@ -112,7 +112,7 @@ if ($in{'body'} =~ /\S/) {
 	local $mt = $in{'html_edit'} ? "text/html" : "text/plain";
 	local $wrapped_body = $in{'body'};
 	if (!$in{'html_edit'}) {
-		$wrapped_body = join("\n", &wrap_lines($wrapped_body, 1000));
+		$wrapped_body = join("\n", &wrap_lines($wrapped_body, 998));
 		}
 	$charset = $in{'charset'} || $userconfig{'charset'};
 	$mt .= "; charset=$charset";

@@ -1301,7 +1301,7 @@ local $http_host = $ENV{'HTTP_HOST'};
 $http_host =~ s/:\d+$//;
 if (&check_ipaddress($http_host)) {
 	# Try to reverse-lookup IP
-	local $rev = gethostbyaddr(inet_aton($acptip), AF_INET);
+	local $rev = gethostbyaddr(inet_aton($http_host), AF_INET);
 	$http_host = $rev if ($rev);
 	}
 $http_host =~ s/^(www|ftp|mail)\.//;

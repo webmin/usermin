@@ -136,9 +136,8 @@ if (&has_command("gpg") && &foreign_check("gnupg") && &foreign_available("gnupg"
 		my $text = $4;
 		&foreign_require("gnupg", "gnupg-lib.pl");
 		($sigcode, $sigmessage) = &gnupg::verify_data($sig);
-		$body = $textbody;
 		if ($sigcode == 0 || $sigcode == 1) {
-			$body->{'data'} = $text;
+			$textbody->{'data'} = $text;
 			}
 		}
 	}

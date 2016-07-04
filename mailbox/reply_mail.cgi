@@ -1,13 +1,36 @@
 #!/usr/local/bin/perl
 # Display a form for replying to or composing an email
+use strict;
+use warnings;
+our (%text, %in, %config, %gconfig, %userconfig);
+our $module_name;
+our @remote_user_info;
+our $user_module_config_directory;
 
 require './mailbox-lib.pl';
 
 &ReadParse();
 &set_module_index($in{'folder'});
-@folders = &list_folders();
-$folder = $folders[$in{'folder'}];
+my @folders = &list_folders();
+my $folder = $folders[$in{'folder'}];
 
+# XXX Egads, this is hairy!
+my $html_edit;
+my $quote;
+my ($to, $from, $rto, $cc, $bcc, $replyfrom, $sig);
+my @replyfrom;
+my @mailforwardids;
+my @fwdmail;
+my $mail;
+my $viewlink;
+my $mode;
+my ($subject, $textbody, $htmlbody, $body);
+my (@attach, @dattach);
+my $deleted;
+my $inbox;
+my $ouser;
+my $subs; # XXX Very hairy!
+my @sub;
 if ($in{'new'}) {
 	# Composing a new email
 	if (defined($in{'html'})) {
@@ -16,7 +39,7 @@ if ($in{'new'}) {
 	else {
 		$html_edit = $userconfig{'html_edit'} == 2 ? 1 : 0;
 		}
-	$sig = &get_signature();
+	my $sig = &get_signature();
 	if ($html_edit) {
 		$sig =~ s/\n/<br>\n/g;
 		$quote = "<html><body>$sig</body></html>";
@@ -58,7 +81,7 @@ else {
 	# Find the body parts and set the character set
 	($textbody, $htmlbody, $body) =
 		&find_body($mail, $userconfig{'view_html'});
-	$mail_charset = &get_mail_charset($mail, $body);
+	my $mail_charset = &get_mail_charset($mail, $body);
 	if (&get_charset() eq 'UTF-8' &&
 	    &can_convert_to_utf8(undef, $mail_charset)) {
 		# Convert to UTF-8
@@ -102,8 +125,8 @@ else {
 		}
 	elsif ($in{'markas0'} || $in{'markas1'} || $in{'markas2'}) {
 		# Just mark the message as read/special
-		$oldread = &get_mail_read($folder, $mail);
-		$mark = $in{'markas0'} ? 0 : $in{'markas1'} ? 1 : 2;
+		my $oldread = &get_mail_read($folder, $mail);
+		my $mark = $in{'markas0'} ? 0 : $in{'markas1'} ? 1 : 2;
 		&set_mail_read($folder, $mail, ($oldread&4)+$mark);
 		&redirect_to_previous(1);
 		exit;
@@ -111,7 +134,7 @@ else {
 	elsif ($in{'move1'} || $in{'move2'}) {
 		# Move to another folder
 		&error_setup($text{'reply_errm'});
-		$mfolder = $folders[$in{'move1'} ? $in{'mfolder1'} : $in{'mfolder2'}];
+		my $mfolder = $folders[$in{'move1'} ? $in{'mfolder1'} : $in{'mfolder2'}];
 		$mfolder->{'noadd'} && &error($text{'delete_enoadd'});
 		&lock_folder($folder);
 		&lock_folder($mfolder);
@@ -124,8 +147,8 @@ else {
 	elsif ($in{'copy1'} || $in{'copy2'}) {
 		# Copy to another folder
 		&error_setup($text{'reply_errc'});
-		$mfolder = $folders[$in{'copy1'} ? $in{'mfolder1'} : $in{'mfolder2'}];
-		$qerr = &would_exceed_quota($mfolder, $mail);
+		my $mfolder = $folders[$in{'copy1'} ? $in{'mfolder1'} : $in{'mfolder2'}];
+		my $qerr = &would_exceed_quota($mfolder, $mail);
 		&error($qerr) if ($qerr);
 		&lock_folder($folder);
 		&lock_folder($mfolder);
@@ -159,12 +182,12 @@ else {
 			@dattach = ( $mail->{'attach'}->[$in{'attach'}] );
 			}
 
-		local @paths;
-		foreach $attach (@dattach) {
-			local $path;
+		my @paths;
+		foreach my $attach (@dattach) {
+			my $path;
 			if (-d $in{'dir'}) {
 				# Just write to the filename in the directory
-				local $fn;
+				my $fn;
 				if ($attach->{'filename'}) {
 					$fn = &decode_mimewords(
 						$attach->{'filename'});
@@ -183,15 +206,15 @@ else {
 			push(@paths, $path);
 			}
 
-		for($i=0; $i<@dattach; $i++) {
+		for(my $i=0; $i<@dattach; $i++) {
 			# Try to write the files
-			open(FILE, ">$paths[$i]") ||
+			open(my $FILE, ">", "$paths[$i]") ||
 				&error(&text('detach_eopen',
 					     "<tt>$paths[$i]</tt>", $!));
-			(print FILE $dattach[$i]->{'data'}) ||
+			(print $FILE $dattach[$i]->{'data'}) ||
 				&error(&text('detach_ewrite',
 					     "<tt>$paths[$i]</tt>", $!));
-			close(FILE) ||
+			close($FILE) ||
 				&error(&text('detach_ewrite',
 					     "<tt>$paths[$i]</tt>", $!));
 			}
@@ -199,8 +222,8 @@ else {
 		# Show a message about the new files
 		&mail_page_header($text{'detach_title'});
 
-		for($i=0; $i<@dattach; $i++) {
-			local $sz = (int(length($dattach[$i]->{'data'}) /
+		for(my $i=0; $i<@dattach; $i++) {
+			my $sz = (int(length($dattach[$i]->{'data'}) /
 					 1000)+1)." Kb";
 			print "<p>",&text('detach_ok',
 					  "<tt>$paths[$i]</tt>", $sz),"<p>\n";
@@ -217,11 +240,11 @@ else {
 		&mail_page_header($text{$mode.'_title'});
 
 		&foreign_require("spam", "spam-lib.pl");
-		local $conf = &spam::get_config();
-		local @from = map { @{$_->{'words'}} }
+		my $conf = &spam::get_config();
+		my @from = map { @{$_->{'words'}} }
 			    	  &spam::find($mode."list_from", $conf);
-		local %already = map { $_, 1 } @from;
-		local ($spamfrom) = &address_parts($mail->{'header'}->{'from'});
+		my %already = map { $_, 1 } @from;
+		my ($spamfrom) = &address_parts($mail->{'header'}->{'from'});
 		if ($already{$spamfrom}) {
 			print &text($mode.'_already',
 					  "<tt>$spamfrom</tt>"),"</b><p>\n";
@@ -259,7 +282,7 @@ else {
 
 		print "<b>",$text{$mode.'_report'},"</b>\n";
 		print "<pre>";
-		local $temp = &transname();
+		my $temp = &transname();
 		&send_mail($mail, $temp, 0, 1);
 
 		if ($userconfig{'spam_del'} && $mode eq "razor") {
@@ -269,18 +292,19 @@ else {
 			&unlock_folder($folder);
 			}
 
-		local $cmd = $mode eq "razor" ? &spam_report_cmd() 
+		my $cmd = $mode eq "razor" ? &spam_report_cmd()
 					      : &ham_report_cmd();
-		open(OUT, "$cmd <$temp 2>&1 |");
-		local $error;
-		while(<OUT>) {
+		open(my $OUT, "<", "$cmd <$temp 2>&1 |");
+		my $error;
+		while(<$OUT>) {
 			print &html_escape($_);
 			$error++ if (/failed/i);
 			}
-		close(OUT);
+		close($OUT);
 		unlink($temp);
 		print "</pre>\n";
 		$deleted = 0;
+		my $loc;
 		if ($? || $error) {
 			print "<b>",$text{'razor_err'},"</b><p>\n";
 			}
@@ -302,7 +326,7 @@ else {
 				$loc = "index.cgi?folder=$in{'folder'}";
 				}
 			else {
-				# Tell user it was done 
+				# Tell user it was done
 				print "<b>",$text{'razor_done'},"</b><p>\n";
 				$loc = $viewlink;
 				}
@@ -312,7 +336,7 @@ else {
 			}
 
 		&mail_page_footer(
-			$deleted ? ( ) : 
+			$deleted ? ( ) :
 			( $viewlink, $text{'view_return'} ),
 			"index.cgi?folder=$in{'folder'}",
 			 $text{'mail_return'});
@@ -320,10 +344,11 @@ else {
 		}
 	elsif ($in{'dsn'}) {
 		# Send DSN to sender
-		&open_dbm_db(%dsn, "$user_module_config_directory/dsn", 0600);
-		$dsnaddr = &send_delivery_notification($mail, undef, 1);
+		my %dsn;
+		&open_dbm_db(\%dsn, "$user_module_config_directory/dsn", 0600);
+		my $dsnaddr = &send_delivery_notification($mail, undef, 1);
 		if ($dsnaddr) {
-			$mid = $mail->{'header'}->{'message-id'};
+			my $mid = $mail->{'header'}->{'message-id'};
                         $dsn{$mid} = time()." ".$dsnaddr;
                         }
 		dbmclose(%dsn);
@@ -399,7 +424,7 @@ else {
 
 	# Work out new subject, depending on whether we are replying
 	# our forwarding a message (or neither)
-	local $qu = !$in{'enew'} &&
+	my $qu = !$in{'enew'} &&
 		    (!$in{'forward'} || !$userconfig{'fwd_mode'});
 	$subject = &convert_header_for_display($mail->{'header'}->{'subject'},
 					       undef, 1);
@@ -427,7 +452,7 @@ else {
 	# For a HTML reply or forward, fix up the cid: to refer to attachments
 	# in the original message.
 	if ($html_edit) {
-		$qmid = &urlize($mail->{'id'});
+		my $qmid = &urlize($mail->{'id'});
 		$quote = &fix_cids($quote, \@attach,
 			"detach.cgi?id=$qmid&folder=$in{'folder'}$subs");
 		}
@@ -441,9 +466,9 @@ else {
 	}
 
 # Script to validate fields
-$noto_msg = &quote_escape($text{'send_etomsg'}, '"');
-$nosubject_msg = &quote_escape($text{'send_esubjectmsg'}, '"');
-$close_msg = &quote_escape($text{'send_eclosemsg'}, '"');
+my $noto_msg = &quote_escape($text{'send_etomsg'}, '"');
+my $nosubject_msg = &quote_escape($text{'send_esubjectmsg'}, '"');
+my $close_msg = &quote_escape($text{'send_eclosemsg'}, '"');
 print <<EOF;
 <script>
 function check_fields()
@@ -480,8 +505,9 @@ window.submit_clicked = false;
 EOF
 
 # Show form start, with upload progress tracker hook
-$upid = time().$$;
-$onsubmit = &read_parse_mime_javascript($upid, [ map { "attach$_" } (0..10) ]);
+my $upid = time().$$;
+my ($froms, $doms); # XXX More globals.
+my $onsubmit = &read_parse_mime_javascript($upid, [ map { "attach$_" } (0..10) ]);
 $onsubmit =~ s/='/='ok = check_fields(); if (!ok) { return false; } /;
 if ($main::force_charset) {
 	$onsubmit .= " accept-charset=$main::force_charset";
@@ -495,7 +521,7 @@ print &ui_hidden("folder", $in{'folder'});
 print &ui_hidden("start", $in{'start'});
 print &ui_hidden("new", $in{'new'});
 print &ui_hidden("enew", $in{'enew'});
-foreach $s (@sub) {
+foreach my $s (@sub) {
 	print &ui_hidden("sub", $s);
 	}
 if ($in{'reply'} || $in{'rall'} || $in{'ereply'} || $in{'erall'}) {
@@ -508,14 +534,16 @@ print &ui_hidden("charset", $main::force_charset);
 # Start tabs for from / to / cc / bcc / signing / options
 # Subject is separate
 print &ui_table_start($text{'reply_headers'}, "width=100%", 2);
+my $has_gpg;
+my @keys;
 if (&has_command("gpg") && &foreign_check("gnupg") &&
     &foreign_available("gnupg")) {
 	&foreign_require("gnupg", "gnupg-lib.pl");
 	@keys = &gnupg::list_keys_sorted();
 	$has_gpg = @keys ? 1 : 0;
 	}
-@tds = ( "width=10%", "width=90% nowrap" );
-@tabs = ( [ "from", $text{'reply_tabfrom'} ],
+my @tds = ( "width=10%", "width=90% nowrap" );
+my @tabs = ( [ "from", $text{'reply_tabfrom'} ],
 	  $userconfig{'reply_to'} ne 'x' ?
 		( [ "rto", $text{'reply_tabreplyto'} ] ) : ( ),
 	  [ "to", $text{'reply_tabto'} ],
@@ -526,22 +554,24 @@ if (&has_command("gpg") && &foreign_check("gnupg") &&
 print &ui_table_row(undef, &ui_tabs_start(\@tabs, "tab", "to", 0), 2);
 
 # From address tab
+my @froms;
 if ($from) {
 	# Got From address already, such as when editing old email
 	@froms = ( $from );
 	}
 else {
 	# Work out From: addresses
-	local ($froms, $doms) = &list_from_addresses();
+	($froms, $doms) = &list_from_addresses();
 	@froms = @$froms;
 	}
 
 # Find preferred From address from addressbook, if set
-@faddrs = grep { $_->[3] } &list_addresses();
-($defaddr) = grep { $_->[3] == 2 } @faddrs;
+my @faddrs = grep { $_->[3] } &list_addresses();
+my ($defaddr) = grep { $_->[3] == 2 } @faddrs;
 
 # If replying to an email and the original to address is in our addressbook,
 # use that as the from address
+my $replyaddr;
 if ($replyfrom) {
 	($replyaddr) = grep { $_->[0] eq $replyfrom } @faddrs;
 	$defaddr = $replyaddr if ($replyaddr);
@@ -551,6 +581,8 @@ if ($folder->{'fromaddr'}) {
 	# Folder has a specified From: address
 	($defaddr) = &split_addresses($folder->{'fromaddr'});
 	}
+my $deffrom;
+my $frominput;
 if ($config{'edit_from'} == 1) {
 	# User can enter any from address he wants
 	if ($defaddr) {
@@ -565,8 +597,8 @@ if ($config{'edit_from'} == 1) {
 	}
 elsif ($config{'edit_from'} == 2) {
 	# Only the real name and username part is editable
-	local ($real, $user, $dom);
-	local ($sp) = $defaddr || &split_addresses($froms[0]);
+	my ($real, $user, $dom);
+	my ($sp) = $defaddr || &split_addresses($froms[0]);
 	$real = $sp->[1];
 	if ($sp->[0] =~ /^(\S+)\@(\S+)$/) {
 		$user = $1; $dom = $2;
@@ -643,10 +675,11 @@ print &ui_tabs_end_tabletab();
 # Ask for signing and encryption
 if ($has_gpg) {
 	print &ui_tabs_start_tabletab("tab", "signing");
-	@signs = ( );
-	$def_sign = "";
-	foreach $k (@keys) {
-		local $n = $k->{'name'}->[0];
+	my @signs;
+	my $def_sign = "";
+	my @crypts;
+	foreach my $k (@keys) {
+		my $n = $k->{'name'}->[0];
 		$n = substr($n, 0, 40)."..." if (length($n) > 40);
 		if ($k->{'email'}->[0]) {
 			$n .= " &lt;".$k->{'email'}->[0]."&gt;";
@@ -658,7 +691,7 @@ if ($has_gpg) {
 			push(@signs, [ $k->{'index'}, $n ]);
 			}
 		if ($k->{'secret'} && $userconfig{'def_sign'}) {
-			$def_signer = lc($userconfig{'def_sign'});
+			my $def_signer = lc($userconfig{'def_sign'});
 			for(my $i=0; $i<@{$k->{'name'}}; $i++) {
 				if (lc($k->{'name'}->[$i]) eq $def_signer ||
 				    lc($k->{'email'}->[$i]) eq $def_signer) {
@@ -740,7 +773,7 @@ else {
 print &ui_table_end();
 
 # Create link for switching to HTML/text mode for new mail
-@bodylinks = ( );
+my @bodylinks;
 if ($in{'new'}) {
 	if ($html_edit) {
 		push(@bodylinks, "<a href='reply_mail.cgi?folder=$in{'folder'}&new=1&html=0'>$text{'reply_html0'}</a>");
@@ -780,9 +813,9 @@ EOF
 	}
 else {
 	# Show text editing area
-	$wm = $config{'wrap_mode'};
+	my $wm = $config{'wrap_mode'};
 	$wm =~ s/^wrap=//g;
-	$wcols = $userconfig{'wrap_compose'};
+	my $wcols = $userconfig{'wrap_compose'};
 	print &ui_table_row(undef,
 		&ui_textarea("body", $quote, 20,
 			     $wcols || 80,
@@ -800,11 +833,12 @@ print &ui_hidden("html_edit", $html_edit);
 
 # Display forwarded attachments - but exclude those referenced in the body,
 # as they get included automatically
-$viewurl = "view_mail.cgi?id=".&urlize($in{'id'}).
+my $viewurl = "view_mail.cgi?id=".&urlize($in{'id'}).
 	   "&folder=$folder->{'index'}$subs";
-$detachurl = "detach.cgi?id=".&urlize($in{'id'}).
+my $detachurl = "detach.cgi?id=".&urlize($in{'id'}).
 	     "&folder=$folder->{'index'}$subs";
-$mailurl = "view_mail.cgi?folder=$folder->{'index'}$subs";
+my $mailurl = "view_mail.cgi?folder=$folder->{'index'}$subs";
+my @non_body_attach;
 if (@attach) {
 	@non_body_attach = &remove_cid_attachments($mail, \@attach);
 	}
@@ -812,7 +846,7 @@ if (@non_body_attach) {
 	&attachments_table(\@non_body_attach, $folder, $viewurl, $detachurl,
 			   $mailurl, 'id', "forward");
 	}
-foreach $a (@attach) {
+foreach my $a (@attach) {
 	if (&indexof($a, @non_body_attach) < 0) {
 		# Body attachment .. always include
 		print &ui_hidden("forward", $a->{'idx'});
@@ -823,7 +857,7 @@ foreach $a (@attach) {
 if (@fwdmail) {
 	&attachments_table(\@fwdmail, $folder, $viewurl, $detachurl,
 			   $mailurl, 'id', undef);
-	foreach $fwdid (@mailforwardids) {
+	foreach my $fwdid (@mailforwardids) {
 		print &ui_hidden("mailforward", $fwdid);
 		}
 	}
@@ -848,10 +882,11 @@ return if (!$mail);
 &parse_mail($mail);
 @sub = split(/\0/, $in{'sub'});
 $subs = join("", map { "&sub=$_" } @sub);
-foreach $s (@sub) {
+my ($deccode, $decmessage);
+foreach my $s (@sub) {
 	# We are looking at a mail within a mail ..
 	&decrypt_attachments($mail);
-	local $amail = &extract_mail(
+	my $amail = &extract_mail(
 			$mail->{'attach'}->[$s]->{'data'});
 	&parse_mail($amail);
 	$mail = $amail;
@@ -861,10 +896,10 @@ foreach $s (@sub) {
 
 sub redirect_to_previous
 {
-local ($refresh) = @_;
+my ($refresh) = @_;
 $refresh = time().$$ if ($refresh);
-local $perpage = $folder->{'perpage'} || $userconfig{'perpage'};
-local $s = int($mail->{'sortidx'} / $perpage) * $perpage;
+my $perpage = $folder->{'perpage'} || $userconfig{'perpage'};
+my $s = int($mail->{'sortidx'} / $perpage) * $perpage;
 if ($userconfig{'open_mode'}) {
 	&redirect($viewlink);
 	}
@@ -872,4 +907,3 @@ else {
 	&redirect("index.cgi?folder=$in{'folder'}&start=$s&refresh=$refresh");
 	}
 }
-

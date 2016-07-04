@@ -1,35 +1,40 @@
 #!/usr/local/bin/perl
 # Display a message for printing
+use strict;
+use warnings;
+our (%text, %in, %userconfig);
 
-$trust_unknown_referers = 1;
+our $trust_unknown_referers = 1;
 require './mailbox-lib.pl';
 &ReadParse();
 
 # Get the folder
 &set_module_index($in{'folder'});
-@folders = &list_folders();
-$folder = $folders[$in{'folder'}];
+my @folders = &list_folders();
+my $folder = $folders[$in{'folder'}];
 
 # Get the mail
-$mail = &mailbox_get_mail($folder, $in{'id'}, 0);
+my $mail = &mailbox_get_mail($folder, $in{'id'}, 0);
 $mail || &error($text{'view_egone'});
 &parse_mail($mail);
-foreach $s (split(/\0/, $in{'sub'})) {
+foreach my $s (split(/\0/, $in{'sub'})) {
 	&decrypt_attachments($mail);
-	local $amail = &extract_mail(
+	my $amail = &extract_mail(
 			$mail->{'attach'}->[$s]->{'data'});
 	&parse_mail($amail);
 	$mail = $amail;
 	}
 &decrypt_attachments($mail);
-($textbody, $htmlbody, $body) = &find_body($mail, $userconfig{'view_html'});
+my ($textbody, $htmlbody, $body) = &find_body($mail, $userconfig{'view_html'});
 
-$mail_charset = &get_mail_charset($mail, $body);
+my $mail_charset = &get_mail_charset($mail, $body);
 if (&get_charset() eq 'UTF-8' && &can_convert_to_utf8(undef, $mail_charset)) {
 	$body->{'data'} = &convert_to_utf8($body->{'data'}, $mail_charset);
 	}
 else {
+	no warnings "once";
 	$main::force_charset = $mail_charset;
+	use warnings "once";
 	}
 
 # Show it

@@ -1,5 +1,8 @@
 #!/usr/local/bin/perl
 # Output the address book in some format
+use strict;
+use warnings;
+our (%text, %in);
 
 require './mailbox-lib.pl';
 &ReadParse();
@@ -7,6 +10,7 @@ require './mailbox-lib.pl';
 
 # Build the list of addresses
 my @addrs = &list_addresses();
+my %done;
 if ($in{'dup'}) {
 	@addrs = grep { !$done{$_->[0]}++ } @addrs;
 	}

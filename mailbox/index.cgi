@@ -1,30 +1,37 @@
 #!/usr/local/bin/perl
 # index.cgi
 # List the mail messages for the user
+use strict;
+use warnings;
+our (%text, %in, %userconfig, %config);
+our ($remote_user, $remote_pass);
+our $special_folder_id;
+our ($cb); # XXX
 
 require './mailbox-lib.pl';
 &ReadParse();
 
 &open_dsn_hash();
 
-@folders = &list_folders_sorted();
+my @folders = &list_folders_sorted();
 if (defined($in{'id'})) {
 	# Folder ID specified .. convert to index
-	$idf = &find_named_folder($in{'id'}, \@folders);
+	my $idf = &find_named_folder($in{'id'}, \@folders);
 	$in{'folder'} = $idf->{'index'} if ($idf);
 	}
 elsif (!defined($in{'folder'}) && $userconfig{'default_folder'}) {
 	# No folder specified .. find the default by preferences
-	$df = &find_named_folder($userconfig{'default_folder'}, \@folders);
+	my $df = &find_named_folder($userconfig{'default_folder'}, \@folders);
 	$in{'folder'} = $df->{'index'} if ($df);
 	}
 # Get the folder by index
-($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
+my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
 
 # Show page header
 print "Refresh: $userconfig{'refresh'}\r\n"
 	if ($userconfig{'refresh'});
-($qtotal, $qcount, $totalquota, $countquota) = &get_user_quota();
+my ($qtotal, $qcount, $totalquota, $countquota) = &get_user_quota();
+my @topright;
 if ($totalquota) {
 	push(@topright, &text('mail_quota', &nice_size($qtotal),
 				     &nice_size($totalquota)));
@@ -65,13 +72,14 @@ if (($folder->{'type'} == 2 || $folder->{'type'} == 4) &&
 	}
 
 # Work out start from jump page
-$perpage = $folder->{'perpage'} || $userconfig{'perpage'} || 20;
+my $perpage = $folder->{'perpage'} || $userconfig{'perpage'} || 20;
 if ($in{'jump'} =~ /^\d+$/ && $in{'jump'} > 0) {
 	$in{'start'} = ($in{'jump'}-1)*$perpage;
 	}
 
 # Get email to show, in order
-@mail = &mailbox_list_mails_sorted(
+my @error;
+my @mail = &mailbox_list_mails_sorted(
 		int($in{'start'}), int($in{'start'})+$perpage-1,
 	        $folder, !$userconfig{'show_body'}, \@error);
 if ($in{'start'} >= @mail && $in{'jump'}) {
@@ -88,14 +96,14 @@ if ($in{'start'} >= @mail && $in{'jump'}) {
 		 1, 1, 0, join("<br>", @topright));
 
 # Get folder-selection HTML
-$sel = &folder_select(\@folders, $folder, "id", undef, 1, 1);
+my $sel = &folder_select(\@folders, $folder, "id", undef, 1, 1);
 
 # Show page flipping arrows
 &show_arrows();
 
 # Work out displayed range
-$start = int($in{'start'});
-$end = $in{'start'}+$perpage-1;
+my $start = int($in{'start'});
+my $end = $in{'start'}+$perpage-1;
 $end = scalar(@mail)-1 if ($end >= scalar(@mail));
 
 # Start of form
@@ -112,6 +120,7 @@ if (@error) {
 	}
 
 # Buttons at top
+my @links;
 if ($userconfig{'top_buttons'} && @mail) {
 	&show_mailbox_buttons(1, \@folders, $folder, \@mail);
 	@links = ( &select_all_link("d", 1),
@@ -123,7 +132,7 @@ if ($userconfig{'top_buttons'} && @mail) {
 		   &select_status_link("d", 1, $folder, \@mail, $start, $end,
 				       2, $text{'mail_selspecial'}),
 		 );
-	($sortfield, $sortdir) = &get_sort_field($folder);
+	my ($sortfield, $sortdir) = &get_sort_field($folder);
 	if ($sortfield) {
 		# Show un-sort link
 		push(@links, "<a href='sort.cgi?folder=$folder->{'index'}&start=$start'>$text{'mail_nosort'}</a>");
@@ -132,10 +141,11 @@ if ($userconfig{'top_buttons'} && @mail) {
 	}
 
 # Generate mail list headers
-$showto = $folder->{'show_to'};
-$showfrom = $folder->{'show_from'};
+my $showto = $folder->{'show_to'};
+my $showfrom = $folder->{'show_from'};
+my @tds;
 if (@mail) {
-	@cols = ( "" );
+	my @cols = ( "" );
 	@tds = ( "width=15" );
 	if ($showfrom) {
 		push(@cols, &field_sort_link($text{'mail_from'}, "from",
@@ -169,11 +179,11 @@ if (@mail) {
 
 # Show the actual email
 for(my $i=$start; $i<=$end; $i++) {
-	local ($bs, $be);
-	@rowtds = @tds;
-	$m = $mail[$i];
-	$mid = $m->{'header'}->{'message-id'};
-	$r = &get_mail_read($folder, $m);
+	my ($bs, $be);
+	my @rowtds = @tds;
+	my $m = $mail[$i];
+	my $mid = $m->{'header'}->{'message-id'};
+	my $r = &get_mail_read($folder, $m);
 	if ($r&2) {
 		# Special
 		($bs, $be) = ("<b><i>", "</i></b>");
@@ -182,9 +192,9 @@ for(my $i=$start; $i<=$end; $i++) {
 		# Unread
 		($bs, $be) = ("<b>", "</b>");
 		}
-	local $idx = $m->{'idx'};
-	local $id = $m->{'id'};
-	local @cols;
+	my $idx = $m->{'idx'};
+	my $id = $m->{'id'};
+	my @cols;
 
 	# From and To columns, with links
 	if ($showfrom) {
@@ -212,7 +222,7 @@ for(my $i=$start; $i<=$end; $i++) {
 		}
 
 	# Subject column, with read/special icons
-	local @icons = &message_icons($m, $folder->{'sent'}, $folder);
+	my @icons = &message_icons($m, $folder->{'sent'}, $folder);
 	push(@cols, $bs.&simplify_subject($m->{'header'}->{'subject'}).
 		    " ".join("&nbsp;", @icons).$be);
 
@@ -234,7 +244,7 @@ for(my $i=$start; $i<=$end; $i++) {
 	# Show part of the body too
 	if ($userconfig{'show_body'}) {
 		&parse_mail($m);
-		local $data = &mail_preview($m);
+		my $data = &mail_preview($m);
                 if ($data) {
                         print "<tr $cb> <td colspan=",(scalar(@cols)+1),"><tt>",
                                 &html_escape($data),"</tt></td> </tr>\n";
@@ -258,14 +268,14 @@ if ($userconfig{'arrows'}) {
 
 # Start section for end of page buttons, in a 3-wide grid
 print "<hr>\n";
-@grid = ( );
+my @grid;
 print "<table width=100%>\n";
 
 if (@mail) {
-	$jumpform = (@mail > $perpage);
+	my $jumpform = (@mail > $perpage);
 	if ($folder->{'searchable'}) {
 		# Simple search
-		$ssform = &ui_form_start("mail_search.cgi");
+		my $ssform = &ui_form_start("mail_search.cgi");
 		$ssform .= &ui_hidden("folder", $folder->{'index'});
 		$ssform .= &ui_hidden("simple", 1);
 		$ssform .= &ui_submit($text{'mail_search2'});
@@ -303,6 +313,7 @@ if (@mail) {
 
 
 # Address book button
+no warnings "once";
 if (!$main::mailbox_no_addressbook_button) {
 	push(@grid, &ui_form_start("list_addresses.cgi").
 		    &ui_submit($text{'mail_addresses'}).
@@ -316,6 +327,7 @@ if (!$main::mailbox_no_folder_button) {
 		    &ui_submit($text{'mail_folders'}).
 		    &ui_form_end());
 	}
+	use warnings "once";
 
 # Sig editor
 push(@grid, &ui_form_start("edit_sig.cgi").
@@ -384,4 +396,3 @@ print &ui_page_flipper(
 	$folder->{'msg'},
 	);
 }
-

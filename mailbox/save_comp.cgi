@@ -1,10 +1,14 @@
 #!/usr/local/bin/perl
 # save_comp.cgi
 # Create, modify or delete a composite folder
+use strict;
+use warnings;
+our (%text, %in, %config);
 
 require './mailbox-lib.pl';
 &ReadParse();
-@folders = &list_folders();
+my @folders = &list_folders();
+my ($folder, $old);
 if (!$in{'new'}) {
 	$folder = $folders[$in{'idx'}];
 	$old = { %$folder };
@@ -18,7 +22,9 @@ if ($in{'delete'}) {
 else {
 	# Validate inputs
 	$in{'name'} =~ /\S/ || &error($text{'save_ename'});
-	for($i=0; defined($n = $in{"comp_$i"}); $i++) {
+	my %done;
+	my @subfolders;
+	for(my $i=0; defined(my $n = $in{"comp_$i"}); $i++) {
 		if ($n) {
 			$done{$n}++ && &error($text{'save_ecompsame'});
 			push(@subfolders, &find_named_folder($n, \@folders));

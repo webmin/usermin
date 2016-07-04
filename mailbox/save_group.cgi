@@ -1,6 +1,9 @@
 #!/usr/local/bin/perl
 # save_group.cgi
 # Save, add or delete an address group entry
+use strict;
+use warnings;
+our (%text, %in);
 
 require './mailbox-lib.pl';
 if ($ENV{'REQUEST_METHOD'} eq 'GET') {
@@ -26,5 +29,3 @@ else {
 		}
 	}
 &redirect("list_addresses.cgi?mode=groups");
-
-

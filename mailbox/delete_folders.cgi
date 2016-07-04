@@ -1,23 +1,27 @@
 #!/usr/local/bin/perl
 # Delete a bunch of folders
+use strict;
+use warnings;
+our (%text, %in, %config);
 
 require './mailbox-lib.pl';
 &ReadParse();
 &error_setup($text{'fdelete_err'});
 
 # Get the folders
-@folders = &list_folders();
-@d = split(/\0/, $in{'d'});
+my @folders = &list_folders();
+my @d = split(/\0/, $in{'d'});
 @d || &error($text{'fdelete_enone'});
-foreach $d (@d) {
+my @dfolders;
+foreach my $d (@d) {
 	push(@dfolders, $folders[$d]);
 	}
-$redir = $config{'mail_system'} == 4 ? "list_ifolders.cgi"
+my $redir = $config{'mail_system'} == 4 ? "list_ifolders.cgi"
 				     : "list_folders.cgi";
 
 if ($in{'confirm'}) {
 	# Do the deletion
-	foreach $f (@dfolders) {
+	foreach my $f (@dfolders) {
 		&delete_folder($f);
 		}
 	&redirect($redir."?refresh=".&urlize($dfolders[0]->{'name'}));
@@ -27,15 +31,15 @@ else {
 	&ui_print_header(undef, $text{'fdelete_title'}, "");
 
 	# Get the total folder size, where mail will actually be lost
-	local $sz = 0;
-	foreach $f (@dfolders) {
+	my $sz = 0;
+	foreach my $f (@dfolders) {
 		if ($f->{'type'} == 0) {
 			$sz += &folder_size($f);
 			}
 		}
 
 	print &ui_form_start("delete_folders.cgi");
-	foreach $d (@d) {
+	foreach my $d (@d) {
 		print &ui_hidden("d", $d),"\n";
 		}
 	print "<center><b>",
@@ -47,4 +51,3 @@ else {
 
 	&ui_print_footer($redir, $text{'folders_return'});
 	}
-

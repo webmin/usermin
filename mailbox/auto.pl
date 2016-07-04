@@ -1,28 +1,30 @@
 #!/usr/local/bin/perl
 # Scan through all folders, and apply the scheduled deletion policy for each
+use strict;
+use warnings;
 
-$no_acl_check++;
+our $no_acl_check++;
 $ENV{'REMOTE_USER'} = getpwuid($<);
 require './mailbox-lib.pl';
-@folders = &list_folders();
+my @folders = &list_folders();
 
 &open_read_hash();		# hack to force correct DBM mode
 
-foreach $f (@folders) {
+foreach my $f (@folders) {
 	# Skip folders for which clearing isn't active
 	next if ($f->{'nowrite'});
-	$auto = &get_auto_schedule($f);
+	my $auto = &get_auto_schedule($f);
 	next if (!$auto || !$auto->{'enabled'});
 
-	@delmails = ( );
-	$headersonly = $auto->{'all'} == 2 ? 0 : 1;
+	my @delmails;
+	my $headersonly = $auto->{'all'} == 2 ? 0 : 1;
 	if ($auto->{'mode'} == 0) {
 		# Find messages that are too old
-		@mails = &mailbox_list_mails(undef, undef, $f, $headersonly);
-		$cutoff = time() - $auto->{'days'}*24*60*60;
-		$future = time() + 7*24*60*60;
-		foreach $m (@mails) {
-			$time = &parse_mail_date($m->{'header'}->{'date'});
+		my @mails = &mailbox_list_mails(undef, undef, $f, $headersonly);
+		my $cutoff = time() - $auto->{'days'}*24*60*60;
+		my $future = time() + 7*24*60*60;
+		foreach my $m (@mails) {
+			my $time = &parse_mail_date($m->{'header'}->{'date'});
 			$time ||= $m->{'time'};
 			if ($time && $time < $cutoff ||
 			    !$time && $auto->{'invalid'} ||
@@ -33,16 +35,17 @@ foreach $f (@folders) {
 		}
 	else {
 		# Cut folder down to size, by deleting oldest first
-		$size = &folder_size($f);
-		@mails = &mailbox_list_mails(undef, undef, $f, $headersonly);
+		my $size = &folder_size($f);
+		my @mails = &mailbox_list_mails(undef, undef, $f, $headersonly);
 		while($size > $auto->{'size'}) {
 			last if (!@mails);	# empty!
-			$oldmail = shift(@mails);
+			my $oldmail = shift(@mails);
 			push(@delmails, $oldmail);
 			$size -= $oldmail->{'size'};
 			}
 		}
 
+	my $dest;
 	if (@delmails) {
 		if ($auto->{'all'} == 1) {
 			# Clear the whole folder
@@ -65,4 +68,3 @@ foreach $f (@folders) {
 			}
 		}
 	}
-

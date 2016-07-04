@@ -1,10 +1,13 @@
 #!/usr/local/bin/perl
 # Show a form for copying or moving all email to another folder
+use strict;
+use warnings;
+our (%text, %in, %config);
 
 require './mailbox-lib.pl';
 &ReadParse();
-@folders = &list_folders();
-$folder = $folders[$in{'idx'}];
+my @folders = &list_folders();
+my $folder = $folders[$in{'idx'}];
 
 &ui_print_header(undef, $text{'copy_title'}, "");
 
@@ -16,10 +19,10 @@ print &ui_table_start($text{'copy_header'}, undef, 2, [ "width=30%" ]);
 print &ui_table_row($text{'copy_source'}, $folder->{'name'});
 
 # Destination folder
-@dfolders = grep { !$_->{'nowrite'} && $_->{'index'} != $folder->{'index'} }
+my @dfolders = grep { !$_->{'nowrite'} && $_->{'index'} != $folder->{'index'} }
 		 &list_folders_sorted();
 print &ui_table_row($text{'copy_dest'},
-	    &ui_select("dest", undef, 
+	    &ui_select("dest", undef,
 		       [ map { [ $_->{'index'}, $_->{'name'} ] } @dfolders ]));
 
 # Move or copy

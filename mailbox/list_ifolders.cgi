@@ -1,13 +1,16 @@
 #!/usr/local/bin/perl
 # Display a list of IMAP folders, and allow addition and deletion
+use strict;
+use warnings;
+our (%text, %in);
 
 require './mailbox-lib.pl';
 &ui_print_header(undef, $text{'folders_title'}, "");
 
 print &ui_form_start("delete_folders.cgi", "post");
-@tds = ( "width=5" );
-@folders = &list_folders_sorted();
-@adders = ( "<a href='edit_ifolder.cgi?new=1'>$text{'folders_addimap'}</a>",
+my @tds = ( "width=5" );
+my @folders = &list_folders_sorted();
+my @adders = ( "<a href='edit_ifolder.cgi?new=1'>$text{'folders_addimap'}</a>",
 	    "<a href='edit_comp.cgi?new=1'>$text{'folders_addcomp'}</a>",
 	    "<a href='edit_virt.cgi?new=1'>$text{'folders_addvirt'}</a>" );
 print &ui_links_row(\@adders);
@@ -16,9 +19,9 @@ print &ui_columns_start([ "",
 			  $text{'folders_type'},
 			  $text{'folders_size'},
 			  $text{'folders_action'} ], undef, 0, \@tds);
-foreach $f (@folders) {
-	local @cols;
-	local $deletable = 0;
+foreach my $f (@folders) {
+	my @cols;
+	my $deletable = 0;
 	if ($f->{'inbox'} || $f->{'drafts'} || $f->{'spam'}) {
 		# Inbox, drafs or spam folder which cannot be edited
 		push(@cols, $f->{'name'});
@@ -51,12 +54,12 @@ foreach $f (@folders) {
 		}
 
 	# Action links
-	local @acts;
+	my @acts;
 	push(@acts, "<a href='index.cgi?folder=$f->{'index'}'>".
 		    "$text{'folders_view'}</a>");
 	if (!$f->{'nowrite'}) {
-		local ($is, $ie);
-		$auto = &get_auto_schedule($f);
+		my ($is, $ie);
+		my $auto = &get_auto_schedule($f);
 		if ($auto && $auto->{'enabled'}) {
 			($is, $ie) = ("<b>", "</b>");
 			}
@@ -80,11 +83,10 @@ print &ui_form_end([ [ "delete", $text{'folders_delete'} ] ]);
 
 # Refresh left frame if needed
 if ($in{'refresh'}) {
-	($folder) = grep { $_->{'name'} eq $in{'refresh'} } @folders;
+	my ($folder) = grep { $_->{'name'} eq $in{'refresh'} } @folders;
 	if (defined(&theme_post_save_folder)) {
 		&theme_post_save_folder($folder, 'modify');
 		}
 	}
 
 &ui_print_footer("", $text{'index'});
-

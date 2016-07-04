@@ -1,13 +1,16 @@
 #!/usr/local/bin/perl
 # Display contents of the user's address book, and allowed and denied addresses
+use strict;
+use warnings;
+our (%text, %in, %config, %userconfig);
 
 require './mailbox-lib.pl';
 &ReadParse();
 &ui_print_header(undef, $text{'address_title'}, "");
 
 # Build tabs
-$prog = "list_addresses.cgi?mode=";
-@tabs = ( [ "users", $text{'address_users'}, $prog."users" ],
+my $prog = "list_addresses.cgi?mode=";
+my @tabs = ( [ "users", $text{'address_users'}, $prog."users" ],
 	  [ "groups", $text{'address_groups'}, $prog."groups" ] );
 if (&foreign_installed("spam")) {
 	if (!$userconfig{'white_rec'}) {
@@ -22,7 +25,7 @@ push(@tabs, [ "export", $text{'address_export'}, $prog."export" ]);
 print &ui_tabs_start(\@tabs, "mode", $in{'mode'} || "users", 1);
 
 print &ui_tabs_start_tab("mode", "users");
-@addrs = &list_addresses();
+my @addrs = &list_addresses();
 print "$text{'address_desc'}<p>\n";
 if (@addrs || $in{'add'}) {
 	if ($in{'add'} || $in{'edit'} ne '') {
@@ -36,7 +39,7 @@ if (@addrs || $in{'add'}) {
 	      "<td width=40%><b>$text{'address_name'}</b></td> ",
 	      $config{'edit_from'} ? "<td width=10% nowrap><b>$text{'address_from'}</b></td> " : "",
 	      "</tr>\n";
-	foreach $a (@addrs) {
+	foreach my $a (@addrs) {
 		next if (!defined($a->[2]));
 		print "<tr> <td width=5%>\n";
 		if ($in{'edit'} ne $a->[2]) {
@@ -101,7 +104,7 @@ print "<a href='list_addresses.cgi?mode=users&add=1#adding'>",
 print &ui_tabs_end_tab();
 
 print &ui_tabs_start_tab("mode", "groups");
-@gaddrs = grep { defined($_->[2]) } &list_address_groups();
+my @gaddrs = grep { defined($_->[2]) } &list_address_groups();
 print "$text{'address_gdesc'}<p>\n";
 if (@gaddrs || $in{'gadd'}) {
 	if ($in{'gadd'} || $in{'gedit'} ne '') {
@@ -115,7 +118,7 @@ if (@gaddrs || $in{'gadd'}) {
 	      "<td width=20%><b>$text{'address_group'}</b></td> ",
 	      "<td width=70%><b>$text{'address_members'}</b></td> ",
 	      "</tr>\n";
-	foreach $a (@gaddrs) {
+	foreach my $a (@gaddrs) {
 		print "<tr> <td width=5% valign=top>\n";
 		if ($in{'gedit'} ne $a->[2]) {
 			print "<a href='list_addresses.cgi?mode=groups&",
@@ -179,12 +182,12 @@ print &ui_tabs_end_tab();
 # Show allowed / denied addresses tabs
 if (&foreign_installed("spam")) {
 	&foreign_require("spam", "spam-lib.pl");
-	local $conf = &spam::get_config();
+	my $conf = &spam::get_config();
 
-	foreach $m ($userconfig{'white_rec'} ? ( ) :
+	foreach my $m ($userconfig{'white_rec'} ? ( ) :
 			( [ "allow", "whitelist_from" ] ),
 	 	    [ "deny", "blacklist_from" ]) {
-		($mode, $opt) = @$m;
+		my ($mode, $opt) = @$m;
 
 		print &ui_tabs_start_tab("mode", $mode);
 		print $text{'address_'.$mode.'desc'},"<p>\n";
@@ -263,4 +266,3 @@ print "<td>".&ui_select("from", $f,
 			  [ 1, $text{'yes'} ],
 			  [ 2, $text{'address_yd'} ] ])."</td>\n";
 }
-

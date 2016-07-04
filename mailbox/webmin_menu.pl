@@ -1,4 +1,9 @@
 # Function to get the desired menu of folders, for use by themes
+use strict;
+use warnings;
+our (%text, %config, %userconfig);
+our $module_name;
+our $special_folder_id;
 
 require "mailbox-lib.pl";
 
@@ -32,6 +37,7 @@ my $dfolder = $df ? &find_named_folder($df, \@folders) :
                     $folders[0];
 
 # All the user's folders
+my $parent;
 foreach my $f (@folders) {
 	# Create the folder object
 	my $fid = &folder_name($f);

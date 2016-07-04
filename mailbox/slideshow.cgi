@@ -1,40 +1,43 @@
 #!/usr/local/bin/perl
 # Show a page containing all image attachments
+use strict;
+use warnings;
+our (%text, %in);
 
 require './mailbox-lib.pl';
 
 # Get the mail
 &ReadParse();
-@folders = &list_folders();
-$folder = $folders[$in{'folder'}];
-$mail = &mailbox_get_mail($folder, $in{'id'}, 0);
+my @folders = &list_folders();
+my $folder = $folders[$in{'folder'}];
+my $mail = &mailbox_get_mail($folder, $in{'id'}, 0);
 $mail || &error($text{'view_egone'});
 &parse_mail($mail);
-@sub = split(/\0/, $in{'sub'});
-$subs = join("", map { "&sub=".&urlize($_) } @sub);
-foreach $s (@sub) {
+my @sub = split(/\0/, $in{'sub'});
+my $subs = join("", map { "&sub=".&urlize($_) } @sub);
+foreach my $s (@sub) {
         # We are looking at a mail within a mail ..
 	&decrypt_attachments($mail);
-        local $amail = &extract_mail($mail->{'attach'}->[$s]->{'data'});
+        my $amail = &extract_mail($mail->{'attach'}->[$s]->{'data'});
         &parse_mail($amail);
         $mail = $amail;
         }
 &decrypt_attachments($mail);
 
 # Find image attachments
-@attach = @{$mail->{'attach'}};
+my @attach = @{$mail->{'attach'}};
 @attach = &remove_body_attachments($mail, \@attach);
 @attach = &remove_cid_attachments($mail, \@attach);
-@iattach = grep { $_->{'type'} =~ /^image\// } @attach;
+my @iattach = grep { $_->{'type'} =~ /^image\// } @attach;
 
 &popup_header($text{'slide_title'});
 
-$n = 0;
-foreach $a (@iattach) {
+my $n = 0;
+foreach my $a (@iattach) {
 	# Navigation links
 	print "<hr>" if ($n > 0);
 	print "<a name=image$n></a>\n";
-	@links = ( );
+	my @links;
 	if ($a eq $iattach[0]) {
 		push(@links, $text{'slide_prev'});
 		}
@@ -59,4 +62,3 @@ foreach $a (@iattach) {
 	}
 
 &popup_footer();
-

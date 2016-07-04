@@ -1,10 +1,18 @@
 #!/usr/local/bin/perl
 # edit_folder.cgi
 # Display a form for creating or editing a folder of some kind
+use strict;
+use warnings;
+our (%text, %in, %userconfig);
+our $folders_dir;
+our @remote_user_info;
 
 require './mailbox-lib.pl';
 &ReadParse();
 
+my $mode;
+my @folders;
+my $folder;
 if ($in{'new'}) {
 	&ui_print_header(undef, $text{'edit_title1'}, "");
 	$mode = $in{'mode'};
@@ -65,7 +73,7 @@ elsif ($mode == 1) {
 	}
 elsif ($mode == 2) {
 	# Selecting the sent mail folder
-	local $sf = "$folders_dir/sentmail";
+	my $sf = "$folders_dir/sentmail";
 	print &ui_table_row($text{'edit_sent'},
 		&ui_radio("sent_def", $folder->{'file'} eq $sf ? 1 : 0,
 			  [ [ 1, $text{'edit_sent1'} ],
@@ -88,4 +96,3 @@ else {
 	}
 
 &ui_print_footer("list_folders.cgi", $text{'folders_return'});
-

@@ -2,29 +2,31 @@
 # Called from Procmail to check if some user is over his LDAP quota, and if
 # so bounces it. Exits with 0 if OK, 100 if over quota, or 111 if a temporary
 # error occurred
+use strict;
+use warnings;
 
 use Net::LDAP;
 
 @ARGV == 6 || temperr("usage: quotacheck.pl <email> <ldap-host> <ldap-port> <ldap-based> <ldap-login> <ldap-pass>");
-($email, $host, $port, $base, $login, $pass) = @ARGV;
+my ($email, $host, $port, $base, $login, $pass) = @ARGV;
 
 # Read in email
-$size = 0;
+my $size = 0;
 while(<STDIN>) {
 	$size += length($_);
 	}
 
 # Connect to LDAP
-$ldap = Net::LDAP->new($host, port => $port);
+my $ldap = Net::LDAP->new($host, port => $port);
 $ldap || temperr("Failed to connect to LDAP server $host:$port");
-$mesg = $ldap->bind(dn => $login, password => $pass);
+my $mesg = $ldap->bind(dn => $login, password => $pass);
 if (!$mesg || $mesg->code) {
 	temperr("Failed to login to LDAP server as $login : ",
 		$mesg ? $mesg->error : "Unknown error");
 	}
 
 # Lookup the email address
-$rv = $ldap->search(base => $base,
+my $rv = $ldap->search(base => $base,
 		    filter => "(|(mail=$email)(mailAlternateAddress=$email))");
 if ($rv->code) {
 	temperr("Failed to lookup user in LDAP : ",$rv->error);
@@ -70,23 +72,23 @@ exit(111);
 # Sets the 'size' field of one or more folders, and returns the total
 sub folder_size
 {
-local ($f, $total);
-foreach $f (@_) {
+my $total;
+foreach my $f (@_) {
 	if ($f->{'type'} == 0) {
 		# Single mail file - size is easy
-		local @st = stat($f->{'file'});
+		my @st = stat($f->{'file'});
 		$f->{'size'} = $st[7];
 		}
 	elsif ($f->{'type'} == 1) {
 		# Maildir folder size is that of all mail files
-		local $qd;
+		my $qd;
 		$f->{'size'} = 0;
-		foreach $qd ('cur', 'new') {
-			local $mf;
+		foreach my $qd ('cur', 'new') {
+			my $mf;
 			opendir(QDIR, "$f->{'file'}/$qd");
 			while($mf = readdir(QDIR)) {
 				next if ($mf eq "." || $mf eq "..");
-				local @st = stat("$f->{'file'}/$qd/$mf");
+				my @st = stat("$f->{'file'}/$qd/$mf");
 				$f->{'size'} += $st[7];
 				}
 			closedir(QDIR);
@@ -94,12 +96,12 @@ foreach $f (@_) {
 		}
 	elsif ($f->{'type'} == 3) {
 		# MH folder size is that of all mail files
-		local $mf;
+		my $mf;
 		$f->{'size'} = 0;
 		opendir(MHDIR, $f->{'file'});
 		while($mf = readdir(MHDIR)) {
 			next if ($mf eq "." || $mf eq "..");
-			local @st = stat("$f->{'file'}/$mf");
+			my @st = stat("$f->{'file'}/$mf");
 			$f->{'size'} += $st[7];
 			}
 		closedir(MHDIR);
@@ -122,6 +124,3 @@ sub folder_type
 {
 return -d "$_[0]/cur" ? 1 : -d $_[0] ? 3 : 0;
 }
-
-
-

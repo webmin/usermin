@@ -1,10 +1,15 @@
 #!/usr/local/bin/perl
 # save_imap.cgi
 # Create, modify or delete an IMAP folder
+use strict;
+use warnings;
+our (%text, %in);
+our %folder_types;
 
 require './mailbox-lib.pl';
 &ReadParse();
-@folders = &list_folders();
+my @folders = &list_folders();
+my ($folder, $old);
 if (!$in{'new'}) {
 	$folder = $folders[$in{'idx'}];
 	$old = { %$folder };
@@ -42,7 +47,7 @@ else {
 	$folder->{'fromaddr'} = $in{'fromaddr_def'} ? undef : $in{'fromaddr'};
 	$folder->{'sent'} = $in{'sent'};
 	$folder->{'mailbox'} = $in{'mailbox_def'} ? undef : $in{'mailbox'};
-	local @err = &imap_login($folder);
+	my @err = &imap_login($folder);
 	if ($err[0] == 0) {
 		&error($err[1]);
 		}
@@ -58,4 +63,3 @@ else {
 	&save_folder($folder, $old);
 	}
 &redirect("list_folders.cgi?refresh=".&urlize($folder->{'name'}));
-

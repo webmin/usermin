@@ -1,13 +1,16 @@
 #!/usr/local/bin/perl
 # save_address.cgi
 # Save, add or delete an address book entry
+use strict;
+use warnings;
+our (%text, %in);
 
 require './mailbox-lib.pl';
 &ReadParse();
-@addrs = &list_addresses();
+my @addrs = &list_addresses();
 
 if ($in{'delete'} ne '') {
-	($del) = grep { $_->[2] eq $in{'delete'} } @addrs;
+	my ($del) = grep { $_->[2] eq $in{'delete'} } @addrs;
 	&addressbook_remove_whitelist($del->[0]);
 	&delete_address($in{'delete'});
 	}
@@ -17,7 +20,7 @@ else {
 	$in{'addr'} =~ /[,<>"\(\)]/ && &error($text{'address_eaddr'});
 	if ($in{'from'} == 2) {
 		# Turn off default for all others
-		foreach $a (@addrs) {
+		foreach my $a (@addrs) {
 			if ($a->[3] == 2 && $a->[2] != $in{'edit'}) {
 				&modify_address($a->[2], $a->[0],
 						$a->[1], 1);
@@ -33,5 +36,3 @@ else {
 	&addressbook_to_whitelist();
 	}
 &redirect("list_addresses.cgi?mode=users");
-
-

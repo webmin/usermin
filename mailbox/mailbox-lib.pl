@@ -112,7 +112,7 @@ return $cc ? ( $ok ) : ( 0 );
 sub check_signature_attachments
 {
 my ($attach, $textbody) = @_;
-my ($sigcode, $sigmessage);
+my ($sigcode, $sigmessage, $sindex);
 if (&has_command("gpg") && &foreign_check("gnupg") && &foreign_available("gnupg")) {
 	# Check for GnuPG signatures
 	my $sig;
@@ -142,7 +142,7 @@ if (&has_command("gpg") && &foreign_check("gnupg") && &foreign_available("gnupg"
 			}
 		}
 	}
-return ($sigcode, $sigmessage);
+return ($sigcode, $sigmessage, $sindex);
 }
 
 # list_addresses()

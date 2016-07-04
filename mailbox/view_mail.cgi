@@ -148,7 +148,8 @@ foreach $s (@sub) {
 ($dstatus) = grep { $_->{'type'} eq 'message/delivery-status' } @attach;
 
 # Check for signing
-($sigcode, $sigmessage) = &check_signature_attachments(\@attach, $textbody);
+($sigcode, $sigmessage, $sindex) =
+	&check_signature_attachments(\@attach, $textbody);
 
 # Check if we can create email filters
 $can_create_filter = 0;

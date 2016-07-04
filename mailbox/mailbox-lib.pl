@@ -2170,13 +2170,15 @@ for(my $i=$start; $i<=$end; $i++) {
 return &select_rows_link($name, $formno, $label, \@sel);
 }
 
-# address_link(address)
+# address_link(address, id, subs)
 # Turns an address into a link for adding it to the addressbook
 sub address_link
 {
+my ($addr, $id, $subs) = @_;
+my $qid = &urlize($id);
 ## split_addresses() pattern-matches "[<>]", so 7-bit encodings
 ## such as ISO-2022-JP must be converted to EUC before feeding.
-local $mw = &convert_header_for_display($_[0], 0, 1);
+local $mw = &convert_header_for_display($addr, 0, 1);
 local @addrs = &split_addresses(&eucconv($mw));
 local @rv;
 foreach $a (@addrs) {

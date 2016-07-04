@@ -193,24 +193,28 @@ else {
 	local @toaddrs = &split_addresses(&decode_mimewords(
 				$mail->{'header'}->{'to'}));
 	print &ui_table_row($text{'mail_from'},
-		&left_right_align(&address_link($mail->{'header'}->{'from'}),
+		&left_right_align(&address_link($mail->{'header'}->{'from'},
+						$in{'id'}, $subs),
 			  &search_link("from", $text{'mail_fromsrch'},
 				       $addrs[0]->[0], $addrs[0]->[1]).
 			  &filter_link("From", $text{'mail_fromfilter'},
 				       $addrs[0]->[0])));
 	print &ui_table_row($text{'mail_to'},
-		&left_right_align(&address_link($mail->{'header'}->{'to'}),
+		&left_right_align(&address_link($mail->{'header'}->{'to'},
+						$in{'id'}, $subs),
 			  &search_link("to", $text{'mail_tosrch'},
 				       $toaddrs[0]->[0], $toaddrs[0]->[1]).
 			  &filter_link("To", $text{'mail_tofilter'},
 				       $toaddrs[0]->[0])));
 	if ($mail->{'header'}->{'cc'}) {
 		print &ui_table_row($text{'mail_cc'},
-			&address_link($mail->{'header'}->{'cc'}));
+			&address_link($mail->{'header'}->{'cc'},
+					$in{'id'}, $subs));
 		}
 	if ($mail->{'header'}->{'bcc'}) {
 		print &ui_table_row($text{'mail_bcc'},
-			&address_link($mail->{'header'}->{'bcc'}));
+			&address_link($mail->{'header'}->{'bcc'},
+					$in{'id'}, $subs));
 		}
 	print &ui_table_row($text{'mail_date'},
 		&eucconv_and_escape(

@@ -1036,7 +1036,7 @@ if (@list_folders_cache) {
 # Delete mbox or Maildir index
 if ($folder->{'type'} == 0) {
 	local $ifile = &user_index_file($folder->{'file'});
-	unlink(glob("$ifile.*"), $file);
+	unlink(glob("$ifile.*"), $ifile);
 	}
 elsif ($folder->{'type'} == 1) {
 	local $cachefile = &get_maildir_cachefile($folder->{'file'});
@@ -1045,7 +1045,7 @@ elsif ($folder->{'type'} == 1) {
 
 # Delete sort index
 local $ifile = &folder_new_sort_index_file($folder);
-unlink(glob("$ifile.*"), $file);
+unlink(glob("$ifile.*"), $ifile);
 
 # Delete sort direction file
 local $file = &folder_name($folder);

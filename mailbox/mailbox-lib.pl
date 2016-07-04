@@ -122,7 +122,7 @@ return $cc ? ( $ok ) : ( 0 );
 sub check_signature_attachments
 {
 my ($attach, $textbody) = @_;
-my ($sigcode, $sigmessage);
+my ($sigcode, $sigmessage, $sindex);
 if (&has_command("gpg") && &foreign_check("gnupg") && &foreign_available("gnupg")) {
 	# Check for GnuPG signatures
 	my $sig;
@@ -147,13 +147,12 @@ if (&has_command("gpg") && &foreign_check("gnupg") && &foreign_available("gnupg"
 		my $text = $4;
 		&foreign_require("gnupg", "gnupg-lib.pl");
 		($sigcode, $sigmessage) = &gnupg::verify_data($sig);
-		my $body = $textbody;
 		if ($sigcode == 0 || $sigcode == 1) {
-			$body->{'data'} = $text;
+			$textbody->{'data'} = $text;
 			}
 		}
 	}
-return ($sigcode, $sigmessage);
+return ($sigcode, $sigmessage, $sindex);
 }
 
 # list_addresses()
@@ -1207,9 +1206,11 @@ else {
 # Adds an entry to the address group book
 sub create_address_group
 {
+no strict "subs";
 &open_tempfile(ADDRESS, ">>$address_group_book");
 &print_tempfile(ADDRESS, "$_[0]\t$_[1]\n");
 &close_tempfile(ADDRESS);
+use strict "subs";
 }
 
 # modify_address_group(index, name, members)
@@ -1316,7 +1317,7 @@ my $http_host = $ENV{'HTTP_HOST'};
 $http_host =~ s/:\d+$//;
 if (&check_ipaddress($http_host)) {
 	# Try to reverse-lookup IP
-	my $rev = gethostbyaddr(inet_aton($acptip), AF_INET);
+	my $rev = gethostbyaddr(inet_aton($http_host), AF_INET);
 	$http_host = $rev if ($rev);
 	}
 $http_host =~ s/^(www|ftp|mail)\.//;
@@ -2199,9 +2200,11 @@ return &select_rows_link($name, $formno, $label, \@sel);
 # Turns an address into a link for adding it to the addressbook
 sub address_link
 {
+my ($addr, $id, $subs) = @_;
+my $qid = &urlize($id);
 ## split_addresses() pattern-matches "[<>]", so 7-bit encodings
 ## such as ISO-2022-JP must be converted to EUC before feeding.
-my $mw = &convert_header_for_display($_[0], 0, 1);
+my $mw = &convert_header_for_display($addr, 0, 1);
 my @addrs = &split_addresses(&eucconv($mw));
 my @rv;
 my %inbook;

@@ -1857,7 +1857,8 @@ else {
 	}
 if (!$mesg || $mesg->code) {
 	local $err = &text('ldap_elogin', "<tt>$config{'ldap_host'}</tt>",
-		     $dn, $mesg ? $mesg->error : "Unknown error");
+		     	   "<tt>$config{'ldap_login'}</tt>",
+			   $mesg ? $mesg->error : "Unknown error");
 	if ($_[0]) { return $err; }
 	else { &error($err); }
 	}

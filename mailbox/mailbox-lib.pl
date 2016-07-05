@@ -2197,7 +2197,7 @@ for(my $i=$start; $i<=$end; $i++) {
 return &select_rows_link($name, $formno, $label, \@sel);
 }
 
-# address_link(address)
+# address_link(address, id, subs)
 # Turns an address into a link for adding it to the addressbook
 sub address_link
 {

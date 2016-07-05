@@ -160,7 +160,8 @@ foreach my $s (@sub) {
 my ($dstatus) = grep { $_->{'type'} eq 'message/delivery-status' } @attach;
 
 # Check for signing
-my ($sigcode, $sigmessage, $sindex) = &check_signature_attachments(\@attach, $textbody);
+my ($sigcode, $sigmessage, $sindex) =
+	&check_signature_attachments(\@attach, $textbody);
 
 # Check if we can create email filters
 my $can_create_filter = 0;
@@ -206,27 +207,27 @@ else {
 				$mail->{'header'}->{'to'}));
 	print &ui_table_row($text{'mail_from'},
 		&left_right_align(&address_link($mail->{'header'}->{'from'},
-																		$in{'id'}, $subs),
+							$in{'id'}, $subs),
 			  &search_link("from", $text{'mail_fromsrch'},
-				       $addrs[0]->[0], $addrs[0]->[1]).
+				      $addrs[0]->[0], $addrs[0]->[1]).
 			  &filter_link("From", $text{'mail_fromfilter'},
-				       $addrs[0]->[0])));
+				      $addrs[0]->[0])));
 	print &ui_table_row($text{'mail_to'},
 		&left_right_align(&address_link($mail->{'header'}->{'to'},
-																		$in{'id'}, $subs),
+							$in{'id'}, $subs),
 			  &search_link("to", $text{'mail_tosrch'},
-				       $toaddrs[0]->[0], $toaddrs[0]->[1]).
+			      	$toaddrs[0]->[0], $toaddrs[0]->[1]).
 			  &filter_link("To", $text{'mail_tofilter'},
-				       $toaddrs[0]->[0])));
+				      $toaddrs[0]->[0])));
 	if ($mail->{'header'}->{'cc'}) {
 		print &ui_table_row($text{'mail_cc'},
 			&address_link($mail->{'header'}->{'cc'},
-										$in{'id'}, $subs));
+					$in{'id'}, $subs));
 		}
 	if ($mail->{'header'}->{'bcc'}) {
 		print &ui_table_row($text{'mail_bcc'},
 			&address_link($mail->{'header'}->{'bcc'},
-										$in{'id'}, $subs));
+					$in{'id'}, $subs));
 		}
 	print &ui_table_row($text{'mail_date'},
 		&eucconv_and_escape(
@@ -369,7 +370,7 @@ if ($sent_dsn_to || $send_dsn_button || $got_dsn || @delmsgs) {
 		print &ui_table_row(undef,
 		      &text($sent_dsn ? 'view_dnsnow' : 'view_dsnbefore',
 			    &html_escape($sent_dsn_to),
-			    &makedate($sent_dsn_at)));
+			    &make_date($sent_dsn_at)));
 		}
 	elsif ($send_dsn_button) {
 		print &ui_table_row(undef,

@@ -357,7 +357,7 @@ if ($sent_dsn_to || $send_dsn_button || $got_dsn || @delmsgs) {
 		print &ui_table_row(undef,
 		      &text($sent_dsn ? 'view_dnsnow' : 'view_dsnbefore',
 			    &html_escape($sent_dsn_to),
-			    ($dsntm = localtime($sent_dsn_at))));
+			    &make_date($sent_dsn_at)));
 		}
 	elsif ($send_dsn_button) {
 		print &ui_table_row(undef,
@@ -367,7 +367,7 @@ if ($sent_dsn_to || $send_dsn_button || $got_dsn || @delmsgs) {
 	elsif ($got_dsn) {
 		print &ui_table_row(undef,
 			&text('view_dsngot', &html_escape($got_dsn_from),
-			     ($dsntm = localtime($got_dsn))));
+			      &make_date(localtime($got_dsn)));
 		}
 	elsif (@delmsgs) {
 		print &ui_table_row(undef,

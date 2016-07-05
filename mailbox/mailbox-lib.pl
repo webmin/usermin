@@ -1884,7 +1884,8 @@ else {
 	}
 if (!$mesg || $mesg->code) {
 	my $err = &text('ldap_elogin', "<tt>$config{'ldap_host'}</tt>",
-		     $dn, $mesg ? $mesg->error : "Unknown error");
+				 "<tt>$config{'ldap_login'}</tt>",
+		     $mesg ? $mesg->error : "Unknown error");
 	if ($_[0]) { return $err; }
 	else { &error($err); }
 	}
@@ -2290,9 +2291,11 @@ sub save_last_folder_id
 my ($id) = @_;
 $id = &folder_name($id) if (ref($id));
 if ($id ne $search_folder_id) {
+	no strict "subs";
 	&open_tempfile(LASTFOLDER, ">$last_folder_file", 1);
 	&print_tempfile(LASTFOLDER, $id,"\n");
 	&close_tempfile(LASTFOLDER);
+	use strict "subs";
 	}
 }
 

@@ -1711,7 +1711,7 @@ else {
 print $spacer;
 
 # Forward selected
-if (@mail) {
+if (@$mail) {
 	if ($userconfig{'open_mode'}) {
 		print &ui_submit($text{'mail_forward'}, "forward", undef,
 			"onClick='args = \"folder=$folder->{'index'}\"; for(i=0; i<form.d.length; i++) { if (form.d[i].checked) { args += \"&mailforward=\"+escape(form.d[i].value); } } window.open(\"reply_mail.cgi?\"+args, \"compose\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>");
@@ -1732,19 +1732,19 @@ if (@$mail) {
 	}
 	
 # Copy/move to folder
-if (@mail && @$folders > 1) {
+if (@$mail && @$folders > 1) {
 	print &movecopy_select($_[0], $folders, $folder);
 	print $spacer;
 	}
 
 # Delete
-if (@mail) {
+if (@$mail) {
 	print &ui_submit($text{'mail_delete'}, "delete");
 	print $spacer;
 	}
 
 # Blacklist / report spam
-if (@mail && ($folder->{'spam'} || $userconfig{'spam_buttons'} =~ /list/ &&
+if (@$mail && ($folder->{'spam'} || $userconfig{'spam_buttons'} =~ /list/ &&
 				   &can_report_spam($folder))) {
 	print &ui_submit($text{'mail_black'}, "black");
 	if ($userconfig{'spam_del'}) {
@@ -1757,7 +1757,7 @@ if (@mail && ($folder->{'spam'} || $userconfig{'spam_buttons'} =~ /list/ &&
 	}
 
 # Whitelist / report ham
-if (@mail && ($folder->{'spam'} || $userconfig{'ham_buttons'} =~ /list/ &&
+if (@$mail && ($folder->{'spam'} || $userconfig{'ham_buttons'} =~ /list/ &&
 				   &can_report_ham($folder))) {
 	if ($userconfig{'white_move'} && $folder->{'spam'}) {
 		print &ui_submit($text{'mail_whitemove'}, "white");

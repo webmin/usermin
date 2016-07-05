@@ -367,7 +367,7 @@ if ($sent_dsn_to || $send_dsn_button || $got_dsn || @delmsgs) {
 	elsif ($got_dsn) {
 		print &ui_table_row(undef,
 			&text('view_dsngot', &html_escape($got_dsn_from),
-			      &make_date(localtime($got_dsn)));
+			      &make_date($got_dsn)));
 		}
 	elsif (@delmsgs) {
 		print &ui_table_row(undef,

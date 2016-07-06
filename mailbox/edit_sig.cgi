@@ -1,9 +1,12 @@
 #!/usr/local/bin/perl
 # edit_sig.cgi
 # Display the user's .signature file for editing
+use strict;
+use warnings;
+our (%text);
 
 require './mailbox-lib.pl';
-$sf = &get_signature_file();
+my $sf = &get_signature_file();
 $sf ||= ".signature";
 &ui_print_header(undef, $text{'sig_title'}, "");
 
@@ -13,5 +16,3 @@ print &ui_textarea("sig", &get_signature(), 5, 80);
 print &ui_form_end([ [ undef, $text{'save'} ] ]);
 
 &ui_print_footer("", $text{'mail_return'});
-
-

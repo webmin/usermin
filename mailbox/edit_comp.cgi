@@ -1,11 +1,15 @@
 #!/usr/local/bin/perl
 # edit_comp.cgi
 # Display a form for creating or editing a composite folder
+use strict;
+use warnings;
+our (%text, %in, %config);
 
 require './mailbox-lib.pl';
 &ReadParse();
 
-@folders = &list_folders();
+my @folders = &list_folders();
+my $folder;
 if ($in{'new'}) {
 	&ui_print_header(undef, $text{'edit_title1'}, "");
 	}
@@ -28,9 +32,9 @@ print &ui_table_row($text{'edit_name'},
 	&ui_textbox("name", $folder->{'name'}, 40));
 
 # Composite folders
-@names = split(/\t+/, $folder->{'subfoldernames'});
-$ctable = "";
-for($i=0; $i<10; $i++) {
+my @names = split(/\t+/, $folder->{'subfoldernames'});
+my $ctable = "";
+for(my $i=0; $i<10; $i++) {
 	$ctable .= &ui_select("comp_$i",
 			$names[$i],
 			[ [ "", "&nbsp;" ],
@@ -56,4 +60,3 @@ else {
 &ui_print_footer($config{'mail_system'} == 4 ? "list_ifolders.cgi"
 					     : "list_folders.cgi",
 		 $text{'folders_return'});
-

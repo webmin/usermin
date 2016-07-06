@@ -1,10 +1,16 @@
 #!/usr/local/bin/perl
 # mail_search.cgi
 # Find mail messages matching some pattern
+use strict;
+use warnings;
+our (%text, %in, %userconfig);
+our $search_folder_id;
 
 require './mailbox-lib.pl';
 &ReadParse();
-$limit = { };
+my $limit = { };
+my $statusmsg;
+my @fields;
 if (!$in{'status_def'} && defined($in{'status'})) {
 	$statusmsg = &text('search_withstatus',
 			   $text{'view_mark'.$in{'status'}});
@@ -22,10 +28,10 @@ elsif ($in{'spam'}) {
 	}
 else {
 	# Validate search fields
-	for($i=0; defined($in{"field_$i"}); $i++) {
+	for(my $i=0; defined($in{"field_$i"}); $i++) {
 		if ($in{"field_$i"}) {
 			$in{"what_$i"} || &error(&text('search_ewhat', $i+1));
-			$neg = $in{"neg_$i"} ? "!" : "";
+			my $neg = $in{"neg_$i"} ? "!" : "";
 			push(@fields, [ $neg.$in{"field_$i"}, $in{"what_$i"}, $in{"re_$i"} ]);
 			}
 		}
@@ -40,13 +46,15 @@ else {
 		$limit->{'latest'} = $in{'limit'};
 		}
 	}
+my $limitmsg;
+my $folder;
 if ($limit && $limit->{'latest'}) {
 	$limitmsg = &text('search_limit', $limit->{'latest'});
 	}
 
-@folders = &list_folders();
+my @folders = &list_folders();
 if ($in{'lastfolder'}) {
-	$fid = &get_last_folder_id();
+	my $fid = &get_last_folder_id();
 	if ($fid) {
 		$folder = &find_named_folder($fid, \@folders);
 		if ($folder) {
@@ -67,36 +75,40 @@ if ($folder && $folder->{'id'} eq $search_folder_id) {
 	&error($text{'search_eself'});
 	}
 
+my @rv;
+my $msg;
+my @sfolders;
+my $multi_folder;
 if ($in{'simple'}) {
 	# Just search by Subject and From (or To) in one folder
-	($mode, $words) = &parse_boolean($in{'search'});
-	local $who = $folder->{'sent'} ? 'to' : 'from';
+	my ($mode, $words) = &parse_boolean($in{'search'});
+	my $who = $folder->{'sent'} ? 'to' : 'from';
 	if ($mode == 0) {
 		# Search was like 'foo' or 'foo bar'
 		# Can just do a single 'or' search
-		@searchlist = map { ( [ 'subject', $_ ],
+		my @searchlist = map { ( [ 'subject', $_ ],
 				      [ $who, $_ ] ) } @$words;
 		@rv = &mailbox_search_mail(\@searchlist, 0, $folder, $limit, 1);
 		}
 	elsif ($mode == 1) {
 		# Search was like 'foo and bar'
 		# Need to do two 'and' searches and combine
-		@searchlist1 = map { ( [ 'subject', $_ ] ) } @$words;
-		@rv1 = &mailbox_search_mail(\@searchlist1, 1, $folder,
+		my @searchlist1 = map { ( [ 'subject', $_ ] ) } @$words;
+		my @rv1 = &mailbox_search_mail(\@searchlist1, 1, $folder,
 					    $limit, 1);
-		@searchlist2 = map { ( [ $who, $_ ] ) } @$words;
-		@rv2 = &mailbox_search_mail(\@searchlist2, 1, $folder,
+		my @searchlist2 = map { ( [ $who, $_ ] ) } @$words;
+		my @rv2 = &mailbox_search_mail(\@searchlist2, 1, $folder,
 					    $limit, 1);
 		@rv = @rv1;
-		%gotid = map { $_->{'id'}, 1 } @rv;
-		foreach $mail (@rv2) {
+		my %gotid = map { $_->{'id'}, 1 } @rv;
+		foreach my $mail (@rv2) {
 			push(@rv, $mail) if (!$gotid{$mail->{'id'}});
 			}
 		}
 	else {
 		&error($text{'search_eboolean'});
 		}
-	foreach $mail (@rv) {
+	foreach my $mail (@rv) {
 		$mail->{'folder'} = $folder;
 		}
 	if ($statusmsg) {
@@ -106,10 +118,10 @@ if ($in{'simple'}) {
 	}
 elsif ($in{'spam'}) {
 	# Search by spam score, using X-Spam-Level header
-	$stars = "*" x $in{'score'};
+	my $stars = "*" x $in{'score'};
 	@rv = &mailbox_search_mail([ [ "x-spam-level", $stars ] ], 0, $folder,
 				   $limit, 1);
-	foreach $mail (@rv) {
+	foreach my $mail (@rv) {
 		$mail->{'folder'} = $folder;
 		}
 	$msg = &text('search_msg5', $in{'score'});
@@ -132,17 +144,18 @@ else {
 	else {
 		@sfolders = ( $folder );
 		}
-	foreach $sf (@sfolders) {
-		local @frv = &mailbox_search_mail(\@fields, $in{'and'}, $sf,
+	my @frv;
+	foreach my $sf (@sfolders) {
+		my @frv = &mailbox_search_mail(\@fields, $in{'and'}, $sf,
 						  $limit, 1);
-		foreach $mail (@frv) {
+		foreach my $mail (@frv) {
 			$mail->{'folder'} = $sf;
 			}
 		if ($in{'attach'}) {
 			# Limit to those with an attachment
-			@attach = &mail_has_attachments(\@frv, $sf);
-			@newfrv = ( );
-			for($i=0; $i<@frv; $i++) {
+			my @attach = &mail_has_attachments(\@frv, $sf);
+			my @newfrv = ( );
+			for(my $i=0; $i<@frv; $i++) {
 				push(@newfrv, $frv[$i]) if ($attach[$i]);
 				}
 			@frv = @newfrv;
@@ -154,7 +167,7 @@ else {
 		@rv = &filter_by_status(\@rv, $in{'status'});
 		}
 	if (@fields == 1) {
-		$stext = $fields[0]->[1];
+		my $stext = $fields[0]->[1];
 		$stext =~ s/^(\.\*|\^)//;
 		$stext =~ s/(\.\*|\$)$//;
 		$msg = &text('search_msg6', "<i>".$stext."</i>",
@@ -168,6 +181,7 @@ $msg .= " $limitmsg" if ($limitmsg);
 $msg .= " $statusmsg" if ($statusmsg);
 
 # Create a virtual folder for the search results
+my $virt;
 if ($in{'dest_def'} || !defined($in{'dest'})) {
 	# Use the default search results folder
 	($virt) = grep { $_->{'type'} == 6 && $_->{'id'} == 1 } @folders;
@@ -209,4 +223,3 @@ else {
 # Redirect to it
 &redirect("index.cgi?id=$virt->{'id'}&refresh=2");
 &pop3_logout_all();
-

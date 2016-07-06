@@ -1,10 +1,14 @@
 #!/usr/local/bin/perl
 # Display a form for creating or editing a virtual folder
+use strict;
+use warnings;
+our (%text, %in, %config);
 
 require './mailbox-lib.pl';
 &ReadParse();
 
-@folders = &list_folders();
+my @folders = &list_folders();
+my $folder;
 if ($in{'new'}) {
 	&ui_print_header(undef, $text{'edit_title1'}, "");
 	}

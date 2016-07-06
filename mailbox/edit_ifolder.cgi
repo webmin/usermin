@@ -1,9 +1,15 @@
 #!/usr/local/bin/perl
 # Display a form for creating or editing an IMAP folder
+use strict;
+use warnings;
+our (%text, %in);
 
 require './mailbox-lib.pl';
 &ReadParse();
 
+my $mode;
+my @folders;
+my $folder;
 if ($in{'new'}) {
 	&ui_print_header(undef, $text{'edit_title1'}, "");
 	$mode = $in{'mode'};

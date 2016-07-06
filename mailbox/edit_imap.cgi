@@ -1,10 +1,17 @@
 #!/usr/local/bin/perl
 # edit_imap.cgi
 # Display a form for creating or editing an IMAP folder
+use strict;
+use warnings;
+our (%text, %in);
+our $imap_port;
 
 require './mailbox-lib.pl';
 &ReadParse();
 
+my $mode;
+my @folders;
+my $folder;
 if ($in{'new'}) {
 	&ui_print_header(undef, $text{'edit_title1'}, "");
 	$mode = $in{'mode'};
@@ -63,4 +70,3 @@ else {
 	}
 
 &ui_print_footer("list_folders.cgi", $text{'folders_return'});
-

@@ -1,10 +1,13 @@
 #!/usr/local/bin/perl
 # Show a form for setting up scheduled folder clearing
+use strict;
+use warnings;
+our (%text, %in, %config);
 
 require './mailbox-lib.pl';
 &ReadParse();
-@folders = &list_folders();
-$folder = $folders[$in{'idx'}];
+my @folders = &list_folders();
+my $folder = $folders[$in{'idx'}];
 
 &ui_print_header(undef, $text{'auto_title'}, "");
 
@@ -16,7 +19,7 @@ print &ui_table_start($text{'auto_header'}, undef, 2);
 print &ui_table_row($text{'auto_name'}, $folder->{'name'});
 
 # Auto-clearing enabled
-$auto = &get_auto_schedule($folder);
+my $auto = &get_auto_schedule($folder);
 $auto ||= { 'enabled' => 0, 'mode' => 0, 'days' => 30 };
 print &ui_table_row($text{'auto_enabled'},
 		    &ui_yesno_radio("enabled", int($auto->{'enabled'})));
@@ -32,7 +35,7 @@ print &ui_table_row($text{'auto_mode'},
 		     &ui_bytesbox("size", $auto->{'size'}, 5)) ] ]));
 
 # Delete whole mailbox, or just infringing mails, or move to another folder
-@fopts = map { [ &folder_name($_), $_->{'name'} ] }
+my @fopts = map { [ &folder_name($_), $_->{'name'} ] }
 	     grep { &folder_name($_) ne &folder_name($folder) }
 		  @folders;
 print &ui_table_row($text{'auto_action'},

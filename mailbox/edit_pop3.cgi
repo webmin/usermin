@@ -1,10 +1,17 @@
 #!/usr/local/bin/perl
 # edit_pop3.cgi
 # Display a form for creating or editing a POP3 folder
+use strict;
+use warnings;
+our (%text, %in);
+our $pop3_port;
 
 require './mailbox-lib.pl';
 &ReadParse();
 
+my $mode;
+my @folders;
+my $folder;
 if ($in{'new'}) {
 	&ui_print_header(undef, $text{'edit_title1'}, "");
 	$mode = $in{'mode'};
@@ -58,4 +65,3 @@ else {
 	}
 
 &ui_print_footer("list_folders.cgi", $text{'folders_return'});
-

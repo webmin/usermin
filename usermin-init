@@ -11,6 +11,10 @@
 # Description: Start or stop the Usermin server
 ### END INIT INFO
 
+if [ -f /etc/sysconfig/usermin ]; then
+        . /etc/sysconfig/usermin
+fi
+
 start=/etc/usermin/start
 stop=/etc/usermin/stop
 lockfile=/var/lock/subsys/usermin

@@ -1988,7 +1988,7 @@ local $dir = $sortfield eq $field ? !$sortdir : 0;
 local $img = $sortfield eq $field && $dir ? "sortascgrey.gif" :
 	     $sortfield eq $field && !$dir ? "sortdescgrey.gif" :
 	     $dir ? "sortasc.gif" : "sortdesc.gif";
-if ($folder->{'sortable'}) {
+if ($folder->{'sortable'} && $userconfig{'show_sort'}) {
 	return "<a href='sort.cgi?field=".&urlize($field)."&dir=".&urlize($dir)."&folder=".&urlize($folder->{'index'})."&start=".&urlize($start)."'>$title <img valign=middle src=../images/$img border=0>";
 	}
 else {

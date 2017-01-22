@@ -1,8 +1,11 @@
 #!/usr/local/bin/perl
 # address_chooser.cgi
 # Display a list of entries from the address book
+use strict;
+use warnings;
+our (%text, %in, %uconfig);
 
-$trust_unknown_referers = 1;
+our $trust_unknown_referers = 1;
 require './mailbox-lib.pl';
 &ReadParse();
 
@@ -115,9 +118,12 @@ window.close();
 EOF
 
 # Find addresses and groups
-@addrs = &list_addresses();
+my @addrs = &list_addresses();
+my $addrs_count;
+my @agroups;
+my %mems;
 if ($in{'search'}) {
-	$s = $in{'search'};
+	my $s = $in{'search'};
 	@addrs = grep { $_->[0] =~ /\Q$s\E/i || $_->[1] =~ /\Q$s\E/i } @addrs;
 	}
 if ($in{'mode'}) {
@@ -131,11 +137,11 @@ else {
 	$addrs_count = scalar(@addrs);
 	@agroups = &list_address_groups();
 	if ($in{'search'}) {
-		$s = $in{'search'};
+		my $s = $in{'search'};
 		@agroups = grep { $_->[0] =~ /\Q$s\E/i ||
 				  $_->[1] =~ /\Q$s\E/i } @agroups;
 		}
-	foreach $a (@agroups) {
+	foreach my $a (@agroups) {
 		push(@addrs, [ $a->[0] ]);
 		$mems{$a->[0]} = [ &split_addresses($a->[1]) ];
 		}
@@ -153,9 +159,11 @@ if (@addrs || $in{'search'}) {
 	}
 
 # Show list of addresses
+my %infield;
+my $href;
 if (@addrs) {
-	local @sp = &split_addresses(&decode_mimewords($in{'addr'}));
-	for($i=0; $i<@sp; $i++) {
+	my @sp = &split_addresses(&decode_mimewords($in{'addr'}));
+	for(my $i=0; $i<@sp; $i++) {
 		$infield{$sp[$i]->[0]} = $i;
 		}
 	print "<form><table width=100%>\n";
@@ -167,8 +175,8 @@ if (@addrs) {
 		print "<td></td>\n";
 		}
 	print "</tr>\n";
-	$i = 0;
-	foreach $a (@addrs) {
+	my $i = 0;
+	foreach my $a (@addrs) {
 		if ($i == $addrs_count && $i) {
 			print "<tr> <td><br></td>\n";
 			print "<td><b>$text{'address_group'}</b></td>\n";
@@ -184,7 +192,7 @@ if (@addrs) {
 			}
 		if ($i >= $addrs_count) {
 			print "<td>$href",$a->[0],"</a></td>\n";
-			local $m = @{$mems{$a->[0]}};
+			my $m = @{$mems{$a->[0]}};
 			print "<td>$href",&text('address_m', $m),"</a></td>\n";
 			}
 		else {
@@ -194,7 +202,7 @@ if (@addrs) {
 		if ($in{'mode'} == 0) {
 			# Show button to select just this one
 			print "<td><a href='' onClick='select(\"".&html_escape($a->[0])."\", \"".&html_escape($a->[1])."\"); return false'><img src=images/ok.gif border=0></a></td>\n";
-			
+
 			}
 		print "</tr>\n";
 		$i++;
@@ -208,4 +216,3 @@ else {
 	print "<b>$text{'address_none'}</b> <p>\n";
 	}
 &popup_footer();
-

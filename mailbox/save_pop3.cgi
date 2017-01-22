@@ -1,10 +1,15 @@
 #!/usr/local/bin/perl
 # save_pop3.cgi
 # Create, modify or delete a POP3 folder
+use strict;
+use warnings;
+our (%text, %in);
+our %folder_types;
 
 require './mailbox-lib.pl';
 &ReadParse();
-@folders = &list_folders();
+my @folders = &list_folders();
+my ($folder, $old);
 if (!$in{'new'}) {
 	$folder = $folders[$in{'idx'}];
 	$old = { %$folder };
@@ -39,7 +44,7 @@ else {
 	$folder->{'perpage'} = $in{'perpage_def'} ? undef : $in{'perpage'};
 	$folder->{'fromaddr'} = $in{'fromaddr_def'} ? undef : $in{'fromaddr'};
 	$folder->{'sent'} = $in{'sent'};
-	local @err = &pop3_login($folder);
+	my @err = &pop3_login($folder);
 	if ($err[0] == 0) {
 		&error($err[1]);
 		}
@@ -52,4 +57,3 @@ else {
 	&save_folder($folder, $old);
 	}
 &redirect("list_folders.cgi?refresh=".&urlize($folder->{'name'}));
-

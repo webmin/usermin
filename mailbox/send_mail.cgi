@@ -1,18 +1,23 @@
 #!/usr/local/bin/perl
 # send_mail.cgi
 # Send off an email message
+use strict;
+use warnings;
+our (%text, %in, %config, %userconfig);
+our @remote_user_info;
 
 require './mailbox-lib.pl';
 
 # Check inputs
+my %getin;
 &ReadParse(\%getin, "GET");
 &ReadParseMime(undef, \&read_parse_mime_callback, [ $getin{'id'} ], 1);
 foreach my $k (keys %in) {
 	$in{$k} = join("\0", @{$in{$k}}) if ($k !~ /^attach\d+/);
 	}
 &set_module_index($in{'folder'});
-@folders = &list_folders();
-$folder = $folders[$in{'folder'}];
+my @folders = &list_folders();
+my $folder = $folders[$in{'folder'}];
 &error_setup($text{'send_err'});
 if (!$in{'subject'}) {
 	if ($userconfig{'force_subject'} eq 'error') {
@@ -22,10 +27,13 @@ if (!$in{'subject'}) {
 		$in{'subject'} = $userconfig{'force_subject'};
 		}
 	}
-@sub = split(/\0/, $in{'sub'});
-$subs = join("", map { "&sub=$_" } @sub);
-$draft = $in{'draft'} || $in{'save'};
+my @sub = split(/\0/, $in{'sub'});
+my $subs = join("", map { "&sub=$_" } @sub);
+my $draft = $in{'draft'} || $in{'save'};
+
+no warnings "once";
 $main::force_charset = $in{'charset'};
+use warnings "once";
 
 # Construct the email
 if ($config{'edit_from'} == 2) {
@@ -41,8 +49,9 @@ else {
 $in{'to'} = &expand_to($in{'to'});
 $in{'cc'} = &expand_to($in{'cc'});
 $in{'bcc'} = &expand_to($in{'bcc'});
-$newmid = &generate_message_id($in{'from'});
-%enc = ( 'Charset' => $in{'charset'} );
+my $newmid = &generate_message_id($in{'from'});
+my %enc = ( 'Charset' => $in{'charset'} );
+my $mail;
 $mail->{'headers'} = [ [ 'From', &encode_mimewords_address($in{'from'}, %enc) ],
 		       [ 'Subject', &encode_mimewords($in{'subject'}, %enc) ],
 		       [ 'To', &encode_mimewords_address($in{'to'}, %enc) ],
@@ -68,8 +77,8 @@ if ($userconfig{'req_dsn'} == 1 ||
 	}
 if ($in{'replyto'}) {
 	# Add real name to reply-to address, if not given and if possible
-	local $r2 = $in{'replyto'};
-	local ($r2parts) = &split_addresses($r2);
+	my $r2 = $in{'replyto'};
+	my ($r2parts) = &split_addresses($r2);
 	$r2 = $r2parts->[1] || !$userconfig{'real_name'} ||
 		    !$remote_user_info[6] ? $in{'replyto'} :
 			"\"$remote_user_info[6]\" <$r2parts->[0]>";
@@ -82,13 +91,15 @@ $in{'to'} =~ /\S/ || $in{'cc'} =~ /\S/ || $in{'bcc'} =~ /\S/ || $draft ||
 	&error($text{'send_eto'});
 
 $in{'body'} =~ s/\r//g;
-%cidmap = ( );
+my %cidmap;
+my (@attach, $bodyattach);
+my $quoted_printable;
 if ($in{'body'} =~ /\S/) {
 	# Perform spell check on body if requested
-	local $plainbody = $in{'html_edit'} ? &html_to_text($in{'body'})
+	my $plainbody = $in{'html_edit'} ? &html_to_text($in{'body'})
 					    : $in{'body'};
 	if ($in{'spell'}) {
-		@errs = &spell_check_text($plainbody);
+		my @errs = &spell_check_text($plainbody);
 		if (@errs) {
 			# Spelling errors found!
 			&mail_page_header($text{'compose_title'});
@@ -109,12 +120,12 @@ if ($in{'body'} =~ /\S/) {
 		}
 
 	# Create the body attachment
-	local $mt = $in{'html_edit'} ? "text/html" : "text/plain";
-	local $wrapped_body = $in{'body'};
+	my $mt = $in{'html_edit'} ? "text/html" : "text/plain";
+	my $wrapped_body = $in{'body'};
 	if (!$in{'html_edit'}) {
 		$wrapped_body = join("\n", &wrap_lines($wrapped_body, 998));
 		}
-	$charset = $in{'charset'} || $userconfig{'charset'};
+	my $charset = $in{'charset'} || $userconfig{'charset'};
 	$mt .= "; charset=$charset";
 	if ($config{'html_base64'} == 2) {
 		# Use base64 encoding
@@ -143,8 +154,8 @@ if ($in{'body'} =~ /\S/) {
 	if ($in{'html_edit'}) {
 		# Create an attachment which contains both the HTML and plain
 		# bodies as alternatives
-		local @alts = ( $attach[0] );
-		local $mt = "text/plain; charset=$charset";
+		my @alts = ( $attach[0] );
+		my $mt = "text/plain; charset=$charset";
 		if ($plainbody =~ /[\177-\377]/) {
 			unshift(@alts,
 			  { 'headers' => [ [ 'Content-Type', $mt ],
@@ -162,7 +173,7 @@ if ($in{'body'} =~ /\S/) {
 
 		# Set content type to multipart/alternative, to tell mail
 		# clients about the optional body
-		local $bound = "altsbound".time();
+		my $bound = "altsbound".time();
 		$attach[0] = {
 			'headers' => [ [ 'Content-Type',
 					 'multipart/alternative; '.
@@ -175,17 +186,17 @@ if ($in{'body'} =~ /\S/) {
 	}
 
 # Add uploaded attachments
-$attachsize = 0;
-for($i=0; defined($in{"attach$i"}); $i++) {
+my $attachsize = 0;
+for(my $i=0; defined($in{"attach$i"}); $i++) {
 	next if (!$in{"attach$i"});
-	for($j=0; $j<@{$in{"attach$i"}}; $j++) {
+	for(my $j=0; $j<@{$in{"attach$i"}}; $j++) {
 		next if (!$in{"attach${i}"}->[$j]);
 		&test_max_attach(length($in{"attach${i}"}->[$j]));
-		local $filename = $in{"attach${i}_filename"}->[$j];
+		my $filename = $in{"attach${i}_filename"}->[$j];
 		$filename =~ s/^.*(\\|\/)//;
-		local $type = $in{"attach${i}_content_type"}->[$j].
+		my $type = $in{"attach${i}_content_type"}->[$j].
 			      "; name=\"".$filename."\"";
-		local $disp = "attachment; filename=\"".$filename."\"";
+		my $disp = "attachment; filename=\"".$filename."\"";
 		push(@attach, { 'data' => $in{"attach${i}"}->[$j],
 				'headers' => [ [ 'Content-type', $type ],
 					       [ 'Content-Disposition', $disp ],
@@ -195,26 +206,26 @@ for($i=0; defined($in{"attach$i"}); $i++) {
 	}
 
 # Add server-side attachments
-for($i=0; defined($in{"file$i"}); $i++) {
+for(my $i=0; defined($in{"file$i"}); $i++) {
 	next if (!$in{"file$i"} || !$config{'server_attach'});
 	if ($in{"file$i"} !~ /^\//) {
 		$in{"file$i"} = $remote_user_info[7]."/".$in{"file$i"};
 		}
 	-r $in{"file$i"} && !-d $in{"file$i"} ||
 		&error(&text('send_efile', $in{"file$i"}));
-	local @st = stat($in{"file$i"});
+	my @st = stat($in{"file$i"});
 	&test_max_attach($st[7]);
-	local $data;
-	open(DATA, "<".$in{"file$i"}) ||
+	my $data;
+	open(my $DATA, "<", $in{"file$i"}) ||
 		&error(&text('send_efile', $in{"file$i"}));
 	while(<DATA>) {
 		$data .= $_;
 		}
 	close(DATA);
 	$in{"file$i"} =~ s/^.*\///;
-	local $type = &guess_mime_type($in{"file$i"}).
+	my $type = &guess_mime_type($in{"file$i"}).
 		      "; name=\"".$in{"file$i"}."\"";
-	local $disp = "attachments; filename=\"".$in{"file$i"}."\"";
+	my $disp = "attachments; filename=\"".$in{"file$i"}."\"";
 	push(@attach, { 'data' => $data,
 			'headers' => [ [ 'Content-type', $type ],
 				       [ 'Content-Disposition', $disp ],
@@ -224,23 +235,23 @@ for($i=0; defined($in{"file$i"}); $i++) {
 	}
 
 # Add forwarded attachments
-@fwd = split(/\0/, $in{'forward'});
-($sortfield, $sortdir) = &get_sort_field($folder);
+my @fwd = split(/\0/, $in{'forward'});
+my ($sortfield, $sortdir) = &get_sort_field($folder);
 if (@fwd) {
-	$fwdmail = &mailbox_get_mail($folder, $in{'id'}, 0);
+	my $fwdmail = &mailbox_get_mail($folder, $in{'id'}, 0);
 	&parse_mail($fwdmail);
 	&decrypt_attachments($fwdmail);
 
-	foreach $s (@sub) {
+	foreach my $s (@sub) {
 		# We are looking at a mail within a mail ..
 		&decrypt_attachments($fwdmail);
-		local $amail = &extract_mail(
+		my $amail = &extract_mail(
 			$fwdmail->{'attach'}->[$s]->{'data'});
 		&parse_mail($amail);
 		$fwdmail = $amail;
 		}
 
-	foreach $f (@fwd) {
+	foreach my $f (@fwd) {
 		&test_max_attach(length($fwdmail->{'attach'}->[$f]->{'data'}));
 		$a = $fwdmail->{'attach'}->[$f];
 		if ($cidmap{$f}) {
@@ -257,12 +268,12 @@ if (@fwd) {
 	}
 
 # Add forwarded emails
-@mailfwdids = split(/\0/, $in{'mailforward'});
+my @mailfwdids = split(/\0/, $in{'mailforward'});
 if (@mailfwdids) {
-	@mailfwd = &mailbox_select_mails($folder, \@mailfwdids, 0);
-	foreach $fwdmail (@mailfwd) {
-		local $headertext;
-		foreach $h (@{$fwdmail->{'headers'}}) {
+	my @mailfwd = &mailbox_select_mails($folder, \@mailfwdids, 0);
+	foreach my $fwdmail (@mailfwd) {
+		my $headertext;
+		foreach my $h (@{$fwdmail->{'headers'}}) {
 			$headertext .= $h->[0].": ".$h->[1]."\n";
 			}
 		push(@attach, { 'data' => $headertext."\n".$fwdmail->{'body'},
@@ -276,12 +287,12 @@ if ($in{'sign'} ne '' && !$draft) {
 	# Put all the attachments into a single attachment, with the signature
 	# as the second attachment
 	&foreign_require("gnupg", "gnupg-lib.pl");
-	local @keys = &foreign_call("gnupg", "list_keys");
-	$key = $keys[$in{'sign'}];
+	my @keys = &foreign_call("gnupg", "list_keys");
+	my $key = $keys[$in{'sign'}];
 
 	# Create the new attachment
 	push(@{$mail->{'headers'}}, [ 'Content-Type', 'multipart/signed; micalg=pgp-sha1; protocol="application/pgp-signature"' ] );
-	local ($tempdata, $tempbody);
+	my ($tempdata, $tempheaders, $tempbody);
 	if (@attach == 1) {
 		# Just use one part
 		$tempdata = &write_attachment($attach[0]);
@@ -290,8 +301,8 @@ if ($in{'sign'} ne '' && !$draft) {
 		}
 	else {
 		# Create new attachment containing all the parts
-		local $bound = "sign".time();
-		foreach $a (@attach) {
+		my $bound = "sign".time();
+		foreach my $a (@attach) {
 			$tempbody .= "\r\n";
 			$tempbody .= "--".$bound."\r\n";
 			$tempbody .= &write_attachment($a);
@@ -305,8 +316,8 @@ if ($in{'sign'} ne '' && !$draft) {
 		}
 
 	# Sign the file
-	local $sigdata;
-	local $rv = &foreign_call("gnupg", "sign_data", $tempdata, \$sigdata,
+	my $sigdata;
+	my $rv = &foreign_call("gnupg", "sign_data", $tempdata, \$sigdata,
 				  $key, 2);
 	if ($rv) {
 		&error(&text('send_esign', $rv));
@@ -323,23 +334,22 @@ $mail->{'attach'} = \@attach;
 if ($in{'crypt'} ne '' && !$draft) {
 	# Encrypt the entire mail
 	&foreign_require("gnupg", "gnupg-lib.pl");
-	local @keys = &foreign_call("gnupg", "list_keys");
-	local @ekeys;
-	local $key;
+	my @keys = &foreign_call("gnupg", "list_keys");
+	my @ekeys;
+	my $key;
 	if ($in{'crypt'} == -1) {
 		# Find the keys for the To:, Cc: and Bcc: address
-		local @addrs = ( &address_parts($in{'to'}),
+		my @addrs = ( &address_parts($in{'to'}),
 				 &address_parts($in{'cc'}),
 				 &address_parts($in{'bcc'}) );
-		local $a;
-		foreach $a (@addrs) {
-			$k = &find_email_in_keys($a, \@keys);
+		foreach my $a (@addrs) {
+			my $k = &find_email_in_keys($a, \@keys);
 			if (!$k) {
 				# Check keyserver for it
-				@srv = grep { !$_->{'revoked'} }
+				my @srv = grep { !$_->{'revoked'} }
 					    &gnupg::search_gpg_keys($a);
 				if (@srv) {
-					($ok, $msg) = &gnupg::fetch_gpg_key(
+					my ($ok, $msg) = &gnupg::fetch_gpg_key(
 						$srv[0]->{'key'});
 					if ($ok == 0) {
 						$k = $msg;
@@ -358,21 +368,21 @@ if ($in{'crypt'} ne '' && !$draft) {
 		@ekeys = ( $keys[$in{'crypt'}] );
 		}
 	if ($userconfig{'self_crypt'}) {
-		local ($skey) = grep { $_->{'secret'} } @keys;
+		my ($skey) = grep { $_->{'secret'} } @keys;
 		push(@ekeys, $skey);
 		}
-	local $temp = &transname();
+	my $temp = &transname();
 	&send_mail($mail, $temp);
-	local ($tempdata, $buf);
-	open(TEMP, $temp);
-	local $dummy = <TEMP>;	# skip From line
-	while(read(TEMP, $buf, 1024) > 0) {
+	my ($tempdata, $buf);
+	open(my $TEMP, "<", $temp);
+	my $dummy = <$TEMP>;	# skip From line
+	while(read($TEMP, $buf, 1024) > 0) {
 		$tempdata .= $buf;
 		}
-	close(TEMP);
+	close($TEMP);
 	unlink($temp);
-	local $crypted;
-	local $rv = &foreign_call("gnupg", "encrypt_data", $tempdata,
+	my $crypted;
+	my $rv = &foreign_call("gnupg", "encrypt_data", $tempdata,
 				  \$crypted, \@ekeys, 1);
 	$rv && &error(&text('send_ecrypt', $rv));
 
@@ -392,32 +402,33 @@ if ($in{'crypt'} ne '' && !$draft) {
 	}
 
 # Check for text-only email
-$textonly = $userconfig{'no_mime'} && !$quoted_printable &&
+my $textonly = $userconfig{'no_mime'} && !$quoted_printable &&
 	    @{$mail->{'attach'}} == 1 &&
 	    $mail->{'attach'}->[0] eq $bodyattach && !$in{'html_edit'};
 
 # Tell the user what is happening
 if (!$in{'save'}) {
 	&mail_page_header($draft ? $text{'send_title2'} : $text{'send_title'});
-	@tos = ( split(/,/, $in{'to'}), split(/,/, $in{'cc'}),
+	my @tos = ( split(/,/, $in{'to'}), split(/,/, $in{'cc'}),
 		 split(/,/, $in{'bcc'}) );
-	$tos = join(" , ", map { "<tt>".&html_escape($_)."</tt>" } @tos);
+	my $tos = join(" , ", map { "<tt>".&html_escape($_)."</tt>" } @tos);
 	print &text($draft ? 'send_draft' : 'send_sending',
 		    $tos || $text{'send_nobody'}),"<p>\n";
 	}
 
-$savefolder = $folder;
+my $savefolder = $folder;
+my $dfolder; # XXX Hairy.
 if ($draft) {
 	# Save in the drafts folder
 	($dfolder) = grep { $_->{'drafts'} } @folders;
-	$qerr = &would_exceed_quota($dfolder, $mail);
+	my $qerr = &would_exceed_quota($dfolder, $mail);
 	&error($qerr) if ($qerr);
 	&lock_folder($dfolder);
 	if ($in{'enew'} && $folder->{'drafts'} &&
 	    $folder->{'type'} != 2 && $folder->{'type'} != 4) {
 		# Update existing draft mail (unless on IMAP)
-		($dsortfield, $dsortdir) = &get_sort_field($dfolder);
-		$oldmail = &mailbox_get_mail($folder, $in{'id'}, 0);
+		my ($dsortfield, $dsortdir) = &get_sort_field($dfolder);
+		my $oldmail = &mailbox_get_mail($folder, $in{'id'}, 0);
 		$oldmail || &error($text{'view_egone'});
 		&mailbox_modify_mail($oldmail, $mail, $dfolder, $textonly);
 		}
@@ -430,15 +441,15 @@ if ($draft) {
 	}
 else {
 	# Send it off and optionally save in sent mail
-	local $sfolder;
+	my $sfolder;
 	if ($userconfig{'save_sent'}) {
 		($sfolder) = grep { $_->{'sent'} } @folders;
 		if ($sfolder) {
-			$qerr = &would_exceed_quota($sfolder, $mail);
+			my $qerr = &would_exceed_quota($sfolder, $mail);
 			&error($qerr) if ($qerr);
 			}
 		}
-	$notify = $userconfig{'req_del'} == 1 ||
+	my $notify = $userconfig{'req_del'} == 1 ||
 		  $userconfig{'req_del'} == 2 && $in{'del'} ?
 			[ "SUCCESS","FAILURE" ] : undef;
 	&send_mail($mail, undef, $textonly, $config{'no_crlf'},
@@ -457,9 +468,9 @@ else {
 
 if ($in{'replyid'}) {
 	# Mark the original as being replied to
-	($replymail) = &mailbox_select_mails($folder, [ $in{'replyid'} ], 1);
+	my ($replymail) = &mailbox_select_mails($folder, [ $in{'replyid'} ], 1);
 	if ($replymail) {
-		$replyread = &get_mail_read($folder, $replymail);
+		my $replyread = &get_mail_read($folder, $replymail);
 		$replyread = ($replyread|4);
 		&set_mail_read($folder, $replymail, $replyread);
 		}
@@ -467,12 +478,12 @@ if ($in{'replyid'}) {
 
 if ($in{'abook'}) {
 	# Add all recipients to the address book, if missing
-	local @recips = ( &split_addresses($in{'to'}),
+	my @recips = ( &split_addresses($in{'to'}),
 		    	  &split_addresses($in{'cc'}),
 		    	  &split_addresses($in{'bcc'}) );
-	local @addrs = &list_addresses();
-	foreach $r (@recips) {
-		local ($already) = grep { $_->[0] eq $r->[0] } @addrs;
+	my @addrs = &list_addresses();
+	foreach my $r (@recips) {
+		my ($already) = grep { $_->[0] eq $r->[0] } @addrs;
 		if (!$already) {
 			&create_address($r->[0], $r->[1]);
 			push(@addrs, [ $r->[0], $r->[1] ]);
@@ -482,10 +493,10 @@ if ($in{'abook'}) {
 
 if ($userconfig{'white_rec'}) {
 	# Add all recipients to the SpamAssassin whitelist
-	local @recips = ( &split_addresses($in{'to'}),
+	my @recips = ( &split_addresses($in{'to'}),
 		    	  &split_addresses($in{'cc'}),
 		    	  &split_addresses($in{'bcc'}) );
-	local @recip_addrs = map { $_->[0] } @recips;
+	my @recip_addrs = map { $_->[0] } @recips;
 	&addressbook_add_whitelist(@recip_addrs);
 	}
 
@@ -521,16 +532,16 @@ else {
 # write_attachment(&attach)
 sub write_attachment
 {
-local ($a) = @_;
-local ($enc, $rv);
-foreach $h (@{$a->{'headers'}}) {
+my ($a) = @_;
+my ($enc, $rv);
+foreach my $h (@{$a->{'headers'}}) {
 	$rv .= $h->[0].": ".$h->[1]."\r\n";
 	$enc = $h->[1]
 	    if (lc($h->[0]) eq 'content-transfer-encoding');
 	}
 $rv .= "\r\n";
 if (lc($enc) eq 'base64') {
-	local $encoded = &encode_base64($a->{'data'});
+	my $encoded = &encode_base64($a->{'data'});
 	$encoded =~ s/\r//g;
 	$encoded =~ s/\n/\r\n/g;
 	$rv .= $encoded;
@@ -558,7 +569,7 @@ if ($config{'max_attach'} && $attachsize > $config{'max_attach'}) {
 # Given a list of keys, return the one that contains some email
 sub find_email_in_keys
 {
-local ($a, $keys) = @_;
+my ($a, $keys) = @_;
 foreach my $k (@$keys) {
 	if (&indexoflc($a, @{$k->{'email'}}) >= 0) {
 		return $k;
@@ -566,4 +577,3 @@ foreach my $k (@$keys) {
 	}
 return undef;
 }
-

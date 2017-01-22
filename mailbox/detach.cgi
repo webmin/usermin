@@ -1,34 +1,38 @@
 #!/usr/local/bin/perl
 # detach.cgi
 # View one attachment from a message
+use strict;
+use warnings;
+our (%text, %in);
 
 use Socket;
 require './mailbox-lib.pl';
 
 &ReadParse();
-@folders = &list_folders();
-$folder = $folders[$in{'folder'}];
-$mail = &mailbox_get_mail($folder, $in{'id'}, 0);
+my @folders = &list_folders();
+my $folder = $folders[$in{'folder'}];
+my $mail = &mailbox_get_mail($folder, $in{'id'}, 0);
 $mail || &error($text{'view_egone'});
 &parse_mail($mail);
-@sub = split(/\0/, $in{'sub'});
-foreach $s (@sub) {
+my @sub = split(/\0/, $in{'sub'});
+foreach my $s (@sub) {
         # We are looking at a mail within a mail ..
 	&decrypt_attachments($mail);
-        local $amail = &extract_mail($mail->{'attach'}->[$s]->{'data'});
+        my $amail = &extract_mail($mail->{'attach'}->[$s]->{'data'});
         &parse_mail($amail);
         $mail = $amail;
         }
 &decrypt_attachments($mail);
-$attach = $mail->{'attach'}->[$in{'attach'}];
+my $attach = $mail->{'attach'}->[$in{'attach'}];
 
 if ($in{'scale'}) {
 	# Scale the gif or jpeg image to 48 pixels high
-	local $temp = &transname();
-	open(TEMP, ">$temp");
-	print TEMP $attach->{'data'};
-	close(TEMP);
+	my $temp = &transname();
+	open(my $TEMP, ">", "$temp");
+	print $TEMP $attach->{'data'};
+	close($TEMP);
 	$SIG{'CHLD'} = sub { wait; };
+	my ($pnmin, $pnmout);
 	if ($attach->{'type'} eq 'image/gif') {
 		($pnmin, $pnmout) = &pipeopen("giftopnm $temp");
 		}
@@ -39,21 +43,23 @@ if ($in{'scale'}) {
 		&dump_erroricon();
 		}
 	close($pnmin);
-	$type = <$pnmout>;
-	$size = <$pnmout>;
+	my $type = <$pnmout>;
+	my $size = <$pnmout>;
 	unlink($temp);
 	$type =~ /^P[0-9]/ || &dump_erroricon();
 	$size =~ /(\d+)\s+(\d+)/ || &dump_erroricon();
-	($w, $h) = ($1, $2);
+	my ($w, $h) = ($1, $2);
+	my $scale;
 	if ($w > 48) {
 		$scale = 48.0 / $w;
 		}
 	else {
 		$scale = 48.0 / $h;
 		}
-	($jpegin, $jpegout) = &pipeopen("pnmscale $scale 2>/dev/null | cjpeg");
+	my ($jpegin, $jpegout) = &pipeopen("pnmscale $scale 2>/dev/null | cjpeg");
 	print $jpegin $type;
 	print $jpegin $size;
+	my $buf;
 	while(read($pnmout, $buf, 1024)) {
 		print $jpegin $buf;
 		}
@@ -98,31 +104,31 @@ else {
 sub dump_erroricon
 {
 print "Content-type: image/gif\n\n";
-open(ICON, "images/error.gif");
-while(<ICON>) { print; }
-close(ICON);
+open(my $ICON, "<", "images/error.gif");
+while(<$ICON>) { print; }
+close($ICON);
 exit;
 }
 
 # pipeopen(command)
+my $pipe;
 sub pipeopen
 {
 $pipe++;
-local $inr = "INr$pipe";
-local $inw = "INw$pipe";
-local $outr = "OUTr$pipe";
-local $outw = "OUTw$pipe";
+my $inr = "INr$pipe";
+my $inw = "INw$pipe";
+my $outr = "OUTr$pipe";
+my $outw = "OUTw$pipe";
 pipe($inr, $inw);
 pipe($outr, $outw);
 if (!fork()) {
 	untie(*STDIN);
 	untie(*STDOUT);
-	open(STDIN, "<&$inr");
-	open(STDOUT, ">&$outw");
+	open(STDIN, "<", "&$inr");
+	open(STDOUT, ">", "&$outw");
 	close($inw);
 	close($outr);
-	exec($_[0]);
-	print STDERR "exec failed : $!\n";
+	exec($_[0]) || print STDERR "exec failed : $!\n";
 	exit 1;
 	}
 close($inr);

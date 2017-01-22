@@ -1,6 +1,11 @@
 #!/usr/local/bin/perl
 # list_folders.cgi
 # Display a list of all folders and allows additional and deletion
+use strict;
+use warnings;
+our (%text, %in);
+our %folder_types;
+our $remote_user;
 
 require './mailbox-lib.pl';
 &ui_print_header(undef, $text{'folders_title'}, "");
@@ -11,7 +16,7 @@ print &ui_hidden_start($text{'folders_instr'}, "instr", $in{'instr'},
 		       "list_folders.cgi");
 print "$text{'folders_desc2'}<br>\n";
 print "<ul>\n";
-foreach $ft ('sys', 'local', 'ext', 'pop3', 'imap', 'comp', 'virt') {
+foreach my $ft ('sys', 'local', 'ext', 'pop3', 'imap', 'comp', 'virt') {
 	print "<li>",$text{'folders_desc'.$ft},"\n"
 		if ($ft eq "sys" || $folder_types{$ft});
 	}
@@ -19,17 +24,17 @@ print "</ul>\n";
 print &ui_hidden_end("instr");
 
 print &ui_form_start("delete_folders.cgi", "post");
-@tds = ( "width=5" );
-@folders = &list_folders_sorted();
+my @tds = ( "width=5" );
+my @folders = &list_folders_sorted();
 print &ui_columns_start([ "",
 			  $text{'folders_name'},
 			  $text{'folders_path'},
 			  $text{'folders_type'},
 			  $text{'folders_size'},
 			  $text{'folders_action'} ], undef, 0, \@tds);
-foreach $f (@folders) {
-	local @cols;
-	local $deletable = 0;
+foreach my $f (@folders) {
+	my @cols;
+	my $deletable = 0;
 	if ($f->{'inbox'} || $f->{'drafts'} || $f->{'spam'}) {
 		# Inbox, drafs or spam folder which cannot be edited
 		push(@cols, $f->{'name'});
@@ -71,7 +76,7 @@ foreach $f (@folders) {
 		}
 	if ($f->{'type'} == 2 || $f->{'type'} == 4) {
 		# Show mail server
-		$user = $f->{'user'} eq '*' ? $remote_user : $f->{'user'};
+		my $user = $f->{'user'} eq '*' ? $remote_user : $f->{'user'};
 		push(@cols, &text(
 			$f->{'port'} ? 'folders_servp' : 'folders_serv',
 			"<tt>$user</tt>", "<tt>$f->{'server'}</tt>",
@@ -95,7 +100,7 @@ foreach $f (@folders) {
 		}
 	else {
 		# Show folder directory and size
-		local $mf = &folder_file($f);
+		my $mf = &folder_file($f);
 		push(@cols, $mf);
 		push(@cols, $f->{'type'} == 1 ? $text{'folders_maildir'} :
 			    $f->{'type'} == 3 ? $text{'folders_mhdir'} :
@@ -104,12 +109,12 @@ foreach $f (@folders) {
 		}
 
 	# Action links
-	local @acts;
+	my @acts;
 	push(@acts, "<a href='index.cgi?folder=$f->{'index'}'>".
 		    "$text{'folders_view'}</a>");
 	if (!$f->{'nowrite'}) {
-		local ($is, $ie);
-		$auto = &get_auto_schedule($f);
+		my ($is, $ie);
+		my $auto = &get_auto_schedule($f);
 		if ($auto && $auto->{'enabled'}) {
 			($is, $ie) = ("<b>", "</b>");
 			}
@@ -132,13 +137,13 @@ print &ui_form_end([ [ "delete", $text{'folders_delete'} ] ]);
 
 # Show form for adding a folder
 print &ui_form_start("newfolder.cgi");
-@folder_progs = ( [ "edit_folder.cgi?new=1&mode=0", "local" ],
+my @folder_progs = ( [ "edit_folder.cgi?new=1&mode=0", "local" ],
 		  [ "edit_folder.cgi?new=1&mode=1", "ext" ],
 		  [ "edit_pop3.cgi?new=1", "pop3" ],
 		  [ "edit_imap.cgi?new=1", "imap" ],
 		  [ "edit_comp.cgi?new=1", "comp" ],
 		  [ "edit_virt.cgi?new=1", "virt" ] );
-@can_folder_progs = grep { $folder_types{$_->[1]} } @folder_progs;
+my @can_folder_progs = grep { $folder_types{$_->[1]} } @folder_progs;
 if (@can_folder_progs) {
 	print &ui_submit($text{'folders_newfolder'}),"\n";
 	print &ui_select("prog", $can_folder_progs[0]->[0],
@@ -150,11 +155,10 @@ print &ui_form_end();
 
 # Refresh left frame if needed
 if ($in{'refresh'}) {
-	($folder) = grep { $_->{'name'} eq $in{'refresh'} } @folders;
+	my ($folder) = grep { $_->{'name'} eq $in{'refresh'} } @folders;
 	if (defined(&theme_post_save_folder)) {
 		&theme_post_save_folder($folder, 'modify');
 		}
 	}
 
 &ui_print_footer("", $text{'index'});
-

@@ -1,11 +1,15 @@
 #!/usr/local/bin/perl
 # Import addresses from a file
+use strict;
+use warnings;
+our (%text, %in);
 
 require './mailbox-lib.pl';
 &ReadParseMime();
 &error_setup($text{'import_err'});
 
 # Get the data to import
+my $data;
 if ($in{'src'} == 0) {
 	$in{'upload'} || &error($text{'import_eupload'});
 	$data = $in{'upload'};
@@ -17,11 +21,12 @@ else {
 	}
 
 # Parse the data
+my @addrs;
 if ($in{'fmt'} eq 'csv') {
 	# CSV or tab-separated format
-	foreach $l (split(/\n/, $data)) {
+	foreach my $l (split(/\n/, $data)) {
 		next if ($l !~ /\S/);
-		@row = ( );
+		my @row;
 		while($l =~ s/^\s*"([^"]*)",?(.*)/$2/ ||
 		      $l =~ s/^\s*'([^']*)',?(.*)/$2/ ||
 		      $l =~ s/^\s*"([^"]*)"\t?(.*)/$2/ ||
@@ -37,13 +42,13 @@ else {
 	# Vcard
 	eval "use Net::vCard";
 	$@ && &error($text{'import_enetvcard'});
-	$temp = &transname();
-	open(TEMP, ">$temp");
-	print TEMP $data;
-	close(TEMP);
-	$cards = Net::vCard->loadFile($temp);
+	my $temp = &transname();
+	open(my $TEMP, ">", "$temp");
+	print $TEMP $data;
+	close($TEMP);
+	my $cards = Net::vCard->loadFile($temp);
 	&unlink_file($temp);
-	foreach $card (@$cards) {
+	foreach my $card (@$cards) {
 		my $n = $card->givenName;
 		$n .= " " if ($n);
 		$n .= $card->familyName;
@@ -58,11 +63,11 @@ else {
 
 print $text{'import_doing'},"<p>\n";
 
-%old = map { lc($_->[0]), $_ } &list_addresses();
+my %old = map { lc($_->[0]), $_ } &list_addresses();
 print &ui_columns_start([ $text{'address_addr'}, $text{'address_name'},
 			  $text{'import_action'} ], 100);
-foreach $a (@addrs) {
-	$o = $old{lc($a->[0])};
+foreach my $a (@addrs) {
+	my $o = $old{lc($a->[0])};
 	$a->[0] =~ s/^\s+//; $a->[0] =~ s/\s+$//;
 	$a->[1] =~ s/^\s+//; $a->[1] =~ s/\s+$//;
 	if ($a->[0] !~ /^\S+\@\S+$/) {
@@ -109,4 +114,3 @@ foreach $a (@addrs) {
 print &ui_columns_end();
 
 &ui_print_footer("list_addresses.cgi", $text{'address_return'});
-

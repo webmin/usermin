@@ -1,19 +1,24 @@
 #!/usr/local/bin/perl
 # For each message in each folder that has been marked as special, add it to
 # the Special folder
+use strict;
+use warnings;
 
 require './mailbox-lib.pl';
-$special = &get_special_folder();
+my $special = &get_special_folder();
 $special || &error("Special folder not found!?");
-%mems = map { &folder_name($_->[0])."/".$_->[1], 1 } @{$special->{'members'}};
+my %mems = map { &folder_name($_->[0])."/".$_->[1], 1 } @{$special->{'members'}};
 
 # For each message in each folder which is marked as special, check if it is
 # already in the special folder
+my @add;
 foreach my $folder (&list_folders()) {
 	next if ($folder eq $special);
 	my @mails;
 	eval {
-		local $main::error_must_die = 1;
+		no warnings "once";
+		$main::error_must_die = 1;
+		use warnings "once";
 		@mails = &mailbox_list_mails(undef, undef, $folder, 0);
 		};
 	next if ($@);

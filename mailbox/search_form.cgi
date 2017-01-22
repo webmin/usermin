@@ -1,11 +1,15 @@
 #!/usr/local/bin/perl
 # search_form.cgi
 # Display a form for searching a mailbox
+use strict;
+use warnings;
+our (%text, %in, %userconfig);
+our $search_folder_id;
 
 require './mailbox-lib.pl';
 &ReadParse();
-@folders = &list_folders_sorted();
-($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
+my @folders = &list_folders_sorted();
+my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
 &set_module_index($in{'folder'});
 &ui_print_header(undef, $text{'sform_title'}, "");
 
@@ -18,10 +22,10 @@ print &ui_table_row($text{'sform_andmode'},
 				      [ 0, $text{'sform_or'} ] ]));
 
 # Criteria table
-$ctable = &ui_columns_start([ ], 50, 1);
+my $ctable = &ui_columns_start([ ], 50, 1);
 
-for($i=0; $i<=4; $i++) {
-	local @cols;
+for(my $i=0; $i<=4; $i++) {
+	my @cols;
 	push(@cols, $text{'sform_where'});
 	push(@cols, &ui_select("field_$i", undef,
 			[ [ undef, "&nbsp;" ],
@@ -66,7 +70,7 @@ print &ui_table_row($text{'search_dest'},
 					   $text{'search_dest0'}));
 
 # Folder to search
-@sfolders = grep { $_->{'id'} != $search_folder_id } @folders;
+my @sfolders = grep { $_->{'id'} != $search_folder_id } @folders;
 print &ui_table_row($text{'sform_folder2'},
 	&folder_select(\@sfolders, $folder, "folder",
 		       [ [ -1, $text{'sform_all'} ],
@@ -75,4 +79,3 @@ print &ui_table_end();
 print &ui_form_end([ [ undef, $text{'sform_ok'} ] ]);
 
 &ui_print_footer("index.cgi?folder=$in{'folder'}", $text{'mail_return'});
-

@@ -1,9 +1,13 @@
 #!/usr/local/bin/perl
 # Create, modify or delete a virtual folder
+use strict;
+use warnings;
+our (%text, %in, %config);
 
 require './mailbox-lib.pl';
 &ReadParse();
-@folders = &list_folders();
+my @folders = &list_folders();
+my ($folder, $old);
 if (!$in{'new'}) {
 	$folder = $folders[$in{'idx'}];
 	$old = { %$folder };

@@ -1,11 +1,15 @@
 #!/usr/local/bin/perl
 # Create, update or delete an IMAP folder
+use strict;
+use warnings;
+our (%text, %in);
 
 require './mailbox-lib.pl';
 &ReadParse();
-@folders = &list_folders();
+my @folders = &list_folders();
 
 # Get or create the folder object
+my $folder;
 if ($in{'new'}) {
 	$folder = { 'type' => 4,
 		    'imapauto' => 1,
@@ -32,7 +36,7 @@ if ($in{'delete'}) {
 		print &ui_form_start("save_ifolder.cgi");
 		print &ui_hidden("idx", $in{'idx'}),"\n";
 		print &ui_hidden("delete", 1),"\n";
-		$sz = &nice_size(&folder_size($folder));
+		my $sz = &nice_size(&folder_size($folder));
 		print &text('save_rusure2', $folder->{'name'}, $sz),"<p>\n";
 		print &ui_form_end([ [ "confirm", $text{'save_delete'} ] ]);
 		print "</center>\n";
@@ -47,11 +51,11 @@ else {
 		$in{'name'} =~ /\S/ || &error($text{'save_ename'});
 		$in{'name'} =~ /^[a-zA-Z0-9\.\-\/ ]+$/ ||
 			&error($text{'save_ename4'});
-		$in{'name'} =~ /\.\./ && 
+		$in{'name'} =~ /\.\./ &&
 			&error($text{'save_ename2'});
-		lc($in{'name'}) eq 'inbox' && 
+		lc($in{'name'}) eq 'inbox' &&
 			&error($text{'save_ename3'});
-		($clash) = grep { lc($_->{'name'}) eq lc($in{'name'}) }
+		my ($clash) = grep { lc($_->{'name'}) eq lc($in{'name'}) }
 				@folders;
 		$clash && &error($text{'save_eclash'});
 		$folder->{'name'} = $in{'name'};
@@ -61,4 +65,3 @@ else {
 	}
 
 &redirect("list_ifolders.cgi?refresh=".&urlize($folder->{'name'}));
-

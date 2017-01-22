@@ -1,4 +1,12 @@
 # mailbox-lib.pl
+use strict;
+use warnings;
+our (%text, %config, %gconfig, %userconfig);
+our $remote_user;
+our @remote_user_info;
+our $user_module_config_directory;
+our $module_root_directory;
+our $module_name;
 
 BEGIN { push(@INC, ".."); };
 use WebminCore;
@@ -11,22 +19,23 @@ do "$module_root_directory/folders-lib.pl";
 
 #open(DEBUG, ">>/tmp/mailbox.debug");
 
+our $qmail_maildir;
 if ($config{'mail_qmail'}) {
 	$qmail_maildir = &mail_file_style($remote_user, $config{'mail_qmail'},
 					  $config{'mail_style'});
 	}
 else {
 	$qmail_maildir = "$remote_user_info[7]/$config{'mail_dir_qmail'}";
-	}
-$address_book = "$user_module_config_directory/address_book";
-$address_group_book = "$user_module_config_directory/address_group_book";
-$folders_dir = "$remote_user_info[7]/$userconfig{'mailbox_dir'}";
-%folder_types = map { $_, 1 } (split(/,/, $config{'folder_types'}),
+}
+our $address_book = "$user_module_config_directory/address_book";
+our $address_group_book = "$user_module_config_directory/address_group_book";
+our $folders_dir = "$remote_user_info[7]/$userconfig{'mailbox_dir'}";
+our %folder_types = map { $_, 1 } (split(/,/, $config{'folder_types'}),
 			       split(/,/, $config{'folder_virts'}));
-$search_folder_id = 1;
-$special_folder_id = 2;
-$auto_cmd = "$user_module_config_directory/auto.pl";
-$last_folder_file = "$user_module_config_directory/lastfolder";
+our $search_folder_id = 1;
+our $special_folder_id = 2;
+our $auto_cmd = "$user_module_config_directory/auto.pl";
+our $last_folder_file = "$user_module_config_directory/lastfolder";
 
 # mailbox_file()
 sub mailbox_file
@@ -41,6 +50,7 @@ else {
 
 # supports_gpg()
 # Returns 1 if GPG is installed and the module is available
+my $supports_gpg_cache;
 sub supports_gpg
 {
 if (!defined($supports_gpg_cache)) {
@@ -58,10 +68,10 @@ return $supports_gpg_cache;
 sub decrypt_attachments
 {
 # Check requirements for decryption
-local $first = $_[0]->{'attach'}->[0];
-local ($body) = grep { $_->{'type'} eq 'text/plain' || $_->{'type'} eq 'text' }
+my $first = $_[0]->{'attach'}->[0];
+my ($body) = grep { $_->{'type'} eq 'text/plain' || $_->{'type'} eq 'text' }
 		     @{$_[0]->{'attach'}};
-local $hasgpg = &has_command("gpg") && &foreign_check("gnupg") &&
+my $hasgpg = &has_command("gpg") && &foreign_check("gnupg") &&
 		&foreign_available("gnupg");
 if ($_[0]->{'header'}->{'content-type'} =~ /^multipart\/encrypted/ &&
     $first->{'type'} =~ /^application\/pgp-encrypted/ &&
@@ -69,32 +79,32 @@ if ($_[0]->{'header'}->{'content-type'} =~ /^multipart\/encrypted/ &&
 	# RFC 2015 PGP encryption of entire message
 	return (1) if (!&supports_gpg());
 	&foreign_require("gnupg", "gnupg-lib.pl");
-	local $plain;
-	local $enc = $_[0]->{'attach'}->[1];
-	local $rv = &foreign_call("gnupg", "decrypt_data", $enc->{'data'}, \$plain);
+	my $plain;
+	my $enc = $_[0]->{'attach'}->[1];
+	my $rv = &foreign_call("gnupg", "decrypt_data", $enc->{'data'}, \$plain);
 	return (2, $rv) if ($rv);
 	$plain =~ s/\r//g;
-	local $amail = &extract_mail($plain);
+	my $amail = &extract_mail($plain);
 	&parse_mail($amail);
 	$_[0]->{'attach'} = $amail->{'attach'};
 	return (3);
 	}
 
 # Check individual attachments for text-only encryption
-local $a;
-local $cc = 0;
-local $ok = 3;
-foreach $a (@{$_[0]->{'attach'}}) {
+my $a;
+my $cc = 0;
+my $ok = 3;
+foreach my $a (@{$_[0]->{'attach'}}) {
 	if ($a->{'type'} =~ /^(text|application\/pgp-encrypted)/i &&
 	    $a->{'data'} =~ /BEGIN PGP MESSAGE/ &&
 	    $a->{'data'} =~ /([\000-\377]*)(-----BEGIN PGP MESSAGE-+\r?\n([\000-\377]+)-+END PGP MESSAGE-+\r?\n)([\000-\377]*)/i) {
-		local ($before, $enc, $after) = ($1, $2, $4);
+		my ($before, $enc, $after) = ($1, $2, $4);
 		return (1) if (!&supports_gpg());
 		&foreign_require("gnupg", "gnupg-lib.pl");
 		$cc++;
-		local $pass = &gnupg::get_passphrase();
-		local $plain;
-		local $rv = &gnupg::decrypt_data($enc, \$plain, $pass);
+		my $pass = &gnupg::get_passphrase();
+		my $plain;
+		my $rv = &gnupg::decrypt_data($enc, \$plain, $pass);
 		return (2, $rv) if ($rv);
 		$ok = 4 if ($before =~ /\S/ || $after =~ /\S/);
 		if ($a->{'type'} !~ /^text/) {
@@ -116,6 +126,7 @@ my ($sigcode, $sigmessage, $sindex);
 if (&has_command("gpg") && &foreign_check("gnupg") && &foreign_available("gnupg")) {
 	# Check for GnuPG signatures
 	my $sig;
+	my $sindex;
 	foreach my $a (@$attach) {
 		$sig = $a if ($a->{'type'} =~ /^application\/pgp-signature/);
 		}
@@ -149,29 +160,29 @@ return ($sigcode, $sigmessage, $sindex);
 # the email address, real name, index (if editable) and From: flag
 sub list_addresses
 {
-local @rv;
-local $i = 0;
-open(ADDRESS, $address_book);
-while(<ADDRESS>) {
+my @rv;
+my $i = 0;
+open(my $ADDRESS, "<", $address_book);
+while(<$ADDRESS>) {
 	s/\r|\n//g;
-	local @sp = split(/\t/, $_);
+	my @sp = split(/\t/, $_);
 	if (@sp >= 1) {
 		push(@rv, [ $sp[0], $sp[1], $i, $sp[2] ]);
 		}
 	$i++;
 	}
-close(ADDRESS);
+close($ADDRESS);
 if ($config{'global_address'}) {
-	local $gab = &group_subs($config{'global_address'});
-	open(ADDRESS, $gab);
-	while(<ADDRESS>) {
+	my $gab = &group_subs($config{'global_address'});
+	open(my $ADDRESS, "<", $gab);
+	while(<$ADDRESS>) {
 		s/\r|\n//g;
-		local @sp = split(/\t+/, $_);
+		my @sp = split(/\t+/, $_);
 		if (@sp >= 2) {
 			push(@rv, [ $sp[0], $sp[1] ]);
 			}
 		}
-	close(ADDRESS);
+	close($ADDRESS);
 	}
 if ($userconfig{'sort_addrs'} == 2) {
 	return sort { lc($a->[0]) cmp lc($b->[0]) } @rv;
@@ -188,9 +199,11 @@ else {
 # Adds an entry to the address book
 sub create_address
 {
+no strict "subs";
 &open_tempfile(ADDRESS, ">>$address_book");
 &print_tempfile(ADDRESS, "$_[0]\t$_[1]\t$_[2]\n");
 &close_tempfile(ADDRESS);
+use strict "subs";
 }
 
 # modify_address(index, email, real name, forfrom)
@@ -214,10 +227,10 @@ sub address_button
 if (defined(&theme_address_button)) {
 	return &theme_address_button(@_);
 	}
-local $form = @_ > 1 ? $_[1] : 0;
-local $mode = @_ > 2 ? $_[2] : 0;
-local $nogroups = @_ > 4 ? $_[4] : 0;
-local ($rfield1, $rfield2);
+my $form = @_ > 1 ? $_[1] : 0;
+my $mode = @_ > 2 ? $_[2] : 0;
+my $nogroups = @_ > 4 ? $_[4] : 0;
+my ($rfield1, $rfield2);
 if ($_[3]) {
 	return "<input type=button onClick='ifield = document.forms[$form].$_[0]; rfield = document.forms[$form].$_[3]; chooser = window.open(\"../$module_name/address_chooser.cgi?addr=\"+escape(ifield.value)+\"&mode=$mode&nogroups=$nogroups\", \"chooser\", \"toolbar=no,menubar=no,scrollbars=yes,width=500,height=500\"); chooser.ifield = ifield; window.ifield = ifield; chooser.rfield = rfield; window.rfield = rfield' value=\"...\">\n";
 	}
@@ -232,16 +245,17 @@ else {
 #		6 = virtual
 # folder modes: 0 = ~/mail, 1 = external folder, 2 = sent mail,
 #               3 = inbox/drafts/trash
+my @list_folders_cache;
 sub list_folders
 {
 if (@list_folders_cache) {
 	return @list_folders_cache;
 	}
-local (@rv, $f, $o, %done);
+my (@rv, $f, $o, %done);
 
 # Read the module's config directory, to find folders files
 opendir(DIR, $user_module_config_directory);
-local @folderfiles = readdir(DIR);
+my @folderfiles = readdir(DIR);
 closedir(DIR);
 
 if ($config{'mail_system'} == 2) {
@@ -258,7 +272,7 @@ if ($config{'mail_system'} == 2) {
 	}
 elsif ($config{'mail_system'} == 4) {
 	# IMAP inbox
-	local $imapserver = $config{'pop3_server'} || "localhost";
+	my $imapserver = $config{'pop3_server'} || "localhost";
 	push(@rv, { 'name' => $text{'folder_inbox'},
 		    'id' => 'INBOX',
 		    'type' => 4,
@@ -282,14 +296,14 @@ elsif ($config{'mail_system'} == 4) {
 		}
 
 	# Get other IMAP folders (if we can)
-	local ($ok, $ih) = &imap_login($rv[0]);
+	my ($ok, $ih) = &imap_login($rv[0]);
 	if ($ok == 1) {
-		local @irv = &imap_command($ih, "list \"\" \"*\"");
+		my @irv = &imap_command($ih, "list \"\" \"*\"");
 		if ($irv[0]) {
 			foreach my $l (@{$irv[1]}) {
 				if ($l =~ /LIST\s+\(.*\)\s+("(.*)"|\S+)\s+("(.*)"|\S+)/) {
 					# Found a folder line
-					local $fn = $4 || $3;
+					my $fn = $4 || $3;
 					next if ($fn eq "INBOX");
 					push(@rv,
 					  { 'name' => $fn,
@@ -313,7 +327,8 @@ elsif ($config{'mail_system'} == 4) {
 		}
 
 	# Find or create the IMAP sent mail folder
-	local $sf;
+	my $sf;
+	my $sent;
 	if ($userconfig{'sent_name'}) {
 		($sent) = grep { lc($_->{'name'}) eq lc($sf) } @rv;
 		}
@@ -324,7 +339,7 @@ elsif ($config{'mail_system'} == 4) {
 			}
 		}
 	if (!$sent && $ok == 1) {
-		local @irv = &imap_command($ih, "create \"$sf\"");
+		my @irv = &imap_command($ih, "create \"$sf\"");
 		if ($irv[0]) {
 			$sent = { 'id' => $sf,
 			          'type' => 4,
@@ -351,10 +366,10 @@ elsif ($config{'mail_system'} == 4) {
 		}
 
 	# Find or create the IMAP drafts folder
-	local $df = $userconfig{'drafts_name'} || 'drafts';
-	local ($drafts) = grep { lc($_->{'name'}) eq lc($df) } @rv;
+	my $df = $userconfig{'drafts_name'} || 'drafts';
+	my ($drafts) = grep { lc($_->{'name'}) eq lc($df) } @rv;
 	if (!$drafts && $ok == 1) {
-		local @irv = &imap_command($ih, "create \"$df\"");
+		my @irv = &imap_command($ih, "create \"$df\"");
 		if ($irv[0]) {
 			$drafts = { 'id' => $df,
 			            'type' => 4,
@@ -380,10 +395,10 @@ elsif ($config{'mail_system'} == 4) {
 
 	# Find or create the IMAP trash folder
 	if ($userconfig{'delete_mode'} == 1) {
-		local $tf = $userconfig{'trash_name'} || 'trash';
-		local ($trash) = grep { lc($_->{'name'}) eq lc($tf) } @rv;
+		my $tf = $userconfig{'trash_name'} || 'trash';
+		my ($trash) = grep { lc($_->{'name'}) eq lc($tf) } @rv;
 		if (!$trash && $ok == 1) {
-			local @irv = &imap_command($ih, "create \"$tf\"");
+			my @irv = &imap_command($ih, "create \"$tf\"");
 			if ($irv[0]) {
 				$trash = { 'id' => $tf,
 					   'type' => 4,
@@ -413,20 +428,20 @@ elsif ($config{'mail_system'} == 4) {
 	foreach my $f (@rv) {
 		if ($f->{'inbox'}) {
 			# Use the configured inbox location
-			local $path = $config{'mail_system'} == 0 ?
+			my $path = $config{'mail_system'} == 0 ?
                                 &user_mail_file(@remote_user_info) :
                                 $qmail_maildir;
 			$f->{'file'} = $path if (-e $path);
 			}
 		else {
 			# Look in configured folders directory
-			local $path = "$folders_dir/$f->{'id'}";
+			my $path = "$folders_dir/$f->{'id'}";
 			if (-e $path) {
 				$f->{'file'} = $path;
 				}
 			else {
 				# Try . at start of folder names
-				local $n = $f->{'id'};
+				my $n = $f->{'id'};
 				$n =~ s/^\.//;
 				if ($n =~ /\//) {
 					# Turn foo/bar to foo/.bar
@@ -456,16 +471,16 @@ else {
 		    'index' => 0 });
 	$done{$rv[$#rv]->{'file'}}++;
 	}
-local $inbox = $rv[$#rv];
+my $inbox = $rv[$#rv];
 
 # Add sent mail file
-local $sf;
+my $sf;
 if ($folder_types{'ext'} && $userconfig{'sent_mail'}) {
 	$sf = $userconfig{'sent_mail'};
 	$done{$userconfig{'sent_mail'}}++;
 	}
 else {
-	local $sfn = $userconfig{'sent_name'} || 'sentmail';
+	my $sfn = $userconfig{'sent_name'} || 'sentmail';
 	$sf = "$folders_dir/$sfn";
 	if (!-e $sf && $userconfig{'mailbox_dir'} eq "Maildir") {
 		# For Maildir++ , use .sentmail
@@ -473,7 +488,7 @@ else {
 		}
 	}
 $done{$sf}++;
-local $sft = -e $sf ? &folder_type($sf) :
+my $sft = -e $sf ? &folder_type($sf) :
 	     $userconfig{'mailbox_dir'} eq "Maildir" ? 1 : 0;
 push(@rv, { 'name' => $text{'folder_sent'},
 	    'type' => $sft,
@@ -486,19 +501,19 @@ push(@rv, { 'name' => $text{'folder_sent'},
 	    'index' => scalar(@rv) });
 
 # Add drafts file
-local $dn = $userconfig{'drafts_name'};
+my $dn = $userconfig{'drafts_name'};
 if ($dn && $userconfig{'mailbox_dir'} eq "Maildir" && $dn !~ /^\./) {
 	# Maildir++ folders always start with .
 	$dn = ".".$dn;
 	}
-local $df = $dn ? "$folders_dir/$dn" :
+my $df = $dn ? "$folders_dir/$dn" :
 	    -r "$folders_dir/Drafts" ? "$folders_dir/Drafts" :
 	    -r "$folders_dir/.Drafts" ? "$folders_dir/.Drafts" :
 	    -r "$folders_dir/.drafts" ? "$folders_dir/.drafts" :
 	    $userconfig{'mailbox_dir'} eq "Maildir" ? "$folders_dir/.drafts" :
 				        	      "$folders_dir/drafts";
 $done{$df}++;
-local $dft = -e $df ? &folder_type($df) :
+my $dft = -e $df ? &folder_type($df) :
 	     $userconfig{'mailbox_dir'} eq "Maildir" ? 1 : 0;
 push(@rv, { 'name' => $text{'folder_drafts'},
 	    'type' => $dft,
@@ -509,19 +524,19 @@ push(@rv, { 'name' => $text{'folder_drafts'},
 
 # If using a trash folder, add it
 if ($userconfig{'delete_mode'} == 1) {
-	local $tn = $userconfig{'trash_name'};
+	my $tn = $userconfig{'trash_name'};
 	if ($tn && $userconfig{'mailbox_dir'} eq "Maildir" && $tn !~ /^\./) {
 		# Maildir++ folders always start with .
 		$tn = ".".$tn;
 		}
-	local $tf = $tn ? "$folders_dir/$tn" :
+	my $tf = $tn ? "$folders_dir/$tn" :
 		    -r "$folders_dir/Trash" ? "$folders_dir/Trash" :
 		    -r "$folders_dir/.Trash" ? "$folders_dir/.Trash" :
 		    -r "$folders_dir/.trash" ? "$folders_dir/.trash" :
 		    $userconfig{'mailbox_dir'} eq "Maildir" ?
 			"$folders_dir/.trash" : "$folders_dir/trash";
 	$done{$tf}++;
-	local $tft = -e $tf ? &folder_type($tf) :
+	my $tft = -e $tf ? &folder_type($tf) :
 		     $userconfig{'mailbox_dir'} eq "Maildir" ? 1 : 0;
 	push(@rv, { 'name' => $text{'folder_trash'},
 		    'type' => $tft,
@@ -533,11 +548,11 @@ if ($userconfig{'delete_mode'} == 1) {
 
 # Add local folders, usually under ~/mail
 if ($folder_types{'local'}) {
-	foreach $p (&recursive_files($folders_dir,
+	foreach my $p (&recursive_files($folders_dir,
 				     $userconfig{'mailbox_recur'})) {
-		local $f = $p;
+		my $f = $p;
 		$f =~ s/^\Q$folders_dir\E\///;
-		local $name = $f;
+		my $name = $f;
 		if ($folders_dir eq "$remote_user_info[7]/Maildir") {
 			# A sub-folder under Maildir .. remove the . at the
 			# start of the sub-folder name
@@ -563,10 +578,10 @@ if ($folder_types{'local'}) {
 
 # Add sub-folders in ~/Maildir/ , as used by Courier
 if ($inbox->{'type'} == 1 && $userconfig{'mailbox_dir'} ne "Maildir") {
-	foreach $p (&recursive_files($inbox->{'file'}, 0)) {
-		local $f = $p;
+	foreach my $p (&recursive_files($inbox->{'file'}, 0)) {
+		my $f = $p;
 		$f =~ s/^\Q$inbox->{'file'}\E\///;
-		local $name = $f;
+		my $name = $f;
 		$name =~ s/^\.// || $name =~ s/\/\./\//;
 		push(@rv, { 'name' => $name,
 			    'file' => $p,
@@ -584,7 +599,7 @@ if ($inbox->{'type'} == 1 && $userconfig{'mailbox_dir'} ne "Maildir") {
 
 # Add user-defined external mail file folders
 if ($folder_types{'ext'}) {
-	foreach $o (split(/\t+/, $userconfig{'mailboxes'})) {
+	foreach my $o (split(/\t+/, $userconfig{'mailboxes'})) {
 		$o =~ /\/([^\/]+)$/ || next;
 		push(@rv, { 'name' => $userconfig{"folder_$o"} || $1,
 			    'file' => $o,
@@ -601,9 +616,9 @@ if ($folder_types{'ext'}) {
 	}
 
 # Add user-defined POP3	and IMAP folders
-foreach $f (@folderfiles) {
+foreach my $f (@folderfiles) {
 	if ($f =~ /^(\d+)\.pop3$/ && $folder_types{'pop3'}) {
-		local %pop3 = ( 'id' => $1 );
+		my %pop3 = ( 'id' => $1 );
 		&read_file("$user_module_config_directory/$f", \%pop3);
 		$pop3{'type'} = 2;
 		$pop3{'mode'} = 0;
@@ -613,7 +628,7 @@ foreach $f (@folderfiles) {
 		push(@rv, \%pop3);
 		}
 	elsif ($f =~ /^(\d+)\.imap$/ && $folder_types{'imap'}) {
-		local %imap = ( 'id' => $1 );
+		my %imap = ( 'id' => $1 );
 		&read_file("$user_module_config_directory/$f", \%imap);
 		$imap{'type'} = 4;
 		$imap{'mode'} = 0;
@@ -624,22 +639,22 @@ foreach $f (@folderfiles) {
 		}
 	}
 
-# When in IMAP inbox mode, we goto this label to skip all local folders
+# When in IMAP inbox mode, we goto this label to skip all my folders
 IMAPONLY:
 
 # Add user-defined composite folders
-local %fcache;
-foreach $f (@folderfiles) {
+my %fcache;
+foreach my $f (@folderfiles) {
 	if ($f =~ /^(\d+)\.comp$/) {
-		local %comp = ( 'id' => $1 );
+		my %comp = ( 'id' => $1 );
 		&read_file("$user_module_config_directory/$f", \%comp);
 		$comp{'folderfile'} = "$user_module_config_directory/$f";
 		$comp{'type'} = 5;
 		$comp{'mode'} = 0;
 		$comp{'index'} = scalar(@rv);
-		local $sfn;
-		foreach $sfn (split(/\t+/, $comp{'subfoldernames'})) {
-			local $sf = &find_named_folder($sfn, \@rv, \%fcache);
+		my $sfn;
+		foreach my $sfn (split(/\t+/, $comp{'subfoldernames'})) {
+			my $sf = &find_named_folder($sfn, \@rv, \%fcache);
 			push(@{$comp{'subfolders'}}, $sf) if ($sf);
 			}
 		push(@rv, \%comp);
@@ -649,8 +664,8 @@ foreach $f (@folderfiles) {
 # Add spam folder as specified in spamassassin module, in case it is
 # outside of the folders we scan
 if (&foreign_check("spam")) {
-	local %suserconfig = &foreign_config("spam", 1);
-	local $file = $suserconfig{'spam_file'};
+	my %suserconfig = &foreign_config("spam", 1);
+	my $file = $suserconfig{'spam_file'};
 	$file =~ s/\.$//;
 	$file =~ s/\/$//;
 	$file = "$remote_user_info[7]/$file" if ($file && $file !~ /^\//);
@@ -658,7 +673,7 @@ if (&foreign_check("spam")) {
 	if ($file) {
 		if ($config{'mail_system'} == 4) {
 			# In IMAP mode, the first folder named spam is marked
-			local ($sf) = grep { lc($_->{'name'}) eq 'spam' } @rv;
+			my ($sf) = grep { lc($_->{'name'}) eq 'spam' } @rv;
 			if ($sf) {
 				$sf->{'spam'} = 1;
 				}
@@ -679,7 +694,7 @@ if (&foreign_check("spam")) {
 			}
 		else {
 			# Mark as spam folder
-			local ($sf) = grep { $_->{'file'} eq $file } @rv;
+			my ($sf) = grep { $_->{'file'} eq $file } @rv;
 			if ($sf) {
 				$sf->{'spam'} = 1;
 				}
@@ -689,9 +704,9 @@ if (&foreign_check("spam")) {
 
 # Add virtual folders. This has to be last, so that other folders can be found
 # based on virtual/composite indexes.
-foreach $f (@folderfiles) {
+foreach my $f (@folderfiles) {
 	if ($f =~ /^(\d+)\.virt$/) {
-		local %virt = ( 'id' => $1 );
+		my %virt = ( 'id' => $1 );
 		&read_file("$user_module_config_directory/$f", \%virt);
 		$virt{'folderfile'} = "$user_module_config_directory/$f";
 		$virt{'type'} = 6;
@@ -708,8 +723,8 @@ foreach my $virt (grep { $_->{'type'} == 6 } @rv) {
 	foreach my $k (keys %$virt) {
 		next if ($k !~ /^\d+$/);
 		next if ($virt->{$k} !~ /\t/);  # Old format
-		local ($sfn, $id) = split(/\t+/, $virt->{$k}, 2);
-		local $sf = &find_named_folder($sfn, \@rv, \%fcache);
+		my ($sfn, $id) = split(/\t+/, $virt->{$k}, 2);
+		my $sf = &find_named_folder($sfn, \@rv, \%fcache);
 		$virt->{'members'}->[$k] = [ $sf, $id ] if ($sf);
 		delete($virt->{$k});
 		}
@@ -751,7 +766,7 @@ return @rv;
 # Returns the folder to which spam should be moved
 sub get_spam_inbox_folder
 {
-local ($inbox) = grep { $_->{'inbox'} } &list_folders();
+my ($inbox) = grep { $_->{'inbox'} } &list_folders();
 return $inbox;
 }
 
@@ -759,13 +774,13 @@ return $inbox;
 # Creates or updates a folder
 sub save_folder
 {
-local ($folder, $old) = @_;
+my ($folder, $old) = @_;
 mkdir($folders_dir, 0700) if (!-d $folders_dir);
 if ($folder->{'type'} == 2) {
 	# A POP3 folder
 	$folder->{'id'} ||= time();
-	local %pop3;
-	foreach $k (keys %$folder) {
+	my %pop3;
+	foreach my $k (keys %$folder) {
 		if ($k ne "type" && $k ne "mode" && $k ne "remote" &&
 		    $k ne "nowrite" && $k ne "index") {
 			$pop3{$k} = $folder->{$k};
@@ -777,14 +792,14 @@ if ($folder->{'type'} == 2) {
 	}
 elsif ($folder->{'type'} == 4) {
 	# An IMAP folder
-	local @exclude;
+	my @exclude;
 	if ($folder->{'imapauto'}) {
 		# This type of folder needs to be really created or updated
 		# on the server
 		if (!$folder->{'id'}) {
 			# Need to create
-			local ($ok, $ih) = &imap_login($folder);
-			local @irv = &imap_command($ih,
+			my ($ok, $ih) = &imap_login($folder);
+			my @irv = &imap_command($ih,
 					"create \"$folder->{'name'}\"");
 			$irv[0] || &error($irv[2]);
 			$folder->{'id'} = $folder->{'mailbox'} =
@@ -792,8 +807,8 @@ elsif ($folder->{'type'} == 4) {
 			}
 		elsif ($folder->{'mailbox'} ne $folder->{'name'}) {
 			# Need to rename
-			local ($ok, $ih) = &imap_login($folder);
-			local @irv = &imap_command($ih,
+			my ($ok, $ih) = &imap_login($folder);
+			my @irv = &imap_command($ih,
 				"rename \"$folder->{'mailbox'}\" \"$folder->{'name'}\"");
 			$irv[0] || &error($irv[2]);
 			$folder->{'id'} = $folder->{'name'};
@@ -808,7 +823,7 @@ elsif ($folder->{'type'} == 4) {
 		$folder->{'id'} ||= time();
 		@exclude = ( "type", "mode", "remote", "nowrite", "index" );
 		}
-	local %imap;
+	my %imap;
 	foreach my $k (keys %$folder) {
 		if (&indexof($k, @exclude) == -1) {
 			$imap{$k} = $folder->{$k};
@@ -821,16 +836,16 @@ elsif ($folder->{'type'} == 4) {
 elsif ($folder->{'type'} == 5) {
 	# A composite
 	$folder->{'id'} ||= time();
-	local %comp;
-	foreach $k (keys %$folder) {
+	my %comp;
+	foreach my $k (keys %$folder) {
 		if ($k ne "type" && $k ne "mode" && $k ne "index" &&
 		    $k ne "subfolders") {
 			$comp{$k} = $folder->{$k};
 			}
 		}
-	local ($sf, @sfns);
-	foreach $sf (@{$folder->{'subfolders'}}) {
-		local $sfn = &folder_name($sf);
+	my ($sf, @sfns);
+	foreach my $sf (@{$folder->{'subfolders'}}) {
+		my $sfn = &folder_name($sf);
 		push(@sfns, $sfn);
 		}
 	$comp{'subfoldernames'} = join("\t", @sfns);
@@ -841,15 +856,15 @@ elsif ($folder->{'type'} == 5) {
 elsif ($folder->{'type'} == 6) {
 	# A virtual folder
 	$folder->{'id'} ||= time();
-	local %virt;
-	foreach $k (keys %$folder) {
+	my %virt;
+	foreach my $k (keys %$folder) {
 		if ($k ne "type" && $k ne "mode" && $k ne "index" &&
 		    $k ne "members") {
 			$virt{$k} = $folder->{$k};
 			}
 		}
-	local $i;
-	local $mems = $folder->{'members'};
+	my $i;
+	my $mems = $folder->{'members'};
 	for($i=0; $i<@$mems; $i++) {
 		$virt{$i} = &folder_name($mems->[$i]->[0])."\t".
 			    $mems->[$i]->[1];
@@ -860,21 +875,21 @@ elsif ($folder->{'type'} == 6) {
 	}
 elsif ($folder->{'mode'} == 0) {
 	# Updating a folder in ~/mail .. need to manage file, and config options
-	local $path = "$folders_dir/$folder->{'name'}";
+	my $path = "$folders_dir/$folder->{'name'}";
 	if ($folders_dir eq "$remote_user_info[7]/Maildir") {
 		# Maildir sub-folder .. put a . in the name
 		$path =~ s/([^\/]+)$/.$1/;
 		}
 	if ($folder->{'name'} =~ /\//) {
-		local $pp = $path;
+		my $pp = $path;
 		$pp =~ s/\/[^\/]+$//;
 		system("mkdir -p ".quotemeta($pp));
 		}
 	if (!$old) {
 		# Create the mailbox/maildir/MH dir
 		if ($folder->{'type'} == 0) {
-			open(FOLDER, ">>$path");
-			close(FOLDER);
+			open(my $FOLDER, ">>", "$path");
+			close($FOLDER);
 			chmod(0700, $path);
 			}
 		elsif ($folder->{'type'} == 1) {
@@ -911,7 +926,7 @@ elsif ($folder->{'mode'} == 0) {
 	}
 elsif ($folder->{'mode'} == 1) {
 	# Updating or adding an external file folder
-	local @mailboxes = split(/\t+/, $userconfig{'mailboxes'});
+	my @mailboxes = split(/\t+/, $userconfig{'mailboxes'});
 	if (!$old) {
 		push(@mailboxes, $folder->{'file'});
 		}
@@ -921,7 +936,7 @@ elsif ($folder->{'mode'} == 1) {
 		delete($userconfig{'sent_'.$folder->{'file'}});
 		delete($userconfig{'hide_'.$folder->{'file'}});
 		delete($userconfig{'fromaddr_'.$folder->{'file'}});
-		local $idx = &indexof($folder->{'file'}, @mailboxes);
+		my $idx = &indexof($folder->{'file'}, @mailboxes);
 		$mailboxes[$idx] = $folder->{'file'};
 		}
 	$userconfig{'folder_'.$folder->{'file'}} = $folder->{'name'};
@@ -941,7 +956,7 @@ elsif ($folder->{'mode'} == 2) {
 	delete($userconfig{'perpage_sent_mail'});
 	delete($userconfig{'hide_sent_mail'});
 	delete($userconfig{'fromaddr_sent_mail'});
-	local $sf = "$folders_dir/sentmail";
+	my $sf = "$folders_dir/sentmail";
 	if ($folder->{'file'} eq $sf) {
 		delete($userconfig{'sent_mail'});
 		}
@@ -959,7 +974,7 @@ elsif ($folder->{'mode'} == 2) {
 # Add to or update cache
 if (@list_folders_cache) {
 	if ($old) {
-		local $idx = &indexof($old, @list_folders_cache);
+		my $idx = &indexof($old, @list_folders_cache);
 		if ($idx >= 0) {
 			$list_folders_cache[$idx] = $folder;
 			}
@@ -974,7 +989,7 @@ if (@list_folders_cache) {
 # Removes some folder
 sub delete_folder
 {
-local ($folder) = @_;
+my ($folder) = @_;
 if ($folder->{'type'} == 2) {
 	# A POP3 folder
 	unlink("$user_module_config_directory/$folder->{'id'}.pop3");
@@ -987,8 +1002,8 @@ elsif ($folder->{'type'} == 4) {
 
 	if ($folder->{'imapauto'}) {
 		# Remove actual folder from IMAP server too
-		local ($ok, $ih) = &imap_login($folder);
-		local @irv = &imap_command($ih, "delete \"$folder->{'name'}\"");
+		my ($ok, $ih) = &imap_login($folder);
+		my @irv = &imap_command($ih, "delete \"$folder->{'name'}\"");
 		$irv[0] || &error($irv[2] || "Unknown IMAP error");
 		}
 	}
@@ -1016,7 +1031,7 @@ elsif ($folder->{'mode'} == 0) {
 	}
 elsif ($folder->{'mode'} == 1) {
 	# Remove from list of external folders
-	local @mailboxes = split(/\t+/, $userconfig{'mailboxes'});
+	my @mailboxes = split(/\t+/, $userconfig{'mailboxes'});
 	@mailboxes = grep { $_ ne $folder->{'file'} } @mailboxes;
 	delete($userconfig{'folder_'.$folder->{'file'}});
 	delete($userconfig{'perpage_'.$folder->{'file'}});
@@ -1034,20 +1049,20 @@ if (@list_folders_cache) {
 
 # Delete mbox or Maildir index
 if ($folder->{'type'} == 0) {
-	local $ifile = &user_index_file($folder->{'file'});
+	my $ifile = &user_index_file($folder->{'file'});
 	unlink(glob("$ifile.*"), $ifile);
 	}
 elsif ($folder->{'type'} == 1) {
-	local $cachefile = &get_maildir_cachefile($folder->{'file'});
+	my $cachefile = &get_maildir_cachefile($folder->{'file'});
 	unlink($cachefile);
 	}
 
 # Delete sort index
-local $ifile = &folder_new_sort_index_file($folder);
+my $ifile = &folder_new_sort_index_file($folder);
 unlink(glob("$ifile.*"), $ifile);
 
 # Delete sort direction file
-local $file = &folder_name($folder);
+my $file = &folder_name($folder);
 $file =~ s/\//_/g;
 unlink("$user_module_config_directory/sort.$file");
 }
@@ -1058,7 +1073,7 @@ sub need_delete_warn
 return 0 if ($_[0]->{'type'} == 6 && !$_[0]->{'delete'});
 return 1 if ($userconfig{'delete_warn'} eq 'y');
 return 0 if ($userconfig{'delete_warn'} eq 'n');
-local $mf;
+my $mf;
 return $_[0]->{'type'} == 0 &&
        ($mf = &folder_file($_[0])) &&
        &disk_usage_kb($mf)*1024 > $userconfig{'delete_warn'};
@@ -1068,7 +1083,7 @@ return $_[0]->{'type'} == 0 &&
 # Returns the users signature, if any
 sub get_signature
 {
-local $sf = &get_signature_file();
+my $sf = &get_signature_file();
 $sf || return undef;
 return &read_file_contents($sf);
 }
@@ -1079,7 +1094,7 @@ return &read_file_contents($sf);
 sub get_signature_file
 {
 return undef if ($userconfig{'sig_file'} eq '*');
-local $sf = $userconfig{'sig_file'};
+my $sf = $userconfig{'sig_file'};
 $sf = "$remote_user_info[7]/$sf" if ($sf !~ /^\//);
 return &group_subs($sf);
 }
@@ -1088,12 +1103,12 @@ return &group_subs($sf);
 # Returns HTML for selecting a folder to move or copy to
 sub movecopy_select
 {
-local $rv;
+my $rv;
 if (!$_[3]) {
 	$rv .= &ui_submit($text{'mail_move'}, "move".$_[0]);
 	}
 print &ui_submit($text{'mail_copy'}, "copy".$_[0]);
-local @mfolders = grep { $_ ne $_[2] && !$_->{'nowrite'} } @{$_[1]};
+my @mfolders = grep { $_ ne $_[2] && !$_->{'nowrite'} } @{$_[1]};
 $rv .= &folder_select(\@mfolders, undef, "mfolder$_[0]");
 return $rv;
 }
@@ -1102,7 +1117,7 @@ return $rv;
 # Print HTML for editing the options for some folder
 sub show_folder_options
 {
-local ($folder, $mode) = @_;
+my ($folder, $mode) = @_;
 
 # Messages per page
 print &ui_table_row($text{'edit_perpage'},
@@ -1128,7 +1143,7 @@ print &ui_table_row($text{'edit_hide'},
 # parse_folder_options(&folder, mode, &in)
 sub parse_folder_options
 {
-local ($folder, $mode, $in) = @_;
+my ($folder, $mode, $in) = @_;
 if (!$in->{'perpage_def'}) {
 	$in->{'perpage'} =~ /^\d+$/ || &error($text{'save_eperpage'});
 	$folder->{'perpage'} = $in->{'perpage'};
@@ -1152,29 +1167,29 @@ $folder->{'hide'} = $in->{'hide'};
 # the group name, members and index
 sub list_address_groups
 {
-local @rv;
-local $i = 0;
-open(ADDRESS, $address_group_book);
-while(<ADDRESS>) {
+my @rv;
+my $i = 0;
+open(my $ADDRESS, "<", $address_group_book);
+while(<$ADDRESS>) {
 	s/\r|\n//g;
-	local @sp = split(/\t+/, $_);
+	my @sp = split(/\t+/, $_);
 	if (@sp == 2) {
 		push(@rv, [ $sp[0], $sp[1], $i ]);
 		}
 	$i++;
 	}
-close(ADDRESS);
+close($ADDRESS);
 if ($config{'global_address_group'}) {
-	local $gab = &group_subs($config{'global_address_group'});
-	open(ADDRESS, $gab);
-	while(<ADDRESS>) {
+	my $gab = &group_subs($config{'global_address_group'});
+	open($ADDRESS, "<", $gab);
+	while(<$ADDRESS>) {
 		s/\r|\n//g;
-		local @sp = split(/\t+/, $_);
+		my @sp = split(/\t+/, $_);
 		if (@sp == 2) {
 			push(@rv, [ $sp[0], $sp[1] ]);
 			}
 		}
-	close(ADDRESS);
+	close($ADDRESS);
 	}
 if ($userconfig{'sort_addrs'} == 1) {
 	return sort { lc($a->[0]) cmp lc($b->[0]) } @rv;
@@ -1191,9 +1206,11 @@ else {
 # Adds an entry to the address group book
 sub create_address_group
 {
+no strict "subs";
 &open_tempfile(ADDRESS, ">>$address_group_book");
 &print_tempfile(ADDRESS, "$_[0]\t$_[1]\n");
 &close_tempfile(ADDRESS);
+use strict "subs";
 }
 
 # modify_address_group(index, name, members)
@@ -1214,21 +1231,21 @@ sub delete_address_group
 # Like list_folders(), but applies the chosen sort
 sub list_folders_sorted
 {
-local @folders = &list_folders();
-local @rv;
+my @folders = &list_folders();
+my @rv;
 if ($userconfig{'folder_sort'} == 0) {
 	# Builtin, then ~/mail, then external
-	local @builtin = grep { $_->{'mode'} >= 2 } @folders;
-	local @local = grep { $_->{'mode'} == 0 } @folders;
-	local @external = grep { $_->{'mode'} == 1 } @folders;
+	my @builtin = grep { $_->{'mode'} >= 2 } @folders;
+	my @local = grep { $_->{'mode'} == 0 } @folders;
+	my @external = grep { $_->{'mode'} == 1 } @folders;
 	@rv = (@builtin,
 		(sort { lc($a->{'name'}) cmp lc($b->{'name'}) } @local),
 		(sort { lc($a->{'name'}) cmp lc($b->{'name'}) } @external));
 	}
 elsif ($userconfig{'folder_sort'} == 1) {
 	# Builtin, then rest sorted by name
-	local @builtin = grep { $_->{'mode'} >= 2 } @folders;
-	local @extra = grep { $_->{'mode'} < 2 } @folders;
+	my @builtin = grep { $_->{'mode'} >= 2 } @folders;
+	my @extra = grep { $_->{'mode'} < 2 } @folders;
 	@rv = (@builtin,
 		sort { lc($a->{'name'}) cmp lc($b->{'name'}) } @extra);
 	}
@@ -1238,7 +1255,7 @@ elsif ($userconfig{'folder_sort'} == 2) {
 	}
 if ($userconfig{'default_folder'} && $userconfig{'folder_sort'} <= 1) {
 	# Move default folder to top of the list
-	local $df = &find_named_folder($userconfig{'default_folder'}, \@rv);
+	my $df = &find_named_folder($userconfig{'default_folder'}, \@rv);
 	if ($df) {
 		@rv = ( $df, grep { $_ ne $df } @rv );
 		}
@@ -1251,16 +1268,16 @@ return @rv;
 # that matches a file
 sub group_subs
 {
-local @ginfo = getgrgid($remote_user_info[3]);
-local $rv = $_[0];
+my @ginfo = getgrgid($remote_user_info[3]);
+my $rv = $_[0];
 $rv =~ s/\$group/$ginfo[0]/g;
 if ($rv =~ /\$sgroup/) {
 	# Try all secondary groups, and stop at the first one
 	setgrent();
 	while(@ginfo = getgrent()) {
-		local @m = split(/\s+/, $ginfo[3]);
+		my @m = split(/\s+/, $ginfo[3]);
 		if (&indexof($remote_user, @m) >= 0) {
-			local $rv2 = $rv;
+			my $rv2 = $rv;
 			$rv2 =~ s/\$sgroup/$ginfo[0]/g;
 			if (-r $rv2) {
 				$rv = $rv2;
@@ -1285,7 +1302,7 @@ $module_index_name = $text{'mail_indexlink'};
 # in $in{'mod'}
 sub check_modification
 {
-local $newmod = &modification_time($_[0]);
+my $newmod = &modification_time($_[0]);
 if ($in{'mod'} && $in{'mod'} != $newmod && $userconfig{'check_mod'}) {
 	# Changed!
 	&error(&text('emodified', "index.cgi?folder=$_[0]->{'index'}"));
@@ -1296,18 +1313,18 @@ if ($in{'mod'} && $in{'mod'} != $newmod && $userconfig{'check_mod'}) {
 # Returns a list of allowed From: addresses for the current user
 sub list_from_addresses
 {
-local $http_host = $ENV{'HTTP_HOST'};
+my $http_host = $ENV{'HTTP_HOST'};
 $http_host =~ s/:\d+$//;
 if (&check_ipaddress($http_host)) {
 	# Try to reverse-lookup IP
-	local $rev = gethostbyaddr(inet_aton($http_host), AF_INET);
+	my $rev = gethostbyaddr(inet_aton($http_host), AF_INET);
 	$http_host = $rev if ($rev);
 	}
 $http_host =~ s/^(www|ftp|mail)\.//;
-local @froms;
+my (@froms, @doms);
 if ($config{'server_name'} eq 'ldap') {
 	# Special mode - the From: addresses just come from LDAP
-	local $entry = &get_user_ldap();
+	my $entry = &get_user_ldap();
 	push(@froms, $entry->get_value("mail"));
 	push(@froms, $entry->get_value("mailAlternateAddress"));
 	}
@@ -1317,22 +1334,22 @@ elsif ($remote_user =~ /\@/) {
 	}
 else {
 	# Work out From: addresses from hostname
-	local $hostname = $config{'server_name'} eq '*' ? $http_host :
+	my $hostname = $config{'server_name'} eq '*' ? $http_host :
 		  $config{'server_name'} eq '' ? &get_system_hostname() :
 						 $config{'server_name'};
-	local @doms = split(/\s+/, $hostname);
-	local $ru = $remote_user;
+	@doms = split(/\s+/, $hostname);
+	my $ru = $remote_user;
 	$ru =~ s/\.\Q$http_host\E$//;
 	if ($http_host =~ /^([^\.]+)/) {
 		$ru =~ s/\.\Q$1\E//;
 		}
 	@froms = map { $ru.'@'.$_ } @doms;
 	}
-local @mfroms;
+my @mfroms;
 if ($config{'from_map'} && $remote_user !~ /\@/) {
 	# Lookup username in from address mapping file, to get email.
-	open(MAP, $config{'from_map'});
-	while(<MAP>) {
+	open(my $MAP, "<", $config{'from_map'});
+	while(<$MAP>) {
 		s/\r|\n//g;
 		s/#.*$//;
 		if (/^\s*(\S+)\s+(\S+\@\S+)/ &&
@@ -1348,7 +1365,7 @@ if ($config{'from_map'} && $remote_user !~ /\@/) {
 			push(@mfroms, $1);
 			}
 		}
-	close(MAP);
+	close($MAP);
 
 	# Prefer email where mailbox matches username
 	@mfroms = sort { my ($abox, $adom) = split(/\@/, $a);
@@ -1370,9 +1387,9 @@ if (@mfroms > 0) {
 	}
 
 # Add user's real name
-local $ureal = $remote_user_info[6];
+my $ureal = $remote_user_info[6];
 $ureal =~ s/,.*$//;
-foreach $f (@froms) {
+foreach my $f (@froms) {
 	$f = "\"$ureal\" <$f>"
 		if ($ureal && $userconfig{'real_name'});
 	}
@@ -1382,11 +1399,12 @@ return (\@froms, \@doms);
 # update_delivery_notification(&mail, &folder)
 # If the given mail is a DSN, update the original email so we know it has
 # been read
+my (%dsnreplies, %delreplies);
 sub update_delivery_notification
 {
-local ($mail, $folder) = @_;
+my ($mail, $folder) = @_;
 return 0 if ($mail->{'header'}->{'content-type'} !~ /multipart\/report/i);
-local $mid = $mail->{'header'}->{'message-id'};
+my $mid = $mail->{'header'}->{'message-id'};
 &open_dsn_hash();
 if ($dsnreplies{$mid} || $delreplies{$mid}) {
 	# We have already done this DSN
@@ -1395,7 +1413,7 @@ if ($dsnreplies{$mid} || $delreplies{$mid}) {
 if (!defined($mail->{'body'}) && !$mail->{'parsed'} &&
     defined($mail->{'idx'})) {
 	# This message has no body, perhaps because one wasn't fetched ..
-	local @mail = &mailbox_list_mails($mail->{'idx'}, $mail->{'idx'},
+	my @mail = &mailbox_list_mails($mail->{'idx'}, $mail->{'idx'},
 					  $folder);
 	$mail = $mail[$mail->{'idx'}];
 	}
@@ -1403,9 +1421,10 @@ $dsnreplies{$mid} = $delreplies{$mid} = 1;
 
 # Find the delivery or disposition status attachment
 &parse_mail($mail);
-local ($dsnattach) = grep { $_->{'header'}->{'content-type'} =~ /message\/disposition-notification/i } @{$mail->{'attach'}};
-local ($delattach) = grep { $_->{'header'}->{'content-type'} =~ /message\/delivery-status/i } @{$mail->{'attach'}};
+my ($dsnattach) = grep { $_->{'header'}->{'content-type'} =~ /message\/disposition-notification/i } @{$mail->{'attach'}};
+my ($delattach) = grep { $_->{'header'}->{'content-type'} =~ /message\/delivery-status/i } @{$mail->{'attach'}};
 
+my $omid;
 if ($dsnattach) {
 	# Update the read status for the original message
 	if ($dsnattach->{'data'} =~ /Original-Message-ID:\s*(.*)/) {
@@ -1414,20 +1433,20 @@ if ($dsnattach) {
 	else {
 		return 0;
 		}
-	local ($faddr) = &split_addresses($mail->{'header'}->{'from'});
+	my ($faddr) = &split_addresses($mail->{'header'}->{'from'});
 	&add_address_to_hash(\%dsnreplies, $omid, $faddr->[0]);
 	return 1;
 	}
 elsif ($delattach) {
 	# Update the delivery status for the original message, which will be
 	# in a separate attachment
-	local ($origattach) = grep { $_->{'header'}->{'content-type'} =~ /text\/rfc822-headers|message\/rfc822/i } @{$mail->{'attach'}};
+	my ($origattach) = grep { $_->{'header'}->{'content-type'} =~ /text\/rfc822-headers|message\/rfc822/i } @{$mail->{'attach'}};
 	return 0 if (!$origattach);
-	local $origmail = &extract_mail($origattach->{'data'});
-	local $omid = $origmail->{'header'}->{'message-id'};
+	my $origmail = &extract_mail($origattach->{'data'});
+	my $omid = $origmail->{'header'}->{'message-id'};
 	return 0 if (!$omid);
-	local ($faddr) = &split_addresses($origmail->{'header'}->{'from'});
-	local $ds = &parse_delivery_status($delattach->{'data'});
+	my ($faddr) = &split_addresses($origmail->{'header'}->{'from'});
+	my $ds = &parse_delivery_status($delattach->{'data'});
 	if ($ds->{'status'} =~ /^2\./) {
 		&add_address_to_hash(\%delreplies, $omid, $faddr->[0]);
 		}
@@ -1443,8 +1462,8 @@ else {
 # add_address_to_hash(&hash, messageid, address)
 sub add_address_to_hash
 {
-local @cv = split(/\s+/, $_[0]->{$_[1]});
-local $idx = &indexof($_[2], @cv);
+my @cv = split(/\s+/, $_[0]->{$_[1]});
+my $idx = &indexof($_[2], @cv);
 if ($idx < 0) {
 	$_[0]->{$_[1]} .= " " if (@cv);
 	$_[0]->{$_[1]} .= time()." ".$_[2];
@@ -1453,6 +1472,8 @@ if ($idx < 0) {
 
 # open_dsn_hash()
 # Ensure the %dsnreplies and %delreplies hashes are tied
+my $opened_dsnreplies;
+my $opened_delreplies;
 sub open_dsn_hash
 {
 if (!$opened_dsnreplies) {
@@ -1469,6 +1490,8 @@ if (!$opened_delreplies) {
 
 # open_read_hash()
 # Ensure the %read hash is tied
+my $opened_read;
+my %read; # XXX This is sniffy. Used across bounderies.
 sub open_read_hash
 {
 if (!$opened_read) {
@@ -1480,6 +1503,7 @@ if (!$opened_read) {
 # get_special_folder()
 # Returns the virtual folder containing messages marked as 'special', or undef
 # if not defined yet.
+my $special_folder_cache;
 sub get_special_folder
 {
 if (defined($special_folder_cache)) {
@@ -1487,8 +1511,8 @@ if (defined($special_folder_cache)) {
 	}
 else {
 	# Find for real
-	local @folders = &list_folders();
-	local ($s) = grep { $_->{'type'} == 6 &&
+	my @folders = &list_folders();
+	my ($s) = grep { $_->{'type'} == 6 &&
 			    $_->{'id'} == $special_folder_id } @folders;
 	$special_folder_cache = $s ? $s : "";
 	return $s;
@@ -1498,25 +1522,26 @@ else {
 # get_mail_read(&folder, &mail)
 # Returns the read-mode flag for some email (0=unread, 1=read, 2=special)
 # Checks the special folder first, then the read DBM
+my %get_mail_read_cache;
 sub get_mail_read
 {
-local ($folder, $mail) = @_;
+my ($folder, $mail) = @_;
 if (defined($get_mail_read_cache{$mail->{'id'}})) {
 	# Already checked in this run
 	return $get_mail_read_cache{$mail->{'id'}};
 	}
-local $sfolder = &get_special_folder();
-local ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
-local $special = 0;
+my $sfolder = &get_special_folder();
+my ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
+my $special = 0;
 if ($sfolder) {
 	# Is it in the special folder? If so, definately special
-	local ($spec) = grep { $_->[0] eq $realfolder &&
+	my ($spec) = grep { $_->[0] eq $realfolder &&
 			       $_->[1] eq $realid } @{$sfolder->{'members'}};
 	if ($spec) {
 		$special = 2;
 		}
 	}
-local $rv;
+my $rv;
 if ($realfolder->{'flags'}) {
 	# For folders which can store the flags in the message itself (such
 	# as IMAP), use that
@@ -1540,14 +1565,14 @@ return $rv;
 # Read flags are 0=unread, 1=read, 2=special. Add 4 for replied.
 sub set_mail_read
 {
-local ($folder, $mail, $read) = @_;
-local ($realfolder, $realid);
+my ($folder, $mail, $read) = @_;
+my ($realfolder, $realid);
 if ($mail->{'id'}) {
-	local $sfolder = &get_special_folder();
+	my $sfolder = &get_special_folder();
 	($realfolder, $realid) = &get_underlying_folder($folder, $mail);
 	print DEBUG "id=$mail->{'id'} realid=$realid\n";
+	my $spec;
 	if ($sfolder || ($read&2) != 0) {
-		local $spec;
 		if ($sfolder) {
 			# Is it already there?
 			($spec) = grep { $_->[0] eq $realfolder &&
@@ -1585,7 +1610,7 @@ if ($mail->{'id'}) {
 		}
 	if ($realfolder->{'flags'}) {
 		# Set the flag in the email itself, such as on an IMAP server
-		local $mail->{'id'} = $realid; # So that IMAP can find it by UID
+		my $mail->{'id'} = $realid; # So that IMAP can find it by UID
 		&mailbox_set_read_flag($realfolder, $mail,
 				       ($read&1),	    # Read
 				       ($read&2),	    # Special
@@ -1621,10 +1646,10 @@ if ($mail->{'id'}) {
 # For mail in some virtual folder, returns the real folder and ID
 sub get_underlying_folder
 {
-local ($realfolder, $mail) = @_;
-local $realid = $mail->{'id'};
+my ($realfolder, $mail) = @_;
+my $realid = $mail->{'id'};
 while($realfolder->{'type'} == 5 || $realfolder->{'type'} == 6) {
-	local ($sfn, $sid) = split(/\t+/, $realid, 2);
+	my ($sfn, $sid) = split(/\t+/, $realid, 2);
 	$realfolder = &find_subfolder($realfolder, $sfn);
 	$realid = $sid;
 	}
@@ -1635,7 +1660,7 @@ return ($realfolder, $realid);
 # Returns a command for reporting spam, or undef if none
 sub spam_report_cmd
 {
-local %sconfig = &foreign_config("spam");
+my %sconfig = &foreign_config("spam");
 if ($config{'spam_report'} eq 'sa_learn') {
 	return &has_command($sconfig{'sa_learn'}) ? "$sconfig{'sa_learn'} --spam --mbox" : undef;
 	}
@@ -1654,7 +1679,7 @@ else {
 # Returns a command for reporting ham, or undef if none
 sub ham_report_cmd
 {
-local %sconfig = &foreign_config("spam");
+my %sconfig = &foreign_config("spam");
 return &has_command($sconfig{'sa_learn'}) ? "$sconfig{'sa_learn'} --ham --mbox" : undef;
 }
 
@@ -1680,10 +1705,10 @@ return (&foreign_available("spam") || $config{'spam_always'}) &&
 # Returns only messages with a particular status
 sub filter_by_status
 {
-local (@rv, $mail);
+my (@rv, $mail);
 &open_read_hash();
-foreach $mail (@{$_[0]}) {
-	local $mid = $mail->{'header'}->{'message-id'};
+foreach my $mail (@{$_[0]}) {
+	my $mid = $mail->{'header'}->{'message-id'};
 	if ($read{$mid} == $_[1]) {
 		push(@rv, $mail);
 		}
@@ -1695,8 +1720,8 @@ return @rv;
 # Prints HTML for buttons to appear above or below a mail list
 sub show_mailbox_buttons
 {
-local ($num, $folders, $folder, $mail) = @_;
-local $spacer = "&nbsp;\n";
+my ($num, $folders, $folder, $mail) = @_;
+my $spacer = "&nbsp;\n";
 
 # Compose button
 if ($userconfig{'open_mode'}) {
@@ -1730,7 +1755,7 @@ if (@$mail) {
 		}
 	print $spacer;
 	}
-	
+
 # Copy/move to folder
 if (@$mail && @$folders > 1) {
 	print &movecopy_select($_[0], $folders, $folder);
@@ -1787,6 +1812,8 @@ print "<br>\n";
 # expand_to(list)
 # Given a string containing multiple email addresses and group names,
 # expand out the group names (if any)
+my (%address_groups, %real_expand_names);
+my $expanded;
 sub expand_to
 {
 $_[0] =~ s/\r//g;
@@ -1800,9 +1827,9 @@ if ($userconfig{'real_expand'}) {
 					 grep { $_->[1] } &list_addresses()
 		}
 	}
-local @addrs = &split_addresses($_[0]);
-local (@alladdrs, $a, $expanded);
-foreach $a (@addrs) {
+my @addrs = &split_addresses($_[0]);
+my (@alladdrs, $a, $expanded);
+foreach my $a (@addrs) {
 	if (defined($address_groups{$a->[0]})) {
 		push(@alladdrs, &split_addresses($address_groups{$a->[0]}));
 		$expanded++;
@@ -1826,16 +1853,16 @@ sub connect_qmail_ldap
 {
 eval "use Net::LDAP";
 if ($@) {
-	local $err = &text('ldap_emod', "<tt>Net::LDAP</tt>");
+	my $err = &text('ldap_emod', "<tt>Net::LDAP</tt>");
 	if ($_[0]) { return $err; }
 	else { &error($err); }
 	}
 
 # Connect to server
-local $port = $config{'ldap_port'} || 389;
-local $ldap = Net::LDAP->new($config{'ldap_host'}, port => $port);
+my $port = $config{'ldap_port'} || 389;
+my $ldap = Net::LDAP->new($config{'ldap_host'}, port => $port);
 if (!$ldap) {
-	local $err = &text('ldap_econn',
+	my $err = &text('ldap_econn',
 			   "<tt>$config{'ldap_host'}</tt>","<tt>$port</tt>");
 	if ($_[0]) { return $err; }
 	else { &error($err); }
@@ -1847,7 +1874,7 @@ if ($config{'ldap_tls'}) {
 	}
 
 # Login
-local $mesg;
+my $mesg;
 if ($config{'ldap_login'}) {
 	$mesg = $ldap->bind(dn => $config{'ldap_login'},
 			    password => $config{'ldap_pass'});
@@ -1856,9 +1883,9 @@ else {
 	$mesg = $ldap->bind(anonymous => 1);
 	}
 if (!$mesg || $mesg->code) {
-	local $err = &text('ldap_elogin', "<tt>$config{'ldap_host'}</tt>",
-		     	   "<tt>$config{'ldap_login'}</tt>",
-			   $mesg ? $mesg->error : "Unknown error");
+	my $err = &text('ldap_elogin', "<tt>$config{'ldap_host'}</tt>",
+				 "<tt>$config{'ldap_login'}</tt>",
+		     $mesg ? $mesg->error : "Unknown error");
 	if ($_[0]) { return $err; }
 	else { &error($err); }
 	}
@@ -1870,11 +1897,11 @@ return $ldap;
 # Net::LDAP::Entry object.
 sub get_user_ldap
 {
-local $ldap = &connect_qmail_ldap();
-local $rv = $ldap->search(base => $config{'ldap_base'},
+my $ldap = &connect_qmail_ldap();
+my $rv = $ldap->search(base => $config{'ldap_base'},
 			  filter => "(uid=$remote_user)");
 &error("Failed to get LDAP entry : ",$rv->error) if ($rv->code);
-local ($u) = $rv->all_entries();
+my ($u) = $rv->all_entries();
 &error("Could not find LDAP entry") if (!$u);
 $ldap->unbind();
 return $u;
@@ -1886,16 +1913,16 @@ return $u;
 # Returns undef if OK, or an error message
 sub would_exceed_quota
 {
-local ($folder, @mail) = @_;
+my ($folder, @mail) = @_;
 
 # Get quotas in force
-local ($total, $count, $totalquota, $countquota) = &get_user_quota();
+my ($total, $count, $totalquota, $countquota) = &get_user_quota();
 return undef if (!$totalquota && !$countquota);
 
 # Work out how much we are adding
-local $m;
-local $adding = 0;
-foreach $m (@mail) {
+my $m;
+my $adding = 0;
+foreach my $m (@mail) {
 	$adding += ($m->{'size'} || &mail_size($m));
 	}
 
@@ -1920,10 +1947,10 @@ sub get_user_quota
 return ( ) if (!$config{'ldap_quotas'} && !$config{'max_quota'});
 
 # Work out current size of all local folders
-local $f;
-local $total = 0;
-local $count = 0;
-foreach $f (&list_folders()) {
+my $f;
+my $total = 0;
+my $count = 0;
+foreach my $f (&list_folders()) {
 	if ($f->{'type'} == 0 || $f->{'type'} == 1 || $f->{'type'} == 3) {
 		$total += &folder_size($f);
 		$count += &mailbox_folder_size($f);
@@ -1931,18 +1958,18 @@ foreach $f (&list_folders()) {
 	}
 
 # Get the configured quota
-local $configquota = $config{'max_quota'};
+my $configquota = $config{'max_quota'};
 
 # Get the LDAP limit
-local $ldapquota;
-local $ldapcount;
+my $ldapquota;
+my $ldapcount;
 if ($config{'ldap_host'} && $config{'ldap_quotas'}) {
-	local $entry = &get_user_ldap();
+	my $entry = &get_user_ldap();
 	$ldapquota = $entry->get_value("mailQuotaSize");
 	$ldapcount = $entry->get_value("mailQuotaCount");
 	}
 
-local $quota = defined($configquota) && defined($ldapquota) ?
+my $quota = defined($configquota) && defined($ldapquota) ?
 		min($configquota, $ldapquota) :
 	       defined($configquota) ? $configquota :
 	       defined($ldapquota) ? $ldapquota : undef;
@@ -1958,9 +1985,9 @@ return $_[0] < $_[1] ? $_[0] : $_[1];
 # Returns the field and direction on which sorting is done for the current user
 sub get_sort_field
 {
-local ($folder) = @_;
+my ($folder) = @_;
 return ( ) if (!$folder->{'sortable'});
-local $file = &folder_name($folder);
+my $file = &folder_name($folder);
 $file =~ s/\//_/g;
 my %sort;
 if (&read_file_cached("$user_module_config_directory/sort.$file", \%sort)) {
@@ -1972,7 +1999,7 @@ return ( );
 # save_sort_field(&folder, field, dir)
 sub save_sort_field
 {
-local $file = &folder_name($_[0]);
+my $file = &folder_name($_[0]);
 $file =~ s/\//_/g;
 my %sort = ( 'field' => $_[1], 'dir' => $_[2] );
 &write_file("$user_module_config_directory/sort.$file", \%sort);
@@ -1982,10 +2009,10 @@ my %sort = ( 'field' => $_[1], 'dir' => $_[2] );
 # Returns HTML for a link to switch sorting mode
 sub field_sort_link
 {
-local ($title, $field, $folder, $start) = @_;
-local ($sortfield, $sortdir) = &get_sort_field($folder);
-local $dir = $sortfield eq $field ? !$sortdir : 0;
-local $img = $sortfield eq $field && $dir ? "sortascgrey.gif" :
+my ($title, $field, $folder, $start) = @_;
+my ($sortfield, $sortdir) = &get_sort_field($folder);
+my $dir = $sortfield eq $field ? !$sortdir : 0;
+my $img = $sortfield eq $field && $dir ? "sortascgrey.gif" :
 	     $sortfield eq $field && !$dir ? "sortdescgrey.gif" :
 	     $dir ? "sortasc.gif" : "sortdesc.gif";
 if ($folder->{'sortable'} && $userconfig{'show_sort'}) {
@@ -1999,10 +2026,10 @@ else {
 # view_mail_link(&folder, id, start, from-to-text)
 sub view_mail_link
 {
-local ($folder, $id, $start, $txt) = @_;
-local $qid = &urlize($id);
-local $qstart = &urlize($start);
-local $url = "view_mail.cgi?start=$qstart&id=$qid&folder=$folder->{'index'}";
+my ($folder, $id, $start, $txt) = @_;
+my $qid = &urlize($id);
+my $qstart = &urlize($start);
+my $url = "view_mail.cgi?start=$qstart&id=$qid&folder=$folder->{'index'}";
 if ($userconfig{'open_mode'}) {
 	return "<a href='' onClick='window.open(\"$url\", \"viewmail\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>".
 	       &simplify_from($txt)."</a>";
@@ -2038,9 +2065,9 @@ else {
 # Returns the automatic schedule structure for the given folder
 sub get_auto_schedule
 {
-local ($folder) = @_;
-local $id = $folder->{'id'} || &urlize($folder->{'file'});
-local %rv;
+my ($folder) = @_;
+my $id = $folder->{'id'} || &urlize($folder->{'file'});
+my %rv;
 &read_file("$user_module_config_directory/$id.sched", \%rv) ||
 	return undef;
 return \%rv;
@@ -2050,8 +2077,8 @@ return \%rv;
 # Updates the automatic schedule structure for the given folder
 sub save_auto_schedule
 {
-local ($folder, $sched) = @_;
-local $id = $folder->{'id'} || &urlize($folder->{'file'});
+my ($folder, $sched) = @_;
+my $id = $folder->{'id'} || &urlize($folder->{'file'});
 if ($sched) {
 	&write_file("$user_module_config_directory/$id.sched", $sched);
 	}
@@ -2065,8 +2092,8 @@ else {
 sub setup_auto_cron
 {
 &foreign_require("cron", "cron-lib.pl");
-local @jobs = &cron::list_cron_jobs();
-local ($job) = grep { $_->{'command'} eq $auto_cmd &&
+my @jobs = &cron::list_cron_jobs();
+my ($job) = grep { $_->{'command'} eq $auto_cmd &&
 		      $_->{'user'} eq $remote_user } @jobs;
 if (!$job) {
 	$job = { 'command' => $auto_cmd,
@@ -2089,9 +2116,9 @@ sub addressbook_to_whitelist
 {
 if ($userconfig{'white_book'} && &foreign_installed("spam")) {
 	&foreign_require("spam", "spam-lib.pl");
-	local $conf = &spam::get_config();
-	local @white = &spam::find_value("whitelist_from", $conf);
-	local %white = map { lc($_), 1 } @white;
+	my $conf = &spam::get_config();
+	my @white = &spam::find_value("whitelist_from", $conf);
+	my %white = map { lc($_), 1 } @white;
 	foreach my $a (&list_addresses()) {
 		if (!$white{lc($a->[0])}) {
 			push(@white, $a->[0]);
@@ -2106,12 +2133,12 @@ if ($userconfig{'white_book'} && &foreign_installed("spam")) {
 # Add some email address to the whitelist
 sub addressbook_add_whitelist
 {
-local (@addrs) = @_;
+my (@addrs) = @_;
 if (&foreign_installed("spam")) {
 	&foreign_require("spam", "spam-lib.pl");
-	local $conf = &spam::get_config();
-	local @white = &spam::find_value("whitelist_from", $conf);
-	local %white = map { lc($_), 1 } @white;
+	my $conf = &spam::get_config();
+	my @white = &spam::find_value("whitelist_from", $conf);
+	my %white = map { lc($_), 1 } @white;
 	foreach my $a (@addrs) {
 		if (!$white{lc($a)}) {
 			push(@white, $a);
@@ -2126,11 +2153,11 @@ if (&foreign_installed("spam")) {
 # Delete some address from the whitelist
 sub addressbook_remove_whitelist
 {
-local ($addr) = @_;
+my ($addr) = @_;
 if ($userconfig{'white_book'} && &foreign_installed("spam")) {
 	&foreign_require("spam", "spam-lib.pl");
-	local $conf = &spam::get_config();
-	local @white = &spam::find_value("whitelist_from", $conf);
+	my $conf = &spam::get_config();
+	my @white = &spam::find_value("whitelist_from", $conf);
 	@white = grep { lc($_) ne lc($addr) } @white;
 	&spam::save_directives($conf, "whitelist_from", \@white, 1);
 	&flush_file_lines();
@@ -2141,7 +2168,7 @@ if ($userconfig{'white_book'} && &foreign_installed("spam")) {
 # Returns a table for left and right aligning some HTML
 sub left_right_align
 {
-local ($l, $r) = @_;
+my ($l, $r) = @_;
 return "<table cellpadding=0 cellspacing=0 width=100%><tr><td align=left>$l</td><td align=right>$r</td></tr></table>";
 }
 
@@ -2155,12 +2182,12 @@ return &has_command("zip");
 # Returns HTML for selecting messages
 sub select_status_link
 {
-local ($name, $formno, $folder, $mail, $start, $end, $status, $label) = @_;
+my ($name, $formno, $folder, $mail, $start, $end, $status, $label) = @_;
 $formno = int($formno);
-local @sel;
+my @sel;
 for(my $i=$start; $i<=$end; $i++) {
-	local $m = $mail->[$i];
-	local $read = &get_mail_read($folder, $m);
+	my $m = $mail->[$i];
+	my $read = &get_mail_read($folder, $m);
 	if ($status == 0 && !($read&1) ||
 	    $status == 1 && ($read&1) ||
 	    $status == 2 && ($read&2)) {
@@ -2178,10 +2205,11 @@ my ($addr, $id, $subs) = @_;
 my $qid = &urlize($id);
 ## split_addresses() pattern-matches "[<>]", so 7-bit encodings
 ## such as ISO-2022-JP must be converted to EUC before feeding.
-local $mw = &convert_header_for_display($addr, 0, 1);
-local @addrs = &split_addresses(&eucconv($mw));
-local @rv;
-foreach $a (@addrs) {
+my $mw = &convert_header_for_display($addr, 0, 1);
+my @addrs = &split_addresses(&eucconv($mw));
+my @rv;
+my %inbook;
+foreach my $a (@addrs) {
 	## TODO: is $inbook{} MIME or locale-encoded?
 	if ($inbook{lc($a->[0])}) {
 		push(@rv, &eucconv_and_escape($a->[2]));
@@ -2204,8 +2232,8 @@ return join(" , ", @rv);
 # where possible.
 sub get_preferred_from_address
 {
-local ($froms, $doms) = &list_from_addresses();
-local ($defaddr) = grep { $_->[3] == 2 } &list_addresses();
+my ($froms, $doms) = &list_from_addresses();
+my ($defaddr) = grep { $_->[3] == 2 } &list_addresses();
 if ($defaddr) {
 	# From address book
 	return $defaddr->[1] ? "\"$defaddr->[1]\" <$defaddr->[0]>"
@@ -2221,22 +2249,22 @@ else {
 # Given a string containing email addresses, remove those belonging to the user
 sub remove_own_email
 {
-local ($addrs) = @_;
-local @addrs = &split_addresses($addrs);
+my ($addrs) = @_;
+my @addrs = &split_addresses($addrs);
 
 # Build our own addresses
-local %own;
+my %own;
 foreach my $a (&list_addresses()) {
 	$own{$a->[0]}++ if ($a->[3]);
 	}
-local ($froms) = &list_from_addresses();
+my ($froms) = &list_from_addresses();
 foreach my $f (@$froms) {
-	local ($addr) = &split_addresses($f);
+	my ($addr) = &split_addresses($f);
 	$own{$addr->[0]}++;
 	}
 
 # See what we have to remove
-local @others = grep { !$own{$_->[0]} } @addrs;
+my @others = grep { !$own{$_->[0]} } @addrs;
 if (scalar(@others) == scalar(@addrs) || !scalar(@others)) {
 	# No need to change the string
 	return $addrs;
@@ -2263,11 +2291,12 @@ sub save_last_folder_id
 my ($id) = @_;
 $id = &folder_name($id) if (ref($id));
 if ($id ne $search_folder_id) {
+	no strict "subs";
 	&open_tempfile(LASTFOLDER, ">$last_folder_file", 1);
 	&print_tempfile(LASTFOLDER, $id,"\n");
 	&close_tempfile(LASTFOLDER);
+	use strict "subs";
 	}
 }
 
 1;
-

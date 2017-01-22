@@ -1,11 +1,15 @@
 #!/usr/local/bin/perl
 # inbox_login.cgi
 # Save inbox POP3 login and password
+use strict;
+use warnings;
+our (%text, %in, %pop3);
+our $user_module_config_directory;
 
 require './mailbox-lib.pl';
 &ReadParse();
-@folders = &list_folders();
-$folder = $folders[$in{'folder'}];
+my @folders = &list_folders();
+my $folder = $folders[$in{'folder'}];
 
 # Validate inputs
 &error_setup($text{'mail_loginerr'});
@@ -14,7 +18,7 @@ $folder->{'user'} = $pop3{'user'} = $in{'user'};
 $folder->{'pass'} = $pop3{'pass'} = $in{'pass'};
 if ($folder->{'type'} == 2) {
 	# Try POP3 login
-	@err = &pop3_login($folder);
+	my @err = &pop3_login($folder);
 	if ($err[0] == 0) {
 		&error($err[1]);
 		}
@@ -32,7 +36,7 @@ if ($folder->{'type'} == 2) {
 else {
 	# Try IMAP login
 	$folder->{'mailbox'} = $pop3{'mailbox'} = undef;
-	@err = &imap_login($folder);
+	my @err = &imap_login($folder);
 	if ($err[0] == 0) {
 		&error($err[1]);
 		}
@@ -51,4 +55,3 @@ else {
 	chmod(0700, "$user_module_config_directory/inbox.imap");
 	}
 &redirect("index.cgi?folder=$in{'folder'}");
-

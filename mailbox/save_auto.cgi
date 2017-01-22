@@ -1,13 +1,16 @@
 #!/usr/local/bin/perl
 # Show a form for setting up scheduled folder clearing
+use strict;
+use warnings;
+our (%text, %in, %config);
 
 require './mailbox-lib.pl';
 &ReadParse();
-@folders = &list_folders();
-$folder = $folders[$in{'idx'}];
+my @folders = &list_folders();
+my $folder = $folders[$in{'idx'}];
 
 # Validate inputs
-$auto = &get_auto_schedule($folder);
+my $auto = &get_auto_schedule($folder);
 $auto ||= { };
 $auto->{'enabled'} = $in{'enabled'};
 $auto->{'mode'} = $in{'mode'};
@@ -23,7 +26,7 @@ else {
 $auto->{'all'} = $in{'all'};
 if ($in{'all'} == 2) {
 	$auto->{'dest'} = $in{'dest'};
-	($dest) = grep { &folder_name($_) eq $in{'dest'} } @folders;
+	my ($dest) = grep { &folder_name($_) eq $in{'dest'} } @folders;
 	$dest || &error($text{'auto_edest'});
 	$dest->{'nowrite'} && &error($text{'auto_ewrite'});
 	}

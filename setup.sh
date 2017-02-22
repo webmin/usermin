@@ -409,8 +409,11 @@ else
 	echo "ssl=$ssl" >> $cfile
 	echo "no_ssl2=1" >> $cfile
 	echo "no_ssl3=1" >> $cfile
-	echo "no_tls1=1" >> $cfile
-	echo "no_tls1_1=1" >> $cfile    
+	openssl version 2>&1 | grep "OpenSSL 1" 2>&1 >/dev/null
+	if [ "$?" == "0" ]; then
+		echo "no_tls1=1" >> $cfile
+		echo "no_tls1_1=1" >> $cfile    
+	fi
 	echo "env_WEBMIN_CONFIG=$config_dir" >> $cfile
 	echo "env_WEBMIN_VAR=$var_dir" >> $cfile
 	echo "atboot=$atboot" >> $cfile

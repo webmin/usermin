@@ -69,29 +69,6 @@ for($i=0; $i<$n; $i++) {
 	push(@cols, &nice_limit($filesys{$i,'hfiles'}, $bsize, 1));
 	push(@cols, $filesys{$i,'gfiles'}) if ($config{'show_grace'});
 	print &ui_columns_row(\@cols);
-
-	# Show bar chart
-        if ($filesys{$i,'sblocks'} or $filesys{$i,'hblocks'} or $filesys{$i,'sfiles'} or $filesys{$i,'hfiles'}) {
-		my ($b,$bmax);
-		local @cols = ( "" );
-		my $cols = $config{'show_grace'} ? 4 : 3;
-		if ($bmax = ($filesys{$i,'hblocks'} or $filesys{$i,'sblocks'})) {
-			$b = int(($filesys{$i,'ublocks'}/$bmax*100)+0.5);
-			push(@cols, "<table width=\"$b%\"><tr><td bgcolor=#66ff66>&nbsp;</td></tr></table>");
-			}
-		else {
-			push(@cols, "");
-			}
-		if ($bmax = ($filesys{$i,'hfiles'} or $filesys{$i,'sfiles'})) {
-			$b = int(($filesys{$i,'ufiles'}/$bmax*100)+0.5);
-			push(@cols, "<table width=\"$b%\"><tr><td bgcolor=#66ff66>&nbsp;</td></tr></table>");
-			}
-		else {
-			push(@cols, "");
-			}
-		print &ui_columns_row(\@cols,
-			[ "", "colspan=$cols", "colspan=$cols" ]);
-		}
 	}
 print &ui_columns_end();
 }

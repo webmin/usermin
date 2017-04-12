@@ -6,13 +6,11 @@ wrap_width=80
 top_buttons=1
 show_to=0
 sendmail_path=/usr/sbin/sendmail
-server_attach=1
+server_attach=0
 mail_style=0
 mail_file=mbox
 mail_dir_qmail=Maildir
 from_map=/etc/mail/virtusertable
-
-
 folder_types=local,ext,pop3,imap
 pop_locks=1
 no_crlf=0

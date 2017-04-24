@@ -42,5 +42,5 @@ if (!$func) {
 print &ui_table_end();
 print &ui_form_end([ [ "save", $text{'save'} ] ]);
 
-&footer("/$m", $text{'index'});
+&ui_print_footer("/$m", $text{'index'});
 

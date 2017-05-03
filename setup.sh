@@ -647,6 +647,11 @@ else
 	rm -f $config_dir/install-dir
 fi
 
+# Run package-defined post-install script
+if [ -r "$srcdir/setup-post.sh" ]; then
+	. "$srcdir/setup-post.sh"
+fi
+
 if [ "$nostart" = "" ]; then
 	if [ "$inetd" != "1" ]; then
 		echo "Attempting to start Usermin mini web server.."

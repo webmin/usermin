@@ -351,11 +351,13 @@ else
 		echo ""
 		exit 12
 	fi
-	$perl -e 'use Socket; socket(FOO, PF_INET, SOCK_STREAM, getprotobyname("tcp")); setsockopt(FOO, SOL_SOCKET, SO_REUSEADDR, pack("l", 1)); bind(FOO, pack_sockaddr_in($ARGV[0], INADDR_ANY)) || exit(1); exit(0);' $port
-	if [ $? != "0" ]; then
-		echo "ERROR: TCP port $port is already in use by another program"
-		echo ""
-		exit 13
+	if [ "$noportcheck" = "" ]; then
+		$perl -e 'use Socket; socket(FOO, PF_INET, SOCK_STREAM, getprotobyname("tcp")); setsockopt(FOO, SOL_SOCKET, SO_REUSEADDR, pack("l", 1)); bind(FOO, pack_sockaddr_in($ARGV[0], INADDR_ANY)) || exit(1); exit(0);' $port
+		if [ $? != "0" ]; then
+			echo "ERROR: TCP port $port is already in use by another program"
+			echo ""
+			exit 13
+		fi
 	fi
 
 	# Ask the user if SSL should be used
@@ -643,6 +645,11 @@ if [ "$wadir" != "$srcdir" ]; then
 	echo $wadir >$config_dir/install-dir
 else
 	rm -f $config_dir/install-dir
+fi
+
+# Run package-defined post-install script
+if [ -r "$srcdir/setup-post.sh" ]; then
+	. "$srcdir/setup-post.sh"
 fi
 
 if [ "$nostart" = "" ]; then

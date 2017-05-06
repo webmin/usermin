@@ -31,30 +31,30 @@ my $rv = $ldap->search(base => $base,
 if ($rv->code) {
 	temperr("Failed to lookup user in LDAP : ",$rv->error);
 	}
-($user) = $rv->all_entries();
+my ($user) = $rv->all_entries();
 exit(0) if (!$user);		# Non-LDAP, so no quota
 
 # Check the current size of all the user's folders
-$mms = $user->get_value('mailMessageStore');
-$inbox = { 'type' => &folder_type($mms),
-	   'file' => $mms };
-@folders = ( $inbox );
-$fdir = $user->get_value('homeDirectory')."/mail";
+my $mms = $user->get_value('mailMessageStore');
+my $inbox = { 'type' => &folder_type($mms),
+	      'file' => $mms };
+my @folders = ( $inbox );
+my $fdir = $user->get_value('homeDirectory')."/mail";
 opendir(DIR, $fdir);
-while($f = readdir(DIR)) {
+while(my $f = readdir(DIR)) {
 	next if ($f eq "." || $f eq "..");
-	$path = "$fdir/$f";
-	$folder = { 'type' => &folder_type($path),
-		    'file' => $path };
+	my $path = "$fdir/$f";
+	my $folder = { 'type' => &folder_type($path),
+		       'file' => $path };
 	push(@folders, $folder);
 	}
 closedir(DIR);
-$total = &folder_size(@folders);
+my $total = &folder_size(@folders);
 print "Current size: $total\n";
 print "Extra size: $size\n";
 
 # Compare to quota
-$quota = $user->get_value('mailQuotaSize');
+my $quota = $user->get_value('mailQuotaSize');
 print "Allowed quota: $quota\n";
 if ($quota && $total + $size > $quota) {
 	print STDERR "Quota exceeded\n";

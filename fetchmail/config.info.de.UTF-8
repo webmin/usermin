@@ -1,0 +1,2 @@
+fetchmail_path=Pfad zum Fetchmail-Programm,0
+mda_command=Befehl zum versenden von Mail,3,Über <tt>SMTP</tt> versenden

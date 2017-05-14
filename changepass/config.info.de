@@ -1,8 +1,8 @@
 cmd_mode=Befehl ausf&#252;hren als,1,0-Benutzer&#x0082; dessen Passwort ge&#228;ndert wird,1-<tt>root</tt> (mit angeh&#228;ngtem Benutzernamen)
 passwd_cmd=&#196;ndern mit,10,-Benutze PAM oder <tt>passwd</tt>-Befehl,file-Direkt <tt>/etc/shadow</tt> bearbeiten,Benutzerdefinierter Befehl
-passwd_dict=Keine &quot;W&#246;rterbuch&quot;-Passworte zulassen?,1,1-Ja,0-Nein
+passwd_dict=Passwort darf nicht im <tt>W&#246;rterbuch</tt> vorhanden sein?,1,1-Ja,0-Nein
 passwd_min=Minimale Passwortl&#228;nge,0,5
-passwd_new=Passwort mu&#223; sich vom alten unterscheiden?,1,1-Ja,0-Nein
-passwd_re=RegExp in Perl&#x0082; um Passworte zu pr&#252;fen,3,Keine
+passwd_new=Neues Passwort darf nicht mit altem identisch sein?,1,1-Ja,0-Nein
+passwd_re=Perl RegExp zum pr&#252;fen des Passworts,3,Keine
 passwd_same=Passwort darf den Benutzernamen nicht enhalten?,1,1-Ja,0-Nein
-smbpasswd=&#196;ndere auch das Samba-Passwort,10,-Nicht &#228;ndern,Benutzerdefinierter Befehl
+smbpasswd=Auch das Samba-Passwort &#228;ndern?,10,-Nicht &#228;ndern,Benutzerdefinierter Befehl

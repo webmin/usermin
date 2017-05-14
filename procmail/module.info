@@ -12,4 +12,6 @@ desc_nl=Procmail Email Filter
 desc_hu=Levelezõ szûrõ (Procmail)
 desc_no=Procmail e-post filter
 desc_de=Procmail Mail Filter
-longdesc_de=Configure advanced content-based forwarding for mail sent to your account. Requires Procmail to be installed and properly set up for mail delivery.
+longdesc_de=Dieses Modul erlaubt die Konfiguration der Filterung und Weiterleitung Ihrer Mails auf diesem Server.
+desc_de.UTF-8=Procmail Mail Filter
+longdesc_de.UTF-8=Dieses Modul erlaubt die Konfiguration der Filterung und Weiterleitung Ihrer Mails auf diesem Server.

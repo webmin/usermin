@@ -10,5 +10,5 @@ desc_no=Opp- og nedlasting
 desc_hu=Feltötlés a szerverre
 desc_de=Upload und Download
 longdesc_de=Lade Dateien auf das Usermin System hoch oder lasse Usermin Dateien von entfernen Server herunterladen.
-desc_de=.UTF-8Upload und Download
+desc_de.UTF-8=Upload und Download
 longdesc_de.UTF-8=Lade Dateien auf das Usermin System hoch oder lasse Usermin Dateien von entfernen Server herunterladen.

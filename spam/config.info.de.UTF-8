@@ -1,0 +1,11 @@
+index_spam=Bilde einen Index f&#252;r den Spamordner,1,1-Ja,0-Nein
+warn_procmail=Warne Benutzer&#44; wenn SpamAssassin nicht eingerichtet ist?,1,1-Ja,0-Nein
+global_cf=Systemweite SpamAssassin-Konfigurationsdatei ,0
+procmailrc=Pers&#246;nliche Procmail-Konfigurationsdatei,3,Aus dem Procmail&#45;Modul
+procmail_cmd=SpamAssassin-Kommando f&#252;r die Procmail-Konfiguration,3,Starte einfach <tt>spamassassin</tt>
+spamassassin=Voller Pfad zu SpamAssassin,0
+call_spam=F&#252;ge den Aufruf f&#252;r SpamAssassin der Procmailkonfiguration beim Einrichten hinzu?,1,1-Ja,0-Nein
+global_procmailrc=Systemweite Procmail-Konfigurationsdatei,0
+local_cf=SpamAssassin-Konfigurationsdatei f&#252;r Benutzer,0
+show_global=Zeige den Benutzern auch die global erlaubten und verbotenen E-Mail-Adressen?,1,1-Ja,0-Nein
+avail_icons=Icons&#44; die dem Benutzer zur Verf&#252;gung stehen,13,white-Erlaubte und Verbotene E&#45;Mail&#45;Adressen,score-Spam&#45;Klassifizierung,report-E&#45;Mail&#45;Modifizierung,user-Verschiedene Benutzeroptionen,header-E&#45;Header und Textkörpertests,setup-Procmail f&#252;r Spamassassin einrichten,mail-Spam&#45;Mails lesen

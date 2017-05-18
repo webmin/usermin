@@ -1,5 +1,5 @@
 desc=Mail Forwarding and Replies
-desc_de=E-Mail-Weiterleitung (.forward)
+desc_de=Mail-Weiterleitung
 category=mail
 usermin=1
 depends=mailbox

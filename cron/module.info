@@ -1,6 +1,6 @@
 name=Cron
 desc=Scheduled Cron Jobs
-desc_de=Geplante Auftr&#228;ge (CRON)
+desc_de=Geplante CRON-Auftr&#228;ge
 usermin=1
 desc_el=Χρονοπρογραμματισμένες Εργασίες Cron
 longdesc=Edit and create recurring Cron jobs.

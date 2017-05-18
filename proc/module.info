@@ -1,6 +1,6 @@
 name=Proc
 desc=Running Processes
-desc_de=Laufende Prozesse (ps)
+desc_de=Laufende Prozesse
 category=login
 usermin=1
 desc_ja_JP.euc=ランニング プロセス

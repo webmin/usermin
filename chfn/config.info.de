@@ -1,6 +1,6 @@
-change_hphone=Kann Telefonnummer (Privat) &#228;ndern?,1,1-Ja,0-Nein
-change_office=Kann die Raumnummer des B&#252;ros &#228;ndern?,1,1-Ja,0-Nein
-change_ophone=Kann Telefonnummer (Arbeit) &#228;ndern?,1,1-Ja,0-Nein
-change_real=Kann den Realnamen &#228;ndern?,1,1-Ja,0-Nein
-change_shell=Kann die Shell &#228;ndern?,1,1-Ja,0-Nein
-shells=Beziehe Liste der Shells aus,3,/etc/shells
+change_hphone=Private Telefonnumme &#228;ndern?,1,1-Ja,0-Nein
+change_office=B&#252;ro Raumnummer &#228;ndern?,1,1-Ja,0-Nein
+change_ophone=B&#252;ro Telefonnummer &#228;ndern?,1,1-Ja,0-Nein
+change_real=Eigenen Namen &#228;ndern?,1,1-Ja,0-Nein
+change_shell=Login-Shell &#228;ndern?,1,1-Ja,0-Nein
+shells=Liste der Shells beziehen aus,3,/etc/shells

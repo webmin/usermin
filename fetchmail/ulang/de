@@ -1,5 +1,5 @@
-index_efetchmail=Das Fetchmail-Programmm $1 wurde auf Ihrem System nicht gefunden.
-index_none=Es wurde noch kein Mail Server zum pr&#252;fen definiert.
-index_noservers=Es wurden bisher keine Server f&#252;r den E-Mail-Empfang eingerichtet.
-index_startmsg=Klicken Sie auf diesen Button um den Fetchmail-Daemon zu starten. Dieser wird dann alle $1 Sekunden aufgrund der obigen Konfiguration E-Mails abrufen.
-index_stopmsg=Klicken Sie auf diesen Button um den Fetchmail-Daemon zu stoppen. Dieser pr&#252;ft derzeit alle $1 Sekunden aufgrund der obigen Konfiguration auf neue E-Mails.
+index_efetchmail=Der Befehl <tt>fetchmail</tt> $1 wurde auf dem Server nicht gefunden.
+index_none=Es wurde noch kein Server zum Abholen von Mail definiert.
+index_noservers=Es wurden noch keine Server zum Empfangen von Mail eingerichtet.
+index_startmsg=Klicken Sie auf diesen Knopf um den Fetchmail-Hintergrundprezess zu starten. Der Hintergrundprozess pr&#252;ft alle $1 Sekunden ob neue Mail auf den oben eingerichten Servern vorhanden ist.
+index_stopmsg=Klicken Sie auf diesen Knopf um den Fetchmail-Hintergrundprezess zu stoppen. Der Hintergrundprozess pr&#252;ft derzeit alle $1 Sekunden ob neue Mail auf den oben eingerichten Servern vorhanden ist.

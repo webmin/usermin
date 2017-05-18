@@ -2,3 +2,5 @@ name=MOTD
 desc=Message of the Day
 usermin=1
 category=login
+desc_de=Nachricht des Tages
+desc_de.UTF-8=Nachricht des Tages

@@ -1,7 +1,2 @@
-# config.info.de-File for UPDOWN
-# Last patched: 13.08.2003 Martin Mewes for USERMIN
-# Questions, comments, snide-remarks: webmin@webmin.mamemu.de
-######################################################################
-
 home_only=Uploads und Downloads auf Home&#45;Verzeichnis beschr&auml;nken?,1,1-Ja,0-Nein
 root=Andere Verzeichnisse erlauben?,9,30,4

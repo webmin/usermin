@@ -1,8 +1,8 @@
-login=MySQL&#45;Benutzername,0
-pass=MySQL&#45;Passwort,12
+login=MySQL Benutzername,0
+pass=MySQL Passwort,12
 max_dbs=Maximale Anzahl der Datenbanken und Tabellen zum Anzeigen,0
 perpage=Anzahl der Zeilen pro Seite zum angezeigen,0
 style=Zeige Datenbanken und Tabellen als,1,1-Liste,0-Icons
-add_mode=Verwende vertikale Zeilen Bearbeitungsoberfl&#228;che,1,1-Ja,0-Nein
+add_mode=Verwende vertikale Zeilen Bearbeitungsoberfläche,1,1-Ja,0-Nein
 blob_mode=Zeige Blob und Textfelder als,1,0-Daten in Tabelle,1-Links zum Download
-charset=Zeichensatz f&#252;r MySQL Daten,0
+charset=Zeichensatz für MySQL Daten,0

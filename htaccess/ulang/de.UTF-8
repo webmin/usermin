@@ -1,0 +1,13 @@
+find_list=Folgende Options Dateien wurden in $1 gefunden ..
+find_none=Es wurden keine $1 Options Dateien in $2 gefunden.
+find_title=Finde Options Dateien
+index_apache=Die Apache-Version und Modul-Information konnten im Webmin-Installationsverzeichnis $1 nicht gefunden werden. Dieses Modul benötigt jedoch ein installiertes Webmin und eine gültige Webmin-Apache-Modul-Konfiguration.
+index_create=Optionen hinzufügen für:
+index_createdesc=Neue Optionsdatei im genannten Verzeichnis erstellen.
+index_desc=Dieses Modul ermöglicht es Ihnen die Einstellungen der $1 Dateien zu bearbeiten, die Optionen für die Verzeichnisse beinhalten, die vom Apache Webserver bereitgestellt werden. Diese Optionen werden auf alle Dateien in diesem und den untergeordneten Verzeichnissen angewandt, es sei denn der Administrator hat globale Optionen gesetzt, die von Ihnen nicht ge&#228;ndert werden können.
+index_find=Suche Options Dateien in:
+index_finddesc=Durchsucht das angegebene Verzeichnis nach allen $1 Dateien, die manuell erstellt wurden. Solange manuell erstellte Options Dateien gefunden werden, können diese nicht mit diesem Modul bearbeitet werden.
+index_header=Existierende Options Dateien
+index_none=Bisher wurden keine Options Dateien eingerichtet.
+index_return=Liste der Options Dateien
+index_title=Apache Options Dateien

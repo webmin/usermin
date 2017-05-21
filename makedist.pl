@@ -16,7 +16,7 @@ $vers =~ /^[0-9\.]+$/ || usage();
 	  "config-solaris", "images", "index.cgi", "mime.types",
 	  "miniserv.pl", "os_list.txt", "perlpath.pl", "setup.sh",
 	  "version", "web-lib.pl", "web-lib-funcs.pl", "README",
-	  "chooser.cgi", "miniserv.pem", "update-from-repo.sh"
+	  "chooser.cgi", "miniserv.pem", "update-from-repo.sh",
 	  "config-aix", 
 	  "newmods.pl", "copyconfig.pl", "config-hpux", "config-freebsd",
 	  "help.cgi", "user_chooser.cgi",

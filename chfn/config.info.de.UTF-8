@@ -1,0 +1,6 @@
+change_hphone=Private Telefonnumme ändern?,1,1-Ja,0-Nein
+change_office=Büro Raumnummer ändern?,1,1-Ja,0-Nein
+change_ophone=Büro Telefonnummer ändern?,1,1-Ja,0-Nein
+change_real=Eigenen Namen ändern?,1,1-Ja,0-Nein
+change_shell=Login-Shell ändern?,1,1-Ja,0-Nein
+shells=Liste der Shells beziehen aus,3,/etc/shells

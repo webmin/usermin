@@ -12,3 +12,6 @@ desc_cz=Bì¾ící procesy
 desc_nl=Lopende processen
 desc_hu=Futó processzek
 desc_no=Kj&#248;rende prosesser
+longdesc_de=Ansehen der auf dem System laufenden Prozesse und beenden der eigenen Prozesse.
+desc_de.UTF-8=Laufende Prozesse
+longdesc_de.UTF-8=Ansehen der auf dem System laufenden Prozesse und beenden der eigenen Prozesse.

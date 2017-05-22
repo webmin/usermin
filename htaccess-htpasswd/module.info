@@ -12,3 +12,6 @@ desc_nl=Beschermde Web Directory's
 desc_pl=Chronione katalogi Web (.htpasswd)
 desc_hu=Védett web könyvtárak (htpasswd)
 desc_no=Beskyttede Web-kataloger
+longdesc_de=Erzeugen und bearbeiten von Passw&#246;rtern zum Schutz von WWW-Verzeichnissen.
+desc_de.UTF-8=WWW-Verzeichnis Passwörter
+longdesc_de.UTF-8=Erzeugen und bearbeiten von Passwörtern zum Schutz von WWW-Verzeichnissen.

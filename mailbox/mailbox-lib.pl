@@ -522,29 +522,27 @@ push(@rv, { 'name' => $text{'folder_drafts'},
 	    'drafts' => 1,
 	    'index' => scalar(@rv) });
 
-# If using a trash folder, add it
-if ($userconfig{'delete_mode'} == 1) {
-	my $tn = $userconfig{'trash_name'};
-	if ($tn && $userconfig{'mailbox_dir'} eq "Maildir" && $tn !~ /^\./) {
-		# Maildir++ folders always start with .
-		$tn = ".".$tn;
-		}
-	my $tf = $tn ? "$folders_dir/$tn" :
-		    -r "$folders_dir/Trash" ? "$folders_dir/Trash" :
-		    -r "$folders_dir/.Trash" ? "$folders_dir/.Trash" :
-		    -r "$folders_dir/.trash" ? "$folders_dir/.trash" :
-		    $userconfig{'mailbox_dir'} eq "Maildir" ?
-			"$folders_dir/.trash" : "$folders_dir/trash";
-	$done{$tf}++;
-	my $tft = -e $tf ? &folder_type($tf) :
-		     $userconfig{'mailbox_dir'} eq "Maildir" ? 1 : 0;
-	push(@rv, { 'name' => $text{'folder_trash'},
-		    'type' => $tft,
-		    'file' => $tf,
-		    'mode' => 3,
-		    'trash' => 1,
-		    'index' => scalar(@rv) });
+# Add trash folder
+my $tn = $userconfig{'trash_name'};
+if ($tn && $userconfig{'mailbox_dir'} eq "Maildir" && $tn !~ /^\./) {
+	# Maildir++ folders always start with .
+	$tn = ".".$tn;
 	}
+my $tf = $tn ? "$folders_dir/$tn" :
+	    -r "$folders_dir/Trash" ? "$folders_dir/Trash" :
+	    -r "$folders_dir/.Trash" ? "$folders_dir/.Trash" :
+	    -r "$folders_dir/.trash" ? "$folders_dir/.trash" :
+	    $userconfig{'mailbox_dir'} eq "Maildir" ?
+		"$folders_dir/.trash" : "$folders_dir/trash";
+$done{$tf}++;
+my $tft = -e $tf ? &folder_type($tf) :
+	     $userconfig{'mailbox_dir'} eq "Maildir" ? 1 : 0;
+push(@rv, { 'name' => $text{'folder_trash'},
+	    'type' => $tft,
+	    'file' => $tf,
+	    'mode' => 3,
+	    'trash' => 1,
+	    'index' => scalar(@rv) });
 
 # Add local folders, usually under ~/mail
 if ($folder_types{'local'}) {

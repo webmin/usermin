@@ -293,8 +293,8 @@ else {
 			}
 
 		my $cmd = $mode eq "razor" ? &spam_report_cmd()
-					      : &ham_report_cmd();
-		open(my $OUT, "<", "$cmd <$temp 2>&1 |");
+					   : &ham_report_cmd();
+		open(my $OUT, "$cmd <$temp 2>&1 |");
 		my $error;
 		while(<$OUT>) {
 			print &html_escape($_);

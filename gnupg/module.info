@@ -12,3 +12,6 @@ desc_fr=Chiffrement GnuPG
 desc_nl=GnuPG Versleuteling
 desc_hu=GnuPG titkosítás
 desc_no=GnuPG kryptering
+desc_de.UTF-8=GnuPG Verschl&uuml;sselung
+longdesc_de=Ver- und Entschl&uuml;sseln, Signieren und &Uuml;berpr&uuml;fen mit GnuPG. Unterst&uuml;tzt auch erzeugen und verwalten von Schl&uuml;sseln.
+longdesc_de.UTF-8=Ver- und Entschl&uuml;sseln, Signieren und &Uuml;berpr&uuml;fen mit GnuPG. Unterst&uuml;tzt auch erzeugen und verwalten von Schl&uuml;sseln.

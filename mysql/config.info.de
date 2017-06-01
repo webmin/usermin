@@ -1,0 +1,12 @@
+mysqlshow=Pfad zu mysqlshow Befehl,0
+mysqladmin=Pfad zu mysqladmin Befehl,0
+mysql=Pfad zu mysql Befehl,0
+mysqldump=Pfad zu mysqldump Befehl,0
+mysqlimport=Pfad zu mysqlimport Befehl,0
+start_cmd=Befehl zum Starten des MySQL Servers,0
+stop_cmd=Befehl zum Stoppen des MySQL Servers,3,Automatic
+mysql_libs=Pfad zu MySQL shared libraries Verzeichnis,3,None
+host=MySQL-Server zu dem die Verbindung aufgebaut wird,3,Localhost
+sock=MySQL socket Datei,3,Default
+nodbi=Nutze DBI zum verbinden wenn vorhanden?,1,0-Yes,1-No
+access=Database access control list&#44;<br>in <tt>username: db1 db2</tt> format.<br>MySQL permissions also apply,9,0,0,\t

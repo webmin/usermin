@@ -11,3 +11,6 @@ desc_ca=Correus Planificats
 desc_pt_BR= E-mails agendados  
 desc_hu=Ütemezett emailek
 desc_no=Tidsplanlagte e-poster
+longdesc_de=Automatisches versenden von Mails zu einem festgelegten Zeitpunkt oder zu sich wiederholenden Zeitpunkten.
+desc_de.UTF-8=Zeitversetzter Mail-Versand
+longdesc_de.UTF-8=Automatisches versenden von Mails zu einem festgelegten Zeitpunkt oder zu sich wiederholenden Zeitpunkten.

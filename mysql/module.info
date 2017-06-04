@@ -9,3 +9,6 @@ desc_cz=Databáze MySQL
 desc_nl=MySQL Database
 desc_hu=Adatbázis szerver (MySQL)
 desc_no=MySQL Database
+longdesc_de=Bearbeiten von MySQL Tabellen und Datens&#228;tzen auf diesem Server.
+desc_de.UTF-8=MySQL Datenbank
+longdesc_de.UTF-8=Bearbeiten von MySQL Tabellen und Datensätzen auf diesem Server.

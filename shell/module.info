@@ -14,3 +14,6 @@ desc_nl=Opdrachten uitvoeren
 desc_fr=Commande Shell
 desc_cz=Pøíkazovı øádek
 desc_no=Kommando-skall
+longdesc_de=F&#252;hre einfache Shell-Befehle aus und sehe das Eergebnis.
+desc_de.UTF-8=Befehls-Zeile
+longdesc_de.UTF-8=F?hre einfache Shell-Befehle aus und sehe das Eergebnis.

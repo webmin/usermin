@@ -1,4 +1,5 @@
 #!/usr/local/bin/perl
+## Builds a tar.gz package of a specified Usermin version
 
 if ($ARGV[0] eq "--webmail" || $ARGV[0] eq "--webmail") {
 	# Modding for webmail
@@ -6,15 +7,16 @@ if ($ARGV[0] eq "--webmail" || $ARGV[0] eq "--webmail") {
 	shift(@ARGV);
 	}
 if (@ARGV != 1) {
-	die "usage: makedist.pl [--webmail] <version>";
-	}
+	usage();
+   }
 $vers = $ARGV[0];
+$vers =~ /^[0-9\.]+$/ || usage();
 
 @files = ("config-*-linux",
 	  "config-solaris", "images", "index.cgi", "mime.types",
 	  "miniserv.pl", "os_list.txt", "perlpath.pl", "setup.sh",
 	  "version", "web-lib.pl", "web-lib-funcs.pl", "README",
-	  "chooser.cgi", "miniserv.pem",
+	  "chooser.cgi", "miniserv.pem", "update-from-repo.sh",
 	  "config-aix", 
 	  "newmods.pl", "copyconfig.pl", "config-hpux", "config-freebsd",
 	  "help.cgi", "user_chooser.cgi",
@@ -50,8 +52,10 @@ if ($webmail) {
 	push(@mlist, "virtual-server-mobile");
 	}
 
-chdir("/usr/local/useradmin");
-system("./koi8-to-cp1251.pl");
+if ( -d "/usr/local/useradmin") {
+   chdir("/usr/local/useradmin");
+   system("./koi8-to-cp1251.pl");
+   }
 if ($webmail) {
 	$dir = "usermin-webmail-$vers";
 	}
@@ -232,3 +236,9 @@ foreach $k (keys %$arr) {
         }
 close(ARFILE);
 }
+
+sub usage
+{
+	die "usage: makedist.pl [-minimal] <version>";
+}
+

@@ -11,3 +11,6 @@ desc_nl=Geplande Cron Taken
 desc_hu=Idõzített futtatások (Cron)
 desc_pl=Harmonogram zadañ Cron
 desc_no=Planlagte Cron-jobber
+desc_de.UTF-8=Geplante CRON-Auftr?ge
+longdesc_de=Erzeugen und Bearbeiten von wiederkehrenden CRON-Auftr&#228;gen.
+longdesc_de.UTF-8=Erzeugen und Bearbeiten von wiederkehrenden CRON-Auftr?gen.

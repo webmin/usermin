@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Build an RPM file for openlinux
+# Build an RPM package of Usermin
 
 if (-r "/usr/src/OpenLinux") {
         $base_dir = "/usr/src/OpenLinux";
@@ -61,6 +61,8 @@ system("cp tarballs/$pkgname-$ver.tar.gz $source_dir") &&
 	die "Source file tarballs/$pkgname-$ver.tar.gz not found!";
 open(SPEC, ">$spec_dir/$pkgname-$ver.spec");
 print SPEC <<EOF;
+%global __perl_provides %{nil}
+
 #%define BuildRoot /tmp/%{name}-%{version}
 %define __spec_install_post %{nil}
 

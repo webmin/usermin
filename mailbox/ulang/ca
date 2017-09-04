@@ -54,6 +54,14 @@ address_importdup0=Ignora-les
 address_importdup1=Actualitza el nom
 address_importok=Importa-les Ara
 address_return=a la llibreta d'adreces
+address_exportdesc=Aquest formulari permet descarregar adreces d'Usermin per importar-les a altres programes.
+address_export=Exporta les adreces
+address_exportformat=Exporta en format
+address_exportdup=Tractament d'adreces duplicades
+address_exportdup0=Inclou-les totes
+address_exportdup1=Inclou només la primera
+address_exportfmt=Exporta en format
+address_exportok=Exporta-ho ara
 
 import_err=NOs'han pogut importatr les adreces
 import_title=Importació de Llibreta d'Adreces
@@ -69,6 +77,8 @@ import_noemail=<font color=red>HI falta una adreça e-mail o bé és invàlida</font
 import_same=Sense canvis, s'ha omès
 import_skip=Adreça duplicada, s'ha omès
 import_enetvcard=Cal el mòdul Perl <tt>Net::vCard</tt> per a llegir fitxers en format vCard
+
+export_err=No s'han pogut exportar les adreces
 
 group_err=No s'ha pogut desar el grup d'adreces
 group_egroup=Hi falta el nom del grup o bé és invàlid

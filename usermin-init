@@ -1,73 +1,79 @@
 #!/bin/sh
 # chkconfig: 235 99 10
-# description: Start or stop the Usermin server
+# description: web-based account administration interface for Unix systems
 #
 ### BEGIN INIT INFO
-# Provides: usermin
-# Required-Start: $network $syslog
-# Required-Stop: $network
-# Default-Start: 2 3 5
-# Default-Stop: 0 1 6
-# Description: Start or stop the Usermin server
+# Provides:          usermin
+# Required-Start:    $local_fs $network $syslog
+# Required-Stop:     $local_fs $network
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: web-based account administration interface for Unix systems
+# Description:       Usermin is a web-based interface for reading email, changing
+#                    your password, setting up mail filters and more.
 ### END INIT INFO
 
-if [ -f /etc/sysconfig/usermin ]; then
-        . /etc/sysconfig/usermin
-fi
-
-start=/etc/usermin/start
-stop=/etc/usermin/stop
-lockfile=/var/lock/subsys/usermin
-confFile=/etc/usermin/miniserv.conf
-pidFile=/var/usermin/miniserv.pid
-name='Usermin'
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+DESC="web-based account administration interface for Unix systems"
+NAME=Usermin
+PIDFILE=/var/usermin/miniserv.pid
+SCRIPTNAME=/etc/init.d/$NAME
+START=/etc/usermin/start
+STOP=/etc/usermin/stop
+RELOAD=/etc/usermin/reload
+LOCKFILE=/var/lock/subsys/usermin
+CONFFILE=/etc/usermin/miniserv.conf
 
 case "$1" in
-'start')
-	$start >/dev/null 2>&1 </dev/null
+start)
+	$START >/dev/null 2>&1 </dev/null
 	RETVAL=$?
 	if [ "$RETVAL" = "0" ]; then
-		touch $lockfile >/dev/null 2>&1
+		touch $LOCKFILE >/dev/null 2>&1
 	fi
 	;;
-'stop')
-	$stop
+stop)
+	$STOP
 	RETVAL=$?
 	if [ "$RETVAL" = "0" ]; then
-		rm -f $lockfile
+		rm -f $LOCKFILE
 	fi
-	pidfile=`grep "^pidfile=" $confFile | sed -e 's/pidfile=//g'`
+	pidfile=`grep "^pidfile=" $CONFFILE | sed -e 's/pidfile=//g'`
 	if [ "$pidfile" = "" ]; then
-		pidfile=$pidFile
+		pidfile=$PIDFILE
 	fi
 	rm -f $pidfile
 	;;
-'status')
-	pidfile=`grep "^pidfile=" $confFile | sed -e 's/pidfile=//g'`
+status)
+	pidfile=`grep "^pidfile=" $CONFFILE | sed -e 's/pidfile=//g'`
 	if [ "$pidfile" = "" ]; then
-		pidfile=$pidFile
+		pidfile=$PIDFILE
 	fi
 	if [ -s $pidfile ]; then
 		pid=`cat $pidfile`
 		kill -0 $pid >/dev/null 2>&1
 		if [ "$?" = "0" ]; then
-			echo "$name (pid $pid) is running"
+			echo "$NAME (pid $pid) is running"
 			RETVAL=0
 		else
-			echo "$name is stopped"
+			echo "$NAME is stopped"
 			RETVAL=1
 		fi
 	else
-		echo "$name is stopped"
+		echo "$NAME is stopped"
 		RETVAL=1
 	fi
 	;;
-'restart'|'reload')
-	$stop ; $start
+restart)
+	$STOP ; $START
+	RETVAL=$?
+	;;
+reload|force-reload)
+	$RELOAD
 	RETVAL=$?
 	;;
 *)
-	echo "Usage: $0 { start | stop | restart | reload }"
+	echo "Usage: $0 {start|stop|restart|reload|force-reload|status}" >&2
 	RETVAL=1
 	;;
 esac

@@ -19,3 +19,6 @@ desc_zh_CN.UTF-8=ä¿®æ”¹å¯†ç 
 desc_hu=Jelszó módosítása
 desc_pl=Zmieñ has³o
 desc_no=Endre passord
+desc_de.UTF-8=Passwort &auml;ndern
+longdesc_de=&Auml;ndern des Passworts, benutzt <tt>PAM</tt> oder den Befehl <tt>chpasswd</tt>
+longdesc_de.UTF-8=&Auml;ndern des Passworts, benutzt <tt>PAM</tt> oder den Befehl <tt>chpasswd</tt>

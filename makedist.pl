@@ -15,7 +15,7 @@ $vers = $ARGV[0];
 	  "miniserv.pl", "os_list.txt", "perlpath.pl", "setup.sh",
 	  "version", "web-lib.pl", "web-lib-funcs.pl", "README",
 	  "chooser.cgi", "miniserv.pem",
-	  "config-aix", 
+	  "config-aix", "update-from-repo.sh",
 	  "newmods.pl", "copyconfig.pl", "config-hpux", "config-freebsd",
 	  "help.cgi", "user_chooser.cgi",
 	  "group_chooser.cgi", "config-irix", "config-osf1", "thirdparty.pl",

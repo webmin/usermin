@@ -50,7 +50,7 @@ if (@scheds) {
 			      &mailbox::split_addresses($s->{'bcc'}));
 		print &ui_checked_columns_row([
 			"<a href='edit.cgi?id=$s->{'id'}'>".
-		        $s->{'subject'}."</a>",
+		        &html_escape($s->{'subject'})."</a>",
 			$when,
 			&html_escape(join(", ", @to)),
 			$s->{'at'} &&

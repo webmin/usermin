@@ -6,6 +6,7 @@ our (%text, %in, %config, %gconfig, %userconfig);
 our $module_name;
 our @remote_user_info;
 our $user_module_config_directory;
+our $current_theme;
 
 require './mailbox-lib.pl';
 
@@ -788,6 +789,8 @@ print &ui_table_start($text{'reply_body'}, "width=100%", 2, undef,
 		      &ui_links_row(\@bodylinks));
 if ($html_edit) {
 	# Output HTML editor textarea
+	if ($current_theme !~ /authentic-theme/) {
+
 	print <<EOF;
 <script type="text/javascript">
   _editor_url = "$gconfig{'webprefix'}/$module_name/xinha/";
@@ -807,6 +810,11 @@ Xinha.startEditors(xinha_editors);
 }
 </script>
 EOF
+
+	}
+	else {
+		print '<script type="text/javascript">xinha_init = function(){}</script>';
+	}
 	print &ui_table_row(undef,
 		&ui_textarea("body", $quote, 40, 80, undef, 0,
 		  	     "style='width:99%' id=body"), 2);

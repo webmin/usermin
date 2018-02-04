@@ -16,7 +16,7 @@ if ($simple) {
 	print $text{'index_mode'},"\n";
 	foreach $s (1, 0) {
 		if ($s == $in{'simple'}) {
-			print $text{'index_simple'.$s},"\n";
+			print "<span data-unckecked>" . $text{'index_simple'.$s},"</span>\n";
 			}
 		else {
 			print "<a href='index.cgi?simple=$s'>",$text{'index_simple'.$s},"</a>\n";

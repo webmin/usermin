@@ -35,11 +35,11 @@ $vers = $ARGV[0];
 	  "password_form.cgi", "password_change.cgi", "ui-lib.pl",
 	  "pam_login.cgi", "WebminUI", "uptracker.cgi", "webmin_search.cgi",
 	  "webmin-search-lib.pl", "WebminCore.pm", "robots.txt" );
-@mlist = ("cshrc", "file", "forward", "language", "mailbox", "mscstyle3",
+@mlist = ("cshrc", "file", "forward", "language", "mailbox",
 	  "plan", "ssh", "telnet", "theme", "gnupg", "proc", "cron",
 	  "changepass", "shell", "at", "fetchmail", "quota", "mysql",
 	  "procmail", "chfn", "htaccess", "commands", "man", "usermount",
-	  "tunnel", "updown", "caldera", "postgresql", "spam",
+	  "tunnel", "updown", "postgresql", "spam",
 	  "htaccess-htpasswd", "schedule", "mailcap", "blue-theme",
 	  "filter", "gray-theme", "authentic-theme", "filemin",
 	 );

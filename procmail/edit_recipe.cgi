@@ -1,1 +1,1 @@
-/usr/local/webadmin/procmail/edit_recipe.cgi
+../../webadmin/procmail/edit_recipe.cgi

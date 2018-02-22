@@ -1,1 +1,1 @@
-/usr/local/webadmin/procmail/edit_env.cgi
+../../webadmin/procmail/edit_env.cgi

@@ -1,1 +1,1 @@
-/usr/local/webadmin/procmail/index.cgi
+../../webadmin/procmail/index.cgi

@@ -1,1 +1,1 @@
-/usr/local/webadmin/mailcap/mailcap-lib.pl
+../../webadmin/mailcap/mailcap-lib.pl

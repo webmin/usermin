@@ -1,1 +1,1 @@
-/usr/local/webadmin/procmail/procmail-lib.pl
+../../webadmin/procmail/procmail-lib.pl

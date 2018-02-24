@@ -1,1 +1,1 @@
-/usr/local/webadmin/mailcap/save.cgi
+../../webadmin/mailcap/save.cgi

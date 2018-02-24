@@ -1,1 +1,1 @@
-/usr/local/webadmin/mailcap/log_parser.pl
+../../webadmin/mailcap/log_parser.pl

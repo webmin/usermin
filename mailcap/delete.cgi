@@ -1,1 +1,1 @@
-/usr/local/webadmin/mailcap/delete.cgi
+../../webadmin/mailcap/delete.cgi

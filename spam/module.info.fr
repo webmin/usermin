@@ -1,0 +1,1 @@
+desc_fr=Filtre Anti-Spam Spamassassin

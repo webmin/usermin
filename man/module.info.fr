@@ -1,1 +1,1 @@
-desc_fr=Pages de manuel
+../../webadmin/man/module.info.fr

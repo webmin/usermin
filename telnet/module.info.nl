@@ -1,1 +1,1 @@
-desc_nl=SSH Login
+../../webadmin/telnet/module.info.nl

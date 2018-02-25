@@ -1,1 +1,1 @@
-desc_fr=Répertoires Web protégés
+../../webadmin/htaccess-htpasswd/module.info.fr

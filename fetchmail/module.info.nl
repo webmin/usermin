@@ -1,1 +1,1 @@
-desc_nl=Fetchmail Mail Ontvangen
+../../webadmin/fetchmail/module.info.nl

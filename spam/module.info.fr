@@ -1,1 +1,1 @@
-desc_fr=Filtre Anti-Spam Spamassassin
+../../webadmin/spam/module.info.fr

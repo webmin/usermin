@@ -1,1 +1,1 @@
-desc_nl=Opdrachten uitvoeren
+../../webadmin/shell/module.info.nl

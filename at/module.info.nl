@@ -1,1 +1,1 @@
-desc_nl=Geplande Opdrachten
+../../webadmin/at/module.info.nl

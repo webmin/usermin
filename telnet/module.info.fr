@@ -1,1 +1,1 @@
-desc_fr=Ouverture de Session SSH
+../../webadmin/telnet/module.info.fr

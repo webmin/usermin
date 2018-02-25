@@ -1,1 +1,1 @@
-desc_nl=Upload en Download
+../../webadmin/updown/module.info.nl

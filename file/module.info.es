@@ -1,1 +1,1 @@
-desc_es=Gestor de Archivos
+../../webadmin/file/module.info.es

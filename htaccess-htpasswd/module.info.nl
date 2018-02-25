@@ -1,1 +1,1 @@
-desc_nl=Beschermde Web Directory's
+../../webadmin/htaccess-htpasswd/module.info.nl

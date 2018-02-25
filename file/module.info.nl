@@ -1,1 +1,1 @@
-desc_nl=Java File Manager
+../../webadmin/file/module.info.nl

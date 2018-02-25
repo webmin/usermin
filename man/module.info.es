@@ -1,1 +1,1 @@
-desc_es=Páginas del Manual
+../../webadmin/man/module.info.es

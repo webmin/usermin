@@ -1,1 +1,1 @@
-desc_fr=Commande Shell
+../../webadmin/shell/module.info.fr

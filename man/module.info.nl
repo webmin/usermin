@@ -1,1 +1,1 @@
-desc_nl=Systeem Documentatie
+../../webadmin/man/module.info.nl

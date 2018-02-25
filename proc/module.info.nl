@@ -1,1 +1,1 @@
-desc_nl=Lopende processen
+../../webadmin/proc/module.info.nl

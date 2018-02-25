@@ -1,1 +1,1 @@
-desc_nl=SpamAssassin E-Mail-Filter
+../../webadmin/spam/module.info.nl

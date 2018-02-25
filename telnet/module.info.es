@@ -1,1 +1,1 @@
-desc_es=Login mediante SSH
+../../webadmin/telnet/module.info.es

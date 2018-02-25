@@ -1,1 +1,1 @@
-desc_nl=MIME Type Programma's
+../../webadmin/mailcap/module.info.nl

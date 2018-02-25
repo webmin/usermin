@@ -1,1 +1,1 @@
-desc_es=Cambiar clave de acceso
+../../webadmin/at/module.info.es

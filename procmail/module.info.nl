@@ -1,1 +1,1 @@
-desc_nl=Procmail Email Filter
+../../webadmin/procmail/module.info.nl

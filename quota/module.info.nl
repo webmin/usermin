@@ -1,1 +1,1 @@
-desc_nl=Disk Quotas
+../../webadmin/quota/module.info.nl

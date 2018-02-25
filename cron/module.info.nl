@@ -1,1 +1,1 @@
-desc_nl=Geplande Cron Taken
+../../webadmin/cron/module.info.nl

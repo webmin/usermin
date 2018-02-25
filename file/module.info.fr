@@ -1,1 +1,1 @@
-desc_fr=Gestionnaire de Fichiers
+../../webadmin/file/module.info.fr

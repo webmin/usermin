@@ -1,1 +1,1 @@
-desc_nl=HTTP Tunnel configuratie
+../../webadmin/tunnel/module.info.nl

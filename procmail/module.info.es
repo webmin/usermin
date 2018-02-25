@@ -1,1 +1,1 @@
-desc_es=Filtro de Correo Procmail
+../../webadmin/procmail/module.info.es

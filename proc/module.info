@@ -1,14 +1,6 @@
 name=Proc
 desc=Running Processes
-desc_de=Laufende Prozesse
 category=login
 usermin=1
-desc_ja_JP.euc=¥é¥ó¥Ë¥ó¥° ¥×¥í¥»¥¹
 os_support=solaris *-linux hpux freebsd osf1 irix unixware openserver macos aix netbsd openbsd qnx
 longdesc=View all processes running on the system, kill those belonging to your, and start new ones.
-desc_fr=Gestionnaire de processus
-desc_ca=Processos en Execució
-desc_cz=Bì¾ící procesy
-desc_nl=Lopende processen
-desc_hu=Futó processzek
-desc_no=Kj&#248;rende prosesser

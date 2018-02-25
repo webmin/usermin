@@ -1,11 +1,4 @@
 desc=Login Scripts
 category=login
 usermin=1
-desc_ja_JP.euc=¥í¥°¥¤¥ó ¥¹¥¯¥ê¥×¥È
 longdesc=Edit your .login, .profile and .cshrc files, depending on the login shell.
-desc_de=Login-Skripte bearbeiten
-desc_nl=Inlogscripts
-desc_ca=Scripts d'Entrada
-desc_cz=Skripty pøi pøihlá¹ení
-desc_hu=Bejelentkezési parancsfájlok
-desc_no=Innloggingsscript

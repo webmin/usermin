@@ -1,15 +1,5 @@
 name=Theme
 desc=Change Theme
-desc_de=Usermin-Darstellung &#228;ndern
 category=usermin
 usermin=1
-desc_ja_JP.euc=¥Æ¡¼¥Ş
-desc_es=Temas de Usermin
-desc_el=Èİìáôá Usermin
 longdesc=Change the theme that Usermin uses when you are logged in.
-desc_nl=Uiterlijk
-desc_cz=Zmìna tématu
-desc_ca=Canvi de Tema
-desc_it=Cambia il tema
-desc_hu=Téma módosítása
-desc_no=Endre tema

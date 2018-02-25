@@ -1,15 +1,6 @@
 name=At
 desc=Scheduled Commands
-desc_pl=Zlecone polecenia
 os_support=solaris slackware-linux redhat-linux mandrake-linux debian-linux suse-linux united-linux open-linux turbo-linux corel-linux msc-linux freebsd netbsd generic-linux gentoo-linux irix sol-linux coherant-linux
-desc_ca=Ordres Planificades
-desc_de=Geplante AT-Befehle
-desc_hu=άtemezett feladatok
 usermin=1
-desc_es=Cambiar clave de acceso
-desc_el=Χρονοπρογραμματισμένες Εντολές
 longdesc=Create and edit one-off At jobs.
 depends=proc
-desc_cz=Plαnovanι pψνkazy
-desc_nl=Geplande Opdrachten
-desc_no=Planlagte kommandoer

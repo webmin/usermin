@@ -3,7 +3,3 @@ desc=PostgreSQL Database
 name=PostgreSQL
 longdesc=Login to PostgreSQL and manage tables and records through an interface similar to Webmin's PostgreSQL module.
 usermin=1
-desc_de=PostgreSQL Datenbank
-desc_ca=Base de dades PostgreSQL
-desc_hu=Adatbázis szerver (PostgresSQL)
-desc_no=PostgreSQL Database

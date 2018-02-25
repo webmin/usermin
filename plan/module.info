@@ -1,12 +1,4 @@
 name=Plan
 desc=Plan File
 usermin=1
-desc_es=Archivo de Plan
-desc_el=Áñ÷åßï Plan
 longdesc=Edit your .plan file, sent in response to finger requests.
-desc_nl=Mijn plan-bestand.
-desc_de=Finger-Datei
-desc_ca=Fitxer de Pla
-desc_cz=Vstupní soubor
-desc_hu=Terv fájl
-desc_no=Plan fil

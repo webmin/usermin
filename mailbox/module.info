@@ -1,16 +1,5 @@
 desc=Read Mail
-desc_de=E-Mail lesen und versenden
 category=mail
 os_support=solaris *-linux freebsd hpux irix macos openserver unixware openbsd aix netbsd osf1 qnx
 usermin=1
-desc_nl=Lees en Verzend Mail
-desc_el=ÁíÜãíùóç ÌçíõìÜôùí
 longdesc=Read, compose, forward and reply to email. Supports multiple folders, GnuPG encryption, attachments and an address book.
-desc_fr=Lecture des mails
-desc_ru_RU=Íàïèñàòü/ïğî÷èòàòü ïî÷òó
-desc_ru_SU=îÁĞÉÓÁÔØ/ĞÒÏŞÉÔÁÔØ ĞÏŞÔÕ
-desc_cz=Práce s po¹tou
-desc_ca=Lectura de Correu
-desc_es=Lectura de Correo
-desc_hu=Levelek olvasása (MailBoxes)
-desc_no=Les e-post

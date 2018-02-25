@@ -1,16 +1,5 @@
-desc_ja_JP.euc=¥³¥Ş¥ó¥É ¥·¥§¥ë
-desc_ko_KR.euc=¸í·É ½©
-desc_pl=Linia poleceñ
 desc=Command Shell
 name=Shell
-desc_ca=Línia d'Ordres
-desc_de=Befehls-Zeile
-desc_hu=Parancsértelmezõ (Shell)
 category=login
 usermin=1
-desc_el=Êİëõöïò Åíôïëşí
 longdesc=Run simple shell commands and see their output.
-desc_nl=Opdrachten uitvoeren
-desc_fr=Commande Shell
-desc_cz=Pøíkazovı øádek
-desc_no=Kommando-skall

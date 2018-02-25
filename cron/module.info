@@ -1,13 +1,4 @@
 name=Cron
 desc=Scheduled Cron Jobs
-desc_de=Geplante CRON-Auftr&#228;ge
 usermin=1
-desc_el=Χρονοπρογραμματισμένες Εργασίες Cron
 longdesc=Edit and create recurring Cron jobs.
-desc_fr=Tβches Cron
-desc_ca=Treballs Planificats Cron
-desc_cz=Naplαnovanι ϊlohy Cronu
-desc_nl=Geplande Cron Taken
-desc_hu=Idυzνtett futtatαsok (Cron)
-desc_pl=Harmonogram zadaρ Cron
-desc_no=Planlagte Cron-jobber

@@ -29,7 +29,7 @@ parameters:
 	force
 		link all found possibilities
 	LANG
-		language code to process, e.g. de fr
+		language code to process, e.g. $LANG 
 
 how to:
 	- checkout usermin and webmin from github:
@@ -42,6 +42,8 @@ how to:
 	  # git push
 	
 EOF
+	echo "availible languages:"
+	( cd $WEBMIN/lang; ls )
 	exit
 fi
 
@@ -86,10 +88,8 @@ do
 	if [ "$FORCE" == "" ]
 	then
 		read ans
-	else
-		ans="l"
 	fi
-	if [ "$ans" = "l" ]
+	if [ "$ans" == "l" -o "$FORCE" != "" ]
 	then
 		echo "linking $file -> $WEBMIN/$file"
 		[ -f "$file" ] && mv $file $file.sav 
@@ -102,7 +102,7 @@ do
 			rm -f $file.sav
 		fi
 	fi
-	if [ "$ans" = "e" ]
+	if [ "$ans" == "e" ]
 	then
 		echo "editing $WEBMIN/$file"
 		${EDITOR} $WEBMIN/$file

@@ -20,13 +20,19 @@ then
 fi
 
 #get lang files
-for file in `ls */module.info.$1 2>/dev/null`
+for module in `ls */module.info 2>/dev/null`
 do
+	file="$module.$1"
 	# skip if wbebmin/file not exsit ort already symlinked 
 	[ ! -f "$WEBMIN/$file" -o -h "$file" ] && continue
 
 	echo -e "\nprocessing file -> $file\n--------------------"
-	cat $file
+	if [ ! -f "$file" ]
+	then
+		echo " -> missing translation for \"$1\" found!"
+	else
+		cat $file
+	fi
 	echo -e "\nwebmin file -> $WEBMIN/$file \n--------------------"
 	cat ../webadmin/$file
 
@@ -35,10 +41,10 @@ do
 	if [ "$ans" = "l" ]
 	then
 		echo "linking $file -> $WEBMIN/$file"
-		mv $file $file.sav
+		[ -f "$file" ] && mv $file $file.sav 
 		ln -s ../$WEBMIN/$file $file
 		if [ $? -ne 0 ]; then
-			mv $file.sav $file
+			[ -f "$file.sav" ] && mv $file.sav $file
 			echo "linking failed!"
 		else
 			echo -e "done!\n"

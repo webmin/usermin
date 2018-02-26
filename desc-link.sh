@@ -2,13 +2,57 @@
 # support translators to check their module.info.lang files
 # and decide if they can linked to existing webadmin version
 [ "$EDITOR" == "" ] && EDITOR=vi
-WEBMIN="../webadmin"
+FORCE=""
+WEBMIN="../webmin"
+[ -d "../webadmin" ] && WEBMIN="../webadmin"
 
 if [ ! -d $WEBMIN ]
 then
-	echo "$WEBMIN not found!"
+	echo "webmin not found! please check out webmin from github."
 	exit 1
 fi
+
+# help
+if [ "$1" == "-h" ]
+then
+	cat <<EOF
+
+usage: $0 [-force] LANG
+
+	this script helps translators to find out if descriptions
+	for a given language already exsits in webmin and offers to:
+
+	link	same description is used for webmin and usermin
+	edit	edit description in webmin to fit both
+
+parameters:
+	force
+		link all found possibilities
+	LANG
+		language code to process, e.g. de fr
+
+how to:
+	- checkout usermin and webmin from github:
+	  # git clone https://github.com/<YOURNAME>/webmin.git
+	  # git clone https://github.com/<YOURNAME>/usermin.git
+	- cd to usermin and run script
+	  # cd usermin; $0 de
+	- push changes to repository
+	  # git add; git commit -m "LANG xx"
+	  # git push
+	
+EOF
+	exit
+fi
+
+
+# check for force
+if [ "$1" == "-force" ]
+then
+	FORCE="yes"
+	shift
+fi
+
 
 # $1 is LAMNG to check
 if [ "$1" == "" ]
@@ -19,17 +63,19 @@ then
 	exit 1
 fi
 
+LANG=$1
+
 #get lang files
 for module in `ls */module.info 2>/dev/null`
 do
-	file="$module.$1"
+	file="$module.$LANG"
 	# skip if wbebmin/file not exsit ort already symlinked 
 	[ ! -f "$WEBMIN/$file" -o -h "$file" ] && continue
 
 	echo -e "\nprocessing file -> $file\n--------------------"
 	if [ ! -f "$file" ]
 	then
-		echo " -> missing translation for \"$1\" found!"
+		echo " -> missing translation for \"$LANG\" found!"
 	else
 		cat $file
 	fi
@@ -37,7 +83,12 @@ do
 	cat ../webadmin/$file
 
 	echo -n -e "\nselect action: [e]dit webmin file, [l]ink, [S]kip ?\b"
-	read ans
+	if [ "$FORCE" == "" ]
+	then
+		read ans
+	else
+		ans="l"
+	fi
 	if [ "$ans" = "l" ]
 	then
 		echo "linking $file -> $WEBMIN/$file"

@@ -33,7 +33,7 @@ parameters:
 
 how to:
 	- checkout usermin and webmin from github:
-	  # git clone https://github.com/<YOURNAME>/webmin.git
+	  # git clone https://github.com/<YOURNAME>/webmin.git webadmin
 	  # git clone https://github.com/<YOURNAME>/usermin.git
 	- cd to usermin and run script
 	  # cd usermin; $0 de
@@ -93,7 +93,7 @@ do
 	then
 		echo "linking $file -> $WEBMIN/$file"
 		[ -f "$file" ] && mv $file $file.sav 
-		ln -s ../$WEBMIN/$file $file
+		ln -s ../webadmin/$file $file
 		if [ $? -ne 0 ]; then
 			[ -f "$file.sav" ] && mv $file.sav $file
 			echo "linking failed!"

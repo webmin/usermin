@@ -1,1 +1,1 @@
-desc_nl=MySQL Database
+../../webadmin/mysql/module.info.nl

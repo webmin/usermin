@@ -41,6 +41,6 @@ index_title=Passwort &auml;ndern
 
 recovery_title=Adresse zum Zur&uuml;cksetzen
 recovery_err=Einrichten der Adresse zum Zur&uuml;cksetzen ist fehlgeschlagen
-recovery_eemail=iKeine valide e-Mail Adresse eingegeben
+recovery_eemail=Keine valide e-Mail Adresse eingegeben
 recovery_cleared=Die Adresse zum Zur&uuml;cksetzen wurde gel&ouml;scht
 recovery_set=Die Adresse zum Zur&uuml;cksetzen wurde auf $1 ge&auml;ndert

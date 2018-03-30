@@ -2288,7 +2288,7 @@ sub save_last_folder_id
 {
 my ($id) = @_;
 $id = &folder_name($id) if (ref($id));
-if ($id ne $search_folder_id) {
+if ($id ne $search_folder_id && $id ne &get_last_folder_id()) {
 	no strict "subs";
 	if (&open_tempfile(LASTFOLDER, ">$last_folder_file", 1)) {
 		&print_tempfile(LASTFOLDER, $id,"\n");

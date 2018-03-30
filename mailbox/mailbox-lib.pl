@@ -2290,9 +2290,10 @@ my ($id) = @_;
 $id = &folder_name($id) if (ref($id));
 if ($id ne $search_folder_id) {
 	no strict "subs";
-	&open_tempfile(LASTFOLDER, ">$last_folder_file", 1);
-	&print_tempfile(LASTFOLDER, $id,"\n");
-	&close_tempfile(LASTFOLDER);
+	if (&open_tempfile(LASTFOLDER, ">$last_folder_file", 1)) {
+		&print_tempfile(LASTFOLDER, $id,"\n");
+		&close_tempfile(LASTFOLDER);
+		}
 	use strict "subs";
 	}
 }

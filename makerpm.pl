@@ -229,8 +229,8 @@ if [ "\$1" == 1 ]; then
 	else
 		echo "Usermin install complete. You can now login to http://\$host:\$port/"
 	fi
+	echo "as any user on your system."
 fi
-echo "as any user on your system."
 /bin/true
 
 %preun

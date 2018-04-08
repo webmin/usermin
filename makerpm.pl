@@ -30,6 +30,9 @@ if (-r "/etc/.issue") {
 elsif (-r "/etc/issue") {
 	\$etc_issue = `cat /etc/issue`;
 	}
+if (-r "/etc/os-release") {
+	\$os_release = `cat /etc/os-release`;
+	}
 \$uname = `uname -a`;
 EOF
 open(OS, "os_list.txt");

@@ -130,6 +130,7 @@ if ($webmail) {
 opendir(DIR, "tarballs/$dir");
 while($d = readdir(DIR)) {
 	# set depends in module.info to this version
+	next if ($d eq "authentic-theme");      # Theme version matters
 	local $minfo = "tarballs/$dir/$d/module.info";
 	local $tinfo = "tarballs/$dir/$d/theme.info";
 	if (-r $minfo) {

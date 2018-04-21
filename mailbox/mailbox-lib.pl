@@ -2234,6 +2234,18 @@ my ($froms, $doms) = &list_from_addresses();
 my ($defaddr) = grep { $_->[3] == 2 } &list_addresses();
 if ($defaddr) {
 	# From address book
+	if ($defaddr->[1]) {
+		# Has real name
+		my $n = $defaddr->[1];
+		if ($n !~ /^[\000-\177]*$/) {
+			$n = &encode_mimewords($n, 'Charset' => &get_charset());
+			}
+		return "\"".$n."\" "."<".$defaddr->[0].">";
+		}
+	else {
+		# Just an address
+		return $defaddr->[0];
+		}
 	return $defaddr->[1] ? "\"$defaddr->[1]\" <$defaddr->[0]>"
 			      : $defaddr->[0];
 	}

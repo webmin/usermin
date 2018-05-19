@@ -6,6 +6,7 @@ show_to=Show To: address in mailboxes?,1,1-Yes,0-No
 refresh=Seconds between automatic mailbox refreshes,3,Don't refresh
 open_mode=Open messages in,1,1-New window,0-List window
 show_body=Show message body previews in list?,1,1-Yes,0-No
+show_body_len=Number of characters to show in preview,3,Default (100)
 show_sort=Show headers for sorting mail list?,1,1-Yes,0-No
 
 line0.5=Reading email,11

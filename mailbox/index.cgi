@@ -243,8 +243,9 @@ for(my $i=$start; $i<=$end; $i++) {
 
 	# Show part of the body too
 	if ($userconfig{'show_body'}) {
+		$plen = $in{'show_body_len'} || $userconfig{'show_body_len'};
 		&parse_mail($m);
-		my $data = &mail_preview($m);
+		my $data = &mail_preview($m, $plen);
                 if ($data) {
                         print "<tr $cb> <td colspan=",(scalar(@cols)+1),"><tt>",
                                 &html_escape($data),"</tt></td> </tr>\n";

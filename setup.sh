@@ -626,7 +626,7 @@ fi
 
 echo "Changing ownership and permissions .."
 chown -R root:bin $config_dir
-chmod -R 755 $config_dir
+find $config_dir -type d -exec chmod 755 {} +
 if [ "$nochown" = "" ]; then
 	chown -R root:bin "$wadir"
 	chmod -R og-w "$wadir"

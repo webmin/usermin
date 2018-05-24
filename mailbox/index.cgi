@@ -6,6 +6,7 @@ use warnings;
 our (%text, %in, %userconfig, %config);
 our ($remote_user, $remote_pass);
 our $special_folder_id;
+our $plen;
 our ($cb); # XXX
 
 require './mailbox-lib.pl';

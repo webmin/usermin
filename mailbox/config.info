@@ -1,9 +1,9 @@
 line1=Inbox format and location,11
 mail_system=Mail storage format for Inbox,4,0-Mbox style single file (mbox),1-Maildir style directory (Maildir),3-MH style directory (MH),2-Remote POP3 server,4-Remote IMAP server
-mail_dir=Sendmail mail file location,3,File under home directory
-mail_file=Sendmail mail file in home directory,0
-mail_qmail=Qmail or MH directory location,3,Subdirectory under home directory
-mail_dir_qmail=Qmail or MH directory in home directory,0
+mail_dir=Storage mail file location,3,File under home directory
+mail_file=Storage mail file location under home,0
+mail_qmail=Storage directory location,3,Subdirectory under home directory
+mail_dir_qmail=Storage directory location under home,0
 mail_style=Mail subdirectory style,4,0-mail/username,1-mail/u/username,2-mail/u/us/username,3-mail/u/s/username
 pop3_server=POP3 or IMAP server name,3,<tt>localhost</tt>
 nologout=Prevent POP3 or IMAP logout once logged in?,1,1-Yes,0-No
@@ -27,7 +27,7 @@ edit_from=Allow editing of From: address,1,1-Yes,0-No (always username@hostname)
 from_map=From: address mapping file,3,None
 from_format=Address mapping file format,1,0-Username to address (genericstable),1-Address to username (virtusertable)
 
-line3.5=Qmail+LDAP options,11
+line3.5=LDAP options,11
 ldap_host=LDAP server,3,Not used
 ldap_port=LDAP port,3,Default
 ldap_tls=Use TLS for LDAP connection?,1,1-Yes,0-No

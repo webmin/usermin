@@ -1,5 +1,5 @@
 line1=Inbox format and location,11
-mail_system=Mail storage format for Inbox,4,0-Sendmail style single file (mbox),1-Qmail style directory (Maildir),3-MH style directory (MH),2-Remote POP3 server,4-Remote IMAP server
+mail_system=Mail storage format for Inbox,4,0-Mbox style single file (mbox),1-Maildir style directory (Maildir),3-MH style directory (MH),2-Remote POP3 server,4-Remote IMAP server
 mail_dir=Sendmail mail file location,3,File under home directory
 mail_file=Sendmail mail file in home directory,0
 mail_qmail=Qmail or MH directory location,3,Subdirectory under home directory

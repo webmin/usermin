@@ -12,9 +12,6 @@ my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
 
 #Return in JSON format if needed
 if ($in{'returned_format'} eq "json") {
-	eval "use JSON::PP";
-	if (!$@) {
-		my $coder = JSON::PP->new->pretty;
 		my %sort;
 		$sort{'id'} = undef;
 		$sort{'folder'} = $in{'folder'};
@@ -28,9 +25,9 @@ if ($in{'returned_format'} eq "json") {
 			$sort{'searched_folder_id'} = $in{'searched_folder_id'};
 			$sort{'searched_folder_file'} = $in{'searched_folder_file'};
 			}
-		print "Content-type: application/json; charset=utf-8\n\n";
-		print $coder->encode(\%sort);
-		return;
-		}
+		print_json(\%sort);
 	}
-&redirect("index.cgi?folder=$in{'folder'}&start=$in{'start'}");
+	else {
+		# Redirect to it
+		&redirect("index.cgi?folder=$in{'folder'}&start=$in{'start'}");
+		}

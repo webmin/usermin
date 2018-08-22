@@ -220,24 +220,20 @@ else {
 &delete_new_sort_index($virt);
 &save_folder($virt, $virt);
 
-#Return in JSON format if needed
 if ($in{'returned_format'} eq "json") {
-	eval "use JSON::PP";
-	if (!$@) {
-		my $coder = JSON::PP->new->pretty;
-		my %search;
-		$search{'folder'} = $virt->{'index'};
-		$search{'searched'} = $in{'search'};
-		$search{'searched_folder_index'} = $in{'folder'};
-		$search{'searched_folder_name'} = $folder->{'name'};
-		$search{'searched_folder_id'} = $folder->{'id'};
-		$search{'searched_folder_file'} = $folder->{'file'};
-		print "Content-type: application/json; charset=utf-8\n\n";
-		print $coder->encode(\%search);
-		&pop3_logout_all();
-		return;
-		}
+	#Return in JSON format if needed
+	my %search;
+	$search{'folder'} = $virt->{'index'};
+	$search{'searched'} = $in{'search'};
+	$search{'searched_message'} = $msg;
+	$search{'searched_folder_index'} = $in{'folder'};
+	$search{'searched_folder_name'} = $folder->{'name'};
+	$search{'searched_folder_id'} = $folder->{'id'};
+	$search{'searched_folder_file'} = $folder->{'file'};
+	print_json(\%search);
+}
+else {
+	# Redirect to it
+	&redirect("index.cgi?id=$virt->{'id'}&refresh=2");
 	}
-# Redirect to it
-&redirect("index.cgi?id=$virt->{'id'}&refresh=2");
 &pop3_logout_all();

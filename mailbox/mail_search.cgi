@@ -234,6 +234,7 @@ if ($in{'returned_format'} eq "json") {
 		$search{'searched_folder_file'} = $folder->{'file'};
 		print "Content-type: application/json; charset=utf-8\n\n";
 		print $coder->encode(\%search);
+		&pop3_logout_all();
 		return;
 		}
 	}

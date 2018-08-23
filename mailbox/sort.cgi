@@ -20,6 +20,7 @@ if ($in{'returned_format'} eq "json") {
 		$sort{'start'} = $in{'start'};
 		if (defined($in{'searched'})) {
 			$sort{'searched'} = $in{'searched'};
+			$sort{'searched_message'} = $in{'searched_message'};
 			$sort{'searched_folder_index'} = $in{'searched_folder_index'};
 			$sort{'searched_folder_name'} = $in{'searched_folder_name'};
 			$sort{'searched_folder_id'} = $in{'searched_folder_id'};

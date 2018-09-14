@@ -609,7 +609,7 @@ elsif ($config{'edit_from'} == 2) {
 		}
 	$frominput = &ui_textbox("real", $real, 15)."\n".
 		     "&lt;".&ui_textbox("user", $user, 10)."\@";
-	if (@$doms > 1) {
+	if ($doms && @$doms > 1) {
 		$frominput .= &ui_select("dom", undef,
 				[ map { [ $_ ] } @$doms ])."&gt;";
 		}

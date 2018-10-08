@@ -63,7 +63,7 @@ if ($?) {
 print "Content-type: application/zip\n\n";
 open(my $ZIP, "<", $zip);
 my $buf;
-while(read($ZIP, $buf, 1024) > 0) {
+while(read($ZIP, $buf, 32768) > 0) {
 	print $buf;
 	}
 close($ZIP);

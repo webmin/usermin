@@ -664,6 +664,7 @@ foreach my $f (@folderfiles) {
 if (&foreign_check("spam")) {
 	my %suserconfig = &foreign_config("spam", 1);
 	my $file = $suserconfig{'spam_file'};
+	$file ||= "";
 	$file =~ s/\.$//;
 	$file =~ s/\/$//;
 	$file = "$remote_user_info[7]/$file" if ($file && $file !~ /^\//);

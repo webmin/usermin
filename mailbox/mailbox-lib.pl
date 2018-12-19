@@ -1168,27 +1168,29 @@ sub list_address_groups
 {
 my @rv;
 my $i = 0;
-open(my $ADDRESS, "<", $address_group_book);
-while(<$ADDRESS>) {
-	s/\r|\n//g;
-	my @sp = split(/\t+/, $_);
-	if (@sp == 2) {
-		push(@rv, [ $sp[0], $sp[1], $i ]);
-		}
-	$i++;
-	}
-close($ADDRESS);
-if ($config{'global_address_group'}) {
-	my $gab = &group_subs($config{'global_address_group'});
-	open($ADDRESS, "<", $gab);
+if (open(my $ADDRESS, "<", $address_group_book)) {
 	while(<$ADDRESS>) {
 		s/\r|\n//g;
 		my @sp = split(/\t+/, $_);
 		if (@sp == 2) {
-			push(@rv, [ $sp[0], $sp[1] ]);
+			push(@rv, [ $sp[0], $sp[1], $i ]);
 			}
+		$i++;
 		}
 	close($ADDRESS);
+	}
+if ($config{'global_address_group'}) {
+	my $gab = &group_subs($config{'global_address_group'});
+	if (open(my $ADDRESS, "<", $gab)) {
+		while(<$ADDRESS>) {
+			s/\r|\n//g;
+			my @sp = split(/\t+/, $_);
+			if (@sp == 2) {
+				push(@rv, [ $sp[0], $sp[1] ]);
+				}
+			}
+		close($ADDRESS);
+		}
 	}
 if ($userconfig{'sort_addrs'} == 1) {
 	return sort { lc($a->[0]) cmp lc($b->[0]) } @rv;

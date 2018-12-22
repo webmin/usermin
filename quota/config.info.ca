@@ -1,6 +1,6 @@
 block_mode=Mostra les quotes en,1,1-Kilobytes (si és possible),0-Blocs
 block_size=Mida dels blocs del sistema de fitxers,3,Desconeguda
-show_grace=Mostra els periodes de gràcia, si està disponible,1,1-Sí,0-No
+show_grace=Mostra els períodes de gràcia, si està disponible,1,1-Sí,0-No
 user_repquota_command=Ordre per llistar els usuaris en un sistema de fitxers,0
 group_repquota_command=Ordre per llistar els grups en un sistema de fitxers,0
 user_edquota_command=Ordre per editar la quota dels usuaris,0
@@ -14,5 +14,5 @@ group_quotaon_command=Ordre per activar les quotes de grups,0
 user_quotaoff_command=Ordre per desactivar les quotes d'usuaris,0
 group_quotaoff_command=Ordre per desactivar les quotes de grups,0
 quotacheck_command=Ordre per comprovar les quotes,0
-user_grace_command=Ordre per editar els periodes de gràcia dels usuaris,0
-group_grace_command=Ordre per editar els periodes de gràcia dels grups,0
+user_grace_command=Ordre per editar els períodes de gràcia dels usuaris,0
+group_grace_command=Ordre per editar els períodes de gràcia dels grups,0

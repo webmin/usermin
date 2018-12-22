@@ -16,6 +16,6 @@ button_new=Nou (crea un nou fitxer de text),1,1-Sí,0-No
 button_upload=Puja (puja o extreu un fitxer),1,1-Sí,0-No
 button_mkdir=Nou (crea un nou directori),1,1-Sí,0-No
 button_makelink=Nou (crea un nou enllaç simbòlic),1,1-Sí,0-No
-button_rename=Renomena (renomena fitxer),1,1-Sí,0-No
+button_rename=Reanomena (reanomena fitxer),1,1-Sí,0-No
 button_copy=Copia Retalla i Enganxa,1,1-Sí,0-No
 button_preview=Previsualitza (mostra imatge escalada),1,1-Sí,0-No

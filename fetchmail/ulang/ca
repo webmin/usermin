@@ -1,5 +1,5 @@
 index_efetchmail=No s'ha trobat al sistema el programa $1 de fetchmail.
 index_noservers=Encara no s'ha configurat cap servidor de correu.
 index_stopmsg=Fes clic sobre aquest botó per aturar el dimoni fetchmail que actualment està comprovant automàticament el correu cada $1 segons.
-index_startmsg=Fes clic sobre aquest boto per iniciar el dimoni fetchmail en aquest servidor, i fer que comprovi el correui cada $1 segons, utilitzant la configuració de sobre.
+index_startmsg=Fes clic sobre aquest boto per iniciar el dimoni fetchmail en aquest servidor, i fer que comprovi el correu cada $1 segons, utilitzant la configuració de sobre.
 index_none=Encara no s'ha definit cap servidor de correu per poder-lo comprovar.

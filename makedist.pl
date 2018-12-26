@@ -130,7 +130,7 @@ if ($webmail) {
 # Add other directories
 foreach $d (@dirlist) {
 	print "Adding directory $d\n";
-	system("cp -r $d $tardir/$dir");
+	system("cp -r -L $d tarballs/$dir");
 	}
 
 # Update module.info and theme.info files with depends and version

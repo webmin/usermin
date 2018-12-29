@@ -1323,7 +1323,8 @@ if (&check_ipaddress($http_host)) {
 	}
 $http_host =~ s/^(www|ftp|mail)\.//;
 my (@froms, @doms);
-if ($config{'server_name'} eq 'ldap') {
+my $server_name = $config{'server_name'} || "";
+if ($server_name eq 'ldap') {
 	# Special mode - the From: addresses just come from LDAP
 	my $entry = &get_user_ldap();
 	push(@froms, $entry->get_value("mail"));
@@ -1335,9 +1336,9 @@ elsif ($remote_user =~ /\@/) {
 	}
 else {
 	# Work out From: addresses from hostname
-	my $hostname = $config{'server_name'} eq '*' ? $http_host :
-		  $config{'server_name'} eq '' ? &get_system_hostname() :
-						 $config{'server_name'};
+	my $hostname = $server_name eq '*' ? $http_host :
+		  $server_name eq '' ? &get_system_hostname() :
+						 $server_name;
 	@doms = split(/\s+/, $hostname);
 	my $ru = $remote_user;
 	$ru =~ s/\.\Q$http_host\E$//;

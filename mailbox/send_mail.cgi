@@ -27,7 +27,7 @@ if (!$in{'subject'}) {
 		$in{'subject'} = $userconfig{'force_subject'};
 		}
 	}
-my @sub = split(/\0/, $in{'sub'});
+my @sub = $in{'sub'} ? split(/\0/, $in{'sub'}) : ();
 my $subs = join("", map { "&sub=$_" } @sub);
 my $draft = $in{'draft'} || $in{'save'};
 

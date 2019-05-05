@@ -44,8 +44,6 @@ $vers = $ARGV[0];
 	  "filter", "gray-theme", "authentic-theme", "filemin",
 	 );
 if ($webmail) {
-	@mlist = grep { $_ ne "caldera" &&
-			$_ ne "mscstyle3" } @mlist;
 	push(@mlist, "virtual-server-theme");
 	push(@mlist, "virtual-server-mobile");
 	}

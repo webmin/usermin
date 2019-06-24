@@ -331,9 +331,6 @@ else {
 				print "<b>",$text{'razor_done'},"</b><p>\n";
 				$loc = $viewlink;
 				}
-			print "<script>\n";
-			print "window.location = '$loc';\n";
-			print "</script>\n";
 			}
 
 		&mail_page_footer(

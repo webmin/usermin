@@ -39,10 +39,10 @@ foreach $k (&list_secret_keys()) {
 
 # Run the gpg --gen-key command
 my $temp = &transname();
-$in{'keysize'} ||= 2048;
+$in{'size'} ||= 2048;
 &open_tempfile(TEMP, ">$temp", 0, 1);
 &print_tempfile(TEMP, "Key-Type: default\n");
-&print_tempfile(TEMP, "Key-Length: $in{'keysize'}\n");
+&print_tempfile(TEMP, "Key-Length: $in{'size'}\n");
 &print_tempfile(TEMP, "Key-Usage: sign,encrypt,auth\n");
 &print_tempfile(TEMP, "Name-Real: $in{'name'}\n");
 &print_tempfile(TEMP, "Name-Email: $in{'email'}\n");

@@ -4,7 +4,9 @@
 
 require './theme-lib.pl';
 &ReadParse();
+&ui_print_unbuffered_header(undef, $text{'change_title'}, "");
 
+print "$text{'change_user'}<br>\n";
 &get_miniserv_config(\%miniserv);
 if ($in{'theme'} eq 'none') {
 	delete($gconfig{'theme_'.$remote_user});
@@ -16,7 +18,18 @@ else {
 	}
 &put_miniserv_config(\%miniserv);
 &write_file("$config_directory/config", \%gconfig);
-&restart_miniserv();
+print "$text{'change_done'}<p>\n";
 
-&redirect("/");
+print "$text{'change_restart'}<br>\n";
+&restart_miniserv();
+print "$text{'change_done'}<p>\n";
+
+if (defined(&theme_post_change_theme)) {
+	&theme_post_change_theme();
+	}
+print "$text{'change_redirect'}<br>\n";
+print &js_redirect("/", "top");
+print "$text{'change_done'}<p>\n";
+
+&ui_print_footer("/", $text{'index'});
 

@@ -30,7 +30,10 @@ if ($in{'mode'}) {
 else {
 	# Showing in browser
 	if ($in{'format'}) {
-		print "Content-type: application/octet-stream\n\n";
+		my $size = -s $in{'to'};
+		print "Content-Type: application/x-download\n";
+		print "Content-Disposition: attachment; filename=\"key.gpg\"\n";
+		print "Content-Length: $size\n\n";
 		}
 	else {
 		print "Content-type: text/plain\n\n";

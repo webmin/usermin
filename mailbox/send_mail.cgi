@@ -231,7 +231,6 @@ for(my $i=0; defined($in{"file$i"}); $i++) {
 				       [ 'Content-Disposition', $disp ],
 				       [ 'Content-Transfer-Encoding',
 					 'base64' ] ] });
-	$i++;
 	}
 
 # Add forwarded attachments

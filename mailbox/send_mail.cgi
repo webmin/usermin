@@ -218,10 +218,10 @@ for(my $i=0; defined($in{"file$i"}); $i++) {
 	my $data;
 	open(my $DATA, "<", $in{"file$i"}) ||
 		&error(&text('send_efile', $in{"file$i"}));
-	while(<DATA>) {
+	while(<$DATA>) {
 		$data .= $_;
 		}
-	close(DATA);
+	close($DATA);
 	$in{"file$i"} =~ s/^.*\///;
 	my $type = &guess_mime_type($in{"file$i"}).
 		      "; name=\"".$in{"file$i"}."\"";

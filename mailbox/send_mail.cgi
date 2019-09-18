@@ -501,7 +501,8 @@ if ($userconfig{'white_rec'}) {
 
 if ($in{'save'}) {
 	# Redirect back to editing the email
-	&redirect("reply_mail.cgi?folder=$dfolder->{'index'}&id=$mail->{'id'}&enew=1");
+	my $folder_id = $dfolder->{'id'} || $dfolder->{'file'};
+	&redirect("reply_mail.cgi?folder=$dfolder->{'index'}&folder_type=$folder->{'type'}&folder_id=$folder_id&id=$mail->{'id'}&enew=1");
 	exit;
 	}
 

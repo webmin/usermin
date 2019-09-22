@@ -835,6 +835,7 @@ if (&has_command("ispell") && !$userconfig{'nospell'}) {
 	}
 print &ui_table_end();
 print &ui_hidden("html_edit", $html_edit);
+print &ui_hidden("html_edit_config", $userconfig{'html_edit'});
 
 # Display forwarded attachments - but exclude those referenced in the body,
 # as they get included automatically

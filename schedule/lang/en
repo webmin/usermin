@@ -34,6 +34,7 @@ edit_at=Time and date
 edit_cron=Recurring schedule below ..
 edit_files=Attached files
 edit_file=Filename
+edit_size=Size
 edit_type=Source
 edit_uploaded=Uploaded
 edit_upload1=Upload a file

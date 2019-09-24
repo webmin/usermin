@@ -74,11 +74,12 @@ if ($config{'upload'}) {
 	@files = &list_schedule_files($sched);
 	if (@files) {
 		$ftable = &ui_columns_start([
-			$text{'delete'}, $text{'edit_file'}, $text{'edit_type'} ]);
+			$text{'delete'}, $text{'edit_file'}, $text{'edit_size'}, $text{'edit_type'} ]);
 		foreach $f (@files) {
 			$ftable .= &ui_columns_row([
 				&ui_checkbox("d", $f->{'id'}),
 				"<a href='view.cgi?sched=$sched->{'id'}&id=".&urlize($f->{'id'})."'>".&html_escape($f->{'id'})."</a>",
+				$f->{'size'},
 				!$f->{'type'} ? "<tt>$f->{'file'}</tt>"
 					     : $text{'edit_uploaded'}
 				]);

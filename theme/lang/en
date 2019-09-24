@@ -5,3 +5,8 @@ index_default=Old Usermin theme
 index_change=Change
 index_global=Global Usermin default
 
+change_title=Changing Theme
+change_user=Modifying Usermin login ..
+change_done=.. done
+change_restart=Reloading Usermin ..
+change_redirect=Re-directing to main menu ..

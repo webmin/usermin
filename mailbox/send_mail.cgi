@@ -27,7 +27,7 @@ if (!$in{'subject'}) {
 		$in{'subject'} = $userconfig{'force_subject'};
 		}
 	}
-my @sub = split(/\0/, $in{'sub'});
+my @sub = $in{'sub'} ? split(/\0/, $in{'sub'}) : ();
 my $subs = join("", map { "&sub=$_" } @sub);
 my $draft = $in{'draft'} || $in{'save'};
 
@@ -218,10 +218,10 @@ for(my $i=0; defined($in{"file$i"}); $i++) {
 	my $data;
 	open(my $DATA, "<", $in{"file$i"}) ||
 		&error(&text('send_efile', $in{"file$i"}));
-	while(<DATA>) {
+	while(<$DATA>) {
 		$data .= $_;
 		}
-	close(DATA);
+	close($DATA);
 	$in{"file$i"} =~ s/^.*\///;
 	my $type = &guess_mime_type($in{"file$i"}).
 		      "; name=\"".$in{"file$i"}."\"";
@@ -231,7 +231,6 @@ for(my $i=0; defined($in{"file$i"}); $i++) {
 				       [ 'Content-Disposition', $disp ],
 				       [ 'Content-Transfer-Encoding',
 					 'base64' ] ] });
-	$i++;
 	}
 
 # Add forwarded attachments
@@ -502,7 +501,8 @@ if ($userconfig{'white_rec'}) {
 
 if ($in{'save'}) {
 	# Redirect back to editing the email
-	&redirect("reply_mail.cgi?folder=$dfolder->{'index'}&id=$mail->{'id'}&enew=1");
+	my $folder_id = $dfolder->{'id'} || $dfolder->{'file'};
+	&redirect("reply_mail.cgi?folder=$dfolder->{'index'}&folder_type=$folder->{'type'}&folder_id=$folder_id&id=$mail->{'id'}&enew=1");
 	exit;
 	}
 

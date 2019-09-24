@@ -167,8 +167,8 @@ if [ "$upgrading" = 1 ]; then
 	$perl "$wadir/newmods.pl" $config_dir $allmods
 
 	# Update miniserv.conf with new root directory and mime types file
-	grep -v "^root=" $config_dir/miniserv.conf | grep -v "^mimetypes=" | grep -v "^server=" >$tempdir/$$.miniserv.conf
-	mv $tempdir/$$.miniserv.conf $config_dir/miniserv.conf
+	grep -v "^root=" $config_dir/miniserv.conf | grep -v "^mimetypes=" | grep -v "^server=" >"$tempdir/$$.miniserv.conf"
+	mv "$tempdir/$$.miniserv.conf" "$config_dir/miniserv.conf"
 	echo "root=$wadir" >> $config_dir/miniserv.conf
 	echo "mimetypes=$wadir/mime.types" >> $config_dir/miniserv.conf
 	echo "server=MiniServ/$ver" >> $config_dir/miniserv.conf
@@ -314,12 +314,12 @@ else
 		if [ "$autoos" = "" ]; then
 			autoos=2
 		fi
-		$perl "$srcdir/oschooser.pl" "$srcdir/os_list.txt" $tempdir/$$.os $autoos
+		$perl "$srcdir/oschooser.pl" "$srcdir/os_list.txt" "$tempdir/$$.os" $autoos
 		if [ $? != 0 ]; then
 			exit $?
 		fi
-		. $tempdir/$$.os
-		rm -f $tempdir/$$.os
+		. "$tempdir/$$.os"
+		rm -f "$tempdir/$$.os"
 	fi
 	echo "Operating system name:    $real_os_type"
 	echo "Operating system version: $real_os_version"
@@ -453,7 +453,7 @@ else
 	if [ "$?" = "0" ]; then
 		# We can generate a new SSL key for this host
 		host=`hostname`
-		openssl req -newkey rsa:2048 -x509 -nodes -out $tempdir/cert -keyout $tempdir/key -days 1825 -sha256 >/dev/null 2>&1 <<EOF
+		openssl req -newkey rsa:2048 -x509 -nodes -out "$tempdir/cert" -keyout "$tempdir/key" -days 1825 -sha256 >/dev/null 2>&1 <<EOF
 .
 .
 .
@@ -463,9 +463,9 @@ Usermin Webserver on $host
 root@$host
 EOF
 		if [ "$?" = "0" ]; then
-			cat $tempdir/cert $tempdir/key >$kfile
+			cat "$tempdir/cert" "$tempdir/key" >$kfile
 		fi
-		rm -f $tempdir/cert $tempdir/key
+		rm -f "$tempdir/cert" "$tempdir/key"
 	fi
 	if [ ! -r $kfile ]; then
 		# Fall back to the built-in key

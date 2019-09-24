@@ -22,6 +22,9 @@ index_from=Adreça From: de les respostes
 index_fromauto=Endevina-la a partir del destinatari
 index_fromaddr=Utilitza l'adreça
 index_fromdef=La teva adreça per defecte
+index_charset=Joc de caràcters del missatge
+index_charsetdef=El de l'idioma actual
+index_charsetother=Un altre joc de caràcters
 
 aliases_to=Reenvia a...
 aliases_from=Correu de...

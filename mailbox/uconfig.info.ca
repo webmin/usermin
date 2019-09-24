@@ -6,6 +6,7 @@ show_to=Mostra l'adreça To: a les bústies,1,1-Sí,0-No
 refresh=Segons entre refrescs automàtics de la bústia,3,No la refresquis
 open_mode=Obre els missatges en,1,1-Una nova finestra,0-La finestra de la llista
 show_body=Mostra previsualitzacions del cos del missatge a la llista,1,1-Sí,0-No
+show_body_len=Nombre de caràcters a mostrar en la previsualització,3,Per defecte (100)
 
 line0.5=Lectura del correu,11
 wrap_width=Amplada de tall del text dels missatges,0,5
@@ -73,7 +74,7 @@ line3.5=Supressió de correu,11
 delete_warn=Demana confirmació abans de suprimir,10,y-Sí,n-No,Per a fitxers mbox més grans de
 delete_mode=En suprimir correu,1,0-Esborra'l del fitxer de correu,1-Desplaça'l a la Paperera
 show_delall=Mostra el botó per suprimir tota la bústia,1,1-Sí,0-No
-maildir_deleted=Omet els missatges marcats com a suprimits al directori de correu,1,1-Yes,0-No
+maildir_deleted=Omet els missatges marcats com a suprimits al directori de correu,1,1-Sí,0-No
 
 line4=Opcions de spam,11
 spam_buttons=Mostra els botons d'informe de spam de,2,list-Les bústies,mail-Els missatges

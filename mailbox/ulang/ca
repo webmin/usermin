@@ -23,7 +23,7 @@ address_edit=Edita...
 address_delete=Suprimeix
 address_add=Afegeix una nova adreça.
 address_err=No he pogut desar l'adreça
-address_eaddr=Hi falta l'adreça email o bé és invàlida (ha de ser de la forma foo@bar.com)
+address_eaddr=Hi falta l'adreça de correu o bé és invàlida (ha de ser de la forma foo@bar.com)
 address_from=Des de l'adreça
 address_yd=Sí, per defecte
 address_gdesc=Aquesta secció llista sobrenoms que pots utilitzar per enviar correu fàcilment a particulars o grups d'adreces, sense necessitat d'introduir l'adreça completa.
@@ -63,7 +63,7 @@ address_exportdup1=Inclou només la primera
 address_exportfmt=Exporta en format
 address_exportok=Exporta-ho ara
 
-import_err=NOs'han pogut importatr les adreces
+import_err=No s'han pogut importar les adreces
 import_title=Importació de Llibreta d'Adreces
 import_doing=Resultats de la importació de la llibreta d'adreces...
 import_eupload=No has seleccionat cap fitxer

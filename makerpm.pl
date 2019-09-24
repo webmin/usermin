@@ -1,12 +1,15 @@
 #!/usr/local/bin/perl
 # Build an RPM package of Usermin
 
-if (-r "/usr/src/OpenLinux") {
-        $base_dir = "/usr/src/OpenLinux";
-        }
+if (-d "$ENV{'HOME'}/redhat") {
+	$base_dir = "$ENV{'HOME'}/redhat";
+	}
+elsif (-d "$ENV{'HOME'}/rpmbuild") {
+	$base_dir = "$ENV{'HOME'}/rpmbuild";
+	}
 else {
-        $base_dir = "/usr/src/redhat";
-        }
+	$base_dir = "/usr/src/redhat";
+	}
 $spec_dir = "$base_dir/SPECS";
 $source_dir = "$base_dir/SOURCES";
 $rpms_dir = "$base_dir/RPMS/noarch";

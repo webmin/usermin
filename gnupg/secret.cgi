@@ -38,47 +38,35 @@ foreach $k (&list_secret_keys()) {
 	}
 
 # Run the gpg --gen-key command
-$SIG{ALRM} = "gpg_timeout";
-alarm(90);
-&foreign_require("proc", "proc-lib.pl");
-($fh, $fpid) = &foreign_call("proc", "pty_process_exec", "$gpgpath --gen-key");
-&wait_for($fh, "Your selection");
-syswrite($fh, "\n");
-&wait_for($fh, "you want");
-if ($in{'keysize'}) {
-	syswrite($fh, "$in{'keysize'}\n");
+my $temp = &transname();
+$in{'size'} ||= 2048;
+&open_tempfile(TEMP, ">$temp", 0, 1);
+&print_tempfile(TEMP, "Key-Type: default\n");
+&print_tempfile(TEMP, "Key-Length: $in{'size'}\n");
+&print_tempfile(TEMP, "Key-Usage: sign,encrypt,auth\n");
+&print_tempfile(TEMP, "Name-Real: $in{'name'}\n");
+&print_tempfile(TEMP, "Name-Email: $in{'email'}\n");
+if ($in{'comment'}) {
+	&print_tempfile(TEMP, "Name-Comment: $in{'comment'}\n");
+	}
+&print_tempfile(TEMP, "Expire-Date: 0\n");
+if ($in{'pass'}) {
+	&print_tempfile(TEMP, "Passphrase: $in{'pass'}\n");
 	}
 else {
-	syswrite($fh, "\n");
+	&print_tempfile(TEMP, "%no-protection\n");
 	}
-&wait_for($fh, "valid for");
-syswrite($fh, "\n");
-&wait_for($fh, "correct");
-syswrite($fh, "y\n");
-&wait_for($fh, "Real name");
-syswrite($fh, "$in{'name'}\n");
-&wait_for($fh, "Email address");
-syswrite($fh, "$in{'email'}\n");
-&wait_for($fh, "Comment");
-syswrite($fh, "$in{'comment'}\n");
-&wait_for($fh, "Change");
-syswrite($fh, "O\n");
-&wait_for($fh, "passphrase");
-sleep(1);
-syswrite($fh, "$in{'pass'}\n");
-&wait_for($fh, "passphrase");
-sleep(1);
-syswrite($fh, "$in{'pass'}\n");
-&wait_for($fh);
-close($fh);
+&print_tempfile(TEMP, "%commit\n");
+&print_tempfile(TEMP, "%echo done\n");
+&close_tempfile(TEMP);
+($out, $timed_out) = &backquote_with_timeout(
+                "$gpgpath --gen-key --batch $temp 2>&1 </dev/null", 90);
 $err = $?;
-alarm(0);
-kill('TERM', $pid);
 
 &ui_print_header(undef, $text{$pfx.'_title'}, "");
 
 if ($err || $timed_out) {
-	print "<p>",&text('setup_failed', "<pre>$wait_for_input</pre>"),"<p>\n";
+	print "<p>",&text('setup_failed', "<pre>$out</pre>"),"<p>\n";
 	}
 else {
 	print "<p>$text{$pfx.'_ok'}<p>\n";
@@ -88,10 +76,3 @@ else {
 	}
 
 &ui_print_footer("", $text{'index_return'});
-
-sub gpg_timeout
-{
-kill('KILL', $fpid) if ($fpid);
-$timed_out++;
-}
-

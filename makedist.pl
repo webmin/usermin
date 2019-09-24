@@ -44,11 +44,10 @@ $vers = $ARGV[0];
 	  "filter", "gray-theme", "authentic-theme", "filemin",
 	 );
 if ($webmail) {
-	@mlist = grep { $_ ne "caldera" &&
-			$_ ne "mscstyle3" } @mlist;
 	push(@mlist, "virtual-server-theme");
 	push(@mlist, "virtual-server-mobile");
 	}
+@dirlist = ( "JSON" );
 
 chdir("/usr/local/useradmin");
 system("./koi8-to-cp1251.pl");
@@ -124,6 +123,12 @@ if ($webmail) {
 	$mconf{'pass_password'} = 1;
 	$mconf{'mobile_preroot'} = 'virtual-server-mobile';
 	&write_file("tarballs/$dir/miniserv-conf", \%mconf);
+	}
+
+# Add other directories
+foreach $d (@dirlist) {
+	print "Adding directory $d\n";
+	system("cp -r -L $d tarballs/$dir");
 	}
 
 # Update module.info and theme.info files with depends and version

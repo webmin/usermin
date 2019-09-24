@@ -221,7 +221,7 @@ return { 'headers' => [ [ 'From' => $sched->{'from'} || $myaddr ],
 			[ 'Cc' => &mailbox::expand_to($sched->{'cc'}) ],
 			[ 'Bcc' => &mailbox::expand_to($sched->{'bcc'}) ],
 			[ 'Subject' => $sched->{'subject'} ] ],
-	  'attach' => [ { 'headers' => [ [ 'Content-type', 'text/plain' ] ],
+	  'attach' => [ { 'headers' => [ [ 'Content-type', ($sched->{'is_html'} ? 'text/html' : 'text/plain') ] ],
 			  'data' => $data },
 			@attach ]
 	};

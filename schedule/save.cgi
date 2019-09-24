@@ -53,6 +53,8 @@ else {
 		}
 	$sched->{'cc'} = $in{'cc'};
 	$sched->{'bcc'} = $in{'bcc'};
+	$sched->{'is_html'} = $in{'is_html'} || undef;
+	$sched->{'delete_after'} = $in{'delete_after'} || 0;
 	$sched->{'enabled'} = $in{'enabled'};
 	if ($in{'mode'} == 1) {
 		# At time
@@ -85,8 +87,13 @@ else {
 
 	if ($config{'upload'}) {
 		# Add an attached file
-		if ($in{'upload'}) {
-			&create_schedule_file($sched, $in{'upload'}, $in{'upload_filename'} || "unknown");
+		if ($in{'upload0'}) {
+			&create_schedule_file($sched, $in{'upload0'}, $in{'upload0_filename'} || "unknown");
+			}
+		
+		# Add server attached file
+		if ($in{'upload1'}) {
+			&create_schedule_file($sched, $in{'upload1'});
 			}
 
 		# Remove deleted files

@@ -86,13 +86,13 @@ else {
 		}
 
 	if ($config{'upload'}) {
-		
+
 		# Add attached file(s)
 		for(my $i=0; defined($in{"upload$i"}); $i++) {
 			my @files = split(/\0/, $in{"upload$i"});
 			my @fnames = split(/\0/, $in{"upload${i}_filename"});
 			for my $f (0 .. $#fnames) {
-			    &create_schedule_file($sched, $files[$f], $fnames[$f] || "unknown");
+				&create_schedule_file($sched, $files[$f], $fnames[$f] || "unknown");
 				}
 			}
 		
@@ -126,5 +126,12 @@ else {
 # If this is a one-off job, make sure a cron job exists to detect them
 &create_atmode_job();
 
-&redirect("");
+if ($in{'status'}) {
+	&ui_print_header(undef, $text{'save_notice_title'}, "", undef, 0, 0, 0, undef);
+	print text('save_notice', "$gconfig{'webprefix'}/@{[get_module_name()]}/edit.cgi?id=$sched->{'id'}");
+	&ui_print_footer("", $text{'index_return'});
+	} 
+else {
+	&redirect("");
+	}
 

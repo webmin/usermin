@@ -90,7 +90,7 @@ if ($config{'upload'}) {
 
 	# Form to add a file
 	print &ui_table_row($text{'edit_upload1'},
-		&ui_upload("upload0", 60));
+		&ui_upload("upload0", 60, undef, undef, 1));
 
 	# Form to server attach a file
 	print &ui_table_row($text{'edit_upload2'}, (&ui_textbox("upload1", undef, 30, 0). 

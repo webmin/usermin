@@ -37,7 +37,7 @@ edit_file=Filename
 edit_size=Size
 edit_type=Source
 edit_uploaded=Uploaded
-edit_upload1=Upload a file
+edit_upload1=Upload files
 edit_upload2=Attach a file
 
 save_err=Failed to save scheduled email

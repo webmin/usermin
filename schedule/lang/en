@@ -49,4 +49,4 @@ save_eat=Missing or invalid time to run at
 
 view_efile=File no longer exists
 save_notice_title=Schedule Saved
-save_notice=Scheduled email has been created successfully. You can view, edit or delete it clicking <a href="$1">this</a> link.
+save_notice=Scheduled email has been created successfully. You can view, edit or delete it following <a href="$1">this</a> link.

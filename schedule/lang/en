@@ -24,17 +24,21 @@ edit_bcc=Bcc to
 edit_self=Your address ($1)
 edit_addr=Other address
 edit_from=Send from
-edit_mail=Message text
+edit_mail=Message
 edit_mailfile=Get text from file
+edit_html=Allow HTML in message
+edit_delete=Delete after first send
 edit_enabled=Sending enabled?
 edit_mode=Send at
 edit_at=Time and date
 edit_cron=Recurring schedule below ..
 edit_files=Attached files
 edit_file=Filename
+edit_size=Size
 edit_type=Source
 edit_uploaded=Uploaded
-edit_upload=Attach a file
+edit_upload1=Upload files
+edit_upload2=Attach a file
 
 save_err=Failed to save scheduled email
 save_esubject=Missing message subject
@@ -44,3 +48,5 @@ save_efrom=Missing send from address
 save_eat=Missing or invalid time to run at
 
 view_efile=File no longer exists
+save_notice_title=Schedule Saved
+save_notice=Scheduled email has been created successfully - view, edit or delete it following <a href="$1">this</a> link.

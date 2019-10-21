@@ -6,6 +6,7 @@ require './schedule-lib.pl';
 if ($in{'new'}) {
 	&ui_print_header(undef, $text{'edit_title1'}, "");
 	$sched = { 'enabled' => 1,
+		   'delete_after' => 0,
 		   'at' => time(),
 		   'mins' => 0,
 		   'hours' => 0,
@@ -53,26 +54,32 @@ print &ui_table_row($text{'edit_bcc'},
 		    &ui_textbox("bcc", $sched->{'bcc'}, 60)." ".
 		    &mailbox::address_button("bcc", 0));
 
+
 print &ui_table_row($text{'edit_mail'},
-		    &ui_textarea("mail", $sched->{'mail'}, 8, 70)."<br>".
+		    &ui_textarea("mail", $sched->{'mail'}, 12, 70)."<br>".
 		    ($config{'attach'} ?
 		      &ui_checkbox("mail_def", 1, $text{'edit_mailfile'},
 				   $sched->{'mailfile'} ? 1 : 0)."\n".
-		      &ui_textbox("mailfile", $sched->{'mailfile'}, 40)."\n".
-		      &file_chooser_button("mailfile") : ""));
+		      &ui_textbox("mailfile", $sched->{'mailfile'}, 30)."\n".
+		      &file_chooser_button("mailfile") ."<br>" : "") .
+		    (ui_checkbox("is_html", 1, $text{'edit_html'},
+				   $sched->{'is_html'} ? 1 : 0)));
 
-print &ui_table_hr();
 
 if ($config{'upload'}) {
+	
+	print &ui_table_hr();
+	
 	# Attached files
 	@files = &list_schedule_files($sched);
 	if (@files) {
 		$ftable = &ui_columns_start([
-			$text{'delete'}, $text{'edit_file'}, $text{'edit_type'} ]);
+			$text{'delete'}, $text{'edit_file'}, $text{'edit_size'}, $text{'edit_type'} ]);
 		foreach $f (@files) {
 			$ftable .= &ui_columns_row([
 				&ui_checkbox("d", $f->{'id'}),
 				"<a href='view.cgi?sched=$sched->{'id'}&id=".&urlize($f->{'id'})."'>".&html_escape($f->{'id'})."</a>",
+				$f->{'size'},
 				!$f->{'type'} ? "<tt>$f->{'file'}</tt>"
 					     : $text{'edit_uploaded'}
 				]);
@@ -82,11 +89,19 @@ if ($config{'upload'}) {
 		}
 
 	# Form to add a file
-	print &ui_table_row($text{'edit_upload'},
-		&ui_upload("upload", 60));
+	print &ui_table_row($text{'edit_upload1'},
+		&ui_upload("upload0", 60, undef, undef, 1));
+
+	# Form to server attach a file
+	print &ui_table_row($text{'edit_upload2'}, (&ui_textbox("upload1", undef, 30, 0). 
+							&file_chooser_button("upload1")));
 	}
 
 print &ui_table_hr();
+
+print &ui_table_row($text{'edit_delete'},
+		    &ui_radio("delete_after", $sched->{'delete_after'},
+			      [ [ 1, $text{'yes'} ], [ 0, $text{'no'} ] ]));
 
 print &ui_table_row($text{'edit_enabled'},
 		    &ui_radio("enabled", $sched->{'enabled'},

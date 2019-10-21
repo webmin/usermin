@@ -53,6 +53,8 @@ else {
 		}
 	$sched->{'cc'} = $in{'cc'};
 	$sched->{'bcc'} = $in{'bcc'};
+	$sched->{'is_html'} = $in{'is_html'} || undef;
+	$sched->{'delete_after'} = $in{'delete_after'} || 0;
 	$sched->{'enabled'} = $in{'enabled'};
 	if ($in{'mode'} == 1) {
 		# At time
@@ -84,13 +86,36 @@ else {
 		}
 
 	if ($config{'upload'}) {
-		# Add an attached file
-		if ($in{'upload'}) {
-			&create_schedule_file($sched, $in{'upload'}, $in{'upload_filename'} || "unknown");
+
+		# Add attached file(s)
+		for(my $i=0; defined($in{"upload$i"}); $i++) {
+			my @files = split(/\0/, $in{"upload$i"});
+			my @fnames = split(/\0/, $in{"upload${i}_filename"});
+			for my $f (0 .. $#fnames) {
+				&create_schedule_file($sched, $files[$f], $fnames[$f] || "unknown");
+				}
+			}
+		
+		# Add server attached file
+		if ($in{'upload1'}) {
+			&create_schedule_file($sched, $in{'upload1'});
+			}
+
+		# Add pushed attachments
+		for(my $i=0; defined($in{"attach$i"}); $i++) {
+			my $id = "attach$i";
+			my $name = $id . '_filename';
+			&create_schedule_file($sched, $in{$id}, $in{$name}  || "unknown");
+			}
+
+		# Add pushed server files
+		for(my $i=0; defined($in{"file$i"}); $i++) {
+			my $id = "file$i";
+			&create_schedule_file($sched, $in{$id});
 			}
 
 		# Remove deleted files
-		@files = &list_schedule_files($sched);
+		my @files = &list_schedule_files($sched);
 		foreach $d (split(/\0/, $in{'d'})) {
 			($file) = grep { $_->{'id'} eq $d } @files;
 			&delete_schedule_file($sched, $file) if ($file);
@@ -101,5 +126,12 @@ else {
 # If this is a one-off job, make sure a cron job exists to detect them
 &create_atmode_job();
 
-&redirect("");
+if ($in{'status'}) {
+	&ui_print_header(undef, $text{'save_notice_title'}, "", undef, 0, 0, 0, undef);
+	print text('save_notice', "$gconfig{'webprefix'}/@{[get_module_name()]}/edit.cgi?id=$sched->{'id'}");
+	&ui_print_footer("", $text{'index_return'});
+	} 
+else {
+	&redirect("");
+	}
 

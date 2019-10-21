@@ -15,6 +15,12 @@ foreach $s (&list_schedules()) {
 			&mailbox::send_mail($mail);
 			$s->{'ran'} = $s->{'at'};
 			&save_schedule($s);
+			if ($s->{'delete_after'}) {
+				my $sched = &get_schedule($s->{'id'});
+				my $cron = &find_cron_job($sched);
+				&delete_schedule($sched);
+				&cron::delete_cron_job($cron) if ($cron);
+				}
 			}
 		}
 	}

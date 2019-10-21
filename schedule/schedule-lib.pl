@@ -96,13 +96,15 @@ foreach my $f (readdir(DIR)) {
 		# A server-side file
 		push(@rv, { 'file' => readlink($path),
 			    'id' => $f,
-			    'type' => 0 });
+			    'type' => 0,
+			    'size' => nice_size(recursive_disk_usage(resolve_links($path))) });
 		}
 	else {
 		# An uploaded file
 		push(@rv, { 'file' => $path,
 			    'id' => $f,
-			    'type' => 1 });
+			    'type' => 1,
+			    'size' => nice_size(recursive_disk_usage($path)) });
 		}
 	}
 closedir(DIR);
@@ -221,7 +223,7 @@ return { 'headers' => [ [ 'From' => $sched->{'from'} || $myaddr ],
 			[ 'Cc' => &mailbox::expand_to($sched->{'cc'}) ],
 			[ 'Bcc' => &mailbox::expand_to($sched->{'bcc'}) ],
 			[ 'Subject' => $sched->{'subject'} ] ],
-	  'attach' => [ { 'headers' => [ [ 'Content-type', 'text/plain' ] ],
+	  'attach' => [ { 'headers' => [ [ 'Content-type', ($sched->{'is_html'} ? 'text/html' : 'text/plain') ] ],
 			  'data' => $data },
 			@attach ]
 	};

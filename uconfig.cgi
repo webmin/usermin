@@ -12,6 +12,7 @@ require './ui-lib.pl';
 &create_user_config_dirs();
 
 %module_info = &get_module_info($m);
+%module_info || &error($text{'config_emodule'});
 $desc = &text('config_dir', $module_info{'desc'});
 &ui_print_header($desc, $text{'config_title'}, "", undef, 0, 1);
 $mdir = &module_root_directory($m);

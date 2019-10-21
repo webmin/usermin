@@ -12,6 +12,8 @@ require './config-lib.pl';
 $m = $in{'module'};
 &read_acl(\%acl);
 &error_setup($text{'config_err'});
+%module_info = &get_module_info($m);
+%module_info || &error($text{'config_emodule'});
 $acl{$base_remote_user,$m} || &error($text{'config_eaccess'});
 $mdir = &module_root_directory($m);
 

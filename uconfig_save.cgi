@@ -40,7 +40,7 @@ if (!$func) {
 	&parse_config(\%config, "$mdir/uconfig.info", undef,
 		      %canconfig ? \%canconfig : undef);
 	}
-&write_file("$user_config_directory/$m/config", \%config, undef, 1);
+&write_file("$user_config_directory/$m/config", \%config);
 &unlock_file("$user_config_directory/$m/config");
 
 # Call any post-config save function

@@ -93,6 +93,7 @@ $in{'to'} =~ /\S/ || $in{'cc'} =~ /\S/ || $in{'bcc'} =~ /\S/ || $draft ||
 $in{'body'} =~ s/\r//g;
 my %cidmap;
 my (@attach, $bodyattach);
+my @inline_images;
 my $quoted_printable;
 if ($in{'body'} =~ /\S/) {
 	# Perform spell check on body if requested
@@ -117,6 +118,20 @@ if ($in{'body'} =~ /\S/) {
 	# email with cid: references.
 	if ($in{'html_edit'}) {
 		$in{'body'} = &create_cids($in{'body'}, \%cidmap);
+		@inline_images = ( $in{'body'} =~ /(data:image\/png;base64,)(.*?)"/g );
+		if (@inline_images) {
+		    for (my $i = 0; $i < scalar(@inline_images) - 1; $i += 2) {
+		        if ($inline_images[$i] =~ /data:image/) {
+		            my $cid     = "ii_" . (time() + $i);
+		            my $replace = "$inline_images[$i]$inline_images[$i+1]";
+		            $inline_images[$i] = $cid;
+
+		            # $cid = "cid:$cid\" style=\"width: 60%";
+		            $cid = "cid:$cid";
+		            $in{'body'} =~ s/\Q$replace/$cid/;
+		        	}
+		    	}
+			}
 		}
 
 	# Create the body attachment
@@ -183,6 +198,23 @@ if ($in{'body'} =~ /\S/) {
 			'data' => join("", &unparse_mail(\@alts, "\n", $bound))
 			};
 		}
+	}
+
+# Add inline images
+if (@inline_images) {
+    my $iid = 1;
+    for (my $i = 0; $i < scalar(@inline_images) - 1; $i += 2) {
+        my $image_name = "inline-image$iid.png";
+        push(@attach,
+             {  'data'    => $inline_images[$i + 1],
+                'headers' => [['Content-type',              "image/png; name=\"$image_name\""],
+                              ['Content-Disposition',       "inline; filename=\"$image_name\""],
+                              ['Content-ID',                "<$inline_images[$i]>"],
+                              ['Content-Transfer-Encoding', 'base64']
+                ]
+             });
+        $iid++;
+    	}
 	}
 
 # Add uploaded attachments

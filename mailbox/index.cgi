@@ -193,6 +193,9 @@ for(my $i=$start; $i<=$end; $i++) {
 		# Unread
 		($bs, $be) = ("<b>", "</b>");
 		}
+	else {
+		$bs = $be = "";
+		}
 	my $idx = $m->{'idx'};
 	my $id = $m->{'id'};
 	my @cols;

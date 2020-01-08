@@ -44,3 +44,5 @@ recovery_err=Einrichten der Adresse zum Zur&uuml;cksetzen ist fehlgeschlagen
 recovery_eemail=Keine valide e-Mail Adresse eingegeben
 recovery_cleared=Die Adresse zum Zur&uuml;cksetzen wurde gel&ouml;scht
 recovery_set=Die Adresse zum Zur&uuml;cksetzen wurde auf $1 ge&auml;ndert
+change_oka=Das Passwort f&#252;r $1 wurde erfolgreich ge&#228;ndert. Alle Usermin, SSH, FTP oder Mail Anmeldungen ben&#246;tigen ab sofort das neue Passwort.
+left_changepass=Passwort &#228;ndern

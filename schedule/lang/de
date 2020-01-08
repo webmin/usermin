@@ -41,3 +41,10 @@ save_err=Konnte zeitversetzten E-Mail-Versand nicht speichern
 save_esubject=Fehlender Nachrichtenbetreff
 save_eto=Fehlende Empf&#228;nger-E-Mail-Adresse
 view_efile=Datei existiert nicht l&#228;nger
+edit_html=Erlaube HTML in Nachricht
+edit_delete=Loesche nach dem ersten senden
+edit_size=Gr#246;sse
+edit_upload1=Datei hochladen
+edit_upload2=Datei anh&#228;ngen
+save_notice_title=Gelante Mail gespeichert
+save_notice=Geplante Mail wurde erfolgreich erstellt - zum Ansehen, Bearbeiten oder L&#246;schen <a href="$1">diesen Link</a> verwenden.

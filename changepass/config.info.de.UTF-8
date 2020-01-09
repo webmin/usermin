@@ -1,4 +1,4 @@
-cmd_mode=Befehl ausführen als,1,0-Benutzer&#x0082; dessen Passwort geändert wird,1-<tt>root</tt> (mit angehängtem Benutzernamen)
+cmd_mode=Befehl ausführen als,1,0-Benutzer dessen Passwort geändert wird,1-<tt>root</tt> (mit angehängtem Benutzernamen)
 passwd_cmd=Ändern mit,10,-Benutze <tt>PAM</tt> oder <tt>passwd</tt>-Befehl,Direkt in <tt>/etc/shadow</tt> bearbeiten,Benutzerdefinierter Befehl
 passwd_dict=Passwort darf nicht im <tt>Wörterbuch</tt> vorhanden sein?,1,1-Ja,0-Nein
 passwd_min=Minimale Passwortlänge,0,5

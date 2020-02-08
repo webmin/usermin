@@ -1,1 +1,0 @@
-../../webadmin/spam-assassin/spam-assassin-lib.pl

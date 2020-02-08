@@ -1,1 +1,0 @@
-../webadmin/copy-devels.sh

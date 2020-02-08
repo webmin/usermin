@@ -1,1 +1,0 @@
-../../webadmin/spam-assassin/edit_score.cgi

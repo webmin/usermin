@@ -1,1 +1,1 @@
-de.UTF-8
+index_desc=Dieses Modul erlaubt die Konfiguration der Filterung und Weiterleiung Ihrer Mails auf diesem Server. Dazu mu&#223; der Systemerwalter entweder Procmail global f&#252;r alle Benutzer eingerichtet haben oder Sie nutzen Procmail im Modul Mail Weiterleitung.

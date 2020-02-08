@@ -1,1 +1,5 @@
-config.info.de.UTF-8
+display_mode=Auf der Hauptseite anzeigen:,1,0-Alle Befehle und Parameter,1-Verkn&#252;pfungen zu Befehlen
+height=H&#246;he des Bearbeiten Fensters,3,Standard 20 Zeichen
+webmin_config=Konfigurations-Verzeichnis für Webmin Modul <tt>Benutzerdefiniert Befehle</tt>,0
+width=Breite des Bearbeiten Fensters,3,Standard 80 Zeichen
+wrap=Zeilenumbruch im Bearbeiten Fenster,1,-Standard (Weich),Hart,Aus

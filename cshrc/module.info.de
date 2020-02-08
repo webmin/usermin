@@ -1,1 +1,2 @@
-module.info.de.UTF-8
+desc_de=Anmeldescripte bearbeiten
+longdesc_de=Bearbeiten der Anmeldescripte des aktuellen Benutzers, z.B. .profile und .bashrc.

@@ -1,1 +1,6 @@
-config.info.de.UTF-8
+change_hphone=Private Telefonnumme &#228;ndern?,1,1-Ja,0-Nein
+change_office=B&#252;ro Raumnummer &#228;ndern?,1,1-Ja,0-Nein
+change_ophone=B&#252;ro Telefonnummer &#228;ndern?,1,1-Ja,0-Nein
+change_real=Eigenen Namen &#228;ndern?,1,1-Ja,0-Nein
+change_shell=Login-Shell &#228;ndern?,1,1-Ja,0-Nein
+shells=Liste der Shells beziehen aus,3,/etc/shells

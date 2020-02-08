@@ -1,0 +1,2 @@
+index_desc=Die Finger-Datei beinhaltet den Text, den jemand erhält, wenn er nach mit <tt>finger</tt> nach $1 auf diesem System sucht. Normalerweise enthäkt diese Datei ein paar wenige Informationen über Sie und die Projekte, an welchen Sie gerade arbeiten. Zumeist ist <tt>finger</tt> jedoch aus Datenschutzgründen abgeschaltet.
+index_title=Finger-Datei

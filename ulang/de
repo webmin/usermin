@@ -1,16 +1,1 @@
-category_apps=Anwendungen
-category_login=Anmeldung
-category_mail=Mail
-category_usermin=Usermin
-feedback_configdesc=Wenn dies gew&#228;hlt ist, wird die E-Mail die Konfiguration des betreffenden Modules und die Inhalte s&#228;mtlicher Konfigurationsdateien die das Modul benutzt beinhalten. Wenn sich die R&#252;ckmeldung z.B. auf das Modul <i>Benutzer und Gruppen</i> bezieht, werden Ihre <tt>/etc/passwd</tt> und <tt>/etc/shadow</tt> Dateien gesendet!
-feedback_desc2=Diese R&#252;ckmeldung wird zu den <b>Usermin-Entwicklern</b> gesendet, <u>nicht</u> zu Ihrem <i>System-Administrator</i>, <i>Internet Service Provider</i> oder Ihrer <i>Hosting-Firma</i>. Bitte schreiben Sie Ihre R&#252;ckmeldung in <u>Englisch</u>, auch wenn Sie f&#252;r Usermin gerade eine andere Sprache eingestellt haben.<br>Wenn Sie eine Frage oder einen Vorschlag zur <u>Deutschen &#220;bersetzung</u> haben, dann senden Sie die R&#252;ckmeldung bitte <u>ausschlie&#223;lich</u> an <u>translations&#64;webmin.com</u>.
-feedback_desc=Dieses Formular erlaubt Ihnen, den Usermin-Entwicklern Fehler zu melden oder Vorschl&#228;ge zu machen bez&#252;glich eines Fehlers oder einer fehlenden Eigenschaft, die Sie gefunden haben oder vermissen. Wenn die Senden-Schaltfl&#228;che gedr&#252;ckt wird, werden die eingegebenen Details an $1 gesendet.
-feedback_title=Usermin R&#252;ckmeldungen
-header_config=Einstellungen
-header_webmin=Usermin-Index
-main_none=Sie haben keinen Zugriff auf irgendein Usermin-Modul.
-main_title2=Usermin
-main_title=Usermin $1 auf $2 ($3)
-programname=Usermin
-session_header=Anmeldung f&#252;r Usermin
-session_mesg=Sie m&#252;ssen einen Benutzernamen und ein Passwort eingeben, um sich am Usermin-Server $1 anmelden zu k&#246;nnen.
+de.UTF-8

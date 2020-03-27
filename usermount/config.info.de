@@ -1,4 +1,4 @@
-long_fstypes=Zeige lange Dateisystem&#45;Typnamen an,1,1-Ja,0-Nein
-fstab_file=Dateisysteme anzeigen&#44; die bereits beim Booten gemountet werden,0
 smbclient_path=Voller Pfad zum SMB&#45;Client,3
+fstab_file=Dateisysteme anzeigen&#44; die bereits beim Booten gemountet werden,0
 nmblookup_path=Voller PFad zum NBM&#45;Lookup,3
+long_fstypes=Zeige lange Dateisystem&#45;Typnamen an,1,1-Ja,0-Nein

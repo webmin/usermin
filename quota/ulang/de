@@ -1,4 +1,4 @@
-index_gquotas=Speicherbegrenzungen f&#252;r Gruppe $1 auf eingeh&#228;ngten Dateisystemen
-index_none=Sie besitzen keine Speicherbegrenzungen auf keinerlei eingeh&#228;ngten Dateisystemen
-index_quotas=Speicherbegrenzungen f&#252;r $1 auf eingeh&#228;ngten Dateisystemen
+index_gquotas=Speicherbegrenzungen für Gruppe $1 auf eingehängten Dateisystemen
+index_none=Sie besitzen keine Speicherbegrenzungen auf keinerlei eingehängten Dateisystemen
+index_quotas=Speicherbegrenzungen für $1 auf eingehängten Dateisystemen
 index_title=Speicherbegrenzungen

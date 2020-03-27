@@ -1,0 +1,12 @@
+index_header=E-mail továbbítás beállításai
+index_fwd=Az összes e-mailt továbbítsa a következő címre:
+index_none=Csak szállítsd rendesen
+index_to=Címhez
+index_save=Frissítés továbbítása
+index_return=továbbító űrlap
+save_err=Nem sikerült menteni a levelek továbbítását
+save_efwd=A '$1' nem érvényes e-mail cím
+save_efwds=Nincs további továbbküldés a belépésre
+save_eldap=Hiba az adatbázis frissítésekor : $1 
+save_done1=E-mail továbbítási beállításai sikeresen mentésre kerültek.
+save_done2=A levélküldés sikeresen le van tiltva.

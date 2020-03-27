@@ -1,4 +1,0 @@
-index_title=Login Skripty
-index_desc_0=Ní¾e uvedený skript $1 bude spu¹tìn v¾dy, jakmile se spustí nový shell, nebo jakmile se pøihlásíte  prostøednictvím SSH or telnet.
-index_desc_1=Ní¾e uvedený skript $1 bude spu¹tìn v¾dy, pouze jakmile se pøihlásíte  prostøednictvím SSH or telnet.
-

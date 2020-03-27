@@ -1,0 +1,3 @@
+index_title=Scripts de inicio de sesión
+index_desc_0=El script $1 a continuación se ejecutará cada vez que inicie un nuevo shell o cuando inicie sesión a través de SSH o telnet.
+index_desc_1=El script $1 a continuación se ejecutará solo cuando inicie sesión a través de SSH o telnet.

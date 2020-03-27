@@ -1,0 +1,3 @@
+index_title=Login Skripty
+index_desc_0=Níže uvedený skript $1 bude spuštěn vždy, jakmile se spustí nový shell, nebo jakmile se přihlásíte  prostřednictvím SSH or telnet.
+index_desc_1=Níže uvedený skript $1 bude spuštěn vždy, pouze jakmile se přihlásíte  prostřednictvím SSH or telnet.

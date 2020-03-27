@@ -1,0 +1,3 @@
+index_title=Inloggningsskript
+index_desc_0=Skriptet $1 nedan kommer att köras när du startar ett nytt skal, eller när du loggar in via SSH eller telnet.
+index_desc_1=Skriptet $1 nedan körs endast när du loggar in via SSH eller telnet.

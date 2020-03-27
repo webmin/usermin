@@ -1,0 +1,12 @@
+index_header=Configuración de reenvío de correo electrónico
+index_fwd=Reenviar todo el correo electrónico a
+index_none=Solo entregue normalmente
+index_to=A las direcciones
+index_save=Actualización de reenvío
+index_return=formulario de reenvío
+save_err=Error al guardar el reenvío de correo
+save_efwd='$1' no es una dirección de correo electrónico válida
+save_efwds=No hay destinatario para reenviar a ingresado
+save_eldap=Error al actualizar la base de datos : $1 
+save_done1=Su configuración de reenvío de correo se ha guardado correctamente.
+save_done2=El reenvío de correo se ha deshabilitado correctamente.

@@ -20,7 +20,6 @@ index_noperiod=Nenhum minimo
 index_mins=minutos
 index_from=Origem: endreco para resposta
 index_fromauto=Determina automaticamente
-
 aliases_to=Encaminhar para..
 aliases_from=E-mail de..
 aliases_type1=Endereco $1
@@ -32,7 +31,6 @@ aliases_type6=Aplica filtro no  arquivo $1
 aliases_type7=Caixa postal do usuario normal
 aliases_type8=Resposta automatica de ferias
 aliases_enabled=Habilitar ?
-
 aform_type0=Nada
 aform_type1=Endereco de e-mail
 aform_type2=Enderecos no arquivo
@@ -46,16 +44,9 @@ aform_edit=Editar encaminhamento de e-mail
 aform_create=Adicionar encaminhamento de e-mail
 aform_enabled=Habilitar ?
 aform_val=Encaminhar para
-aform_aarquivo=Editar..
 aform_return=Apelido
 aform_name=E-mail para..
 aform_vacation=Editar opcoes de ferias..
-
-aarquivo_title=Editar Endereco do Arquivo
-aarquivo_desc=Use a area de texto abaixo para editar os enderecos no arquivo $1.
-aarquivo_undo=Desfazer Mudancas
-aarquivo_ewrite=Falha ao gravar os enderecos para o arquivo : $1
-
 asave_err=Falha para salvar o encaminhamento
 asave_eaddr='$1' nao e um endereco valido
 asave_etype1='$1' nao e um endereco de e-mail valido
@@ -71,53 +62,8 @@ asave_ename=Faltando ou invalido o e-mail para o nome
 asave_esame=Um apelido para esse endereco ja existe
 asave_enone=Nada foi selecionado para encaminhar para
 asave_ecannot=Tipo de encaminhamento selecionado e invalido
-
-farquivo_title=Editar Filtro de Arquivo
-farquivo_desc=Use o formulario abaixo para configurar as regras de filtro no arquivo $1.
-farquivo_earquivo=Voce nao tem permissao para editar $1.
-farquivo_line=Se o $1 campo $2 $3 entao encaminha para $4
-farquivo_from=origem
-farquivo_to=destino
-farquivo_subject=assunto
-farquivo_cc=CC
-farquivo_body=corpo
-farquivo_what0=nao corresponde
-farquivo_what1=corresponde
-farquivo_other=Caso contrario encaminhe para $1
-farquivo_err=Falha para salvar o arquivo de filtro
-farquivo_ematch=Ligacao Faltando
-farquivo_eaction=Faltando endereco para encaminhamento
-farquivo_ewrite=Falha para escrever no arquivo de filtro : $1
-
-rarquivo_title=Editar Arquivo de Resposta Automatica
-rarquivo_desc=Use essa area de texto abaico para editar a mensagem de resposta automatica em $1.
-A mensagem pode conter macro como $SUBJECT, $FROM, $TO, $DATE and $BODY na qual serao enviads quando a resposta automatica for ativada.
-rarquivo_desc2=Voce pode também configurar cabecalhos de email para
-adicionar ou trocar o padrao usado na resposta automatica colocando linhas como:<br><tt>From: foo@bar.com</tt><br><tt>Subject: Em Ferias</tt><br>no topo da mensagem, serparando o o FROM ao corpo da mensagems omente com uma linha em branco.
-rarquivo_earquivo=Voce nao tem permissao para editar $1.
-rarquivo_undo=Desfaz Mudancas
-rarquivo_ewrite=Falha para gravar a resposta automatica no arquivo : $1
-rarquivo_replies=Controlar as respostas automaticas para previnir multiplas mensagens para um mesmo endereco ?
-rarquivo_period=Minimo de intervalo entre as respostas
-rarquivo_default=Padrao (1 hora)
-rarquivo_secs=segundos
-rarquivo_eperiod=Faltando ou invalido o numero de segundos entre as respostas
-rarquivo_no_autoreply=Nao enviar resposta automatica para
-rarquivo_from=From: endereco para responder
-rarquivo_auto=Automatico (baseado no endereco do destinatario)
-rarquivo_efrom=Faltando endereco From: (origem)
-rarquivo_fromdesc=Um endereco de (origem) From: endereco deve sempre ser especificado quando possivel, o metodo automatico pode nao ser confiavel.
-rarquivo_err=Falha para salvar o arquivo de resposta automatica
-
-varquivo_title=Editar Arquivo de Resposta de Ferias
-varquivo_desc=Use a area abaixo de texto para editar a resposta automatica para a mensagem $1.
-varquivo_subject=Assunto da mensagens
-varquivo_err=Falha para salvar o arquivo de resposta de ferias
-varquivo_esubject=Faltando assunto da mensagem
-
 edit_title=Editar Arquivo de Encaminhamento
 edit_desc=Essa pagina permite voce editar manualmente o conteudo do seu arquivo $1 . Seja cuidadoso, nenhum checagem de erro sera aplicada nas informacoes que voce colocar.
-
 vacation_title=Opcoes de Ferias
 vacation_header=Opcoes de resposta automatica de ferias
 vacation_user=Seu usuario
@@ -132,11 +78,8 @@ vacation_einterval=Faltando ou invalido o intervalo de resposta
 vacation_euser=Faltando ou invalido o usuario
 vacation_emsg=Faltando ou invalido o arquivo da mensagem
 vacation_return=opcoes de ferias
-
 simple_err=Falha para salvar opcoes de encaminhamento de e-mail
 simple_eforward=Nenhum endereco para encaminhamento foi informado
 simple_eforward2=Um enderco unico para encaminhamento deve ser informado, como <tt>foo@bar.com</tt>
 simple_eautotext=Nenhum texto informado para resposta automatica
 simple_efrom=Faltando endereco de origem (From:) 
-simple_earquivo=Arquivo anexado $1 para a reposta automatica nao existe
-simple_eautotextarquivo=Arquivo de resposta automaitca nao pode ser adicionado a menos que tenha uma mensage 

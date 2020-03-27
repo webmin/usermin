@@ -1,7 +1,6 @@
 index_title=Temas de Usermin
-index_desc=Los temas controlan la apariencia del interfaz de usuario de Usermin, incluyendo iconos, colores, segundos planos y posÌblemente la disposiciÛn de p·ginas. La caja de selecciÛn inferior puede usarse para seleccionar uno de los temas instalados en tu sistema.
+index_desc=Los temas controlan la apariencia del interfaz de usuario de Usermin, incluyendo iconos, colores, segundos planos y pos√≠blemente la disposici√≥n de p√°ginas. La caja de selecci√≥n inferior puede usarse para seleccionar uno de los temas instalados en tu sistema.
 index_sel=Tema en curso:
 index_default=Tema por defecto de Usermin
 index_change=Cambiar
 index_global=Valor por defecto global
-

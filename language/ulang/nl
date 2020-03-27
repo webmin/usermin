@@ -1,6 +1,6 @@
-index_global=Globale Usermin standaard
-index_intro=Met deze pagina kunt u kiezen in welke taal u wilt dat Usermin u de titels laat zien, prompts en berichten voor uw login.
-index_lang=De volgende taal gebruiken:
-index_ok=Aanpassen
 index_title=Taal
 index_title2=Usermin Taal
+index_lang=De volgende taal gebruiken:
+index_intro=Met deze pagina kunt u kiezen in welke taal u wilt dat Usermin u de titels laat zien, prompts en berichten voor uw login.
+index_ok=Aanpassen
+index_global=Globale Usermin standaard

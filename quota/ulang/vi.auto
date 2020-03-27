@@ -3,4 +3,4 @@ index_quotas=Hạn ngạch đĩa cho $1 trên các hệ thống tệp được g
 index_none=Bạn không có hạn ngạch đĩa người dùng trên bất kỳ hệ thống tập tin gắn kết.
 index_gquotas=Hạn ngạch đĩa cho nhóm $1 trên các hệ thống tệp được gắn
 right_header=Hạn ngạch đĩa
-right_out=%1 của 2
+right_out=$1 của $2

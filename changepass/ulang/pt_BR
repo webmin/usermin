@@ -1,5 +1,4 @@
 index_title=Alterar a Senha
-index_desc1=Use essa pagina para alterar a senha que voce usa para logar no servidor via SSH, telnet, FTP, oU E-mail que use autenticacao PAM.
 index_desc2=Sua senha usada no servidor de arquivos nesse servidor acessado do windows tambem sera altarada.
 index_for=Alterando para o usuario
 index_old=Senha atual
@@ -7,10 +6,9 @@ index_new1=Nova senha
 index_new2=Nova senha novamente
 index_change=Alterar Agora
 index_return=senha trocada
-
+index_return=senha trocada
 change_err=Falha ao alterar a senha
 change_title=Senha Alterada
-change_ok=Sua senha para $1 foi alterado com sucesso. Qualquer acesso a telnet, SSH, FTP ou e-mail de agora em diante necessita de sua nova senha.
 change_enew1=Faltando a nova senha
 change_enew2=As novas senhas nao sao as mesmas
 change_eold=Senha antiga esta incorreta
@@ -30,5 +28,3 @@ change_epasswd_dict=Senha ja esta no dicionario de palavras
 change_epasswd_same=Senha contem ou e a mesma do usuario
 change_epasswd_new=Senha e a mesma que a antiga senha
 change_emysql=A configuracao de acesso do modulo MySQL esta incorreto.
-
-

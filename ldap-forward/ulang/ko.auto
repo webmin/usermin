@@ -1,0 +1,12 @@
+index_header=이메일 전달 설정
+index_fwd=모든 이메일을에 전달
+index_none=정상적으로 배송
+index_to=주소로
+index_save=전달 전달
+index_return=전달 양식
+save_err=메일 전달을 저장하지 못했습니다.
+save_efwd='$1'은 (는) 유효한 이메일 주소가 아닙니다
+save_efwds=입력 할 포워드가 없습니다.
+save_eldap=데이터베이스 업데이트 오류  : $1 
+save_done1=메일 전달 설정이 성공적으로 저장되었습니다.
+save_done2=메일 전달이 비활성화되었습니다.

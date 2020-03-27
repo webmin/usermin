@@ -1,0 +1,12 @@
+index_header=Ustawienia przekazywania e-maili
+index_fwd=Przekaż cały e-mail na adres
+index_none=Po prostu dostarczaj normalnie
+index_to=Do adresów
+index_save=Przekazywanie aktualizacji
+index_return=formularz przekazania
+save_err=Nie udało się zapisać przekierowania poczty
+save_efwd=„$1” nie jest prawidłowym adresem e-mail
+save_efwds=Brak adresu do przekazania do wpisanego
+save_eldap=Błąd podczas aktualizacji bazy danych : $1 
+save_done1=Twoje ustawienia przekazywania poczty zostały pomyślnie zapisane.
+save_done2=Przekazywanie poczty zostało pomyślnie wyłączone.

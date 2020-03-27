@@ -1,0 +1,12 @@
+index_header=Nastavení předávání e-mailů
+index_fwd=Přeposlat veškerý e-mail na adresu
+index_none=Jen dodávejte normálně
+index_to=Na adresy
+index_save=Aktualizace přesměrování
+index_return=předávací formulář
+save_err=Uložení přesměrování pošty se nezdařilo
+save_efwd='$1' není platná e-mailová adresa
+save_efwds=Žádná addreess k přeposlání na zadané
+save_eldap=Chyba při aktualizaci databáze : $1 
+save_done1=Nastavení předávání pošty byla úspěšně uložena.
+save_done2=Předávání pošty bylo úspěšně deaktivováno.

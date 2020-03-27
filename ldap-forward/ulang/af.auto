@@ -1,0 +1,12 @@
+index_header=Stuur e-pos aan e-pos
+index_fwd=Stuur alle e-pos aan
+index_none=Lewer net normaalweg
+index_to=Aan adresse
+index_save=Opdatering deurstuur
+index_return=aanstuurvorm
+save_err=Kon nie die aanstuur van e-pos stoor nie
+save_efwd='$1' is nie 'n geldige e-posadres nie
+save_efwds=Geen addres om aan te stuur nie
+save_eldap=Fout tydens opdatering van databasis : $1 
+save_done1=U e-posadresinstellings is suksesvol gestoor.
+save_done2=E-posadres is suksesvol gedeaktiveer.

@@ -1,20 +1,18 @@
-index_title=Kullanıcı özelliklerini değiştir.
-index_desc= Bu sayfa sana Unix hesabındaki bilgilerini güncelleme imkanı aynı zamanda;  telnet veya  SSH' a bağlanmanı sağlar. Bunu yapaken dikkatli ol çünkü bazı seçimler giriş yapmanı engelleyebilir.
-index_desc2=Bu sayfa sana Unix hesabındaki isim, erişim numarası gibi bilgileri güncelleme imkanı sağlar
-index_header=Şu anki kullanıcı bilgileri
-index_real=İsim 
-index_office= Ofis Numarası 
-index_ophone=İş telefonu 
+index_title=KullanÄ±cÄ± Ã¶zelliklerini deÄŸiÅŸtir.
+index_desc= Bu sayfa sana Unix hesabÄ±ndaki bilgilerini gÃ¼ncelleme imkanÄ± aynÄ± zamanda;  telnet veya  SSH' a baÄŸlanmanÄ± saÄŸlar. Bunu yapaken dikkatli ol Ã§Ã¼nkÃ¼ bazÄ± seÃ§imler giriÅŸ yapmanÄ± engelleyebilir.
+index_desc2=Bu sayfa sana Unix hesabÄ±ndaki isim, eriÅŸim numarasÄ± gibi bilgileri gÃ¼ncelleme imkanÄ± saÄŸlar
+index_header=Åu anki kullanÄ±cÄ± bilgileri
+index_real=Ä°sim 
+index_office= Ofis NumarasÄ± 
+index_ophone=Ä°ÅŸ telefonu 
 index_hphone=Ev telefonu 
-index_shell=Giriş kabuğu 
-
-save_err=Bilgileri değiştirme başarısız.
-save_ereal=İsim , veya  : gibi karekterleri kapsayamaz
-save_eoffice=Ofis numarası , veya : karekterleri kapsayamaz
+index_shell=GiriÅŸ kabuÄŸu 
+save_err=Bilgileri deÄŸiÅŸtirme baÅŸarÄ±sÄ±z.
+save_ereal=Ä°sim , veya  : gibi karekterleri kapsayamaz
+save_eoffice=Ofis numarasÄ± , veya : karekterleri kapsayamaz
 save_eophone=Ofis telefonu  , veya : karekterleri kapsayamaz
 save_ehphone=Ev telefonu  , veya : kapsayamaz
 save_eshell=Kabuk	 , veya	 : karekterleri	kapsayamaz
-save_title=Bilgileri	değiştir.
-save_desc=Gerekli	$1	değişiklikler	başarıyla	yapıldı .
-save_desc2= $1	için	kullanıcı	bilgileri	güncellendi.
-
+save_title=Bilgileri	deÄŸiÅŸtir.
+save_desc=Gerekli	$1	deÄŸiÅŸiklikler	baÅŸarÄ±yla	yapÄ±ldÄ± .
+save_desc2= $1	iÃ§in	kullanÄ±cÄ±	bilgileri	gÃ¼ncellendi.

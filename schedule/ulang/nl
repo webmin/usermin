@@ -13,7 +13,6 @@ index_cleardesc=Klik op deze knop om alle geplande emails te verwijderen die war
 index_delete=Verwijder Geselecteerde Emails
 index_disable=Selecteren Uitzetten
 index_enable=Selecteren Aanzetten
-
 edit_title1=Maak Geplande Email
 edit_title2=Bewerk Geplande Email
 edit_header=Geplande email berichten details
@@ -34,13 +33,10 @@ edit_files=Bijgevoegde files
 edit_file=Filenaam
 edit_type=Bron
 edit_uploaded=Ge-upload
-edit_upload=Voeg een file toe
-
 save_err=Geplande mail opslaan is mislukt
 save_esubject=Ontbrekend berichten onderwerp
 save_eto=Ontbrekend adres om naar te versturen
 save_emailfile=Ontbrekende of ongeldige berichten tekst file
 save_efrom=Ontbrekend afzend adres
 save_eat=Ontbrekende of ongeldige tijd om uit te voeren
-
 view_efile=File bestaat niet meer

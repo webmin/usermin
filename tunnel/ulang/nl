@@ -3,7 +3,6 @@ link_eurl=Ongeldige tunnel URL : $1
 link_elogin=Mislukt om in te loggen bij $1 als $2
 link_eautologin=Ongeldige login of wachtwoord voor $1. <a href='$2'>Klik hier</a> om in te loggen.
 link_enouser=Er is een gebruikersnaam en wachtwoord nodig om in te loggen bij $1, maar er is nog niets geconfigureerd.
-
 login_title=Login bij Website
 login_desc=U moet een gebruikersnaam en wachtwoord geven om in te loggen bij $1.
 login_header=Website authenticatie

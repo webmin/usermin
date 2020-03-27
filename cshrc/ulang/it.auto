@@ -1,0 +1,3 @@
+index_title=Script di accesso
+index_desc_0=Lo script $1 di seguito verrà eseguito ogni volta che avvii una nuova shell o quando accedi tramite SSH o telnet.
+index_desc_1=Lo script $1 di seguito verrà eseguito solo quando si accede tramite SSH o telnet.

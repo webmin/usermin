@@ -1,0 +1,8 @@
+index_files=Прикрепленные файлы для автоответа
+index_fromaddr=Использовать адрес
+index_fromdef=Ваш адрес по умолчанию
+index_charset=Набор символов сообщения
+index_charsetdef=С текущего языка
+index_charsetother=Другой набор символов
+simple_efile=Прикрепленный файл $1 для автоответа не существует
+simple_eautotextfile=Файлы автоответа не могут быть введены, если сообщение не

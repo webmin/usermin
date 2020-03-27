@@ -1,0 +1,3 @@
+index_title=Scripts de connexion
+index_desc_0=Le script $1 ci-dessous sera exécuté chaque fois que vous démarrez un nouveau shell, ou lorsque vous vous connectez via SSH ou telnet.
+index_desc_1=Le script $1 ci-dessous ne sera exécuté que lorsque vous vous connecterez via SSH ou telnet.

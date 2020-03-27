@@ -1,0 +1,3 @@
+index_title=登录脚本
+index_desc_0=每当您启动新的Shell或通过SSH或telnet登录时，都会执行以下脚本 $1。
+index_desc_1=仅当您通过SSH或telnet登录时，才会执行以下脚本 $1。

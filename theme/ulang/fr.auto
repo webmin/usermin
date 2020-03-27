@@ -1,0 +1,11 @@
+index_title=Thème Usermin
+index_desc=Les thèmes contrôlent l'apparence de l'interface utilisateur Usermin pour votre connexion, y compris les icônes, les couleurs, les arrière-plans et éventuellement la mise en page des pages. La boîte de sélection ci-dessous peut être utilisée pour choisir l'un des thèmes installés sur votre système.
+index_sel=Thème actuel :
+index_default=Ancien thème Usermin
+index_change=Changement
+index_global=Global Usermin par défaut
+change_title=Changer de thème
+change_user=Modification de la connexion Usermin ..
+change_done=.. terminé
+change_restart=Rechargement d'Usermin ..
+change_redirect=Redirection vers le menu principal.

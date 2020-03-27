@@ -1,0 +1,11 @@
+index_title=Usermin主题
+index_desc=主题控制用于登录的Usermin用户界面的外观，包括图标，颜色，背景以及可能的页面布局。下面的选择框可用于选择系统上安装的主题之一。
+index_sel=当前主题：
+index_default=旧的Usermin主题
+index_change=更改
+index_global=全局Usermin默认值
+change_title=改变主题
+change_user=修改Usermin登录名 ..
+change_done=..完成
+change_restart=正在重新加载Usermin ..
+change_redirect=重定向到主菜单 ..

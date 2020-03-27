@@ -1,0 +1,3 @@
+index_title=Saioa hasteko gidoiak
+index_desc_0=Beheko $1 script izango da shell berria hasten denean edo SSH edo telnet bidez saioa hasten duzunean.
+index_desc_1=Jarraian $1 gidoia SSH edo telnet bidez saioa hastean bakarrik gauzatuko da.

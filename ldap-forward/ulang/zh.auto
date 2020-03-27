@@ -1,0 +1,12 @@
+index_header=电子邮件转发设置
+index_fwd=转发所有电子邮件至
+index_none=只需正常交付
+index_to=到地址
+index_save=更新转发
+index_return=转寄表格
+save_err=保存邮件转发失败
+save_efwd=“$1”不是有效的电子邮件地址
+save_efwds=没有地址转发到
+save_eldap=更新数据库时出错： $1
+save_done1=您的邮件转发设置已成功保存。
+save_done2=邮件转发已成功禁用。

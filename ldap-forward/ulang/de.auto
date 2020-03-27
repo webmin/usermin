@@ -1,0 +1,12 @@
+index_header=E-Mail-Weiterleitungseinstellungen
+index_fwd=Leiten Sie alle E-Mails an weiter
+index_none=Einfach normal liefern
+index_to=An Adressen
+index_save=Weiterleitung aktualisieren
+index_return=Weiterleitungsformular
+save_err=Fehler beim Speichern der E-Mail-Weiterleitung
+save_efwd='$1' ist keine gültige E-Mail-Adresse
+save_efwds=Keine Adresse zum Eingeben weiterzuleiten
+save_eldap=Fehler beim Aktualisieren der Datenbank : $1 
+save_done1=Ihre Einstellungen für die E-Mail-Weiterleitung wurden erfolgreich gespeichert.
+save_done2=Die E-Mail-Weiterleitung wurde erfolgreich deaktiviert.

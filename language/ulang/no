@@ -1,6 +1,6 @@
-index_global=Global Usermin standard
-index_intro=Denne siden lar deg velge hvilket spr&#229;k Usermin bruker for &#229; vise titler, prompt og meldinger.
-index_lang=Vis i spr&#229;k:
+index_title=Språk
+index_title2=Usermin språk
+index_lang=Vis i språk:
+index_intro=Denne siden lar deg velge hvilket språk Usermin bruker for å vise titler, prompt og meldinger.
 index_ok=Endre
-index_title=Spr&#229;k
-index_title2=Usermin spr&#229;k
+index_global=Global Usermin standard

@@ -1,3 +1,3 @@
-index_desc_0=Scriptet $1 nedenfor vil bli utf&#195;&#184;rt n&#195;&#165;r du starter et nytt skall, eller n&#195;&#165;r du logger inn via SSH eller telnet.
-index_desc_1=Scriptet $1 nedenfor vil kun bli utf&#195;&#184;rt n&#195;&#165;r du logger inn via SSH eller telnet.
 index_title=Innloggingsscript
+index_desc_0=Scriptet $1 nedenfor vil bli utfÃ¸rt nÃ¥r du starter et nytt skall, eller nÃ¥r du logger inn via SSH eller telnet.
+index_desc_1=Scriptet $1 nedenfor vil kun bli utfÃ¸rt nÃ¥r du logger inn via SSH eller telnet.

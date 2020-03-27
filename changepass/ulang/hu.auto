@@ -1,0 +1,15 @@
+index_desc1a=Ezzel az űrlappal módosíthatja a Userminbe történő bejelentkezéshez, a szerverhez SSH és FTP útján történő eléréshez, illetve az e-mail letöltéséhez és küldéséhez használt jelszót.
+index_passtab=Jelszó változtatás
+index_recoverytab=Jelszó helyreállítási cím
+index_desc3=Ezzel az űrlappal megadhat egy alternatív címet, amelyre átmeneti jelszó küldhető, ha elfelejti a jelenlegi jelszavát.
+index_recovery=Alternatív cím a jelszó helyreállításához
+index_recoverydef=Nincs beállítva
+index_recoverysel=Küldjön e-mailt a
+change_oka=A (z) $1 jelszava sikeresen megváltozott. Mostantól kezdve minden Usermin, SSH, FTP vagy e-mail bejelentkezéshez szükség lesz az új jelszóra.
+change_eformat=A konfigurált jelszó-kivonási formátum nem támogatott
+recovery_title=Helyreállítási cím
+recovery_err=Nem sikerült beállítani a helyreállítási címet
+recovery_eemail=Érvénytelen megjelenésű e-mail címet nem adott meg
+recovery_cleared=A helyreállítási cím törölve lett.
+recovery_set=A jelszó-visszaállítás kérésekor használandó helyreállítási cím értéke $1.
+left_changepass=Jelszó módosítása

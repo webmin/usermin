@@ -1,0 +1,12 @@
+index_elink=Der er endnu ikke indstillet nogen URL til tunnel til.
+link_eurl=Ugyldig tunnel-URL : $1 
+link_elogin=Kunne ikke logge ind på $1 som $2 
+link_eautologin=Ugyldig login eller adgangskode til $1. <a href='$2'>Klik her</a> for at logge ind.
+link_enouser=Et brugernavn og en adgangskode er påkrævet for at logge ind på $1, men intet er konfigureret.
+login_title=Log ind på webstedet
+login_desc=Du skal angive et brugernavn og en adgangskode for at logge ind på $1.
+login_header=Webstedsgodkendelse
+login_user=Brugernavn
+login_pass=Adgangskode
+login_login=Log på
+login_clear=Klar

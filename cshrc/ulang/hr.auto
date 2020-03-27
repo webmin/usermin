@@ -1,0 +1,3 @@
+index_title=Prijava skripte
+index_desc_0=Skripta $1 u nastavku izvršit će se kad god pokrenete novu ljusku ili kad se prijavite putem SSH-a ili telneta.
+index_desc_1=Skripta $1 u nastavku izvršit će se samo ako se prijavite putem SSH-a ili telneta.

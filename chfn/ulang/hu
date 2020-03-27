@@ -7,7 +7,6 @@ index_office=Office room number
 index_ophone=Work phone
 index_hphone=Home phone
 index_shell=Login shell
-
 save_err=Failed to change details
 save_ereal=Real name cannot contain , or : characters
 save_eoffice=Office room number cannot contain , or : characters

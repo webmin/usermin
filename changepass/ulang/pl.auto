@@ -1,0 +1,14 @@
+index_desc1a=Ten formularz służy do zmiany hasła używanego do logowania do Usermin, uzyskiwania dostępu do serwera za pośrednictwem SSH i FTP lub do pobierania i wysyłania wiadomości e-mail.
+index_passtab=Zmiana hasła
+index_recoverytab=Adres odzyskiwania hasła
+index_desc3=Użyj tego formularza, aby wprowadzić alternatywny adres, na który tymczasowe hasło może zostać wysłane, jeśli zapomnisz swoje aktualne hasło.
+index_recovery=Alternatywny adres do odzyskiwania hasła
+index_recoverydef=Brak zestawu
+index_recoverysel=Wyślij email do
+change_oka=Twoje hasło do $1 zostało pomyślnie zmienione. Każde logowanie użytkownika, SSH, FTP lub e-mail będzie wymagało nowego hasła.
+recovery_title=Adres odzyskiwania
+recovery_err=Nie udało się ustawić adresu odzyskiwania
+recovery_eemail=Poprawnie wyglądający adres e-mail nie został wprowadzony
+recovery_cleared=Adres odzyskiwania został wyczyszczony.
+recovery_set=Adres odzyskiwania używany podczas żądania resetowania hasła został ustawiony na $1.
+left_changepass=Zmień hasło

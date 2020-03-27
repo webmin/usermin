@@ -1,0 +1,3 @@
+index_title=Tập lệnh đăng nhập
+index_desc_0=Tập lệnh $1 bên dưới sẽ được thực thi bất cứ khi nào bạn khởi động trình bao mới hoặc khi bạn đăng nhập qua SSH hoặc telnet.
+index_desc_1=Tập lệnh $1 bên dưới sẽ chỉ được thực thi khi bạn đăng nhập qua SSH hoặc telnet.

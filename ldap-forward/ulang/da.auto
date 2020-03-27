@@ -1,0 +1,12 @@
+index_header=Indstillinger for videresendelse af e-mail
+index_fwd=Videresend al e-mail til
+index_none=Bare leverer normalt
+index_to=Til adresser
+index_save=Opdater videresendelse
+index_return=fremsendelsesformular
+save_err=Kunne ikke gemme videresendelse af e-mail
+save_efwd='$1' er ikke en gyldig e-mail-adresse
+save_efwds=Ingen tilføjelse til at videresendes til indtastet
+save_eldap=Fejl ved opdatering af databasen : $1 
+save_done1=Dine viderestillingsindstillinger er blevet gemt.
+save_done2=E-mail-videresendelse er blevet deaktiveret.

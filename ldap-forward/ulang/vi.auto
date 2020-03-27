@@ -1,0 +1,12 @@
+index_header=Cài đặt chuyển tiếp email
+index_fwd=Chuyển tiếp tất cả email đến
+index_none=Chỉ cần giao hàng bình thường
+index_to=Đến địa chỉ
+index_save=Cập nhật chuyển tiếp
+index_return=hình thức chuyển tiếp
+save_err=Không thể lưu chuyển tiếp thư
+save_efwd='$1' không phải là địa chỉ email hợp lệ
+save_efwds=Không có sự chuyển tiếp để chuyển tiếp để vào
+save_eldap=Lỗi cập nhật cơ sở dữ liệu : $1 
+save_done1=Cài đặt chuyển tiếp thư của bạn đã được lưu thành công.
+save_done2=Chuyển tiếp thư đã bị vô hiệu hóa thành công.

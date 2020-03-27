@@ -1,0 +1,12 @@
+index_header=Postavke prosljeđivanja e-pošte
+index_fwd=Proslijedite svu e-poštu na
+index_none=Dovoljno je dostaviti normalno
+index_to=Na adrese
+index_save=Ažuriranje prosljeđivanja
+index_return=obrazac za prosljeđivanje
+save_err=Spremanje prosljeđivanja pošte nije uspjelo
+save_efwd='$1' nije valjana adresa e-pošte
+save_efwds=Nema adrese za prosljeđivanje upisanim
+save_eldap=Pogreška prilikom ažuriranja baze podataka : $1 
+save_done1=Vaše postavke prosljeđivanja e-pošte uspješno su spremljene.
+save_done2=Prosljeđivanje pošte uspješno je onemogućeno.

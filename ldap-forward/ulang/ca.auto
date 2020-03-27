@@ -1,0 +1,12 @@
+index_header=Configuració de reenviament de correu electrònic
+index_fwd=Reenvia tot el correu electrònic a
+index_none=Només cal lliurar-lo normalment
+index_to=A adreces
+index_save=Reenviament d’actualitzacions
+index_return=formulari de reenviament
+save_err=No s'ha pogut desar el reenviament de correu
+save_efwd="$1" no és una adreça de correu electrònic vàlida
+save_efwds=No s'ha d'adreçar cap addicció
+save_eldap=S'ha produït un error en actualitzar la base de dades : $1 
+save_done1=S'han desat correctament les configuracions de reenviament de correu.
+save_done2=La desviació de correu s'ha desactivat correctament.

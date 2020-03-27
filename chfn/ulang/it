@@ -7,7 +7,6 @@ index_office=numero stanza ufficio
 index_ophone=telefono lavoro
 index_hphone=telefono casa
 index_shell=shell di login
-
 save_err=errore nel cambio dettagli
 save_ereal=il nome reale no puo' contenere caratteri come , o  : 
 save_eoffice=il numero del tuo ufficio non puo' contenere caratteri come  , o :
@@ -17,4 +16,3 @@ save_eshell=la shell non puo' contenere caratteri come  , o :
 save_title=dettagli aggiornati
 save_desc=sono stati aggiornati i dettagli Unix utente di $1.
 save_desc2=sono stati aggiornati i dettagli utente Unix di $1.
-

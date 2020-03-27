@@ -1,0 +1,12 @@
+index_header=El. Pašto persiuntimo nustatymai
+index_fwd=Persiųsti visus el. Laiškus į
+index_none=Tiesiog pristatykite paprastai
+index_to=Į adresus
+index_save=Atnaujinti persiuntimą
+index_return=ekspedijavimo forma
+save_err=Nepavyko išsaugoti pašto persiuntimo
+save_efwd=„1 USD“ nėra teisingas el. Pašto adresas
+save_efwds=Nėra reikalo persiųsti įvesto
+save_eldap=Klaida atnaujinant duomenų bazę : $1 
+save_done1=Jūsų pašto persiuntimo nustatymai buvo sėkmingai išsaugoti.
+save_done2=Pašto peradresavimas buvo sėkmingai išjungtas.

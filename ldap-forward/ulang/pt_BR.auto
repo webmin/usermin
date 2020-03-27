@@ -1,0 +1,12 @@
+index_header=Configurações de encaminhamento de email
+index_fwd=Encaminhar todos os emails para
+index_none=Apenas entregue normalmente
+index_to=Para endereços
+index_save=Encaminhamento de atualização
+index_return=formulário de encaminhamento
+save_err=Falha ao salvar o encaminhamento de email
+save_efwd='$1' não é um endereço de email válido
+save_efwds=Nenhuma endereço para encaminhar para a entrada
+save_eldap=Erro ao atualizar o banco de dados : $1 
+save_done1=Suas configurações de encaminhamento de email foram salvas com sucesso.
+save_done2=O encaminhamento de email foi desativado com sucesso.

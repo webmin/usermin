@@ -1,0 +1,3 @@
+index_edb=Nije uspjelo spajanje na bazu podataka SpamAssassin konfiguracije: $1. Zatražite od administratora sustava da provjeri postavke konfiguracije modula.
+awl_title=Upravljajte automatskim popisom
+awl_deleteonedesc=Uklonite sve vaše trenutačne unose s automatskog popisa

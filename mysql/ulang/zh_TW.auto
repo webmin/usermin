@@ -1,0 +1,7 @@
+login_elogin=用戶名或密碼錯誤
+index_nopass=您必須輸入MySQL用戶名和密碼才能連接到數據庫。
+index_eadmin=在您的系統上找不到MySQL管理程序 $1。也許未安裝MySQL，或者模塊配置不正確。
+index_esql=在您的系統上找不到MySQL客戶端程序 $1。也許未安裝MySQL，或者模塊配置不正確。
+index_ever=MySQL客戶端程序 $1似乎不是正確的版本。 Webmin僅支持MySQL 3及更高版本。
+index_elibrary=MySQL客戶端程序 $1無法運行，因為它找不到MySQL共享庫。檢查模塊配置，並確保已設置<i>MySQL共享庫的路徑</i>。
+login_epass=不正確的MySQL用戶名或密碼

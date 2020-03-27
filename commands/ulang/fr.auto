@@ -1,0 +1,2 @@
+index_nodir=Le répertoire de commandes personnalisées Webmin $1 est introuvable sur votre système. Ce module nécessite que Webmin soit installé pour pouvoir être utilisé pour définir des commandes.
+index_none=Aucune commande personnalisée n'a été définie dans Webmin ni désignée comme disponible pour être exécutée dans Usermin.

@@ -1,0 +1,2 @@
+index_nodir=Perintah arahan custom Webmin $1 tidak ditemui pada sistem anda. Modul ini memerlukan Webmin dipasang supaya ia boleh digunakan untuk menentukan arahan.
+index_none=Tiada arahan tersuai telah ditentukan di Webmin atau ditetapkan sebagai tersedia untuk berjalan di Usermin.

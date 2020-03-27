@@ -1,0 +1,5 @@
+index_efetchmail=Fetchmail-programmet $1 blev ikke fundet på dit system.
+index_noservers=Der er endnu ikke konfigureret nogen servere til hentning af e-mail fra.
+index_stopmsg=Klik på denne knap for at stoppe fetchmail-dæmonen, der i øjeblikket automatisk tjekker efter ny mail hvert $1 sekund.
+index_startmsg=Klik på denne knap for at starte fetchmail-dæmonen på denne server, og lad den tjekke for e-mail hvert $1 sekund ved hjælp af konfigurationen ovenfor.
+index_none=Der er endnu ikke defineret nogen postserver til kontrol.

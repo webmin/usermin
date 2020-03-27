@@ -1,0 +1,6 @@
+index_title=Disko kvotos
+index_quotas=$1 disko kvotos pritvirtintose failų sistemose
+index_none=Jokiose prijungtose failų sistemose nėra vartotojo disko kvotų.
+index_gquotas=$1 grupės disko kvotos prijungtose failų sistemose
+right_header=Disko kvotos
+right_out=$1 iš $2 

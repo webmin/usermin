@@ -1,0 +1,5 @@
+index_efetchmail=A (z) $1 fetchmail program nem található a rendszerén.
+index_noservers=Még nincs konfigurálva olyan szerver, amelyből leveleket lehet letölteni.
+index_stopmsg=Kattintson erre a gombra, hogy megállítsa a fetchmail démont, amely $1 másodpercenként automatikusan ellenőrzi az új leveleket.
+index_startmsg=Kattintson erre a gombra, hogy elindítsa a fetchmail démont ezen a szerveren, és a fenti konfiguráció használatával kérje, hogy $1 másodpercenként ellenőrizze az e-maileket.
+index_none=Még nincs meghatározva ellenőrizendő e-mail szerver.

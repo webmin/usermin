@@ -1,0 +1,6 @@
+index_title=Databáze PostgreSQL
+index_esql=Klientský program PostgreSQL $1 nebyl ve vašem systému nalezen. Možná není nainstalován PostgreSQL nebo je konfigurace modulu nesprávná.
+index_elibrary=Klientský program PostgreSQL $1 nelze spustit, protože nenalezl sdílené knihovny Postgres.
+index_superuser=Klientský program PostgreSQL psql se ve vašem systému nemohl spustit. Možná není nainstalován PostgreSQL nebo je konfigurace modulu nesprávná.
+index_nopass=Abyste se mohli připojit k databázi, musíte zadat uživatelské jméno a heslo PostgreSQL.
+login_epass=Nesprávné uživatelské jméno nebo heslo PostgreSQL

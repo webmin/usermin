@@ -1,0 +1,5 @@
+index_efetchmail=Le programme fetchmail $1 est introuvable sur votre système.
+index_noservers=Aucun serveur de récupération de courrier n'a encore été configuré.
+index_stopmsg=Cliquez sur ce bouton pour arrêter le démon fetchmail qui recherche actuellement automatiquement les nouveaux messages toutes les $1 secondes.
+index_startmsg=Cliquez sur ce bouton pour démarrer le démon fetchmail sur ce serveur et demandez-lui de vérifier le courrier toutes les $1 secondes, en utilisant la configuration ci-dessus.
+index_none=Aucun serveur de messagerie à vérifier n'a encore été défini.

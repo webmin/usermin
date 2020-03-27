@@ -1,0 +1,13 @@
+index_title=Fajls Għażliet Apache
+index_desc=Dan il-modulu jippermettilek teditja l-fajls $1 li jistabbilixxu l-għażliet għad-direttorji servuti mis-sit websajt Apache. L-għażliet japplikaw għall-fajls kollha fid-direttorju u kwalunkwe sottodirettarji, sakemm ma jiġix imwarrab minn fajl ieħor tal-għażliet.
+index_header=Fajls ta 'Għażliet Eżistenti
+index_none=L-ebda fajl ta 'għażliet ma ġie maħluq s'issa.
+index_create=Żid għażliet għal:
+index_createdesc=Toħloq fajl ta 'għażliet ġodda fid-direttorju speċifikat.
+index_find=Sib fajls ta 'għażliet fi:
+index_finddesc=Tfittxija fid-direttorju mdaħħal għal kull fajl $1 li nħoloq manwalment. Sakemm jinstabu fajls maħluqa bl-idejn, ma jistgħux jiġu editjati bl-użu ta 'dan il-modulu.
+index_return=lista ta 'fajls ta' għażliet
+index_apache=Il-verżjoni u l-informazzjoni tal-modulu Apache ma nstabetx fid-direttorju tal-konfigurazzjoni ta 'Webmin $1. Dan il-modulu jirrikjedi li Webmin jiġi installat u l-modulu Apache tiegħu konfigurat kif suppost.
+find_title=Sib Għażliet ta 'Fajls
+find_list=Il-fajls ta 'għażliet li ġejjin instabu taħt $1 ..
+find_none=L-ebda fajl ta 'għażliet ta' $1 ma nstab taħt $2.

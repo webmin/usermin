@@ -1,0 +1,5 @@
+index_efetchmail=在您的系統上找不到fetchmail程序 $1。
+index_noservers=尚未配置要從中獲取郵件的服務器。
+index_stopmsg=單擊此按鈕可停止當前每 $1秒自動檢查是否有新郵件的fetchmail守護程序。
+index_startmsg=單擊此按鈕可在該服務器上啟動fetchmail守護程序，並使用上述配置每隔 $1秒檢查一次郵件。
+index_none=尚未定義要檢查的郵件服務器。

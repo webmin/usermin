@@ -1,0 +1,1 @@
+index_desc=Acest modul vă permite să configurați filtrarea pentru trimiterea prin e-mail la adresa dvs. de pe acest server. Cu toate acestea, va funcționa numai dacă administratorul de sistem a instalat Procmail la nivel global sau dacă aveți o livrare de configurare la programul Procmail din modulul Transmitere poștă.

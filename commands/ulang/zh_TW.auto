@@ -1,0 +1,2 @@
+index_nodir=在系統上找不到Webmin定制命令目錄 $1。此模塊要求安裝Webmin，以便可用於定義命令。
+index_none=在Webmin中尚未定義任何自定義命令，也沒有將其指定為可在Usermin中運行。

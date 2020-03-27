@@ -1,0 +1,6 @@
+index_title=Diska kvotas
+index_quotas=Diska kvotas $1 pievienotajām failu sistēmām
+index_none=Nevienai piestiprinātai failu sistēmai nav lietotāja diska kvotu.
+index_gquotas=Diska kvotas grupai $1 pievienotajās failu sistēmās
+right_header=Diska kvotas
+right_out=$1 no $2 

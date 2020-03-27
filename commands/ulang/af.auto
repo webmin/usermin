@@ -1,0 +1,2 @@
+index_nodir=Die Webmin-aangepaste opdraggids $1 is nie op u stelsel gevind nie. Hierdie module vereis dat Webmin geïnstalleer word sodat dit gebruik kan word om opdragte te definieer.
+index_none=Geen pasgemaakte opdragte is in Webmin gedefinieer of aangewys as beskikbaar vir gebruik in Usermin nie.

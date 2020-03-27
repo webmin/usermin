@@ -1,0 +1,6 @@
+index_title=PostgreSQL Database
+index_esql=Odjemalskega programa PostgreSQL $1 v vašem sistemu ni bilo mogoče najti. Mogoče PostgreSQL ni nameščen ali je konfiguracija modula napačna.
+index_elibrary=Program odjemalca PostgreSQL $1 ni bilo mogoče zagnati, ker ni mogel najti knjižnic v skupni rabi Postgres.
+index_superuser=Program odjemalec PostgreSQL psql se ni mogel izvršiti v vašem sistemu. Mogoče PostgreSQL ni nameščen ali je konfiguracija modula napačna.
+index_nopass=Za povezavo z bazo podatkov morate vnesti uporabniško ime in geslo PostgreSQL.
+login_epass=Nepravilno uporabniško ime ali geslo PostgreSQL

@@ -1,0 +1,13 @@
+index_title=Apache Aukerak fitxategiak
+index_desc=Modulu honek Apache webguneak zerbitzatutako direktorioetarako aukerak ezartzen dituen $1 fitxategiak editatzeko aukera ematen du. Aukerak direktorioko fitxategi guztiei eta azpidirektorioei aplikatzen zaizkie, beste aukeretako fitxategi batek ez baditu.
+index_header=Dauden Aukerak Fitxategiak
+index_none=Oraindik ez da aukera fitxategirik sortu.
+index_create=Gehitu aukerak honetarako:
+index_createdesc=Aukera fitxategi berri bat sortzen du zehaztutako direktorioan.
+index_find=Bilatu aukeren fitxategiak:
+index_finddesc=Sartutako direktorioan eskuz sortutako $1 fitxategiren bat bilatzen du. Eskuz sortutako fitxategiak aurkitu arte, ezin dira editatu modulu hau erabiliz.
+index_return=aukeren fitxategi zerrenda
+index_apache=Apache bertsioaren eta moduluaren informazioa ez da aurkitu Webmin konfigurazioaren $1 direktorioan. Modulu honek Webmin instalatu behar du eta bere Apache modulua behar bezala konfiguratu behar da.
+find_title=Aurkitu Aukerak fitxategiak
+find_list=Hurrengo aukera fitxategiak $1 pean aurkitu dira.
+find_none=Ez da $1 aukeren fitxategirik aurkitu $2 azpian.

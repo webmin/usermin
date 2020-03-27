@@ -1,0 +1,6 @@
+index_title=PostgreSQL adatbázis
+index_esql=A (z) $1 PostgreSQL kliensprogram nem található meg a rendszerén. Lehet, hogy a PostgreSQL nincs telepítve, vagy a modul konfigurációja helytelen.
+index_elibrary=A $1 PostgreSQL kliensprogramot nem lehetett futtatni, mert nem találta meg a Postgres megosztott könyvtárait.
+index_superuser=A psql PostgreSQL ügyfélprogramja nem futtatható a rendszeren. Lehet, hogy a PostgreSQL nincs telepítve, vagy a modul konfigurációja helytelen.
+index_nopass=Az adatbázishoz való csatlakozáshoz be kell írnia egy PostgreSQL felhasználónevet és jelszót.
+login_epass=Helytelen PostgreSQL felhasználónév vagy jelszó

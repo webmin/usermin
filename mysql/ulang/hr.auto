@@ -1,0 +1,7 @@
+login_elogin=Netočno korisničko ime ili lozinka
+index_nopass=Za povezivanje s bazom podataka morate unijeti MySQL korisničko ime i lozinku.
+index_eadmin=MySQL administratorski program $1 nije pronađen u vašem sustavu. Možda MySQL nije instaliran ili je konfiguracija modula pogrešna.
+index_esql=MySQL program klijenta $1 nije pronađen u vašem sustavu. Možda MySQL nije instaliran ili je konfiguracija modula pogrešna.
+index_ever=Čini se da MySQL klijentski program $1 nije ispravna verzija. Webmin podržava samo MySQL verzije 3 i novije verzije.
+index_elibrary=MySQL klijentski program $1 nije se mogao pokrenuti jer nije mogao pronaći MySQL biblioteke. Provjerite konfiguraciju modula i provjerite je li <i> Put do MySQL zajedničke knjižnice postavljen.
+login_epass=Netočno MySQL korisničko ime ili lozinka

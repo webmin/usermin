@@ -1,0 +1,5 @@
+index_efetchmail=Die fetchmail-program $1 is nie op u stelsel gevind nie.
+index_noservers=Geen bedieners om e-pos te haal is nog nie opgestel nie.
+index_stopmsg=Klik op hierdie knoppie om die fetchmail-demoon te stop wat tans outomaties na $1 sekondes na nuwe pos gaan kyk.
+index_startmsg=Klik op hierdie knoppie om die fetchmail-dememon op hierdie bediener te begin, en laat dit elke $1 sekondes na die e-pos kyk met behulp van die konfigurasie hierbo.
+index_none=Geen e-posbedieners om na te gaan is nog gedefinieër nie.

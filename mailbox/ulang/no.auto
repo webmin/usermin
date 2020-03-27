@@ -1,0 +1,9 @@
+address_exportdesc=Dette skjemaet lar deg laste ned adresser fra Usermin for import til andre programmer.
+address_export=Eksporter adresser
+address_exportformat=Eksporter i format
+address_exportdup=Dupliser adressehåndtering
+address_exportdup0=Inkluder begge deler
+address_exportdup1=Inkluder bare den første
+address_exportfmt=Eksporter i format
+address_exportok=Eksporter nå
+export_err=Kunne ikke eksportere adresser

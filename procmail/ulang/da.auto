@@ -1,0 +1,1 @@
+index_desc=Dette modul giver dig mulighed for at konfigurere filtrering til e-mail, der sendes til din adresse på denne server. Det fungerer dog kun, hvis din systemadministrator har installeret Procmail globalt, eller hvis du har opsætning af levering til Procmail-programmet i modulet Mail Videresendelse.

@@ -1,0 +1,5 @@
+index_efetchmail=Il programma fetchmail $1 non è stato trovato sul tuo sistema.
+index_noservers=Nessun server da cui recuperare la posta è stato ancora configurato.
+index_stopmsg=Fai clic su questo pulsante per interrompere il demone di fetchmail che attualmente controlla automaticamente la nuova posta ogni $1 secondi.
+index_startmsg=Fare clic su questo pulsante per avviare il demone fetchmail su questo server e farlo controllare per posta ogni $1 secondi, usando la configurazione sopra.
+index_none=Nessun server di posta da controllare è stato ancora definito.

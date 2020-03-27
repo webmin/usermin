@@ -1,0 +1,13 @@
+index_title=Fichiers d'options Apache
+index_desc=Ce module vous permet de modifier les fichiers $1 qui définissent les options des répertoires servis par le serveur Web Apache. Les options s'appliquent à tous les fichiers du répertoire et de tous les sous-répertoires, à moins qu'ils ne soient remplacés par un autre fichier d'options.
+index_header=Fichiers d'options existants
+index_none=Aucun fichier d'options n'a encore été créé.
+index_create=Ajoutez des options pour:
+index_createdesc=Crée un nouveau fichier d'options dans le répertoire spécifié.
+index_find=Trouvez les fichiers d'options dans:
+index_finddesc=Recherche dans le répertoire entré tous les fichiers $1 qui ont été créés manuellement. Tant que les fichiers créés manuellement ne sont pas trouvés, ils ne peuvent pas être modifiés à l'aide de ce module.
+index_return=liste des fichiers d'options
+index_apache=La version d'Apache et les informations sur le module sont introuvables dans le répertoire de configuration Webmin $1. Ce module nécessite que Webmin soit installé et son module Apache configuré correctement.
+find_title=Rechercher des fichiers d'options
+find_list=Les fichiers d'options suivants ont été trouvés sous $1.
+find_none=Aucun fichier d'options $1 n'a été trouvé sous $2.

@@ -1,0 +1,30 @@
+main_title=Erabiltzailea $1 $2 an% ($3)
+main_title2=Usermin
+main_title3=Erabiltzailea $1 ($2)
+main_none=Ez duzu sarbidea Usermin moduluetara.
+category_mail=Mail
+category_usermin=Usermin
+category_login=Saioa hasi
+category_apps=eskaerak
+longcategory_usermin=Usermin bera konfiguratzeko moduluak
+longcategory_mail=Posta elektronikoa irakurtzeko, eskuratzeko eta prozesatzeko moduluak
+longcategory_login=Zerbitzarira sartzearekin lotutako moduluak
+longcategory_apps=Datu-base, enkriptazio, webgune eta bestelako aplikazioetarako moduluak
+header_webmin=Erabiltzaileen aurkibidea
+header_config=Preferences
+programname=Usermin
+config_title=Preferences
+feedback_title=Erabiltzaileen iritzia
+feedback_desc=Inprimaki honen bidez, akatsen berri eman edo Erabiltzaileen garatzaileei iradokizunak aurkitu ahal izango dituzu aurkitu dituzun arazoei edo ezaugarriei buruz. Bidali botoia sakatzean, inprimakian sartutako xehetasunak $1 era bidaliko dira.
+feedback_desc2=Erantzun hau Usermin-en sustatzaileari bidaliko zaio, ez zure sistemaren administratzaileari, ISPri edo ostalaritza-konpainiari. Idatzi zure iritzia ingelesez, nahiz eta egun Usermin erabiltzen ari zaren beste hizkuntza batean.
+feedback_configdesc=Hautatuta badago, mezu elektronikoak zure hobespenak eta moduluak erabiltzen dituen konfigurazio fitxategien edukia barne hartuko ditu.
+session_header=Sartu Usermin-era
+session_mesg=Erabiltzaile-izena eta pasahitza sartu behar dituzu Usermin zerbitzarian sartzeko $1.
+pam_header=Sartu webmin
+pam_mesg=Beheko galderari erantzun behar diozu $1 ean Usermin zerbitzarira sartzeko.
+referer_warn=<b>Abisua!</b> Usermin-ek detektatu du $2 programa lotuta dagoela $1 URLtik, Usermin zerbitzariaren kanpoan dagoela. Zure zerbitzaria komando arriskutsua exekutatzen saiatzeko saiakera izan daiteke.
+referer_warn_unknown=<b>Abisua!</b> Usermin-ek detektatu du $1 programa URL ezezagun batetik lotuta dagoela, Usermin zerbitzariaren kanpoan dagoela dirudi. Zure zerbitzaria komando arriskutsua exekutatzen saiatzeko saiakera izan daiteke.
+referer_fix1=Lotura zilegi bada, URL honetatik estekak baimendu ditzakezu honela: <ul><li> Sartu Webmin-era. <li>Joan<b> Erabiltzailearen konfigurazioa </b>modulura. Konfiantzazko erreferentzien ikonoa.<li> Sartu $1 ostalariaren izena <b>Konfiantzazko webguneak</b> eremuan eta egin klik <b>Gorde</b>. </ul>
+referer_fix2=Bestela, Usermin konfigura dezakezu esteka hau komando lerrotik baimentzeko: <ul><li> Sartu <tt>root</tt> gisa eta editatu <tt>/etc/usermin/config</tt> fitxategia. <li>Gehitu<tt> arbitroak = $1 </tt>lerroaren amaieran, edo<tt> arbitro </tt>lerroa badago lehendik, gehitu<tt> $1 </tt>.<li > Gorde fitxategia. </ul>
+referer_fix1u=Zure arakatzaileak <tt>Referer</tt> goiburua ez badu bidaltzen, egiaztapen hau desaktibatu dezakezu: <ul><li> Sartu Webminera normalean. <li>Joan<b> Erabiltzailearen konfigurazioa </b>modulua.<li> Egin klik Erreferentzi fidagarriak ikonoan.> Egiaztatu <b>Konfiantzazko estekak erreferentzi ezezagunak</b> koadroan, eta egin <b>Gorde</b>. </ul>
+referer_fix2u=Bestela, Usermin konfigura dezakezu arbitro ezezagunen estekak baimentzeko: <ul><li> Sartu <tt>root</tt> gisa eta editatu <tt>/etc/usermin/config</tt> fitxategia. <li>Aurkitu<tt> referers_none = 1 </tt>lerroa eta aldatu<tt> referers_none = 0 </tt>.<li> Gorde fitxategia. </ul>

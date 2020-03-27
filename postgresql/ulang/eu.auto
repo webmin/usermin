@@ -1,0 +1,6 @@
+index_title=PostgreSQL datu-basea
+index_esql=PostgreSQL bezeroaren programa $1 ez da zure sisteman aurkitu. Agian PostgreSQL ez dago instalatuta, edo moduluaren konfigurazioa okerra da.
+index_elibrary=PostgreSQL bezeroaren programa $1 ezin izan da exekutatu Postgres partekatutako liburutegiak aurkitu ezin dituelako.
+index_superuser=PostgreSQL bezeroaren programa psql-k ezin izan du zure sisteman exekutatu. Agian PostgreSQL ez dago instalatuta, edo moduluaren konfigurazioa okerra da.
+index_nopass=PostgreSQL erabiltzaile izena eta pasahitza sartu behar dituzu datu-basera konektatzeko.
+login_epass=PostgreSQL erabiltzaile edo pasahitz okerra

@@ -1,0 +1,1 @@
+index_desc=Ce module vous permet de configurer le filtrage des e-mails envoyés à votre adresse sur ce serveur. Cependant, cela ne fonctionnera que si votre administrateur système a installé Procmail globalement, ou si vous avez configuré la livraison au programme Procmail dans le module de transfert de courrier.

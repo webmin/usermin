@@ -1,0 +1,5 @@
+index_efetchmail=$1 programa fetchmail ez da zure sisteman aurkitu.
+index_noservers=Oraindik ez da konfiguratu posta elektronikoa eskuratzeko zerbitzaririk.
+index_stopmsg=Egin klik botoi honetan fetchmail-eko deabruak automatikoki $1 segundoz egiaztatzen duen mezu berria kontrolatzeko.
+index_startmsg=Egin klik botoi honetan zerbitzari honetan fetchmail-eko deabrua abiarazteko, eta egiaztatu posta elektronikorako $1 segundo behin, goiko konfigurazioa erabiliz.
+index_none=Oraindik ez da egiaztatu posta zerbitzaririk.

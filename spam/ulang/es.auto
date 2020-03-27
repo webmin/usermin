@@ -1,0 +1,3 @@
+index_edb=Error al conectarse a la base de datos de configuración de SpamAssassin: $1. Solicite al administrador del sistema que verifique las configuraciones del módulo.
+awl_title=Administrar lista blanca automática
+awl_deleteonedesc=Eliminar todas las entradas actuales de la lista blanca

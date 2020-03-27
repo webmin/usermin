@@ -1,0 +1,6 @@
+index_title=디스크 할당량
+index_quotas=마운트 된 파일 시스템에서 $1 에 대한 디스크 할당량
+index_none=마운트 된 파일 시스템에 사용자 디스크 할당량이 없습니다.
+index_gquotas=마운트 된 파일 시스템에서 그룹 $1 의 디스크 할당량
+right_header=디스크 할당량
+right_out=$2 의 $1 

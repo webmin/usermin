@@ -1,0 +1,15 @@
+main_title3=Usermin $1 ($2)
+longcategory_usermin=Módulos para configurar el propio Usermin
+longcategory_mail=Módulos para leer, buscar y procesar correos electrónicos
+longcategory_login=Módulos relacionados con el inicio de sesión en el servidor
+longcategory_apps=Módulos para bases de datos, encriptación, sitios web y otras aplicaciones.
+config_title=Preferencias
+feedback_desc2=Esta retroalimentación se enviará al desarrollador de Usermin, no a su administrador de sistema, ISP o compañía de hosting. Escriba sus comentarios en inglés, incluso si actualmente está ejecutando Usermin en otro idioma.
+pam_header=Inicie sesión en Webmin
+pam_mesg=Debe responder a la siguiente pregunta para iniciar sesión en el servidor Usermin en $1.
+referer_warn=<b>¡Advertencia!</b> Usermin ha detectado que el programa $2 estaba vinculado desde la URL $1, que parece estar fuera del servidor Usermin. Esto puede ser un intento de engañar a su servidor para que ejecute un comando peligroso.
+referer_warn_unknown=<b>¡Advertencia!</b> Usermin ha detectado que el programa $1 estaba vinculado desde una URL desconocida, que parece estar fuera del servidor Usermin. Esto puede ser un intento de engañar a su servidor para que ejecute un comando peligroso.
+referer_fix1=Si este es un enlace legítimo, puede permitir enlaces desde esta URL de la siguiente manera: <ul><li> Inicie sesión en Webmin. <li>Vaya al módulo<b> Configuración de Usermin </b>.<li> Haga clic en el Icono de referencias de confianza. <li>Ingrese el nombre de host $1 en el campo<b> Sitios web de confianza </b>y haga clic en<b> Guardar </b>.</ul>
+referer_fix2=Alternativamente, puede configurar Usermin para permitir este enlace desde la línea de comando: <ul><li> Inicie sesión como <tt>root</tt> y edite el archivo <tt>/etc/usermin/config</tt>. <li>Agregue la línea<tt> referers = $1 </tt>al final, o si ya existe una línea<tt> referers </tt>agregue<tt> $1 </tt>.<li > Guarde el archivo. </ul>
+referer_fix1u=Si su navegador no envía el encabezado <tt>Referer</tt> necesario, puede desactivar esta verificación de la siguiente manera: <ul><li> Inicie sesión en Webmin normalmente. <li>Vaya a la<b> Configuración de Usermin </b>módulo.<li> Haga clic en el icono de referencias de confianza. <li>Marque la casilla<b> Confiar en enlaces de referencias desconocidas </b>y haga clic en<b> Guardar </b>.</ul>
+referer_fix2u=Alternativamente, puede configurar Usermin para permitir enlaces de referentes desconocidos: <ul><li> Inicie sesión como <tt>root</tt> y edite el archivo <tt>/etc/usermin/config</tt>. <li>Busque la línea<tt> referers_none = 1 </tt>y cámbiela a<tt> referers_none = 0 </tt>.<li> Guarde el archivo. </ul>

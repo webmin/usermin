@@ -1,0 +1,2 @@
+index_nodir=Webmin-anpassade kommandokatalogen $1 hittades inte på ditt system. Den här modulen kräver att Webmin installeras så att den kan användas för att definiera kommandon.
+index_none=Inga anpassade kommandon har definierats i Webmin eller utsetts som tillgängliga för körning i Usermin.

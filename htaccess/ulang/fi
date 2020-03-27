@@ -1,15 +1,13 @@
 index_title=Apache asetustiedostot
-index_desc=T‰m‰ moduli asetustiedostojen $1 muokkaamisen. N‰m‰ tiedostot s‰‰telev‰t Apache web palvelimen hakemistojen asetuksia. Asetukset ovat voimassa hakemistossa ja sen alihakemistoissa ellei niit‰ ylikirjoiteta toisella asetustiedostolla.
+index_desc=T√§m√§ moduli asetustiedostojen $1 muokkaamisen. N√§m√§ tiedostot s√§√§telev√§t Apache web palvelimen hakemistojen asetuksia. Asetukset ovat voimassa hakemistossa ja sen alihakemistoissa ellei niit√§ ylikirjoiteta toisella asetustiedostolla.
 index_header=Olemassaoleat asetustiedostot
-index_none=Yht‰‰n asetustiedostoa ei ole viel‰ luotu.
-index_create=Lis‰‰ asetustiedosto hakemistolle:
+index_none=Yht√§√§n asetustiedostoa ei ole viel√§ luotu.
+index_create=Lis√§√§ asetustiedosto hakemistolle:
 index_createdesc=Luo uuden asetustiedoston hakemistoon.
 index_find=Etsi asetustiedostot hakemistosta:
-index_finddesc=Etsii manuaalisesti luotuja $1 asetustiedostoja syˆtetyst‰ hakemistosta. Kunnes manuaalisesti tehty tiedosto on lˆydetty, sit‰ ei voi muokata t‰ll‰ moduulilla.
+index_finddesc=Etsii manuaalisesti luotuja $1 asetustiedostoja sy√∂tetyst√§ hakemistosta. Kunnes manuaalisesti tehty tiedosto on l√∂ydetty, sit√§ ei voi muokata t√§ll√§ moduulilla.
 index_return=asetustiedosto lista
-index_apache=Apache versiota ja moduuli informaatiota ei lˆytynyt Webmin konfiguraatio hakemistosta $1. T‰m‰ moduli vaatii, ett‰ Webmin on asennettu ja sen Apache moduli on konfiguroitu oikein.
-
+index_apache=Apache versiota ja moduuli informaatiota ei l√∂ytynyt Webmin konfiguraatio hakemistosta $1. T√§m√§ moduli vaatii, ett√§ Webmin on asennettu ja sen Apache moduli on konfiguroitu oikein.
 find_title=Etsi asetustiedostot
-find_list=Seuraavat asetustiedostot lˆytyiv‰t hakemistosta $1 ..
-find_none=Yht‰‰n asetustiedostoa $1 ei lˆytynyt hakemistosta $2.
-
+find_list=Seuraavat asetustiedostot l√∂ytyiv√§t hakemistosta $1 ..
+find_none=Yht√§√§n asetustiedostoa $1 ei l√∂ytynyt hakemistosta $2.

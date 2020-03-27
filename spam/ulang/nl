@@ -1,4 +1,3 @@
 index_edb=Mislukt om te verbinden met de SpamAssassin configuratie database : $1. Vraag uw systeem administrator om de module configuratie settings te controleren.
-
 awl_title=Beheer de Auto-Wittelijst
 awl_deleteonedesc=Verwijder al uw huidige auto-wittelijst ingangen

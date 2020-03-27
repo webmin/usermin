@@ -1,0 +1,6 @@
+index_title=„PostgreSQL“ duomenų bazė
+index_esql=Jūsų sistemoje nerasta PostgreSQL kliento programa $1. Galbūt PostgreSQL neįdiegta, arba neteisinga modulio konfigūracija.
+index_elibrary=Nepavyko paleisti „PostgreSQL“ kliento programos $1, nes ji negalėjo rasti „Postgres“ bendrintų bibliotekų.
+index_superuser=„PostgreSQL“ kliento programos psql nepavyko vykdyti jūsų sistemoje. Galbūt PostgreSQL neįdiegta, arba neteisinga modulio konfigūracija.
+index_nopass=Norėdami prisijungti prie duomenų bazės, turite įvesti „PostgreSQL“ vartotojo vardą ir slaptažodį.
+login_epass=Neteisingas „PostgreSQL“ vartotojo vardas arba slaptažodis

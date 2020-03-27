@@ -1,0 +1,7 @@
+login_elogin=Numele de utilizator sau parola incorectă
+index_nopass=Pentru a vă conecta la baza de date, trebuie să introduceți un nume de utilizator și o parolă MySQL.
+index_eadmin=Programul de administrare MySQL $1 nu a fost găsit în sistemul dvs. Poate că MySQL nu este instalat sau configurația modulului este incorectă.
+index_esql=Programul client MySQL $1 nu a fost găsit în sistemul dvs. Poate că MySQL nu este instalat sau configurația modulului este incorectă.
+index_ever=Programul client MySQL $1 nu pare a fi versiunea corectă. Webmin acceptă doar versiunile MySQL 3 și anterioare.
+index_elibrary=Programul client MySQL $1 nu a putut fi rulat deoarece nu a putut găsi bibliotecile partajate MySQL. Verificați configurația modulului și asigurați-vă că <i>Calea către bibliotecile partajate MySQL</i> este setată.
+login_epass=Nume de utilizator sau parolă MySQL incorecte

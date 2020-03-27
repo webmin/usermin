@@ -1,0 +1,13 @@
+index_title=Apache-opsielêers
+index_desc=Met hierdie module kan u die $1 -lêers wysig wat opsies stel vir kaarte wat bedien word deur die Apache-webbediener. Opsies is van toepassing op alle lêers in die gids en op enige subgidse, tensy dit deur 'n ander opsielêer verwerp word.
+index_header=Bestaande opsielêers
+index_none=Geen opsielêers is nog geskep nie.
+index_create=Voeg opsies by vir:
+index_createdesc=Skep 'n nuwe opsielêer in die gespesifiseerde gids.
+index_find=Soek opsielêers in:
+index_finddesc=Deursoek die ingevoerde gids vir enige $1 lêers wat met die hand geskep is. Totdat met die hand gemaakte lêers gevind word, kan hulle nie met hierdie module geredigeer word nie.
+index_return=opsies lêer lys
+index_apache=Apache-weergawe en module-inligting is nie in die Webmin-konfigurasiegids $1 gevind nie. Hierdie module vereis dat Webmin geïnstalleer moet word en die Apache-module behoorlik gekonfigureer moet word.
+find_title=Soek opsielêers
+find_list=Die volgende opsielêers is onder $1 gevind.
+find_none=Geen $1 -opsielêers is onder $2 gevind nie.

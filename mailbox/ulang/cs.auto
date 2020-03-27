@@ -1,0 +1,57 @@
+send_eclosemsg=Opravdu chcete tuto stránku zavřít a ztratit probíhající zprávu?
+address_allow=Povolené adresy
+address_deny=Odepřené adresy
+address_allowdesc=E-mail z následujících adres bude vždy přijat a nikdy nebude klasifikován jako spam.
+address_denydesc=E-mail z následujících adres bude vždy klasifikován jako spam a bude buď umístěn do složky se spamem, nebo bude smazán.
+address_import=Import adres
+address_importdesc=Tento formulář umožňuje přidávat adresy k Usermin ze souboru, obvykle exportovaného z jiného poštovního klienta nebo správce kontaktů.
+address_importsrc=Importujte adresy z
+address_importsrc0=Nahraný soubor
+address_importsrc1=Vložený text
+address_importformat=Text by měl být ve formátu <tt>email @ domain.com, skutečné jméno</tt>
+address_importfmt=Zdrojový formát
+address_importcsv=CSV (e-mail, skutečné jméno)
+address_importvcard=vCard
+address_importdup=Zpracování duplicitní adresy
+address_importdup0=Ignorovat
+address_importdup1=Aktualizujte název
+address_importok=Importovat nyní
+address_return=adresář
+address_exportdesc=Tento formulář umožňuje stahovat adresy z Userminu pro import do jiných programů.
+address_export=Exportujte adresy
+address_exportformat=Export ve formátu
+address_exportdup=Zpracování duplicitní adresy
+address_exportdup0=Zahrňte oba
+address_exportdup1=Zahrnout pouze první
+address_exportfmt=Export ve formátu
+address_exportok=Exportovat nyní
+import_err=Import adres se nezdařil
+import_title=Import adresáře
+import_doing=Výsledky importu adresáře.
+import_eupload=Žádný soubor nevybrán
+import_epaste=Nebyly zadány žádné adresy
+import_enone=Vybraný soubor neobsahuje žádné platné adresy
+import_action=Přijatá opatření
+import_add=<font color=green>Přidáno do adresáře</font>
+import_update=<font color=orange>Skutečné jméno aktualizováno</font>
+import_readonly=<font color=red>Global entry, skipped</font>
+import_noemail=<font color=red>Chybějící nebo neplatná e-mailová adresa</font>
+import_same=Beze změny, přeskočeno
+import_skip=Duplikovaná adresa, přeskočena
+import_enetvcard=Modul <tt>Net::vCard</tt> Perl je potřebný ke čtení souborů ve formátu vCard
+export_err=Export se nezdařil
+edit_mode3=Soubor koše
+edit_type7=Jeden soubor (MBX)
+save_ename4=Názvy složek mohou obsahovat pouze písmena, čísla, mezery a tečky, pomlčky a podtržítka
+search_eself=Složku výsledků hledání nelze prohledat
+auto_action2=Přesunout do složky $1 
+auto_edest=Vybraná cílová složka neexistuje!
+auto_ewrite=Vybranou cílovou složku nelze zapsat
+allow_err=Uložení povolených adres se nezdařilo
+deny_err=Uložení zamítnutých adres se nezdařilo
+allow_eaddr='$1' není platná e-mailová adresa
+right_header=Systémové informace
+right_host=Název hostitele systému
+right_os=Operační systém
+right_usermin=Usermin verze
+right_time=Čas v systému

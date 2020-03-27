@@ -1,0 +1,13 @@
+index_title=아파치 옵션 파일
+index_desc=이 모듈을 사용하면 Apache 웹 서버가 제공하는 디렉토리에 대한 옵션을 설정하는 $1 파일을 편집 할 수 있습니다. 다른 옵션 파일로 재정의되지 않는 한 옵션은 디렉토리 및 모든 하위 디렉토리의 모든 파일에 적용됩니다.
+index_header=기존 옵션 파일
+index_none=아직 옵션 파일이 작성되지 않았습니다.
+index_create=옵션 추가 :
+index_createdesc=지정된 디렉토리에 새 옵션 파일을 작성합니다.
+index_find=다음에서 옵션 파일을 찾으십시오.
+index_finddesc=입력 한 디렉토리에서 수동으로 작성된 $1 파일을 검색합니다. 수동으로 생성 된 파일을 찾을 때까지이 모듈을 사용하여 파일을 편집 할 수 없습니다.
+index_return=옵션 파일 목록
+index_apache=Webmin 구성 디렉토리 $1 에 Apache 버전 및 모듈 정보가 없습니다. 이 모듈을 사용하려면 Webmin을 설치하고 Apache 모듈을 올바르게 구성해야합니다.
+find_title=옵션 파일 찾기
+find_list=다음 옵션 파일이 $1 아래에 있습니다.
+find_none=$2 아래에 $1 옵션 파일이 없습니다.

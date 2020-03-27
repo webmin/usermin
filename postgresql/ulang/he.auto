@@ -1,0 +1,6 @@
+index_title=מסד נתונים PostgreSQL
+index_esql=תוכנית לקוח PostgreSQL $1 לא נמצאה במערכת שלך. אולי PostgreSQL אינו מותקן, או שתצורת המודול שגויה.
+index_elibrary=לא ניתן היה להפעיל את תוכנית לקוח PostgreSQL $1 מכיוון שהיא לא הצליחה למצוא את הספריות המשותפות של Postgres.
+index_superuser=תוכנית לקוח PostgreSQL psql לא הייתה יכולה לבצע במערכת שלך. אולי PostgreSQL אינו מותקן, או שתצורת המודול שגויה.
+index_nopass=עליך להזין שם משתמש וסיסמא של PostgreSQL כדי להתחבר למסד הנתונים.
+login_epass=שם שגוי או סיסמה של PostgreSQL שגויים

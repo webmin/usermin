@@ -1,0 +1,5 @@
+index_efetchmail=Fetchmail programma $1 jūsu sistēmā netika atrasta.
+index_noservers=Pagaidām nav konfigurēti serveri, no kuriem ielādēt pastu.
+index_stopmsg=Noklikšķiniet uz šīs pogas, lai apturētu fetchmail dēmonu, kurš pašlaik automātiski meklē jaunas vēstules ik pēc $1 sekundēm.
+index_startmsg=Noklikšķiniet uz šīs pogas, lai palaistu fetchmail dēmonu šajā serverī un ļautu tam pārbaudīt pastu ik pēc $1 sekundēm, izmantojot iepriekšminēto konfigurāciju.
+index_none=Pagaidām nav definēts neviens pārbaudāmais pasta serveris.

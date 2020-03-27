@@ -1,0 +1,30 @@
+main_title=Usermin $1 na $2 ($3)
+main_title2=Usermin
+main_title3=Usermin $1 ($2)
+main_none=Nemáte prístup k žiadnym modulom Usermin.
+category_mail=pošta
+category_usermin=Usermin
+category_login=Prihlásiť sa
+category_apps=aplikácia
+longcategory_usermin=Moduly na konfiguráciu samotného Usermin
+longcategory_mail=Moduly na čítanie, načítavanie a spracovanie e-mailov
+longcategory_login=Moduly súvisiace s prihlásením na server
+longcategory_apps=Moduly pre databázu, šifrovanie, webové stránky a ďalšie aplikácie
+header_webmin=Usermin Index
+header_config=Preferencie
+programname=Usermin
+config_title=Preferencie
+feedback_title=Usermin Feedback
+feedback_desc=Tento formulár vám umožňuje nahlásiť chyby alebo navrhnúť vývojárom Usermin akékoľvek problémy alebo chýbajúce prvky, ktoré ste našli. Po kliknutí na tlačidlo Odoslať sa podrobnosti zadané do formulára odošlú e-mailom na adresu $1.
+feedback_desc2=Táto spätná väzba bude zaslaná vývojárovi spoločnosti Usermin, nie vášmu správcovi systému, poskytovateľovi internetových služieb alebo hostiteľskej spoločnosti. Spätnú väzbu napíšte v angličtine, aj keď v súčasnosti používate Usermin v inom jazyku.
+feedback_configdesc=Ak je vybratá táto možnosť, e-mail bude obsahovať vaše predvoľby súvisiaceho modulu a obsah všetkých konfiguračných súborov, ktoré modul používa.
+session_header=Prihláste sa do Usermin
+session_mesg=Ak sa chcete prihlásiť na server Usermin na $1, musíte zadať používateľské meno a heslo.
+pam_header=Prihláste sa do Webmin
+pam_mesg=Ak sa chcete prihlásiť na server Usermin na $1, musíte odpovedať na otázku uvedenú nižšie.
+referer_warn=<b>Upozornenie!</b> Usermin zistil, že program $2 bol prepojený z adresy URL $1, ktorá sa zdá byť mimo servera Usermin. Môže to byť pokus o podvádzanie servera, aby vykonal nebezpečný príkaz.
+referer_warn_unknown=<b>Varovanie!</b> Usermin zistil, že program $1 bol prepojený z neznámej adresy URL, ktorá sa zdá byť mimo servera Usermin. Môže to byť pokus o podvádzanie servera, aby vykonal nebezpečný príkaz.
+referer_fix1=Ak je to legitímny odkaz, môžete povoliť odkazy z tejto adresy URL nasledovne: <ul><li> Prihlásenie do správcu webu. <li>Prejdite do modulu<b> Usermin Configuration </b>.<li> Kliknite na ikonu Ikona dôveryhodných sprostredkovateľov. <li>Do poľa<b> Dôveryhodné webové stránky </b>zadajte názov hostiteľa $1 a kliknite na tlačidlo<b> Uložiť </b>.</ul>
+referer_fix2=Prípadne môžete nakonfigurovať Usermin, aby povolil tento odkaz z príkazového riadku: <ul><li> Prihlásiť sa ako <tt>root</tt> a upravte súbor <tt>/etc/usermin/config</tt>. <li>Pridajte na koniec riadok<tt> referers = $1 </tt>alebo ak už existuje<tt> odkazujúci </tt>, pridajte do neho<tt> $1 </tt>.<li > Uložte súbor. </ul>
+referer_fix1u=Ak váš prehliadač neodošle hlavičku <tt>Referer</tt>, môžete túto kontrolu vypnúť nasledovne: <ul><li> Normálne sa prihláste do Webminu. <li>Prejdite do<b> Konfigurácie Usermin </b>.<li> Kliknite na ikonu Dôveryhodní sprostredkovatelia. <li>Začiarknite políčko<b> Dôveryhodné odkazy od neznámych sprostredkovateľov </b>a kliknite na tlačidlo<b> Uložiť </b>.</ul>
+referer_fix2u=Prípadne môžete nakonfigurovať Usermin tak, aby povoľoval odkazy od neznámych sprostredkovateľov: <ul><li> Prihláste sa ako <tt>root</tt> a upravte súbor <tt>/etc/usermin/config</tt>. <li>Nájdite riadok<tt> referers_none = 1 </tt>a zmeňte ho na<tt> referers_none = 0 </tt>.<li> Uložte súbor. </ul>

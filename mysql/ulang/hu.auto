@@ -1,0 +1,7 @@
+login_elogin=Rossz felhasználónév vagy jelszó
+index_nopass=Az adatbázishoz való csatlakozáshoz be kell írnia a MySQL felhasználónevet és jelszót.
+index_eadmin=A (z) $1 MySQL adminisztrációs program nem található a rendszerén. Lehet, hogy a MySQL nincs telepítve, vagy a modul konfigurációja helytelen.
+index_esql=A (z) $1 MySQL ügyfélprogram nem található a rendszerén. Lehet, hogy a MySQL nincs telepítve, vagy a modul konfigurációja helytelen.
+index_ever=A MySQL $1 kliensprogram nem tűnik a megfelelő verziónak. A Webmin csak a MySQL 3. és újabb verzióit támogatja.
+index_elibrary=A (z) $1 MySQL ügyfélprogramot nem lehetett futtatni, mert nem találta a MySQL megosztott könyvtárakat. Ellenőrizze a modul konfigurációját, és ellenőrizze, hogy a <i>MySQL megosztott könyvtárak elérési útja</i> be van-e állítva.
+login_epass=Helytelen MySQL felhasználónév vagy jelszó

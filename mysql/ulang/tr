@@ -1,9 +1,7 @@
-login_elogin=Şifre ya da kullanıcı adı yanlış.
-index_nopass=Database'e başlanmak için MySQL kullanıcı adını ve şifreni girmelisin.
-index_eadmin=MySQL admin programı $1 sisteminizde bulunamadı. Belki MySQL yüklü değil ya da modül konfigürasyonu yanlış.
-index_esql=MySQL istemci programı $1 sisteminizde bulunamadı. Belki MySQL yüklü değil ya da modül konfigürasyonu yanlış.
-index_ever=MySQL istemci programı $1 doğru versiyonda gibi görünmüyor. Webmin sadece MySQL 3.versiyonunu ve üstündeki versiyonları destekler.
-index_elibrary=MySQL istemci program? $1 çalışmıyor çünkü MySQL paylaştırma kütüphanesinde bulunamad?. Modül konfigürasyonunu kontrol edin ve <i>MySQL paylaştırma kütüphanesi için yol</i> un belirli olduğundan  emin olun.
-
-login_epass=Yanlış MySQL kullanıcı adı ya da şifre.
-
+login_elogin=Åifre ya da kullanÄ±cÄ± adÄ± yanlÄ±ÅŸ.
+index_nopass=Database'e baÅŸlanmak iÃ§in MySQL kullanÄ±cÄ± adÄ±nÄ± ve ÅŸifreni girmelisin.
+index_eadmin=MySQL admin programÄ± $1 sisteminizde bulunamadÄ±. Belki MySQL yÃ¼klÃ¼ deÄŸil ya da modÃ¼l konfigÃ¼rasyonu yanlÄ±ÅŸ.
+index_esql=MySQL istemci programÄ± $1 sisteminizde bulunamadÄ±. Belki MySQL yÃ¼klÃ¼ deÄŸil ya da modÃ¼l konfigÃ¼rasyonu yanlÄ±ÅŸ.
+index_ever=MySQL istemci programÄ± $1 doÄŸru versiyonda gibi gÃ¶rÃ¼nmÃ¼yor. Webmin sadece MySQL 3.versiyonunu ve Ã¼stÃ¼ndeki versiyonlarÄ± destekler.
+index_elibrary=MySQL istemci program? $1 Ã§alÄ±ÅŸmÄ±yor Ã§Ã¼nkÃ¼ MySQL paylaÅŸtÄ±rma kÃ¼tÃ¼phanesinde bulunamad?. ModÃ¼l konfigÃ¼rasyonunu kontrol edin ve <i>MySQL paylaÅŸtÄ±rma kÃ¼tÃ¼phanesi iÃ§in yol</i> un belirli olduÄŸundan  emin olun.
+login_epass=YanlÄ±ÅŸ MySQL kullanÄ±cÄ± adÄ± ya da ÅŸifre.

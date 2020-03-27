@@ -1,0 +1,5 @@
+index_efetchmail=El programa fetchmail $1 no se encontró en su sistema.
+index_noservers=Aún no se han configurado servidores para recuperar el correo.
+index_stopmsg=Haga clic en este botón para detener el demonio fetchmail que actualmente busca automáticamente nuevos correos cada $1 segundos.
+index_startmsg=Haga clic en este botón para iniciar el demonio fetchmail en este servidor y haga que verifique el correo cada $1 segundos, utilizando la configuración anterior.
+index_none=Aún no se han definido servidores de correo para verificar.

@@ -1,7 +1,6 @@
 index_title=PostgreSQL Database
-index_esql=The PostgreSQL istemci programı $1 sisteminizde bulunamadı. Belki PostgreSQL yüklü değil ya da modül konfigürasyonu yanlış.
-index_elibrary=PostgreSQL istemci programı $1 çalışmıyor çünkü Postgres paylaştırma kütüphanesinde bulunamadı.
-index_superuser=PostgreSQL istemci programı psql sisteminizde uygulanamıyor. Belki PostgreSQL yüklü değil ya da modül konfigürasyonu yanlış.
-index_nopass=Database'e başlanmak için PostgreSQL kullanıcı adı ve şifresini girmelisin.
-
-login_epass=Yanlış PostgreSQL kullanıcı adı ya da şifre.
+index_esql=The PostgreSQL istemci programÄ± $1 sisteminizde bulunamadÄ±. Belki PostgreSQL yÃ¼klÃ¼ deÄŸil ya da modÃ¼l konfigÃ¼rasyonu yanlÄ±ÅŸ.
+index_elibrary=PostgreSQL istemci programÄ± $1 Ã§alÄ±ÅŸmÄ±yor Ã§Ã¼nkÃ¼ Postgres paylaÅŸtÄ±rma kÃ¼tÃ¼phanesinde bulunamadÄ±.
+index_superuser=PostgreSQL istemci programÄ± psql sisteminizde uygulanamÄ±yor. Belki PostgreSQL yÃ¼klÃ¼ deÄŸil ya da modÃ¼l konfigÃ¼rasyonu yanlÄ±ÅŸ.
+index_nopass=Database'e baÅŸlanmak iÃ§in PostgreSQL kullanÄ±cÄ± adÄ± ve ÅŸifresini girmelisin.
+login_epass=YanlÄ±ÅŸ PostgreSQL kullanÄ±cÄ± adÄ± ya da ÅŸifre.

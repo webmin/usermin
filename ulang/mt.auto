@@ -1,0 +1,30 @@
+main_title=Usermin $1 fuq $2 ($3)
+main_title2=Usermin
+main_title3=Usermin $1 ($2)
+main_none=M'għandekx aċċess għal xi moduli Usermin.
+category_mail=Mail
+category_usermin=Usermin
+category_login=Idħol
+category_apps=Applikazzjonijiet
+longcategory_usermin=Moduli għall-konfigurazzjoni ta 'Usermin innifsu
+longcategory_mail=Moduli għall-qari, tiftix u proċessar tal-email
+longcategory_login=Moduli relatati mad-dħul fis-server
+longcategory_apps=Moduli għal database, kriptaġġ, websajt u applikazzjonijiet oħra
+header_webmin=Utent Indiċi
+header_config=Preferenzi
+programname=Usermin
+config_title=Preferenzi
+feedback_title=Rispons mill-Utenti
+feedback_desc=Din il-formola jippermettilek tirrapporta bugs jew tagħmel suġġerimenti lill-iżviluppaturi tal-Usermin fir-rigward ta 'xi problemi jew karatteristiċi nieqsa li sibt. Meta tikklikkja l-buttuna Ibgħat, id-dettalji mdaħħla fil-formola se jiġu emailed lil $1.
+feedback_desc2=Dan ir-rispons se jintbagħat lill-iżviluppatur ta 'Usermin, mhux lill-amministratur tas-sistema tiegħek, ISP jew lill-kumpanija li tospita. Jekk jogħġbok ikteb il-feedback tiegħek bl-Ingliż, anke jekk bħalissa qed tmexxi Usermin b'lingwa oħra.
+feedback_configdesc=Jekk dan jintgħażel, l-imejl għandu jinkludi l-preferenzi tiegħek għall-modulu relatat u l-kontenut ta 'kwalunkwe fajl ta' konfigurazzjoni li juża l-modulu.
+session_header=Idħol għall-Usermin
+session_mesg=Trid tidħol username u password biex tidħol fis-server Usermin fuq $1.
+pam_header=Idħol fil-Webmin
+pam_mesg=Għandek twieġeb għall-mistoqsija hawn taħt biex tidħol fis-server Usermin fuq $1.
+referer_warn=<b>Twissija!</b> Usermin sab li l-programm $2 kien marbut mal-URL $1, li jidher li huwa barra mis-server Usermin. Dan jista 'jkun tentattiv biex iqarraq lis-server tiegħek fl-eżekuzzjoni ta' kmand perikoluż.
+referer_warn_unknown=<b>Twissija!</b> Usermin sab li l-programm $1 kien marbut ma 'URL mhux magħruf, li jidher li huwa barra mis-server Usermin. Dan jista 'jkun tentattiv biex iqarraq lis-server tiegħek fl-eżekuzzjoni ta' kmand perikoluż.
+referer_fix1=Jekk din hija rabta leġittima, tista 'tippermetti links minn dan l-URL kif ġej: <ul><li> Idħol fil-Webmin. • Mur fil-modulu <b>Konfigurazzjoni tal-Usermin</b>. Ikona ta 'Referenzi ta' Fiduċja. <li>Daħħal il-host $1 fil-qasam<b> Websajt ta 'fiduċja </b>u kklikkja<b> Salva </b>.</ul>
+referer_fix2=Alternattivament, tista 'tikkonfigura Usermin biex tippermetti din il-link mil-linja ta' kmand billi: <ul><li> Idħol bħala <tt>root</tt>, u teditja l-fajl <tt>/etc/usermin/config</tt>. <li>Żid il-linja<tt> referers = $1 </tt>fl-aħħar, jew jekk hemm<tt> refererts </tt>linja diġà teżisti żid<tt> $1 </tt>.<li > Issejvja l-fajl. </ul>
+referer_fix1u=Jekk il-browser tiegħek ma jibgħatx l-intestatura <tt>Referer</tt> meħtieġa, tista 'tintefa' din il-verifika kif ġej: <ul><li> Idħol fil-Webmin normalment. <li>Mur fil-<b> Usermin Configuration </b>modulu.<li> Ikklikkja fuq l-ikona ta 'Referenzi ta' Fidda. Iċċekkja l-kaxxa <b>Rabtiet ta 'fiduċja minn referenzi mhux magħrufa</b>, u kklikkja <b>Salv</b>. </ul>
+referer_fix2u=Alternattivament, tista 'tikkonfigura Usermin biex tippermetti links minn refereers mhux magħrufa billi: <ul><li> Idħol bħala <tt>root</tt>, u editja l-fajl <tt>/etc/usermin/config</tt>. <li>Sib il-linja<tt> referers_none = 1 </tt>u ibdilha għal<tt> referers_none = 0 </tt>.<li> Issejvja l-fajl. </ul>

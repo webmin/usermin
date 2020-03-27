@@ -1,0 +1,6 @@
+index_title=Database PostgreSQL
+index_esql=Il programma client PostgreSQL $1 non è stato trovato sul tuo sistema. Forse PostgreSQL non è installato o la configurazione del modulo non è corretta.
+index_elibrary=Impossibile eseguire il programma client PostgreSQL $1 perché non è stato possibile trovare le librerie condivise di Postgres.
+index_superuser=Il programma client PostgreSQL psql non è stato eseguito sul tuo sistema. Forse PostgreSQL non è installato o la configurazione del modulo non è corretta.
+index_nopass=È necessario inserire un nome utente e una password PostgreSQL per connettersi al database.
+login_epass=Nome utente o password PostgreSQL errati

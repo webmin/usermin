@@ -1,0 +1,6 @@
+index_title=Kwoti tad-Disk
+index_quotas=Kwoti ta 'diska għal $1 fuq sistemi ta' fajls immuntati
+index_none=M'għandek l-ebda kwota ta 'disk tal-utent fuq kwalunkwe sistemi ta' fajls immuntati.
+index_gquotas=Kwoti tad-diska għall-grupp $1 fuq sistemi ta 'fajls immuntati
+right_header=Kwoti tad-diska
+right_out=$1 ta ' $2 

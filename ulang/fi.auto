@@ -1,0 +1,30 @@
+main_title=Usermin $1 $2 : ssa ($3)
+main_title2=Usermin
+main_title3=Usermin $1 ($2)
+main_none=Sinulla ei ole pääsyä mihinkään Usermin-moduuleihin.
+category_mail=posti
+category_usermin=Usermin
+category_login=Kirjaudu sisään
+category_apps=Sovellukset
+longcategory_usermin=Moduulit itse Userminin määrittämiseen
+longcategory_mail=Moduulit sähköpostien lukemiseen, noutamiseen ja käsittelemiseen
+longcategory_login=Palvelimelle kirjautumiseen liittyvät moduulit
+longcategory_apps=Tietokanta-, salaus-, verkkosivusto- ja muiden sovellusten moduulit
+header_webmin=Käyttäjähakemisto
+header_config=Asetukset
+programname=Usermin
+config_title=Asetukset
+feedback_title=Usermin Palaute
+feedback_desc=Tämän lomakkeen avulla voit ilmoittaa virheistä tai tehdä ehdotuksia Usermin-kehittäjille löydetyistä ongelmista tai puuttuvista ominaisuuksista. Kun Lähetä-painiketta napsautetaan, lomakkeeseen syötetyt tiedot lähetetään sähköpostitse osoitteeseen $1.
+feedback_desc2=Tämä palaute lähetetään Usermin-kehittäjälle, ei järjestelmänvalvojalle, Internet-palveluntarjoajalle tai isäntäyritykselle. Kirjoita palautteesi englanniksi, vaikka sinulla olisi tällä hetkellä Usermin jollakin muulla kielellä.
+feedback_configdesc=Jos tämä on valittu, sähköposti sisältää haluamasi moduulin asetukset ja moduulin käyttämien konfigurointitiedostojen sisällön.
+session_header=Kirjaudu sisään Userminiin
+session_mesg=Sinun on annettava käyttäjänimi ja salasana kirjautuaksesi sisään Usermin-palvelimeen osoitteessa $1.
+pam_header=Kirjaudu Webminiin
+pam_mesg=Sinun on vastattava alla olevaan kysymykseen kirjautuaksesi sisään Usermin-palvelimeen osoitteessa $1.
+referer_warn=<b>Varoitus!</b> Usermin on havainnut, että ohjelma $2 on linkitetty URL-osoitteesta $1, joka näyttää olevan Usermin-palvelimen ulkopuolella. Tämä voi olla yritys huijata palvelinta vaarallisen komennon suorittamiseen.
+referer_warn_unknown=<b>Varoitus!</b> Usermin on havainnut, että ohjelma $1 on linkitetty tuntemattomasta URL-osoitteesta, joka näyttää olevan Usermin-palvelimen ulkopuolella. Tämä voi olla yritys huijata palvelinta vaarallisen komennon suorittamiseen.
+referer_fix1=Jos tämä on laillinen linkki, voit sallia linkit tältä URL-osoitteelta seuraavasti: <ul><li> Kirjaudu Webminiin. <li>Siirry<b> Usermin Configuration </b>-moduuliin.<li> Napsauta Luotettavat viittaajat -kuvake. <li>Kirjoita isäntänimi $1<b> Luotetut sivustot </b>-kenttään ja napsauta<b> Tallenna </b>.</ul>
+referer_fix2=Voit vaihtoehtoisesti määrittää Usermin: n sallimaan tämän linkin komentoriviltä: <ul><li> kirjaudu sisään <tt>juurena</tt> ja muokkaa tiedostoa <tt>/etc/usermin/config</tt>. <li>Lisää rivi<tt> referers = $1 </tt>loppuun, tai jos<tt> referers </tt>-riviä on jo olemassa, lisää siihen<tt> $1 </tt>.<li > Tallenna tiedosto. </ul>
+referer_fix1u=Jos selaimesi ei lähetä tarvittavaa <tt>Viittaus</tt> -otsikkoa, voit poistaa tämän tarkistuksen käytöstä seuraavasti: <ul><li> Kirjaudu Webminiin normaalisti. <li>Siirry kohtaan<b> Usermin Configuration </b>moduuli.<li> Napsauta Luotettavat viittaajat -kuvaketta. <li>Valitse<b> Luottamuslinkit tuntemattomilta viittajilta </b>-ruutu ja napsauta<b> Tallenna </b>.</ul>
+referer_fix2u=Voit vaihtoehtoisesti määrittää Usermin: n sallimaan linkkejä tuntemattomilta viittauksilta: <ul><li> Kirjaudu sisään <tt>juurena</tt> ja muokkaa <tt>/etc/usermin/config</tt> -tiedostoa. <li>Etsi rivi<tt> referers_none = 1 </tt>ja muuta se arvoksi<tt> referers_none = 0 </tt>.<li> Tallenna tiedosto. </ul>

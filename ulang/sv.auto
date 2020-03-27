@@ -1,0 +1,30 @@
+main_title=Usermin $1 på $2 ($3)
+main_title2=Usermin
+main_title3=Usermin $1 ($2)
+main_none=Du har inte tillgång till några Usermin-moduler.
+category_mail=Post
+category_usermin=Usermin
+category_login=Logga in
+category_apps=tillämpningar
+longcategory_usermin=Moduler för att konfigurera Usermin själv
+longcategory_mail=Moduler för att läsa, hämta och behandla e-post
+longcategory_login=Moduler relaterade till inloggning på servern
+longcategory_apps=Moduler för databas, kryptering, webbplats och andra applikationer
+header_webmin=Usermin Index
+header_config=Inställningar
+programname=Usermin
+config_title=Inställningar
+feedback_title=Usermin feedback
+feedback_desc=Detta formulär låter dig rapportera buggar eller lämna förslag till Usermin-utvecklarna angående problem eller saknade funktioner som du har hittat. När du klickar på knappen Skicka kommer de detaljer som anges i formuläret att mailas till $1.
+feedback_desc2=Denna feedback kommer att skickas till utvecklaren av Usermin, inte till din systemadministratör, ISP eller webbhotell. Skriv din feedback på engelska, även om du för närvarande kör Usermin på ett annat språk.
+feedback_configdesc=Om detta är valt kommer e-postmeddelandet att inkludera dina inställningar för den relaterade modulen och innehållet i alla konfigurationsfiler som modulen använder.
+session_header=Logga in på Usermin
+session_mesg=Du måste ange ett användarnamn och lösenord för att logga in på Usermin-servern på $1.
+pam_header=Logga in på Webmin
+pam_mesg=Du måste svara på frågan nedan för att logga in på Usermin-servern på $1.
+referer_warn=<b>Varning!</b> Usermin har upptäckt att programmet $2 var länkat till från URL $1, som verkar vara utanför Usermin-servern. Detta kan vara ett försök att lura din server att utföra ett farligt kommando.
+referer_warn_unknown=<b>Varning!</b> Usermin har upptäckt att programmet $1 var länkat till från en okänd URL, som verkar vara utanför Usermin-servern. Detta kan vara ett försök att lura din server att utföra ett farligt kommando.
+referer_fix1=Om detta är en legitim länk kan du tillåta länkar från denna URL på följande sätt: <ul><li> Logga in på Webmin. <li>Gå till modulen<b> Usermin Configuration </b>.<li> Klicka på Ikonen för betrodda referenser. <li>Ange värdnamnet $1 i fältet<b> betrodda webbplatser </b>och klicka på<b> Spara </b>.</ul>
+referer_fix2=Alternativt kan du konfigurera Usermin så att den här länken tillåts från kommandoraden genom: <ul><li> Logga in som <tt>root</tt> och redigera filen <tt>/etc/usermin/config</tt>. <li>Lägg till raden<tt> referenser = $1 </tt>i slutet, eller om en<tt> referens </tt>rad redan finns lägg<tt> $1 </tt>till den.<li > Spara filen. </ul>
+referer_fix1u=Om din webbläsare inte skickar rubriken <tt>Referer</tt> kan du stänga av den här kontrollen på följande sätt: <ul><li> Logga in på Webmin normalt. <li>Gå till<b> Usermin-konfiguration </b>modul.<li> Klicka på ikonen för betrodda referenser. <li>Markera rutan<b> Förtroende från okända referenser </b>och klicka på<b> Spara </b>.</ul>
+referer_fix2u=Alternativt kan du konfigurera Usermin för att tillåta länkar från okända referenser genom: <ul><li> Logga in som <tt>root</tt> och redigera filen <tt>/etc/usermin/config</tt>. <li>Hitta raden<tt> referers_none = 1 </tt>och ändra den till<tt> referers_none = 0 </tt>.<li> Spara filen. </ul>

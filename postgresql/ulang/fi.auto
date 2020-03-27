@@ -1,0 +1,6 @@
+index_title=PostgreSQL-tietokanta
+index_esql=PostgreSQL-asiakasohjelmaa $1 ei löydy järjestelmästäsi. Ehkä PostgreSQL: tä ei ole asennettu tai moduulin kokoonpano on väärä.
+index_elibrary=PostgreSQL-asiakasohjelmaa $1 ei voitu suorittaa, koska se ei löytänyt Postgres-jaettuja kirjastoja.
+index_superuser=PostgreSQL-asiakasohjelma psql ei voinut suorittaa järjestelmääsi. Ehkä PostgreSQL: tä ei ole asennettu tai moduulin kokoonpano on väärä.
+index_nopass=Sinun on syötettävä PostgreSQL-käyttäjänimi ja salasana, jotta voit muodostaa yhteyden tietokantaan.
+login_epass=Virheellinen PostgreSQL-käyttäjänimi tai salasana

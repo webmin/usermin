@@ -1,0 +1,3 @@
+index_edb=Falha ao conectar-se ao banco de dados de configuração do SpamAssassin: $1. Peça ao administrador do sistema para verificar as configurações do módulo.
+awl_title=Gerenciar lista de permissões automáticas
+awl_deleteonedesc=Remova todas as entradas atuais da lista de permissões automáticas

@@ -1,0 +1,6 @@
+index_title=Lemezkvóták
+index_quotas=Lemezkvóták az $1 -hez csatolt fájlrendszereken
+index_none=Nincs illesztőprogram-kvóta egyetlen csatolt fájlrendszernél sem.
+index_gquotas=Lemezkvóták az $1 csoporthoz csatolt fájlrendszereken
+right_header=Lemezkvóták
+right_out=$1 $2 

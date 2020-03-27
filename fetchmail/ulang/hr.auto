@@ -1,0 +1,5 @@
+index_efetchmail=Program za dohvaćanje $1 nije pronađen u vašem sustavu.
+index_noservers=Još nisu konfigurirani poslužitelji za dohvaćanje pošte.
+index_stopmsg=Kliknite ovaj gumb kako biste zaustavili davan demon fetchmail koji trenutno automatski provjerava novu poštu svaki $1 sekundu.
+index_startmsg=Kliknite ovaj gumb za pokretanje demona dohvaćanja na ovom poslužitelju i to neka provjerava poštu za svakih 1 sekundu, koristeći gornju konfiguraciju.
+index_none=Još nije definiran nijedan poslužitelj e-pošte za provjeru.

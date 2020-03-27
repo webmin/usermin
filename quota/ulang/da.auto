@@ -1,0 +1,6 @@
+index_title=Diskkvoter
+index_quotas=Diskkvoter for $1 på monterede filsystemer
+index_none=Du har ingen brugerdiskvoter på nogen monterede filsystemer.
+index_gquotas=Diskkvoter for gruppe $1 på monterede filsystemer
+right_header=Diskkvoter
+right_out=$1 af $2 

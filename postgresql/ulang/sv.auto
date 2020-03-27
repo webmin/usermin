@@ -1,0 +1,6 @@
+index_title=PostgreSQL-databas
+index_esql=PostgreSQL-klientprogrammet $1 hittades inte på ditt system. Kanske är PostgreSQL inte installerat, eller modulkonfigurationen är felaktig.
+index_elibrary=PostgreSQL-klientprogrammet $1 kunde inte köras eftersom det inte kunde hitta de delade biblioteken för Postgres.
+index_superuser=PostgreSQL-klientprogrammet psql kunde inte köras på ditt system. Kanske är PostgreSQL inte installerat, eller modulkonfigurationen är felaktig.
+index_nopass=Du måste ange ett PostgreSQL-användarnamn och lösenord för att kunna ansluta till databasen.
+login_epass=Felaktigt PostgreSQL-användarnamn eller lösenord

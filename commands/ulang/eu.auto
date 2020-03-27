@@ -1,0 +1,2 @@
+index_nodir=Webmin komando pertsonalizatuak $1 direktorioan ez da zure sisteman aurkitu. Modulu honek Webmin instalatu behar du komandoak definitzeko.
+index_none=Ez da komando pertsonalizaturik definitu Webmin-en edo Usermin-en exekutatzeko erabilgarri gisa izendatuta.

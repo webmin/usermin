@@ -1,0 +1,3 @@
+index_edb=無法連接到SpamAssassin配置數據庫： $1。請您的系統管理員檢查模塊配置設置。
+awl_title=管理自動白名單
+awl_deleteonedesc=刪除所有當前的自動白名單條目

@@ -1,0 +1,3 @@
+index_edb=Nepodařilo se připojit k konfigurační databázi SpamAssassin: $1. Požádejte správce systému o kontrolu nastavení konfigurace modulu.
+awl_title=Spravovat automatický seznam povolených
+awl_deleteonedesc=Odebrat všechny vaše aktuální položky automatického seznamu povolených

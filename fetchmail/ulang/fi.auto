@@ -1,0 +1,5 @@
+index_efetchmail=Fetchmail-ohjelmaa $1 ei löydy järjestelmästäsi.
+index_noservers=Yhtään palvelinta, josta hakea sähköpostia, ei ole vielä määritetty.
+index_stopmsg=Napsauta tätä painiketta, jos haluat lopettaa hakupalvelun, joka tarkistaa automaattisesti uudet postit $1 sekunnin välein.
+index_startmsg=Napsauta tätä painiketta, jos haluat käynnistää fetchmail-palvelun tällä palvelimella, ja saada se tarkistamaan postin välein $1 sekuntia yllä olevan kokoonpanon avulla.
+index_none=Ei tarkistettavia postipalvelimia ole vielä määritetty.

@@ -1,9 +1,7 @@
 login_elogin=Usuari o contrasenya incorrecta
 index_nopass=Has d'introduir un usuari i una contrasenya de MySQL per tal de connectar-te a aquesta base de dades.
-index_eadmin=No s'ha trobat al sistema el programa $1 d'administració de MySQL. Pot ser que MySQL no estigui instal·lat, o bé que la configuració del mòdul sigui incorrecta.
-index_esql=No s'ha trobat al sistema el programa client $1 de MySQL. Pot ser que MySQL no estigui instal·lat, o bé que la configuració del mòdul sigui incorrecta.
-index_ever=Sembla que el programa client $1 no té la versió correcta. Webmin només suporta les versions MySQL de la 3 en amunt.
-index_elibrary=No s'ha pogut executar el programa client $1 de MySQL perquè no s'han trobat les llibreries compartides de MySQL. Comprova la configuració del mòdul i assegura't que el <i>Camí de les llibreries compartides de MySQL</i> està establert.
-
+index_eadmin=No s'ha trobat al sistema el programa $1 d'administraciÃ³ de MySQL. Pot ser que MySQL no estigui instalÂ·lat, o bÃ© que la configuraciÃ³ del mÃ²dul sigui incorrecta.
+index_esql=No s'ha trobat al sistema el programa client $1 de MySQL. Pot ser que MySQL no estigui instalÂ·lat, o bÃ© que la configuraciÃ³ del mÃ²dul sigui incorrecta.
+index_ever=Sembla que el programa client $1 no tÃ© la versiÃ³ correcta. Webmin nomÃ©s suporta les versions MySQL de la 3 en amunt.
+index_elibrary=No s'ha pogut executar el programa client $1 de MySQL perquÃ¨ no s'han trobat les llibreries compartides de MySQL. Comprova la configuraciÃ³ del mÃ²dul i assegura't que el <i>CamÃ­ de les llibreries compartides de MySQL</i> estÃ  establert.
 login_epass=Usuari o contrasenya de MySQL incorrecta
-

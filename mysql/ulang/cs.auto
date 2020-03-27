@@ -1,0 +1,7 @@
+login_elogin=Nesprávné uživatelské jméno nebo heslo
+index_nopass=Abyste se mohli připojit k databázi, musíte zadat uživatelské jméno a heslo MySQL.
+index_eadmin=Ve vašem systému nebyl nalezen program MySQL $1. Možná není MySQL nainstalována nebo je konfigurace modulu nesprávná.
+index_esql=Klientský program MySQL $1 nebyl ve vašem systému nalezen. Možná není MySQL nainstalována nebo je konfigurace modulu nesprávná.
+index_ever=Klientský program MySQL $1 se nejeví jako správná verze. Webmin podporuje pouze MySQL verze 3 a vyšší.
+index_elibrary=Klientský program MySQL $1 nelze spustit, protože nemohl najít sdílené knihovny MySQL. Zkontrolujte konfiguraci modulu a ujistěte se, že je nastavena <i>Cesta ke sdíleným knihovnám MySQL</i>.
+login_epass=Nesprávné uživatelské jméno nebo heslo MySQL

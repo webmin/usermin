@@ -1,0 +1,6 @@
+index_title=Pangkalan Data PostgreSQL
+index_esql=Program klien PostgreSQL $1 tidak dijumpai pada sistem anda. Mungkin PostgreSQL tidak dipasang, atau konfigurasi modul tidak betul.
+index_elibrary=Program klien PostgreSQL $1 tidak dapat dijalankan kerana tidak dapat mencari perpustakaan yang dikongsi Postgres.
+index_superuser=PSql program klien PostgreSQL tidak dapat dilaksanakan pada sistem anda. Mungkin PostgreSQL tidak dipasang, atau konfigurasi modul tidak betul.
+index_nopass=Anda mesti memasukkan nama pengguna dan kata laluan PostgreSQL untuk menyambung ke pangkalan data.
+login_epass=Nama atau Kata laluan PostgreSQL yang salah

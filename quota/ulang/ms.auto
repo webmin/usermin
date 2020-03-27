@@ -1,0 +1,6 @@
+index_title=Kuota Disk
+index_quotas=Kuota cakera untuk $1 pada sistem fail yang dipasang
+index_none=Anda tidak mempunyai kuota cakera pengguna pada mana-mana sistem fail yang dipasang.
+index_gquotas=Kuota cakera untuk kumpulan $1 pada sistem fail yang dipasang
+right_header=Kuota cakera
+right_out=$1 daripada $2 

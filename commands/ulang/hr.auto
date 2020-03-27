@@ -1,0 +1,2 @@
+index_nodir=U vašem sustavu nije pronađen imenik webmin prilagođenih naredbi $1. Ovaj modul zahtijeva da se Webmin instalira tako da se može koristiti za definiranje naredbi.
+index_none=Nisu definirane prilagođene naredbe u Webminu ili su označene kao dostupne za pokretanje u Userminu.

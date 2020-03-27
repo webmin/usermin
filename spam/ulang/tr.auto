@@ -1,0 +1,3 @@
+index_edb=SpamAssassin yapılandırma veritabanına bağlanılamadı: $1. Sistem yöneticinizden modül yapılandırma ayarlarını kontrol etmesini isteyin.
+awl_title=Otomatik Beyaz Listeyi Yönet
+awl_deleteonedesc=Geçerli tüm otomatik beyaz liste girişlerinizi kaldırın

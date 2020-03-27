@@ -1,0 +1,3 @@
+index_edb=Nepavyko prisijungti prie „SpamAssassin“ konfigūracijos duomenų bazės: $1. Paprašykite sistemos administratoriaus patikrinti modulio konfigūracijos parametrus.
+awl_title=Tvarkykite automatinį baltąjį sąrašą
+awl_deleteonedesc=Pašalinkite visus dabartinius automatinio baltojo sąrašo įrašus

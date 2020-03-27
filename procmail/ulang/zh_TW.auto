@@ -1,0 +1,1 @@
+index_desc=此模塊允許您配置過濾器，以過濾發送到該服務器上您的地址的電子郵件。但是，只有在系統管理員已全局安裝Procmail或在Mail Forwarding模塊中將設置傳遞到Procmail程序的情況下，它才起作用。

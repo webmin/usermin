@@ -1,0 +1,2 @@
+index_nodir=A (z) $1 Webmin egyéni parancskönyvtár nem található a rendszerén. Ez a modul megköveteli a Webmin telepítését, hogy felhasználható legyen a parancsok meghatározására.
+index_none=A Webmin nem definiált egyéni parancsokat, és nem jelölte meg őket a Usermin futtatásához elérhetővé.

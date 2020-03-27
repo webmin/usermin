@@ -4,6 +4,4 @@ index_eadmin=Het MySQL admin programma $1 is niet gevonden op uw systeem. Missch
 index_esql=Het MySQL client programma $1 is niet gevonden op uw systeem. Misschien is MySQL niet geinstalleerd, of de module configuratie is niet correct.
 index_ever=Het MySQL client programma $1 lijkt niet de juiste versie te zijn. Webmin ondersteund alleen MySQL versie 3 en hoger.
 index_elibrary=Het MySQL client programma $1 kan niet werken omdat het niet de MySQL gedeelde bibliotheken kon vinden. Controleer de module configuratie en wees er zeker van dat het <i>Pad naar de MySQL gedeelde bibliotheken</i> is gezet.
-
 login_epass=Foutieve MySQL gebruikersnaam of wachtwoord
-

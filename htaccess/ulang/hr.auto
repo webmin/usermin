@@ -1,0 +1,13 @@
+index_title=Datoteke opcija Apache
+index_desc=Ovaj modul vam omogućuje uređivanje $1 datoteka koje postavljaju opcije za direktorije koje poslužuje Apache webserver. Opcije se primjenjuju na sve datoteke u direktoriju i na sve podmape, osim ako ih ne nadjača druga datoteka opcija.
+index_header=Datoteke postojećih opcija
+index_none=Datoteke opcija još nisu stvorene.
+index_create=Dodajte opcije za:
+index_createdesc=Stvara novu datoteku opcija u navedenom direktoriju.
+index_find=Pronađite datoteke s opcijama u:
+index_finddesc=Pretražuje uneseni imenik za datoteke $1 koje su ručno stvorene. Sve dok se ručno stvorene datoteke ne pronađu, nije ih moguće urediti pomoću ovog modula.
+index_return=popis datoteka opcija
+index_apache=Podaci o verziji i modulu Apache nisu pronađeni u web-direktoriju Webmin konfiguracije $1. Ovaj modul zahtijeva da se Webmin instalira i njegov Apache modul pravilno konfigurira.
+find_title=Pronalaženje datoteka datoteka
+find_list=Sljedeće datoteke opcija pronađene su ispod $1 ..
+find_none=Nisu pronađene datoteke s opcijama $1 ispod $2.

@@ -1,0 +1,1 @@
+index_desc=Este módulo permite configurar a filtragem para envio de e-mail para o seu endereço neste servidor. No entanto, ele funcionará apenas se o administrador do sistema instalou o Procmail globalmente ou se você configurou a entrega para o programa Procmail no módulo Encaminhamento de email.

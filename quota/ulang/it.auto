@@ -1,0 +1,6 @@
+index_title=Quote disco
+index_quotas=Quote disco per $1 su filesystem montati
+index_none=Non ci sono quote del disco utente su alcun filesystem montato.
+index_gquotas=Quote disco per il gruppo $1 su filesystem montati
+right_header=Quote disco
+right_out=$1 di $2 

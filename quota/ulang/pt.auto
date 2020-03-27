@@ -1,0 +1,6 @@
+index_title=Cotas de disco
+index_quotas=Cotas de disco para $1 em sistemas de arquivos montados
+index_none=Você não possui cotas de disco do usuário em nenhum sistema de arquivos montado.
+index_gquotas=Cotas de disco para o grupo $1 em sistemas de arquivos montados
+right_header=Cotas de disco
+right_out=%1 de 2

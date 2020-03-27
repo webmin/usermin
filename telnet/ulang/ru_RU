@@ -1,3 +1,0 @@
-index_econnect=Ваш сервер не отобразился как SSH или telnet сервер.
-index_econnect2=Ваш сервер не отобразился как SSH или telnet сервер
-index_econnect3=Ваш сервер не отобразился как SSH или telnet сервер. Возможно, что модуль Telnet- не сконфигурирован (<a href='/uconfig.cgi?telnet'>конфигурация модуля</a>)

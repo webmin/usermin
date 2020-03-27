@@ -1,0 +1,3 @@
+index_edb=Gagal menyambung ke pangkalan data konfigurasi SpamAssassin: $1. Tanya pentadbir sistem anda untuk memeriksa tetapan konfigurasi modul.
+awl_title=Urus Senarai Putih Auto
+awl_deleteonedesc=Keluarkan semua penyertaan auto putih senarai semasa anda

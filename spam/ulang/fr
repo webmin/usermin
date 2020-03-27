@@ -1,3 +1,3 @@
-awl_deleteonedesc=Supprimer toutes les entrées de la liste blanche
-awl_title=Gérer la liste blanche automatique
-index_edb=Échec de connexion à la base de données de configuration de SpamAssassin : $1. Demander à votre administrateur système de vérifier les paramètres du module de configuration.
+index_edb=Ã‰chec de connexion Ã  la base de donnÃ©es de configuration de SpamAssassin : $1. Demander Ã  votre administrateur systÃ¨me de vÃ©rifier les paramÃ¨tres du module de configuration.
+awl_title=GÃ©rer la liste blanche automatique
+awl_deleteonedesc=Supprimer toutes les entrÃ©es de la liste blanche

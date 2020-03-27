@@ -1,0 +1,3 @@
+index_edb=Nem sikerült csatlakozni a SpamAssassin konfigurációs adatbázishoz: $1. Kérdezze meg rendszergazdáját, hogy ellenőrizze a modul konfigurációs beállításait.
+awl_title=Kezelje az automatikus engedélyezési listát
+awl_deleteonedesc=Távolítsa el az összes jelenlegi automatikus engedélyezési lista bejegyzést

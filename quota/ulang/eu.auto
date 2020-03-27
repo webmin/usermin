@@ -1,0 +1,6 @@
+index_title=Disko kuotak
+index_quotas=Muntatutako fitxategi sistemetan $1 eko kupoak
+index_none=Ez duzu erabiltzaile diskoko kuotarik muntatutako fitxategi sistemetan.
+index_gquotas=$1 taldeko disko kuotak muntatutako fitxategi sistemetan
+right_header=Disko kuotak
+right_out=$1 $2 

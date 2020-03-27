@@ -1,0 +1,3 @@
+index_edb=Det gick inte att ansluta till SpamAssassin-konfigurationsdatabasen: $1. Be systemadministratören att kontrollera modulens konfigurationsinställningar.
+awl_title=Hantera automatisk vitlista
+awl_deleteonedesc=Ta bort alla dina nuvarande poster med automatisk vitlista

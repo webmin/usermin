@@ -1,0 +1,6 @@
+index_title=PostgreSQL数据库
+index_esql=在系统上找不到PostgreSQL客户端程序 $1。也许未安装PostgreSQL，或者模块配置不正确。
+index_elibrary=PostgreSQL客户端程序 $1无法运行，因为它找不到Postgres共享库。
+index_superuser=PostgreSQL客户端程序psql无法在您的系统上执行。也许未安装PostgreSQL，或者模块配置不正确。
+index_nopass=您必须输入PostgreSQL用户名和密码才能连接到数据库。
+login_epass=不正确的PostgreSQL用户名或密码

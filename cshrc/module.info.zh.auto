@@ -1,2 +1,2 @@
 desc_zh=登录脚本
-longdesc_zh=根据登录外壳，编辑.login，.profile和.cshrc文件。
+longdesc_zh=根据登录外壳,编辑.login,.profile和.bashrc文件。

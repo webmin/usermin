@@ -1,0 +1,3 @@
+desc_ja=Apacheオプションファイル
+name_ja=HTaccess
+longdesc_ja=WebminのApacheモジュールと同様のインターフェースを使用して、 .htaccessファイルを編集します。

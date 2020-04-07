@@ -1,0 +1,3 @@
+name_da=procmail
+desc_da=Procmail Mail-filter
+longdesc_da=Konfigurer avanceret indholdsbaseret videresendelse af mail sendt til din konto. Kræver, at Procmail er installeret og korrekt konfigureret til postlevering.

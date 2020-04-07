@@ -1,0 +1,3 @@
+desc_pt=Arquivos de opções do Apache
+longdesc_pt=Edite seus arquivos .htaccess, usando uma interface semelhante ao módulo Apache do Webmin.
+name_pt=HTaccess

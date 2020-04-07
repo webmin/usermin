@@ -1,0 +1,3 @@
+name_zh_TW=郵件
+longdesc_zh_TW=為發送到您帳戶的郵件配置基於內容的高級轉發。需要安裝Procmail並正確設置以進行郵件傳遞。
+desc_zh_TW=Procmail郵件過濾器

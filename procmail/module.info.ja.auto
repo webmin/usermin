@@ -1,0 +1,3 @@
+longdesc_ja=アカウントに送信されるメールの高度なコンテンツベースの転送を構成します。 Procmailがインストールされ、メール配信用に適切に設定されている必要があります。
+name_ja=Procmail
+desc_ja=Procmailメールフィルター

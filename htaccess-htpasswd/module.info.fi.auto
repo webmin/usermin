@@ -1,0 +1,3 @@
+name_fi=HTA-tiedostot
+desc_fi=Suojatut Web-hakemistot
+longdesc_fi=Luo .htaccess- ja .htpasswd-tiedostoja verkkosuojattujen hakemistojen suojaamiseksi.

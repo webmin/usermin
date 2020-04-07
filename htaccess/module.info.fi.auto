@@ -1,0 +1,3 @@
+name_fi=htaccess
+longdesc_fi=Muokkaa .htaccess-tiedostoja käyttämällä käyttöliittymää, joka on samanlainen kuin Webminin Apache-moduuli.
+desc_fi=Apache-asetusten tiedostot

@@ -1,0 +1,3 @@
+name_ja=トンネル
+longdesc_ja=Userminサーバーを経由するトンネルを介して別のHTTPサーバーに接続します。
+desc_ja=HTTPトンネル

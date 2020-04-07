@@ -1,0 +1,3 @@
+desc_sl=Pridobivanje pošte po pošti
+longdesc_sl=Konfigurirajte Fetchmail za prenos e-pošte z oddaljenega strežnika POP3 ali IMAP na lokalni naslov.
+name_sl=Fetchmail

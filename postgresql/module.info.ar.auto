@@ -1,0 +1,3 @@
+name_ar=PostgreSQL
+desc_ar=قاعدة بيانات PostgreSQL
+longdesc_ar=تسجيل الدخول إلى PostgreSQL وإدارة الجداول والسجلات من خلال واجهة مشابهة لوحدة WebgreSQL الخاصة بـ Webmin.

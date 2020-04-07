@@ -1,0 +1,3 @@
+name_ar=ملفات HTAccess
+desc_ar=دلائل الويب المحمية
+longdesc_ar=إنشاء ملفات .htaccess و .htpasswd لحماية الدلائل التي يمكن الوصول إليها عبر الويب.

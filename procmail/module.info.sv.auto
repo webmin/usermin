@@ -1,0 +1,3 @@
+name_sv=Procmail
+desc_sv=Procmail-postfilter
+longdesc_sv=Konfigurera avancerad innehållsbaserad vidarebefordran för e-post som skickas till ditt konto. Kräver att Procmail installeras och konfigureras korrekt för postleverans.

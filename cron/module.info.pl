@@ -1,1 +1,1 @@
-desc_pl=Harmonogram zadañ Cron
+desc_pl=Harmonogram zadaÅ„ Cron

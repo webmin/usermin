@@ -1,0 +1,3 @@
+longdesc_da=Skift din adgangskode, enten ved at ringe til PAM eller køre passwd-kommandoen.
+desc_da=Skift kodeord
+name_da=Changepass

@@ -1,1 +1,1 @@
-desc_pl=Montowanie systemu plików
+desc_pl=Montowanie systemu plikÃ³w

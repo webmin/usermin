@@ -1,0 +1,3 @@
+desc_ro=Procmail Mail Filter
+longdesc_ro=Configurați redirecționarea avansată bazată pe conținut pentru e-mailurile trimise în contul dvs. Necesită instalarea și setarea corespunzătoare a Procmail pentru livrarea prin poștă.
+name_ro=procmail

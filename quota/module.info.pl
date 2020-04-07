@@ -1,1 +1,1 @@
-desc_pl=Przydzia≥ dysky (Quotas)
+desc_pl=Przydzia≈Ç dysky (Quotas)

@@ -1,0 +1,3 @@
+name_no=Tunnel
+longdesc_no=Koble til en annen HTTP-server via en tunnel gjennom Usermin-serveren.
+desc_no=HTTP-tunnel

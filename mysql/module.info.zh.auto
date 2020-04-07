@@ -1,0 +1,3 @@
+desc_zh=MySQL数据库
+name_zh=的MySQL
+longdesc_zh=登录到MySQL并通过类似于Webmin的MySQL模块的界面管理表和记录。

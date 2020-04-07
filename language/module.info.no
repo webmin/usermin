@@ -1,1 +1,1 @@
-desc_no=Endre spr&#229;k
+desc_no=Endre språk

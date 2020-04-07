@@ -1,0 +1,3 @@
+name_es=PostgreSQL
+longdesc_es=Inicie sesión en PostgreSQL y administre tablas y registros a través de una interfaz similar al módulo PostgreSQL de Webmin.
+desc_es=Base de datos PostgreSQL

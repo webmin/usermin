@@ -1,0 +1,3 @@
+name_pl=PostgreSQL
+desc_pl=Baza danych PostgreSQL
+longdesc_pl=Zaloguj się do PostgreSQL i zarządzaj tabelami i rekordami poprzez interfejs podobny do modułu PostgreSQL Webmina.

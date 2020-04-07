@@ -1,0 +1,3 @@
+desc_es=Filtro de correo SpamAssassin
+longdesc_es=Configure y configure SpamAssassin para filtrar el correo electrónico enviado a su cuenta.
+name_es=SpamAssassin

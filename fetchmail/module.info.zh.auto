@@ -1,0 +1,3 @@
+name_zh=提取邮件
+longdesc_zh=配置Fetchmail以将电子邮件从远程POP3或IMAP服务器下载到本地地址。
+desc_zh=Fetchmail邮件检索

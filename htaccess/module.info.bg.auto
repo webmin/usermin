@@ -1,0 +1,3 @@
+name_bg=Htaccess
+desc_bg=Файлове с опции на Apache
+longdesc_bg=Редактирайте вашите .htaccess файлове, като използвате интерфейс, подобен на модула Apache на Webmin.

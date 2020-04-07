@@ -1,0 +1,3 @@
+name_da=fetchmail
+longdesc_da=Konfigurer Fetchmail til at downloade e-mail fra en ekstern POP3- eller IMAP-server til en lokal adresse.
+desc_da=Hentning af mail-mail

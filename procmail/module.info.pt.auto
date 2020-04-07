@@ -1,0 +1,3 @@
+longdesc_pt=Configure o encaminhamento avançado baseado em conteúdo para emails enviados para sua conta. Requer que o Procmail seja instalado e configurado corretamente para entrega de correio.
+desc_pt=Filtro de email Procmail
+name_pt=Procmail

@@ -1,0 +1,3 @@
+desc_af=Verander wagwoord
+name_af=Changepass
+longdesc_af=Verander u wagwoord deur PAM te skakel of die passwd-opdrag uit te voer.

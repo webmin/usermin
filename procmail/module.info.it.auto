@@ -1,0 +1,3 @@
+desc_it=Filtro posta Procmail
+name_it=procmail
+longdesc_it=Configura l'inoltro avanzato basato sul contenuto per la posta inviata al tuo account. Richiede che Procmail sia installato e configurato correttamente per la consegna della posta.

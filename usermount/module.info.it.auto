@@ -1,0 +1,3 @@
+name_it=usermount
+longdesc_it=Montare e smontare i filesystem che sono stati contrassegnati come gestibili dagli utenti normali.
+desc_it=Montare filesystem

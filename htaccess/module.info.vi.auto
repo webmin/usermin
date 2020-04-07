@@ -1,0 +1,3 @@
+name_vi=HTaccess
+desc_vi=Tệp tùy chọn Apache
+longdesc_vi=Chỉnh sửa các tệp .htaccess của bạn, sử dụng giao diện tương tự như mô-đun Apache của Webmin.

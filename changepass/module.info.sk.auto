@@ -1,0 +1,3 @@
+desc_sk=Zmeniť heslo
+name_sk=changepass
+longdesc_sk=Zmeňte svoje heslo buď volaním PAM alebo spustením príkazu passwd.

@@ -1,0 +1,3 @@
+name_sv=Proc
+desc_sv=Kör processer
+longdesc_sv=Visa alla processer som körs på systemet, döda de som tillhör din och starta nya.

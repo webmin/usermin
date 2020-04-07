@@ -1,0 +1,3 @@
+desc_it=Database MySQL
+longdesc_it=Accedi a MySQL e gestisci tabelle e record tramite un'interfaccia simile al modulo MySQL di Webmin.
+name_it=MySQL

@@ -1,1 +1,1 @@
-desc_es=Encriptación usando GnuPG
+desc_es=EncriptaciÃ³n usando GnuPG

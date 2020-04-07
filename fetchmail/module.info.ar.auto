@@ -1,0 +1,3 @@
+name_ar=جلب البريد
+desc_ar=استرجاع بريد Fetchmail
+longdesc_ar=هيئ Fetchmail لتنزيل البريد الإلكتروني من خادم POP3 أو IMAP بعيد إلى عنوان محلي.

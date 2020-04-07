@@ -1,3 +1,3 @@
 desc_ja=保護されたWebディレクトリ
 name_ja=HTAccessファイル
-longdesc_ja= .htaccessおよび.htpasswdファイルを作成して、Webアクセス可能なディレクトリを保護します。
+longdesc_ja=.htaccessおよび.htpasswdファイルを作成して、Webアクセス可能なディレクトリを保護します。

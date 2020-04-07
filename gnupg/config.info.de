@@ -1,3 +1,3 @@
-keyserver=Keyserver&#x0082; um Schl&#252;ssel zu empfangen und zu versenden,0
+keyserver=Keyserver, um Schlüssel zu empfangen und zu versenden,0
 gpg=Voller Pfad zu GPG,3,GPG ist im Pfad (PATH)
 compress=Kompressionsalgorithmus,3,Standard

@@ -5,6 +5,6 @@ feedback_configdesc=これを選択した場合、電子メールには、関連
 referer_warn=<b>警告！</b> Userminは、プログラム $2がURL $1からリンクされていることを検出しました。これは、Userminサーバーの外部にあるようです。これは、サーバーをだまして危険なコマンドを実行させる試みである可能性があります。
 referer_warn_unknown=<b>警告！</b> Userminは、プログラム $1が不明なURLからリンクされていることを検出しました。このURLは、Userminサーバーの外部にあるようです。これは、サーバーをだまして危険なコマンドを実行させる試みである可能性があります。
 referer_fix1=これが正当なリンクである場合は、次のようにこのURLからのリンクを許可できます。<ul><li> Webminにログインします。<li><b> Usermin Configuration </b>モジュールに移動します。<li>信頼できる参照元アイコン。<li>ホスト名 $1を[<b>信頼できるウェブサイト</b>]フィールドに入力し、[<b>保存</b>]をクリックします。</ul>
-referer_fix2=または、次のようにコマンドラインからこのリンクを許可するようにUserminを構成できます。<ul><li> <tt>root</tt>としてログインし、<tt>/etc/usermin/config</tt>ファイルを編集します。 。<li>行<tt> referers = $1 </tt>を最後に追加するか、<tt> referers </tt>行がすでに存在する場合は<tt> $1 </tt>を追加します。<li >ファイルを保存します。</ul>
+referer_fix2=または、次のようにコマンドラインからこのリンクを許可するようにUserminを構成できます。<ul><li> <tt>root</tt>としてログインし、<tt>/etc/usermin/config</tt>ファイルを編集します。 。<li>行<tt> referers = $1 </tt>を最後に追加するか、<tt> referers </tt>行がすでに存在する場合は<tt> $1 </tt>を追加します。<li>ファイルを保存します。</ul>
 referer_fix1u=ブラウザが必要な<tt>Referer</tt>ヘッダーを送信しない場合は、次のようにしてこのチェックをオフにできます。<ul><li>通常のWebminへのログイン。<li><b> Usermin Configuration <に移動します</b>モジュール。</�> [信頼された参照元]アイコンをクリックします。<li>[<b>不明な参照元からのリンクを信頼する</b>]チェックボックスをオンにして、[<b>保存</b>]をクリックします。</ul>
-referer_fix2u=または、<ul><li> <tt>root</tt>としてログインし、<tt>/etc/usermin/config</tt>ファイルを編集して、不明な参照元からのリンクを許可するようにUserminを設定できます。<li><tt> referers_none = 1 </tt>という行を見つけて、<tt> referers_none = 0 </tt>に変更します。<li>ファイルを保存します。</ul>
+referer_fix2u=または、<ul><li> <tt>root</tt>としてログインし、<tt>/etc/usermin/config</tt>ファイルを編集して、不明な参照元からのリンクを許可するようにUserminを設定できます。<li><tt> referers_none=1 </tt>という行を見つけて、<tt> referers_none=0 </tt>に変更します。<li>ファイルを保存します。</ul>

@@ -25,6 +25,6 @@ pam_mesg=您必须回答以下问题才能登录 $1上的Usermin服务器。
 referer_warn=<b>警告！</b> Usermin已检测到URL $1链接了程序 $2，该URL似乎在Usermin服务器外部。这可能是试图欺骗您的服务器执行危险的命令。
 referer_warn_unknown=<b>警告！</b> Usermin检测到程序 $1已从未知URL链接到该URL，该URL似乎在Usermin服务器外部。这可能是试图欺骗您的服务器执行危险的命令。
 referer_fix1=如果这是合法链接，则可以允许通过此URL链接，如下所示：<ul><li>登录到Webmin。<li>转到<b> Usermin配置</b>模块。<li>单击受信任的引荐来源网址图标。<li>在<b>受信任的网站</b>字段中输入主机名 $1，然后单击<b>保存</b>。</ul>
-referer_fix2=或者，您可以通过以下方式将Usermin配置为允许从命令行通过以下链接进行访问：<ul><li>以<tt>root</tt>身份登录，然后编辑<tt>/etc/usermin/config</tt>文件。<li>在行末添加<tt> referers = $1 </tt>行，或者如果已经存在<tt> referers </tt>行，则在其中添加<tt> $1 </tt>。<li>保存文件。</ul>
+referer_fix2=或者，您可以通过以下方式将Usermin配置为允许从命令行通过以下链接进行访问：<ul><li>以<tt>root</tt>身份登录，然后编辑<tt>/etc/usermin/config</tt>文件。<li>在行末添加<tt> referers=$1 </tt>行，或者如果已经存在<tt> referers </tt>行，则在其中添加<tt> $1 </tt>。<li>保存文件。</ul>
 referer_fix1u=如果浏览器没有发送所需的<tt>Referer</tt>标头，则可以按以下方式关闭此检查：<ul><li>正常登录Webmin。<li>转到<b> Usermin Configuration </b>模块。<li>单击“受信任的引用者”图标。<li>选中“<b>来自未知引用者的信任链接” </b>框，然后单击<b>保存</b>。</ul>
 referer_fix2u=或者，您可以通过以下方式将Usermin配置为允许来自未知引用的链接：<ul><li>以<tt>root</tt>身份登录，然后编辑<tt>/etc/usermin/config</tt>文件。 li>找到行<tt>referers_none=1</tt>并将其更改为<tt>referers_none=0</tt>。<li>保存文件。</ul>

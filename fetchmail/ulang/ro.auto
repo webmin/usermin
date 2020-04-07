@@ -1,5 +1,5 @@
 index_efetchmail=Programul fetchmail $1 nu a fost găsit în sistemul dvs.
 index_noservers=Nu au fost configurate încă niciun server care să preia poștă.
 index_stopmsg=Faceți clic pe acest buton pentru a opri daemonul fetchmail care verifică în mod automat noua adresă de mail la fiecare $1 secunde.
-index_startmsg=Faceți clic pe acest buton pentru a porni demonul fetchmail pe acest server și solicitați-l să verifice dacă e-mailul este la 1 $1 secunde, folosind configurația de mai sus.
+index_startmsg=Faceți clic pe acest buton pentru a porni demonul fetchmail pe acest server și solicitați-l să verifice dacă e-mailul este la $1 secunde, folosind configurația de mai sus.
 index_none=Nu au fost definite încă servere de e-mail pentru a verifica.

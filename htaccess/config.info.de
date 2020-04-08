@@ -1,3 +1,3 @@
-htaccess=Dateiname f端r Verzeichnis Optionen,0
+htaccess=Dateiname für Verzeichnis Optionen,0
 webmin_apache=Apache Konfigurationsverzeichnis,0
 apache_docbase=Verzeichnis der Apache Dokumentation,3,Apache Webseite

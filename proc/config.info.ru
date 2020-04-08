@@ -1,0 +1,1 @@
+../../webadmin/proc/config.info.ru

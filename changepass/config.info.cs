@@ -1,0 +1,13 @@
+passwd_cmd=Změnit s,10,-Použít PAM nebo příkaz <tt>passwd</tt>,soubor-Upravit soubor přímo,Použít příkaz
+md5=Metoda zakódování hesla,1,1-MD5,0-DES crypt
+cmd_mode=Spustit jako,1,0-Změna u uživatele,1-<tt>root</tt> (a přidejte uživatelské jméno)
+smbpasswd=Také změnit heslo do samby příkazem,3,Neměnit
+mysql=Změnit také heslo do MySQL?,1,1-Ano,0-Ne
+mailbox=Změnit také POP3 hesla na poštovní schránky?,1,1-Ano,0-Ne
+post_command=Po změně hesla spustit příkaz,0
+passwd_min=Minimální délka hesla,0,5
+passwd_dict=Zabránit heslům které lze najít ve slovníku?,1,1-Ano,0-Ne
+passwd_re=Pro kontrolu hesla použít Perl regexp,3,Žádný
+passwd_same=Zabránit používání uživatelských jmen v heslech?,1,1-Ano,0-Ne
+passwd_new=Musí se lišit nové a staré heslo?,1,1-Ano,0-Ne
+passwd_prog=Externí program pro kontrolu hesel,3,Žádný

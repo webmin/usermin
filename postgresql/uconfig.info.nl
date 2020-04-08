@@ -1,4 +1,3 @@
-﻿login=PostgreSQL login,0
 pass=PostgreSQL wachtwoord,12
 max_dbs=Maximum aantal databases en tabellen laten zien,0
 perpage=Aantal rijen laten zien per pagina,0

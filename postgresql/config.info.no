@@ -1,10 +1,10 @@
 nodbi=Bruk DBI for tilkobling hvis tilgjengelig?,1,0-Ja,1-Nei
 psql=Sti til psql kommando,0
-plib=Sti til PostgreSQL delte biblioteker,3,Ikke n&#248;dvendig
+plib=Sti til PostgreSQL delte biblioteker,3,Ikke nødvendig
 basedb=Initiell PostgreSQL database,0
 host=PostgreSQL vert det skal kobles til,3,localhost
 port=PostgreSQL port det skal kobles til,3,Standard
 dump_cmd=Sti til pg_dump kommando,0
 rstr_cmd=Sti til pg_restore kommando,0
-access=Database tilgangskontrolliste&#44;<br>p&#229; <tt>brukernavn: db1 db2</tt> format.<br>PostgreSQL tillatelser gjelder ogs&#229;,9,0,0,\t
+access=Database tilgangskontrolliste&#44;<br>på <tt>brukernavn: db1 db2</tt> format.<br>PostgreSQL tillatelser gjelder også,9,0,0,\t
 access_own=Vis bare databaser eid av bruker?,1,1-Ja,0-Nei

@@ -1,7 +1,7 @@
 login=PostgreSQL brukernavn,0
 pass=PostgreSQL passord,12
 max_dbs=Maks. antall databaser og tabeller som skal vises,0
-perpage=Antall rader &#229; vise per side,0
+perpage=Antall rader å vise per side,0
 style=Vis databaser og tabeller som,1,1-Liste,0-Ikoner
 add_mode=Bruk grensesnitt med vertikal radredigering,1,1-Ja,0-Nei
 blob_mode=Vis blob og tekst-felt som,1,0-Data i tabell,1-Lenker for nedlasting

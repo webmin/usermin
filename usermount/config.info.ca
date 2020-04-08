@@ -1,4 +1,4 @@
-long_fstypes=Mostra els noms de tipus de fitxers de sistemes llargs,1,1-Sí,0-No
+long_fstypes=Mostra els noms de tipus de fitxers de sistemes llargs,1,1-SÃ­,0-No
 fstab_file=Fitxer que llista els sistemes de fitxers muntats en engegar el sistema,0
-smbclient_path=Camí complet de <tt>smbclient</tt>,3
-nmblookup_path=Camí complet de <tt>nmblookup</tt>,3
+smbclient_path=CamÃ­ complet de <tt>smbclient</tt>,3
+nmblookup_path=CamÃ­ complet de <tt>nmblookup</tt>,3

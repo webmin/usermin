@@ -3,5 +3,5 @@ pass=PostgreSQL&#45;Passwort,12
 max_dbs=Maximale Anzahl der Datenbanken und Tabellen zum anzeigen,0
 perpage=Anzahl der Zeilen zum pro Seite anzeigen,0
 style=Zeige Datenbanken und Tabellen als,1,1-Liste,0-Icons
-add_mode=Verwende vertikale Zeilen Bearbeitungsoberfl&#228;che,1,1-Ja,0-Nein
+add_mode=Verwende vertikale Zeilen Bearbeitungsoberfläche,1,1-Ja,0-Nein
 blob_mode=Zeige Blob und Textfelder als,1,0-Daten in Tabelle,1-Links zum Download

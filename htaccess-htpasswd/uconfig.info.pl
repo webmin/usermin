@@ -1,1 +1,1 @@
-sort=Sortuj uøytkownikÛw wed≥ug1,1-Nazwy,0-kolejno∂ci w pliku
+sort=Sortuj u≈ºytkownik√≥w wed≈Çug1,1-Nazwy,0-kolejno≈õci w pliku

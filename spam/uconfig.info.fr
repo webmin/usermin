@@ -1,6 +1,6 @@
-spam_file=Dossier des spam,3,Par défaut
-full_from=Afficher les adresses complètes reprisent dans la liste spam?,1,1-Oui,0-Non
+spam_file=Dossier des spam,3,Par dÃ©faut
+full_from=Afficher les adresses complÃ¨tes reprisent dans la liste spam?,1,1-Oui,0-Non
 refresh=Temps entre les actualisations automatiques de la liste spam (en secondes),3,Ne pas actualiser automatiquement
-inbox=Nom du répertoire ou déplacer les courriers légitimes,3,Boite de réception
-search_body=Lors des analyses de courrier&#44; vérifier,1,1-Le message en entier,0-Le sujet et les entêtes expéditeur uniquement
-max_awl=Nombre maximum à afficher d'auto-ajout en liste blanche,0,5
+inbox=Nom du rÃ©pertoire ou dÃ©placer les courriers lÃ©gitimes,3,Boite de rÃ©ception
+search_body=Lors des analyses de courrier&#44; vÃ©rifier,1,1-Le message en entier,0-Le sujet et les entÃªtes expÃ©diteur uniquement
+max_awl=Nombre maximum Ã  afficher d'auto-ajout en liste blanche,0,5

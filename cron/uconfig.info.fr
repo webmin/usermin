@@ -1,2 +1,2 @@
-show_time=Montrer le planning des t&#226;ches?,1,1-Oui,0-Non
-show_comment=Montrer les commentaires des t&#226;ches?,1,1-Oui,0-Non
+show_time=Montrer le planning des tâches?,1,1-Oui,0-Non
+show_comment=Montrer les commentaires des tâches?,1,1-Oui,0-Non

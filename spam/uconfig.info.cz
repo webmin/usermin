@@ -1,5 +1,0 @@
-spam_file=Soubor po¹ty pro spam,3,®ádný
-full_from=Zobrazovat úplnou adresu odesilatele v seznamu spamu?,1,1-Ano,0-Ne
-refresh=Interval obnovy seznamu spamu v sekundách,3,Neobnovovat
-inbox=Jméno slo¾ky&#44; kam se má pøesouvat po¹ta&#44; která není spam,3,Inbox
-search_body=Pøi kontrole na spam kontrolovat,1,1-Celé zprávy,0-Jen pøedmìt a odesilatele

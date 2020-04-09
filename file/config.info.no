@@ -1,5 +1,5 @@
 line1=Bruker-restriksjoner,11
-home_only=Begrens brukere til hjemmekatalog?,1,1-Gi tilgang til hjemmekataloger, og kataloger under..,0-Gi tilgang til alle kataloger,2-Gi bare tilgang til katalogene nedenfor..
+home_only=Begrens brukere til hjemmekatalog?,1,1-Gi tilgang til hjemmekataloger&#44; og kataloger under..,0-Gi tilgang til alle kataloger,2-Gi bare tilgang til katalogene nedenfor..
 root=Andre kataloger som skal tillates,9,30,4
 noroot=Kataloger som skal nektes,9,30,4
 goto=Åpne hjemmekatalog?,1,1-Ja,0-Nei

@@ -2,7 +2,7 @@
 # Output the address book in some format
 use strict;
 use warnings;
-our (%text, %in);
+our (%text, %in, $remote_user);
 
 require './mailbox-lib.pl';
 &ReadParse();
@@ -10,6 +10,11 @@ require './mailbox-lib.pl';
 
 # Build the list of addresses
 my @addrs = &list_addresses();
+my @agroups;
+if($in{'incgr'}) {
+	@agroups = grep { defined($_->[2]) } &list_address_groups();
+	}
+
 my %done;
 if ($in{'dup'}) {
 	@addrs = grep { !$done{$_->[0]}++ } @addrs;
@@ -17,9 +22,15 @@ if ($in{'dup'}) {
 
 if ($in{'fmt'} eq 'csv') {
 	# CSV format
-	print "Content-type: text/csv\n\n";
+	print "Content-Type: application/x-download\n";
+	print "Content-Disposition: attachment; filename=\"addressbook-${remote_user}_@{[get_display_hostname()]}.csv\"\n\n";
 	foreach my $a (@addrs) {
 		print "\"$a->[0]\",\"$a->[1]\"\n";
+		}
+	if($in{'incgr'}) {
+		foreach my $a (@agroups) {
+			print "\"-\",\"$a->[0]\"\n";
+			}
 		}
 	}
 else {

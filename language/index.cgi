@@ -10,11 +10,13 @@ print $text{'index_intro'},"<p>\n";
 print &ui_form_start("change_lang.cgi");
 
 $ulang = $gconfig{'lang_'.$remote_user};
-print "<b>$text{'index_lang'}</b>\n";
+$ulangauto = load_language_auto();
+print "<b>$text{'index_lang'}</b>&nbsp;\n";
 print &ui_select("lang", $ulang,
 	[ [ "", $text{'index_global'} ],
-	  map { [ $_->{'lang'}, $_->{'desc'}." (".uc($_->{'lang'}).")" ] }
-	      &list_languages() ]);
+	  map { [ $_->{'lang'}, $_->{'desc'}."" ] }
+	      &list_languages() ]) ." ". 
+	&ui_checkbox("langauto", 1, $text{'langauto_include'}, $ulangauto);
 print &ui_form_end([ [ undef, $text{'index_ok'} ] ]);
 
 &ui_print_footer("/", $text{'index'});

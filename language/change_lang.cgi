@@ -6,7 +6,8 @@ require './language-lib.pl';
 &ReadParse();
 
 if ($in{'lang'}) {
-	$gconfig{'lang_'.$remote_user} = $in{'lang'};
+	$gconfig{"langauto_$remote_user"} = int($in{'langauto'});
+	$gconfig{"lang_$remote_user"} = $in{'lang'};
 	}
 else {
 	delete($gconfig{'lang_'.$remote_user});

@@ -4,3 +4,4 @@ index_lang=Affichage en langue:
 index_intro=Cette page vous permet de choisir la langue qu'Usermin utilisera pour afficher les titres, les invites et les messages pour votre connexion.
 index_ok=Changement
 index_global=Global Usermin par défaut
+langauto_include=Inclure les traductions automatiques

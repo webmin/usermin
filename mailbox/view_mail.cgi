@@ -129,7 +129,8 @@ if ($body && $body eq $htmlbody && $userconfig{'head_html'}) {
 	}
 
 my $mail_charset = &get_mail_charset($mail, $body);
-if (&get_charset() eq 'UTF-8' && &can_convert_to_utf8(undef, $mail_charset)) {
+if ($body && &get_charset() eq 'UTF-8' &&
+    &can_convert_to_utf8(undef, $mail_charset)) {
 	# Convert to UTF-8
 	$body->{'data'} = &convert_to_utf8($body->{'data'}, $mail_charset);
 	}

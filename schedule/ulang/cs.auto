@@ -1,0 +1,7 @@
+edit_html=Povolit HTML ve zprávě
+edit_delete=Smazat po prvním odeslání
+edit_size=Velikost
+edit_upload1=Nahrát soubory
+edit_upload2=Připojte soubor
+save_notice_title=Rozvrh byl uložen
+save_notice=Naplánovaný e-mail byl úspěšně vytvořen - zobrazte jej, upravte nebo smažte po <a href="$1">tomto</a> odkazu.

@@ -1,0 +1,7 @@
+edit_html=HTML in Nachricht zulassen
+edit_delete=Nach dem ersten Senden löschen
+edit_size=Größe
+edit_upload1=Daten hochladen
+edit_upload2=Eine Datei anhängen
+save_notice_title=Zeitplan gespeichert
+save_notice=Geplante E-Mails wurden erfolgreich erstellt. Zeigen Sie sie an, bearbeiten oder löschen Sie sie über <a href="$1">diesen</a> Link.

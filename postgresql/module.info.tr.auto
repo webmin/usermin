@@ -1,0 +1,3 @@
+desc_tr=PostgreSQL Veritabanı
+name_tr=PostgreSQL
+longdesc_tr=PostgreSQL'e giriş yapın ve tabloları ve kayıtları Webmin'in PostgreSQL modülüne benzer bir arayüz üzerinden yönetin.

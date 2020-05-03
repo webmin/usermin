@@ -1,0 +1,5 @@
+index_efetchmail=Program fetchmail $1 tidak dijumpai pada sistem anda.
+index_noservers=Tiada pelayan untuk mengambil mel dari telah dikonfigurasi lagi.
+index_stopmsg=Klik butang ini untuk menghentikan daemon fetchmail pada masa ini secara automatik menyemak mel baru setiap $1 saat.
+index_startmsg=Klik butang ini untuk memulakan daemon fetchmail pada pelayan ini, dan semaknya untuk menyemak mel setiap $1 saat, menggunakan konfigurasi di atas.
+index_none=Tiada pelayan mel yang diperiksa telah ditakrifkan lagi.

@@ -1,0 +1,3 @@
+index_title=登錄腳本
+index_desc_0=每當您啟動新的Shell或通過SSH或telnet登錄時，都會執行以下腳本 $1。
+index_desc_1=僅當您通過SSH或telnet登錄時，才會執行以下腳本 $1。

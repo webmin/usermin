@@ -1,0 +1,7 @@
+login_elogin=Neteisingas prisijungimo vardas arba slaptažodis
+index_nopass=Norėdami prisijungti prie duomenų bazės, turite įvesti „MySQL“ vartotojo vardą ir slaptažodį.
+index_eadmin=„MySQL“ administratoriaus programa $1 jūsų sistemoje nerasta. Galbūt „MySQL“ neįdiegtas arba netinkama modulio konfigūracija.
+index_esql=„MySQL“ kliento programa $1 jūsų sistemoje nerasta. Galbūt „MySQL“ neįdiegtas arba netinkama modulio konfigūracija.
+index_ever=„MySQL“ kliento programa $1 neatrodo teisinga. „Webmin“ palaiko tik 3 ir naujesnes „MySQL“ versijas.
+index_elibrary=Nepavyko paleisti „MySQL“ kliento programos $1, nes ji negalėjo rasti „MySQL“ bendrų bibliotekų. Patikrinkite modulio konfigūraciją ir įsitikinkite, kad nustatytas <i>Kelias į „MySQL“ bendrąsias bibliotekas</i>.
+login_epass=Neteisingas MySQL vartotojo vardas arba slaptažodis

@@ -1,0 +1,6 @@
+index_title=Baza de date PostgreSQL
+index_esql=Programul client PostgreSQL $1 nu a fost găsit în sistemul dvs. Poate că PostgreSQL nu este instalat sau configurația modulului este incorectă.
+index_elibrary=Programul client PostgreSQL $1 nu a putut fi rulat, deoarece nu a putut găsi bibliotecile partajate Postgres.
+index_superuser=Programul client postgreSQL psql nu a putut fi executat pe sistemul dvs. Poate că PostgreSQL nu este instalat sau configurația modulului este incorectă.
+index_nopass=Pentru a vă conecta la baza de date, trebuie să introduceți un nume de utilizator și o parolă PostgreSQL.
+login_epass=Numele de utilizator sau parola incorectă PostgreSQL

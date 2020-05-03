@@ -1,0 +1,2 @@
+desc_ko=로그인 스크립트
+longdesc_ko=로그인 쉘에 따라 .login, .profile 및 .cshrc 파일을 편집하십시오.

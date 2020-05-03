@@ -1,0 +1,3 @@
+index_title=Login scripts
+index_desc_0=Skriptet $1 nedenfor udføres, hver gang du starter en ny shell, eller når du logger på via SSH eller telnet.
+index_desc_1=Skriptet $1 nedenfor udføres kun, når du logger på via SSH eller telnet.

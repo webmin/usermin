@@ -1,0 +1,12 @@
+index_header=Nastavenia preposielania e-mailov
+index_fwd=Preposlať všetok e-mail na adresu
+index_none=Dodajte iba normálne
+index_to=Na adresy
+index_save=Aktualizovať posielanie ďalej
+index_return=zasielací formulár
+save_err=Uloženie presmerovania pošty zlyhalo
+save_efwd=$1 nie je platná e-mailová adresa
+save_efwds=Žiadna pridaná hodnota na odoslanie ďalej
+save_eldap=Chyba pri aktualizácii databázy : $1 
+save_done1=Vaše nastavenia preposielania pošty boli úspešne uložené.
+save_done2=Presmerovanie pošty bolo úspešne zakázané.

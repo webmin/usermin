@@ -1,0 +1,7 @@
+login_elogin=Forkert brugernavn eller kodeord
+index_nopass=Du skal indtaste et MySQL brugernavn og adgangskode for at oprette forbindelse til databasen.
+index_eadmin=MySQL-administratorprogrammet $1 blev ikke fundet på dit system. Måske er MySQL ikke installeret, eller modulkonfigurationen er forkert.
+index_esql=MySQL-klientprogrammet $1 blev ikke fundet på dit system. Måske er MySQL ikke installeret, eller modulkonfigurationen er forkert.
+index_ever=MySQL-klientprogrammet $1 ser ikke ud til at være den rigtige version. Webmin understøtter kun MySQL version 3 og nyere.
+index_elibrary=MySQL-klientprogrammet $1 kunne ikke køres, fordi det ikke kunne finde de delte MySQL-biblioteker. Kontroller modulkonfigurationen, og sørg for, at <i>Stien til MySQL-delte biblioteker</i> er indstillet.
+login_epass=Forkert MySQL brugernavn eller adgangskode

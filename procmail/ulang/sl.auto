@@ -1,0 +1,1 @@
+index_desc=Ta modul vam omogoča, da konfigurirate filtriranje za pošiljanje e-pošte na vaš naslov na tem strežniku. Vendar pa bo delovalo le, če je sistemski skrbnik Procmail namestil globalno ali če imate nameščeno namestitev programa Procmail v modulu za posredovanje pošte.

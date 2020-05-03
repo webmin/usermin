@@ -1,0 +1,5 @@
+index_efetchmail=Program fetchmail $1 nebol vo vašom systéme nájdený.
+index_noservers=Zatiaľ neboli nakonfigurované žiadne servery na vyzdvihnutie pošty.
+index_stopmsg=Kliknutím na toto tlačidlo zastavíte démona fetchmailu, ktorý momentálne automaticky vyhľadáva novú poštu, každých 1 sekundu.
+index_startmsg=Kliknutím na toto tlačidlo spustíte démona fetchmail na tomto serveri a necháte ho skontrolovať poštu každých $1 sekúnd pomocou vyššie uvedenej konfigurácie.
+index_none=Zatiaľ neboli definované žiadne poštové servery na kontrolu.

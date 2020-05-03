@@ -1,0 +1,30 @@
+main_title=Gebruikerminaar $1 op $2 ($3)
+main_title2=Usermin
+main_title3=Gebruikerminaar $1 ($2)
+main_none=U het nie toegang tot enige Usermin-modules nie.
+category_mail=pos
+category_usermin=Usermin
+category_login=Teken aan
+category_apps=aansoeke
+longcategory_usermin=Modules vir die opstel van Usermin self
+longcategory_mail=Modules vir die lees, haal en verwerk van e-pos
+longcategory_login=Modules wat verband hou met die aanmelding op die bediener
+longcategory_apps=Modules vir databasis, kodering, webwerf en ander toepassings
+header_webmin=Usermin-indeks
+header_config=voorkeure
+programname=Usermin
+config_title=voorkeure
+feedback_title=Usermin Terugvoer
+feedback_desc=Met hierdie vorm kan u foute rapporteer of voorstelle maak aan die Usermin-ontwikkelaars rakende enige probleme of ontbrekende funksies wat u gevind het. As u op die Stuur-knoppie klik, word die besonderhede wat in die vorm ingevul is, per $1 gestuur.
+feedback_desc2=Hierdie terugvoer word aan die ontwikkelaar van Usermin gestuur, nie na u stelseladministrateur, ISP of gasheeronderneming nie. Skryf asseblief u terugvoer in Engels, selfs al gebruik u Usermin in 'n ander taal.
+feedback_configdesc=As dit gekies word, bevat die e-pos u voorkeure vir die verwante module en die inhoud van die konfigurasie-lêers wat die module gebruik.
+session_header=Teken in op Usermin
+session_mesg=U moet 'n gebruikersnaam en wagwoord invul om by die Usermin-bediener op $1 aan te meld.
+pam_header=Teken in op Webmin
+pam_mesg=U moet op die onderstaande vraag reageer om aan te meld by die Usermin-bediener op $1.
+referer_warn=<b>Waarskuwing!</b> Usermin het bespeur dat die program $2 gekoppel is vanaf die URL $1, wat buite die Usermin-bediener lyk. Dit kan 'n poging wees om u bediener te mislei om 'n gevaarlike opdrag uit te voer.
+referer_warn_unknown=<b>Waarskuwing!</b> Usermin het bespeur dat die program $1 gekoppel is vanaf 'n onbekende URL, wat buite die Usermin-bediener lyk. Dit kan 'n poging wees om u bediener te mislei om 'n gevaarlike opdrag uit te voer.
+referer_fix1=As dit 'n wettige skakel is, kan u die volgende skakels vanaf hierdie URL toelaat: <ul><li> Teken in op Webmin. <li>Gaan na die<b> Usermin-konfigurasie </b>-module.<li> Klik op die Ikoon van vertroude verwysers. <li>Voer die gasheernaam $1 in in die veld<b> Vertroude webwerwe </b>, en klik op<b> Stoor </b>.</ul>
+referer_fix2=Alternatiewelik kan u Usermin instel om hierdie skakel vanaf die opdragreël toe te laat deur: <ul><li> Teken in as <tt>wortel</tt>, en die <tt>/etc/usermin/config</tt> lêer te wysig. <li>Voeg die reël<tt> referers=$1 </tt>by aan die einde, of as daar reeds 'n<tt> referers </tt>lyn bestaan, voeg<tt> $1 </tt>daarby.<li> Stoor die lêer. </ul>
+referer_fix1u=As u blaaier nie die <tt>Verwyser</tt> benodigde kopie stuur nie, kan u hierdie tjek soos volg uitskakel: <ul><li> Teken normaalweg by Webmin aan. <li>Gaan na die<b> Gebruiker-opstelling </b>module.<li> Klik op die ikoon vir Vertroude verwysers. <li>Merk die vakkie<b> Vertroue van onbekende verwysers </b>en klik op<b> Stoor </b>.</ul>
+referer_fix2u=Alternatiewelik kan u Usermin opstel om skakels van onbekende verwysers toe te laat deur: <ul><li> Teken in as <tt>wortel</tt>, en die lêer <tt>/etc/usermin/config</tt> te wysig. <li>Soek die reël<tt> referers_none=1 </tt>en verander dit na<tt> referers_none=0 </tt>.<li> Stoor die lêer. </ul>

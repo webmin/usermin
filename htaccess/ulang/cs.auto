@@ -1,0 +1,13 @@
+index_title=Soubory možností Apache
+index_desc=Tento modul umožňuje upravovat soubory $1, které nastavují možnosti adresářů poskytovaných webovým serverem Apache. Možnosti se vztahují na všechny soubory v adresáři a všechny podadresáře, pokud není přepsán jiným souborem voleb.
+index_header=Existující soubory voleb
+index_none=Dosud nebyly vytvořeny žádné soubory voleb.
+index_create=Přidat možnosti pro:
+index_createdesc=Vytvoří nový soubor voleb v zadaném adresáři.
+index_find=Vyhledejte soubory voleb v:
+index_finddesc=Vyhledá zadaný adresář pro všechny $1 soubory, které byly vytvořeny ručně. Dokud nebudou nalezeny ručně vytvořené soubory, nemohou být pomocí tohoto modulu upravovány.
+index_return=seznam souborů voleb
+index_apache=Informace o verzi a modulu Apache nebyly nalezeny v konfiguračním adresáři Webmin $1. Tento modul vyžaduje, aby byl nainstalován Webmin a správně nakonfigurován jeho modul Apache.
+find_title=Vyhledejte soubory voleb
+find_list=Následující soubory voleb byly nalezeny pod $1 ..
+find_none=Ve skupině $2 nebyly nalezeny žádné soubory voleb $1.

@@ -1,0 +1,30 @@
+main_title=Usermin $1 na $2 ($3)
+main_title2=Usermin
+main_title3=Uporabniško ime $1 ($2)
+main_none=Nimate dostopa do nobenih Usermin modulov.
+category_mail=Pošta
+category_usermin=Usermin
+category_login=Vpiši se
+category_apps=Prijave
+longcategory_usermin=Moduli za konfiguriranje samega Usermin-a
+longcategory_mail=Moduli za branje, prenašanje in obdelavo e-pošte
+longcategory_login=Moduli, povezani z prijavo v strežnik
+longcategory_apps=Moduli za bazo podatkov, šifriranje, spletno mesto in druge aplikacije
+header_webmin=Usermin Index
+header_config=Nastavitve
+programname=Usermin
+config_title=Nastavitve
+feedback_title=Povratne informacije uporabnika
+feedback_desc=Ta obrazec vam omogoča, da prijavite napake ali dajate predloge razvijalcem Usermin glede morebitnih težav ali manjkajočih funkcij, ki ste jih našli. Ko kliknete gumb Pošlji, bodo podrobnosti, vnesene v obrazec, poslane po e-pošti $1.
+feedback_desc2=Te povratne informacije bodo poslane razvijalcu Usermin, ne vašemu sistemskemu skrbniku, ponudnikom internetnih storitev ali gostiteljskemu podjetju. Prosimo, napišite svoje povratne informacije v angleščini, tudi če trenutno trenutno uporabljate Usermin v drugem jeziku.
+feedback_configdesc=Če je to izbrano, bo e-poštno sporočilo vsebovalo vaše nastavitve za povezani modul in vsebino vseh konfiguracijskih datotek, ki jih modul uporablja.
+session_header=Prijavite se v Usermin
+session_mesg=Za prijavo na Usermin strežnik na $1 morate vnesti uporabniško ime in geslo.
+pam_header=Prijava v Webmin
+pam_mesg=Na spodnje vprašanje morate odgovoriti, da se prijavite na Usermin strežnik na $1.
+referer_warn=<b>Opozorilo!</b> Usermin je odkril, da je bil program $2 povezan z URL-jem $1, ki se zdi zunaj strežnika Usermin. To je morda poskus, da bi vaši strežnik zvabil v izvajanje nevarnega ukaza.
+referer_warn_unknown=<b>Opozorilo!</b> Usermin je odkril, da je bil program $1 povezan z neznanim URL-jem, ki je zunaj strežnika Usermin. To je morda poskus, da bi vaši strežnik zvabil v izvajanje nevarnega ukaza.
+referer_fix1=Če je to zakonita povezava, lahko dovolite povezave s tega URL-ja na naslednji način: <ul><li> Prijava v Webmin. <li>Pojdite na modul<b> Uporabniška konfiguracija </b>.<li> Kliknite na Ikona zaupanja vrednih napotiteljev. <li>Vnesite ime gostitelja $1 v polje<b> Zaupanja spletna mesta </b>in kliknite<b> Shrani </b>.</ul>
+referer_fix2=Usermin lahko konfigurirate tako, da dovoli to povezavo iz ukazne vrstice tako, da: <ul><li> Prijavite se kot <tt>root</tt> in uredite datoteko <tt>/etc/usermin/config</tt>. <li>Na koncu dodajte vrstico<tt> referers=$1 </tt>ali če že obstaja vrstica<tt> referers </tt>, dodajte<tt> $1 </tt>.<li> Shranite datoteko. </ul>
+referer_fix1u=Če vaš brskalnik ne pošlje potrebnega glave <tt>Referer</tt>, lahko to potrditev izklopite na naslednji način: <ul><li> Prijavite se v Webmin običajno. <li>Pojdite na<b> Konfiguracija uporabniškega </b>modul.<li> Kliknite ikono Trusted Referrers. <li>Potrdite polje<b> Zaupanje povezav neznanih napotiteljev </b>in kliknite<b> Shrani </b>.</ul>
+referer_fix2u=Uporabnik Usermin lahko konfigurirate tako, da dovoli povezave neznanih sodnikov: <ul><li> Prijavite se kot <tt>root</tt> in uredite datoteko <tt>/etc/usermin/config</tt>. <li>Poiščite vrstico<tt> referers_none=1 </tt>in jo spremenite v<tt> referers_none=0 </tt>.<li> Shranite datoteko. </ul>

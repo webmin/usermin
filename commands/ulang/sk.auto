@@ -1,0 +1,2 @@
+index_nodir=Vo vašom systéme sa nenašiel adresár vlastných príkazov Webmin $1. Tento modul vyžaduje, aby bol nainštalovaný Webmin, aby mohol byť použitý na definovanie príkazov.
+index_none=V aplikácii Webmin neboli definované žiadne vlastné príkazy ani určené na spustenie v Usermine.

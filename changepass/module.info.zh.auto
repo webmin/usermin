@@ -1,0 +1,3 @@
+desc_zh=更改密码
+longdesc_zh=通过调用PAM或运行passwd命令来更改密码。
+name_zh=变更通行证

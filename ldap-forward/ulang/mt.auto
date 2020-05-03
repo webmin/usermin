@@ -1,0 +1,12 @@
+index_header=Settings tat-Trasmissjoni tal-Email
+index_fwd=Ibgħat l-email kollu lil
+index_none=Sempliċiment twassal b'mod normali
+index_to=Biex tindirizza
+index_save=Trasmissjoni ta ’Aġġornament
+index_return=formola ta ’trasmissjoni
+save_err=Ma rnexxielux isalva li jibgħat il-posta
+save_efwd="$1" mhuwiex indirizz elettroniku validu
+save_efwds=L-ebda addreess li tressaq biex tiddaħħal
+save_eldap=Żball fl-aġġornament tad-database : $1 
+save_done1=L-issettjar tal-bgħit tal-posta ġew salvati b'suċċess.
+save_done2=L-ispedizzjoni tal-posta ġiet diżattivata b'suċċess.

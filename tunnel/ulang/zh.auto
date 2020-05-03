@@ -1,0 +1,12 @@
+index_elink=尚未设置要传送到的URL。
+link_eurl=无效的隧道URL： $1
+link_elogin=无法以 $2身份登录 $1
+link_eautologin=$1的无效登录名或密码。 <a href='$2'>单击此处</a>登录。
+link_enouser=登录到 $1需要用户名和密码，但尚未配置。
+login_title=登录网站
+login_desc=您必须提供用户名和密码才能登录 $1。
+login_header=网站认证
+login_user=用户名
+login_pass=密码
+login_login=登录
+login_clear=明确

@@ -1,0 +1,30 @@
+main_title=Usermin $1 on $2（$3）
+main_title2=用戶分鐘
+main_title3=用戶分鐘 $1（$2）
+main_none=您無權訪問任何Usermin模塊。
+category_mail=郵件
+category_usermin=用戶分鐘
+category_login=登錄
+category_apps=應用領域
+longcategory_usermin=用於配置Usermin本身的模塊
+longcategory_mail=讀取，提取和處理電子郵件的模塊
+longcategory_login=與登錄服務器有關的模塊
+longcategory_apps=數據庫，加密，網站和其他應用程序的模塊
+header_webmin=用戶指數
+header_config=首選項
+programname=用戶分鐘
+config_title=首選項
+feedback_title=用戶反饋
+feedback_desc=通過此表單，您可以就發現的任何問題或缺少的功能向Usermin開發人員報告錯誤或提出建議。單擊“發送”按鈕後，輸入到表單的詳細信息將通過電子郵件發送到 $1。
+feedback_desc2=該反饋將發送給Usermin的開發人員，而不是系統管理員，ISP或託管公司。即使您當前正在使用另一種語言運行Usermin，也請用英語寫反饋。
+feedback_configdesc=如果選擇此選項，則電子郵件將包含您對相關模塊的首選項以及該模塊使用的任何配置文件的內容。
+session_header=登錄到Usermin
+session_mesg=您必須輸入用戶名和密碼才能登錄 $1上的Usermin服務器。
+pam_header=登錄到Webmin
+pam_mesg=您必須回答以下問題才能登錄 $1上的Usermin服務器。
+referer_warn=<b>警告！</b> Usermin已檢測到URL $1鏈接了程序 $2，該URL似乎在Usermin服務器外部。這可能是試圖欺騙您的服務器執行危險的命令。
+referer_warn_unknown=<b>警告！</b> Usermin檢測到程序 $1是從未知URL鏈接到的，該URL似乎在Usermin服務器外部。這可能是試圖欺騙您的服務器執行危險的命令。
+referer_fix1=如果這是合法鏈接，則可以允許通過此URL進行鏈接，如下所示：<ul><li>登錄到Webmin。<li>轉到<b> Usermin Configuration </b>模塊。<li>單擊受信任的引薦來源網址圖標。<li>在<b>受信任的網站</b>字段中輸入主機名 $1，然後單擊<b>保存</b>。</ul>
+referer_fix2=或者，您可以通過以下方式將Usermin配置為允許從命令行通過以下鏈接進行訪問：<ul><li>以<tt>root</tt>身份登錄，然後編輯<tt>/etc/usermin/config</tt>文件。<li>在行末添加<tt> referers=$1 </tt>行，或者如果已經存在<tt> referers </tt>行，則在其中添加<tt> $1 </tt>。<li>保存文件。</ul>
+referer_fix1u=如果瀏覽器沒有發送所需的<tt>Referer</tt>標頭，則可以按以下方式關閉此檢查：<ul><li>正常登錄Webmin。<li>轉到<b> Usermin Configuration </b>模塊。<li>單擊“受信任的引用者”圖標。<li>選中“<b>來自未知引用者的信任鏈接” </b>框，然後單擊<b>保存</b>。</ul>
+referer_fix2u=或者，您可以通過以下方式將Usermin配置為允許來自未知引用的鏈接：<ul><li>以<tt>root</tt>身份登錄，然後編輯<tt>/etc/usermin/config</tt>文件。 li>找到行<tt>referers_none=1</tt>並將其更改為<tt>referers_none=0</tt>。<li>保存文件。</ul>

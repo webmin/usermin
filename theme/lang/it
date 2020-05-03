@@ -1,7 +1,0 @@
-index_title=Temi per Usermin
-index_desc=Un tema è un insieme di impostazioni che determina l'aspetto grafico dell'interfaccia utente di Usermin per il login<br>Un tema include personalizzazioni delle icone, colori, sfondi ed il layout delle pagine.<br>La casella combinata in basso ti permette di scegliere un tema tra quelli installati<br><br>.
-index_sel=Tema in uso:
-index_default=Vecchio tema Usermin 
-index_change=Cambia
-index_global=Usa il tema Usermin globale
-

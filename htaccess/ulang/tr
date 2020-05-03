@@ -1,17 +1,13 @@
-index_title=Apache Seçenekler dosyaları 
-index_desc=Bu modul sizin $1 dosyalarını düzenlemenize izin verir ki bu klasörler için ayar seçenekleri Apache webserver tarafından sağlanır. 
-Seçenekler tüm dosyaların içindeki klasör ve alt klasörlere uygulanır, bu başka bir seçenekler dosyası tarafından engellenmediği sürece geçerlidir.
-index_header=Varolan Seçenekler dosyası 
-index_none=Henüz hiçbir Seçenekler dosyası oluşturulmadı.
-index_create=Seçenekler ekle:
-index_createdesc=Belirlenmiş klasörün içinde yeni bir seçenekler dosyası oluşturur.
-index_find=Seçenekler dosyası içinde bul:
-index_finddesc=Girilen daha önceden oluşturulmuş herhangibir $1 dosyası aranıyor.
- Bu dosya bulunana kadar, onlar bu modül kullanılarak düzenlenemezler.
-index_return=Seçenekler dosyası listesi
-index_apache=Apache versiyon ve modul bilgisi Webmin yapılandırma klasörü $1 içinde bulunmamaktadır.
- Bu modul, Apache modulü yapılandırılması iyi bi şekilde yapılmış bir Webmin kurulmuş olmasını gerektirir.
-
-find_title=Seçenekler dosyalarını bul
-find_list=Bir sonraki Seçenekler dosyası $1 klasörü altında bulundu..
-find_none=$2 altında $1 Seçenekler dosyası bulunamadı .
+index_title=Apache SeÃ§enekler dosyalarÄ± 
+index_desc=Bu modul sizin $1 dosyalarÄ±nÄ± dÃ¼zenlemenize izin verir ki bu klasÃ¶rler iÃ§in ayar seÃ§enekleri Apache webserver tarafÄ±ndan saÄŸlanÄ±r. 
+index_header=Varolan SeÃ§enekler dosyasÄ± 
+index_none=HenÃ¼z hiÃ§bir SeÃ§enekler dosyasÄ± oluÅŸturulmadÄ±.
+index_create=SeÃ§enekler ekle:
+index_createdesc=BelirlenmiÅŸ klasÃ¶rÃ¼n iÃ§inde yeni bir seÃ§enekler dosyasÄ± oluÅŸturur.
+index_find=SeÃ§enekler dosyasÄ± iÃ§inde bul:
+index_finddesc=Girilen daha Ã¶nceden oluÅŸturulmuÅŸ herhangibir $1 dosyasÄ± aranÄ±yor.
+index_return=SeÃ§enekler dosyasÄ± listesi
+index_apache=Apache versiyon ve modul bilgisi Webmin yapÄ±landÄ±rma klasÃ¶rÃ¼ $1 iÃ§inde bulunmamaktadÄ±r.
+find_title=SeÃ§enekler dosyalarÄ±nÄ± bul
+find_list=Bir sonraki SeÃ§enekler dosyasÄ± $1 klasÃ¶rÃ¼ altÄ±nda bulundu..
+find_none=$2 altÄ±nda $1 SeÃ§enekler dosyasÄ± bulunamadÄ± .

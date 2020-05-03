@@ -1,0 +1,13 @@
+index_title=Datoteke z možnostmi Apache
+index_desc=Ta modul vam omogoča urejanje datotek $1, ki določajo možnosti za imenike, ki jih streže spletni strežnik Apache. Možnosti veljajo za vse datoteke v imeniku in vse podmape, razen če jih ne nadomešča druga datoteka datotek.
+index_header=Obstoječe datoteke z možnostmi
+index_none=Datoteke z možnostmi še niso bile ustvarjene.
+index_create=Dodajte možnosti za:
+index_createdesc=Ustvari novo datoteko z možnostmi v določenem imeniku.
+index_find=Poiščite datoteke z možnostmi v:
+index_finddesc=Išče vneseni imenik za datoteke $1, ki so bile ustvarjene ročno. Dokler datoteke ne najdete ročno ustvarjene, jih ni mogoče urejati s tem modulom.
+index_return=seznam datotek z možnostmi
+index_apache=Podatki o različici in modulu Apache niso bili najdeni v konfiguracijskem imeniku Webmin $1. Ta modul zahteva namestitev Webmin-a in njegov modul Apache pravilno konfiguriran.
+find_title=Poiščite datoteke z možnostmi
+find_list=Naslednje datoteke z možnostmi so bile najdene pod $1 ..
+find_none=Za $2 ni bilo najdenih datotek z $1.

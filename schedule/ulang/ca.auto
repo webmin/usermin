@@ -1,0 +1,7 @@
+edit_html=Permet HTML en missatges
+edit_delete=Suprimeix després del primer enviament
+edit_size=Mida
+edit_upload1=Carregueu fitxers
+edit_upload2=Adjunteu un fitxer
+save_notice_title=Horari desat
+save_notice=El correu electrònic programat s'ha creat amb èxit: visualitzeu-lo, editeu-lo o suprimiu-lo després de <a href="$1">aquest enllaç</a>.

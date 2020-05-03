@@ -1,7 +1,0 @@
-index_title=Usermin Theme
-index_desc=Themes control the appearance of the Usermin user interface for your login, including icons, colours, backgrounds and possibly the layout of pages. The selection box below can be used to choose one of the themes installed on your system.
-index_sel=Current theme :
-index_default=Old Usermin theme
-index_change=Change
-index_global=Global Usermin default
-

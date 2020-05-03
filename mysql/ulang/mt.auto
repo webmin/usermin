@@ -1,0 +1,7 @@
+login_elogin=Username jew password mhux korretti
+index_nopass=Trid tidħol isem ta 'l-utent u password ta' MySQL biex tikkonnettja mad-database.
+index_eadmin=Il-programm ta ’amministrazzjoni MySQL $1 ma nstabx fis-sistema tiegħek. Forsi MySQL mhux installat, jew il-konfigurazzjoni tal-modulu mhix korretta.
+index_esql=Il-programm tal-klijent MySQL $1 ma nstabx fis-sistema tiegħek. Forsi MySQL mhux installat, jew il-konfigurazzjoni tal-modulu mhix korretta.
+index_ever=Il-programm tal-klijent MySQL $1 ma jidhirx li huwa l-verżjoni t-tajba. Webmin jappoġġja biss il-verżjonijiet MySQL 3 u aktar.
+index_elibrary=Il-programm tal-klijent MySQL $1 ma setax jitħaddem għax ma setgħetx issib il-libreriji maqsuma tal-MySQL. Iċċekkja l-konfigurazzjoni tal-modulu u kun żgur li l-<i>Path to MySQL libraries</i> hija ssettjata.
+login_epass=Username jew password tal-MySQL mhux korretti

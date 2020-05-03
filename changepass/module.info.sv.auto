@@ -1,0 +1,3 @@
+name_sv=Changepass
+longdesc_sv=Ändra ditt lösenord, antingen genom att ringa PAM eller köra passwd-kommandot.
+desc_sv=Ändra lösenord

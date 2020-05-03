@@ -1,0 +1,3 @@
+index_edb=Impossibile connettersi al database di configurazione SpamAssassin: $1. Chiedere all'amministratore di sistema di verificare le impostazioni di configurazione del modulo.
+awl_title=Gestisci lista bianca automatica
+awl_deleteonedesc=Rimuovi tutte le voci della whitelist automatica corrente

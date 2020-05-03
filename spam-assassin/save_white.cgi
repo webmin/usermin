@@ -1,1 +1,0 @@
-../../webadmin/spam-assassin/save_white.cgi

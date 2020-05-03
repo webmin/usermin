@@ -1,0 +1,3 @@
+index_edb=无法连接到SpamAssassin配置数据库： $1。请您的系统管理员检查模块配置设置。
+awl_title=管理自动白名单
+awl_deleteonedesc=删除所有当前的自动白名单条目

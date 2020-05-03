@@ -1,0 +1,11 @@
+index_title=Usermin tema
+index_desc=Temaer kontrollerer udseendet af Usermin-brugergrænsefladen til dit login, herunder ikoner, farver, baggrunde og muligvis layout af sider. Markeringsfeltet nedenfor kan bruges til at vælge et af de temaer, der er installeret på dit system.
+index_sel=Aktuelt tema :
+index_default=Gamle Usermin tema
+index_change=Lave om
+index_global=Global Usermin standard
+change_title=Skiftende tema
+change_user=Ændring af Usermin login ..
+change_done=.. Færdig
+change_restart=Genindlæs brugermin ..
+change_redirect=Retning til hovedmenu ..

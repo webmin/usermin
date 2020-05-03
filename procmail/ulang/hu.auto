@@ -1,0 +1,1 @@
+index_desc=Ez a modul lehetővé teszi a kiszolgálón a címére küldött e-mailek szűrésének konfigurálását. Ez azonban csak akkor működik, ha a rendszergazda globálisan telepítette a Procmail programot, vagy ha a Mail Forwarding modulban telepítette a Procmail programot.

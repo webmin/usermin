@@ -1,0 +1,3 @@
+index_title=Prihlasovacie skripty
+index_desc_0=Skript $1 uvedený nižšie bude spustený pri každom spustení nového shellu alebo pri prihlásení cez SSH alebo telnet.
+index_desc_1=Skript $1 uvedený nižšie bude vykonaný iba po prihlásení cez SSH alebo telnet.

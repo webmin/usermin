@@ -1348,23 +1348,49 @@ else {
 	@froms = map { $ru.'@'.$_ } @doms;
 	}
 my @mfroms;
-if ($config{'from_map'} && $remote_user !~ /\@/) {
+if ($config{'from_map'}) {
 	# Lookup username in from address mapping file, to get email.
 	open(my $MAP, "<", $config{'from_map'});
 	while(<$MAP>) {
 		s/\r|\n//g;
 		s/#.*$//;
-		if (/^\s*(\S+)\s+(\S+\@\S+)/ &&
-		    ($1 eq $remote_user || &indexof($1, @froms) >= 0) &&
-		    $config{'from_format'} == 0) {
-			# Username on LHS matches
-			push(@mfroms, $2);
+		if ($remote_user !~ /\@/) {
+			if (/^\s*(\S+)\s+(\S+\@\S+)/ &&
+			    ($1 eq $remote_user || &indexof($1, @froms) >= 0) &&
+			    $config{'from_format'} == 0) {
+				# Username on LHS matches
+				push(@mfroms, $2);
+				}
+			elsif (/^\s*(\S+\@\S+)\s+(\S+)/ &&
+			       ($2 eq $remote_user || &indexof($2, @froms) >= 0) &&
+			       $config{'from_format'} == 1) {
+				# Username on RHS matches
+				push(@mfroms, $1);
+				}
+			# For regular default vitual-server user
+			#  - abuse@domain.com		domain@domain.com
+			#  - hostmaster@domain.com	domain@domain.com
+			#  - postmaster@domain.com	domain@domain.com
+			#  - webmaster@domain.com	domain@domain.com
+			elsif (/^\s*([\w\-]+@[\w\-\.]+)\s+([\w\-]+)[@-][\w\-\.]+/ &&
+			       ($2 eq $remote_user) &&
+			       $config{'from_format'} == 1) {
+				# Username on RHS matches
+				push(@mfroms, $1);
+				}
 			}
-		elsif (/^\s*(\S+\@\S+)\s+(\S+)/ &&
-		       ($2 eq $remote_user || &indexof($2, @froms) >= 0) &&
-		       $config{'from_format'} == 1) {
-			# Username on RHS matches
-			push(@mfroms, $1);
+		else {
+			# For additional vitual-server user
+			#  - user1@domain.com	user1-domain.com
+			#  - user1-alias1@domain.com	user1@domain.com
+			#  - user1-alias2@domain.com	user1-domain.com
+			my $remote_user__  = $remote_user;
+			$remote_user__ =~ s/@/-/;
+			if (/^\s*([\w\-]+@[\w\-\.]+)\s+([\w\-]+[@-][\w\-\.]+)/ &&
+			       ($2 eq $remote_user || $2 eq $remote_user__) &&
+			       $config{'from_format'} == 1) {
+				push(@mfroms, $1);
+				}
 			}
 		}
 	close($MAP);
@@ -1387,6 +1413,10 @@ if (@mfroms > 0) {
 		@froms = @mfroms;
 		}
 	}
+
+# Store only unique from addresses
+my %fromsu = ();
+@froms = grep { ! $fromsu{$_} ++ } @froms;
 
 # Add user's real name
 my $ureal = $remote_user_info[6];

@@ -1,0 +1,1 @@
+index_desc=Tämän moduulin avulla voit määrittää suodatuksen sähköpostin lähettämiselle tämän palvelimen osoitteeseen. Se toimii kuitenkin vain, jos järjestelmänvalvoja on asentanut Procmailin globaalisti tai jos olet asentanut toimituksen Procmail-ohjelmaan Mail Forwarding -moduulissa.

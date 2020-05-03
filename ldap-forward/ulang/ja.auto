@@ -1,0 +1,12 @@
+index_header=メール転送設定
+index_fwd=すべてのメールをに転送
+index_none=普通に届けるだけ
+index_to=宛先へ
+index_save=転送の更新
+index_return=転送フォーム
+save_err=メール転送を保存できませんでした
+save_efwd=「$1」は有効なメールアドレスではありません
+save_efwds=入力したアドレスに転送するアドレスがありません
+save_eldap=データベースの更新エラー： $1
+save_done1=メール転送設定が正常に保存されました。
+save_done2=メール転送が無効になりました。

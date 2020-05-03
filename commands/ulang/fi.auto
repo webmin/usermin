@@ -1,0 +1,2 @@
+index_nodir=Webmin-mukautettujen komentojen hakemistoa $1 ei löydy järjestelmästäsi. Tämä moduuli vaatii, että Webmin on asennettu, jotta sitä voidaan käyttää komentojen määrittämiseen.
+index_none=Webminissä ei ole määritetty mukautettuja komentoja tai määritetty käytettäväksi Usermin-sovelluksessa.

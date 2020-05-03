@@ -1,0 +1,15 @@
+index_desc1a=使用此表單可以更改用於登錄Usermin，通過SSH和FTP訪問服務器或用於下載和發送電子郵件的密碼。
+index_passtab=密碼變更
+index_recoverytab=密碼恢復地址
+index_desc3=使用此表單輸入備用地址，如果您忘記了當前密碼，可以將臨時密碼發送到該備用地址。
+index_recovery=密碼恢復的備用地址
+index_recoverydef=沒有設置
+index_recoverysel=發送電子郵件至
+change_oka=您的 $1密碼已成功更改。從現在開始，任何Usermin，SSH，FTP或電子郵件登錄都將需要新密碼。
+change_eformat=不支持配置的密碼哈希格式
+recovery_title=恢復地址
+recovery_err=設置恢復地址失敗
+recovery_eemail=未輸入有效的電子郵件地址
+recovery_cleared=恢復地址已清除。
+recovery_set=請求重設密碼時使用的恢復地址已設置為 $1。
+left_changepass=更改密碼

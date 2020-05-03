@@ -1,4 +1,4 @@
-edit=Erlaube das Editieren von <tt>.forward</tt>-Dateien,1,1-Ja,0-Nein
 mail_system=Installiertes E-Mail-System,1,0-Sendmail,1-Qmail
-smrsh_dir=SMRSH-Verzeichnis,3,Keines
 types=Erlaubte Weiterleitungsarten,13,1-Addresse,2-Addressen aus Datei,3-Datei,4-Programm,5-Autoreply,6-Filter,7-Benutzer Mailbox
+edit=Erlaube das Editieren von <tt>.forward</tt>-Dateien,1,1-Ja,0-Nein
+smrsh_dir=SMRSH-Verzeichnis,3,Keines

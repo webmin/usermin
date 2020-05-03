@@ -1,0 +1,2 @@
+index_nodir=Webmin-brugerdefinerede kommandobibliotek $1 blev ikke fundet på dit system. Dette modul kræver, at Webmin installeres, så det kan bruges til at definere kommandoer.
+index_none=Ingen brugerdefinerede kommandoer er defineret i Webmin eller udpeget som tilgængelige til at køre i Usermin.

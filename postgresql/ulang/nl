@@ -3,5 +3,4 @@ index_esql=Het PostgreSQL client programma $1 is niet gevonden op uw systeem. Mi
 index_elibrary=Het PostgreSQL client programma $1 kan niet werken omdat het niet de Postgres gedeelde bibliotheken kon vinden.
 index_superuser=Het PostgreSQL client programma psql kon niet worden uitgevoerd op uw systeem. Misschien is PostgreSQL niet geinstalleerd, of de module configuratie is niet correct.
 index_nopass=U moet een PostgreSQL gebruikersnaam en wachtwoord invullen om te kunnen verbinden met de database.
-
 login_epass=Onjuiste PostgreSQL gebruikersnaam of wachtwoord

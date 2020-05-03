@@ -1,0 +1,12 @@
+index_header=Posta elektronikoaren birbidaltze-ezarpenak
+index_fwd=Birbidali mezu elektroniko bakoitzari
+index_none=Normalean entregatu
+index_to=Helbideetara
+index_save=Eguneratu Birbidaltzea
+index_return=birbidaltzeko inprimakia
+save_err=Huts egin du posta birbidaltzea gordetzean
+save_efwd='$1' ez da baliozko helbide elektronikoa
+save_efwds=Ez da gehiagorik sartu sartzeko
+save_eldap=Errorea datu-basea eguneratzean : $1 
+save_done1=Posta birbidaltzeko ezarpenak gorde dira.
+save_done2=Posta birbidaltzea ondo desgaitu da.

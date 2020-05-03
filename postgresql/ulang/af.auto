@@ -1,0 +1,6 @@
+index_title=PostgreSQL databasis
+index_esql=Die PostgreSQL-kliëntprogram $1 is nie op u stelsel gevind nie. Miskien is PostgreSQL nie geïnstalleer nie, of is die modulekonfigurasie verkeerd.
+index_elibrary=Die PostgreSQL-kliëntprogram $1 kon nie uitgevoer word nie, omdat dit die Postgres-gedeelde biblioteke nie kon vind nie.
+index_superuser=Die PostgreSQL-kliëntprogram psql kon nie op u stelsel uitvoer nie. Miskien is PostgreSQL nie geïnstalleer nie, of is die modulekonfigurasie verkeerd.
+index_nopass=U moet 'n PostgreSQL gebruikersnaam en wagwoord invoer om aan die databasis te kan skakel.
+login_epass=Verkeerde PostgreSQL gebruikersnaam of wagwoord

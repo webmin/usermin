@@ -1,0 +1,3 @@
+name_zh_TW=PostgreSQL的
+desc_zh_TW=PostgreSQL數據庫
+longdesc_zh_TW=登錄到PostgreSQL並通過類似於Webmin的PostgreSQL模塊的界面管理表和記錄。

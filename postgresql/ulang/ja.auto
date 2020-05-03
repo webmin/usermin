@@ -1,0 +1,6 @@
+index_title=PostgreSQLデータベース
+index_esql=PostgreSQLクライアントプログラム $1がシステムに見つかりませんでした。 PostgreSQLがインストールされていないか、モジュール構成が正しくない可能性があります。
+index_elibrary=Postgres共有ライブラリが見つからなかったため、PostgreSQLクライアントプログラム $1を実行できませんでした。
+index_superuser=PostgreSQLクライアントプログラムpsqlをシステムで実行できませんでした。 PostgreSQLがインストールされていないか、モジュール構成が正しくない可能性があります。
+index_nopass=データベースに接続するには、PostgreSQLのユーザー名とパスワードを入力する必要があります。
+login_epass=PostgreSQLのユーザー名またはパスワードが正しくありません

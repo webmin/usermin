@@ -1,0 +1,3 @@
+index_edb=Kunne ikke oprette forbindelse til SpamAssassin-konfigurationsdatabasen: $1. Bed din systemadministrator om at kontrollere indstillingerne for modulkonfiguration.
+awl_title=Administrer automatisk hvidliste
+awl_deleteonedesc=Fjern alle dine nuværende poster med automatisk hvidliste

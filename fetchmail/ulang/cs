@@ -1,0 +1,4 @@
+index_efetchmail=Program fetchmail $1 nebyl nalezen na vašem systému.
+index_noservers=Pro stahování pošty nebyl dosud nakonfigurován žádný server.
+index_stopmsg=Pro ukončení běhu fetchmail daemona automaticky stahujícího poštu každých $1 sec.
+index_startmsg=Pro spuštění fetchmail daemona na tomto serveru klikněte na toto tlačítko. Fetchmail bude kontrolovat poštu každých $1 sec. Fetchmail daemon poběží ve výše uvedené konfiguraci.

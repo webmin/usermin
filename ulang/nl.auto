@@ -1,0 +1,5 @@
+main_title3=Gebruiker $1 ($2)
+longcategory_usermin=Modules voor het configureren van Usermin zelf
+longcategory_mail=Modules voor het lezen, ophalen en verwerken van e-mail
+longcategory_login=Modules gerelateerd aan inloggen op de server
+longcategory_apps=Modules voor database, encryptie, website en andere applicaties

@@ -1,0 +1,6 @@
+index_title=PostgreSQL數據庫
+index_esql=在系統上找不到PostgreSQL客戶端程序 $1。也許未安裝PostgreSQL，或者模塊配置不正確。
+index_elibrary=PostgreSQL客戶端程序 $1無法運行，因為它找不到Postgres共享庫。
+index_superuser=PostgreSQL客戶端程序psql無法在您的系統上執行。也許未安裝PostgreSQL，或者模塊配置不正確。
+index_nopass=您必須輸入PostgreSQL用戶名和密碼才能連接到數據庫。
+login_epass=不正確的PostgreSQL用戶名或密碼

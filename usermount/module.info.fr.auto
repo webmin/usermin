@@ -1,0 +1,3 @@
+desc_fr=Monter des systèmes de fichiers
+longdesc_fr=Montez et démontez les systèmes de fichiers qui ont été marqués comme gérables par les utilisateurs normaux.
+name_fr=Usermount

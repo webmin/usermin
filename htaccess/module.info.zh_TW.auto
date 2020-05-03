@@ -1,0 +1,3 @@
+desc_zh_TW=Apache選項文件
+longdesc_zh_TW=使用類似於Webmin的Apache模塊的界面來編輯.htaccess文件。
+name_zh_TW=HTaccess

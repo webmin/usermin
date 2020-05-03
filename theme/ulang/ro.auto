@@ -1,0 +1,11 @@
+index_title=Tema Usermin
+index_desc=Temele controlează aspectul interfeței de utilizator Usermin pentru autentificarea dvs., inclusiv pictograme, culori, fundaluri și, eventual, aspectul paginilor. Caseta de selectare de mai jos poate fi utilizată pentru a alege una dintre temele instalate pe sistemul dvs.
+index_sel=Tema actuală :
+index_default=Tema veche Usermin
+index_change=Schimbare
+index_global=Valoarea implicită a utilizatorului global
+change_title=Schimbarea temei
+change_user=Modificare autentificare Usermin ..
+change_done=.. Terminat
+change_restart=Se reîncarcă Usermin ..
+change_redirect=Re-direcționare către meniul principal ..

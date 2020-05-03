@@ -1,4 +1,3 @@
-﻿block_mode=Quotas bekijken in,1,1-Kilobytes (waar mogelijk),0-Blokken
 block_size=Grote van filesysteem in blokken,3,Onbekend
 show_grace=Laat toegekende tijd zien indien beschikbaar?,1,1-Ja,0-Nee
 user_repquota_command=Opdracht om gebruikerslijst te maken op een filesysteem,0

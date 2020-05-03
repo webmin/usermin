@@ -1,0 +1,3 @@
+name_it=PostgreSQL
+longdesc_it=Accedi a PostgreSQL e gestisci tabelle e record tramite un'interfaccia simile al modulo PostgreSQL di Webmin.
+desc_it=Database PostgreSQL

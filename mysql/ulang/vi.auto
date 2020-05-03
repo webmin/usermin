@@ -1,0 +1,7 @@
+login_elogin=Tên đăng nhập hoặc mật khẩu không chính xác
+index_nopass=Bạn phải nhập tên người dùng và mật khẩu MySQL để kết nối với cơ sở dữ liệu.
+index_eadmin=Không tìm thấy chương trình quản trị MySQL $1 trên hệ thống của bạn. Có thể MySQL chưa được cài đặt hoặc cấu hình mô-đun không chính xác.
+index_esql=Không tìm thấy chương trình máy khách MySQL $1 trên hệ thống của bạn. Có thể MySQL chưa được cài đặt hoặc cấu hình mô-đun không chính xác.
+index_ever=Chương trình máy khách MySQL $1 dường như không phải là phiên bản chính xác. Webmin chỉ hỗ trợ MySQL phiên bản 3 trở lên.
+index_elibrary=Chương trình máy khách MySQL $1 không thể chạy được vì không thể tìm thấy các thư viện dùng chung của MySQL. Kiểm tra cấu hình mô-đun và đảm bảo <i>Đường dẫn đến thư viện chia sẻ MySQL</i> được đặt.
+login_epass=Tên người dùng hoặc mật khẩu MySQL không chính xác

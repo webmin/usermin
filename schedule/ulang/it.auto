@@ -1,0 +1,15 @@
+index_delete=Email selezionate cancellate
+index_disable=Disabilita Selezionato
+index_enable=Abilita selezionati
+edit_html=Consenti HTML nel messaggio
+edit_delete=Elimina dopo il primo invio
+edit_files=Files allegati
+edit_file=Nome del file
+edit_size=Dimensione
+edit_type=fonte
+edit_uploaded=Caricati
+edit_upload1=Caricare files
+edit_upload2=Allega un file
+view_efile=Il file non esiste più
+save_notice_title=Pianificazione salvata
+save_notice=L'email pianificata è stata creata correttamente: visualizzala, modificala o eliminala seguendo <a href="$1">questo</a> link.

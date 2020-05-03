@@ -1,0 +1,6 @@
+index_title=Database PostgreSQL
+index_esql=Il-programm tal-klijent PostgreSQL $1 ma nstabx fis-sistema tiegħek. Forsi PostgreSQL mhux installat, jew il-konfigurazzjoni tal-modulu mhix korretta.
+index_elibrary=Il-programm tal-klijent PostgreSQL $1 ma setax jitħaddem għax ma setgħetx issib il-libreriji maqsuma tal-Postgres.
+index_superuser=Il-programm tal-klijent PostgreSQL psql ma setax jesegwixxi fis-sistema tiegħek. Forsi PostgreSQL mhux installat, jew il-konfigurazzjoni tal-modulu mhix korretta.
+index_nopass=Trid tidħol isem ta 'utent u password ta' PostgreSQL sabiex tikkonnettja mad-database.
+login_epass=Username jew password PostgreSQL mhux korretti

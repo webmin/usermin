@@ -1,0 +1,3 @@
+desc_sv=PostgreSQL-databas
+longdesc_sv=Logga in på PostgreSQL och hantera tabeller och poster genom ett gränssnitt som liknar Webmins PostgreSQL-modul.
+name_sv=PostgreSQL

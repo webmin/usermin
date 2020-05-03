@@ -1,0 +1,12 @@
+index_elink=Aucune URL vers laquelle tunneler n'a encore été définie.
+link_eurl=URL de tunnel non valide : $1 
+link_elogin=Impossible de se connecter à $1 en tant que $2 
+link_eautologin=Identifiant ou mot de passe non valide pour $1. <a href='$2'>Cliquez ici</a> pour vous connecter.
+link_enouser=Un nom d'utilisateur et un mot de passe sont requis pour se connecter à $1, mais aucun n'a été configuré.
+login_title=Connectez-vous au site Web
+login_desc=Vous devez fournir un nom d'utilisateur et un mot de passe pour vous connecter à $1.
+login_header=Authentification de site Web
+login_user=Nom d'utilisateur
+login_pass=Mot de passe
+login_login=S'identifier
+login_clear=Clair

@@ -1,4 +1,4 @@
-sizemode=Rozmiar apletu,1,0-80x24 znakÛw (w domy∂lnej czcionce),1-Maksymalny,2-Niestandardowy
-size=Niestandardowy rozmiar &#45; szeroko∂Ê x wysoko∂Ê,0
-fontsize=Rozmiar czcionki w punktach,3,Domy∂lnie
-detach=Wy∂wietlaj w osobnym oknie,1,1-Tak,0-Nie
+sizemode=Rozmiar apletu,1,0-80x24 znak√≥w (w domy≈õlnej czcionce),1-Maksymalny,2-Niestandardowy
+size=Niestandardowy rozmiar &#45; szeroko≈õƒá x wysoko≈õƒá,0
+fontsize=Rozmiar czcionki w punktach,3,Domy≈õlnie
+detach=Wy≈õwietlaj w osobnym oknie,1,1-Tak,0-Nie

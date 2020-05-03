@@ -1,0 +1,13 @@
+index_title=Apache-alternativsfiler
+index_desc=Den här modulen låter dig redigera $1 -filerna som anger alternativ för kataloger som serveras av Apache-webbservern. Alternativ gäller alla filer i katalogen och alla underkataloger, såvida inte åsidosättas av en annan alternativfil.
+index_header=Befintliga alternativfiler
+index_none=Inga alternativfiler har skapats än.
+index_create=Lägg till alternativ för:
+index_createdesc=Skapar en ny alternativfil i den angivna katalogen.
+index_find=Hitta alternativfiler i:
+index_finddesc=Söker i den angivna katalogen efter alla $1 -filer som har skapats manuellt. Tills manuellt skapade filer hittas kan de inte redigeras med den här modulen.
+index_return=lista över alternativ
+index_apache=Apache-version och modulinformation hittades inte i Webmin-konfigurationskatalogen $1. Den här modulen kräver att Webmin installeras och Apache-modulen konfigureras korrekt.
+find_title=Hitta alternativfiler
+find_list=Följande alternativfiler hittades under $1 ..
+find_none=Inga $1 -alternativsfiler hittades under $2.

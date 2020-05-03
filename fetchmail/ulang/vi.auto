@@ -1,0 +1,5 @@
+index_efetchmail=Không tìm thấy chương trình tìm nạp $1 trên hệ thống của bạn.
+index_noservers=Không có máy chủ để lấy thư từ đã được cấu hình.
+index_stopmsg=Nhấp vào nút này để dừng trình nền tìm nạp hiện đang tự động kiểm tra thư mới cứ sau $1 giây.
+index_startmsg=Nhấp vào nút này để bắt đầu trình nền tìm nạp trên máy chủ này và để nó kiểm tra thư cứ sau $1, sử dụng cấu hình ở trên.
+index_none=Không có máy chủ mail để kiểm tra đã được xác định.

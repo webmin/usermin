@@ -1,1 +1,6 @@
-../../webadmin/cron/config.info.de
+cron_dir=Crontab-Verzeichnis,0
+cron_input=Cron unterstützt Eingaben zu Cron-Aufträgen,1,1-Ja,0-Nein
+vixie_cron=Unterstützt Vixie-Cron-Erweiterungen,1,1-Ja,0-Nein
+system_crontab=Pfad zur Vixie-Cron System Crontab-Datei,0
+cronfiles_dir=Pfad zum Verzeichnis mit zusätzlichen Cron-Dateien,3,Keiner
+run_parts=run-parts Befehl,0

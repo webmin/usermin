@@ -1,0 +1,12 @@
+index_header=Impostazioni di inoltro e-mail
+index_fwd=Inoltra tutte le email a
+index_none=Basta consegnare normalmente
+index_to=Agli indirizzi
+index_save=Inoltro di aggiornamenti
+index_return=modulo di spedizione
+save_err=Impossibile salvare l'inoltro della posta
+save_efwd='$1' non è un indirizzo email valido
+save_efwds=Nessun indirizzo aggiuntivo da inoltrare all'inserimento
+save_eldap=Errore durante l'aggiornamento del database : $1 
+save_done1=Le impostazioni di inoltro della posta sono state salvate correttamente.
+save_done2=L'inoltro della posta è stato disabilitato correttamente.

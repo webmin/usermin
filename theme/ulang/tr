@@ -1,0 +1,6 @@
+index_title=Kullanici Yönetim Teması
+index_desc=Temalar kullanıcı yönetimi kullanıcısının arayüzünün görünümünü,rengini, zemin rengini,sayfanin planını girişiniz için kontrol eder. Seçim kutusu sisteminizdeki ekli temanın birinin altında önceden seçilmiş olabilir.
+index_sel=Geçerli tema:
+index_default=Eski Kullanıcı Yönetim Teması
+index_change=Değiştir
+index_global=Varsayılan Global Kullanıcı Yönetimi 

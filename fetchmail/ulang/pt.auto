@@ -1,0 +1,5 @@
+index_efetchmail=O programa fetchmail $1 não foi encontrado no seu sistema.
+index_noservers=Nenhum servidor para o qual buscar mensagens foi configurado ainda.
+index_stopmsg=Clique neste botão para interromper o daemon do fetchmail que atualmente verifica automaticamente novos emails a cada $1 segundo.
+index_startmsg=Clique neste botão para iniciar o daemon do fetchmail neste servidor e faça com que ele verifique o correio a cada $1 segundo, usando a configuração acima.
+index_none=Nenhum servidor de correio para verificar ainda foi definido.

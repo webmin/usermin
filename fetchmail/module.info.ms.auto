@@ -1,0 +1,3 @@
+desc_ms=Fetchmail Mail Retrieval
+longdesc_ms=Konfigurasikan Fetchmail untuk memuat turun e-mel dari pelayan POP3 atau IMAP jauh ke alamat tempatan.
+name_ms=Fetchmail

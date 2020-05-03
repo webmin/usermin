@@ -1,23 +1,21 @@
 index_title=Muntatge de Sistemes de Fitxers
 index_none=No hi ha cap sistema de fitxers  al servidor que pugui ser muntat o desmuntat per usuaris normals.
 index_status=Muntat
-index_action=Acció
+index_action=AcciÃ³
 index_mount=Munta
 index_umount=Desmunta
-
 select_device=Dispositiu $1 $2
-select_part=Dispositiu $1 $2 partició $3
+select_part=Dispositiu $1 $2 particiÃ³ $3
 select_fd=Disquet $1
 select_mylex=RAID Mylex $1 unitat $2
-select_mpart=RAID Mylex $1 unitat $2 partició $3
+select_mpart=RAID Mylex $1 unitat $2 particiÃ³ $3
 select_cpq=RAID Compaq $1 unitat $2
-select_cpart=RAID Compaq $1 unitat $2 partició $3
+select_cpart=RAID Compaq $1 unitat $2 particiÃ³ $3
 select_scsi=Controladora SCSI $1 bus $2 id $3 LUN $4
-select_spart=Controladora SCSI $1 bus $2 id $3 LUN $4 partició $5
+select_spart=Controladora SCSI $1 bus $2 id $3 LUN $4 particiÃ³ $5
 select_newide=Controladora IDE $1 bus $2 disc $3
-select_snewide=Controladora IDE $1 bus $2 disc $3 partició $5
+select_snewide=Controladora IDE $1 bus $2 disc $3 particiÃ³ $5
 select_smart=Compaq Smart Array $1 unitat $2
-select_smartpart=Compaq Smart Array $1 unitat $2 partició $3
-
+select_smartpart=Compaq Smart Array $1 unitat $2 particiÃ³ $3
 mount_err1=El muntatge ha fallat
 mount_err2=El desmuntatge ha fallat

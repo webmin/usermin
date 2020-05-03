@@ -1,18 +1,16 @@
 index_title=Posta in $1
 mail_title=Leggi la posta
 mail_none=Non ci sono messaggi nella cartella $1
-mail_pos=Messaggi dal $1° al $2° su $3 nella cartella $4
+mail_pos=Messaggi dal $1Â° al $2Â° su $3 nella cartella $4
 mail_return=posta in arrivo
 mail_quota=Sto usando $1 su $2
 mail_special=Speciale
-
-send_efile=L'allegato $1 non è leggibile o non esiste
+send_efile=L'allegato $1 non Ã¨ leggibile o non esiste
 send_nobody=nessuno
-
 address_chooser=Seleziona indirizzo...
 address_addr=Indirizzo email
 address_name=Nome reale
-address_none=La rubrica dei contatti è vuota.
+address_none=La rubrica dei contatti Ã¨ vuota.
 address_none2=Nessun indirizzo corrisponde ai criteri di ricerca.
 address_title=Rubrica
 address_desc=La tabella in basso elenca gli indirizzi che puoi selezionare in fase di composizione di un nuovo messaggio. Gli indirizzi possono essere aggiunti anche cliccando su di essi durante la lettura di un messaggio ricevuto..
@@ -20,12 +18,12 @@ address_edit=Modifica...
 address_delete=Cancella
 address_add=Aggiungi un nuovo contatto
 address_err=Salvataggio dell'indirizzo non riuscito
-address_eaddr=Indirizzo email mancante o non valido (il formato di un indirizzo email è simile a foo@bar.com)
+address_eaddr=Indirizzo email mancante o non valido (il formato di un indirizzo email Ã¨ simile a foo@bar.com)
 address_from=Indirizzo del mittente?
 address_yd=Si, il predefinito
 address_gdesc=This section lists nicknames that you can use to easily send email to individuals or groups of addresses, without needing to enter the full address.
 address_gadd=Aggiungi un nuovo nicknake al gruppo.
-address_gnone=La lista dei nickname è vuota.
+address_gnone=La lista dei nickname Ã¨ vuota.
 address_group=Nickname
 address_members=Indirizzi email
 address_m=$1 membri
@@ -33,20 +31,18 @@ address_search=Trova gli indirizzi corrispondenti a:
 address_ok=Cerca
 address_users=Indirizzi email
 address_groups=Nickname email
-
 group_err=Salvataggio del gruppo di indirizzi non riuscito
 group_egroup=Nome gruppo mancante o non valido
 group_emembers=Nessun indirizzo email membro inserito
-
 folders_title=Gestisci cartelle
 folders_instr=Informazioni sui diversi tipi di cartelle
-folders_desc2=Ciascuna cartella nell'elenco in basso può contenere dei messaggi che puoi spostare al loro interno, o messaggi che vengono salvati nella cartella in maniera automatica. Sono disponibili i seguenti tipi di cartelle:
+folders_desc2=Ciascuna cartella nell'elenco in basso puÃ² contenere dei messaggi che puoi spostare al loro interno, o messaggi che vengono salvati nella cartella in maniera automatica. Sono disponibili i seguenti tipi di cartelle:
 folders_descsys=Le cartelle di sistema come "Posta in arrivo", "Bozze" e "Posta inviata" che esistono sempre.
 folders_desclocal=Le cartelle nella directory <tt>mail</tt> che possono essere create o rimosse da Usermin.
 folders_descext=Altri file o directory che possono essere gestite come cartelle da Usermin.
 folders_descpop3=Gli account POP3 su altri server che possono essere gestiti come cartelle.
 folders_descimap=Gli account IMAP su altri server.
-folders_desccomp=Cartelle combinate, che combinano il contenuto di due o più cartelle in una singola lista.
+folders_desccomp=Cartelle combinate, che combinano il contenuto di due o piÃ¹ cartelle in una singola lista.
 folders_descvirt=Cartelle virtuali, che contengono una selezione di messaggi da altre cartelle.
 folders_name=Nome cartella
 folders_path=Posizione
@@ -83,7 +79,6 @@ folders_delete=Cancella le cartelle selezionate
 folders_addimap=Aggiungi una nuova cartella.
 folders_addcomp=Aggiungi una nuova cartella combinata.
 folders_addvirt=Aggiungi una nuova cartella virtuale.
-
 edit_title1=Crea cartella
 edit_title2=Modifica cartella
 edit_header=Dettagli della cartella di posta
@@ -114,22 +109,21 @@ edit_imapinbox=Posta in arrivo dell'utente
 edit_imapother=Altre caselle di posta
 edit_fromaddr=Indirizzo del mittente per i messaggi inviati dalla cartella
 edit_hide=Nascondere nel menu delle cartelle?
-edit_comps=Sottocartelle, le più vecchie prima
+edit_comps=Sottocartelle, le piÃ¹ vecchie prima
 edit_comp=Combinata
 edit_virt=Virtuale
 edit_delete=Cancellare realmente il messaggio vero e proprio quando lo si cancella dalla cartella?
-
 save_err=Salvataggio cartella non riuscito
 save_ecannot=Non hai i permessi per usare questo tipo di cartella
 save_ename=Nome cartella mancante
-save_ecompsame=Una cartella combinata non può contenere due volte la stessa sottocartella
+save_ecompsame=Una cartella combinata non puÃ² contenere due volte la stessa sottocartella
 save_ename2=I nomi delle cartelle non possono contenere:
-save_ename3=Il nome cartella INBOX è riservato al server IMAP
-save_esys=Il nome della cartella è in conflitto con uno dei nomi delle cartelle di sistema
-save_eclash=Esiste già una cartella con questo nome
+save_ename3=Il nome cartella INBOX Ã¨ riservato al server IMAP
+save_esys=Il nome della cartella Ã¨ in conflitto con uno dei nomi delle cartelle di sistema
+save_eclash=Esiste giÃ  una cartella con questo nome
 save_embox='$1' non sembra essere un file mailbox valido
 save_emaildir='$1' non sembra essere una directory di posta Qmail o MH valida
-save_efile='$1' non esiste o non è accessibile
+save_efile='$1' non esiste o non Ã¨ accessibile
 save_eindir=I file di posta esterni non possono trovarsi sotto la directory delle cartelle $1
 save_title=Rimuovi cartella
 save_rusure=Sei sicuro di voler rimuovere la cartella $1 in $2? $3 di messaggi saranno cancellati in maniera irreversibile.
@@ -148,62 +142,39 @@ save_edelete=Cancellazione del messaggio non riuscita: $1
 save_eflag=Impostazione dei flag IMAP non riuscita: $1
 save_eappend=Aggiunta del messaggio alla casella IMAP non riuscita: $1
 save_esearch=Ricerca della casela IMAP non riuscita: $1
-
 epop3lock_tries=Blocco del file di posta $1 non riuscito dopo aver tentato per $2 minuti, a causa di un blocco del file POP3.
-
 view_dsn=Ricevuta di ritorno
-view_dnsnow=Una ricevuta di ritorno è stata inviata a $1.
-view_dsnbefore=Una ricevuta di ritorno è stata inviata a $1 alle ore $2.
+view_dnsnow=Una ricevuta di ritorno Ã¨ stata inviata a $1.
+view_dsnbefore=Una ricevuta di ritorno Ã¨ stata inviata a $1 alle ore $2.
 view_dsnreq=E' stata richiesta una ricevuta di ritorno da $1.
 view_dsnsend=Invia ricevuta adesso
-view_dsngot=Questo messaggio è stato letto da $1 alle ore $2.
-view_delfailed=Questo messaggio non è stato consegnato a  $1 alle ore $2.
-view_delok=Questo messaggio è stato consegnato a $1 alle ore $2.
+view_dsngot=Questo messaggio Ã¨ stato letto da $1 alle ore $2.
+view_delfailed=Questo messaggio non Ã¨ stato consegnato a  $1 alle ore $2.
+view_delok=Questo messaggio Ã¨ stato consegnato a $1 alle ore $2.
 view_quick=Risposta veloce
 view_quick_all=Rispondi a tutti
 view_quick_quote=Cita l'originale
 view_quick_send=Invia
-
-reply_dsn=Richiedere una ricevuta di lettura?
-reply_del=Richiedere una ricevuta di consegna?
-reply_aboot=Aggiungere gli indirizzi alla rubrica?
-reply_tabfrom=Da
-reply_tabto=A
-reply_tabreplyto=Rispondi a
-reply_tabcc=Cc
-reply_tabbcc=Bcc
-reply_tabsigning=Firma
-reply_taboptions=Opzioni
-reply_addattach=Aggiungi allegato
-reply_addssattach=Aggiungi allegato lato server
-reply_html0=Componi testo
-reply_html1=Componi HTML
-
 search_virtualize=Crea una cartella virtuale con nome:
 search_dest=Memorizza i risultati in
 search_dest1=Cartella per i risultati della ricerca
 search_dest0=Nuova cartella virtuale con nome
 search_edest=Nome della cartella virtuale per i risultati mancante
-
 virtualize_ename=Nome della cartella virtuale mancante
-
 delete_enoadd=I messaggi non possono essere spostati nelle cartelle virtuali, possono essere solo copiati
-
 sig_title=Modfiica firma
 sig_desc=Usa questo form per modificare la tua firma per i messaggi contenuta nel file $1.
 sig_undo=Annulla
 sig_enone=Nessun file della firma definito
 sig_eopen=Apertura del file della firma non riuscito: $1
-
 quota_inbox=Superato il limite di posta di $1
 quota_inbox2=Superato il limite di messaggi di posta di $1
-
 auto_title=Pulizia automatica della cartella
 auto_header=Opzioni di pulizia pianificata della cartella
 auto_enabled=Cancellare automaticamente i messaggi?
 auto_mode=Criteri di cancellazione
-auto_days=Messaggi più vecchi di $1 giorni
-auto_size=Messaggi che rendono la cartella più grande di $1
+auto_days=Messaggi piÃ¹ vecchi di $1 giorni
+auto_size=Messaggi che rendono la cartella piÃ¹ grande di $1
 auto_err=Impostazione della pulizia automatica della cartella non riuscita
 auto_edays=Numero di giorni mancante o non valido
 auto_esize=Dimensione massima della cartella mancante o non valida
@@ -212,7 +183,6 @@ auto_invalid=Cancella i messaggi con data non valida
 auto_action=Azione da eseguire quando sono presenti messaggi da cancellare
 auto_action0=Cancella i messaggi corrispondenti
 auto_action1=Cancella tutti i messaggi nella cartella
-
 copy_title=Copia tutti i messaggi
 copy_header=Copia tutti i messaggi nella cartella
 copy_source=Cartella sorgente
@@ -222,14 +192,12 @@ copy_ok=Copia adesso
 copy_doing=Copia di tutti i messaggi da $1 a $2 in corso...
 copy_done=... fatto!!!
 copy_deleting=Svuoto la cartella $1...
-
 fdelete_title=Rimuovi cartelle
 fdelete_err=Rimozione delle cartelle non riuscita
 fdelete_enone=Nessun selezione
 fdelete_rusure=Sei sicuro di voler rimuovere le $1 cartelle selezionate? $2 di posta saranno cancellati in maniera irreversibile.
 fdelete_rusure2=Sei sicuro di voler rimuovere le $1 cartelle selezionate?
 fdelete_delete=Rimuovi adesso
-
 detachall_err=Salvataggio degli allegati non riuscito
-detachall_emkdir=Non è stato possibile creare la directory temporanea: $1
+detachall_emkdir=Non Ã¨ stato possibile creare la directory temporanea: $1
 detachall_ezip=ZIP non riuscito: $1

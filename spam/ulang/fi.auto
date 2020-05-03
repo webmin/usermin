@@ -1,0 +1,3 @@
+index_edb=Yhdistäminen SpamAssassin -määritystietokantaan epäonnistui: $1. Pyydä järjestelmänvalvojaa tarkistamaan moduulin kokoonpanoasetukset.
+awl_title=Hallitse automaattisen sallittujen luetteloita
+awl_deleteonedesc=Poista kaikki nykyiset automaattisen sallitun listan merkinnät

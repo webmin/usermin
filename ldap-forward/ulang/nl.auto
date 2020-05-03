@@ -1,0 +1,12 @@
+index_header=Instellingen voor het doorsturen van e-mail
+index_fwd=Stuur alle e-mail door naar
+index_none=Gewoon normaal afleveren
+index_to=Naar adressen
+index_save=Doorsturen updaten
+index_return=doorstuurformulier
+save_err=Kan het doorsturen van e-mail niet opslaan
+save_efwd='$1' is geen geldig e-mailadres
+save_efwds=Geen adres om door te sturen naar binnen
+save_eldap=Fout bij updaten van database : $1 
+save_done1=Uw instellingen voor het doorsturen van e-mail zijn met succes opgeslagen.
+save_done2=Het doorsturen van e-mail is met succes uitgeschakeld.

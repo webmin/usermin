@@ -1,0 +1,13 @@
+index_title=Tệp tùy chọn Apache
+index_desc=Mô-đun này cho phép bạn chỉnh sửa các tệp $1 đặt tùy chọn cho các thư mục được cung cấp bởi máy chủ web Apache. Tùy chọn áp dụng cho tất cả các tệp trong thư mục và mọi thư mục con, trừ khi bị ghi đè bởi tệp tùy chọn khác.
+index_header=Tệp tùy chọn hiện có
+index_none=Không có tập tin tùy chọn đã được tạo ra.
+index_create=Thêm tùy chọn cho:
+index_createdesc=Tạo một tệp tùy chọn mới trong thư mục được chỉ định.
+index_find=Tìm tập tin tùy chọn trong:
+index_finddesc=Tìm kiếm thư mục đã nhập cho bất kỳ tệp $1 nào đã được tạo thủ công. Cho đến khi tìm thấy các tệp được tạo thủ công, chúng không thể được chỉnh sửa bằng mô-đun này.
+index_return=danh sách tập tin tùy chọn
+index_apache=Thông tin mô-đun và phiên bản Apache không được tìm thấy trong thư mục cấu hình Webmin $1. Mô-đun này yêu cầu Webmin phải được cài đặt và mô-đun Apache của nó được cấu hình đúng.
+find_title=Tìm tập tin tùy chọn
+find_list=Các tệp tùy chọn sau được tìm thấy theo $1 ..
+find_none=Không có tệp tùy chọn $1 nào được tìm thấy dưới $2.

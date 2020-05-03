@@ -1,0 +1,13 @@
+index_title=Fișiere Opache Apache
+index_desc=Acest modul vă permite să editați fișierele $1 care setează opțiunile pentru directorii deservite de site-ul web Apache. Opțiunile se aplică tuturor fișierelor din director și orice subdirectorii, cu excepția cazului în care sunt anulate de alt fișier cu opțiuni.
+index_header=Fișiere cu opțiuni existente
+index_none=Nu au fost încă create fișiere de opțiuni.
+index_create=Adăugați opțiuni pentru:
+index_createdesc=Creează un nou fișier de opțiuni în directorul specificat.
+index_find=Găsiți fișiere cu opțiuni în:
+index_finddesc=Căută directorul introdus pentru orice fișiere $1 care au fost create manual. Până la găsirea fișierelor create manual, nu pot fi editate folosind acest modul.
+index_return=opțiuni listă de fișiere
+index_apache=Informațiile despre versiunea și modulul Apache nu au fost găsite în directorul de configurare Webmin $1. Acest modul necesită instalarea Webminului și modulul său Apache configurat corect.
+find_title=Găsiți fișiere cu opțiuni
+find_list=Următoarele fișiere de opțiuni au fost găsite sub $1 ..
+find_none=Nu au fost găsite fișiere de opțiuni $1 sub $2.

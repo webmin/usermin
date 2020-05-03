@@ -1,0 +1,1 @@
+index_desc=Šis modulis suteikia galimybę sukonfigūruoti el. Pašto adresų šiame serveryje filtravimą. Tačiau ji veiks tik tuo atveju, jei jūsų sistemos administratorius įdiegs „Procmail“ visame pasaulyje arba jei nustatysite, kad „Procmail“ programa būtų pristatyta modulio „Pašto persiuntimas“.

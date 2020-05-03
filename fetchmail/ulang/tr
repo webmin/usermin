@@ -1,4 +1,4 @@
-index_efetchmail=$1 Fetchmail programı sisteminizde bulunamadı.
-index_noservers=Hiç bir sunucu henüz fatch mail için konfigüre edilmedi.
-index_stopmsg=Fetchmail servisinin her $1 saniyede bir güncel yeni maillerinizin otomatik olarak kontrol etmesini durdurmak için bu butona tıklayın.
-index_startmsg=Fetchmail servisini bu sunucuda başlatmak için bu butona tıklayın, bu program yukarıdaki konfigürasyon kullanılarak her $1 saniyede bir maillerinizi kontrol eder.
+index_efetchmail=$1 Fetchmail programÄ± sisteminizde bulunamadÄ±.
+index_noservers=HiÃ§ bir sunucu henÃ¼z fatch mail iÃ§in konfigÃ¼re edilmedi.
+index_stopmsg=Fetchmail servisinin her $1 saniyede bir gÃ¼ncel yeni maillerinizin otomatik olarak kontrol etmesini durdurmak iÃ§in bu butona tÄ±klayÄ±n.
+index_startmsg=Fetchmail servisini bu sunucuda baÅŸlatmak iÃ§in bu butona tÄ±klayÄ±n, bu program yukarÄ±daki konfigÃ¼rasyon kullanÄ±larak her $1 saniyede bir maillerinizi kontrol eder.

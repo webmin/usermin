@@ -1,0 +1,3 @@
+index_title= Scriptlere giriş 
+index_desc_0=Aşağıdaki  $1 scripti  yeni bir kabuk başlatıldığında ya da SSH veya  telnet e giriş yapıldığında uygulanacaktır. 
+index_desc_1=Aşağıdaki  $1 scripti sadece  SSH veya  telnete giriş yapıldığında uygulanır.

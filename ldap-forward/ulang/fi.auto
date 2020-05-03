@@ -1,0 +1,12 @@
+index_header=Sähköpostin edelleenlähetysasetukset
+index_fwd=Lähetä kaikki sähköpostit edelleen
+index_none=Toimita vain normaalisti
+index_to=Osoitteisiin
+index_save=Päivitä edelleenlähetys
+index_return=huolintamuoto
+save_err=Postin edelleenlähetyksen tallentaminen epäonnistui
+save_efwd='$1' ei ole kelvollinen sähköpostiosoite
+save_efwds=Ei lisäysta eteenpäin syötettyyn
+save_eldap=Virhe tietokannan päivityksessä : $1 
+save_done1=Postin edelleenlähetysasetuksesi on tallennettu onnistuneesti.
+save_done2=Postin edelleenlähetys on poistettu käytöstä.

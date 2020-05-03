@@ -1,0 +1,3 @@
+desc_tr=Fetchmail Posta Alımı
+longdesc_tr=Fetchmail'i uzak bir POP3 veya IMAP sunucusundan yerel bir adrese e-posta indirecek şekilde yapılandırın.
+name_tr=fetchmail

@@ -1,4 +1,0 @@
-index_title=Scripts d'Entrada
-index_desc_0=El script $1 de sota s'executarà sempre que iniciïs una nova shell, o bé quan entris via SSH o telnet.
-index_desc_1=El script de sota s'executarà només quan entris via SSH o telnet.
-

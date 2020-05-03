@@ -1,0 +1,15 @@
+index_desc1a=Use este formulario para cambiar la contraseña que usa para iniciar sesión en Usermin, acceder al servidor a través de SSH y FTP, o para descargar y enviar correos electrónicos.
+index_passtab=Cambio de contraseña
+index_recoverytab=Dirección de recuperación de contraseña
+index_desc3=Use este formulario para ingresar una dirección alternativa a la que se puede enviar una contraseña temporal si olvida su contraseña actual.
+index_recovery=Dirección alternativa para recuperación de contraseña
+index_recoverydef=Ninguno establecido
+index_recoverysel=Enviar el email a
+change_oka=Su contraseña para $1 se ha cambiado correctamente. Cualquier inicio de sesión de Usermin, SSH, FTP o correo electrónico a partir de ahora requerirá la nueva contraseña.
+change_eformat=El formato de hashing de contraseña configurado no es compatible
+recovery_title=Dirección de recuperación
+recovery_err=Error al establecer la dirección de recuperación
+recovery_eemail=No se ingresó una dirección de correo electrónico válida
+recovery_cleared=La dirección de recuperación ha sido borrada.
+recovery_set=La dirección de recuperación para usar al solicitar un restablecimiento de contraseña se ha establecido en $1.
+left_changepass=Cambia la contraseña

@@ -1,0 +1,12 @@
+index_elink=Tiada URL ke terowong telah ditetapkan lagi.
+link_eurl=URL terowong tidak sah : $1 
+link_elogin=Gagal masuk ke $1 sebagai $2 
+link_eautologin=Log masuk atau kata laluan tidak sah untuk $1. <a href='$2'>Klik di sini</a> untuk log masuk.
+link_enouser=Nama pengguna dan kata laluan diperlukan untuk log masuk ke $1, tetapi tidak ada yang dikonfigurasi.
+login_title=Masuk ke Laman Web
+login_desc=Anda mesti membekalkan nama pengguna dan kata laluan untuk log masuk ke $1.
+login_header=Pengesahan laman web
+login_user=Nama pengguna
+login_pass=Kata laluan
+login_login=Log masuk
+login_clear=Jelas

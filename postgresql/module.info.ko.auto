@@ -1,0 +1,3 @@
+longdesc_ko=Webmin의 PostgreSQL 모듈과 유사한 인터페이스를 통해 PostgreSQL에 로그인하고 테이블과 레코드를 관리하십시오.
+desc_ko=PostgreSQL 데이터베이스
+name_ko=PostgreSQL

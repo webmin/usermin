@@ -1,0 +1,13 @@
+index_title=File delle opzioni di Apache
+index_desc=Questo modulo consente di modificare i file $1 che impostano le opzioni per le directory servite dal server web Apache. Le opzioni si applicano a tutti i file nella directory e in tutte le sottodirectory, a meno che non vengano sovrascritte da un altro file di opzioni.
+index_header=File di opzioni esistenti
+index_none=Nessun file di opzioni è stato ancora creato.
+index_create=Aggiungi opzioni per:
+index_createdesc=Crea un nuovo file di opzioni nella directory specificata.
+index_find=Trova i file delle opzioni in:
+index_finddesc=Cerca nella directory immessa eventuali file $1 creati manualmente. Fino a quando non vengono trovati i file creati manualmente, non possono essere modificati utilizzando questo modulo.
+index_return=elenco dei file delle opzioni
+index_apache=Le informazioni sulla versione e sul modulo di Apache non sono state trovate nella directory di configurazione Webmin $1. Questo modulo richiede l'installazione di Webmin e la corretta configurazione del modulo Apache.
+find_title=Trova i file delle opzioni
+find_list=I seguenti file di opzioni sono stati trovati in $1 ..
+find_none=Nessun file di opzioni $1 trovato in $2.

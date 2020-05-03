@@ -6,7 +6,7 @@ use warnings;
 our (%text, %in);
 
 require './mailbox-lib.pl';
-if ($ENV{'REQUEST_METHOD'} eq 'GET') {
+if ($ENV{'REQUEST_METHOD'} eq 'GET' || $ENV{'REQUEST_URI'} =~ /gdelete=/) {
 	&ReadParse();
 	}
 else {

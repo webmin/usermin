@@ -1,0 +1,12 @@
+index_header=E-posta Yönlendirme Ayarları
+index_fwd=Tüm e-postaları şuraya yönlendir:
+index_none=Sadece normal şekilde teslim et
+index_to=Adreslere
+index_save=Yönlendirmeyi Güncelle
+index_return=yönlendirme formu
+save_err=Posta yönlendirme kaydedilemedi
+save_efwd='$1' geçerli bir e-posta adresi değil
+save_efwds=Girilen adrese yönlendirilecek adres yok
+save_eldap=Veritabanı güncellenirken hata oluştu : $1 
+save_done1=Posta yönlendirme ayarlarınız başarıyla kaydedildi.
+save_done2=Posta iletme başarıyla devre dışı bırakıldı.

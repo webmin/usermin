@@ -1,0 +1,2 @@
+index_nodir=El directorio de comandos personalizados de Webmin $1 no se encontró en su sistema. Este módulo requiere que se instale Webmin para que pueda usarse para definir comandos.
+index_none=No se han definido comandos personalizados en Webmin o se han designado como disponibles para ejecutarse en Usermin.

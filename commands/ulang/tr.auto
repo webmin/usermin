@@ -1,0 +1,2 @@
+index_nodir=$1 Webmin özel komutlar dizini sisteminizde bulunamadı. Bu modül, komutları tanımlamak için Webmin'in kurulu olmasını gerektirir.
+index_none=Webmin'de hiçbir özel komut tanımlanmamış veya Usermin'de çalışacak şekilde tanımlanmamıştır.

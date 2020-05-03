@@ -1,2 +1,2 @@
-index_nodir=No s'ha trobat al sistema el directori $1 d'ordres personalitzades de Webmin. Aquest mòdul necessita que Webmin estigui instal·lat per tal de poder ser utilitzat per definir ordres.
+index_nodir=No s'ha trobat al sistema el directori $1 d'ordres personalitzades de Webmin. Aquest mÃ²dul necessita que Webmin estigui instalÂ·lat per tal de poder ser utilitzat per definir ordres.
 index_none=No s'ha definit cap ordre personalitzada a Webmin o no s'ha designat com a disponible per executar a Usermin.

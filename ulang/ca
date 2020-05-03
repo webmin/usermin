@@ -1,33 +1,24 @@
 main_title=Usermin $1 a $2 ($3)
 main_title2=Usermin
 main_title3=Usermin $1 ($2)
-main_none=No tens accÈs a cap mÚdul Usermin.
-
+main_none=No tens acc√©s a cap m√≤dul Usermin.
 category_mail=Correu
 category_usermin=Usermin
 category_login=Entrada
 category_apps=Aplicacions
-
-longcategory_usermin=MÚduls per configurar el propi Usermin
-longcategory_mail=MÚduls per llegir, recuperar i processar correu electrÚnic
-longcategory_login=MÚduls relacionats amb l'entrada al sistema
-longcategory_apps=MÚduls per a bases de dades, xifratge, llocs web i altres aplicacions
-
-header_webmin=Õndex d'Usermin
-header_config=PreferËncies
-
+longcategory_usermin=M√≤duls per configurar el propi Usermin
+longcategory_mail=M√≤duls per llegir, recuperar i processar correu electr√≤nic
+longcategory_login=M√≤duls relacionats amb l'entrada al sistema
+longcategory_apps=M√≤duls per a bases de dades, xifratge, llocs web i altres aplicacions
+header_webmin=√çndex d'Usermin
+header_config=Prefer√®ncies
 programname=Usermin
-
-config_title=PreferËncies
-
+config_title=Prefer√®ncies
 feedback_title=Informe d'Usermin
-feedback_desc=Aquest formulari permet informar d'errors o fer suggeriments als desenvolupadors d'Usermin sobre qualsevol problema o caracterÌstica inexistent que puguis haver trobat. Quan facis clic sobre el botÛ Envia, els detalls introduÔts al formulari s'enviaran per correu electrÚnic a $1.
-feedback_desc2=Aquest informe s'enviar‡ al desenvolupador d'Usermin, no a l'administrador del teu sistema, ISP ni companyia d'hostalatge. Si et plau, escriu el teu informe en anglËs, encara que estiguis executant Webmin en un altre idioma.
-feedback_configdesc=Si selecciones aquesta opciÛ el correu inclour‡ les teves preferËncies del mÚdul implicat i el contingut de qualsevol fitxer de configuraciÛ utilitzat pel mÚdul.
-
+feedback_desc=Aquest formulari permet informar d'errors o fer suggeriments als desenvolupadors d'Usermin sobre qualsevol problema o caracter√≠stica inexistent que puguis haver trobat. Quan facis clic sobre el bot√≥ Envia, els detalls introdu√Øts al formulari s'enviaran per correu electr√≤nic a $1.
+feedback_desc2=Aquest informe s'enviar√† al desenvolupador d'Usermin, no a l'administrador del teu sistema, ISP ni companyia d'hostalatge. Si et plau, escriu el teu informe en angl√®s, encara que estiguis executant Webmin en un altre idioma.
+feedback_configdesc=Si selecciones aquesta opci√≥ el correu inclour√† les teves prefer√®ncies del m√≤dul implicat i el contingut de qualsevol fitxer de configuraci√≥ utilitzat pel m√≤dul.
 session_header=Entrada a Usermin
 session_mesg=Per entrar al servidor Usermin de $1, has d'introduir un nom d'usuari i una contrasenya.
-
 pam_header=Entrada a Webmin
 pam_mesg=Per entrar al servidor Webmin de $1, has de respondre la pregunta de sota.
-

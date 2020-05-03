@@ -1,6 +1,6 @@
 spam_file=E-post fil for spam,3,Ingen
 full_from=Vis full Fra: adresse i spam-liste?1,1-Ja,0-Nei
 refresh=Sekunder mellom automatisk oppfrisking av spam liste,3,Ikke oppfrisk
-inbox=Navn p&#229; mappe som ikke-spam skal flyttes til,3,Inbox
-search_body=Ved s&#248;king i spam&#44; sjekk,1,1-Hele meldinger,0-Kun Emne og Fra headere
-max_awl=Maks. antall auto-hvitliste oppf&#248;ringer som skal vises,0,5
+inbox=Navn på mappe som ikke-spam skal flyttes til,3,Inbox
+search_body=Ved søking i spam&#44; sjekk,1,1-Hele meldinger,0-Kun Emne og Fra headere
+max_awl=Maks. antall auto-hvitliste oppføringer som skal vises,0,5

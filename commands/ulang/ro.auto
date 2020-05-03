@@ -1,0 +1,2 @@
+index_nodir=Directorul de comenzi personalizate Webmin $1 nu a fost găsit în sistemul dvs. Acest modul necesită ca Webmin să fie instalat pentru a putea fi folosit pentru a defini comenzile.
+index_none=Nici o comandă personalizată nu a fost definită în Webmin sau desemnată ca fiind disponibilă pentru rularea în Usermin.

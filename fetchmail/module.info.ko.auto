@@ -1,0 +1,3 @@
+longdesc_ko=원격 POP3 또는 IMAP 서버에서 로컬 주소로 이메일을 다운로드하도록 Fetchmail을 구성하십시오.
+desc_ko=페치 메일 메일 검색
+name_ko=페치 메일

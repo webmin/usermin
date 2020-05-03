@@ -1,0 +1,2 @@
+index_nodir=Imenika Webmin ukazov po meri $1 v vašem sistemu ni bilo mogoče najti. Ta modul zahteva namestitev Webmin-a, tako da se lahko uporablja za definiranje ukazov.
+index_none=V Webminu niso bili definirani nobeni ukazi po meri ali določeni kot na voljo za izvajanje v Usermin-u.

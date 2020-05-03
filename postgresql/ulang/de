@@ -1,6 +1,6 @@
-index_elibrary=Das PostgreSQL-Clientprogramm $1 konnte nicht ausgef&#252;hrt werden da es die PostgreSQL-Shared-Libraries nicht gefunden hat. Lassen Sie die Modulkonfiguration durch Ihren Systemadministrator pr&#252;fen und sicherstellen, da&#223; der <i>Pfad zu den PostgreSQL-Shared-Libraries</i> richtig gesetzt ist.
-index_esql=Das PostgreSQL-Clientprogramm $1 wurde auf Ihrem System nicht gefunden. Entweder ist PostgreSQL nicht installiert oder die Modulkonfiguration ist fehlerhaft. Wenden Sie sich an Ihren Systemadministrator.
-index_nopass=Sie m&#252;ssen einen PostgreSQL-Benutzernamen und -Passwort angeben um sich mit der Datenbank zu verbinden.
-index_superuser=Das PostgreSQL-Clientprogramm psql konnte nicht auf Ihrem System ausgef&#252;hrt werden. Entweder ist PostgreSQL nicht installiert oder die Modulkonfiguration ist falsch. Wenden Sie sich an Ihren Systemadministrator.
 index_title=PostgreSQL Datenbank
+index_esql=Das PostgreSQL-Clientprogramm $1 wurde auf Ihrem System nicht gefunden. Entweder ist PostgreSQL nicht installiert oder die Modulkonfiguration ist fehlerhaft. Wenden Sie sich an Ihren Systemadministrator.
+index_elibrary=Das PostgreSQL-Clientprogramm $1 konnte nicht ausgeführt werden da es die PostgreSQL-Shared-Libraries nicht gefunden hat. Lassen Sie die Modulkonfiguration durch Ihren Systemadministrator prüfen und sicherstellen, daß der <i>Pfad zu den PostgreSQL-Shared-Libraries</i> richtig gesetzt ist.
+index_superuser=Das PostgreSQL-Clientprogramm psql konnte nicht auf Ihrem System ausgeführt werden. Entweder ist PostgreSQL nicht installiert oder die Modulkonfiguration ist falsch. Wenden Sie sich an Ihren Systemadministrator.
+index_nopass=Sie müssen einen PostgreSQL-Benutzernamen und -Passwort angeben um sich mit der Datenbank zu verbinden.
 login_epass=Falscher PostgreSQL-Benutzername oder -Passwort

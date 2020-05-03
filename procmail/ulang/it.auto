@@ -1,0 +1,1 @@
+index_desc=Questo modulo consente di configurare il filtro per l'invio di e-mail al proprio indirizzo su questo server. Tuttavia, funzionerà solo se l'amministratore di sistema ha installato Procmail a livello globale o se è stata impostata la consegna al programma Procmail nel modulo Inoltro posta.

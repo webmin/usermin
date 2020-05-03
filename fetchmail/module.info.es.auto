@@ -1,0 +1,3 @@
+desc_es=Recuperación de correo de Fetchmail
+longdesc_es=Configure Fetchmail para descargar el correo electrónico desde un servidor POP3 o IMAP remoto a una dirección local.
+name_es=Fetchmail

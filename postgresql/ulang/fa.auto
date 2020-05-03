@@ -1,0 +1,6 @@
+index_title=پایگاه داده PostgreSQL
+index_esql=برنامه مشتری PostgreSQL $1 در سیستم شما یافت نشد. شاید PostgreSQL نصب نشده باشد ، یا پیکربندی ماژول نادرست باشد.
+index_elibrary=برنامه مشتری PostgreSQL $1 قابل اجرا نیست زیرا نمی تواند کتابخانه های مشترک Postgres را پیدا کند.
+index_superuser=برنامه سرویس گیرنده PostgreSQL psql نمی تواند روی سیستم شما اجرا شود. شاید PostgreSQL نصب نشده باشد ، یا پیکربندی ماژول نادرست باشد.
+index_nopass=برای اتصال به پایگاه داده باید یک نام کاربری و رمز عبور PostgreSQL وارد کنید.
+login_epass=نام کاربری یا گذرواژه نادرست PostgreSQL

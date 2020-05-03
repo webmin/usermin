@@ -1,0 +1,1 @@
+index_desc=Tento modul umožňuje konfigurovať filtrovanie pre odosielanie e-mailov na vašu adresu na tomto serveri. Bude to však fungovať iba v prípade, že váš správca systému nainštaloval program Procmail globálne alebo ak máte dodávku nastavení do programu Procmail v module Mail Forwarding.

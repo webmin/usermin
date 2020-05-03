@@ -1,0 +1,3 @@
+desc_sk=Načítanie pošty Fetchmail
+longdesc_sk=Nakonfigurujte program Fetchmail na sťahovanie e-mailov zo vzdialeného servera POP3 alebo IMAP na miestnu adresu.
+name_sk=fetchmailu

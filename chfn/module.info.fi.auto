@@ -1,0 +1,3 @@
+desc_fi=Vaihda käyttäjän tiedot
+longdesc_fi=Vaihda Unix-oikea nimi, toimisto, puhelinnumerosi ja kuori.
+name_fi=chfn

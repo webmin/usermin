@@ -1,0 +1,3 @@
+index_title=Aanmeldingsskripte
+index_desc_0=Die skrif $1 hieronder word uitgevoer wanneer u 'n nuwe dop begin, of as u via SSH of telnet aanmeld.
+index_desc_1=Die skrif $1 hieronder word slegs uitgevoer as u via SSH of telnet aanmeld.

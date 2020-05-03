@@ -1,0 +1,7 @@
+edit_html=HTML toestaan in bericht
+edit_delete=Verwijderen na eerste verzending
+edit_size=Grootte
+edit_upload1=Upload bestanden
+edit_upload2=Voeg een bestand toe
+save_notice_title=Schema opgeslagen
+save_notice=Geplande e-mail is met succes gemaakt - bekijk, bewerk of verwijder deze met <a href="$1">deze</a> link.

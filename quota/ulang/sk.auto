@@ -1,0 +1,6 @@
+index_title=Diskové kvóty
+index_quotas=Diskové kvóty pre $1 na pripojených súborových systémoch
+index_none=Na žiadnych pripojených súborových systémoch nemáte žiadne užívateľské diskové kvóty.
+index_gquotas=Diskové kvóty pre skupinu $1 na pripojených súborových systémoch
+right_header=Diskové kvóty
+right_out=$1 $2 

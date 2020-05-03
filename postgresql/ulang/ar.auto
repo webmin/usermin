@@ -1,0 +1,6 @@
+index_title=قاعدة بيانات PostgreSQL
+index_esql=لم يتم العثور على برنامج عميل PostgreSQL $1 على نظامك. ربما لم يتم تثبيت PostgreSQL ، أو أن تكوين الوحدة غير صحيح.
+index_elibrary=تعذر تشغيل برنامج عميل PostgreSQL $1 لأنه لم يتمكن من العثور على مكتبات Postgres المشتركة.
+index_superuser=تعذر تنفيذ برنامج عميل PostgreSQL psql على نظامك. ربما لم يتم تثبيت PostgreSQL ، أو أن تكوين الوحدة غير صحيح.
+index_nopass=يجب عليك إدخال اسم مستخدم وكلمة مرور PostgreSQL للاتصال بقاعدة البيانات.
+login_epass=اسم مستخدم أو كلمة مرور PostgreSQL غير صحيحة

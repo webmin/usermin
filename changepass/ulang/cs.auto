@@ -1,0 +1,15 @@
+index_desc1a=Pomocí tohoto formuláře můžete změnit heslo, které používáte pro přihlášení do služby Usermin, pro přístup na server přes SSH a FTP nebo pro stahování a odesílání e-mailů.
+index_passtab=Změna hesla
+index_recoverytab=Adresa pro obnovení hesla
+index_desc3=Pomocí tohoto formuláře můžete zadat alternativní adresu, na kterou může být zasláno dočasné heslo, pokud zapomenete své aktuální heslo.
+index_recovery=Alternativní adresa pro obnovení hesla
+index_recoverydef=Žádná sada
+index_recoverysel=Odeslat e-mail na adresu
+change_oka=Vaše heslo pro $1 bylo úspěšně změněno. Nové přihlášení Usermin, SSH, FTP nebo e-mail bude vyžadovat nové heslo.
+change_eformat=Konfigurovaný formát hashování heslem není podporován
+recovery_title=Adresa pro obnovení
+recovery_err=Nastavení adresy pro obnovení se nezdařilo
+recovery_eemail=Nebyla zadána platná e-mailová adresa
+recovery_cleared=Adresa pro obnovení byla vymazána.
+recovery_set=Adresa pro obnovení, která se má použít při žádosti o obnovení hesla, byla nastavena na $1.
+left_changepass=Změnit heslo

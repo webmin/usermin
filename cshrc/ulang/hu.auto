@@ -1,0 +1,3 @@
+index_title=Bejelentkezés szkriptek
+index_desc_0=Az alábbi $1 szkript minden új shell elindításakor, vagy SSH vagy telnet segítségével történő bejelentkezéskor kerül végrehajtásra.
+index_desc_1=Az alábbi $1 szkript csak akkor kerül végrehajtásra, ha SSH vagy telnet segítségével jelentkezik be.

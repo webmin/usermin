@@ -1,0 +1,5 @@
+index_efetchmail=V vašem sistemu ni bil najden program fetchmail $1.
+index_noservers=Še ni konfiguriran noben strežnik za prejemanje pošte.
+index_stopmsg=Kliknite ta gumb, da zaustavite demon fetchmail, ki trenutno samodejno preverja novo pošto vsakih $1 sekundo.
+index_startmsg=Kliknite ta gumb, da zaženete demona fetchmail na tem strežniku in ga preverite, če je vsakih 1 sekundo poštno sporočilo s pomočjo zgornje konfiguracije.
+index_none=Noben poštni strežnik za preverjanje še ni določen.

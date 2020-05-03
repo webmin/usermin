@@ -1,0 +1,3 @@
+name_be=PostgreSQL
+longdesc_be=Уваход у PostgreSQL і кіраванне табліцамі і запісамі праз інтэрфейс, аналагічны модулю PostgreSQL Webmin.
+desc_be=PostgreSQL База дадзеных

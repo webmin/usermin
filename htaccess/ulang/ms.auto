@@ -1,0 +1,13 @@
+index_title=Apache Options Files
+index_desc=Modul ini membolehkan anda mengedit fail $1 yang menetapkan pilihan bagi direktori yang dilayan oleh pelayan web Apache. Pilihan dikenakan ke semua fail dalam direktori dan mana-mana subdirektori, melainkan ditindih oleh fail pilihan lain.
+index_header=Fail Pilihan yang ada
+index_none=Tiada fail pilihan telah dibuat lagi.
+index_create=Tambah pilihan untuk:
+index_createdesc=Mencipta fail pilihan baru dalam direktori yang ditentukan.
+index_find=Cari fail pilihan dalam:
+index_finddesc=Cari direktori yang dimasukkan untuk mana-mana $1 fail yang telah dibuat secara manual. Sehingga fail dibuat secara manual dijumpai, mereka tidak boleh diedit menggunakan modul ini.
+index_return=senarai fail pilihan
+index_apache=Versi Apache dan maklumat modul tidak terdapat dalam direktori konfigurasi Webmin $1. Modul ini memerlukan Webmin dipasang dan modul Apachenya dikonfigurasi dengan betul.
+find_title=Cari Fail Pilihan
+find_list=Fail pilihan berikut ditemui di bawah $1 ..
+find_none=Tiada $1 fail pilihan dijumpai di bawah $2.

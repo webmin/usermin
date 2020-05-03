@@ -1,0 +1,5 @@
+index_efetchmail=Fetchmail programa $1 nerasta jūsų sistemoje.
+index_noservers=Dar nėra sukonfigūruoti serveriai, iš kurių būtų galima gauti laiškus.
+index_stopmsg=Spustelėkite šį mygtuką, kad sustabdytumėte „fetchmail“ demoną, kuris automatiškai tikrina, ar nėra naujų laiškų kas $1 sekundės.
+index_startmsg=Spustelėkite šį mygtuką, norėdami paleisti „fetchmail“ demoną šiame serveryje ir, naudodami aukščiau pateiktą konfigūraciją, leisti, kad jis patikrintų, ar nėra laiškų kas $1 sekundes.
+index_none=Dar nėra apibrėžta pašto serverių, kuriuos būtų galima patikrinti.

@@ -1,1 +1,0 @@
-../webadmin/koi8-to-cp1251.pl

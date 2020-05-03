@@ -1,0 +1,12 @@
+index_header=Paramètres de transfert des e-mails
+index_fwd=Transférer tous les e-mails à
+index_none=Livrez simplement normalement
+index_to=Aux adresses
+index_save=Mettre à jour le transfert
+index_return=formulaire d'expédition
+save_err=Échec de l'enregistrement du transfert de courrier
+save_efwd='$1' n'est pas une adresse e-mail valide
+save_efwds=Aucune adresse à transmettre à l'entrée
+save_eldap=Erreur lors de la mise à jour de la base de données : $1 
+save_done1=Vos paramètres de transfert de courrier ont été enregistrés avec succès.
+save_done2=Le transfert de courrier a été désactivé avec succès.

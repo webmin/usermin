@@ -1,0 +1,3 @@
+index_title=Skrip Masuk
+index_desc_0=Skrip $1 di bawah akan dilaksanakan setiap kali anda memulakan shell baru, atau apabila anda masuk melalui SSH atau telnet.
+index_desc_1=Skrip $1 di bawah akan dilaksanakan hanya apabila anda masuk melalui SSH atau telnet.

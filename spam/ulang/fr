@@ -1,0 +1,3 @@
+index_edb=Ã‰chec de connexion Ã  la base de donnÃ©es de configuration de SpamAssassin : $1. Demander Ã  votre administrateur systÃ¨me de vÃ©rifier les paramÃ¨tres du module de configuration.
+awl_title=GÃ©rer la liste blanche automatique
+awl_deleteonedesc=Supprimer toutes les entrÃ©es de la liste blanche

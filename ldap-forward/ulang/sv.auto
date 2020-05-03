@@ -1,0 +1,12 @@
+index_header=Inställningar för vidarebefordran av e-post
+index_fwd=Vidarebefordra all e-post till
+index_none=Bara leverera normalt
+index_to=Till adresser
+index_save=Uppdatera vidarebefordran
+index_return=vidarebefordringsformulär
+save_err=Det gick inte att spara vidarebefordran av e-post
+save_efwd='$1' är inte en giltig e-postadress
+save_efwds=Inget tillägg att vidarebefordra till inmatat
+save_eldap=Fel vid uppdatering av databasen : $1 
+save_done1=Dina vidarebefordringsinställningar har sparats.
+save_done2=E-post vidarebefordran har avaktiverats.

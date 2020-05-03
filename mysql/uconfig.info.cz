@@ -1,8 +1,0 @@
-login=Pøihlá¹ení MYSQL,0
-pass=Heslo MySQL,12
-max_dbs=Maximální poèet zobrazovaných databází a tabulek,0
-perpage=Poèet øádkù zobrazovaných na jedné stránce,0
-style=Zobrazit databáze a tabulky jako,1,1-Seznam,0-Ikony
-add_mode=Pou¾ít rozhraní pro vertikální úpravu øádku,1,1-Ano,0-Ne
-blob_mode=Zobrazit blob a textová pole jako,1,0-Data v tabulce,1-Odkazy ke sta¾ení
-charset=Znakový sada pro MySQL data,0

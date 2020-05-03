@@ -1,0 +1,6 @@
+index_title=Canvi de Tema
+index_desc=Els temes controlen l'aparença de la interfície d'usuari d'Usermin per al teu usuari, incloent-hi les icones, colors, fons i possiblement la disposició de les pàgines. Pots fer servir la caixa de selecció de sota per triar un dels temes instal·lats al sistema.
+index_sel=Tema actual:
+index_default=Tema antic d'Usermin
+index_change=Canvia
+index_global=Global d'Usermin per defecte

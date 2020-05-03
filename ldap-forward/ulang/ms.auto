@@ -1,0 +1,12 @@
+index_header=Tetapan Pengemukaan E-mel
+index_fwd=Majukan semua e-mel kepada
+index_none=Hanya hantar secara normal
+index_to=Untuk alamat
+index_save=Kemas kini Penghantaran
+index_return=borang pemajuan
+save_err=Gagal menyimpan penghantaran mel
+save_efwd='$1' bukan alamat e-mel yang sah
+save_efwds=Tiada tambahan untuk maju untuk dimasukkan
+save_eldap=Kemas kini pangkalan data kemas kini : $1 
+save_done1=Tetapan pemajuan e-mel anda telah berjaya disimpan.
+save_done2=Penerusan mel telah berjaya dilumpuhkan.

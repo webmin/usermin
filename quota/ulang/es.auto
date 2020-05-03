@@ -1,0 +1,6 @@
+index_title=Cuotas de disco
+index_quotas=Cuotas de disco para $1 en sistemas de archivos montados
+index_none=No tiene cuotas de disco de usuario en ningún sistema de archivos montado.
+index_gquotas=Cuotas de disco para el grupo $1 en sistemas de archivos montados
+right_header=Cuotas de disco
+right_out=$1 de $2

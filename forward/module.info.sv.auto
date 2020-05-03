@@ -1,0 +1,2 @@
+desc_sv=Vidarebefordran av e-post och svar
+longdesc_sv=Redigera .forward eller .qmail-* -filerna som styr vad som händer med e-post som skickas till ditt konto.

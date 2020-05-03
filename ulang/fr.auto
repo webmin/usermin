@@ -1,0 +1,30 @@
+main_title=Usermin $1 sur $2 ($3)
+main_title2=Usermin
+main_title3=Usermin $1 ($2)
+main_none=Vous n'avez accès à aucun module Usermin.
+category_mail=Courrier
+category_usermin=Usermin
+category_login=S'identifier
+category_apps=Applications
+longcategory_usermin=Modules pour configurer Usermin lui-même
+longcategory_mail=Modules de lecture, de récupération et de traitement des e-mails
+longcategory_login=Modules liés à la connexion au serveur
+longcategory_apps=Modules pour base de données, cryptage, site Web et autres applications
+header_webmin=Index Usermin
+header_config=Préférences
+programname=Usermin
+config_title=Préférences
+feedback_title=Commentaires sur Usermin
+feedback_desc=Ce formulaire vous permet de signaler des bogues ou de faire des suggestions aux développeurs Usermin concernant les problèmes ou les fonctionnalités manquantes que vous avez trouvés. Lorsque vous cliquez sur le bouton Envoyer, les détails saisis dans le formulaire seront envoyés par e-mail à $1.
+feedback_desc2=Ces commentaires seront envoyés au développeur d'Usermin, et non à votre administrateur système, FAI ou hébergeur. Veuillez écrire vos commentaires en anglais, même si vous utilisez actuellement Usermin dans une autre langue.
+feedback_configdesc=Si cette option est sélectionnée, l'e-mail inclura vos préférences pour le module associé et le contenu de tout fichier de configuration utilisé par le module.
+session_header=Connectez-vous à Usermin
+session_mesg=Vous devez entrer un nom d'utilisateur et un mot de passe pour vous connecter au serveur Usermin sur $1.
+pam_header=Connectez-vous à Webmin
+pam_mesg=Vous devez répondre à la question ci-dessous pour vous connecter au serveur Usermin sur $1.
+referer_warn=<b>Attention!</b> Usermin a détecté que le programme $2 était lié à partir de l'URL $1, qui semble être en dehors du serveur Usermin. Cela peut être une tentative pour inciter votre serveur à exécuter une commande dangereuse.
+referer_warn_unknown=<b>Attention!</b> Usermin a détecté que le programme $1 était lié à une URL inconnue, qui semble être en dehors du serveur Usermin. Cela peut être une tentative pour inciter votre serveur à exécuter une commande dangereuse.
+referer_fix1=S'il s'agit d'un lien légitime, vous pouvez autoriser les liens à partir de cette URL comme suit: <ul><li> Connectez-vous à Webmin. <li>Accédez au module<b> Configuration de l'utilisateur </b>.<li> Cliquez sur le Icône Référents approuvés. <li>Saisissez le nom d'hôte $1 dans le champ<b> Sites Web approuvés </b>, puis cliquez sur<b> Enregistrer </b>.</ul>
+referer_fix2=Vous pouvez également configurer Usermin pour autoriser ce lien à partir de la ligne de commande en: <ul><li> Connectez-vous en tant que <tt>root</tt> et modifiez le fichier <tt>/etc/usermin/config</tt>. <li>Ajoutez la ligne<tt> referers=$1 </tt>à la fin, ou si une ligne<tt> referers </tt>existe déjà, ajoutez-y<tt> $1 </tt>.<li> Enregistrez le fichier. </ul>
+referer_fix1u=Si votre navigateur n'envoie pas l'en-tête <tt>Referer</tt> nécessaire, vous pouvez désactiver cette vérification comme suit: <ul><li> Connectez-vous à Webmin normalement. <li>Accédez à la<b> Configuration de l'utilisateur </b>module.<li> Cliquez sur l'icône Référents approuvés. <li>Cochez la case<b> Liens de confiance provenant de référents inconnus </b>, puis cliquez sur<b> Enregistrer </b>.</ul>
+referer_fix2u=Vous pouvez également configurer Usermin pour autoriser les liens provenant de référents inconnus en: <ul><li> Connectez-vous en tant que <tt>root</tt> et modifiez le fichier <tt>/etc/usermin/config</tt>. <li>Recherchez la ligne<tt> referers_none=1 </tt>et remplacez-la par<tt> referers_none=0 </tt>.<li> Enregistrez le fichier. </ul>

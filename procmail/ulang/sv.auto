@@ -1,0 +1,1 @@
+index_desc=Den här modulen låter dig konfigurera filtrering för e-post som skickas till din adress på den här servern. Det fungerar emellertid endast om din systemadministratör har installerat Procmail globalt, eller om du har leverans av installationen till Procmail-programmet i modulen Mail Forwarding.

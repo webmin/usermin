@@ -1,0 +1,5 @@
+index_efetchmail=Il-programm fetchmail $1 ma nstabx fis-sistema tiegħek.
+index_noservers=L-ebda server biex iġib il-posta minn fuq ma ġie kkonfigurat.
+index_stopmsg=Ikklikkja din il-buttuna biex twaqqaf id-daemon tal-fetchmail li bħalissa qiegħed jiċċekkja għal posta ġdida kull $1 sekonda.
+index_startmsg=Ikklikkja din il-buttuna biex tibda d-daemon fetchmail fuq dan is-server, u agħtiha tikkontrolla l-posta kull $1 sekonda, billi tuża l-konfigurazzjoni ta 'hawn fuq.
+index_none=L-ebda servers ta 'posta elettronika li jiċċekkjaw ma ġew definiti s'issa.

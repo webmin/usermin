@@ -1,0 +1,3 @@
+index_title=Inlog Scripts
+index_desc_0=Het script $1 dat hieronder staat wordt uitgevoerd ieder keer als u een nieuwe shell start of via SSH danwel via Telnet inlogt.
+index_desc_1=Het script $1 dat hieronder staat wordt enkel uitgevoerd als u via SSH danwel via Telnet inlogt.

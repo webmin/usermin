@@ -1,34 +1,25 @@
 main_title=Usermin $1 op $2 ($3)
 main_title2=Usermin
 main_none=U heeft geen toegang tot enige Usermin module
-
 category_mail=Email
 category_usermin=Usermin
 category_login=Inloggen
 category_apps=Toepassingen
-
 header_webmin=Usermin Index
 header_config=Voorkeuren
-
 programname=Usermin
-
 config_title=Voorkeuren
-
 feedback_title=Stuur een reactie naar Usermin
 feedback_desc=Met dit formulier kunt u bugs rapporteren of suggesties maken bij de Usermin ontwerpers omtrent problemen of ontbrekende opties die u heeft gevonden. Zodra u op de Verstuur knop heeft geklikt zal alles wat in het formulier is ingevuld worden gemailt naar $1.
 feedback_desc2=Deze terugkoppeling zal worden verstuurd naar de ontwerper van Usermin, en naar niemand anders. Schrijft u alstublieft alles in het Engels, ook als u Usermin op dit moment in een andere taal gebruikt.
 feedback_configdesc=Indien dit is geselecteerd, zal de email ook uw voorkeuren versturen voor de gerelateerde module en de inhoud van de config files die deze module gebruikt.
-
 session_header=Login bij Usermin
 session_mesg=U dient een gebruikersnaam en wachtwoord in te geven op op de Usermin-server bij $1 om in te loggen.
-
 pam_header=Login bij Webmin
 pam_mesg=U moet op de vraag hieronder antwoorden om in te loggen bij de Usermin server op $1.
-
 referer_warn=<b>Waarschuwing!</b> Usermin heeft ontdekt dat het programma $2 is gelinkt vanaf de URL $1, wat zich buiten de Usermin server bevind. Dit kan een poging zijn om uw server te bedriegen en om een gevaarlijke opdracht uit te voeren.
 referer_warn_unknown=<b>Waarschuwing!</b> Usermin heeft gedetecteerd dat het programma $1 is gelinkt naar een onbekende URL, welke zich buiten de Usermin server bevind. Dit kan een poging zijn om uw server te bedriegen en om een gevaarlijke opdracht uit te voeren.
 referer_fix1=Indien dit een legitieme link is, kunt u de links van deze URL alvolgt laten toestaan :<ul><li>Login bij Webmin.<li>Ga naar de <b>Usermin Configuratie</b> module.<li>Klik op de Vertrouwde Verwijzingen icoon.<li>Vul de hostnaam $1 in het <b>Vertrouwde websites</b> veld, en klik op <b>Opslaan</b>.</ul>
 referer_fix2=Als alternatief, kunt u Usermin configureren om deze link toe te staan vanaf de opdracht regel op de volgende manier :<ul><li>Login als <tt>root</tt>, en bewerk de <tt>/etc/usermin/config</tt> file.<li>Voeg de regel toe <tt>referers=$1</tt> aan het einde, of indien er al een <tt>verwijzing</tt> regel bestaat voegt u <tt>$1</tt> eraan toe.<li>Sla de file nu op.</ul>
 referer_fix1u=Indien uw browser niet de <tt>Verwijzing</tt> header verstuurd die nodig is, Kunt u dit hier alsvolgt uitvinken :<ul><li>Log normaal in bij Webmin.<li>Ga naar de <b>Usermin Configuratie</b> module.<li>Klik op de Vertrouwde Verwijzingen icoon.<li>Zet een vinkje in de <b>Vertrouwde links van onbekende verwijzingen</b> box, en klik op <b>Opslaan</b>.</ul>
 referer_fix2u=Als alternatief kunt u nog Usermin configureren om links toe te staan van onbekende verwijzingen door middel van :<ul><li>In te loggen als <tt>root</tt>, en dan de <tt>/etc/usermin/config</tt> file te bewerken.<li>Zoek nu de regel <tt>referers_none=1</tt> en verander dit naar <tt>referers_none=0</tt>.<li>Sla de file nu op.</ul>
-

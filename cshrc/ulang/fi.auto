@@ -1,0 +1,3 @@
+index_title=Sisäänkirjautumiskriptit
+index_desc_0=Alla oleva komentosarja $1 suoritetaan aina, kun käynnistät uuden kuoren tai kun kirjaudut sisään SSH: n tai telnetin kautta.
+index_desc_1=Alla oleva komentosarja $1 suoritetaan vain, kun kirjaudut sisään SSH: n tai telnetin kautta.

@@ -1,0 +1,7 @@
+login_elogin=غلط صارف نام یا پاس ورڈ
+index_nopass=ڈیٹا بیس سے مربوط ہونے کے لئے آپ کو ایک ایس کیو ایل کا صارف نام اور پاس ورڈ درج کرنا ہوگا۔
+index_eadmin=MySQL ایڈمن پروگرام$1 آپ کے سسٹم پر نہیں ملا۔ ہوسکتا ہے کہ ایس کیو ایل انسٹال نہ ہو ، یا ماڈیول کنفیگریشن غلط ہے۔
+index_esql=MySQL کلائنٹ پروگرام$1 آپ کے سسٹم پر نہیں ملا۔ ہوسکتا ہے کہ ایس کیو ایل انسٹال نہ ہو ، یا ماڈیول کنفیگریشن غلط ہے۔
+index_ever=ایس کیو ایل کلائنٹ کا پروگرام$1 درست ورژن معلوم نہیں ہوتا ہے۔ ویبمین صرف اور صرف ایس کیو ایل ورژن 3 اور اس سے اوپر کی حمایت کرتی ہے۔
+index_elibrary=The MySQL client program $1 could not be run because it could not find the MySQL shared libraries. Check the module configuration and make sure the <i>Path to MySQL shared libraries</i> is set.
+login_epass=غلط ایس کیو ایل کا صارف نام یا پاس ورڈ

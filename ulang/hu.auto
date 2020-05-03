@@ -1,0 +1,30 @@
+main_title=$1 % felhasználó ($3)
+main_title2=Usermin
+main_title3=$1 felhasználói név ($2)
+main_none=Nincs hozzáférése egyetlen Usermin modulhoz sem.
+category_mail=Levél
+category_usermin=Usermin
+category_login=Belépés
+category_apps=Alkalmazások
+longcategory_usermin=Maga a Usermin konfigurálására szolgáló modulok
+longcategory_mail=Az e-mailek olvasására, letöltésére és feldolgozására szolgáló modulok
+longcategory_login=A kiszolgálóra való bejelentkezéshez kapcsolódó modulok
+longcategory_apps=Modulok adatbázisokhoz, titkosításhoz, weboldalhoz és egyéb alkalmazásokhoz
+header_webmin=Usermin Index
+header_config=preferenciák
+programname=Usermin
+config_title=preferenciák
+feedback_title=Felhasználói visszajelzés
+feedback_desc=Ez az űrlap lehetővé teszi a hibák jelentését vagy javaslatok előterjesztését a Usermin fejlesztők számára a megtalált problémákkal vagy hiányzó szolgáltatásokkal kapcsolatban. Amikor a Küldés gombra kattint, az űrlapon megadott adatok e-mailben kerülnek elküldésre a $1 fájlra.
+feedback_desc2=Ezt a visszajelzést a Usermin fejlesztőjének kell elküldeni, nem pedig a rendszergazdának, az internetszolgáltatónak vagy a host szolgáltatónak. Kérjük, írja visszajelzését angolul, még akkor is, ha jelenleg a Usermin más nyelven működik.
+feedback_configdesc=Ha ezt választja, az e-mail tartalmazza a kapcsolódó modul preferenciáit és a modul által használt összes konfigurációs fájl tartalmát.
+session_header=Bejelentkezés a Usermin oldalra
+session_mesg=A felhasználónév és jelszó megadásával be kell jelentkeznie a $1 felhasználói fiókjára.
+pam_header=Bejelentkezés a Webminbe
+pam_mesg=A következő kérdésre válaszolnia kell, hogy bejelentkezzen a (z) $1 felhasználói fiókjába.
+referer_warn=<b>Figyelem!</b> A Usermin észlelte, hogy a $2 program kapcsolódik a $1 URL-hez, amely úgy tűnik, hogy kívül esik a Usermin szerveren. Ez lehet a kísérlet arra, hogy becsapja a szervert egy veszélyes parancs végrehajtására.
+referer_warn_unknown=<b>Figyelem!</b> A Usermin észlelte, hogy a (z) $1 programhoz egy ismeretlen URL-cím kapcsolódik, amely úgy tűnik, hogy kívül esik a Usermin szerverén. Ez lehet a kísérlet arra, hogy becsapja a szervert egy veszélyes parancs végrehajtására.
+referer_fix1=Ha ez egy legitim link, akkor engedélyezheti a linkeket ezen az URL-en az alábbiak szerint: <ul><li> Bejelentkezés a Webminbe. <li>Menjen a<b> Felhasználói rendszer konfigurálása </b>modulhoz.<li> Kattintson a Megbízható hivatkozók ikon. <li>Írja be a $1 gazdagépnevet a<b> Megbízható webhelyek </b>mezőbe, majd kattintson a<b> Mentés </b>lehetőségre.</ul>
+referer_fix2=Alternatív megoldásként konfigurálhatja a Usermin-et, hogy engedélyezze ezt a linket a parancssorból: <ul><li> Bejelentkezés <tt>root</tt> formátumban, és szerkesztheti az <tt>/etc/usermin/config</tt> fájlt.. <li>Adja hozzá a<tt> referers=$1 </tt>sort a végéhez, vagy ha már létezik<tt> referers </tt>sor, add hozzá<tt> $1 </tt>.<li> Mentse el a fájlt.</ul>
+referer_fix1u=Ha böngészője nem küldi meg a szükséges <tt>Referer</tt> fejlécet, akkor az alábbiak szerint kapcsolhatja ki ezt az ellenőrzést: <ul><li> Bejelentkezés általában a Webminbe. <li>Menjen a<b> Usermin Configuration </b>modul.<li> Kattintson a Megbízható hivatkozók ikonra. <li>Jelölje be az<b> Ismeretlen hivatkozók megbízható hivatkozásai </b>mezőt, majd kattintson a<b> Mentés </b>elemre.</ul>
+referer_fix2u=Alternatív megoldásként konfigurálhatja a Usermin szoftvert az ismeretlen hivatkozók linkjeinek engedélyezéséhez: <ul><li> Bejelentkezés <tt>root</tt> formátumban, és szerkesztheti az <tt>/etc/usermin/config</tt> fájlt. <li>Keresse meg a<tt> referers_none=1 </tt>sort, és módosítsa azt<tt> referers_none=0 </tt>-ra.<li> Mentse el a fájlt. </ul>

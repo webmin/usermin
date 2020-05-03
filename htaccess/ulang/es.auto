@@ -1,0 +1,13 @@
+index_title=Archivos de opciones de Apache
+index_desc=Este módulo le permite editar los archivos $1 que establecen las opciones para los directorios atendidos por el servidor web Apache. Las opciones se aplican a todos los archivos en el directorio y a cualquier subdirectorio, a menos que sea anulado por otro archivo de opciones.
+index_header=Archivos de opciones existentes
+index_none=Aún no se han creado archivos de opciones.
+index_create=Agregar opciones para:
+index_createdesc=Crea un nuevo archivo de opciones en el directorio especificado.
+index_find=Encuentra archivos de opciones en:
+index_finddesc=Busca en el directorio ingresado cualquier archivo $1 que se haya creado manualmente. Hasta que se encuentren los archivos creados manualmente, no se pueden editar con este módulo.
+index_return=lista de archivos de opciones
+index_apache=La versión de Apache y la información del módulo no se encontraron en el directorio de configuración de Webmin $1. Este módulo requiere que Webmin esté instalado y su módulo Apache configurado correctamente.
+find_title=Buscar archivos de opciones
+find_list=Los siguientes archivos de opciones se encontraron en $1 ..
+find_none=No se encontraron archivos de opciones $1 en $2.

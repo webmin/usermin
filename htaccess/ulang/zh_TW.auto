@@ -1,0 +1,13 @@
+index_title=Apache選項文件
+index_desc=該模塊允許您編輯 $1文件，該文件為Apache Web服務器提供的目錄設置選項。選項適用於目錄和任何子目錄中的所有文件，除非被另一個選項文件覆蓋。
+index_header=現有選項文件
+index_none=尚未創建任何選項文件。
+index_create=添加以下選項：
+index_createdesc=在指定目錄中創建一個新的選項文件。
+index_find=在以下位置找到選項文件：
+index_finddesc=在輸入的目錄中搜索任何手動創建的 $1文件。在找到手動創建的文件之前，不能使用此模塊對其進行編輯。
+index_return=選項文件列表
+index_apache=在Webmin配置目錄 $1中找不到Apache版本和模塊信息。該模塊要求安裝Webmin並正確配置其Apache模塊。
+find_title=查找選項文件
+find_list=在 $1..下找到以下選項文件。
+find_none=在 $2下找不到 $1個選項文件。

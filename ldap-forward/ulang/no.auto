@@ -1,0 +1,12 @@
+index_header=Innstillinger for videresending av e-post
+index_fwd=Videresend all e-post til
+index_none=Bare leverer normalt
+index_to=Til adresser
+index_save=Oppdater videresending
+index_return=videresendingsskjema
+save_err=Kunne ikke lagre videresending av post
+save_efwd='$1' er ikke en gyldig e-postadresse
+save_efwds=Ingen addreess å videresende til angitt
+save_eldap=Feil ved oppdatering av database : $1 
+save_done1=Innstillinger for videresending av e-postmeldinger er lagret.
+save_done2=Videresending av e-post har blitt deaktivert.

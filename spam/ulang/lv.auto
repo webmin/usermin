@@ -1,0 +1,3 @@
+index_edb=Neizdevās izveidot savienojumu ar SpamAssassin konfigurācijas datu bāzi: $1. Palūdziet sistēmas administratoram pārbaudīt moduļa konfigurācijas iestatījumus.
+awl_title=Pārvaldiet automātisko balto sarakstu
+awl_deleteonedesc=Noņemiet visus pašreizējos automātiskā baltā saraksta ierakstus

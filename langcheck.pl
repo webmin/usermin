@@ -1,1 +1,0 @@
-../webadmin/langcheck.pl

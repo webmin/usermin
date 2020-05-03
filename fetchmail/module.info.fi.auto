@@ -1,0 +1,3 @@
+name_fi=fetchmail
+longdesc_fi=Määritä Fetchmail lataamaan sähköpostia etä POP3- tai IMAP-palvelimelta paikallisiin osoitteisiin.
+desc_fi=Fetchmail-postin haku

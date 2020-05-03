@@ -1,0 +1,6 @@
+index_title=Kvote diska
+index_quotas=Diskovne kvote za $1 na montiranim datotečnim sustavima
+index_none=Nemate korisničkih disk kvota ni na jednom montiranom datotečnom sustavu.
+index_gquotas=Diskovne kvote za grupu $1 na montiranim datotečnim sustavima
+right_header=Diskovne kvote
+right_out=$1 of $2 

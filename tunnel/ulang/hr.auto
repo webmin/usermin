@@ -1,0 +1,12 @@
+index_elink=Još nije postavljen URL za tunel.
+link_eurl=Nevažeći URL tunela : $1 
+link_elogin=Prijava nije uspjela na $1 kao $2 
+link_eautologin=Nevažeća prijava ili zaporka za $1. <a href='$2'>Kliknite ovdje</a> za prijavu.
+link_enouser=Korisničko ime i zaporka potrebni su za prijavu na $1, ali nijedna nije konfigurirana.
+login_title=Prijava na web mjesto
+login_desc=Morate unijeti korisničko ime i lozinku za prijavu na $1.
+login_header=Autentifikacija web mjesta
+login_user=Korisničko ime
+login_pass=Lozinka
+login_login=Prijaviti se
+login_clear=Čisto

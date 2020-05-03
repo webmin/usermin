@@ -1,0 +1,6 @@
+index_title=PostgreSQL-database
+index_esql=PostgreSQL-klientprogrammet $1 blev ikke fundet på dit system. Måske er PostgreSQL ikke installeret, eller modulkonfigurationen er forkert.
+index_elibrary=PostgreSQL-klientprogrammet $1 kunne ikke køres, fordi det ikke kunne finde de delte biblioteker af Postgres.
+index_superuser=PostgreSQL-klientprogrammet psql kunne ikke køre på dit system. Måske er PostgreSQL ikke installeret, eller modulkonfigurationen er forkert.
+index_nopass=Du skal indtaste et PostgreSQL brugernavn og adgangskode for at oprette forbindelse til databasen.
+login_epass=Forkert PostgreSQL brugernavn eller adgangskode

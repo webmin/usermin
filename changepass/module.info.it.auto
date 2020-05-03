@@ -1,0 +1,3 @@
+desc_it=Cambia la password
+name_it=changepass
+longdesc_it=Cambia la tua password, chiamando PAM o eseguendo il comando passwd.

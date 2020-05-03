@@ -1,0 +1,1 @@
+index_desc=通过此模块，您可以配置对发送到此服务器上地址的电子邮件的过滤。但是，只有在系统管理员已全局安装Procmail或在Mail Forwarding模块中将设置传递到Procmail程序的情况下，它才起作用。

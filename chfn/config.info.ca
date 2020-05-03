@@ -1,6 +1,6 @@
-change_real=Pot canviar el nom real,1,1-Sí,0-No
-change_office=Pot canviar el número del despatx,1,1-Sí,0-No
-change_ophone=Pot canviar el telèfon de la feina,1,1-Sí,0-No
-change_hphone=Pot canviar el telèfon particular,1,1-Sí,0-No
-change_shell=Pot canviar la shell,1,1-Sí,0-No
+change_real=Pot canviar el nom real,1,1-SÃ­,0-No
+change_office=Pot canviar el nÃºmero del despatx,1,1-SÃ­,0-No
+change_ophone=Pot canviar el telÃ¨fon de la feina,1,1-SÃ­,0-No
+change_hphone=Pot canviar el telÃ¨fon particular,1,1-SÃ­,0-No
+change_shell=Pot canviar la shell,1,1-SÃ­,0-No
 shells=Llista de shells:,3,/etc/shells

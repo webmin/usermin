@@ -1,1 +1,8 @@
-../../webadmin/postgresql/config.info.de
+nodbi=Benutze DBI zur Verbindung wenn verfügbar?,1,0-Ja,1-Nein
+psql=Pfad zu <tt>psql</tt>,0
+plib=Pfad zu freigegebenen PostgreSQL-Bibliotheken,3,Nicht benötigt
+basedb=Anfängliche PostgreSQL-Datenbank,0
+host=Verbinde zu PostgreSQL-Host,3,Localhost
+port=PostgreSQL-Port zu welchem verbunden wird,3,Standard
+dump_cmd=Pfad zum <tt>pg_dump</tt> Befehl,0
+rstr_cmd=Pfad zu <tt>pg_restore</tt>,0

@@ -1,0 +1,13 @@
+index_title=Apache-indstillingsfiler
+index_desc=Dette modul giver dig mulighed for at redigere $1 -filerne, der indstiller indstillinger for mapper, der serveres af Apache-webserveren. Valgmulighederne gælder for alle filer i biblioteket og eventuelle undermapper, medmindre de tilsidesættes af en anden indstillingsfil.
+index_header=Eksisterende indstillingsfiler
+index_none=Der er endnu ikke oprettet nogen indstillingsfiler.
+index_create=Tilføj muligheder for:
+index_createdesc=Opretter en ny indstillingsfil i det specificerede bibliotek.
+index_find=Find indstillingsfiler i:
+index_finddesc=Søger i det indtastede bibliotek efter alle $1 -filer, der er oprettet manuelt. Indtil manuelt oprettede filer findes, kan de ikke redigeres ved hjælp af dette modul.
+index_return=liste over indstillinger fil
+index_apache=Apache-version og moduloplysninger blev ikke fundet i Webmin-konfigurationsbiblioteket $1. Dette modul kræver, at Webmin installeres og dets Apache-modul konfigureres korrekt.
+find_title=Find indstillingsfiler
+find_list=Følgende indstillingsfiler blev fundet under $1 ..
+find_none=Der blev ikke fundet $1 indstillingsfiler under $2.

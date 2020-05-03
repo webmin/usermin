@@ -1,0 +1,3 @@
+desc_ja=スケジュールされたCronジョブ
+longdesc_ja=定期的なcronジョブを編集して作成します。
+name_ja=cron

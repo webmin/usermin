@@ -1,0 +1,6 @@
+index_title=PostgreSQL baza podataka
+index_esql=Program klijenta PostgreSQL $1 nije pronađen u vašem sustavu. Možda PostgreSQL nije instaliran ili je konfiguracija modula pogrešna.
+index_elibrary=PostgreSQL klijentski program $1 nije se mogao pokrenuti jer nije mogao pronaći biblioteke dijeljene Postgresom.
+index_superuser=PostgreSQL klijentski program psql nije mogao pokrenuti na vašem sustavu. Možda PostgreSQL nije instaliran ili je konfiguracija modula pogrešna.
+index_nopass=Morate unijeti korisničko ime i lozinku PostgreSQL da biste se povezali s bazom podataka.
+login_epass=Neispravno PostgreSQL korisničko ime ili lozinka

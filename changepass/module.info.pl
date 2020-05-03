@@ -1,1 +1,1 @@
-desc_pl=Zmieñ has³o
+desc_pl=ZmieÅ„ hasÅ‚o

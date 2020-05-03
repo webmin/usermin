@@ -1,0 +1,3 @@
+desc_ko=아파치 옵션 파일
+longdesc_ko=Webmin의 Apache 모듈과 유사한 인터페이스를 사용하여 .htaccess 파일을 편집하십시오.
+name_ko=HTaccess

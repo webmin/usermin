@@ -1384,7 +1384,8 @@ if ($config{'from_map'}) {
 			#  - user1@domain.com	user1-domain.com
 			#  - user1-alias1@domain.com	user1@domain.com
 			#  - user1-alias2@domain.com	user1-domain.com
-			my $remote_user__  = $remote_user =~ s/@/-/r;
+			my $remote_user__  = $remote_user;
+			$remote_user__ =  =~ s/@/-/;
 			if (/^\s*([\w\-]+@[\w\-\.]+)\s+([\w\-]+[@-][\w\-\.]+)/ &&
 			       ($2 eq $remote_user || $2 eq $remote_user__) &&
 			       $config{'from_format'} == 1) {

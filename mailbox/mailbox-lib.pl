@@ -1380,7 +1380,7 @@ if ($config{'from_map'}) {
 				}
 			}
 		else {
-			# For aditional vitual-server user
+			# For additional vitual-server user
 			#  - user1@domain.com	user1-domain.com
 			#  - user1-alias1@domain.com	user1@domain.com
 			#  - user1-alias2@domain.com	user1-domain.com

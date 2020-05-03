@@ -1360,7 +1360,7 @@ if ($config{'from_map'} && $remote_user !~ /\@/) {
 			# Username on LHS matches
 			push(@mfroms, $2);
 			}
-		elsif (/^\s*(\S+\@\S+)\s+(\S+)/ &&
+		elsif (/^\s*(\S+\@(\S+))\s+\S+/ &&
 		       ($2 eq $remote_user || &indexof($2, @froms) >= 0) &&
 		       $config{'from_format'} == 1) {
 			# Username on RHS matches

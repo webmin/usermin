@@ -1420,10 +1420,15 @@ my %fromsu = ();
 
 # Add user's real name
 my $ureal = $remote_user_info[6];
+my %real_names = map { $_->[0], $_->[1] } &list_addresses();
 $ureal =~ s/,.*$//;
 foreach my $f (@froms) {
-	$f = "\"$ureal\" <$f>"
-		if ($ureal && $userconfig{'real_name'});
+	if ($real_names{$f}) {
+		$f = "$real_names{$f} <$f>";
+		}
+	elsif ($ureal && $userconfig{'real_name'}) {
+		$f = "\"$ureal\" <$f>";
+		}
 	}
 return (\@froms, \@doms);
 }

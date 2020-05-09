@@ -99,7 +99,7 @@ else {
 	print "<b>$text{'address_none'}</b> <p>\n";
 	}
 print "<a href='list_addresses.cgi?mode=users&add=1#adding'>",
-      "$text{'address_add'}</a> <br>\n"
+      "$text{'address_add'}</a> \n"
 	if (!$in{'add'});
 print &ui_tabs_end_tab();
 
@@ -175,7 +175,7 @@ else {
 	print "<b>$text{'address_gnone'}</b> <p>\n";
 	}
 print "<a href='list_addresses.cgi?mode=groups&gadd=1#adding'>",
-      "$text{'address_gadd'}</a> <br>\n"
+      "$text{'address_gadd'}</a> \n"
 	if (!$in{'gadd'});
 print &ui_tabs_end_tab();
 

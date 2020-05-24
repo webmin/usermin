@@ -25,3 +25,4 @@ nologout=0
 noindex_hostname=0
 smtp_ssl=0
 html_base64=0
+pop3_ssl=0

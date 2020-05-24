@@ -277,6 +277,7 @@ elsif ($config{'mail_system'} == 4) {
 		    'id' => 'INBOX',
 		    'type' => 4,
 		    'server' => $imapserver,
+		    'ssl' => $config{'pop3_ssl'},
 		    'mode' => 3,
 		    'remote' => 1,
 		    'flags' => 1,

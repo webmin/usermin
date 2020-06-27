@@ -26,3 +26,5 @@ noindex_hostname=0
 smtp_ssl=0
 html_base64=0
 pop3_ssl=0
+view_html=2
+view_images=1

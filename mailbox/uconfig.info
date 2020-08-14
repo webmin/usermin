@@ -25,6 +25,7 @@ html_edit=Use HTML editor for composing?,4,2-Always,1-When replying to HTML emai
 html_quote=HTML quoting mode,1,1-Message below &lt;hr&gt;,0-Message inside &lt;blockquote&gt;
 nospell=Show spell checking option?,1,0-Yes,1-No
 spell_check=Enable spell checking by default?,1,1-Yes,0-No
+cc_tabs=Show To CC and BCC addresses,1,1-On the same tab,0-On separate tabs
 
 line1=Sending email,11
 no_mime=Send text-only messages when possible?,1,1-Yes,0-No

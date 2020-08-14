@@ -545,8 +545,9 @@ my @tabs = ( [ "from", $text{'reply_tabfrom'} ],
 	  $userconfig{'reply_to'} ne 'x' ?
 		( [ "rto", $text{'reply_tabreplyto'} ] ) : ( ),
 	  [ "to", $text{'reply_tabto'} ],
-	  [ "cc", $text{'reply_tabcc'} ],
-	  [ "bcc", $text{'reply_tabbcc'} ],
+	  $userconfig{'cc_tabs'} ? ( ) :
+		( [ "cc", $text{'reply_tabcc'} ],
+		  [ "bcc", $text{'reply_tabbcc'} ] ),
 	  $has_gpg ? ( [ "signing", $text{'reply_tabsigning'} ] ) : ( ),
 	  [ "options", $text{'reply_taboptions'} ] );
 print &ui_table_row(undef, &ui_tabs_start(\@tabs, "tab", "to", 0), 2);
@@ -651,24 +652,39 @@ if ($userconfig{'reply_to'} ne 'x') {
 	print &ui_tabs_end_tabletab();
 	}
 
-# Show To: field
-print &ui_tabs_start_tabletab("tab", "to");
-print &ui_table_row($text{'mail_to'}, &ui_address_field("to", $to, 0, 1),
-		    1, \@tds);
-print &ui_tabs_end_tabletab();
-
-# Show Cc: field
-print &ui_tabs_start_tabletab("tab", "cc");
-print &ui_table_row($text{'mail_cc'}, &ui_address_field("cc", $cc, 0, 1),
-		    1, \@tds);
-print &ui_tabs_end_tabletab();
-
-# Show Bcc: field
 $bcc ||= $userconfig{'bcc_to'};
-print &ui_tabs_start_tabletab("tab", "bcc");
-print &ui_table_row($text{'mail_bcc'}, &ui_address_field("bcc", $bcc, 0, 1),
-		    1, \@tds);
-print &ui_tabs_end_tabletab();
+if ($userconfig{'cc_tabs'}) {
+	# Show all address fields in a tab
+	print &ui_tabs_start_tabletab("tab", "to");
+
+	print &ui_table_row($text{'mail_to'}, &ui_address_field("to", $to,
+			    0, 1), 1, \@tds);
+	print &ui_table_row($text{'mail_cc'}, &ui_address_field("cc", $cc,
+			    0, 1), 1, \@tds);
+	print &ui_table_row($text{'mail_bcc'}, &ui_address_field("bcc", $bcc,
+			    0, 1), 1, \@tds);
+
+	print &ui_tabs_end_tabletab();
+	}
+else {
+	# Show To: field in a tab
+	print &ui_tabs_start_tabletab("tab", "to");
+	print &ui_table_row($text{'mail_to'}, &ui_address_field("to", $to,
+			    0, 1), 1, \@tds);
+	print &ui_tabs_end_tabletab();
+
+	# Show Cc: field in a tab
+	print &ui_tabs_start_tabletab("tab", "cc");
+	print &ui_table_row($text{'mail_cc'}, &ui_address_field("cc", $cc,
+			    0, 1), 1, \@tds);
+	print &ui_tabs_end_tabletab();
+
+	# Show Bcc: field in a tab
+	print &ui_tabs_start_tabletab("tab", "bcc");
+	print &ui_table_row($text{'mail_bcc'}, &ui_address_field("bcc", $bcc,
+			    0, 1), 1, \@tds);
+	print &ui_tabs_end_tabletab();
+	}
 
 # Ask for signing and encryption
 if ($has_gpg) {

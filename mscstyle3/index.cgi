@@ -15,8 +15,7 @@ else {
 &ReadParse();
 
 # Redirect if the user has only one module
-@msc_modules = &get_available_module_infos(1)
-	if (!defined(@msc_modules));
+@msc_modules = &get_available_module_infos(1) if (!@msc_modules);
 
 if (!defined($in{'cat'})) {
         # Maybe redirect to some module after login

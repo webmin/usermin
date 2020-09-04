@@ -51,8 +51,7 @@ if (@_ > 0) {
         }
     }
 
-@msc_modules = &get_available_module_infos(1)
-	if (!defined(@msc_modules));
+@msc_modules = &get_available_module_infos(1) if (!@msc_modules);
 
 print '<body bgcolor=#424242 link=#000000 vlink=#000000 text=#000000 leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" '.$_[8].'>';
 

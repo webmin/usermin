@@ -235,8 +235,7 @@ if (@_ > 0) {
         }
     }
 
-@msc_modules = &get_available_module_infos(1)
-	if (!defined(@msc_modules));
+@msc_modules = &get_available_module_infos(1) if (!@msc_modules);
 
 print "</head>\n";
 if ($theme_no_table) {

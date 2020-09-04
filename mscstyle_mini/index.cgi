@@ -15,8 +15,7 @@ else {
 &ReadParse();
 
 # Redirect if the user has only one module
-@msc_modules = &get_available_module_infos(1)
-	if (!defined(@msc_modules));
+@msc_modules = &get_available_module_infos(1) if (!@msc_modules);
 if ($gconfig{'gotomodule'} && !defined($in{'cat'})) {
 	# Go to a specific module at first login (if we have it)
 	local ($goto) = grep { $_->{'dir'} eq $gconfig{'gotomodule'} }

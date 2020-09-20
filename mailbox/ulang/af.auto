@@ -1,4 +1,5 @@
 index_title=Pos $1 in
+index_return=poslys
 mail_title=Lees Mail
 mail_none=Daar is geen boodskappe in die vouer $1 nie
 mail_pos=Boodskappe $1 tot $2 van $3 in vouer $4 

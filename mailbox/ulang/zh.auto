@@ -1,4 +1,5 @@
 index_title=邮寄 $1
+index_return=邮件清单
 mail_title=阅读邮件
 mail_none=文件夹 $1中没有消息
 mail_pos=文件夹 $4中 $3的消息 $1至 $2

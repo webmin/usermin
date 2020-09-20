@@ -1,4 +1,5 @@
 index_title=Mail In $1
+index_return=mail list
 mail_title=Read Mail
 mail_none=There are no messages in folder $1
 mail_pos=Messages $1 to $2 of $3 in folder $4

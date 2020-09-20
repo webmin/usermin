@@ -1,3 +1,4 @@
+index_return=lista de correo
 send_efile=El archivo adjunto $1 no es legible o no existe
 send_nobody=nadie
 send_etomsg=No se ingresó la dirección A, CC o CCO

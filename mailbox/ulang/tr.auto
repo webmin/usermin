@@ -1,4 +1,5 @@
 index_title=Posta Girişi $1 
+index_return=posta Listesi
 mail_quota=$2 üzerinden $1 kullanma
 mail_special=Özel
 send_etomsg=Hayır, Bilgi veya Gizli adresi girildi

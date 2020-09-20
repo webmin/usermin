@@ -1,4 +1,5 @@
 index_title=Correio em $1 
+index_return=lista de Email
 mail_title=Ler E-mail
 mail_none=Não há mensagens na pasta $1 
 mail_pos=Mensagens $1 a $2 de $3 na pasta $4 

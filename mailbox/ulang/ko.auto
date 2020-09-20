@@ -1,4 +1,5 @@
 index_title=$1 의 메일
+index_return=메일 목록
 mail_title=메일 읽기
 mail_none=$1 폴더에 메시지가 없습니다
 mail_pos=$4 폴더에있는 $3 의 $1 에서 $2 메시지

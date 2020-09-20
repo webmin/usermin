@@ -1,4 +1,5 @@
 index_title=Почта в $1 
+index_return=список рассылки
 mail_special=Особый
 send_etomsg=Нет To, Cc или Bcc адрес был введен
 send_esubjectmsg=Тема не была введена - надеюсь, что все в порядке

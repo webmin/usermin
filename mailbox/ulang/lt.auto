@@ -1,4 +1,5 @@
 index_title=Paštas $1 
+index_return=pašto sąrašą
 mail_title=Skaityti paštą
 mail_none=$1 aplanke nėra pranešimų
 mail_pos=$4 aplanke esantys pranešimai nuo $1 iki $2 iš $3 

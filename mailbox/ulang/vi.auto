@@ -1,4 +1,5 @@
 index_title=Gửi thư trong $1 
+index_return=danh sách thư
 mail_title=Đọc thư
 mail_none=Không có tin nhắn trong thư mục $1 
 mail_pos=Tin nhắn $1 đến $2 của $3 trong thư mục $4 

@@ -1,4 +1,5 @@
 index_title=Pošta v $1 
+index_return=poštni seznam
 mail_title=Preberite pošto
 mail_none=V mapi $1 ni sporočil
 mail_pos=Sporočila $1 do $2 od $3 v mapi $4 

@@ -1,4 +1,5 @@
 index_title=Maila $1 
+index_return=e-postlista
 mail_title=Läs mail
 mail_none=Det finns inga meddelanden i mappen $1 
 mail_pos=Meddelanden $1 till $2 av $3 i mappen $4 

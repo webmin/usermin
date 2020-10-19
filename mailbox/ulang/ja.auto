@@ -1,4 +1,5 @@
 index_title=$1のメール
+index_return=メールリスト
 mail_title=メールを読む
 mail_none=フォルダ $1にメッセージはありません
 mail_pos=フォルダ $4の $3のメッセージ $1から $2

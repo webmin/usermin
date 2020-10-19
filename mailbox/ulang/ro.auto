@@ -1,4 +1,5 @@
 index_title=E-mail în $1 
+index_return=lista de e-mail
 mail_title=Citiți Mail
 mail_none=Nu există mesaje în folderul $1 
 mail_pos=Mesaje $1 la $2 din $3 în folderul $4 

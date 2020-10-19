@@ -1,4 +1,5 @@
 index_title=Pošta $1 
+index_return=zoznam pošty
 mail_title=Čítať poštu
 mail_none=V priečinku $1 nie sú žiadne správy
 mail_pos=Správy $1 až $2 z $3 v priečinku $4 

@@ -1,4 +1,5 @@
 index_title=Envoyer par courrier électronique $1 
+index_return=liste de diffusion
 mail_quota=Utilisation de $1 sur $2 
 mail_special=Spécial
 send_nobody=personne

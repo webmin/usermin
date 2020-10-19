@@ -1,4 +1,5 @@
 index_title=Poczta w $1 
+index_return=Lista maili
 mail_title=Przeczytaj mail
 mail_none=Brak wiadomości w folderze $1 
 mail_pos=Wiadomości $1 do $2 z $3 w folderze $4 

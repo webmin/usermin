@@ -1,4 +1,5 @@
 index_title=שלח דואר $1 
+index_return=רשימת דואר
 mail_title=קרא את הדואר
 mail_none=אין הודעות בתיקיה $1 
 mail_pos=הודעות $1 עד $2 מתוך $3 בתיקיה $4 

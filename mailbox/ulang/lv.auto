@@ -1,4 +1,5 @@
 index_title=Pasts $1 
+index_return=pastu saraksts
 mail_title=Lasīt pastu
 mail_none=Mapē $1 nav ziņojumu
 mail_pos=Ziņojumi no $1 līdz $2 no $3 mapē $4 

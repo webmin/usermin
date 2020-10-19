@@ -1,4 +1,5 @@
 index_title=郵寄 $1
+index_return=郵件清單
 mail_title=閱讀郵件
 mail_none=文件夾 $1中沒有消息
 mail_pos=文件夾 $4中 $3的消息 $1至 $2

@@ -1,4 +1,5 @@
 index_title=Mail f' $1 
+index_return=lista tal-posta
 mail_title=Aqra Mail
 mail_none=M'hemm l-ebda messaġġ fil-folder $1 
 mail_pos=Messaġġi $1 sa $2 ta ' $3 fil-folder $4 

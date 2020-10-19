@@ -1,3 +1,4 @@
+index_return=mail list
 send_etomsg=È stato inserito un indirizzo No, Cc o Ccn
 send_esubjectmsg=Nessun soggetto inserito - spero che sia OK
 send_eclosemsg=Sei sicuro di voler chiudere questa pagina e perdere il messaggio in corso?

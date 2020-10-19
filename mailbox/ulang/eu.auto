@@ -1,4 +1,5 @@
 index_title=Posta $1 -en
+index_return=posta zerrenda
 mail_title=Irakurri Posta
 mail_none=Ez dago mezuak $1 karpetan
 mail_pos=$1 eta $2 $3 mezuak $4 karpetan

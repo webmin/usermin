@@ -1,4 +1,5 @@
 index_title=Mail i $1 
+index_return=mail-liste
 mail_title=Læs mail
 mail_none=Der er ingen meddelelser i mappen $1 
 mail_pos=Meddelelser $1 til $2 af $3 i mappe $4 

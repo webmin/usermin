@@ -307,7 +307,7 @@ elsif ($config{'mail_system'} == 4) {
 					my $fn = $4 || $3;
 					next if ($fn eq "INBOX");
 					push(@rv,
-					  { 'name' => $fn,
+					  { 'name' => &decode_utf7($fn),
 					    'id' => $fn,
 					    'type' => 4,
 					    'server' => $imapserver,

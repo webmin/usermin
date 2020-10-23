@@ -315,7 +315,7 @@ elsif ($config{'mail_system'} == 4) {
 					    'pass' => $rv[0]->{'pass'},
 					    'mode' => 0,
 					    'remote' => 1,
-		    			    'flags' => 1,
+					    'flags' => 1,
 					    'imapauto' => 1,
 					    'mailbox' => $fn,
 					    'nologout' => $config{'nologout'},

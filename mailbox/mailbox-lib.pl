@@ -561,7 +561,7 @@ if ($folder_types{'local'}) {
 			# is ignored
 			next if (!-d $p);
 			}
-		push(@rv, { 'name' => $name,
+		push(@rv, { 'name' => decode_utf7($name),
 			    'file' => $p,
 			    'type' => &folder_type($p),
 			    'perpage' => $userconfig{"perpage_$f"},

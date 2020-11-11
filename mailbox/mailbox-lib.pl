@@ -307,7 +307,7 @@ elsif ($config{'mail_system'} == 4) {
 					my $fn = $4 || $3;
 					next if ($fn eq "INBOX");
 					push(@rv,
-					  { 'name' => $fn,
+					  { 'name' => &decode_utf7($fn),
 					    'id' => $fn,
 					    'type' => 4,
 					    'server' => $imapserver,
@@ -315,7 +315,7 @@ elsif ($config{'mail_system'} == 4) {
 					    'pass' => $rv[0]->{'pass'},
 					    'mode' => 0,
 					    'remote' => 1,
-		    			    'flags' => 1,
+					    'flags' => 1,
 					    'imapauto' => 1,
 					    'mailbox' => $fn,
 					    'nologout' => $config{'nologout'},
@@ -561,7 +561,7 @@ if ($folder_types{'local'}) {
 			# is ignored
 			next if (!-d $p);
 			}
-		push(@rv, { 'name' => $name,
+		push(@rv, { 'name' => decode_utf7($name),
 			    'file' => $p,
 			    'type' => &folder_type($p),
 			    'perpage' => $userconfig{"perpage_$f"},

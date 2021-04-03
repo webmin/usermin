@@ -13,3 +13,5 @@ push(@rv, { 'type' => 'item',
 	    'link' => '/'.$module_name.'/', });
 return @rv;
 }
+
+1;

@@ -320,6 +320,10 @@ else {
 			elsif ($userconfig{'ham_move'} &&
 			       $folder->{'spam'} && $in{'ham'}) {
 				# Move mail to inbox and tell user
+				if (&remove_spam_subject($mail)) {
+					&mailbox_modify_mail(
+						$mail, $mail, $folder);
+					}
 				&mailbox_move_mail($folder, $inbox, $mail);
 				print "<b>",&text('razor_moved',
 						  $inbox->{'name'}),"</b><p>\n";

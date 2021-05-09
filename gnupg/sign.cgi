@@ -15,7 +15,7 @@ elsif ($in{'mode'} == 1) {
 	# Local file
 	$in{'local'} || &error($text{'sign_eupload'});
 	-r $in{'local'} || &error($text{'sign_elocal'});
-	$data = &read_entire_file($in{'local'});
+	$data = &read_file_contents($in{'local'});
 	}
 elsif ($in{'mode'} == 2) {
 	# Text box

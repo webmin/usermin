@@ -14,7 +14,7 @@ elsif ($in{'mode'} == 1) {
 	# File on server
 	$in{'local'} || &error($text{'decrypt_eupload'});
 	-r $in{'local'} || &error($text{'decrypt_elocal'});
-	$data = &read_entire_file($in{'local'});
+	$data = &read_file_contents($in{'local'});
 	}
 elsif ($in{'mode'} == 2) {
 	# Pasted text

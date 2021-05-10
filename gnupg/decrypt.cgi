@@ -22,14 +22,22 @@ elsif ($in{'mode'} == 2) {
 	$data =~ s/\r//g;
 	}
 
-$rv = &decrypt_data($data, \$plain);
+@keys = &list_keys();
+$key = $keys[$in{'idx'}];
+$pass = &get_passphrase($key);
+if (!defined($pass)) {
+	&error($text{'sign_epass'}.". ".
+	  &text('gnupg_canset', "/gnupg/edit_key.cgi?idx=$in{'idx'}").".");
+	}
+
+$rv = &decrypt_data($data, \$plain, $key);
 if ($rv) {
 	&error(&text('decrypt_egpg', $rv));
 	}
 
 local $temp = &transname();
-&write_entire_file($temp, $plain);
-$type = `file $temp`;
+&write_file_contents($temp, $plain);
+$type = &backquote_command("file ".quotemeta($temp)." 2>/dev/null");
 unlink($temp);
 if ($type =~ /text$/) {
 	print "Content-type: text/plain\n\n";

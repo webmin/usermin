@@ -112,6 +112,7 @@ decrypt_err=Failed to decrypt file
 decrypt_eupload=No file selected to decrypt
 decrypt_elocal=Selected file does not exist or is not readable
 decrypt_egpg=GnuPG failed : $1
+decrypt_key=Decrypt using secret key
 
 sign_title=Sign File
 sign_desc=Use this page to sign a file so that it can be verified that it was signed by you and that it has not been modified since signing.
@@ -184,6 +185,7 @@ gnupg_ecryptid=Encryption secret key is not available
 gnupg_ecryptkey=Encryption secret key ID $1 not available
 gnupg_ecryptpass=No passphrase has been set yet for the secret key $1
 gnupg_canset=To set a passphrase for an existing key, visit the <a href='$1'>key details page</a>
+gnupg_ecryptkey2=Unexpected encryption secret key ID $1
 
 trust_title=Set Trust Level
 trust_echoice=You must choose a trust level, not 'Not yet set'.

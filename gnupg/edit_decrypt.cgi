@@ -19,6 +19,12 @@ print &ui_table_row($text{'decrypt_mode'},
 		  [ 2, $text{'decrypt_mode2'},
 		    &ui_textarea("text", undef, 5, 40) ] ]));
 
+# Secret key to use
+@keys = &list_secret_keys();
+print &ui_table_row($text{'decrypt_key'},
+	&ui_select("idx", undef,
+		[ map { [ $_->{'index'}, $_->{'name'}->[0] ] } @keys ]));
+
 print &ui_table_end();
 print &ui_form_end([ [ undef, $text{'decrypt_ok'} ] ]);
 

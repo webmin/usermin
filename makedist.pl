@@ -40,8 +40,8 @@ $vers = $ARGV[0];
 	  "changepass", "shell", "at", "fetchmail", "quota", "mysql",
 	  "procmail", "chfn", "htaccess", "commands", "man", "usermount",
 	  "tunnel", "updown", "postgresql", "spam",
-	  "htaccess-htpasswd", "schedule", "mailcap", "blue-theme",
-	  "filter", "gray-theme", "authentic-theme", "filemin",
+	  "htaccess-htpasswd", "schedule", "mailcap",
+	  "filter", "gray-theme", "authentic-theme", "filemin", "twofactor",
 	 );
 if ($webmail) {
 	push(@mlist, "virtual-server-theme");
@@ -164,6 +164,11 @@ while($d = readdir(DIR)) {
 	}
 closedir(DIR);
 
+# Make blue-theme a symlink instead of a copy
+if (-r "tarballs/$dir/gray-theme") {
+        system("cd tarballs/$dir && ln -s gray-theme blue-theme");
+        }
+
 # Remove useless .bak, test and other files, and create the tar.gz file
 if ($webmail) {
 	print "Creating usermin-webmail-$vers.tar.gz\n";
@@ -173,10 +178,10 @@ else {
 	}
 system("find tarballs/$dir -name '*.bak' -o -name test -o -name '*.tmp' -o -name '*.site' -o -name core -o -name .xvpics -o -name .svn | xargs rm -rf");
 if ($webmail) {
-	system("cd tarballs ; tar chf - $dir | gzip -c >usermin-webmail-$vers.tar.gz");
+	system("cd tarballs ; tar cf - $dir | gzip -c >usermin-webmail-$vers.tar.gz");
 	}
 else {
-	system("cd tarballs ; tar chf - $dir | gzip -c >usermin-$vers.tar.gz");
+	system("cd tarballs ; tar cf - $dir | gzip -c >usermin-$vers.tar.gz");
 	}
 
 if (!$webmail) {

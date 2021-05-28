@@ -13,6 +13,19 @@ twofactor_done=.. complete. Your ID with this provider is <tt>$1</tt>.
 twofactor_setup=Two-factor authentication has not been enabled on this system yet. This must be done by your system administrator.
 twofactor_ebutton=No button clicked!
 
+twofactor_email=Your email address
+twofactor_country=Cellphone country code
+twofactor_phone=Cellphone phone number
+twofactor_eemail=Missing or invalid email address - must be formatted like user@domain.com
+twofactor_ecountry=Missing or invalid country code - must be a number, like 65
+twofactor_ephone=Missing or invalid phone number - only digits, dashes and spaces are allowed
+twofactor_eauthyenroll=Enrollment failed : $1
+twofactor_secret=Personal secret key
+twofactor_secret1=Generated randomly
+twofactor_secret0=Use 16-character key
+twofactor_esecret=Secret key must be exactly 16 characters long and contain only letters and numbers
+twofactor_qrcode=Enter the secret code $1 in the Google Authenticator app, or scan the QR code below.
+
 twofactor_eauthyid=Authy user ID must be a number
 twofactor_eauthytoken=Authy token must be a number
 twofactor_eauthyotp=Authy token is invalid
@@ -20,3 +33,6 @@ twofactor_etotpid=Invalid TOTP base32-encoded secret
 twofactor_etotptoken=Google Authenticator token must be a number
 twofactor_etotpmodule2=Missing Perl module $1
 twofactor_etotpmatch=Incorrect OTP code
+
+enable_title=Enabled Two-Factor Authentication
+enable_err=Enrollment failed

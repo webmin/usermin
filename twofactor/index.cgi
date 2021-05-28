@@ -11,8 +11,8 @@ our (%in, %text, $remote_user);
 my %miniserv;
 &get_miniserv_config(\%miniserv);
 if (!$miniserv{'twofactor_provider'}) {
-	print &text('twofactor_setup', '../webmin/edit_twofactor.cgi'),"<p>\n";
-	&ui_print_footer("", $text{'index_return'});
+	print $text{'twofactor_setup'},"<p>\n";
+	&ui_print_footer("/", $text{'index'});
 	return;
 	}
 

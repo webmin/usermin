@@ -108,6 +108,8 @@ mkdir -p %{buildroot}/etc/rc.d/{rc0.d,rc1.d,rc2.d,rc3.d,rc5.d,rc6.d}
 mkdir -p %{buildroot}/etc/init.d
 mkdir -p %{buildroot}/etc/pam.d
 cp -rp * %{buildroot}/usr/libexec/usermin
+rm %{buildroot}/usr/libexec/usermin/blue-theme
+cp -rp %{buildroot}/usr/libexec/usermin/gray-theme %{buildroot}/usr/libexec/usermin/blue-theme
 cp usermin-daemon %{buildroot}/etc/sysconfig/daemons/usermin
 cp usermin-init %{buildroot}/etc/init.d/usermin
 cp usermin-pam %{buildroot}/etc/pam.d/usermin

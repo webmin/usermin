@@ -1,0 +1,5 @@
+name=Twofactor
+desc=Two-Factor Authentication
+category=login
+usermin=1
+longdesc=Enroll for or disable two-factor authentication.

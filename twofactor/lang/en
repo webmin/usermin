@@ -1,0 +1,22 @@
+index_title=Two-Factor Authentication
+
+twofactor_disable=Disable Two-Factor Authentication
+twofactor_already=Your Usermin login already has two-factor authentication enabled with provider $1 and account ID $2.
+twofactor_already2=Usermin login $3 already has two-factor authentication enabled with provider $1 and account ID $2.
+twofactor_desc=This page allows you to enable two-factor authentication for your Usermin login using <a href='$2' target=_blank>$1</a>. Once active, an additional authentication token will be required when logging into Usermin.
+twofactor_desc2=This page allows you to enable two-factor authentication for Usermin login $3 using <a href='$2' target=_blank>$1</a>. Once active, an additional authentication token will be required when logging into Usermin.
+twofactor_enable=Enroll For Two-Factor Authentication
+twofactor_header=Two-factor authentication enrollment details
+twofactor_enrolling=Enrolling for two-factor authentication with provider $1 ..
+twofactor_failed=.. enrollment failed : $1
+twofactor_done=.. complete. Your ID with this provider is <tt>$1</tt>.
+twofactor_setup=Two-factor authentication has not been enabled on this system yet. This must be done by your system administrator.
+twofactor_ebutton=No button clicked!
+
+twofactor_eauthyid=Authy user ID must be a number
+twofactor_eauthytoken=Authy token must be a number
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Invalid TOTP base32-encoded secret
+twofactor_etotptoken=Google Authenticator token must be a number
+twofactor_etotpmodule2=Missing Perl module $1
+twofactor_etotpmatch=Incorrect OTP code

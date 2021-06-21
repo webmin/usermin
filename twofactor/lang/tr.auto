@@ -1,0 +1,38 @@
+index_title=İki Faktörlü Kimlik Doğrulama
+
+twofactor_disable=İki Faktörlü Kimlik Doğrulamayı Devre Dışı Bırak
+twofactor_already=$1 ve hesap kimliği $2 ile etkinleştirilmiş iki faktörlü kimlik doğrulama zaten var.
+twofactor_already2=Usermin login $3 $1 ve hesap kimliği $2 ile etkinleştirilmiş iki faktörlü kimlik doğrulamaya sahip.
+twofactor_desc=<a href='$2' target=_blank>$1</a> kullanarak Usermin oturum açmanız için iki faktörlü kimlik doğrulamayı etkinleştirmenizi sağlar. Etkinleştirildiğinde, Usermin'de oturum açarken ek bir kimlik doğrulama belirteci gerekecektir.
+twofactor_desc2=<a href='$2' target=_blank>$1</a> kullanarak $3 için iki faktörlü kimlik doğrulamayı etkinleştirmenizi sağlar. Etkinleştirildiğinde, Usermin'de oturum açarken ek bir kimlik doğrulama belirteci gerekecektir.
+twofactor_enable=İki Faktörlü Kimlik Doğrulama İçin Kaydolun
+twofactor_header=İki faktörlü kimlik doğrulama kayıt ayrıntıları
+twofactor_enrolling=$1 ile iki faktörlü kimlik doğrulamaya kaydolma  ..
+twofactor_failed=.. kayıt başarısız oldu : $1
+twofactor_done=.. tamamlayınız. Bu sağlayıcıdaki kimliğiniz <tt>$1</tt>.
+twofactor_setup=Bu sistemde henüz iki faktörlü kimlik doğrulama etkinleştirilmemiştir. Bu, sistem yöneticiniz tarafından yapılmalıdır.
+twofactor_ebutton=Hiçbir düğme tıklanmadı!
+
+twofactor_email=e
+twofactor_country=cep telefonu ülke kodu
+twofactor_phone=cep telefonu numarası
+twofactor_eemail=Eksik veya geçersiz e-posta adresi - user@domain.com
+twofactor_ecountry=Eksik veya geçersiz ülke kodu - 65 gibi bir sayı olmalıdır
+twofactor_ephone=Eksik veya geçersiz telefon numarası - yalnızca rakamlara, tirelere ve boşluklara izin verilir
+twofactor_eauthyenroll=Kayıt başarısız oldu : $1
+twofactor_secret=Kişisel gizli anahtar
+twofactor_secret1=rastgele oluşturuldu
+twofactor_secret0=16 karakterli anahtar kullan
+twofactor_esecret=Gizli anahtar tam olarak 16 karakter uzunluğunda olmalı ve yalnızca harf ve rakamlardan oluşmalıdır
+twofactor_qrcode=$1 gizli kodunu girin veya aşağıdaki QR kodunu tarayın.
+
+twofactor_eauthyid=Authy kullanıcı kimliği bir sayı olmalıdır
+twofactor_eauthytoken=Authy belirteci bir sayı olmalıdır
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Geçersiz TOTP base32 kodlu gizli
+twofactor_etotptoken=Google Authenticator jetonu bir sayı olmalıdır
+twofactor_etotpmodule2=Eksik Perl modülü $1
+twofactor_etotpmatch=Yanlış OTP kodu
+
+enable_title=Etkin İki Faktörlü Kimlik Doğrulama
+enable_err=Kayıt başarısız oldu

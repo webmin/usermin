@@ -8,6 +8,7 @@ index_pass=tunnuslausetta
 index_setup=Asenna GnuPG
 index_return=GnuPG-indeksi
 index_egpg=GnuPG-komentoa $1 ei löydy järjestelmästäsi. Ehkä sitä ei ole asennettu.
+
 setup_err=GnuPG: n asennus epäonnistui
 setup_ename=Puuttuu avaimen nimi
 setup_enamelen=Avaimen nimen on oltava vähintään $1 merkkiä pitkä
@@ -16,6 +17,7 @@ setup_title=Asenna GnuPG
 setup_ok=GnuPG on asennettu onnistuneesti ja salainen avain luotu.
 setup_failed=Salaisen avaimen luonti epäonnistui : $1 
 setup_emkdir=.Gnupg-hakemiston luonti epäonnistui : $1 
+
 keys_title=Hallitse näppäimiä
 keys_desc=Tällä sivulla luetellaan kaikki GnuPG-avainsanan julkiset avaimet. Jotta tiedosto salattaisiin jollekin, sinun on tuotava hänen julkinen avain niin, että se näkyy tällä sivulla.
 keys_id=Avaintunnus
@@ -42,11 +44,13 @@ keys_searchok=Hae
 keys_searchnone=Hakusi vastaavia avaimia ei löytynyt.
 keys_searchdesc=Tällä sivulla voit etsiä GPG-avainpalvelinta $1 nimen tai sähköpostiosoitteen perusteella ja tuoda löydettyjä avaimia.
 keys_status=Tila
+
 import_err=Avaimen tuonti epäonnistui
 import_ekey=Avaintiedostoa ei ole valittu
 import_egpg=GnuPG epäonnistui : $1 
 import_efile=Puuttuva tai virheellinen avaintiedosto
 import_etext=Avaintekstiä ei annettu
+
 key_title=Julkisen avaimen yksityiskohdat
 key_header=Tärkeimmät tiedot
 key_id=Avaintunnus
@@ -80,6 +84,7 @@ key_deldesc=Poista tämä avain järjestelmästäsi, jotta sitä ei käytetä al
 key_revoked=<font color=red>Peruutettu</font>
 key_got=<font color=#00aa00>tuotu</font>
 key_miss=Saatavilla
+
 encrypt_title=Salaa tiedosto
 encrypt_desc=Käytä tätä sivua tiedoston salaamiseen GnuPG: llä ja valitulla julkisella avaimella. Salattuaan tuloksen salauksen purkaa vain vastaavan yksityisen avaimen omistaja.
 encrypt_mode=Salattava tiedosto
@@ -93,6 +98,7 @@ encrypt_err=Tiedoston salaus epäonnistui
 encrypt_eupload=Salattavaksi ei ole valittu tiedostoa
 encrypt_elocal=Valittua tiedostoa ei ole tai sitä ei voi lukea
 encrypt_egpg=GnuPG epäonnistui : $1 
+
 decrypt_title=Salaa tiedosto
 decrypt_desc=Tämän sivun avulla voit purkaa tiedoston, joka on salattu julkisella avaimella joko itse tai jonkun muun, jolla on avaimesi, avulla.
 decrypt_mode=Salattava tiedosto
@@ -106,6 +112,8 @@ decrypt_err=Tiedoston purkaminen epäonnistui
 decrypt_eupload=Yhtään tiedostoa ei ole valittu purkamista varten
 decrypt_elocal=Valittua tiedostoa ei ole tai sitä ei voi lukea
 decrypt_egpg=GnuPG epäonnistui : $1 
+decrypt_key=Salauksen purkaminen salaisella avaimella
+
 sign_title=Allekirjoitustiedosto
 sign_desc=Tämän sivun avulla voit allekirjoittaa tiedoston, jotta voidaan varmistaa, että olet allekirjoittanut sen ja että sitä ei ole muokattu allekirjoittamisen jälkeen.
 sign_mode=Allekirjoitettava tiedosto
@@ -121,6 +129,7 @@ sign_elocal=Valittua tiedostoa ei ole tai sitä ei voi lukea
 sign_egpg=GnuPG epäonnistui : $1 
 sign_epass=Valitulle salaiselle avaimelle ei ole vielä asetettu salasanaa
 sign_sep=Palautetaanko vain erillinen allekirjoitus?
+
 verify_title=Vahvista allekirjoitettu tiedosto
 verify_desc=Tämän sivun avulla voit vahvistaa tiedoston, joka on allekirjoitettu GnuPG: llä, tarkistaaksesi, ettei sitä ole muokattu, ja selvittää kuka sen allekirjoitti. Jos haluat poimia alkuperäiset tiedot allekirjoitetusta binaaritiedostosta, käytä <a href='$1'>salauksen purkusivua</a>.
 verify_mode=Varmennettava tiedosto
@@ -141,6 +150,7 @@ verify_bad=Tiedostolla on allekirjoitus $1 : ltä, mutta se ei ole kelvollinen.
 verify_noid=Julkinen avain, jonka tunnus on $1, ei ole käytettävissä vahvistettavaksi.
 verify_failed=Allekirjoituksen vahvistaminen epäonnistui : $1 
 verify_warning=Varoitus - Tätä avainta ei ole vahvistettu ja allekirjoitettu avaimenhallintasivulla.
+
 signkey_title=Allekirjoitusavain
 signkey_confirm=Haluatko varmasti allekirjoittaa $1 $2 : n avaimen? Tämä osoittaa, että olet vahvistanut avaimen pätevyyden tarkistamalla sen sormenjäljen ($3) omistajan kanssa.
 signkey_failed=$1  : n avaimen allekirjoittaminen epäonnistui
@@ -151,38 +161,48 @@ signkey_trust0=Ei vastausta
 signkey_trust1=Ei tarkistettu
 signkey_trust2=Tarkistetaan satunnaisesti
 signkey_trust3=Tarkistettu huolellisesti
+
 send_title=Lähetä Keyserverille
 send_desc=Lähetetään avain $1 avainpalvelimeen $2 ..
 send_failed=Avaimen lähettäminen epäonnistui : $1 
 send_success=Avain lähetetty onnistuneesti. Muut GnuPG-käyttäjät voivat nyt hakea julkisen avaimesi sähköpostin lähettämiseen ja tiedostojen salaamiseen.
+
 recv_title=Hae hakemistopalvelimelta
 recv_desc=Haetaan avaintunnusta $1 avainpalvelimesta $2 ..
 recv_failed=Avaimen nouto epäonnistui : $1 
 recv_same=Jo sinulla on avain $1 : stä.
 recv_success=Avaimen tuonti onnistuneesti kohdasta $1.
+
 secret_title=Lisää salainen avain
 secret_desc=Tämän sivun avulla voit luoda ylimääräisen salaisen avaimen, jota voit käyttää allekirjoittamiseen ja salauksen purkamiseen.
 secret_err=Salaisen avaimen lisääminen epäonnistui
 secret_ok=Uusi salainen avain on luotu onnistuneesti.
 secret_name=Uusi avaimen nimi
 secret_setup=Luo uusi avain
+
 gnupg_esignpass=Allekirjoitusavaimelle ei ole vielä asetettu salasanaa
 gnupg_ecryptid=Salaussalainen avain ei ole käytettävissä
 gnupg_ecryptkey=Salaussalaisuuden tunnus $1 ei ole käytettävissä
 gnupg_ecryptpass=Salaiselle avaimelle $1 ei ole vielä määritetty tunnuslausea
 gnupg_canset=Aseta tunnuslause olemassa olevalle avaimelle <a href='$1'>-näppäimistön tietosivulta</a>
+gnupg_ecryptkey2=Odottamaton salaus salaisen avaimen tunnus $1 
+
 trust_title=Aseta luottamustaso
 trust_echoice=Sinun on valittava luottamustaso, ei 'Ei vielä asetettu'.
 trust_done=Aseta luottamustaso avaimelle $1 onnistuneesti.
+
 owner_err1=Omistajan lisääminen epäonnistui
 owner_ename=Nimiä ei annettu
 owner_err2=Omistajan poistaminen epäonnistui
 owner_elast=Et voi poistaa viimeisen omistajan tietoja
+
 delkey_title=Poista avain
 delkey_rusure=Haluatko varmasti poistaa salaisen avaimen $1 $2 ? Kaikkia sen kanssa salattuja tiedostoja tai sähköposteja ei enää voida dekoodata!
 delkey_ok=Kyllä, poista se
+
 delkeys_err=Näppäinten poistaminen epäonnistui
 delkeys_enone=Mitään ei ole valittu
+
 export_title=Vie avain
 export_desc=Tällä sivulla voit viedä avaimen $1 $2 avainsanastasi joko tiedostoon tai ladattavaksi selaimesta.
 export_to=Vie tila

@@ -1,0 +1,38 @@
+index_title=Authentification à deux facteurs
+
+twofactor_disable=Désactiver l'authentification à deux facteurs
+twofactor_already=Votre connexion Usermin a déjà une authentification à deux facteurs activée avec le fournisseur $1 et l'ID de compte $2.
+twofactor_already2=La connexion Usermin $3 déjà une authentification à deux facteurs activée avec le fournisseur $1 et l'ID de compte $2.
+twofactor_desc=Cette page vous permet d'activer l'authentification à deux facteurs pour votre connexion Usermin en utilisant <a href='$2' target=_blank>$1</a>. Une fois actif, un jeton d'authentification supplémentaire sera requis lors de la connexion à Usermin.
+twofactor_desc2=Cette page vous permet d'activer l'authentification à deux facteurs pour la connexion Usermin $3 aide de <a href='$2' target=_blank>$1</a>. Une fois actif, un jeton d'authentification supplémentaire sera requis lors de la connexion à Usermin.
+twofactor_enable=Inscrivez-vous pour l'authentification à deux facteurs
+twofactor_header=Détails de l'inscription à l'authentification à deux facteurs
+twofactor_enrolling=Inscription à l'authentification à deux facteurs avec le fournisseur $1  ..
+twofactor_failed=.. l'inscription a échoué  : $1
+twofactor_done=.. Achevée. Votre identifiant avec ce fournisseur est <tt>$1</tt>.
+twofactor_setup=L'authentification à deux facteurs n'a pas encore été activée sur ce système. Cela doit être fait par votre administrateur système.
+twofactor_ebutton=Aucun bouton cliqué !
+
+twofactor_email=Votre adresse email
+twofactor_country=Code pays du portable
+twofactor_phone=Numéro de téléphone portable
+twofactor_eemail=Adresse e-mail manquante ou invalide - doit être formatée comme user@domain.com
+twofactor_ecountry=Code de pays manquant ou invalide - doit être un nombre, comme 65
+twofactor_ephone=Numéro de téléphone manquant ou invalide - seuls les chiffres, les tirets et les espaces sont autorisés
+twofactor_eauthyenroll=Échec de l'inscription  : $1
+twofactor_secret=Clé secrète personnelle
+twofactor_secret1=Généré aléatoirement
+twofactor_secret0=Utiliser une clé à 16 caractères
+twofactor_esecret=La clé secrète doit comporter exactement 16 caractères et ne contenir que des lettres et des chiffres
+twofactor_qrcode=Saisissez le code secret $1 dans l'application Google Authenticator ou scannez le code QR ci-dessous.
+
+twofactor_eauthyid=Authy ID utilisateur Authy doit être un nombre
+twofactor_eauthytoken=Authy jeton d'authentification doit être un nombre
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Secret codé en base32 TOTP non valide
+twofactor_etotptoken=Le jeton Google Authenticator doit être un nombre
+twofactor_etotpmodule2=Module Perl manquant $1
+twofactor_etotpmatch=Code OTP incorrect
+
+enable_title=Authentification à deux facteurs activée
+enable_err=L'inscription a échoué

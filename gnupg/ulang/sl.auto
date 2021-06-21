@@ -8,6 +8,7 @@ index_pass=Geslo
 index_setup=Setup GnuPG
 index_return=GnuPG indeks
 index_egpg=Ukaza GnuPG $1 v vašem sistemu ni bilo mogoče najti. Mogoče ni nameščen.
+
 setup_err=Nastavitve GnuPG ni uspelo
 setup_ename=Manjka ime ključa
 setup_enamelen=Ime za ključ mora biti dolgo vsaj $1 znak
@@ -16,6 +17,7 @@ setup_title=Setup GnuPG
 setup_ok=GnuPG je bil uspešno nastavljen in ustvaril je skrivni ključ.
 setup_failed=Skrivnega ključa ni bilo mogoče ustvariti : $1 
 setup_emkdir=Ni bilo mogoče ustvariti.gnupg imenika : $1 
+
 keys_title=Upravljanje tipk
 keys_desc=Ta stran prikazuje vse javne ključe v vašem ključu GnuPG. Če želite datoteko šifrirati za nekoga, morate uvoziti njihov javni ključ, tako da se pojavi na tej strani.
 keys_id=ID ključa
@@ -42,11 +44,13 @@ keys_searchok=Iskanje
 keys_searchnone=Nobenega ključa ni bilo mogoče najti.
 keys_searchdesc=Ta stran vam omogoča iskanje po strežniku tipk GPG $1 po imenu ali e-poštnem naslovu in najdenih ključih za uvoz.
 keys_status=Stanje
+
 import_err=Uvoz ključa ni uspel
 import_ekey=Ni izbrana nobena ključna datoteka
 import_egpg=GnuPG ni uspel : $1 
 import_efile=Manjkajoča ali neveljavna datoteka s ključi
 import_etext=Vneseno ni bilo nobenega ključnega besedila
+
 key_title=Podrobnosti o javnem ključu
 key_header=Ključne podrobnosti
 key_id=ID ključa
@@ -80,6 +84,7 @@ key_deldesc=Odstranite ta ključ iz sistema in preprečite, da bi ga uporabljal 
 key_revoked=<font color=red>Preklic</font>
 key_got=<font color=#00aa00>Uvoženo</font>
 key_miss=Na voljo
+
 encrypt_title=Šifriraj datoteko
 encrypt_desc=Na tej strani šifrirajte datoteko z GnuPG in izbranim javnim ključem. Ko je šifriran, bo rezultat mogoče dešifrirati samo lastnik ustreznega zasebnega ključa.
 encrypt_mode=Datoteka za šifriranje
@@ -93,6 +98,7 @@ encrypt_err=Šifriranja datoteke ni bilo mogoče
 encrypt_eupload=Za šifriranje ni izbrana nobena datoteka
 encrypt_elocal=Izbrana datoteka ne obstaja ali ni berljiva
 encrypt_egpg=GnuPG ni uspel : $1 
+
 decrypt_title=Dešifrirajte datoteko
 decrypt_desc=Na tej strani dešifrirajte datoteko, ki je bila šifrirana z vašim javnim ključem, bodisi vi bodisi nekdo drug, ki ima vaš ključ.
 decrypt_mode=Datoteka za dešifriranje
@@ -106,6 +112,8 @@ decrypt_err=Dešifriranja datoteke ni bilo mogoče
 decrypt_eupload=Za dešifriranje ni izbrana nobena datoteka
 decrypt_elocal=Izbrana datoteka ne obstaja ali ni berljiva
 decrypt_egpg=GnuPG ni uspel : $1 
+decrypt_key=Dešifriraj s skrivnim ključem
+
 sign_title=Podpisna datoteka
 sign_desc=Na tej strani podpišite datoteko, da lahko preverite, ali ste jo podpisali in da od podpisa ni bila spremenjena.
 sign_mode=Datoteka za podpis
@@ -121,6 +129,7 @@ sign_elocal=Izbrana datoteka ne obstaja ali ni berljiva
 sign_egpg=GnuPG ni uspel : $1 
 sign_epass=Za izbrani skrivni ključ še ni nastavljena gesla
 sign_sep=Ali želite vrniti samo ločen podpis?
+
 verify_title=Preverite podpisano datoteko
 verify_desc=Na tej strani preverite datoteko, ki je bila podpisana z GnuPG, da preverite, ali ni bila spremenjena, in ugotovite, kdo jo je podpisal. Če želite izvleči izvirne podatke iz podpisane binarne datoteke, uporabite <a href='$1'>stran za dešifriranje</a>.
 verify_mode=Datoteka za preverjanje
@@ -141,6 +150,7 @@ verify_bad=Datoteka ima podpis od $1, vendar ni veljavna.
 verify_noid=Javni ključ z ID% $1 ni na voljo za preverjanje.
 verify_failed=Ni bilo mogoče preveriti podpisa : $1 
 verify_warning=Opozorilo - Ta ključ ni bil preverjen in podpisan na vaši strani za upravljanje s ključi.
+
 signkey_title=Tipka za vpis
 signkey_confirm=Ali ste prepričani, da želite podpisati ključ, ki pripada $1 $2 ? To bo pomenilo, da ste potrdili veljavnost ključa s preverjanjem njegovega prstnega odtisa ($3) pri lastniku.
 signkey_failed=Ni bilo mogoče podpisati ključa $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Ni odgovora
 signkey_trust1=Ni preverjeno
 signkey_trust2=Po naključnem preverjanju
 signkey_trust3=Previdno preverjeno
+
 send_title=Pošlji na Keyserver
 send_desc=Pošiljanje tipke $1 strežniku tipk $2 ..
 send_failed=Ključa ni bilo mogoče poslati : $1 
 send_success=Ključ je bil uspešno poslan. Drugi uporabniki GnuPG-a bodo zdaj lahko poiskali svoj javni ključ za pošiljanje e-pošte in šifriranje datotek.
+
 recv_title=Pridobi od Keyserverja
 recv_desc=Pridobivanje ID-ja ključa $1 s strežnika tipk $2 ..
 recv_failed=Ključa ni bilo mogoče pridobiti : $1 
 recv_same=Že imate ključ od $1.
 recv_success=Ključ uspešno uvožen od $1.
+
 secret_title=Dodaj skrivni ključ
 secret_desc=Na tej strani ustvarite dodatni skrivni ključ, ki ga lahko uporabite za podpisovanje in dešifriranje.
 secret_err=Skrivnega ključa ni bilo mogoče dodati
 secret_ok=Nov tajni ključ je bil uspešno ustvarjen.
 secret_name=Novo ključno ime
 secret_setup=Ustvari nov ključ
+
 gnupg_esignpass=Za ključ za podpis še ni nastavljena gesla
 gnupg_ecryptid=Tajni ključ za šifriranje ni na voljo
 gnupg_ecryptkey=ID tajnega ključa šifriranja $1 ni na voljo
 gnupg_ecryptpass=Za tajni ključ $1 še ni nastavljena gesla
 gnupg_canset=Če želite nastaviti geslo za obstoječi ključ, obiščite <a href='$1'>stran s podrobnostmi o ključu</a>
+gnupg_ecryptkey2=Nepričakovan ID skrivnega ključa $1 
+
 trust_title=Nastavite raven zaupanja
 trust_echoice=Izbrati morate raven zaupanja in ne 'Še ni nastavljeno'.
 trust_done=Za ključ $1 je bila uspešno nastavljena raven zaupanja.
+
 owner_err1=Lastnika ni bilo mogoče dodati
 owner_ename=Ime ni vneseno
 owner_err2=Lastnika ni bilo mogoče izbrisati
 owner_elast=Zadnjih podrobnosti o lastniku ne morete izbrisati
+
 delkey_title=Izbriši ključ
 delkey_rusure=Ali ste prepričani, da želite izbrisati skrivni ključ $1 $2 ? Vse datoteke ali e-poštni kodi, z njimi šifrirani, ne bodo več dekodirni!
 delkey_ok=Da, izbriši
+
 delkeys_err=Brisanja tipk ni bilo mogoče
 delkeys_enone=Izbrana ni nobena
+
 export_title=Izvozni ključ
 export_desc=Na tej strani lahko izvozite ključ $1 $2 iz ključavnice v datoteko ali za prenos iz svojega brskalnika.
 export_to=Način izvoza

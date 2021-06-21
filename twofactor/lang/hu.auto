@@ -1,0 +1,38 @@
+index_title=Kétfaktoros hitelesítés
+
+twofactor_disable=Tiltsa le a kéttényezős hitelesítést
+twofactor_already=A Usermin bejelentkezésénél már van kétfaktoros hitelesítés a $1 szolgáltatónál és a $2 azonosítónál.
+twofactor_already2=A Usermin login $3 már engedélyezte a kétfaktoros hitelesítést a $1 szolgáltatóval és a $2 fiókazonosítóval.
+twofactor_desc=Ezen az oldalon engedélyezheti a kéttényezős hitelesítést a Usermin bejelentkezéshez a <a href='$2' target=_blank>$1</a>. Miután aktív, további hitelesítési tokenre lesz szükség, amikor bejelentkezik a Usermin-be.
+twofactor_desc2=Ez az oldal lehetővé teszi, hogy a kéttényezős hitelesítést Usermin bejelentkezés $3 alkalmazásával <a href='$2' target=_blank>$1</a>. Miután aktív, további hitelesítési tokenre lesz szükség, amikor bejelentkezik a Usermin-be.
+twofactor_enable=Regisztráljon kétfaktoros hitelesítésre
+twofactor_header=Kétfaktoros hitelesítési regisztráció részletei
+twofactor_enrolling=Regisztráció kétfaktoros hitelesítésre a $1 szolgáltatóval ..
+twofactor_failed=.. a beiratkozás nem sikerült : $1
+twofactor_done=.. teljes. Ennek a szolgáltatónak az azonosítója <tt>$1</tt>.
+twofactor_setup=A kétfaktoros hitelesítést még nem engedélyezték ezen a rendszeren. Ezt a rendszergazdának kell megtennie.
+twofactor_ebutton=Nem kattintott egyetlen gomb sem!
+
+twofactor_email=az email címed
+twofactor_country=Mobiltelefon országkód
+twofactor_phone=Mobiltelefon telefonszám
+twofactor_eemail=Hiányzó vagy érvénytelen e-mail cím - meg kell formázni, mint user@domain.com
+twofactor_ecountry=Hiányzó vagy érvénytelen országkód - számnak kell lennie, például 65
+twofactor_ephone=Hiányzó vagy érvénytelen telefonszám - csak számjegyek, kötőjelek és szóközök megengedettek
+twofactor_eauthyenroll=A beiratkozás nem sikerült : $1
+twofactor_secret=Személyes titkos kulcs
+twofactor_secret1=Véletlenszerűen generált
+twofactor_secret0=Használjon 16 karakteres billentyűt
+twofactor_esecret=A titkos kulcsnak pontosan 16 karakter hosszúnak kell lennie, és csak betűket és számokat tartalmazhat
+twofactor_qrcode=Írja be a titkos kódot $1 a Google Authenticator alkalmazásba, vagy olvassa be az alábbi QR-kódot.
+
+twofactor_eauthyid=Authy felhasználói azonosítónak számnak kell lennie
+twofactor_eauthytoken=Authy tokennek számnak kell lennie
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Érvénytelen TOTP base32-kódolású titok
+twofactor_etotptoken=A Google Authenticator tokennek számnak kell lennie
+twofactor_etotpmodule2=Hiányzik a $1
+twofactor_etotpmatch=Helytelen OTP kód
+
+enable_title=Engedélyezte a kéttényezős hitelesítést
+enable_err=A beiratkozás nem sikerült

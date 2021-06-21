@@ -1,0 +1,38 @@
+index_title=Dvojfaktorová autentifikácia
+
+twofactor_disable=Zakážte dvojfaktorové overenie
+twofactor_already=Vaše prihlasovacie meno na serveri Usermin už má dvojfaktorovú autentizáciu povolenú u poskytovateľa $1 a ID účtu $2.
+twofactor_already2=Prihlasovacie meno používateľa $3 už má dvojfaktorovú autentizáciu povolenú u poskytovateľa $1 a ID účtu $2.
+twofactor_desc=Táto stránka umožňuje povoliť dvojfaktorovú autentifikáciu pre vaše prihlásenie pomocou služby Usermin pomocou <a href='$2' target=_blank>$1</a>. Po aktivácii bude pri prihlásení do služby Usermin potrebný ďalší overovací token.
+twofactor_desc2=Táto stránka umožňuje povoliť dvojfaktorovú autentizáciu pre prihlásenie používateľa $3 <a href='$2' target=_blank>$1</a>. Po aktivácii bude pri prihlásení do služby Usermin potrebný ďalší overovací token.
+twofactor_enable=Zaregistrujte sa na dvojfaktorové overenie
+twofactor_header=Podrobnosti registrácie dvojfaktorovej autentifikácie
+twofactor_enrolling=Registrácia dvojfaktorovej autentifikácie u poskytovateľa $1  ..
+twofactor_failed=.. registrácia zlyhala : $1
+twofactor_done=.. kompletné. Vaše ID u tohto poskytovateľa je <tt>$1</tt>.
+twofactor_setup=Dvojfaktorová autentifikácia v tomto systéme zatiaľ nie je povolená. To musí urobiť váš správca systému.
+twofactor_ebutton=Nekliklo žiadne tlačidlo!
+
+twofactor_email=Vaša emailová adresa
+twofactor_country=Kód krajiny mobilného telefónu
+twofactor_phone=Mobilné telefónne číslo
+twofactor_eemail=Chýbajúce alebo nesprávny e-mailovú adresu - musí byť formátovaný ako user@domain.com
+twofactor_ecountry=Chýba alebo neplatný kód krajiny - musí to byť číslo, napríklad 65
+twofactor_ephone=Chýbajúce alebo neplatné telefónne číslo - povolené sú iba číslice, pomlčky a medzery
+twofactor_eauthyenroll=Registrácia zlyhala : $1
+twofactor_secret=Osobný tajný kľúč
+twofactor_secret1=Generované náhodne
+twofactor_secret0=Použite 16-znakový kľúč
+twofactor_esecret=Tajný kľúč musí mať presne 16 znakov a musí obsahovať iba písmená a čísla
+twofactor_qrcode=Zadajte tajný kód $1 v aplikácii Google Authenticator alebo naskenujte QR kód uvedený nižšie.
+
+twofactor_eauthyid=Authy ID užívateľa musí byť číslo
+twofactor_eauthytoken=Authy token musí byť číslo
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Neplatné tajomstvo kódované TOTP base32
+twofactor_etotptoken=Token aplikácie Google Authenticator musí byť číslo
+twofactor_etotpmodule2=Chýba modul Perl $1
+twofactor_etotpmatch=Nesprávny OTP kód
+
+enable_title=Povolené dvojfaktorové overenie
+enable_err=Registrácia zlyhala

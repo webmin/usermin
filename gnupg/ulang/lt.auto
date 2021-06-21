@@ -8,6 +8,7 @@ index_pass=Slaptafrazė
 index_setup=„GnuPG“ sąranka
 index_return=„GnuPG“ indeksas
 index_egpg=„GnuPG“ komanda $1 jūsų sistemoje nerasta. Galbūt jis neįdiegtas.
+
 setup_err=Nepavyko nustatyti „GnuPG“
 setup_ename=Trūksta rakto pavadinimo
 setup_enamelen=Rakto vardas turi būti ne mažesnis kaip $1 simbolio
@@ -16,6 +17,7 @@ setup_title=„GnuPG“ sąranka
 setup_ok=„GnuPG“ buvo sėkmingai sukonfigūruota ir sukurtas slaptas raktas.
 setup_failed=Nepavyko sukurti slapto rakto : $1 
 setup_emkdir=Nepavyko sukurti.gnupg katalogo : $1 
+
 keys_title=Valdykite klavišus
 keys_desc=Šiame puslapyje pateikiami visi viešieji raktai, esantys jūsų „GnuPG“ raktiniame žodyne. Norėdami užkoduoti ką nors failą, turite importuoti jo viešąjį raktą, kad jis būtų rodomas šiame puslapyje.
 keys_id=Rakto ID
@@ -42,11 +44,13 @@ keys_searchok=Paieška
 keys_searchnone=Nerasta raktų, atitinkančių jūsų paiešką.
 keys_searchdesc=Šiame puslapyje galite ieškoti GPG raktų serverio $1 pagal vardą ar el. Pašto adresą ir importuoti raktus.
 keys_status=Statusas
+
 import_err=Nepavyko importuoti rakto
 import_ekey=Nepasirinktas rakto failas
 import_egpg=„GnuPG“ nepavyko : $1 
 import_efile=Trūksta arba netinkamas rakto failas
 import_etext=Neįvestas rakto tekstas
+
 key_title=Informacija apie viešąjį raktą
 key_header=Pagrindinė informacija
 key_id=Rakto ID
@@ -80,6 +84,7 @@ key_deldesc=Pašalinkite šį raktą iš savo sistemos, kad jis nebūtų naudoja
 key_revoked=<font color=red>Panaikintas</font>
 key_got=<font color=#00aa00>Importuota</font>
 key_miss=Yra
+
 encrypt_title=Šifruoti failą
 encrypt_desc=Naudokite šį puslapį, kad užšifruotumėte failą naudodami „GnuPG“ ir pasirinktą viešąjį raktą. Šifruotą rezultatą iššifruos tik atitinkančio privataus rakto savininkas.
 encrypt_mode=Failas, skirtas šifruoti
@@ -93,6 +98,7 @@ encrypt_err=Nepavyko užšifruoti failo
 encrypt_eupload=Nepasirenkamas šifruoti failas
 encrypt_elocal=Pasirinkto failo nėra arba jis nėra skaitomas
 encrypt_egpg=„GnuPG“ nepavyko : $1 
+
 decrypt_title=Iššifruokite failą
 decrypt_desc=Naudokite šį puslapį, jei norite iššifruoti failą, kuris buvo užšifruotas naudojant jūsų viešą raktą - jūsų pačių ar kito asmens, kuris turi jūsų raktą.
 decrypt_mode=Failas iššifruoti
@@ -106,6 +112,8 @@ decrypt_err=Nepavyko iššifruoti failo
 decrypt_eupload=Neįrenkamas iššifruoti failas
 decrypt_elocal=Pasirinkto failo nėra arba jis nėra skaitomas
 decrypt_egpg=„GnuPG“ nepavyko : $1 
+decrypt_key=Iššifruoti naudojant slaptą raktą
+
 sign_title=Pasirašymo failas
 sign_desc=Naudokite šį puslapį norėdami pasirašyti failą, kad būtų galima įsitikinti, jog jį pasirašėte jūs ir kad nuo pasirašymo jis nebuvo pakeistas.
 sign_mode=Pasirašyti failą
@@ -121,6 +129,7 @@ sign_elocal=Pasirinkto failo nėra arba jis nėra skaitomas
 sign_egpg=„GnuPG“ nepavyko : $1 
 sign_epass=Pasirinktam slaptajam raktui dar nėra nustatyta jokia slaptafrazė
 sign_sep=Grąžinti tik atsietą parašą?
+
 verify_title=Patikrinkite pasirašytą failą
 verify_desc=Naudokite šį puslapį norėdami patikrinti failą, pasirašytą su GnuPG, norėdami patikrinti, ar jis nebuvo modifikuotas, ir sužinoti, kas jį pasirašė. Jei norite išspausti pirminius duomenis iš pasirašyto dvejetainio failo, naudokite <a href='$1'>iššifravimo puslapį</a>.
 verify_mode=Patikrinkite failą
@@ -141,6 +150,7 @@ verify_bad=Failas pasirašytas iš $1, tačiau jis negalioja.
 verify_noid=Viešojo rakto su ID $1 negalima patvirtinti.
 verify_failed=Nepavyko patvirtinti parašo : $1 
 verify_warning=Įspėjimas - šis raktas nebuvo patvirtintas ir pasirašytas jūsų raktų tvarkymo puslapyje.
+
 signkey_title=Pasirašymo raktas
 signkey_confirm=Ar tikrai norite pasirašyti raktą, priklausantį $1 $2 ? Tai parodys, kad jūs patvirtinote rakto galiojimą, patikrinę jo savininko pirštų atspaudus ($3).
 signkey_failed=Nepavyko pasirašyti rakto, priklausančio $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Nėra atsakymo
 signkey_trust1=Nepatikrinta
 signkey_trust2=Neatsitiktinai patikrinta
 signkey_trust3=Atidžiai patikrinta
+
 send_title=Siųsti į „Keyserver“
 send_desc=Siunčiamas raktas $1 į raktų serverį $2.
 send_failed=Nepavyko išsiųsti rakto : $1 
 send_success=Raktas pateiktas sėkmingai. Kiti „GnuPG“ vartotojai dabar galės nuskaityti jūsų viešąjį raktą el. Laiškams siųsti ir failams šifruoti.
+
 recv_title=Gauti iš „Keyserver“
 recv_desc=Gaunamas rakto ID $1 iš klaviatūros serverio $2 ..
 recv_failed=Nepavyko gauti rakto : $1 
 recv_same=Jau turite raktą iš $1.
 recv_success=Sėkmingai importuotas raktas iš $1.
+
 secret_title=Pridėti slaptą raktą
 secret_desc=Naudokite šį puslapį norėdami sugeneruoti papildomą slaptą raktą, kurį galite naudoti pasirašydami ir iššifruodami.
 secret_err=Nepavyko pridėti slapto rakto
 secret_ok=Sėkmingai sugeneruotas naujas slaptas raktas.
 secret_name=Naujas rakto vardas
 secret_setup=Sukurti naują raktą
+
 gnupg_esignpass=Pasirašymo rakto slaptafrazė dar nenustatyta
 gnupg_ecryptid=Slaptas šifravimo raktas negalimas
 gnupg_ecryptkey=Šifravimo slapto rakto ID $1 negalimas
 gnupg_ecryptpass=Slaptam raktui $1 dar nėra nustatyta slaptafrazė
 gnupg_canset=Norėdami nustatyti esamo rakto slaptafrazę, apsilankykite <a href='$1'>rakto informacijos puslapyje</a>
+gnupg_ecryptkey2=Netikėtas šifravimo slapto rakto ID $1 
+
 trust_title=Nustatykite pasitikėjimo lygį
 trust_echoice=Turite pasirinkti pasitikėjimo lygį, o ne „Dar nenustatytas“.
 trust_done=Sėkmingai nustatykite rakto $1 pasitikėjimo lygį.
+
 owner_err1=Nepavyko pridėti savininko
 owner_ename=Neįvestas vardas
 owner_err2=Nepavyko ištrinti savininko
 owner_elast=Negalite ištrinti paskutinės savininko informacijos
+
 delkey_title=Ištrinti raktą
 delkey_rusure=Ar tikrai norite ištrinti slaptą raktą $1 $2 ? Visi šifruoti failai ar el. Paštas nebebus iššifruojami!
 delkey_ok=Taip, ištrinti
+
 delkeys_err=Nepavyko ištrinti raktų
 delkeys_enone=Nepasirinkta
+
 export_title=Eksporto raktas
 export_desc=Šiame puslapyje galite eksportuoti raktą $1 $2 iš savo raktų paėmimo failo arba atsisiųsti iš savo naršyklės.
 export_to=Eksporto režimas

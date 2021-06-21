@@ -1,0 +1,38 @@
+index_title=אימות דו-גורמי
+
+twofactor_disable=השבת אימות דו-גורמי
+twofactor_already=בכניסה שלך ל- Usermin כבר מופעלת אימות דו-גורמי עם ספק $1 ומזהה חשבון $2.
+twofactor_already2=בכניסה למערכת Usermin $3 כבר מופעלת אימות דו-גורמי עם ספק $1 ומזהה חשבון $2.
+twofactor_desc=דף זה מאפשר לך לאפשר אימות דו-גורמי להתחברות Usermin שלך באמצעות <a href='$2' target=_blank>$1</a>. לאחר הפעולה, יידרש אסימון אימות נוסף בעת הכניסה ל- Usermin.
+twofactor_desc2=דף זה מאפשר לך לאפשר אימות דו-גורמי בכניסה ל- Usermin $3 באמצעות <a href='$2' target=_blank>$1</a>. לאחר הפעולה, יידרש אסימון אימות נוסף בעת הכניסה ל- Usermin.
+twofactor_enable=הירשם לאימות דו-גורמי
+twofactor_header=פרטי הרשמת אימות דו-גורמי
+twofactor_enrolling=הרשמה לאימות דו-גורמי אצל הספק $1  ..
+twofactor_failed=.. ההרשמה נכשלה : $1
+twofactor_done=.. שלם. תעודת הזהות שלך עם ספק זה היא <tt>$1</tt>.
+twofactor_setup=אימות דו-גורמי עדיין לא הופעל במערכת זו. מנהל המערכת שלך חייב לעשות זאת.
+twofactor_ebutton=שום לחצן לא נלחץ!
+
+twofactor_email=כתובת המייל שלך
+twofactor_country=קוד מדינה לטלפון סלולרי
+twofactor_phone=מספר טלפון סלולרי
+twofactor_eemail=כתובת דואל חסרה או לא חוקית - יש לעצב אותה כמו user@domain.com
+twofactor_ecountry=קוד מדינה חסר או לא חוקי - חייב להיות מספר, כמו 65
+twofactor_ephone=מספר טלפון חסר או לא חוקי - רק ספרות, מקפים ומרווחים מותרים
+twofactor_eauthyenroll=ההרשמה נכשלה : $1
+twofactor_secret=מפתח סודי אישי
+twofactor_secret1=נוצר באופן אקראי
+twofactor_secret0=השתמש במקש בן 16 תווים
+twofactor_esecret=המפתח הסודי חייב להיות באורך של 16 תווים בדיוק ולהכיל רק אותיות ומספרים
+twofactor_qrcode=הזן את הקוד הסודי $1 באפליקציית Google Authenticator, או סרוק את קוד ה- QR שלמטה.
+
+twofactor_eauthyid=מזהה המשתמש של Authy
+twofactor_eauthytoken=Authy חייב להיות מספר
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=סוד מקודד TOTP לא חוקי
+twofactor_etotptoken=אסימון המאמת של Google חייב להיות מספר
+twofactor_etotpmodule2=חסר מודול פרל $1
+twofactor_etotpmatch=קוד OTP שגוי
+
+enable_title=אימות דו-גורמי מופעל
+enable_err=ההרשמה נכשלה

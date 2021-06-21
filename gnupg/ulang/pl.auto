@@ -8,6 +8,7 @@ index_pass=Hasło
 index_setup=Skonfiguruj GnuPG
 index_return=Indeks GnuPG
 index_egpg=W systemie nie znaleziono polecenia GnuPG $1. Może nie jest zainstalowany.
+
 setup_err=Nie udało się skonfigurować GnuPG
 setup_ename=Brak nazwy klucza
 setup_enamelen=Nazwa klucza musi mieć co najmniej $1 znaków
@@ -16,6 +17,7 @@ setup_title=Skonfiguruj GnuPG
 setup_ok=GnuPG zostało pomyślnie skonfigurowane i wygenerowano tajny klucz.
 setup_failed=Nie udało się utworzyć tajnego klucza : $1 
 setup_emkdir=Nie udało się utworzyć katalogu.gnupg : $1 
+
 keys_title=Zarządzaj kluczami
 keys_desc=Ta strona zawiera listę wszystkich kluczy publicznych w twoim breloku GnuPG. Aby zaszyfrować plik dla kogoś, musisz zaimportować jego klucz publiczny, aby pojawił się na tej stronie.
 keys_id=ID klucza
@@ -42,11 +44,13 @@ keys_searchok=Szukaj
 keys_searchnone=Nie znaleziono kluczy pasujących do wyszukiwania.
 keys_searchdesc=Ta strona pozwala przeszukiwać serwer kluczy GPG $1 według nazwy lub adresu e-mail oraz znaleźć klucze do importu.
 keys_status=Status
+
 import_err=Nie udało się zaimportować klucza
 import_ekey=Nie wybrano pliku klucza
 import_egpg=Błąd GnuPG : $1 
 import_efile=Brakujący lub nieprawidłowy plik klucza
 import_etext=Nie wpisano tekstu klucza
+
 key_title=Szczegóły klucza publicznego
 key_header=Kluczowe szczegóły
 key_id=ID klucza
@@ -80,6 +84,7 @@ key_deldesc=Usuń ten klucz z systemu, uniemożliwiając jego użycie do podpisy
 key_revoked=<font color=red>Odwołany</font>
 key_got=<font color=#00aa00>Zaimportowano</font>
 key_miss=Dostępny
+
 encrypt_title=Zaszyfruj plik
 encrypt_desc=Użyj tej strony, aby zaszyfrować plik za pomocą GnuPG i wybranego klucza publicznego. Po zaszyfrowaniu wynik będzie odszyfrowywany tylko przez właściciela pasującego klucza prywatnego.
 encrypt_mode=Plik do zaszyfrowania
@@ -93,6 +98,7 @@ encrypt_err=Nie udało się zaszyfrować pliku
 encrypt_eupload=Nie wybrano pliku do zaszyfrowania
 encrypt_elocal=Wybrany plik nie istnieje lub nie można go odczytać
 encrypt_egpg=Błąd GnuPG : $1 
+
 decrypt_title=Odszyfruj plik
 decrypt_desc=Użyj tej strony, aby odszyfrować plik, który został zaszyfrowany za pomocą twojego klucza publicznego, samodzielnie lub przez kogoś innego, kto ma Twój klucz.
 decrypt_mode=Plik do odszyfrowania
@@ -106,6 +112,8 @@ decrypt_err=Nie udało się odszyfrować pliku
 decrypt_eupload=Nie wybrano pliku do odszyfrowania
 decrypt_elocal=Wybrany plik nie istnieje lub nie można go odczytać
 decrypt_egpg=Błąd GnuPG : $1 
+decrypt_key=Odszyfruj za pomocą tajnego klucza
+
 sign_title=Plik podpisu
 sign_desc=Użyj tej strony do podpisania pliku, aby można było zweryfikować, że został podpisany przez Ciebie i że nie został zmodyfikowany od czasu podpisania.
 sign_mode=Plik do podpisania
@@ -121,6 +129,7 @@ sign_elocal=Wybrany plik nie istnieje lub nie można go odczytać
 sign_egpg=Błąd GnuPG : $1 
 sign_epass=Nie wybrano jeszcze hasła dla wybranego tajnego klucza
 sign_sep=Zwrócić tylko odłączony podpis?
+
 verify_title=Sprawdź podpisany plik
 verify_desc=Użyj tej strony, aby zweryfikować plik, który został podpisany za pomocą GnuPG, aby sprawdzić, czy nie został zmodyfikowany i dowiedzieć się, kto go podpisał. Jeśli chcesz wyodrębnić oryginalne dane z podpisanego pliku binarnego, użyj strony deszyfrowania <a href='$1'></a>.
 verify_mode=Plik do weryfikacji
@@ -141,6 +150,7 @@ verify_bad=Plik ma podpis z $1, ale jest niepoprawny.
 verify_noid=Klucz publiczny o identyfikatorze $1 nie jest dostępny do weryfikacji.
 verify_failed=Nie udało się zweryfikować podpisu : $1 
 verify_warning=Ostrzeżenie - ten klucz nie został zweryfikowany i podpisany na stronie zarządzania kluczami.
+
 signkey_title=Klucz do znaku
 signkey_confirm=Czy na pewno chcesz podpisać klucz należący do $1 $2 ? Oznacza to, że potwierdziłeś ważność klucza, sprawdzając jego odcisk palca ($3) u właściciela.
 signkey_failed=Nie udało się podpisać klucza należącego do $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Brak odpowiedzi
 signkey_trust1=Niesprawdzone
 signkey_trust2=Niedbale sprawdzone
 signkey_trust3=Dokładnie sprawdzone
+
 send_title=Wyślij do Keyserver
 send_desc=Wysyłanie klucza $1 do serwera kluczy $2 ..
 send_failed=Nie udało się wysłać klucza : $1 
 send_success=Klucz przesłany pomyślnie. Inni użytkownicy GnuPG będą mogli teraz odzyskać twój klucz publiczny do wysyłania wiadomości e-mail i szyfrowania plików.
+
 recv_title=Pobierz z Keyserver
 recv_desc=Pobieranie identyfikatora klucza $1 z serwera kluczy $2 ..
 recv_failed=Nie udało się pobrać klucza : $1 
 recv_same=Masz już klucz z $1.
 recv_success=Pomyślnie zaimportowano klucz z $1.
+
 secret_title=Dodaj tajny klucz
 secret_desc=Ta strona służy do generowania dodatkowego tajnego klucza, którego można użyć do podpisywania i deszyfrowania.
 secret_err=Nie udało się dodać tajnego klucza
 secret_ok=Nowy tajny klucz został pomyślnie wygenerowany.
 secret_name=Nowa nazwa klucza
 secret_setup=Utwórz nowy klucz
+
 gnupg_esignpass=Dla klucza podpisującego nie ustawiono jeszcze hasła
 gnupg_ecryptid=Tajny klucz szyfrowania jest niedostępny
 gnupg_ecryptkey=Identyfikator tajnego klucza szyfrowania $1 jest niedostępny
 gnupg_ecryptpass=Nie ustawiono jeszcze hasła dla tajnego klucza $1 
 gnupg_canset=Aby ustawić hasło dla istniejącego klucza, odwiedź <a href='$1'>stronę szczegółów klucza</a>
+gnupg_ecryptkey2=Nieoczekiwany identyfikator tajnego klucza szyfrowania $1 
+
 trust_title=Ustaw poziom zaufania
 trust_echoice=Musisz wybrać poziom zaufania, a nie „Jeszcze nie ustawiony”.
 trust_done=Pomyślnie ustaw poziom zaufania dla klucza $1.
+
 owner_err1=Nie udało się dodać właściciela
 owner_ename=Nie wpisano nazwy
 owner_err2=Nie udało się usunąć właściciela
 owner_elast=Nie możesz usunąć danych ostatniego właściciela
+
 delkey_title=Usuń klucz
 delkey_rusure=Czy na pewno chcesz usunąć tajny klucz $1 $2 ? Zaszyfrowane nim pliki lub wiadomości e-mail nie będą już możliwe do odkodowania!
 delkey_ok=Tak, usuń to
+
 delkeys_err=Nie udało się usunąć kluczy
 delkeys_enone=Nie wybrano
+
 export_title=Eksportuj klucz
 export_desc=Ta strona pozwala Ci wyeksportować klucz $1 $2 ze swojego klucza, do pliku lub do pobrania z przeglądarki.
 export_to=Tryb eksportu

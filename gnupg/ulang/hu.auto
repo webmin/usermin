@@ -8,6 +8,7 @@ index_pass=Jelmondat
 index_setup=A GnuPG beállítása
 index_return=GnuPG index
 index_egpg=A (z) $1 GnuPG parancs nem található a rendszerén. Lehet, hogy nincs telepítve.
+
 setup_err=Nem sikerült beállítani a GnuPG-t
 setup_ename=Hiányzik a kulcs neve
 setup_enamelen=A kulcs nevének legalább $1 karakter hosszúnak kell lennie
@@ -16,6 +17,7 @@ setup_title=A GnuPG beállítása
 setup_ok=A GnuPG sikeresen beállítva és titkos kulcsot generált.
 setup_failed=A titkos kulcs létrehozása nem sikerült : $1 
 setup_emkdir=Nem sikerült létrehozni.gnupg könyvtárat : $1 
+
 keys_title=Kezelje a kulcsokat
 keys_desc=Ez az oldal felsorolja a GnuPG kulcstartó összes nyilvános kulcsát. A fájl titkosításához valakinek importálnia kell a nyilvános kulcsát úgy, hogy az megjelenjen ezen az oldalon.
 keys_id=Kulcs-azonosító
@@ -42,11 +44,13 @@ keys_searchok=Keresés
 keys_searchnone=Nem található a keresésnek megfelelő kulcs.
 keys_searchdesc=Ezen az oldalon lehet keresni a $1 GPG kulcskiszolgálón név vagy e-mail cím alapján, és importálni lehet a megtalált kulcsokat.
 keys_status=Állapot
+
 import_err=A kulcs importálása nem sikerült
 import_ekey=Nincs kiválasztva kulcsfájl
 import_egpg=GnuPG sikertelen : $1 
 import_efile=Hiányzó vagy érvénytelen kulcsfájl
 import_etext=Nincs beírva kulcsfontosságú szöveg
+
 key_title=Nyilvános kulcs részletei
 key_header=Főbb részletek
 key_id=Kulcs-azonosító
@@ -80,6 +84,7 @@ key_deldesc=Távolítsa el ezt a kulcsot a rendszeréből, megakadályozva, hogy
 key_revoked=<font color=red>Visszavonva</font>
 key_got=<font color=#00aa00>Importált</font>
 key_miss=Elérhető
+
 encrypt_title=Fájl titkosítása
 encrypt_desc=Ezen az oldalon titkosíthat egy fájlt a GnuPG-vel és a választott nyilvános kulcsmal. Titkosítás után az eredményt csak a megfelelő magánkulcs tulajdonosa dekódolja.
 encrypt_mode=Titkosítani kívánt fájl
@@ -93,6 +98,7 @@ encrypt_err=A fájl titkosítása nem sikerült
 encrypt_eupload=Nincs kiválasztva fájl titkosításhoz
 encrypt_elocal=A kiválasztott fájl nem létezik, vagy nem olvasható
 encrypt_egpg=GnuPG sikertelen : $1 
+
 decrypt_title=A fájl visszafejtése
 decrypt_desc=Ezen az oldalon dekódolhatja a nyilvános kulcs használatával titkosított fájlokat, akár saját maga, akár valaki más, aki rendelkezik a kulcsával.
 decrypt_mode=A dekódolni kívánt fájl
@@ -106,6 +112,8 @@ decrypt_err=A fájl visszafejtése nem sikerült
 decrypt_eupload=Nincs fájl kiválasztva a dekódoláshoz
 decrypt_elocal=A kiválasztott fájl nem létezik, vagy nem olvasható
 decrypt_egpg=GnuPG sikertelen : $1 
+decrypt_key=Titkos kulcs segítségével visszafejteni
+
 sign_title=Aláírási fájl
 sign_desc=Ezen az oldalon írhat alá egy fájlt, hogy megbizonyosodjon arról, hogy az Ön aláírta-e, és hogy az aláírás óta nem volt módosítva.
 sign_mode=Az aláírandó fájl
@@ -121,6 +129,7 @@ sign_elocal=A kiválasztott fájl nem létezik, vagy nem olvasható
 sign_egpg=GnuPG sikertelen : $1 
 sign_epass=A kiválasztott titkos kulcshoz még nincs beállítva jelszó
 sign_sep=Csak leválasztott aláírást küld vissza?
+
 verify_title=Ellenőrizze az aláírt fájlt
 verify_desc=Ezen az oldalon ellenőrizze a GnuPG-vel aláírt fájlt annak ellenőrzése érdekében, hogy nem módosult-e, és megtudja, ki írta alá. Ha ki szeretné vonni az eredeti adatokat egy aláírt bináris fájlból, akkor használja a <a href='$1'>dekódolási oldalt</a>.
 verify_mode=Ellenőrizni kívánt fájl
@@ -141,6 +150,7 @@ verify_bad=A fájl aláírása $1 -től származik, de nem érvényes.
 verify_noid=A (z) $1 azonosítójú nyilvános kulcs nem érhető el ellenőrzésre.
 verify_failed=Az aláírás ellenőrzése nem sikerült : $1 
 verify_warning=Figyelem - Ezt a kulcsot nem sikerült ellenőrizni és aláírni a kulcskezelő oldalon.
+
 signkey_title=Jel kulcs
 signkey_confirm=Biztos benne, hogy aláírja a $1 $2 kulcsot? Ez azt jelzi, hogy a kulcs érvényességét megerősítette az ujjlenyomatának ($3) a tulajdonosával történő ellenőrzésével.
 signkey_failed=Nem sikerült aláírni a (z) $1 kulcsot : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Nincs válasz
 signkey_trust1=Nem ellenőrzött
 signkey_trust2=Véletlenszerűen ellenőrizni
 signkey_trust3=Gondosan ellenőrizni
+
 send_title=Küldés a Keyservernek
 send_desc=$1 kulcs küldése a $2 kulcskiszolgálóhoz.
 send_failed=A következő kulcs küldése nem sikerült : $1 
 send_success=A kulcs sikeresen elküldve. A többi GnuPG-felhasználó mostantól le tudja tölteni a nyilvános kulcsát az e-mailek küldéséhez és a fájlok titkosításához.
+
 recv_title=Fetch from Keyserver
 recv_desc=A (z) $1 kulcsazonosító letöltése a $2 kulcsszerverről.
 recv_failed=A (z) $1 kulcs letöltése nem sikerült
 recv_same=Már van kulcs a $1 -ből.
 recv_success=A (1) kulcs sikeresen importált.
+
 secret_title=Titkos kulcs hozzáadása
 secret_desc=Ezen az oldalon hozhat létre egy további titkos kulcsot, amelyet felhasználhat az aláíráshoz és a visszafejtéshez.
 secret_err=A titkos kulcs hozzáadása nem sikerült
 secret_ok=Új titkos kulcsot sikerült létrehozni.
 secret_name=Új kulcsnév
 secret_setup=Hozzon létre új kulcsot
+
 gnupg_esignpass=Az aláíró kulcshoz még nincs beállítva jelszó
 gnupg_ecryptid=A titkosított titkos kulcs nem érhető el
 gnupg_ecryptkey=A (1) titkosítási kulcs azonosítója nem érhető el
 gnupg_ecryptpass=A (z) $1 titkos kulcshoz még nincs beállítva jelszó
 gnupg_canset=Ha meglévő kulcshoz szeretne megadni jelmondatot, keresse fel a <a href='$1'>kulcs részleteinek oldalát</a>
+gnupg_ecryptkey2=Váratlan titkosítási titkos kulcs azonosító $1 
+
 trust_title=Állítsa be a bizalom szintjét
 trust_echoice=Nem a "Még nincs beállítva" megbízhatósági szintet kell választania.
 trust_done=A (z) $1 kulcs megbízhatósági szintjének sikeres beállítása.
+
 owner_err1=A tulajdonos hozzáadása nem sikerült
 owner_ename=Nincs megadva név
 owner_err2=A tulajdonos törlése nem sikerült
 owner_elast=Az utolsó tulajdonos adatait nem törölheti
+
 delkey_title=Törlés gomb
 delkey_rusure=Biztosan törli a (z) $1 $2 titkos kulcsot? A hozzá titkosított fájlokat vagy e-maileket nem lehet dekódolni!
 delkey_ok=Igen, törölje
+
 delkeys_err=A kulcsok törlése nem sikerült
 delkeys_enone=Egy sincs kiválasztva
+
 export_title=Export kulcs
 export_desc=Ezen az oldalon exportálhatja a (z) $1 $2 kulcsot a kulcstartóból, akár fájlba, akár letölthető böngészőből.
 export_to=Exportálás mód

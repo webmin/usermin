@@ -1,0 +1,38 @@
+index_title=Autenticació de dos factors
+
+twofactor_disable=Desactiveu l'autenticació de dos factors
+twofactor_already=El vostre inici de sessió d’Usermin ja té l’autenticació de dos factors habilitada amb el proveïdor $1 i l’identificador del compte $2.
+twofactor_already2=L'inici de sessió d'Usermin $3 ja té habilitada l'autenticació de dos factors amb el proveïdor $1 i l'identificador del compte $2.
+twofactor_desc=Aquesta pàgina us permet habilitar l’autenticació de dos factors per al vostre inici de sessió d’Usermin mitjançant <a href='$2' target=_blank>$1</a>. Un cop activat, es requerirà un testimoni d’autenticació addicional quan inicieu la sessió a Usermin.
+twofactor_desc2=Aquesta pàgina us permet activar l'autenticació de dos factors per a l'inici $3 mitjançant <a href='$2' target=_blank>$1</a>. Un cop activat, es requerirà un testimoni d’autenticació addicional quan inicieu la sessió a Usermin.
+twofactor_enable=Inscriviu-vos per a l'autenticació de dos factors
+twofactor_header=Detalls de la inscripció d’autenticació de dos factors
+twofactor_enrolling=Inscripció per a l'autenticació de dos factors amb el proveïdor $1  ..
+twofactor_failed=.. la inscripció ha fallat : $1
+twofactor_done=.. completa. La vostra identificació amb aquest proveïdor és de <tt>$1</tt>.
+twofactor_setup=L’autenticació de dos factors encara no s’ha habilitat en aquest sistema. Ho ha de fer l’administrador del sistema.
+twofactor_ebutton=No s'ha fet clic a cap botó
+
+twofactor_email=la teva adreça de correu electrònic
+twofactor_country=Codi de país del mòbil
+twofactor_phone=Número de telèfon mòbil
+twofactor_eemail=Falta una adreça de correu electrònic no vàlida: s’ha de tenir el format de user@domain.com
+twofactor_ecountry=Falta un codi de país no vàlid: ha de ser un número, com ara 65
+twofactor_ephone=Falta un número de telèfon no vàlid: només es permeten dígits, guions i espais
+twofactor_eauthyenroll=La inscripció ha fallat : $1
+twofactor_secret=Clau secreta personal
+twofactor_secret1=Generat aleatòriament
+twofactor_secret0=Utilitzeu la tecla de 16 caràcters
+twofactor_esecret=La clau secreta ha de tenir exactament 16 caràcters i només ha de contenir lletres i números
+twofactor_qrcode=Introduïu el codi secret $1 a l'aplicació Google Authenticator o escanegeu el codi QR següent.
+
+twofactor_eauthyid=Authy identificador d'usuari automàtic ha de ser un número
+twofactor_eauthytoken=Authy testimoni automàtic ha de ser un número
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Secret codificat amb base32 de TOTP no vàlid
+twofactor_etotptoken=El testimoni de Google Authenticator ha de ser un número
+twofactor_etotpmodule2=Falta el mòdul Perl $1
+twofactor_etotpmatch=Codi OTP incorrecte
+
+enable_title=Autenticació de dos factors habilitada
+enable_err=La inscripció ha fallat

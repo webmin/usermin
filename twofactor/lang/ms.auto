@@ -1,0 +1,38 @@
+index_title=Pengesahan Dua Faktor
+
+twofactor_disable=Lumpuhkan Pengesahan Dua Faktor
+twofactor_already=Log masuk Usermin anda telah mengaktifkan pengesahan dua faktor dengan penyedia $1 dan ID akaun $2.
+twofactor_already2=Login pengguna $3 sudah mempunyai pengesahan dua faktor yang diaktifkan dengan pembekal $1 dan ID akaun $2.
+twofactor_desc=Halaman ini membolehkan anda mengaktifkan pengesahan dua faktor untuk log masuk Usermin anda menggunakan <a href='$2' target=_blank>$1</a>. Setelah aktif, token pengesahan tambahan akan diperlukan semasa log masuk ke Usermin.
+twofactor_desc2=Halaman ini membolehkan anda mengaktifkan pengesahan dua faktor untuk login Usermin $3 menggunakan <a href='$2' target=_blank>$1</a>. Setelah aktif, token pengesahan tambahan akan diperlukan semasa log masuk ke Usermin.
+twofactor_enable=Daftar untuk Pengesahan Dua Faktor
+twofactor_header=Butiran pendaftaran pengesahan dua faktor
+twofactor_enrolling=Mendaftar untuk pengesahan dua faktor dengan pembekal $1  ..
+twofactor_failed=.. pendaftaran gagal : $1
+twofactor_done=.. lengkap. ID anda dengan penyedia ini adalah <tt>$1</tt>.
+twofactor_setup=Pengesahan dua faktor belum diaktifkan pada sistem ini. Ini mesti dilakukan oleh pentadbir sistem anda.
+twofactor_ebutton=Tiada butang diklik!
+
+twofactor_email=Alamat e-mel anda
+twofactor_country=Kod negara telefon bimbit
+twofactor_phone=Nombor telefon bimbit
+twofactor_eemail=Alamat e-mel tidak ada atau tidak sah - mesti diformat seperti user@domain.com
+twofactor_ecountry=Kod negara tiada atau tidak sah - mestilah nombor, seperti 65
+twofactor_ephone=Nombor telefon tidak ada atau tidak sah - hanya digit, tanda sempang dan ruang yang dibenarkan
+twofactor_eauthyenroll=Pendaftaran gagal : $1
+twofactor_secret=Kunci rahsia peribadi
+twofactor_secret1=Dihasilkan secara rawak
+twofactor_secret0=Gunakan kekunci 16 aksara
+twofactor_esecret=Kekunci rahsia mestilah panjangnya 16 aksara dan hanya mengandungi huruf dan angka
+twofactor_qrcode=Masukkan kod rahsia $1 di aplikasi Google Authenticator, atau imbas kod QR di bawah.
+
+twofactor_eauthyid=ID pengguna yang Authy
+twofactor_eauthytoken=Authy mesti berupa nombor
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Rahsia berkod TOTP base32 tidak sah
+twofactor_etotptoken=Token Google Authenticator mestilah nombor
+twofactor_etotpmodule2=Mod Perl yang hilang $1
+twofactor_etotpmatch=Kod OTP salah
+
+enable_title=Pengesahan Dua Faktor Diaktifkan
+enable_err=Pendaftaran gagal

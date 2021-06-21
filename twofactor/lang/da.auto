@@ -1,0 +1,38 @@
+index_title=To-faktor-godkendelse
+
+twofactor_disable=Deaktiver godkendelse af to faktorer
+twofactor_already=Dit Usermin-login har allerede to-faktor-godkendelse aktiveret med udbyder $1 og konto-id $2.
+twofactor_already2=Usermin login $3 allerede to-faktor-godkendelse aktiveret med udbyder $1 og konto-id $2.
+twofactor_desc=Denne side giver dig mulighed for at aktivere tofaktorautentificering til dit Usermin-login ved hjælp af <a href='$2' target=_blank>$1</a>. Når det er aktivt, kræves der et ekstra godkendelsestoken, når du logger på Usermin.
+twofactor_desc2=Denne side giver dig mulighed for at aktivere tofaktorautentificering for Usermin login $3 ved hjælp af <a href='$2' target=_blank>$1</a>. Når det er aktivt, kræves der et ekstra godkendelsestoken, når du logger på Usermin.
+twofactor_enable=Tilmeld dig tofaktorautentificering
+twofactor_header=To-faktor godkendelsesoplysninger om tilmelding
+twofactor_enrolling=Tilmelding til tofaktorautentificering med udbyderen $1  ..
+twofactor_failed=.. tilmelding mislykkedes : $1
+twofactor_done=.. komplet. Dit id hos denne udbyder er <tt>$1</tt>.
+twofactor_setup=To-faktor-godkendelse er endnu ikke aktiveret på dette system. Dette skal gøres af din systemadministrator.
+twofactor_ebutton=Ingen knap klikket!
+
+twofactor_email=Din email adresse
+twofactor_country=Landekode til mobiltelefon
+twofactor_phone=Mobiltelefonnummer
+twofactor_eemail=Manglende eller ugyldig e-mail-adresse - skal formateres som user@domain.com
+twofactor_ecountry=Manglende eller ugyldig landekode - skal være et tal som 65
+twofactor_ephone=Manglende eller ugyldigt telefonnummer - kun cifre, bindestreger og mellemrum er tilladt
+twofactor_eauthyenroll=Tilmelding mislykkedes : $1
+twofactor_secret=Personlig hemmelig nøgle
+twofactor_secret1=Genereret tilfældigt
+twofactor_secret0=Brug nøglen på 16 tegn
+twofactor_esecret=Den hemmelige nøgle skal være nøjagtigt 16 tegn lang og kun indeholde bogstaver og tal
+twofactor_qrcode=Indtast den hemmelige kode $1 i Google Authenticator-appen, eller scan QR-koden nedenfor.
+
+twofactor_eauthyid=Authy bruger-id skal være et nummer
+twofactor_eauthytoken=Authy token skal være et tal
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Ugyldig TOTP base32-kodet hemmelighed
+twofactor_etotptoken=Google Authenticator-token skal være et tal
+twofactor_etotpmodule2=Manglende Perl-modul $1
+twofactor_etotpmatch=Forkert OTP-kode
+
+enable_title=Aktiveret tofaktorautentificering
+enable_err=Tilmelding mislykkedes

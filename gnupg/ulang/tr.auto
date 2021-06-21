@@ -1,4 +1,5 @@
 setup_emkdir=.Gnupg dizini oluşturulamadı : $1 
+
 keys_delete=Seçilen Anahtarları Sil
 keys_tablist=Anahtar listesi
 keys_tabimport=İçe aktarma anahtarı
@@ -10,7 +11,9 @@ keys_searchok=Arama
 keys_searchnone=Aramanızla eşleşen anahtar bulunamadı.
 keys_searchdesc=Bu sayfa $1 GPG anahtar sunucusunda ada veya e-posta adresine göre arama yapmanıza ve bulunan anahtarları içe aktarmanıza olanak tanır.
 keys_status=durum
+
 import_etext=Anahtar metin girilmedi
+
 key_signdesc=Sahibini doğruladığınızı belirtmek için bunu anahtarla imzalayın.
 key_exportformdesc=Bu anahtarı başka bir sisteme aktarmak veya ortak anahtarı başka birine göndermek için bir dosyaya dışa aktarın.
 key_senddesc=İmzanızı kontrol etmek isteyen başkaları tarafından otomatik olarak indirilebilmesi için bu anahtarı bir anahtar sunucuya gönderin.
@@ -18,15 +21,25 @@ key_deldesc=İmzalama, şifreleme veya şifre çözme için kullanılmasını ö
 key_revoked=<font color=red>İptal edildi</font>
 key_got=<font color=#00aa00>İçe aktarıldı</font>
 key_miss=Mevcut
+
 encrypt_mode2=Metin kutusunun içeriği
+
 decrypt_mode2=Metin kutusunun içeriği
+decrypt_key=Gizli anahtarı kullanarak şifreyi çözme
+
 sign_mode2=Metin kutusunun içeriği
+
 verify_sig=Dosya imzası
 verify_mode2=Yok (imzalı dosyanın parçası)
 verify_mode3=Metin kutusunun içeriği
 verify_esigupload=İmza dosyası seçilmedi
 verify_esiglocal=İmza dosyası mevcut değil veya okunamıyor
+
 signkey_trustlevel=Güven düzeyi ile oturum açın
+
+gnupg_ecryptkey2=Beklenmeyen şifreleme gizli anahtarı kimliği $1
+
 delkeys_err=Anahtarlar silinemedi
 delkeys_enone=Hiçbiri seçilmedi
+
 export_public=Yalnızca ortak anahtar

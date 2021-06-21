@@ -1,0 +1,38 @@
+index_title=Dvofaktorska autentifikacija
+
+twofactor_disable=Onemogućite dvofaktorsku autentifikaciju
+twofactor_already=Vaša prijava Usermin već ima omogućenu dvofaktorsku provjeru autentičnosti s pružateljem $1 i ID računa $2.
+twofactor_already2=Usermin prijava $3 već ima dvofaktorsku provjeru autentičnosti s pružateljem $1 i ID računa $2.
+twofactor_desc=Ova stranica omogućuje vam omogućavanje dvofaktorske provjere autentičnosti za vašu prijavu Usermin pomoću <a href='$2' target=_blank>$1</a>. Jednom aktivan, dodatni token za provjeru autentičnosti bit će potreban prilikom prijave na Usermin.
+twofactor_desc2=Ova stranica omogućuje vam omogućavanje dvofaktorske provjere autentičnosti za prijavu Usermin $3 pomoću <a href='$2' target=_blank>$1</a>. Jednom aktivan, dodatni token za provjeru autentičnosti bit će potreban prilikom prijave na Usermin.
+twofactor_enable=Upišite se za dvofaktorsku autentifikaciju
+twofactor_header=Pojedinosti prijave za dvofaktorsku autentifikaciju
+twofactor_enrolling=Upis za dvofaktorsku provjeru autentičnosti s davateljem usluge $1  ..
+twofactor_failed=.. upis nije uspio : $1
+twofactor_done=.. dovršen. Vaš ID s ovim pružateljem usluga je <tt>$1</tt>.
+twofactor_setup=Dvofaktorska provjera autentičnosti još nije omogućena na ovom sustavu. To mora učiniti vaš administrator sustava.
+twofactor_ebutton=Nijedan gumb nije kliknut!
+
+twofactor_email=Vaša email adresa
+twofactor_country=Pozivni broj države mobitela
+twofactor_phone=Broj mobitela
+twofactor_eemail=Nedostaje ili je nevaljana adresa e-pošte - mora biti oblikovana kao user@domain.com
+twofactor_ecountry=Nedostaje ili je nevaljani pozivni broj države - mora biti broj, poput 65
+twofactor_ephone=Nedostaje ili je nevaljani telefonski broj - dopuštene su samo znamenke, crtice i razmaci
+twofactor_eauthyenroll=Upis nije uspio : $1
+twofactor_secret=Osobni tajni ključ
+twofactor_secret1=Generirano nasumično
+twofactor_secret0=Upotrijebite tipku od 16 znakova
+twofactor_esecret=Tajni ključ mora imati točno 16 znakova i sadržavati samo slova i brojeve
+twofactor_qrcode=Unesite tajni kôd $1 u aplikaciju Google Authenticator ili skenirajte QR kôd u nastavku.
+
+twofactor_eauthyid=Authy korisnički ID mora biti broj
+twofactor_eauthytoken=Authy mora biti broj
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Neispravna tajna kodirana TOTP base32
+twofactor_etotptoken=Token Google Autentifikatora mora biti broj
+twofactor_etotpmodule2=Nedostaje Perl modul $1
+twofactor_etotpmatch=Pogrešan OTP kôd
+
+enable_title=Omogućena dvofaktorska provjera autentičnosti
+enable_err=Upis nije uspio

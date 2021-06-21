@@ -8,6 +8,7 @@ index_pass=Frasa laluan
 index_setup=Persediaan GnuPG
 index_return=Indeks GnuPG
 index_egpg=Perintah GnuPG $1 tidak dijumpai pada sistem anda. Mungkin ia tidak dipasang.
+
 setup_err=Gnu persediaan GnuPG
 setup_ename=Nama tiada untuk kekunci
 setup_enamelen=Nama untuk kunci mesti sekurang-kurangnya $1 aksara panjang
@@ -16,6 +17,7 @@ setup_title=Persediaan GnuPG
 setup_ok=GnuPG telah berjaya persediaan dan kunci rahsia dihasilkan.
 setup_failed=Gagal mencipta kunci rahsia : $1 
 setup_emkdir=Gagal membuat direktori.gnupg : $1 
+
 keys_title=Uruskan Kekunci
 keys_desc=Halaman ini menyenaraikan semua kekunci awam dalam GnuPG keyring anda. Untuk menyulitkan fail untuk seseorang, anda perlu mengimport kunci awamnya supaya ia muncul di halaman ini.
 keys_id=ID kunci
@@ -42,11 +44,13 @@ keys_searchok=Carian
 keys_searchnone=Tiada kunci yang sepadan dengan carian anda ditemui.
 keys_searchdesc=Halaman ini membolehkan anda mencari kunci GPG $1 dengan nama atau alamat e-mel, dan kunci import yang dijumpai.
 keys_status=Status
+
 import_err=Gagal mengimport kunci
 import_ekey=Tiada fail utama dipilih
 import_egpg=GnuPG gagal : $1 
 import_efile=Fail utama yang hilang atau tidak sah
 import_etext=Tiada teks utama yang dimasukkan
+
 key_title=Butiran Utama Awam
 key_header=Butiran Utama
 key_id=ID kunci
@@ -80,6 +84,7 @@ key_deldesc=Keluarkan kunci ini dari sistem anda, mencegahnya daripada digunakan
 key_revoked=<font color=red>Revoked</font>
 key_got=<font color=#00aa00>Diimport</font>
 key_miss=Tersedia
+
 encrypt_title=Menyulitkan fail
 encrypt_desc=Gunakan halaman ini untuk menyulitkan fail dengan GnuPG dan kunci awam yang dipilih. Sebaik sahaja disulitkan, hasilnya hanya akan diturunkan oleh pemilik kunci peribadi yang sepadan.
 encrypt_mode=Fail untuk menyulitkan
@@ -93,6 +98,7 @@ encrypt_err=Gagal menyulitkan fail
 encrypt_eupload=Tiada fail yang dipilih untuk menyulitkan
 encrypt_elocal=Fail terpilih tidak wujud atau tidak boleh dibaca
 encrypt_egpg=GnuPG gagal : $1 
+
 decrypt_title=Decrypt File
 decrypt_desc=Gunakan halaman ini untuk menyahsulit fail yang telah disulitkan dengan menggunakan kunci awam anda, sama ada oleh diri sendiri atau oleh orang lain yang mempunyai kunci anda.
 decrypt_mode=Fail untuk menyahsulitkan
@@ -106,6 +112,8 @@ decrypt_err=Gagal mendekripsi fail
 decrypt_eupload=Tiada fail yang dipilih untuk menyahsulitkan
 decrypt_elocal=Fail terpilih tidak wujud atau tidak boleh dibaca
 decrypt_egpg=GnuPG gagal : $1 
+decrypt_key=Nyahsulitkan menggunakan kunci rahsia
+
 sign_title=Log Fail
 sign_desc=Gunakan halaman ini untuk menandatangani fail supaya ia dapat disahkan bahawa ia telah ditandatangani oleh anda dan ia tidak diubah suai sejak ditandatangani.
 sign_mode=Fail untuk menandatangani
@@ -121,6 +129,7 @@ sign_elocal=Fail terpilih tidak wujud atau tidak boleh dibaca
 sign_egpg=GnuPG gagal : $1 
 sign_epass=Tiada frasa laluan telah ditetapkan untuk kunci rahsia yang dipilih
 sign_sep=Pulangan tandatangan berasingan sahaja?
+
 verify_title=Sahkan fail yang telah ditandatangani
 verify_desc=Gunakan halaman ini untuk mengesahkan fail yang telah ditandatangani dengan GnuPG, untuk memastikan ia tidak diubah suai dan mengetahui siapa yang telah menandatanganinya. Sekiranya anda mahu mengekstrak data asal dari fail perduaan yang ditandatangani, gunakan <a href='$1'>halaman penyahsulitan</a>.
 verify_mode=Fail untuk mengesahkan
@@ -141,6 +150,7 @@ verify_bad=Fail mempunyai tandatangan daripada $1, tetapi tidak sah.
 verify_noid=Kunci awam dengan ID $1 tidak tersedia untuk pengesahan.
 verify_failed=Gagal mengesahkan tandatangan : $1 
 verify_warning=Amaran - Kunci ini belum diverifikasi dan ditandatangani pada halaman pengurusan utama anda.
+
 signkey_title=Tandakan Kunci
 signkey_confirm=Adakah anda pasti mahu menandatangani kunci milik $1 $2 ? Ini akan menunjukkan bahawa anda telah mengesahkan kesahihan kunci dengan memeriksa cap jari ($3) dengan pemiliknya.
 signkey_failed=Gagal menandatangani kunci kepunyaan $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Tiada jawapan
 signkey_trust1=Tidak diperiksa
 signkey_trust2=Casually checked
 signkey_trust3=Diperiksa dengan teliti
+
 send_title=Hantar ke Keyserver
 send_desc=Menghantar kunci $1 ke kunci $2 
 send_failed=Gagal menghantar kekunci : $1 
 send_success=Kunci diserahkan berjaya. Pengguna GnuPG lain kini dapat memperoleh kunci awam anda untuk menghantar e-mel dan menyulitkan fail.
+
 recv_title=Ambil Daripada Keyserver
 recv_desc=Mengambil ID utama $1 dari keyserver $2 ..
 recv_failed=Gagal mengambil kunci : $1 
 recv_same=Sudah mempunyai kunci dari $1.
 recv_success=Kunci utama yang diimport daripada $1.
+
 secret_title=Tambah Kunci Rahsia
 secret_desc=Gunakan halaman ini untuk menghasilkan kunci rahsia tambahan yang boleh anda gunakan untuk menandatangani dan menyahsulit.
 secret_err=Gagal menambah kunci rahsia
 secret_ok=Kunci rahsia baru telah berjaya dihasilkan.
 secret_name=Nama utama baru
 secret_setup=Buat Kunci Baru
+
 gnupg_esignpass=Tiada frasa laluan telah ditetapkan untuk kunci tandatangan
 gnupg_ecryptid=Kekunci rahsia penyulitan tidak tersedia
 gnupg_ecryptkey=Kunci rahsia kunci rahsia $1 tidak tersedia
 gnupg_ecryptpass=Tiada frasa laluan telah ditetapkan untuk kunci rahsia $1 
 gnupg_canset=Untuk menetapkan frasa laluan untuk kekunci sedia ada, lawati <a href='$1'>halaman butiran utama</a>
+gnupg_ecryptkey2=ID kunci rahsia penyulitan yang tidak dijangka $1 
+
 trust_title=Tetapkan Tahap Kepercayaan
 trust_echoice=Anda mesti memilih tahap amanah, bukan 'Belum ditetapkan'.
 trust_done=Berjaya menetapkan tahap kepercayaan untuk kunci $1.
+
 owner_err1=Gagal menambah pemilik
 owner_ename=Tiada nama yang dimasukkan
 owner_err2=Gagal memadamkan pemilik
 owner_elast=Anda tidak boleh memadamkan butiran pemilik terakhir
+
 delkey_title=Padam Kunci
 delkey_rusure=Adakah anda pasti mahu memadamkan kunci rahsia $1 $2 ? Apa-apa fail atau e-mel yang disulitkan dengannya tidak lagi dapat disunting!
 delkey_ok=Ya, Padam Ia
+
 delkeys_err=Gagal memadam kekunci
 delkeys_enone=Tiada yang dipilih
+
 export_title=Kunci Eksport
 export_desc=Halaman ini membolehkan anda mengeksport kunci $1 $2 dari keyring anda, sama ada ke fail atau untuk dimuat turun dari pelayar anda.
 export_to=Mod eksport

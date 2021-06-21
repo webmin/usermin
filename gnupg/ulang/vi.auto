@@ -8,6 +8,7 @@ index_pass=Cụm mật khẩu
 index_setup=Thiết lập GnuPG
 index_return=Chỉ số GnuPG
 index_egpg=Lệnh GnuPG $1 không được tìm thấy trên hệ thống của bạn. Có lẽ nó không được cài đặt.
+
 setup_err=Không thể thiết lập GnuPG
 setup_ename=Thiếu tên cho khóa
 setup_enamelen=Tên khóa phải dài ít nhất $1 ký tự
@@ -16,6 +17,7 @@ setup_title=Thiết lập GnuPG
 setup_ok=GnuPG đã được thiết lập thành công và một khóa bí mật được tạo.
 setup_failed=Không thể tạo khóa bí mật : $1 
 setup_emkdir=Không thể tạo thư mục.gnupg : $1 
+
 keys_title=Quản lý khóa
 keys_desc=Trang này liệt kê tất cả các khóa công khai trong khóa GnuPG của bạn. Để mã hóa một tệp cho ai đó, bạn cần nhập khóa công khai của họ để nó xuất hiện trên trang này.
 keys_id=ID khóa
@@ -42,11 +44,13 @@ keys_searchok=Tìm kiếm
 keys_searchnone=Không tìm thấy khóa phù hợp với tìm kiếm của bạn.
 keys_searchdesc=Trang này cho phép bạn tìm kiếm máy chủ khóa GPG $1 theo tên hoặc địa chỉ email và tìm thấy các khóa nhập.
 keys_status=Trạng thái
+
 import_err=Không thể nhập khóa
 import_ekey=Không có tệp chính nào được chọn
 import_egpg=GnuPG thất bại : $1 
 import_efile=Tập tin khóa bị thiếu hoặc không hợp lệ
 import_etext=Không có văn bản chính được nhập
+
 key_title=Chi tiết khóa công khai
 key_header=Chi tiết chính
 key_id=ID khóa
@@ -80,6 +84,7 @@ key_deldesc=Xóa khóa này khỏi hệ thống của bạn, ngăn không cho n�
 key_revoked=<font color=red>Đã thu hồi</font>
 key_got=<font color=#00aa00>Đã nhập</font>
 key_miss=Có sẵn
+
 encrypt_title=Mã hóa tập tin
 encrypt_desc=Sử dụng trang này để mã hóa một tệp bằng GnuPG và khóa chung được chọn. Sau khi được mã hóa, kết quả sẽ chỉ được giải mã bởi chủ sở hữu của khóa riêng phù hợp.
 encrypt_mode=Tập tin để mã hóa
@@ -93,6 +98,7 @@ encrypt_err=Không thể mã hóa tập tin
 encrypt_eupload=Không có tệp nào được chọn để mã hóa
 encrypt_elocal=Tệp đã chọn không tồn tại hoặc không thể đọc được
 encrypt_egpg=GnuPG thất bại : $1 
+
 decrypt_title=Giải mã tập tin
 decrypt_desc=Sử dụng trang này để giải mã một tệp đã được mã hóa bằng khóa chung của bạn, bởi chính bạn hoặc bởi người khác có khóa của bạn.
 decrypt_mode=Tập tin để giải mã
@@ -106,6 +112,8 @@ decrypt_err=Không thể giải mã tập tin
 decrypt_eupload=Không có tệp nào được chọn để giải mã
 decrypt_elocal=Tệp đã chọn không tồn tại hoặc không thể đọc được
 decrypt_egpg=GnuPG thất bại : $1 
+decrypt_key=Giải mã bằng khóa bí mật
+
 sign_title=Đăng nhập tập tin
 sign_desc=Sử dụng trang này để ký một tệp để có thể xác minh rằng nó đã được ký bởi bạn và nó chưa được sửa đổi kể từ khi ký.
 sign_mode=Tập tin để ký
@@ -121,6 +129,7 @@ sign_elocal=Tệp đã chọn không tồn tại hoặc không thể đọc đư
 sign_egpg=GnuPG thất bại : $1 
 sign_epass=Chưa có cụm mật khẩu nào được đặt cho khóa bí mật đã chọn
 sign_sep=Trả lại chữ ký tách rời?
+
 verify_title=Xác nhận tập tin đã ký
 verify_desc=Sử dụng trang này để xác minh một tệp đã được ký với GnuPG, để kiểm tra xem nó chưa được sửa đổi và tìm ra ai đã ký nó. Nếu bạn muốn trích xuất dữ liệu gốc từ tệp nhị phân đã ký, hãy sử dụng <a href='$1'>trang giải mã</a>.
 verify_mode=Tập tin để xác minh
@@ -141,6 +150,7 @@ verify_bad=Tệp có chữ ký từ $1, nhưng nó không hợp lệ.
 verify_noid=Khóa công khai có ID $1 không có sẵn để xác minh.
 verify_failed=Không thể xác minh chữ ký : $1 
 verify_warning=Cảnh báo - Khóa này chưa được xác minh và ký trên trang quản lý khóa của bạn.
+
 signkey_title=Khóa ký
 signkey_confirm=Bạn có chắc chắn muốn ký khóa thuộc $1 $2 không? Điều này sẽ cho biết rằng bạn đã xác nhận tính hợp lệ của khóa bằng cách kiểm tra dấu vân tay của nó ($3) với chủ sở hữu.
 signkey_failed=Không thể ký khóa thuộc về $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Không có câu trả lời
 signkey_trust1=Chưa được kiểm tra
 signkey_trust2=Kiểm tra ngẫu nhiên
 signkey_trust3=Kiểm tra cẩn thận
+
 send_title=Gửi tới máy chủ khóa
 send_desc=Gửi khóa $1 đến máy chủ khóa $2 ..
 send_failed=Không thể gửi khóa : $1 
 send_success=Key nộp thành công. Người dùng GnuPG khác giờ đây sẽ có thể truy xuất khóa công khai của bạn để gửi email và mã hóa tệp.
+
 recv_title=Lấy từ máy chủ khóa
 recv_desc=Tìm nạp ID khóa $1 từ máy chủ khóa $2 ..
 recv_failed=Không thể tìm nạp khóa : $1 
 recv_same=Đã có khóa từ $1.
 recv_success=Nhập khóa thành công từ $1.
+
 secret_title=Thêm khóa bí mật
 secret_desc=Sử dụng trang này để tạo khóa bí mật bổ sung mà bạn có thể sử dụng để ký và giải mã.
 secret_err=Không thể thêm khóa bí mật
 secret_ok=Một khóa bí mật mới đã được tạo thành công.
 secret_name=Tên khóa mới
 secret_setup=Tạo khóa mới
+
 gnupg_esignpass=Chưa có cụm mật khẩu nào được đặt cho khóa ký
 gnupg_ecryptid=Khóa bí mật mã hóa không khả dụng
 gnupg_ecryptkey=Mã khóa bí mật ID $1 không khả dụng
 gnupg_ecryptpass=Chưa có cụm mật khẩu nào được đặt cho khóa bí mật $1 
 gnupg_canset=Để đặt cụm mật khẩu cho khóa hiện có, hãy truy cập <a href='$1'>trang chi tiết khóa</a>
+gnupg_ecryptkey2=ID khóa bí mật mã hóa không mong đợi $1 
+
 trust_title=Đặt mức độ tin cậy
 trust_echoice=Bạn phải chọn mức độ tin cậy, không phải là 'Chưa được đặt'.
 trust_done=Đặt thành công mức độ tin cậy cho khóa $1.
+
 owner_err1=Không thể thêm chủ sở hữu
 owner_ename=Chưa nhập tên
 owner_err2=Không thể xóa chủ sở hữu
 owner_elast=Bạn không thể xóa các chi tiết chủ sở hữu cuối cùng
+
 delkey_title=Phím xoá
 delkey_rusure=Bạn có chắc chắn muốn xóa khóa bí mật $1 $2 không? Bất kỳ tập tin hoặc email được mã hóa với nó sẽ không còn có thể giải mã được!
 delkey_ok=Có, xóa nó đi
+
 delkeys_err=Không thể xóa khóa
 delkeys_enone=Không được chọn
+
 export_title=Xuất khóa
 export_desc=Trang này cho phép bạn xuất khóa $1 $2 từ khóa, sang tệp hoặc để tải xuống từ trình duyệt của bạn.
 export_to=Chế độ xuất

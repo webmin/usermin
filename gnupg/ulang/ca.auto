@@ -7,6 +7,7 @@ index_size=Mida de la clau
 index_pass=Frase de contrasenya
 index_setup=Configuració GnuPG
 index_egpg=La comanda GnuPG $1 no s'ha trobat al sistema. Potser no està instal·lat.
+
 setup_err=No s'ha pogut configurar GnuPG
 setup_ename=Falta el nom de la clau
 setup_enamelen=El nom de la clau ha de tenir com a mínim un% de caràcters
@@ -15,6 +16,7 @@ setup_title=Configuració GnuPG
 setup_ok=S’ha configurat correctament GnuPG i s’ha generat una clau secreta.
 setup_failed=No s'ha pogut crear la clau secreta : $1 
 setup_emkdir=No s'ha pogut crear el directori.gnupg : $1 
+
 keys_title=Gestiona les claus
 keys_desc=Aquesta pàgina enumera totes les claus públiques del vostre clauer GnuPG. Per xifrar un fitxer per a algú, heu d’importar la seva clau pública perquè aparegui en aquesta pàgina.
 keys_id=Identificador de la clau
@@ -41,11 +43,13 @@ keys_searchok=Cerca
 keys_searchnone=No s'han trobat claus que coincideixin amb la vostra cerca.
 keys_searchdesc=Aquesta pàgina permet cercar el servidor de claus GPG $1 per nom o adreça de correu electrònic i importar les claus trobades.
 keys_status=Estat
+
 import_err=No s'ha pogut importar la clau
 import_ekey=No s'ha seleccionat cap fitxer de clau
 import_egpg=Error de GnuPG : $1 
 import_efile=Falta un fitxer de clau clau o no vàlid
 import_etext=No s'ha introduït cap text clau
+
 key_title=Detalls de la clau pública
 key_header=Detalls clau
 key_id=Identificador de la clau
@@ -79,6 +83,7 @@ key_deldesc=Elimineu aquesta clau del vostre sistema i evitareu que es faci serv
 key_revoked=<font color=red>Revocat</font>
 key_got=<font color=#00aa00>Importat</font>
 key_miss=Disponible
+
 encrypt_title=Xifra el fitxer
 encrypt_desc=Utilitzeu aquesta pàgina per xifrar un fitxer amb GnuPG i una clau pública escollida. Un cop xifrat, el propietari només decriptarà el resultat de la clau privada coincident.
 encrypt_mode=Fitxer per xifrar
@@ -92,6 +97,7 @@ encrypt_err=No s'ha pogut xifrar el fitxer
 encrypt_eupload=No s'ha seleccionat cap fitxer per xifrar
 encrypt_elocal=El fitxer seleccionat no existeix o no es pot llegir
 encrypt_egpg=Error de GnuPG : $1 
+
 decrypt_title=Desxifra el fitxer
 decrypt_desc=Utilitzeu aquesta pàgina per xifrar un fitxer que ha estat xifrat mitjançant la vostra clau pública, ja sigui per si mateix o per algú que tingui la vostra clau.
 decrypt_mode=Fitxer per desxifrar
@@ -105,6 +111,8 @@ decrypt_err=No s'ha pogut desxifrar el fitxer
 decrypt_eupload=No s'ha seleccionat cap fitxer per desxifrar
 decrypt_elocal=El fitxer seleccionat no existeix o no es pot llegir
 decrypt_egpg=Error de GnuPG : $1 
+decrypt_key=Desxifra amb la clau secreta
+
 sign_title=Arxiu de signes
 sign_desc=Utilitzeu aquesta pàgina per signar un fitxer de manera que es pugui comprovar que l'ha signat i que no s'ha modificat des de la signatura.
 sign_mode=Fitxer per signar
@@ -120,6 +128,7 @@ sign_elocal=El fitxer seleccionat no existeix o no es pot llegir
 sign_egpg=Error de GnuPG : $1 
 sign_epass=Encara no s'ha definit cap paraula de pas per a la clau secreta escollida
 sign_sep=Voleu només la signatura separat?
+
 verify_title=Verifiqueu el fitxer signat
 verify_desc=Utilitzeu aquesta pàgina per verificar un fitxer que s'ha signat amb GnuPG, per tal de comprovar que no s'ha modificat i esbrinar qui el va signar. Si voleu extreure les dades originals d'un fitxer binari signat, utilitzeu la <a href='$1'>pàgina de desxifració</a>.
 verify_mode=Fitxer a verificar
@@ -140,6 +149,7 @@ verify_bad=El fitxer té signatura de $1, però no és vàlid.
 verify_noid=La clau pública amb l'ID $1 no està disponible per a la verificació.
 verify_failed=No s'ha pogut verificar la signatura : $1 
 verify_warning=Avís: aquesta clau no s'ha verificat i s'ha signat a la pàgina de gestió de claus.
+
 signkey_title=Clau de signe
 signkey_confirm=Esteu segur que voleu signar la clau pertanyent a $1 $2 ? Això indicarà que heu confirmat la validesa de la clau comprovant la seva empremta ($3) amb el propietari.
 signkey_failed=No s'ha pogut signar la clau pertanyent a $1 : $2 
@@ -150,38 +160,48 @@ signkey_trust0=Sense resposta
 signkey_trust1=No comprovat
 signkey_trust2=Comprovat casualment
 signkey_trust3=Comprovat acuradament
+
 send_title=Envia a Keyserver
 send_desc=S'està enviant la clau $1 al servidor de claus $2.
 send_failed=No s'ha pogut enviar la clau : $1 
 send_success=S'ha enviat la clau correctament. Altres usuaris de GnuPG ara podran recuperar la vostra clau pública per enviar correu electrònic i xifrar fitxers.
+
 recv_title=Recerca de Keyserver
 recv_desc=Recuperació de la clau de clau $1 del servidor de claus $2.
 recv_failed=No s'ha pogut recuperar la clau : $1 
 recv_same=Ja teniu la clau de $1.
 recv_success=Clau importada amb èxit de $1.
+
 secret_title=Afegeix la clau secreta
 secret_desc=Utilitzeu aquesta pàgina per generar una clau secreta addicional que podeu utilitzar per signar i desxifrar.
 secret_err=No s'ha pogut afegir la clau secreta
 secret_ok=S'ha generat una nova clau secreta amb èxit.
 secret_name=Nou nom clau
 secret_setup=Crea una clau nova
+
 gnupg_esignpass=Encara no s'ha definit cap paraula de pas per a la clau de signatura
 gnupg_ecryptid=La clau secreta de xifrat no està disponible
 gnupg_ecryptkey=L'ID de clau secreta de xifratge $1 no disponible
 gnupg_ecryptpass=Encara no s'ha definit cap paraula de pas per a la clau secreta $1 
 gnupg_canset=Per definir una frase de contrasenya per a una clau existent, visiteu la <a href='$1'>pàgina de detalls de la clau</a>
+gnupg_ecryptkey2=Identificador de clau secreta de xifratge inesperat $1 
+
 trust_title=Estableix el nivell de confiança
 trust_echoice=Heu de triar un nivell de confiança, no "Encara no definit".
 trust_done=Definiu correctament el nivell de confiança per a la clau $1.
+
 owner_err1=No s'ha pogut afegir propietari
 owner_ename=No s'ha introduït cap nom
 owner_err2=No s'ha pogut suprimir el propietari
 owner_elast=No podeu suprimir els detalls dels darrers propietaris
+
 delkey_title=Suprimeix la clau
 delkey_rusure=Esteu segur que voleu suprimir la clau secreta $1 $2 ? Els fitxers o correu electrònic xifrats amb ell ja no es podran descodificar.
 delkey_ok=Sí, suprimeix-ho
+
 delkeys_err=No s'han pogut suprimir les claus
 delkeys_enone=Cap seleccionada
+
 export_title=Clau d’exportació
 export_desc=Aquesta pàgina us permet exportar la clau $1 $2 des del vostre clauer, ja sigui a un fitxer o per descarregar-lo des del vostre navegador.
 export_to=Mode d'exportació

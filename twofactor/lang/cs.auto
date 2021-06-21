@@ -1,0 +1,38 @@
+index_title=Dvoufaktorové ověřování
+
+twofactor_disable=Zakažte dvoufaktorové ověřování
+twofactor_already=Vaše přihlašovací jméno Usermin již má dvoufaktorové ověřování povolené u poskytovatele $1 a ID účtu $2.
+twofactor_already2=Přihlašovací jméno uživatele $3 již má dvoufaktorové ověřování povolené u poskytovatele $1 a ID účtu $2.
+twofactor_desc=Tato stránka umožňuje povolit dvoufaktorové ověřování pro vaše přihlášení k Usermin pomocí <a href='$2' target=_blank>$1</a>. Jakmile bude aktivní, bude při přihlášení do služby Usermin vyžadován další ověřovací token.
+twofactor_desc2=Tato stránka umožňuje povolit dvoufaktorové ověřování pro přihlášení Usermin $3 pomocí <a href='$2' target=_blank>$1</a>. Jakmile bude aktivní, bude při přihlášení do služby Usermin vyžadován další ověřovací token.
+twofactor_enable=Zaregistrujte se pro dvoufaktorové ověřování
+twofactor_header=Podrobnosti registrace dvoufaktorového ověřování
+twofactor_enrolling=Registrace pro dvoufaktorové ověřování u poskytovatele $1  ..
+twofactor_failed=.. registrace se nezdařila : $1
+twofactor_done=.. kompletní. Vaše ID u tohoto poskytovatele je <tt>$1</tt>.
+twofactor_setup=V tomto systému zatím není povoleno dvoufaktorové ověřování. To musí provést váš správce systému.
+twofactor_ebutton=Nebylo kliknuto na žádné tlačítko!
+
+twofactor_email=Vaše emailová adresa
+twofactor_country=Kód země mobilního telefonu
+twofactor_phone=Číslo mobilního telefonu
+twofactor_eemail=Chybějící nebo neplatná e-mailová adresa - musí být naformátována jako user@domain.com
+twofactor_ecountry=Chybějící nebo neplatný kód země - musí to být číslo, například 65
+twofactor_ephone=Chybějící nebo neplatné telefonní číslo - povoleny jsou pouze číslice, pomlčky a mezery
+twofactor_eauthyenroll=Registrace se nezdařila : $1
+twofactor_secret=Osobní tajný klíč
+twofactor_secret1=Generováno náhodně
+twofactor_secret0=Použijte 16místný klíč
+twofactor_esecret=Tajný klíč musí mít přesně 16 znaků a musí obsahovat pouze písmena a číslice
+twofactor_qrcode=Zadejte tajný kód $1 v aplikaci Google Authenticator nebo naskenujte QR kód níže.
+
+twofactor_eauthyid=Authy ID uživatele musí být číslo
+twofactor_eauthytoken=Authy token musí být číslo
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Neplatné tajemství kódované pomocí TOTP base32
+twofactor_etotptoken=Token Google Authenticator musí být číslo
+twofactor_etotpmodule2=Chybí Perl modul $1
+twofactor_etotpmatch=Nesprávný OTP kód
+
+enable_title=Povolené dvoufaktorové ověřování
+enable_err=Registrace se nezdařila

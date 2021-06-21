@@ -1,0 +1,38 @@
+index_title=Autenticazione a due fattori
+
+twofactor_disable=Disabilita l'autenticazione a due fattori
+twofactor_already=Il tuo login Usermin ha già abilitato l'autenticazione a due fattori con il provider $1 e l'ID account $2.
+twofactor_already2=Usermin login $3 ha già l'autenticazione a due fattori abilitata con provider $1 e ID account $2.
+twofactor_desc=Questa pagina ti consente di abilitare l'autenticazione a due fattori per il tuo login Usermin usando <a href='$2' target=_blank>$1</a>. Una volta attivo, sarà richiesto un token di autenticazione aggiuntivo quando si accede a Usermin.
+twofactor_desc2=Questa pagina ti consente di abilitare l'autenticazione a due fattori per l'accesso Usermin $3 utilizzando <a href='$2' target=_blank>$1</a>. Una volta attivo, sarà richiesto un token di autenticazione aggiuntivo quando si accede a Usermin.
+twofactor_enable=Registrati per l'autenticazione a due fattori
+twofactor_header=Dettagli di registrazione con autenticazione a due fattori
+twofactor_enrolling=Registrazione per l'autenticazione a due fattori con il provider $1  ..
+twofactor_failed=.. iscrizione fallita  : $1
+twofactor_done=.. completare. Il tuo ID con questo provider è <tt>$1</tt>.
+twofactor_setup=L'autenticazione a due fattori non è stata ancora abilitata su questo sistema. Questa operazione deve essere eseguita dall'amministratore di sistema.
+twofactor_ebutton=Nessun pulsante cliccato!
+
+twofactor_email=Il tuo indirizzo di posta elettronica
+twofactor_country=Prefisso internazionale del cellulare
+twofactor_phone=Numero di cellulare
+twofactor_eemail=Indirizzo e-mail mancante o non valido - deve essere formattato come user@domain.com
+twofactor_ecountry=Codice paese mancante o non valido: deve essere un numero, ad esempio 65
+twofactor_ephone=Numero di telefono mancante o non valido: sono consentiti solo numeri, trattini e spazi
+twofactor_eauthyenroll=Iscrizione fallita : $1
+twofactor_secret=Chiave segreta personale
+twofactor_secret1=Generato casualmente
+twofactor_secret0=Usa chiave di 16 caratteri
+twofactor_esecret=La chiave segreta deve essere lunga esattamente 16 caratteri e contenere solo lettere e numeri
+twofactor_qrcode=Inserisci il codice segreto $1 nell'app Google Authenticator o scansiona il codice QR di seguito.
+
+twofactor_eauthyid=Authy ID utente autorizzato deve essere un numero
+twofactor_eauthytoken=Authy token di autenticazione deve essere un numero
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Segreto codificato base32 TOTP non valido
+twofactor_etotptoken=Il token di Google Authenticator deve essere un numero
+twofactor_etotpmodule2=Modulo Perl mancante $1
+twofactor_etotpmatch=Codice OTP errato
+
+enable_title=Autenticazione a due fattori abilitata
+enable_err=Iscrizione non riuscita

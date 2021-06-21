@@ -8,6 +8,7 @@ index_pass=o expresie de acces
 index_setup=Configurare GnuPG
 index_return=Indicele GnuPG
 index_egpg=Comanda GnuPG $1 nu a fost găsită în sistemul tău. Poate că nu este instalat.
+
 setup_err=Configurarea GnuPG nu a reușit
 setup_ename=Numele care lipsește pentru cheie
 setup_enamelen=Numele pentru cheie trebuie să aibă cel puțin $1 caractere
@@ -16,6 +17,7 @@ setup_title=Configurare GnuPG
 setup_ok=GnuPG a fost configurat cu succes și a fost generată o cheie secretă.
 setup_failed=Crearea cheii secrete a eșuat : $1 
 setup_emkdir=Crearea directorului.gnupg nu a reușit : $1 
+
 keys_title=Gestionați cheile
 keys_desc=Această pagină listează toate cheile publice din cheia dvs. GnuPG. Pentru a cripta un fișier pentru cineva, trebuie să le importați cheia publică, astfel încât să apară pe această pagină.
 keys_id=Cod cheie
@@ -42,11 +44,13 @@ keys_searchok=Căutare
 keys_searchnone=Nu s-au găsit chei care să corespundă căutării dvs.
 keys_searchdesc=Această pagină vă permite să căutați pe serverul de chei GPG $1 după nume sau adresă de e-mail și importarea cheilor găsite.
 keys_status=stare
+
 import_err=Nu a reușit importul cheii
 import_ekey=Nu a fost selectat niciun fișier cheie
 import_egpg=GnuPG a eșuat : $1 
 import_efile=Fișierul cu cheie lipsă sau nevalid
 import_etext=Nu a fost introdus niciun text cheie
+
 key_title=Detalii publice cheie
 key_header=Detalii cheie
 key_id=Cod cheie
@@ -80,6 +84,7 @@ key_deldesc=Îndepărtați această cheie din sistemul dvs., împiedicând utili
 key_revoked=<font color=red>Revocat</font>
 key_got=<font color=#00aa00>Importat</font>
 key_miss=Disponibil
+
 encrypt_title=Criptați fișierul
 encrypt_desc=Utilizați această pagină pentru a cripta un fișier cu GnuPG și o cheie publică aleasă. Odată criptat, rezultatul va fi decriptat numai de către proprietarul cheii private potrivite.
 encrypt_mode=Fișier pentru criptare
@@ -93,6 +98,7 @@ encrypt_err=Eroare la criptarea fișierului
 encrypt_eupload=Niciun fișier selectat pentru criptare
 encrypt_elocal=Fișierul selectat nu există sau nu poate fi citit
 encrypt_egpg=GnuPG a eșuat : $1 
+
 decrypt_title=Decriptați fișierul
 decrypt_desc=Utilizați această pagină pentru a decripta un fișier care a fost criptat folosind cheia dvs. publică, fie de unul singur, fie de altcineva care are cheia dvs.
 decrypt_mode=Fișier pentru a decripta
@@ -106,6 +112,8 @@ decrypt_err=Nu a putut decripta fișierul
 decrypt_eupload=Niciun fișier selectat pentru a decripta
 decrypt_elocal=Fișierul selectat nu există sau nu poate fi citit
 decrypt_egpg=GnuPG a eșuat : $1 
+decrypt_key=Decriptează folosind cheia secretă
+
 sign_title=Fișier semn
 sign_desc=Utilizați această pagină pentru a semna un fișier, astfel încât să poată fi verificat că a fost semnat de dvs. și că nu a fost modificat de la semnare.
 sign_mode=Fișier de semnat
@@ -121,6 +129,7 @@ sign_elocal=Fișierul selectat nu există sau nu poate fi citit
 sign_egpg=GnuPG a eșuat : $1 
 sign_epass=Nu a fost setată încă o parolă pentru cheia secretă aleasă
 sign_sep=Returnați doar semnătura detașată?
+
 verify_title=Verificați fișierul semnat
 verify_desc=Folosiți această pagină pentru a verifica un fișier semnat cu GnuPG, pentru a verifica dacă acesta nu a fost modificat și pentru a afla cine l-a semnat. Dacă doriți să extrageți datele originale dintr-un fișier binar semnat, utilizați <a href='$1'>pagina de decriptare</a>.
 verify_mode=Fișier de verificat
@@ -141,6 +150,7 @@ verify_bad=Fișierul are semnătură de la $1, dar nu este valid.
 verify_noid=Cheia publică cu ID $1 nu este disponibilă pentru verificare.
 verify_failed=Verificarea semnăturii nu a reușit : $1 
 verify_warning=Avertisment - Această cheie nu a fost verificată și semnată pe pagina dvs. de gestionare a cheilor.
+
 signkey_title=Cheia semnului
 signkey_confirm=Sigur doriți să semnați cheia aparținând lui $1 $2 ? Acest lucru va indica faptul că ați confirmat validitatea cheii verificând amprenta ($3) cu proprietarul.
 signkey_failed=Nu a reușit să semneze cheia care aparține $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Nici un raspuns
 signkey_trust1=Nu a verificat
 signkey_trust2=Verificat ocazional
 signkey_trust3=Verificat cu atenție
+
 send_title=Trimiteți către Keyserver
 send_desc=Se trimite cheia $1 către serverul de chei $2.
 send_failed=Eroare la trimiterea cheii : $1 
 send_success=Cheia trimisă cu succes. Alți utilizatori GnuPG vor putea acum să-ți recupereze cheia publică pentru trimiterea de e-mail și criptarea fișierelor.
+
 recv_title=Obțineți din Keyserver
 recv_desc=Obținerea codului de cheie $1 de la serverul de chei $2 ..
 recv_failed=Nu a reușit să preia cheia : $1 
 recv_same=Aveți deja cheia de la $1.
 recv_success=Cheia importată cu succes de la $1.
+
 secret_title=Adaugă cheie secretă
 secret_desc=Utilizați această pagină pentru a genera o cheie secretă suplimentară pe care o puteți utiliza pentru semnare și decriptare.
 secret_err=Eroare la adăugarea cheii secrete
 secret_ok=O nouă cheie secretă a fost generată cu succes.
 secret_name=Nume cheie nou
 secret_setup=Creați cheie nouă
+
 gnupg_esignpass=Nu a fost încă setată o parolă pentru cheia de semnare
 gnupg_ecryptid=Cheia secretă de criptare nu este disponibilă
 gnupg_ecryptkey=ID-ul cheii secrete de criptare $1 nu este disponibil
 gnupg_ecryptpass=Nu a fost încă setată o parolă pentru cheia secretă $1 
 gnupg_canset=Pentru a seta o parolă pentru o cheie existentă, accesați <a href='$1'>pagina cu detaliile cheii</a>
+gnupg_ecryptkey2=ID-ul cheii secrete de criptare neașteptat $1 
+
 trust_title=Stabiliți nivelul de încredere
 trust_echoice=Trebuie să alegeți un nivel de încredere, nu „Nu este încă setat”.
 trust_done=Setați cu succes nivelul de încredere pentru cheia $1.
+
 owner_err1=Nu a putut adăuga proprietarul
 owner_ename=Nu a fost introdus niciun nume
 owner_err2=Nu a reușit să ștergeți proprietarul
 owner_elast=Nu puteți șterge ultimele detalii ale proprietarului
+
 delkey_title=Ștergeți cheia
 delkey_rusure=Sigur doriți să ștergeți cheia secretă $1 $2 ? Orice fișiere sau e-mail criptate cu acesta nu vor mai fi decodabile!
 delkey_ok=Da, ștergeți-o
+
 delkeys_err=Nu a reușit să ștergeți cheile
 delkeys_enone=Nimic selectat
+
 export_title=Cheia de export
 export_desc=Această pagină vă permite să exportați cheia $1 $2 din cheie, fie într-un fișier, fie pentru descărcare din browser.
 export_to=Mod export

@@ -1,0 +1,38 @@
+index_title=توثيق ذو عاملين
+
+twofactor_disable=تعطيل المصادقة الثنائية
+twofactor_already=تسجيل دخول المستخدم الخاص بك يحتوي بالفعل على مصادقة ثنائية ممكّنة مع الموفر $1 ومعرف الحساب $2.
+twofactor_already2=تسجيل دخول المستخدم $3 لديه بالفعل مصادقة ثنائية ممكّنة مع الموفر $1 ومعرف الحساب $2.
+twofactor_desc=تتيح لك هذه الصفحة تمكين المصادقة الثنائية لتسجيل دخول المستخدم الخاص بك باستخدام <a href='$2' target=_blank>$1</a>. بمجرد التفعيل ، ستكون هناك حاجة إلى رمز مصادقة إضافي عند تسجيل الدخول إلى Usermin.
+twofactor_desc2=تسمح لك هذه الصفحة بتمكين المصادقة الثنائية لتسجيل دخول المستخدم $3 باستخدام <a href='$2' target=_blank>$1</a>. بمجرد التفعيل ، ستكون هناك حاجة إلى رمز مصادقة إضافي عند تسجيل الدخول إلى Usermin.
+twofactor_enable=التسجيل في المصادقة الثنائية
+twofactor_header=تفاصيل تسجيل المصادقة ذات العاملين
+twofactor_enrolling=التسجيل للمصادقة ذات العاملين مع الموفر $1  ..
+twofactor_failed=.. فشل التسجيل : $1
+twofactor_done=.. اكتمال. المعرف الخاص بك مع هذا المزود هو <tt>$1</tt>.
+twofactor_setup=لم يتم تمكين المصادقة ذات العاملين على هذا النظام حتى الآن. يجب أن يتم ذلك من قبل مسؤول النظام الخاص بك.
+twofactor_ebutton=لم يتم النقر فوق الزر!
+
+twofactor_email=عنوان بريدك الإلكتروني
+twofactor_country=رمز الدولة للهاتف المحمول
+twofactor_phone=رقم الهاتف المحمول
+twofactor_eemail=عنوان البريد الإلكتروني مفقود أو غير صالح - يجب تنسيقه مثل user@domain.com
+twofactor_ecountry=رمز البلد مفقود أو غير صالح - يجب أن يكون رقمًا ، مثل 65
+twofactor_ephone=رقم الهاتف مفقود أو غير صالح - يُسمح فقط بالأرقام والشرطات والمسافات
+twofactor_eauthyenroll=فشل التسجيل : $1
+twofactor_secret=المفتاح السري الشخصي
+twofactor_secret1=ولدت عشوائيا
+twofactor_secret0=استخدم مفتاح 16 حرفًا
+twofactor_esecret=يجب أن يتكون المفتاح السري من 16 حرفًا بالضبط وأن يحتوي على أحرف وأرقام فقط
+twofactor_qrcode=أدخل الرمز السري $1 في تطبيق Google Authenticator ، أو امسح رمز QR أدناه.
+
+twofactor_eauthyid=يجب أن يكون معرف مستخدم Authy
+twofactor_eauthytoken=يجب أن يكون رمز Authy
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=سر غير صالح بترميز base32 في TOTP
+twofactor_etotptoken=يجب أن يكون رمز Google Authenticator عبارة عن رقم
+twofactor_etotpmodule2=وحدة Perl مفقودة $1
+twofactor_etotpmatch=رمز OTP غير صحيح
+
+enable_title=تمكين المصادقة الثنائية
+enable_err=فشل التسجيل

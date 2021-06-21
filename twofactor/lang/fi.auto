@@ -1,0 +1,38 @@
+index_title=Kaksitekijäinen todennus
+
+twofactor_disable=Poista kaksivaiheinen todennus käytöstä
+twofactor_already=Usermin-kirjautumistunnuksessasi on jo kaksivaiheinen todennus käytössä palveluntarjoajalla $1 ja tilin tunnuksella $2.
+twofactor_already2=Usermin login $3 jo kaksivaiheinen todennus käytössä palveluntarjoajalla $1 ja tilin tunnuksella $2.
+twofactor_desc=Tällä sivulla voit ottaa käyttöön kaksivaiheisen todennuksen Usermin-kirjautumistunnuksellesi <a href='$2' target=_blank>$1</a>. Kun se on aktiivinen, tarvitaan uusi todennustunnus, kun kirjaudut Userminiin.
+twofactor_desc2=Tämän sivun avulla voit ottaa käyttöön kaksivaiheisen todennuksen Usermin-kirjautumistunnukselle $3 käyttämällä <a href='$2' target=_blank>$1</a>. Kun se on aktiivinen, tarvitaan uusi todennustunnus, kun kirjaudut Userminiin.
+twofactor_enable=Ilmoittaudu kaksitekijän todennukseen
+twofactor_header=Kahden tekijän todentamisen ilmoittautumistiedot
+twofactor_enrolling=Ilmoittautuminen kaksivaiheiseen todennukseen palveluntarjoajalla $1  ..
+twofactor_failed=.. ilmoittautuminen epäonnistui : $1
+twofactor_done=.. saattaa loppuun. Tunnuksesi tämän palveluntarjoajan kanssa on <tt>$1</tt>.
+twofactor_setup=Kaksivaiheista todennusta ei ole vielä otettu käyttöön tässä järjestelmässä. Järjestelmänvalvojan on tehtävä tämä.
+twofactor_ebutton=Mitään painiketta ei napsautettu!
+
+twofactor_email=Sähköpostiosoitteesi
+twofactor_country=Matkapuhelimen maakoodi
+twofactor_phone=Matkapuhelimen numero
+twofactor_eemail=Puuttuva tai virheellinen sähköpostiosoite - sen on oltava muotoa user@domain.com
+twofactor_ecountry=Puuttuva tai virheellinen maakoodi - sen on oltava numero, kuten 65
+twofactor_ephone=Puuttuva tai virheellinen puhelinnumero - vain numerot, viivat ja välilyönnit ovat sallittuja
+twofactor_eauthyenroll=Ilmoittautuminen epäonnistui : $1
+twofactor_secret=Henkilökohtainen salainen avain
+twofactor_secret1=Luotu satunnaisesti
+twofactor_secret0=Käytä 16-merkkistä näppäintä
+twofactor_esecret=Salaisen avaimen on oltava täsmälleen 16 merkkiä pitkä ja siinä saa olla vain kirjaimia ja numeroita
+twofactor_qrcode=Kirjoita salainen koodi $1 Google Authenticator -sovellukseen tai skannaa alla oleva QR-koodi.
+
+twofactor_eauthyid=Authy käyttäjätunnuksen on oltava numero
+twofactor_eauthytoken=Authy tunnuksen on oltava numero
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Virheellinen TOTP base32 -koodattu salaisuus
+twofactor_etotptoken=Google Authenticator -tunnuksen on oltava numero
+twofactor_etotpmodule2=Perl-moduuli $1
+twofactor_etotpmatch=Väärä OTP-koodi
+
+enable_title=Otti käyttöön kaksitekijän todennuksen
+enable_err=Ilmoittautuminen epäonnistui

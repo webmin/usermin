@@ -1,0 +1,38 @@
+index_title=Zwei-Faktor-Authentifizierung
+
+twofactor_disable=Deaktivieren Sie die Zwei-Faktor-Authentifizierung
+twofactor_already=In Ihrem Usermin-Login ist bereits die Zwei-Faktor-Authentifizierung mit Anbieter $1 und Konto-ID $2 aktiviert.
+twofactor_already2=Bei Usermin-Login $3 bereits die Zwei-Faktor-Authentifizierung mit Anbieter $1 und Konto-ID $2 aktiviert.
+twofactor_desc=Auf dieser Seite können Sie die Zwei-Faktor-Authentifizierung für Ihre Usermin-Anmeldung mit <a href='$2' target=_blank>$1</a> aktivieren. Nach der Aktivierung wird ein zusätzliches Authentifizierungstoken benötigt, wenn Sie sich bei Usermin anmelden.
+twofactor_desc2=Auf dieser Seite können Sie die Zwei-Faktor-Authentifizierung für die Usermin-Anmeldung $3 mit <a href='$2' target=_blank>$1</a> aktivieren. Nach der Aktivierung wird ein zusätzliches Authentifizierungstoken benötigt, wenn Sie sich bei Usermin anmelden.
+twofactor_enable=Registrieren Sie sich für die Zwei-Faktor-Authentifizierung
+twofactor_header=Anmeldedetails für die Zwei-Faktor-Authentifizierung
+twofactor_enrolling=Anmeldung zur Zwei-Faktor-Authentifizierung beim Anbieter $1  ..
+twofactor_failed=.. Anmeldung fehlgeschlagen  : $1
+twofactor_done=.. Komplett. Ihre ID bei diesem Anbieter ist <tt>$1</tt>.
+twofactor_setup=Die Zwei-Faktor-Authentifizierung wurde auf diesem System noch nicht aktiviert. Dies muss von Ihrem Systemadministrator durchgeführt werden.
+twofactor_ebutton=Kein Button angeklickt!
+
+twofactor_email=deine Emailadresse
+twofactor_country=Landesvorwahl für Handy
+twofactor_phone=Handynummer
+twofactor_eemail=Fehlende oder ungültige E-Mail-Adresse – muss wie user@domain.com
+twofactor_ecountry=Fehlender oder ungültiger Ländercode – muss eine Zahl sein, z. B. 65 
+twofactor_ephone=Fehlende oder ungültige Telefonnummer - nur Ziffern, Bindestriche und Leerzeichen sind erlaubt
+twofactor_eauthyenroll=Anmeldung fehlgeschlagen  : $1
+twofactor_secret=Persönlicher geheimer Schlüssel
+twofactor_secret1=Zufällig generiert
+twofactor_secret0=Verwenden Sie die 16-stellige Taste
+twofactor_esecret=Geheimschlüssel muss genau 16 Zeichen lang sein und darf nur Buchstaben und Zahlen enthalten
+twofactor_qrcode=Geben Sie den Geheimcode $1 in der Google Authenticator App ein oder scannen Sie den QR-Code unten.
+
+twofactor_eauthyid=Authy Benutzer-ID muss eine Zahl sein
+twofactor_eauthytoken=Authy Token muss eine Zahl sein
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Ungültiges TOTP base32-codiertes Geheimnis
+twofactor_etotptoken=Das Google Authenticator-Token muss eine Zahl sein
+twofactor_etotpmodule2=Fehlendes Perl-Modul $1
+twofactor_etotpmatch=Falscher OTP-Code
+
+enable_title=Aktivierte Zwei-Faktor-Authentifizierung
+enable_err=Anmeldung fehlgeschlagen

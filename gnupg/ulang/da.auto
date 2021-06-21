@@ -8,6 +8,7 @@ index_pass=Passphrase
 index_setup=Opsætning af GnuPG
 index_return=GnuPG-indeks
 index_egpg=GnuPG-kommandoen $1 blev ikke fundet på dit system. Måske er det ikke installeret.
+
 setup_err=Kunne ikke konfigurere GnuPG
 setup_ename=Manglende navn til nøgle
 setup_enamelen=Navnet på nøglen skal være mindst $1 tegn langt
@@ -16,6 +17,7 @@ setup_title=Opsætning af GnuPG
 setup_ok=GnuPG er blevet opsat og en hemmelig nøgle genereret.
 setup_failed=Kunne ikke oprette hemmelig nøgle : $1 
 setup_emkdir=Kunne ikke oprette.gnupg-bibliotek : $1 
+
 keys_title=Administrer nøgler
 keys_desc=Denne side viser alle de offentlige nøgler i din GnuPG-nøglering. For at kryptere en fil til nogen, skal du importere deres offentlige nøgle, så den vises på denne side.
 keys_id=Nøgle-ID
@@ -42,11 +44,13 @@ keys_searchok=Søg
 keys_searchnone=Der blev ikke fundet nogen nøgler, der matchede din søgning.
 keys_searchdesc=På denne side kan du søge i GPG-nøgleserveren $1 efter navn eller e-mail-adresse og importere nøgler fundet.
 keys_status=status
+
 import_err=Importnøglen mislykkedes
 import_ekey=Ingen nøglefil valgt
 import_egpg=GnuPG mislykkedes : $1 
 import_efile=Manglende eller ugyldig nøglefil
 import_etext=Der er ikke indtastet nogen nøgletekst
+
 key_title=Detaljer om offentlig nøgle
 key_header=Nøgledetaljer
 key_id=Nøgle-ID
@@ -80,6 +84,7 @@ key_deldesc=Fjern denne nøgle fra dit system, så du ikke kan bruges til signer
 key_revoked=<font color=red>Tilbagekaldt</font>
 key_got=<font color=#00aa00>Importeret</font>
 key_miss=Ledig
+
 encrypt_title=Krypter fil
 encrypt_desc=Brug denne side til at kryptere en fil med GnuPG og en valgt offentlig nøgle. Når det er krypteret, kan resultatet kun dekrypteres af ejeren af den matchende private nøgle.
 encrypt_mode=Fil, der skal krypteres
@@ -93,6 +98,7 @@ encrypt_err=Kunne ikke kryptere filen
 encrypt_eupload=Ingen fil valgt til at kryptere
 encrypt_elocal=Den valgte fil findes ikke eller kan ikke læses
 encrypt_egpg=GnuPG mislykkedes : $1 
+
 decrypt_title=Dekrypter fil
 decrypt_desc=Brug denne side til at dekryptere en fil, der er krypteret ved hjælp af din offentlige nøgle, enten af dig selv eller af en anden, der har din nøgle.
 decrypt_mode=Fil, der skal dekrypteres
@@ -106,6 +112,8 @@ decrypt_err=Kunne ikke dekryptere filen
 decrypt_eupload=Ingen fil valgt til at dekryptere
 decrypt_elocal=Den valgte fil findes ikke eller kan ikke læses
 decrypt_egpg=GnuPG mislykkedes : $1 
+decrypt_key=Dekrypter ved hjælp af hemmelig nøgle
+
 sign_title=Signer fil
 sign_desc=Brug denne side til at underskrive en fil, så den kan verificeres, at den blev underskrevet af dig, og at den ikke er blevet ændret siden underskrivelsen.
 sign_mode=Fil, der skal underskrives
@@ -121,6 +129,7 @@ sign_elocal=Den valgte fil findes ikke eller kan ikke læses
 sign_egpg=GnuPG mislykkedes : $1 
 sign_epass=Der er endnu ikke indstillet en adgangssætning for den valgte hemmelige nøgle
 sign_sep=Returner kun løsrevet signatur?
+
 verify_title=Bekræft underskrevet fil
 verify_desc=Brug denne side til at bekræfte en fil, der er underskrevet med GnuPG, for at kontrollere, at den ikke er ændret og finde ud af, hvem der har underskrevet den. Hvis du vil udpakke de originale data fra en underskrevet binær fil, skal du bruge <a href='$1'>dekrypteringssiden</a>.
 verify_mode=Fil, der skal bekræftes
@@ -141,6 +150,7 @@ verify_bad=Filen har signatur fra $1, men den er ikke gyldig.
 verify_noid=Offentlig nøgle med ID $1 er ikke tilgængelig til bekræftelse.
 verify_failed=Kunne ikke bekræfte underskrift : $1 
 verify_warning=Advarsel - Denne nøgle er ikke blevet bekræftet og underskrevet på din nøglehåndteringsside.
+
 signkey_title=Tegnnøgle
 signkey_confirm=Er du sikker på, at du vil underskrive nøglen, der tilhører $1 $2 ? Dette vil indikere, at du har bekræftet gyldigheden af nøglen ved at kontrollere dens fingeraftryk ($3) hos ejeren.
 signkey_failed=Kunne ikke signere nøglen, der tilhører $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Intet svar
 signkey_trust1=Ikke kontrolleret
 signkey_trust2=Tilfældigt tjekket
 signkey_trust3=Kontrolleres omhyggeligt
+
 send_title=Send til Keyserver
 send_desc=Sender nøgle $1 til nøgleserver $2 ..
 send_failed=Kunne ikke sende nøglen : $1 
 send_success=Nøglen blev sendt. Andre GnuPG-brugere vil nu kunne hente din offentlige nøgle til at sende e-mail og kryptere filer.
+
 recv_title=Hent fra Keyserver
 recv_desc=Henter nøgle-ID $1 fra nøgleserver $2 ..
 recv_failed=Kunne ikke hente nøglen : $1 
 recv_same=Har allerede nøgle fra $1.
 recv_success=Importeret nøgle fra $1.
+
 secret_title=Tilføj hemmelig nøgle
 secret_desc=Brug denne side til at generere en ekstra hemmelig nøgle, som du kan bruge til signering og dekryptering.
 secret_err=Kunne ikke tilføje hemmelig nøgle
 secret_ok=En ny hemmelig nøgle er genereret med succes.
 secret_name=Nyt nøglenavn
 secret_setup=Opret ny nøgle
+
 gnupg_esignpass=Der er endnu ikke indstillet en adgangssætning for signaturnøglen
 gnupg_ecryptid=Krypteringshemmelig nøgle er ikke tilgængelig
 gnupg_ecryptkey=Krypteringshemmelig nøgle-ID $1 ikke tilgængelig
 gnupg_ecryptpass=Der er endnu ikke indstillet en adgangssætning for den hemmelige nøgle $1 
 gnupg_canset=Hvis du vil indstille en adgangssætning for en eksisterende nøgle, skal du besøge <a href='$1'>siden med nøgleinformation</a>
+gnupg_ecryptkey2=Uventet krypteringshemmelig nøgle-id $1 
+
 trust_title=Indstil tillidsniveau
 trust_echoice=Du skal vælge et tillidsniveau, ikke 'Ikke indstillet endnu'.
 trust_done=Angiv tillidsniveau for nøgle $1.
+
 owner_err1=Kunne ikke tilføje ejer
 owner_ename=Intet navn indtastet
 owner_err2=Kunne ikke slette ejeren
 owner_elast=Du kan ikke slette de sidste ejeroplysninger
+
 delkey_title=Slet nøgle
 delkey_rusure=Er du sikker på, at du vil slette den hemmelige nøgle $1 $2 ? Eventuelle filer eller e-mails, der er krypteret med det, kan ikke længere afkodes!
 delkey_ok=Ja, slet det
+
 delkeys_err=Kunne ikke slette nøgler
 delkeys_enone=Ingen valgt
+
 export_title=Eksportnøgle
 export_desc=På denne side kan du eksportere nøglen $1 $2 fra din nøglering, enten til en fil eller til download fra din browser.
 export_to=Eksporttilstand

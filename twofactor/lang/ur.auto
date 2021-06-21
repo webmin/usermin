@@ -1,0 +1,38 @@
+index_title=دو عنصر کی تصدیق
+
+twofactor_disable=دو فیکٹر توثیق کو غیر فعال کریں
+twofactor_already=آپ کے صارف لاگ ان میں پہلے ہی فراہم کنندہ $1 اور اکاؤنٹ ID $2 ساتھ دو عنصر کی توثیق کاری کا اہل ہے۔
+twofactor_already2=صارف لاگ ان $3 $1 اور اکاؤنٹ ID $2 ساتھ دو عنصر کی توثیق کاری فعال ہے۔
+twofactor_desc=This page allows you to enable two-factor authentication for your Usermin login using <a href='$2' target=_blank>$1</a>. Once active, an additional authentication token will be required when logging into Usermin.
+twofactor_desc2=This page allows you to enable two-factor authentication for Usermin login $3 using <a href='$2' target=_blank>$1</a>. Once active, an additional authentication token will be required when logging into Usermin.
+twofactor_enable=دو فیکٹر استناد کے ل For اندراج کریں
+twofactor_header=دو عنصر سے تصدیق کے اندراج کی تفصیلات
+twofactor_enrolling=$1 ساتھ دو عنصر کی توثیق کے لئے اندراج کر رہا ہے۔
+twofactor_failed=.. اندراج ناکام ہوگیا : $1
+twofactor_done=.. complete. Your ID with this provider is <tt>$1</tt>.
+twofactor_setup=اس سسٹم پر ابھی تک دو عنصر کی توثیق کو اہل نہیں کیا گیا ہے۔ یہ آپ کے سسٹم کے منتظم کے ذریعہ کیا جانا چاہئے۔
+twofactor_ebutton=کوئی بٹن نہیں کلکس کیا گیا!
+
+twofactor_email=آپ کا ای میل ایڈریس
+twofactor_country=سیل فون کا ملک کا کوڈ
+twofactor_phone=موبائل فون نمبر
+twofactor_eemail=غائب یا غلط ای میل ایڈریس - اس شکل میں ہونا ضروری ہے user@domain.com
+twofactor_ecountry=گمشدہ یا غلط ملک کا کوڈ - 65 کی طرح ایک نمبر ہونا ضروری ہے
+twofactor_ephone=گمشدہ یا غلط فون نمبر - صرف ہندسے ، ڈیش اور جگہوں کی اجازت ہے
+twofactor_eauthyenroll=اندراج ناکام ہوگیا : $1
+twofactor_secret=ذاتی خفیہ کلید
+twofactor_secret1=تصادفی طور پر تیار کیا گیا
+twofactor_secret0=16-حرف کی کلید استعمال کریں
+twofactor_esecret=خفیہ کلید بالکل 16 حروف کی لمبی ہونی چاہئے اور اس میں صرف حرف اور نمبر شامل ہوں گے
+twofactor_qrcode=گوگل مستند ایپ میں خفیہ کوڈ $1 درج کریں ، یا نیچے کیو آر کوڈ اسکین کریں۔
+
+twofactor_eauthyid=<span translate="no">Authy</span> user ID must be a number
+twofactor_eauthytoken=<span translate="no">Authy</span> token must be a number
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=غلط TOTP بیس 32 انکوڈ والا راز
+twofactor_etotptoken=گوگل مستند ٹوکن ایک نمبر ہونا ضروری ہے
+twofactor_etotpmodule2=لاپتہ پرل ماڈیول $1
+twofactor_etotpmatch=غلط او ٹی پی کوڈ
+
+enable_title=قابل عمل دو فیکٹر توثیق
+enable_err=اندراج ناکام ہوگیا

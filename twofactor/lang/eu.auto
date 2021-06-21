@@ -1,0 +1,38 @@
+index_title=Bi faktoretako autentifikazioa
+
+twofactor_disable=Bi faktoreen autentifikazioa desgaitu
+twofactor_already=Usermin saioa hasteko dagoeneko bi faktoreko autentifikazioa gaituta dago $1 $2 kontuaren IDarekin.
+twofactor_already2=$3 Usermin saioa hasteko dagoeneko bi faktoreko autentifikazioa gaituta dago $1 $2 kontuaren IDarekin.
+twofactor_desc=Orri honek Usermin saioa hasteko faktore bikoitzeko autentifikazioa gaitzeko aukera ematen du <a href='$2' target=_blank>$1</a> erabiliz. Aktibo dagoenean, autentifikazio token gehigarri bat beharko da Usermin saioa hastean.
+twofactor_desc2=$3 <a href='$2' target=_blank>$1</a> erabiliz bi faktoreko autentifikazioa gaitzeko aukera ematen du. Aktibo dagoenean, autentifikazio token gehigarri bat beharko da Usermin saioa hastean.
+twofactor_enable=Izena eman bi faktoretako autentifikazioan
+twofactor_header=Bi faktore autentifikatzeko matrikula xehetasunak
+twofactor_enrolling=Bi faktoreko autentifikaziorako izena ematea $1 hornitzailearekin  ..
+twofactor_failed=.. matrikula huts egin du : $1
+twofactor_done=.. osatu. Hornitzaile honekin duzun IDa <tt>$1</tt>.
+twofactor_setup=Bi faktoreko autentifikazioa oraindik ez da gaitu sistema honetan. Zure sistemaren administratzaileak egin behar du.
+twofactor_ebutton=Ez da botoirik sakatu!
+
+twofactor_email=Zure helbide elektronikoa
+twofactor_country=Telefono mugikorraren herrialde kodea
+twofactor_phone=Telefono mugikorreko zenbakia
+twofactor_eemail=Helbide elektronikoa falta edo baliogabea - user@domain.com
+twofactor_ecountry=Herrialde kodea falta den edo baliogabea den zenbakiak izan behar du, 65 bezalakoa
+twofactor_ephone=Telefono zenbakia falta edo baliogabea - digituak, marratxoak eta zuriuneak soilik onartzen dira
+twofactor_eauthyenroll=Matrikula huts egin du : $1
+twofactor_secret=Gako sekretu pertsonala
+twofactor_secret1=Ausaz sortua
+twofactor_secret0=Erabili 16 karaktereko tekla
+twofactor_esecret=Gako sekretuak 16 karaktere izan behar ditu eta letrak eta zenbakiak soilik eduki behar ditu
+twofactor_qrcode=$1 kode sekretua Google Authenticator aplikazioan edo eskaneatu beheko QR kodea.
+
+twofactor_eauthyid=Authy zenbaki bat izan behar du
+twofactor_eauthytoken=Authy zenbaki bat izan behar du
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=TOTP base32 kodetutako sekretu baliogabea
+twofactor_etotptoken=Google Authenticator tokenak zenbaki bat izan behar du
+twofactor_etotpmodule2=$1 modulua falta da
+twofactor_etotpmatch=Okerreko OTP kodea
+
+enable_title=Bi faktoreen autentifikazioa gaituta
+enable_err=Matrikulazioak huts egin du

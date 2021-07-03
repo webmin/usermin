@@ -1,0 +1,38 @@
+index_title=Twee-factorenauthenticatie
+
+twofactor_disable=Twee-factorenauthenticatie uitschakelen
+twofactor_already=Uw Usermin-login heeft al tweefactorauthenticatie ingeschakeld met provider $1 en account-ID $2.
+twofactor_already2=Usermin login $3 al tweefactorauthenticatie ingeschakeld met provider $1 en account-ID $2.
+twofactor_desc=Op deze pagina kunt u twee-factor-authenticatie inschakelen voor uw Usermin-aanmelding met <a href='$2' target=_blank>$1</a>. Eenmaal actief, is een extra authenticatietoken vereist bij het inloggen op Usermin.
+twofactor_desc2=Op deze pagina kun je twee-factor-authenticatie inschakelen voor Usermin login $3 met <a href='$2' target=_blank>$1</a>. Eenmaal actief, is een extra authenticatietoken vereist bij het inloggen op Usermin.
+twofactor_enable=Aanmelden voor tweestapsverificatie
+twofactor_header=Inschrijvingsgegevens voor tweestapsverificatie
+twofactor_enrolling=Aanmelden voor tweefactorauthenticatie bij provider $1  ..
+twofactor_failed=.. inschrijving mislukt : $1
+twofactor_done=.. compleet. Uw ID bij deze provider is <tt>$1</tt>.
+twofactor_setup=Twee-factor-authenticatie is nog niet ingeschakeld op dit systeem. Dit moet worden gedaan door uw systeembeheerder.
+twofactor_ebutton=Geen knop geklikt!
+
+twofactor_email=jouw e-mailadres
+twofactor_country=Landcode mobiele telefoon
+twofactor_phone=Mobiel telefoonnummer
+twofactor_eemail=Ontbrekende of ongeldig e-mailadres - moet geformatteerd als user@domain.com
+twofactor_ecountry=Ontbrekende of ongeldige landcode - moet een getal zijn, zoals 65
+twofactor_ephone=Ontbrekend of ongeldig telefoonnummer - alleen cijfers, streepjes en spaties zijn toegestaan
+twofactor_eauthyenroll=Inschrijving mislukt : $1
+twofactor_secret=Persoonlijke geheime sleutel
+twofactor_secret1=Willekeurig gegenereerd
+twofactor_secret0=Sleutel van 16 tekens gebruiken
+twofactor_esecret=De geheime sleutel moet exact 16 tekens lang zijn en alleen letters en cijfers bevatten
+twofactor_qrcode=Voer de geheime code $1 in de Google Authenticator-app in of scan de onderstaande QR-code.
+
+twofactor_eauthyid=Authy gebruikers-ID moet een nummer zijn
+twofactor_eauthytoken=Authy token moet een getal zijn
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Ongeldig TOTP base32-gecodeerd geheim
+twofactor_etotptoken=Google Authenticator-token moet een getal zijn
+twofactor_etotpmodule2=Perl-module ontbreekt $1
+twofactor_etotpmatch=Onjuiste OTP-code
+
+enable_title=Twee-factorenauthenticatie ingeschakeld
+enable_err=Inschrijving mislukt

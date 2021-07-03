@@ -1,0 +1,38 @@
+index_title=2 단계 인증
+
+twofactor_disable=2 단계 인증 비활성화
+twofactor_already=$1 및 계정 ID $2 로 이중 인증이 활성화되어 있습니다.
+twofactor_already2=Usermin 로그인 $3 $1 및 계정 ID $2 로 이중 인증이 활성화되어 있습니다.
+twofactor_desc=<a href='$2' target=_blank>$1</a> 사용하여 Usermin 로그인에 대해 2 단계 인증을 활성화 할 수 있습니다. 활성화되면 Usermin에 로그인 할 때 추가 인증 토큰이 필요합니다.
+twofactor_desc2=<a href='$2' target=_blank>$1</a> 사용하여 $3 대해 2 단계 인증을 활성화 할 수 있습니다. 활성화되면 Usermin에 로그인 할 때 추가 인증 토큰이 필요합니다.
+twofactor_enable=2 단계 인증 등록
+twofactor_header=2 단계 인증 등록 세부 정보
+twofactor_enrolling=$1 이중 인증 등록  ..
+twofactor_failed=.. 등록 실패  : $1
+twofactor_done=.. 완료. 이 공급자의 ID는 <tt>$1</tt> 입니다.
+twofactor_setup=이 시스템에서는 2 단계 인증이 아직 활성화되지 않았습니다. 이것은 시스템 관리자가 수행해야합니다.
+twofactor_ebutton=버튼을 클릭하지 않았습니다!
+
+twofactor_email=귀하의 이메일 주소
+twofactor_country=휴대폰 국가 코드
+twofactor_phone=핸드폰 전화 번호
+twofactor_eemail=이메일 주소가 없거나 잘못되었습니다. user@domain.com
+twofactor_ecountry=국가 코드가 없거나 잘못되었습니다. 65와 같은 숫자 여야합니다
+twofactor_ephone=전화 번호가 없거나 잘못되었습니다. 숫자, 대시 및 공백 만 허용됩니다
+twofactor_eauthyenroll=등록 실패  : $1
+twofactor_secret=개인 비밀 키
+twofactor_secret1=무작위로 생성됨
+twofactor_secret0=16 자 키 사용
+twofactor_esecret=비밀 키는 정확히 16 자 길이 여야하며 문자와 숫자 만 포함해야합니다
+twofactor_qrcode=Google Authenticator 앱에 비밀번호 $1 을 입력하거나 아래 QR 코드를 스캔하세요.
+
+twofactor_eauthyid=Authy 사용자 ID는 숫자 여야합니다
+twofactor_eauthytoken=Authy 토큰은 숫자 여야합니다
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=잘못된 TOTP base32로 인코딩 된 비밀
+twofactor_etotptoken=Google Authenticator 토큰은 숫자 여야합니다
+twofactor_etotpmodule2=Perl 모듈 $1
+twofactor_etotpmatch=잘못된 OTP 코드
+
+enable_title=2 단계 인증 활성화
+enable_err=등록 실패

@@ -8,6 +8,7 @@ index_pass=Pasaesaldiak
 index_setup=Konfiguratu GnuPG
 index_return=GnuPG indizea
 index_egpg=Ez da $1 GnuPG komandoa zure sisteman aurkitu. Agian ez dago instalatuta.
+
 setup_err=Huts egin du GnuPG konfiguratzean
 setup_ename=Izena giltza falta da
 setup_enamelen=Gakoen izenak gutxienez $1 karaktere izan behar ditu
@@ -16,6 +17,7 @@ setup_title=Konfiguratu GnuPG
 setup_ok=GnuPG arrakastaz konfiguratu da eta gako sekretu bat sortu da.
 setup_failed=Ezin izan da gako sekretua sortu : $1 
 setup_emkdir=Huts egin du.gnupg direktorio bat sortzean : $1 
+
 keys_title=Kudeatu teklak
 keys_desc=Orrialde honetan zure GnuPG giltza publikoko gako guztiak agertzen dira. Norbaiti fitxategia zifratu ahal izateko, gako publikoa inportatu behar duzu orri honetan ager dadin.
 keys_id=Giltza IDa
@@ -42,11 +44,13 @@ keys_searchok=Search
 keys_searchnone=Ez da zure bilaketarekin bat egiten duten gakoak aurkitu.
 keys_searchdesc=Orrialde honek GPG gako zerbitzariaren $1 bilaketa edo helbide elektronikoa eta bilaketa gakoak inportatzeko aukera ematen du.
 keys_status=Egoera
+
 import_err=Ezin izan da gakoa inportatzean
 import_ekey=Ez da gako fitxategirik aukeratu
 import_egpg=GnuPG huts egin du : $1 
 import_efile=Gako fitxategi falta edo baliogabea
 import_etext=Ez da gako testurik sartu
+
 key_title=Gako publiko xehetasunak
 key_header=Gako Xehetasunak
 key_id=Giltza IDa
@@ -80,6 +84,7 @@ key_deldesc=Ezabatu gako hau zure sistematik, sinatu, enkriptatu edo deszifratu 
 key_revoked=<font color=red>Ezeztatua</font>
 key_got=<font color=#00aa00>Inportatuta</font>
 key_miss=eskura
+
 encrypt_title=Kriptatu Fitxategia
 encrypt_desc=Erabili orri hau GnuPG eta hautatutako gako publiko batekin fitxategia zifratzeko. Zifratutakoan, emaitza parekatutako gako pribatuaren jabeak soilik desenkriptatu egingo du.
 encrypt_mode=Fitxategia enkriptatzeko
@@ -93,6 +98,7 @@ encrypt_err=Ezin izan da fitxategia enkriptatu
 encrypt_eupload=Ez da fitxategirik hautatu zifratzeko
 encrypt_elocal=Hautatutako fitxategia ez da existitzen edo ezin da irakurri
 encrypt_egpg=GnuPG huts egin du : $1 
+
 decrypt_title=Deskriptatu Fitxategia
 decrypt_desc=Erabili orri hau zure gako publikoa erabiliz enkriptatutako fitxategia zifratzeko, bai zure kabuz bai zure gakoa duen beste norbaitek.
 decrypt_mode=Deszifratzeko fitxategia
@@ -106,6 +112,8 @@ decrypt_err=Ezin izan da fitxategia deszifratu
 decrypt_eupload=Ez da fitxategirik hautatu zifratzeko
 decrypt_elocal=Hautatutako fitxategia ez da existitzen edo ezin da irakurri
 decrypt_egpg=GnuPG huts egin du : $1 
+decrypt_key=Deszifratu gako sekretua erabiliz
+
 sign_title=Zeinu fitxategia
 sign_desc=Erabil ezazu orrialde hau fitxategi bat sinatzeko, sinatu zenuenetik eta sinatu zenetik aldatu ez dela egiaztatu ahal izateko.
 sign_mode=Saioa sinatzeko fitxategia
@@ -121,6 +129,7 @@ sign_elocal=Hautatutako fitxategia ez da existitzen edo ezin da irakurri
 sign_egpg=GnuPG huts egin du : $1 
 sign_epass=Aukeratutako gako sekretuarentzat ez da oraindik pasahitzik ezarri
 sign_sep=Itzuli sinadura soilik?
+
 verify_title=Egiaztatu sinatutako fitxategia
 verify_desc=Erabili orri hau GnuPGrekin sinatutako fitxategia egiaztatzeko, aldatu ez dela egiaztatzeko eta nork sinatu duen jakiteko. Jatorrizko datuak sinatutako fitxategi bitar batetik atera nahi baduzu, erabili <a href='$1'>desenkriptazio orria</a>.
 verify_mode=Egiaztatu fitxategia
@@ -141,6 +150,7 @@ verify_bad=Fitxategiak $1 sinadura du, baina ez du balio.
 verify_noid=$1 IDko gako publikoa ez dago egiaztapenetarako.
 verify_failed=Ezin izan da sinadura egiaztatu : $1 
 verify_warning=Abisua: gako hau ez da egiaztatu zure gako kudeaketa orrian.
+
 signkey_title=Zeinu gakoa
 signkey_confirm=Ziur $1 $2 ko gakoa sinatu nahi duzula? Horrek adieraziko du jabearekin bere marka digitala ($3) egiaztatuz gakoaren baliozkotasuna berretsi duzula.
 signkey_failed=Ezin izan da $1 : $2 ko gakoa sinatu
@@ -151,38 +161,48 @@ signkey_trust0=Erantzunik ez
 signkey_trust1=Ez da egiaztatu
 signkey_trust2=Kasualitatez egiaztatu da
 signkey_trust3=Arretaz egiaztatu
+
 send_title=Bidali Keyserver-ri
 send_desc=$1 gakoa bidaltzen $2 gako zerbitzariari.
 send_failed=Huts egin du gakoa bidaltzean : $1 
 send_success=Gakoa behar bezala bidali da. GnuPG-ko beste erabiltzaile batzuek zure gako publikoa berreskuratu ahal izango dute posta elektronikoa eta fitxategiak enkriptatzeko.
+
 recv_title=Eskuratu Keyserver-tik
 recv_desc=$1 gako IDa lortzen gako zerbitzariaren $2 -tik.
 recv_failed=Huts egin du tekla eskuratzean : $1 
 recv_same=$1 etik gakoa dagoeneko.
 recv_success=Gakoa $1 etik inportatu da.
+
 secret_title=Gehitu giltza sekretua
 secret_desc=Erabili orri hau sinatzeko eta deszifratzeko erabil dezakezun gako sekretu gehigarria sortzeko.
 secret_err=Ezin izan da giltza sekretua gehitzean
 secret_ok=Gako sekretu berri bat arrakastaz sortu da.
 secret_name=Gako izen berria
 secret_setup=Sortu gako berria
+
 gnupg_esignpass=Oraindik ez da pasahitzik ezarri sinadura gakoa lortzeko
 gnupg_ecryptid=Zifratze-gako sekretua ez dago erabilgarri
 gnupg_ecryptkey=Zifratze gako ID idazkuna $1 ez dago erabilgarri
 gnupg_ecryptpass=Ez da oraindik pasahitzik ezarri $1 gako sekreturako
 gnupg_canset=Lehendik dagoen gako baten pasahitza ezartzeko, bisitatu <a href='$1'>gakoen xehetasun orria</a>
+gnupg_ecryptkey2=$1 ustekabeko enkriptatze gako sekretua
+
 trust_title=Ezarri konfiantza maila
 trust_echoice=Konfiantza maila aukeratu behar duzu, eta ez "Oraindik zehaztu gabe".
 trust_done=$1 gakoarentzako konfiantza maila behar bezala ezarri da.
+
 owner_err1=Ezin izan da jabea gehitzean
 owner_ename=Ez da izenik sartu
 owner_err2=Ezin izan da jabea ezabatu
 owner_elast=Ezin dituzu azken jabearen xehetasunak ezabatu
+
 delkey_title=Ezabatu gakoa
 delkey_rusure=Ziur $1 $2 gako sekretua ezabatu nahi duzula? Harekin enkriptatutako fitxategi edo posta elektroniko guztiak ez dira deskodifikagarri izango!
 delkey_ok=Bai, Ezabatu
+
 delkeys_err=Ezin izan dira teklak ezabatu
 delkeys_enone=Ez da hautatu
+
 export_title=Esportazio gakoa
 export_desc=Orrialde honek $1 $2 gakoa zure giltzarria esportatzeko aukera ematen du, fitxategi batera edo arakatzailetik deskargatzeko.
 export_to=Esportazio modua

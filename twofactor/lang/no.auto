@@ -1,0 +1,38 @@
+index_title=Tofaktorautentisering
+
+twofactor_disable=Deaktiver tofaktorautentisering
+twofactor_already=Din Usermin-pålogging har allerede tofaktorautentisering aktivert med leverandør $1 og konto-ID $2.
+twofactor_already2=Usermin login $3 allerede tofaktorautentisering aktivert med leverandør $1 og konto-ID $2.
+twofactor_desc=Denne siden lar deg aktivere tofaktorautentisering for din Usermin-innlogging med <a href='$2' target=_blank>$1</a>. Når den er aktiv, kreves det et ekstra godkjenningstoken når du logger på Usermin.
+twofactor_desc2=Denne siden lar deg aktivere tofaktorautentisering for Usermin-innlogging $3 ved hjelp av <a href='$2' target=_blank>$1</a>. Når den er aktiv, kreves det et ekstra godkjenningstoken når du logger på Usermin.
+twofactor_enable=Registrer deg for tofaktorautentisering
+twofactor_header=To-faktor autentiserings påmeldingsdetaljer
+twofactor_enrolling=Registrerer deg for tofaktorautentisering med leverandøren $1  ..
+twofactor_failed=.. påmelding mislyktes : $1
+twofactor_done=.. komplett. ID-en din hos denne leverandøren er <tt>$1</tt>.
+twofactor_setup=Tofaktorautentisering er ikke aktivert på dette systemet ennå. Dette må gjøres av systemadministratoren.
+twofactor_ebutton=Ingen knapp klikket!
+
+twofactor_email=Din epostadresse
+twofactor_country=Landskode for mobiltelefon
+twofactor_phone=Mobiltelefonnummer
+twofactor_eemail=Manglende eller ugyldig e-postadresse - må formateres som user@domain.com
+twofactor_ecountry=Manglende eller ugyldig landskode - må være et tall, som 65
+twofactor_ephone=Manglende eller ugyldig telefonnummer - bare sifre, bindestreker og mellomrom er tillatt
+twofactor_eauthyenroll=Påmelding mislyktes : $1
+twofactor_secret=Personlig hemmelig nøkkel
+twofactor_secret1=Generert tilfeldig
+twofactor_secret0=Bruk nøkkelen på 16 tegn
+twofactor_esecret=Den hemmelige nøkkelen må være nøyaktig 16 tegn lang og bare inneholde bokstaver og tall
+twofactor_qrcode=Skriv inn den hemmelige koden $1 i Google Authenticator-appen, eller skann QR-koden nedenfor.
+
+twofactor_eauthyid=Authy bruker-ID må være et tall
+twofactor_eauthytoken=Authy token må være et tall
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Ugyldig TOTP base32-kodet hemmelighet
+twofactor_etotptoken=Google Authenticator-token må være et tall
+twofactor_etotpmodule2=Mangler Perl-modul $1
+twofactor_etotpmatch=Feil OTP-kode
+
+enable_title=Aktivert tofaktorautentisering
+enable_err=Påmelding mislyktes

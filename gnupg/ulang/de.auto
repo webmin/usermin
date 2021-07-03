@@ -1,0 +1,3 @@
+decrypt_key=Entschlüsseln mit geheimem Schlüssel
+
+gnupg_ecryptkey2=Unerwartete ID des geheimen Verschlüsselungsschlüssels $1

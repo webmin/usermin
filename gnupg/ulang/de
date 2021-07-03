@@ -8,6 +8,7 @@ index_pass=Passphrase
 index_setup=Setup GnuPG
 index_return=GnuPG-Index
 index_egpg=Das GnuPG-Kommando $1 wurde auf Ihrem System nicht gefunden. Vielleicht is es nicht installiert.
+
 setup_err=Konnte GnuPG nicht einrichten
 setup_ename=Fehlender Name für Schlüssel
 setup_enamelen=Der Name für den Schlüssel muß mindestens $1 Zeichen lang sein.
@@ -16,6 +17,7 @@ setup_title=Einrichtung GnuPG
 setup_ok=GnuPG wurde erfolgreich eingerichtet und ein Geheimer Schlüssel wurde erzeugt
 setup_failed=Fehler bei der Erzeugung des Geheimen Schlüssels : $1
 setup_emkdir=Konnte .gnupg-Verzeichnis nicht erstellen : $1
+
 keys_title=Schlüssel verwalten
 keys_desc=Diese Seite listet Ihnen sämtliche Öffentlichen Schlüssel in Ihrem Schlüsselbund auf. Um nun Dateien für jemanden verschlüsseln zu können, müssen sie zunächst dessen Öffentlichen Schlüssel importieren, so daß er hier angezeigt wird.
 keys_id=Schlüssel-ID
@@ -42,11 +44,13 @@ keys_searchok=Suchen
 keys_searchnone=Keine passenden Schlüssel gefunden.
 keys_searchdesc=Diese Seite erlaubt es den GPG Schlüsselserver $1 nach Name oder Mailaddresse zu durchsuchen und gefundene Schlüssel zu importieren.
 keys_status=Status
+
 import_err=Konnte Schlüssel nicht importieren.
 import_ekey=Keine Schlüssel-Datei ausgewählt.
 import_egpg=GnuPG-Fehler beim Import : $1
 import_efile=Fehlende oder ungültige Schlüsseldatei
 import_etext=Kein Schlüssel Text eingegeben
+
 key_title=Details des Öffentlichen Schlüssels
 key_header=Schlüsseleigenschaften
 key_id=Schlüssel-ID
@@ -80,6 +84,7 @@ key_deldesc=LÖsche diesen Schlüssel von diesem System, damit kann er nicht meh
 key_revoked=<font color=red>Zurückgezogen</font>
 key_got=<font color=#00aa00>Importiert</font>
 key_miss=Verfgübar
+
 encrypt_title=Datei-Verschlüsselung
 encrypt_desc=Benutzen Sie diese Seite, um eine Datei mit einem ausgesuchten Öffentlichem Schlüssel zu verschlüsseln. Das Ergebnis wird lediglich für den Inhaber des entsprechenden Privaten Schlüssels lesbar sein.
 encrypt_mode=Datei zum Verschlüsseln
@@ -93,6 +98,7 @@ encrypt_err=Fehler beim Verschlüsseln der Datei
 encrypt_eupload=Es wurde keine Datei zum Verschlüsseln ausgewählt.
 encrypt_elocal=Die ausgewählte Datei existiert nicht oder ist nicht lesbar
 encrypt_egpg=GnuPG-Fehler beim Verschlüsseln : $1
+
 decrypt_title=Datei-Entschlüsselung
 decrypt_desc=Benutzen Sie diese Seite, um eine Datei zu entschlüsseln, welche durch Sie oder einem anderen mit Ihrem Öffentlichem Schlüssel verschlüsselt wurde.
 decrypt_mode=Datei zum Entschlüsseln
@@ -106,6 +112,7 @@ decrypt_err=Fehler beim Entschlüsseln der Datei
 decrypt_eupload=Es wurde keine Datei zum Entschlüsseln ausgewählt.
 decrypt_elocal=Die ausgewählte Datei existiert nicht oder ist nicht lesbar
 decrypt_egpg=GnuPG-Fehler beim Entschlüsseln: $1
+
 sign_title=Datei signieren
 sign_desc=Benutzen Sie diese Seite, um eine Datei zu signieren, so daß andere verifizieren können, daß diese Datei tatsächlich von Ihnen stammt und daß diese seit Erstellung nicht verändert wurde.
 sign_mode=Datei zum Signieren
@@ -121,6 +128,7 @@ sign_elocal=Die ausgewählte Datei existiert nicht oder ist nicht lesbar.
 sign_egpg=GnuPG-Fehler : $1
 sign_epass=Für den ausgewählten Geheimen Schlüssel existiert noch keine Passphrase. Das ist ein hohes Sicherheitsrisiko!
 sign_sep=Nur abgehängte Signatur zurückgeben?
+
 verify_title=Signierte Datei überprüfen
 verify_desc=Benutzen Sie diese Seite, um eine Datei zu überprüfen, welche mit GnuPG signiert wurde, um festzustellen, daß diese nicht verändert wurde und festzustellen, wer diese Datei signiert hat. Wenn Sie den originalen Inhalt einer signierten Binär-Datei ansehen möchten, dann benutzen Sie bitte die <a href='$1'>Entschlüsselungs-Seite</a>.
 verify_mode=Datei, die überprüft werden soll
@@ -141,6 +149,7 @@ verify_bad=Datein hat eine Signatur von $1, aber diese ist nicht gültig oder di
 verify_noid=Der Öffentliche Schlüssel mit der ID $1 ist derzeit nicht für die Verifikation verfügbar.
 verify_failed=Konnte Signatur nicht überprüfen : $1
 verify_warning=Warnung! Dieser Schlüssel wurde nicht über Ihre Schlüsselverwaltung signiert.
+
 signkey_title=Schlüssel signieren
 signkey_confirm=Sind Sie sicher, daß die den Schlüssel von $1 $2 signieren möchten ? Damit versichern Sie anderen, daß Sie den Fingerabdruck ( $3 ) mit dem Original-Schlüssel, den nur der Eigentümer haben sollte, verglichen haben oder den Eigentümer sogar persönlich kennen.
 signkey_failed=Konnten den Schlüssel von $1 nicht signieren : $2
@@ -151,38 +160,47 @@ signkey_trust0=Keine Antwort
 signkey_trust1=Nicht überprüft
 signkey_trust2=Ein wenig geprüft
 signkey_trust3=Sorgfältigst überprüft
+
 send_title=Sende an Keyserver
 send_desc=Sende Schlüssel $1 an Keyserver $2 ...
 send_failed=Konnte Schlüssel nicht senden : $1
 send_success=Schlüssel erfolgreich übermittelt. Andere GnuPG-Benutzer können nun Ihren Öffentlichen Schlüssel zur Verifizierung der von Ihnen unterzeichneten eMails oder zur Verschlüsselung von Daten, welche nur an Sie gerichtet sind, verwenden.
+
 recv_title=Hole Schlüssel vom Keyserver
 recv_desc=Hole Schlüssel-ID $1 vom Keyserver $2 ..
 recv_failed=Konnte Schlüssel nicht holen : $1
 recv_same=Ich habe den Schlüssel von $1 bereits.
 recv_success=Der Schlüssel von $1 wurde erfolgreich importiert.
+
 secret_title=Schlüssel erzeugen
 secret_desc=Benutzen Sie diese Seite, um einen weiteren Geheimen Schlüssel zu erzeugen, den Sie für Entschlüsselung und Signierung verwenden können.
 secret_err=Konnte keinen Geheimen Schlüssel hinzufügen.
 secret_ok=Ein neuer Geheimer Schlüssel wurde erfolgreich generiert.
 secret_name=Neuer Schlüssel-Name
 secret_setup=Erzeuge neuen Schlüssel
+
 gnupg_esignpass=Es wurde bisher keine Passphrase für den Untschriften-Schlüssel gesetzt. Das ist ein Sicherheitsrisiko!
 gnupg_ecryptid=Ein Geheimer Schlüssel zum Entschlüsseln ist nicht vorhanden
 gnupg_ecryptkey=Der Geheime Schlüssel mit der Schlüssel-ID $1 ist nicht verfügbar.
 gnupg_ecryptpass=Es wurde bisher keine Passphrase für den Geheimen Schlüssel $1 gesetzt. Das ist ein Sicherheitsrisiko!
 gnupg_canset=Um eine Passphrase für einen existierenden Schlüssel zu setzen, besuchen Sie bitte die <a href='$1'>Schlüssel-Detail-Seite</a>
+
 trust_title=Setze Vertrauensstellung
 trust_echoice=Sie müssen eine Vertrauensstellung auswählen und nicht 'noch nicht gesetzt'
 trust_done=Die Vertrauensstellung für den Schlüssel $1 wurde erfolgreich gesetzt
+
 owner_err1=Konnte Eigentümer nicht hinzufügen
 owner_ename=Kein Name angegeben
 owner_err2=Konnte Eigentümer nicht löschen
 owner_elast=Sie können den einzigen Kommentareintrag nicht löschen.
+
 delkey_title=Schlüssel löschen.
 delkey_rusure=Sind Sie sicher, daß Sie den Geheimen Schlüssel $1 $2 löschen möchten? Sämtliche Dateien oder eMails, die mit diesem Schlüssel verschlüsselt sind, können nicht mehr entschlüsselt werden!
 delkey_ok=Ja, lösche es
+
 delkeys_err=LÖschen der Schlüssel fehlgeschlagen
 delkeys_enone=Nichts ausgewhält
+
 export_title=Schlüssel exportieren
 export_desc=Auf dieser Seite können Sie den Schlüssel $1 $2 aus Ihrem Schlüssel entweder in eine Datei auf dem Server oder als den Download über Ihren Browser exportieren.
 export_to=Export-Art

@@ -8,6 +8,7 @@ index_pass=Frase d'accesso
 index_setup=Imposta GnuPG
 index_return=Indice GnuPG
 index_egpg=Il comando GnuPG $1 non è stato trovato sul tuo sistema. Forse non è installato.
+
 setup_err=Impossibile configurare GnuPG
 setup_ename=Nome mancante per chiave
 setup_enamelen=Il nome per la chiave deve contenere almeno $1 caratteri
@@ -16,6 +17,7 @@ setup_title=Imposta GnuPG
 setup_ok=GnuPG è stato installato con successo e viene generata una chiave segreta.
 setup_failed=Impossibile creare la chiave segreta : $1 
 setup_emkdir=Impossibile creare la directory.gnupg : $1 
+
 keys_title=Gestisci chiavi
 keys_desc=Questa pagina elenca tutte le chiavi pubbliche nel tuo portachiavi GnuPG. Per crittografare un file per qualcuno, devi importare la sua chiave pubblica in modo che appaia in questa pagina.
 keys_id=ID chiave
@@ -42,11 +44,13 @@ keys_searchok=Ricerca
 keys_searchnone=Non sono state trovate chiavi corrispondenti alla tua ricerca.
 keys_searchdesc=Questa pagina consente di cercare nel server di chiavi GPG $1 per nome o indirizzo e-mail e importare le chiavi trovate.
 keys_status=Stato
+
 import_err=Impossibile importare la chiave
 import_ekey=Nessun file chiave selezionato
 import_egpg=GnuPG non riuscito : $1 
 import_efile=File chiave mancante o non valido
 import_etext=Nessun testo chiave inserito
+
 key_title=Dettagli chiave pubblica
 key_header=Dettagli chiave
 key_id=ID chiave
@@ -80,6 +84,7 @@ key_deldesc=Rimuovere questa chiave dal sistema, impedendone l'utilizzo per la f
 key_revoked=<font color=red>Revoked</font>
 key_got=<font color=#00aa00>Importato</font>
 key_miss=A disposizione
+
 encrypt_title=Crittografa file
 encrypt_desc=Utilizzare questa pagina per crittografare un file con GnuPG e una chiave pubblica scelta. Una volta crittografato, il risultato sarà decodificabile solo dal proprietario della chiave privata corrispondente.
 encrypt_mode=File da crittografare
@@ -93,6 +98,7 @@ encrypt_err=Impossibile crittografare il file
 encrypt_eupload=Nessun file selezionato per crittografare
 encrypt_elocal=Il file selezionato non esiste o non è leggibile
 encrypt_egpg=GnuPG non riuscito : $1 
+
 decrypt_title=Decodifica file
 decrypt_desc=Usa questa pagina per decrittografare un file che è stato crittografato usando la tua chiave pubblica, da solo o da qualcun altro che ha la tua chiave.
 decrypt_mode=File da decrittografare
@@ -106,6 +112,8 @@ decrypt_err=Impossibile decrittografare il file
 decrypt_eupload=Nessun file selezionato per la decrittografia
 decrypt_elocal=Il file selezionato non esiste o non è leggibile
 decrypt_egpg=GnuPG non riuscito : $1 
+decrypt_key=Decifra usando la chiave segreta
+
 sign_title=Firma file
 sign_desc=Utilizzare questa pagina per firmare un file in modo che possa essere verificato che sia stato firmato da te e che non sia stato modificato dalla firma.
 sign_mode=File da firmare
@@ -121,6 +129,7 @@ sign_elocal=Il file selezionato non esiste o non è leggibile
 sign_egpg=GnuPG non riuscito : $1 
 sign_epass=Non è stata ancora impostata alcuna passphrase per la chiave segreta scelta
 sign_sep=Restituire solo la firma distaccata?
+
 verify_title=Verifica il file firmato
 verify_desc=Utilizzare questa pagina per verificare un file che è stato firmato con GnuPG, al fine di verificare che non sia stato modificato e scoprire chi lo ha firmato. Se vuoi estrarre i dati originali da un file binario firmato, usa la <a href='$1'>pagina di decrittazione</a>.
 verify_mode=File da verificare
@@ -141,6 +150,7 @@ verify_bad=Il file ha la firma da $1, ma non è valido.
 verify_noid=La chiave pubblica con ID $1 non è disponibile per la verifica.
 verify_failed=Verifica della firma non riuscita : $1 
 verify_warning=Avviso: questa chiave non è stata verificata e firmata nella pagina di gestione delle chiavi.
+
 signkey_title=Chiave segno
 signkey_confirm=Sei sicuro di voler firmare la chiave appartenente a $1 $2 ? Ciò indicherà che hai confermato la validità della chiave controllandone l'impronta digitale ($3) con il proprietario.
 signkey_failed=Impossibile firmare la chiave appartenente a $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Nessuna risposta
 signkey_trust1=Non controllato
 signkey_trust2=Controllato casualmente
 signkey_trust3=Accuratamente controllato
+
 send_title=Invia a Keyserver
 send_desc=Invio della chiave $1 al keyserver $2 ..
 send_failed=Impossibile inviare la chiave : $1 
 send_success=Chiave inviata correttamente. Gli altri utenti di GnuPG saranno ora in grado di recuperare la chiave pubblica per l'invio di e-mail e la crittografia dei file.
+
 recv_title=Scarica da Keyserver
 recv_desc=Recupero ID chiave $1 dal keyserver $2 ..
 recv_failed=Impossibile recuperare la chiave : $1 
 recv_same=Hai già la chiave da $1.
 recv_success=Chiave importata correttamente da $1.
+
 secret_title=Aggiungi chiave segreta
 secret_desc=Utilizzare questa pagina per generare una chiave segreta aggiuntiva che è possibile utilizzare per la firma e la decrittografia.
 secret_err=Impossibile aggiungere la chiave segreta
 secret_ok=Una nuova chiave segreta è stata generata con successo.
 secret_name=Nuovo nome chiave
 secret_setup=Crea nuova chiave
+
 gnupg_esignpass=Non è stata ancora impostata alcuna passphrase per la chiave di firma
 gnupg_ecryptid=La chiave segreta di crittografia non è disponibile
 gnupg_ecryptkey=ID chiave segreta di crittografia $1 non disponibile
 gnupg_ecryptpass=Non è stata ancora impostata alcuna passphrase per la chiave segreta $1 
 gnupg_canset=Per impostare una passphrase per una chiave esistente, visita la <a href='$1'>pagina dei dettagli della chiave</a>
+gnupg_ecryptkey2=ID chiave segreta di crittografia imprevisto $1
+
 trust_title=Imposta il livello di fiducia
 trust_echoice=Devi scegliere un livello di fiducia, non "Non ancora impostato".
 trust_done=Impostare correttamente il livello di attendibilità per la chiave $1.
+
 owner_err1=Impossibile aggiungere il proprietario
 owner_ename=Nessun nome inserito
 owner_err2=Impossibile eliminare il proprietario
 owner_elast=Non è possibile eliminare i dettagli dell'ultimo proprietario
+
 delkey_title=Elimina chiave
 delkey_rusure=Sei sicuro di voler eliminare la chiave segreta $1 $2 ? Qualsiasi file o e-mail crittografato con esso non sarà più decodificabile!
 delkey_ok=Sì, eliminalo
+
 delkeys_err=Impossibile eliminare le chiavi
 delkeys_enone=Nessuno selezionato
+
 export_title=Chiave di esportazione
 export_desc=Questa pagina ti consente di esportare la chiave $1 $2 dal tuo portachiavi, in un file o per il download dal tuo browser.
 export_to=Modalità di esportazione

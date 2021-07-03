@@ -8,6 +8,7 @@ index_pass=zaporka
 index_setup=Postavljanje GnuPG
 index_return=GnuPG indeks
 index_egpg=Naredba GnuPG $1 nije pronađena u vašem sustavu. Možda nije instaliran.
+
 setup_err=Nije uspjelo postavljanje GnuPG-a
 setup_ename=Nedostaje naziv za ključ
 setup_enamelen=Naziv za ključ mora biti najmanje $1 znaka
@@ -16,6 +17,7 @@ setup_title=Postavljanje GnuPG
 setup_ok=GnuPG je uspješno postavljen i tajni je ključ generiran.
 setup_failed=Izrada tajnog ključa nije uspjela : $1 
 setup_emkdir=Nije uspjelo stvaranje.gnupg direktorija : $1 
+
 keys_title=Upravljanje tipkama
 keys_desc=Na ovoj se stranici nalaze svi javni ključevi u vašem GnuPG ključu. Da biste nekome šifrirali datoteku, morate uvesti njihov javni ključ tako da se pojavi na ovoj stranici.
 keys_id=ID ključa
@@ -42,11 +44,13 @@ keys_searchok=traži
 keys_searchnone=Nisu pronađeni ključevi koji odgovaraju vašoj pretrazi.
 keys_searchdesc=Ova stranica omogućuje vam pretraživanje GPG poslužitelja tipki $1 prema imenu ili adresi e-pošte i pronađeni ključevi za uvoz.
 keys_status=Status
+
 import_err=Uvoz ključa nije uspio
 import_ekey=Nije odabrana nijedna ključna datoteka
 import_egpg=GnuPG nije uspio : $1 
 import_efile=Nedostaje ili nije važeća datoteka ključa
 import_etext=Nije unesen ključni tekst
+
 key_title=Pojedinosti o javnom ključu
 key_header=Ključni detalji
 key_id=ID ključa
@@ -80,6 +84,7 @@ key_deldesc=Uklonite ovaj ključ iz sustava i spriječite ga da se koristi za po
 key_revoked=<font color=red>opozvan</font>
 key_got=<font color=#00aa00>Uvezeno</font>
 key_miss=Dostupno
+
 encrypt_title=Šifrirajte datoteku
 encrypt_desc=Pomoću ove stranice kriptirajte datoteku pomoću GnuPG i odabranog javnog ključa. Jednom šifriran, rezultat će moći dešifrirati samo vlasnik odgovarajućeg privatnog ključa.
 encrypt_mode=Datoteka za šifriranje
@@ -93,6 +98,7 @@ encrypt_err=Šifriranje datoteke nije uspjelo
 encrypt_eupload=Za šifriranje nije odabrana datoteka
 encrypt_elocal=Odabrana datoteka ne postoji ili nije čitljiva
 encrypt_egpg=GnuPG nije uspio : $1 
+
 decrypt_title=Dešifrirajte datoteku
 decrypt_desc=Pomoću ove stranice dešifrirajte datoteku koja je šifrirana pomoću vašeg javnog ključa, bilo vi ili netko drugi tko ima vaš ključ.
 decrypt_mode=Datoteka za dešifriranje
@@ -106,6 +112,8 @@ decrypt_err=Dešifriranje datoteke nije uspjelo
 decrypt_eupload=Nijedna datoteka nije odabrana za dešifriranje
 decrypt_elocal=Odabrana datoteka ne postoji ili nije čitljiva
 decrypt_egpg=GnuPG nije uspio : $1 
+decrypt_key=Dešifriranje pomoću tajnog ključa
+
 sign_title=File Sign
 sign_desc=Pomoću ove stranice potpišite datoteku tako da se može provjeriti je li ju potpisao i nije li mijenjana od potpisivanja.
 sign_mode=Datoteka za potpis
@@ -121,6 +129,7 @@ sign_elocal=Odabrana datoteka ne postoji ili nije čitljiva
 sign_egpg=GnuPG nije uspio : $1 
 sign_epass=Još nije postavljena zaporka za odabrani tajni ključ
 sign_sep=Vrati samo odvojeni potpis?
+
 verify_title=Provjerite potpisanu datoteku
 verify_desc=Na ovoj stranici provjerite datoteku koja je potpisana s GnuPG-om kako biste provjerili da nije promijenjena i otkrijte tko ju je potpisao. Ako želite izdvojiti izvorne podatke iz potpisane binarne datoteke, koristite <a href='$1'>stranicu dešifriranja</a>.
 verify_mode=Datoteka za potvrdu
@@ -141,6 +150,7 @@ verify_bad=Datoteka ima potpis od $1, ali nije valjana.
 verify_noid=Javni ključ s ID $1 nije dostupan za ovjeru.
 verify_failed=Provjera potpisa : $1 
 verify_warning=Upozorenje - ovaj ključ nije potvrđen i potpisan na vašoj stranici za upravljanje ključevima.
+
 signkey_title=Signalni ključ
 signkey_confirm=Jeste li sigurni da želite potpisati ključ koji pripada $1 $2 ? To će značiti da ste potvrdili valjanost ključa provjeravanjem njegovog otiska prsta ($3) s vlasnikom.
 signkey_failed=Nije uspjelo potpisivanje ključa koji pripada $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Nema odgovora
 signkey_trust1=Nije potvrđeno
 signkey_trust2=Slučajno provjereno
 signkey_trust3=Pažljivo provjereno
+
 send_title=Pošalji na Keyserver
 send_desc=Slanje ključa $1 poslužitelju ključeva $2 ..
 send_failed=Slanje ključa nije uspjelo : $1 
 send_success=Ključ je uspješno poslan. Ostali korisnici GnuPG-a sada će moći dohvatiti vaš javni ključ za slanje e-pošte i šifriranje datoteka.
+
 recv_title=Dohvaćanje s poslužitelja ključeva
 recv_desc=Dohvaćanje ID-a ključa $1 s poslužitelja tipki $2 ..
 recv_failed=Dohvaćanje ključa nije uspjelo : $1 
 recv_same=Već imate ključ od $1.
 recv_success=Ključ uspješno uvezen od $1.
+
 secret_title=Dodajte tajni ključ
 secret_desc=Pomoću ove stranice stvorite dodatni tajni ključ koji možete koristiti za potpisivanje i dešifriranje.
 secret_err=Dodavanje tajnog ključa nije uspjelo
 secret_ok=Novi tajni ključ uspješno je generiran.
 secret_name=Novo ključno ime
 secret_setup=Stvori novi ključ
+
 gnupg_esignpass=Za ključ za potpis još nije postavljena zaporka
 gnupg_ecryptid=Tajni ključ za šifriranje nije dostupan
 gnupg_ecryptkey=ID tajnog ključa šifriranja $1 nije dostupan
 gnupg_ecryptpass=Još nije postavljena zaporka za tajni ključ $1 
 gnupg_canset=Da biste postavili zaporku za postojeći ključ, posjetite stranicu s <a href='$1'>detaljima ključa</a>
+gnupg_ecryptkey2=Neočekivani ID tajnog ključa šifriranja $1 
+
 trust_title=Postavite razinu povjerenja
 trust_echoice=Morate odabrati razinu povjerenja, a ne "Još nije postavljeno".
 trust_done=Razina povjerenja za ključ $1 uspješno je postavljena.
+
 owner_err1=Dodavanje vlasnika nije uspjelo
 owner_ename=Ime nije upisano
 owner_err2=Brisanje vlasnika nije uspjelo
 owner_elast=Ne možete izbrisati zadnje podatke o vlasniku
+
 delkey_title=Ključ za brisanje
 delkey_rusure=Jeste li sigurni da želite izbrisati tajni ključ $1 $2 ? Sve datoteke ili adrese e-pošte šifrirane s tim više neće biti moguće dekodirati!
 delkey_ok=Da, izbriši
+
 delkeys_err=Brisanje ključeva nije uspjelo
 delkeys_enone=Nijedna nije odabrana
+
 export_title=Izvozni ključ
 export_desc=Ova stranica omogućuje vam izvoz ključa $1 $2 iz vašeg ključa, bilo u datoteku ili za preuzimanje s vašeg preglednika.
 export_to=Način izvoza

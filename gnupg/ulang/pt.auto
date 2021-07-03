@@ -8,6 +8,7 @@ index_pass=Frase de acesso
 index_setup=Configuração do GnuPG
 index_return=Índice GnuPG
 index_egpg=O comando GnuPG $1 não foi encontrado no seu sistema. Talvez não esteja instalado.
+
 setup_err=Falha ao configurar o GnuPG
 setup_ename=Nome ausente para chave
 setup_enamelen=O nome da chave deve ter pelo menos $1 caracteres
@@ -16,6 +17,7 @@ setup_title=Configuração do GnuPG
 setup_ok=O GnuPG foi configurado com sucesso e uma chave secreta gerada.
 setup_failed=Falha ao criar chave secreta : $1 
 setup_emkdir=Falha ao criar o diretório.gnupg : $1 
+
 keys_title=Gerenciar chaves
 keys_desc=Esta página lista todas as chaves públicas do seu chaveiro do GnuPG. Para criptografar um arquivo para alguém, você precisa importar sua chave pública para que ela apareça nesta página.
 keys_id=ID da chave
@@ -42,11 +44,13 @@ keys_searchok=Procurar
 keys_searchnone=Nenhuma chave correspondente à sua pesquisa foi encontrada.
 keys_searchdesc=Esta página permite pesquisar o servidor de chaves GPG $1 por nome ou endereço de e-mail e importar chaves encontradas.
 keys_status=Status
+
 import_err=Falha ao importar chave
 import_ekey=Nenhum arquivo de chave selecionado
 import_egpg=GnuPG falhou : $1 
 import_efile=Arquivo de chave ausente ou inválido
 import_etext=Nenhum texto chave digitado
+
 key_title=Detalhes da chave pública
 key_header=Detalhes principais
 key_id=ID da chave
@@ -80,6 +84,7 @@ key_deldesc=Remova essa chave do seu sistema, impedindo que ela seja usada para 
 key_revoked=<font color=red>Revogado</font>
 key_got=<font color=#00aa00>Importado</font>
 key_miss=acessível
+
 encrypt_title=Criptografar arquivo
 encrypt_desc=Use esta página para criptografar um arquivo com o GnuPG e uma chave pública escolhida. Uma vez criptografado, o resultado será descriptografado apenas pelo proprietário da chave privada correspondente.
 encrypt_mode=Arquivo para criptografar
@@ -93,6 +98,7 @@ encrypt_err=Falha ao criptografar o arquivo
 encrypt_eupload=Nenhum arquivo selecionado para criptografar
 encrypt_elocal=O arquivo selecionado não existe ou não é legível
 encrypt_egpg=GnuPG falhou : $1 
+
 decrypt_title=Descriptografar arquivo
 decrypt_desc=Use esta página para descriptografar um arquivo que foi criptografado usando sua chave pública, sozinho ou por outra pessoa que tenha sua chave.
 decrypt_mode=Arquivo para descriptografar
@@ -106,6 +112,8 @@ decrypt_err=Falha ao descriptografar o arquivo
 decrypt_eupload=Nenhum arquivo selecionado para descriptografar
 decrypt_elocal=O arquivo selecionado não existe ou não é legível
 decrypt_egpg=GnuPG falhou : $1 
+decrypt_key=Descriptografar usando chave secreta
+
 sign_title=Assinar arquivo
 sign_desc=Use esta página para assinar um arquivo, para que seja possível verificar se ele foi assinado por você e se não foi modificado desde a assinatura.
 sign_mode=Arquivo para assinar
@@ -121,6 +129,7 @@ sign_elocal=O arquivo selecionado não existe ou não é legível
 sign_egpg=GnuPG falhou : $1 
 sign_epass=Nenhuma senha foi definida ainda para a chave secreta escolhida
 sign_sep=Retornar apenas assinatura desanexada?
+
 verify_title=Verificar arquivo assinado
 verify_desc=Use esta página para verificar um arquivo que foi assinado com o GnuPG, para verificar se ele não foi modificado e descobrir quem o assinou. Se você deseja extrair os dados originais de um arquivo binário assinado, use a <a href='$1'>página de descriptografia</a>.
 verify_mode=Arquivo para verificar
@@ -141,6 +150,7 @@ verify_bad=O arquivo tem assinatura de $1, mas não é válido.
 verify_noid=A chave pública com o ID $1 não está disponível para verificação.
 verify_failed=Falha ao verificar a assinatura : $1 
 verify_warning=Aviso - Esta chave não foi verificada e assinada na sua página de gerenciamento de chaves.
+
 signkey_title=Chave de sinal
 signkey_confirm=Tem certeza de que deseja assinar a chave pertencente a $1 $2 ? Isso indicará que você confirmou a validade da chave, verificando sua impressão digital ($3) com o proprietário.
 signkey_failed=Falha ao assinar a chave pertencente a $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Sem resposta
 signkey_trust1=Não checado
 signkey_trust2=Verificado casualmente
 signkey_trust3=Cuidadosamente verificado
+
 send_title=Enviar para Keyserver
 send_desc=Enviando a chave $1 para o servidor de chaves $2 ..
 send_failed=Falha ao enviar a chave : $1 
 send_success=Chave enviada com sucesso. Outros usuários do GnuPG agora poderão recuperar sua chave pública para enviar emails e criptografar arquivos.
+
 recv_title=Buscar no Keyserver
 recv_desc=Buscando a ID da chave $1 do servidor de chaves $2 ..
 recv_failed=Falha ao buscar a chave : $1 
 recv_same=Já possui a chave de $1.
 recv_success=Chave importada com sucesso de $1.
+
 secret_title=Adicionar chave secreta
 secret_desc=Use esta página para gerar uma chave secreta adicional que você pode usar para assinar e descriptografar.
 secret_err=Falha ao adicionar chave secreta
 secret_ok=Uma nova chave secreta foi gerada com sucesso.
 secret_name=Novo nome da chave
 secret_setup=Criar nova chave
+
 gnupg_esignpass=Nenhuma senha foi definida ainda para a chave de assinatura
 gnupg_ecryptid=A chave secreta de criptografia não está disponível
 gnupg_ecryptkey=ID da chave secreta de criptografia $1 não disponível
 gnupg_ecryptpass=Nenhuma senha foi definida ainda para a chave secreta $1 
 gnupg_canset=Para definir uma senha para uma chave existente, visite a <a href='$1'>página de detalhes da chave</a>
+gnupg_ecryptkey2=ID de chave secreta de criptografia inesperada $1 
+
 trust_title=Definir nível de confiança
 trust_echoice=Você deve escolher um nível de confiança, não 'Ainda não definido'.
 trust_done=Defina com êxito o nível de confiança para a chave $1.
+
 owner_err1=Falha ao adicionar proprietário
 owner_ename=Nenhum nome digitado
 owner_err2=Falha ao excluir o proprietário
 owner_elast=Você não pode excluir os detalhes do último proprietário
+
 delkey_title=Chave de exclusão
 delkey_rusure=Tem certeza de que deseja excluir a chave secreta $1 $2 ? Qualquer arquivo ou e-mail criptografado com ele não será mais decodificado!
 delkey_ok=Sim, exclua
+
 delkeys_err=Falha ao excluir chaves
 delkeys_enone=Nenhum selecionado
+
 export_title=Chave de exportação
 export_desc=Esta página permite exportar a chave $1 $2 do seu chaveiro, para um arquivo ou para download do seu navegador.
 export_to=Modo de exportação

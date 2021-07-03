@@ -8,6 +8,7 @@ index_pass=Frażi tal-kliem
 index_setup=Twaqqif ta 'GnuPG
 index_return=Indiċi GnuPG
 index_egpg=Il-kmand GnuPG $1 ma nstabx fis-sistema tiegħek. Forsi mhuwiex installat.
+
 setup_err=Ma rnexxielux jissettja GnuPG
 setup_ename=Isem nieqes għaċ-ċavetta
 setup_enamelen=L-isem għaċ-ċavetta għandu jkun ta 'l-inqas $1 karattru
@@ -16,6 +17,7 @@ setup_title=Twaqqif ta 'GnuPG
 setup_ok=GnuPG ġie installat b'suċċess u ġiet iġġenerata ċavetta sigrieta.
 setup_failed=Ma rnexxielux joħloq ċavetta sigrieta : $1 
 setup_emkdir=Ma rnexxielux joħloq direttorju.gnupg : $1 
+
 keys_title=Immaniġġja ċ-ċwievet
 keys_desc=Din il-paġna telenka ċ-ċwievet pubbliċi kollha fis-keyring tal-GnuPG tiegħek. Sabiex tikkripta fajl għal xi ħadd, jeħtieġ li timporta ċ-ċavetta pubblika tagħha biex tidher f'din il-paġna.
 keys_id=Identità taċ-ċavetta
@@ -42,11 +44,13 @@ keys_searchok=Fittex
 keys_searchnone=Ma nstabet l-ebda ċwievet li jaqblu mat-tfittxija tiegħek.
 keys_searchdesc=Din il-paġna jippermettilek tfittex il-keyerver GPG $1 skont l-isem jew l-indirizz tal-email, u timporta ċwievet.
 keys_status=Status
+
 import_err=Ma rnexxielux jimporta ċ-ċavetta
 import_ekey=L-ebda fajl ewlieni magħżul
 import_egpg=GnuPG falla : $1 
 import_efile=Fajl ewlieni ewlieni jew nieqes
 import_etext=Ma ddaħħal l-ebda test ewlieni
+
 key_title=Dettalji dwar Ċavetta Pubblika
 key_header=Dettalji Ewlenin
 key_id=Identità taċ-ċavetta
@@ -80,6 +84,7 @@ key_deldesc=Neħħi din iċ-ċavetta mis-sistema tiegħek, biex iżżommha milli
 key_revoked=<font color=red>Revokat</font>
 key_got=<font color=#00aa00>Importat</font>
 key_miss=Disponibbli
+
 encrypt_title=Ikkripta l-Fajl
 encrypt_desc=Uża din il-paġna biex tikkripta fajl bi GnuPG u ċavetta pubblika magħżula. Ladarba kriptat, ir-riżultat ikun deċifrat biss mis-sid taċ-ċavetta privata li taqbel.
 encrypt_mode=Fajl biex jikkripta
@@ -93,6 +98,7 @@ encrypt_err=Ma rnexxielux jikkripta l-fajl
 encrypt_eupload=L-ebda fajl magħżul biex jikkripta
 encrypt_elocal=Fajl magħżul ma jeżistix jew ma jistax jinqara
 encrypt_egpg=GnuPG falla : $1 
+
 decrypt_title=Iċċifra Fajl
 decrypt_desc=Uża din il-paġna biex tiddekripta fajl li ġie kriptat bl-użu taċ-ċavetta pubblika tiegħek, jew minnek stess jew minn xi ħadd ieħor li għandu ċ-ċavetta tiegħek.
 decrypt_mode=Fajl biex jiddekripta
@@ -106,6 +112,8 @@ decrypt_err=Ma rnexxiex decrypt file
 decrypt_eupload=L-ebda fajl magħżul biex jiddekripta
 decrypt_elocal=Fajl magħżul ma jeżistix jew ma jistax jinqara
 decrypt_egpg=GnuPG falla : $1 
+decrypt_key=Iddekripta billi tuża ċavetta sigrieta
+
 sign_title=Fajl tas-Sinjali
 sign_desc=Uża din il-paġna biex tiffirma fajl sabiex ikun jista 'jiġi vverifikat li ġie ffirmat minnek u li ma ġiex modifikat sa mill-iffirmar.
 sign_mode=Fajl li jiffirma
@@ -121,6 +129,7 @@ sign_elocal=Fajl magħżul ma jeżistix jew ma jistax jinqara
 sign_egpg=GnuPG falla : $1 
 sign_epass=L-ebda passphrase ma ġiet iffissata għadha għall-kodiċi sigriet magħżul
 sign_sep=Irritorna firma maqtugħa biss?
+
 verify_title=Verifika Fajl Iffirmat
 verify_desc=Uża din il-paġna biex tivverifika fajl li jkun ġie ffirmat ma 'GnuPG, sabiex tivverifika li ma ġietx immodifikata u ssib min iffirmah. Jekk trid estratt id-dejta oriġinali minn fajl binarju ffirmat, uża l- <a href='$1'>paġna ta 'deċifrar</a>.
 verify_mode=Fajl biex tivverifika
@@ -141,6 +150,7 @@ verify_bad=Fajl għandu firma minn $1, iżda mhux validu.
 verify_noid=Ċavetta pubblika b'ID $1 mhix disponibbli għall-verifika.
 verify_failed=Ma rnexxielux jivverifika l-firma : $1 
 verify_warning=Twissija - Din iċ-ċavetta ma ġietx ivverifikata u ffirmata fil-paġna tal-ġestjoni ewlenija tiegħek.
+
 signkey_title=Sinjal ewlieni
 signkey_confirm=Int żgur li trid tiffirma ċ-ċavetta li tappartjeni għal $1 $2 ? Dan jindika li kkonfermat il-validità taċ-ċavetta billi kkontrolla l-marki tas-swaba 'tagħha ($3) mas-sid.
 signkey_failed=Ma rnexxielux jiffirma ċavetta li tappartjeni għal $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Bla tweġiba
 signkey_trust1=Mhux iċċekkjat
 signkey_trust2=Iċċekkjat b'mod każwali
 signkey_trust3=Iċċekkjat bir-reqqa
+
 send_title=Ibgħat lil Keyserver
 send_desc=Ibgħat iċ-ċavetta $1 lil keyerver $2 ..
 send_failed=Ma rnexxiex tibgħat iċ-ċavetta : $1 
 send_success=Iċ-ċavetta ġiet ippreżentata b’suċċess. Utenti oħra ta ’GnuPG issa se jkunu jistgħu jieħdu lura ċ-ċavetta pubblika tiegħek biex jibagħtu l-email u jikkriptaw fajls.
+
 recv_title=Fetch Minn Keyserver
 recv_desc=Iġib il-kodiċi taċ-ċavetta $1 minn keyerver $2 ..
 recv_failed=Ma rnexxielux iġib ċavetta : $1 
 recv_same=Diġà għandna ċavetta minn $1.
 recv_success=Ċavetta importata b'suċċess minn $1.
+
 secret_title=Żid Key Secret
 secret_desc=Uża din il-paġna biex tiġġenera ċavetta sigrieta addizzjonali li tista 'tuża għall-iffirmar u d-deċifrar.
 secret_err=Naqset milli żżid ċavetta sigrieta
 secret_ok=Ċavetta sigrieta ġdida ġiet iġġenerata b'suċċess.
 secret_name=Isem ewlieni ġdid
 secret_setup=Oħloq Ċavetta Ġdida
+
 gnupg_esignpass=L-ebda passphrase ma ġiet iffissata għalissa għas-sinjal ewlieni
 gnupg_ecryptid=Iċ-ċavetta sigrieta tal-kriptaġġ mhix disponibbli
 gnupg_ecryptkey=Kodifikazzjoni tas-sigriet tal-kriptaġġ ID $1 mhux disponibbli
 gnupg_ecryptpass=Għadha ma ġiet stabbilita l-ebda passphrase għall-kodiċi sigriet $1 
 gnupg_canset=Biex tistabbilixxi passphrase għal ċavetta eżistenti, żur il-paġna <a href='$1'>dettalji ewlenin</a>
+gnupg_ecryptkey2=Kowd ta 'encryption mhux mistennija sigriet ID $1 
+
 trust_title=Issettja l-Livell ta 'Fiduċja
 trust_echoice=Trid tagħżel livell ta 'fiduċja, mhux "Għadha mhix stabbilita".
 trust_done=Stabbilixxi b'suċċess il-livell tal-fiduċja għall-%% ewlieni
+
 owner_err1=Naqas milli jżid sid
 owner_ename=Ma daħal l-ebda isem
 owner_err2=Naqas milli jitħassar sid
 owner_elast=Ma tistax tħassar id-dettalji tal-aħħar sid
+
 delkey_title=Ħassar iċ-Ċavetta
 delkey_rusure=Int żgur li trid tħassar iċ-ċavetta sigrieta $1 $2 ? Kwalunkwe fajls jew posta elettronika kkriptata miegħu ma jibqgħux jiġu dekodifikati.
 delkey_ok=Iva, Ħassarha
+
 delkeys_err=Ma rnexxielhiex tħassar iċ-ċwievet
 delkeys_enone=L-ebda magħżul
+
 export_title=Ċavetta ta 'l-Esportazzjoni
 export_desc=Din il-paġna jippermettilek tesporta ċ-ċavetta $1 $2 mill-keyring tiegħek, jew għal fajl jew biex tniżżel mill-browser tiegħek.
 export_to=Mod ta 'esportazzjoni

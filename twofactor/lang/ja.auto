@@ -1,0 +1,38 @@
+index_title=二要素認証
+
+twofactor_disable=二要素認証を無効にする
+twofactor_already=$1とアカウントID $2要素認証が既に有効になっています。
+twofactor_already2=Usermin login $3 $1とアカウントID $2要素認証がすでに有効になっています。
+twofactor_desc=<a href='$2' target=_blank>$1</a>を使用してUserminログインの2要素認証を有効にできます。アクティブになると、Userminにログインするときに追加の認証トークンが必要になります。
+twofactor_desc2=<a href='$2' target=_blank>$1</a>を使用$3 2要素認証を有効にできます。アクティブになると、Userminにログインするときに追加の認証トークンが必要になります。
+twofactor_enable=二要素認証に登録する
+twofactor_header=二要素認証の登録の詳細
+twofactor_enrolling=$1での2要素認証への登録  ..
+twofactor_failed=..登録に失敗しました： $1
+twofactor_done=..完了。このプロバイダーのIDは<tt>$1</tt>です。
+twofactor_setup=このシステムでは、2要素認証はまだ有効になっていません。これは、システム管理者が行う必要があります。
+twofactor_ebutton=ボタンはクリックされませんでした！
+
+twofactor_email=メールアドレス
+twofactor_country=携帯電話の国コード
+twofactor_phone=携帯電話番号
+twofactor_eemail=user@domain.comようにフォーマットする必要があります
+twofactor_ecountry=国コードがないか無効です-65などの数字である必要があります
+twofactor_ephone=電話番号がないか無効です-数字、ダッシュ、スペースのみが許可されます
+twofactor_eauthyenroll=登録に失敗しました： $1
+twofactor_secret=個人の秘密鍵
+twofactor_secret1=ランダムに生成
+twofactor_secret0=16文字のキーを使用する
+twofactor_esecret=秘密鍵は正確に16文字の長さで、文字と数字のみを含める必要があります
+twofactor_qrcode=Google認証システムアプリにシークレットコード$1入力するか、以下のQRコードをスキャンしてください。
+
+twofactor_eauthyid=AuthyユーザーIDは数字である必要があります
+twofactor_eauthytoken=Authyトークンは数字である必要があります
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=無効なTOTPbase32でエンコードされたシークレット
+twofactor_etotptoken=Google認証システムトークンは数字である必要があります
+twofactor_etotpmodule2=Perlモジュール$1
+twofactor_etotpmatch=不正なOTPコード
+
+enable_title=有効な2要素認証
+enable_err=登録に失敗しました

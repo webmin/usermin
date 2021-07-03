@@ -1,0 +1,3 @@
+decrypt_key=Decoderen met geheime sleutel
+
+gnupg_ecryptkey2=Onverwachte encryptie geheime sleutel-ID $1

@@ -1,0 +1,38 @@
+index_title=Tvåfaktorautentisering
+
+twofactor_disable=Inaktivera tvåfaktorautentisering
+twofactor_already=Din Usermin-inloggning har redan tvåfaktorautentisering aktiverad med leverantör $1 och konto-ID $2.
+twofactor_already2=Usermin-inloggning $3 redan tvåfaktorautentisering aktiverad med leverantör $1 och konto-ID $2.
+twofactor_desc=På den här sidan kan du aktivera tvåfaktorautentisering för din Usermin-inloggning med <a href='$2' target=_blank>$1</a>. När den är aktiv krävs en ytterligare autentiseringstoken när du loggar in på Usermin.
+twofactor_desc2=Denna sida låter dig aktivera tvåfaktorautentisering för Usermin-inloggning $3 med <a href='$2' target=_blank>$1</a>. När den är aktiv krävs en ytterligare autentiseringstoken när du loggar in på Usermin.
+twofactor_enable=Anmäl dig för tvåfaktorautentisering
+twofactor_header=Registreringsinformation för tvåfaktorautentisering
+twofactor_enrolling=Anmäler sig för tvåfaktorautentisering med leverantören $1  ..
+twofactor_failed=.. registrering misslyckades : $1
+twofactor_done=.. komplett. Ditt ID med den här leverantören är <tt>$1</tt>.
+twofactor_setup=Tvåfaktorautentisering har inte aktiverats på detta system än. Detta måste göras av din systemadministratör.
+twofactor_ebutton=Ingen knapp klickad!
+
+twofactor_email=din e-postadress
+twofactor_country=Landskod för mobiltelefon
+twofactor_phone=Mobiltelefonnummer
+twofactor_eemail=Saknad eller ogiltig e-postadress - måste formateras som user@domain.com
+twofactor_ecountry=Saknad eller ogiltig landskod - måste vara ett nummer, som 65
+twofactor_ephone=Saknat eller ogiltigt telefonnummer - endast siffror, bindestreck och mellanslag är tillåtna
+twofactor_eauthyenroll=Registreringen misslyckades : $1
+twofactor_secret=Personlig hemlig nyckel
+twofactor_secret1=Genereras slumpmässigt
+twofactor_secret0=Använd 16 tecken
+twofactor_esecret=Hemlig nyckel måste vara exakt 16 tecken lång och endast innehålla bokstäver och siffror
+twofactor_qrcode=Ange den hemliga koden $1 i Google Authenticator-appen eller skanna QR-koden nedan.
+
+twofactor_eauthyid=Authy användar-ID måste vara ett nummer
+twofactor_eauthytoken=Authy token måste vara ett tal
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Ogiltig TOTP-baserad32-kodad hemlighet
+twofactor_etotptoken=Google Authenticator-token måste vara ett nummer
+twofactor_etotpmodule2=Perl-modul saknas $1
+twofactor_etotpmatch=Felaktig OTP-kod
+
+enable_title=Aktiverad tvåfaktorautentisering
+enable_err=Registreringen misslyckades

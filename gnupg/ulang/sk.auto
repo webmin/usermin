@@ -8,6 +8,7 @@ index_pass=prístupové heslo
 index_setup=Nastavenie GnuPG
 index_return=GnuPG index
 index_egpg=Príkaz GnuPG $1 nebol vo vašom systéme nájdený. Možno nie je nainštalovaný.
+
 setup_err=Nepodarilo sa nastaviť GnuPG
 setup_ename=Chýba názov kľúča
 setup_enamelen=Názov kľúča musí mať najmenej $1 znakov
@@ -16,6 +17,7 @@ setup_title=Nastavenie GnuPG
 setup_ok=GnuPG bol úspešne nastavený a bol vygenerovaný tajný kľúč.
 setup_failed=Nepodarilo sa vytvoriť tajný kľúč : $1 
 setup_emkdir=Nepodarilo sa vytvoriť adresár.gnupg : $1 
+
 keys_title=Spravujte kľúče
 keys_desc=Táto stránka obsahuje zoznam všetkých verejných kľúčov vo vašom kľúči GnuPG. Ak chcete niekoho šifrovať, musíte importovať jeho verejný kľúč, aby sa zobrazil na tejto stránke.
 keys_id=ID kľúča
@@ -42,11 +44,13 @@ keys_searchok=Vyhľadávanie
 keys_searchnone=Neboli nájdené žiadne kľúče zodpovedajúce vášmu vyhľadávaniu.
 keys_searchdesc=Táto stránka umožňuje vyhľadávať kľúčový server GPG $1 podľa mena alebo e-mailovej adresy a nájsť importované kľúče.
 keys_status=Postavenie
+
 import_err=Import kľúča sa nepodarilo
 import_ekey=Nebol vybraný žiadny súbor kľúčov
 import_egpg=GnuPG zlyhal : $1 
 import_efile=Chýba alebo je neplatný súbor kľúčov
 import_etext=Nebol zadaný žiadny kľúčový text
+
 key_title=Podrobnosti o verejnom kľúči
 key_header=Kľúčové podrobnosti
 key_id=ID kľúča
@@ -80,6 +84,7 @@ key_deldesc=Odstráňte tento kľúč zo systému a zabráňte jeho použitiu na
 key_revoked=<farba p�=červená>Zrušené</farba>
 key_got=<font color=#00aa00>Imported</font>
 key_miss=k dispozícii
+
 encrypt_title=Zašifrovať súbor
 encrypt_desc=Táto stránka sa používa na šifrovanie súboru pomocou GnuPG a vybraného verejného kľúča. Po zašifrovaní bude výsledok dešifrovať iba vlastník zodpovedajúceho súkromného kľúča.
 encrypt_mode=Súbor na zašifrovanie
@@ -93,6 +98,7 @@ encrypt_err=Nepodarilo sa zašifrovať súbor
 encrypt_eupload=Na šifrovanie nebol vybratý žiadny súbor
 encrypt_elocal=Vybraný súbor neexistuje alebo ho nie je možné prečítať
 encrypt_egpg=GnuPG zlyhal : $1 
+
 decrypt_title=Dešifrovať súbor
 decrypt_desc=Táto stránka sa používa na dešifrovanie súboru, ktorý bol zašifrovaný pomocou vášho verejného kľúča, buď vy, alebo niekým iným, kto má váš kľúč.
 decrypt_mode=Súbor na dešifrovanie
@@ -106,6 +112,8 @@ decrypt_err=Nepodarilo sa dešifrovať súbor
 decrypt_eupload=Na dešifrovanie nebol vybratý žiadny súbor
 decrypt_elocal=Vybraný súbor neexistuje alebo ho nie je možné prečítať
 decrypt_egpg=GnuPG zlyhal : $1 
+decrypt_key=Dešifrovať pomocou tajného kľúča
+
 sign_title=Podpísať súbor
 sign_desc=Táto stránka sa používa na podpísanie súboru, aby bolo možné overiť, či ste ho podpísali a či sa od podpísania nezmenil.
 sign_mode=Súbor na podpis
@@ -121,6 +129,7 @@ sign_elocal=Vybraný súbor neexistuje alebo ho nie je možné prečítať
 sign_egpg=GnuPG zlyhal : $1 
 sign_epass=Pre zvolený tajný kľúč zatiaľ nebolo nastavené žiadne prístupové heslo
 sign_sep=Vrátiť iba samostatný podpis?
+
 verify_title=Overte podpísaný súbor
 verify_desc=Táto stránka sa používa na overenie súboru, ktorý bol podpísaný s GnuPG, s cieľom skontrolovať, či nebol upravený, a zistiť, kto ho podpísal. Ak chcete extrahovať pôvodné údaje z podpísaného binárneho súboru, použite <a href='$1'>dešifrovaciu stránku</a>.
 verify_mode=Súbor na overenie
@@ -141,6 +150,7 @@ verify_bad=Súbor má podpis od $1, ale nie je platný.
 verify_noid=Verejný kľúč s ID $1 nie je k dispozícii na overenie.
 verify_failed=Nepodarilo sa overiť podpis : $1 
 verify_warning=Varovanie - Tento kľúč nebol overený a podpísaný na stránke správy kľúčov.
+
 signkey_title=Podpisový kľúč
 signkey_confirm=Naozaj chcete podpísať kľúč patriaci k $1 $2 ? To znamená, že ste potvrdili platnosť kľúča kontrolou jeho odtlačku prsta ($3) u vlastníka.
 signkey_failed=Nepodarilo sa podpísať kľúč patriaci $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Žiadna odpoveď
 signkey_trust1=Nekontrolované
 signkey_trust2=Niekedy skontrolované
 signkey_trust3=Starostlivo skontrolovať
+
 send_title=Poslať na Keyserver
 send_desc=Odosiela sa kľúč $1 na server kľúčov $2 ..
 send_failed=Nepodarilo sa poslať kľúč : $1 
 send_success=Kľúč bol úspešne odoslaný. Ostatní používatelia GnuPG teraz budú môcť získať verejný kľúč na odosielanie e-mailov a šifrovanie súborov.
+
 recv_title=Načítať z Keyservera
 recv_desc=Načítava sa ID kľúča $1 zo servera kľúčov $2 ..
 recv_failed=Nepodarilo sa načítať kľúč : $1 
 recv_same=Kľúč už existuje od $1.
 recv_success=Kľúč bol úspešne importovaný z $1.
+
 secret_title=Pridajte tajný kľúč
 secret_desc=Táto stránka sa používa na vygenerovanie ďalšieho tajného kľúča, ktorý môžete použiť na podpisovanie a dešifrovanie.
 secret_err=Nepodarilo sa pridať tajný kľúč
 secret_ok=Nový tajný kľúč bol úspešne vygenerovaný.
 secret_name=Názov nového kľúča
 secret_setup=Vytvoriť nový kľúč
+
 gnupg_esignpass=Pre podpisový kľúč zatiaľ nie je nastavené žiadne prístupové heslo
 gnupg_ecryptid=Šifrovací kľúč nie je k dispozícii
 gnupg_ecryptkey=ID tajného kľúča šifrovania $1 nie je k dispozícii
 gnupg_ecryptpass=Pre tajný kľúč $1 ešte nebolo nastavené žiadne prístupové heslo
 gnupg_canset=Ak chcete nastaviť prístupovú frázu pre existujúci kľúč, navštívte <a href='$1'>stránku s podrobnosťami o kľúčoch</a>
+gnupg_ecryptkey2=Neočakávané ID tajného kľúča šifrovania $1 
+
 trust_title=Nastavte úroveň dôveryhodnosti
 trust_echoice=Musíte zvoliť úroveň dôveryhodnosti, nie „Ešte nastavené“.
 trust_done=Úroveň dôveryhodnosti pre kľúč $1 bola úspešne nastavená.
+
 owner_err1=Nepodarilo sa pridať vlastníka
 owner_ename=Nezadané žiadne meno
 owner_err2=Vlastník sa nepodarilo odstrániť
 owner_elast=Údaje o poslednom vlastníkovi nemôžete odstrániť
+
 delkey_title=Odstrániť kľúč
 delkey_rusure=Naozaj chcete odstrániť tajný kľúč $1 $2 ? Všetky súbory alebo e-maily, ktoré sú s ňou šifrované, už nebude možné dekódovať!
 delkey_ok=Áno, odstrániť
+
 delkeys_err=Kľúče sa nepodarilo odstrániť
 delkeys_enone=Žiadne vybraté
+
 export_title=Exportovať kľúč
 export_desc=Táto stránka vám umožňuje exportovať kľúč $1 $2 z vášho prívesku na kľúč, buď do súboru, alebo na stiahnutie z vášho prehliadača.
 export_to=Režim exportu

@@ -8,6 +8,7 @@ index_pass=Přístupová fráze
 index_setup=Nastavení GnuPG
 index_return=GnuPG index
 index_egpg=Příkaz GnuPG $1 nebyl ve vašem systému nalezen. Možná není nainstalován.
+
 setup_err=Nastavení GnuPG se nezdařilo
 setup_ename=Chybí jméno klíče
 setup_enamelen=Název klíče musí mít alespoň $1 znaků
@@ -16,6 +17,7 @@ setup_title=Nastavení GnuPG
 setup_ok=GnuPG byl úspěšně nastaven a byl vygenerován tajný klíč.
 setup_failed=Nepodařilo se vytvořit tajný klíč : $1 
 setup_emkdir=Nepodařilo se vytvořit adresář.gnupg : $1 
+
 keys_title=Správa klíčů
 keys_desc=Na této stránce jsou uvedeny všechny veřejné klíče ve vašem klíčence GnuPG. Abyste mohli někoho zašifrovat, musíte importovat jeho veřejný klíč tak, aby se objevil na této stránce.
 keys_id=ID klíče
@@ -42,11 +44,13 @@ keys_searchok=Vyhledávání
 keys_searchnone=Nebyly nalezeny žádné klíče odpovídající vašemu vyhledávání.
 keys_searchdesc=Tato stránka umožňuje prohledávat klíčový server GPG $1 podle jména nebo e-mailové adresy a nalézt importované klíče.
 keys_status=Postavení
+
 import_err=Import klíče se nezdařil
 import_ekey=Nebyl vybrán žádný klíčový soubor
 import_egpg=GnuPG selhal : $1 
 import_efile=Chybějící nebo neplatný soubor klíče
 import_etext=Nebyl zadán žádný klíčový text
+
 key_title=Podrobnosti veřejného klíče
 key_header=Klíčové údaje
 key_id=ID klíče
@@ -80,6 +84,7 @@ key_deldesc=Odeberte tento klíč ze svého systému, abyste zabránili jeho pou
 key_revoked=<font color=red>Revoked</font>
 key_got=<font color=#00aa00>Imported</font>
 key_miss=Dostupný
+
 encrypt_title=Šifrovat soubor
 encrypt_desc=Tato stránka slouží k zašifrování souboru pomocí GnuPG a vybraného veřejného klíče. Po zašifrování bude výsledek dešifrovatelný pouze vlastníkem odpovídajícího soukromého klíče.
 encrypt_mode=Soubor k zašifrování
@@ -93,6 +98,7 @@ encrypt_err=Šifrování souboru se nezdařilo
 encrypt_eupload=K zašifrování nebyl vybrán žádný soubor
 encrypt_elocal=Vybraný soubor neexistuje nebo není čitelný
 encrypt_egpg=GnuPG selhal : $1 
+
 decrypt_title=Dešifrovat soubor
 decrypt_desc=Tato stránka slouží k dešifrování souboru, který byl zašifrován pomocí vašeho veřejného klíče, a to buď sami, nebo někým jiným, kdo má váš klíč.
 decrypt_mode=Soubor pro dešifrování
@@ -106,6 +112,8 @@ decrypt_err=Dešifrování souboru se nezdařilo
 decrypt_eupload=K dešifrování nebyl vybrán žádný soubor
 decrypt_elocal=Vybraný soubor neexistuje nebo není čitelný
 decrypt_egpg=GnuPG selhal : $1 
+decrypt_key=Dešifrovat pomocí tajného klíče
+
 sign_title=Podepsat soubor
 sign_desc=Pomocí této stránky můžete soubor podepsat, aby bylo možné ověřit, že byl podepsán vámi a že od podpisu nebyl změněn.
 sign_mode=Soubor k podpisu
@@ -121,6 +129,7 @@ sign_elocal=Vybraný soubor neexistuje nebo není čitelný
 sign_egpg=GnuPG selhal : $1 
 sign_epass=Pro zvolený tajný klíč dosud nebylo nastaveno heslo
 sign_sep=Vrátit pouze samostatný podpis?
+
 verify_title=Ověřte podepsaný soubor
 verify_desc=Tato stránka slouží k ověření souboru, který byl podepsán s GnuPG, aby bylo možné zkontrolovat, zda nebyl změněn, a zjistit, kdo je podepsal. Pokud chcete extrahovat původní data z podepsaného binárního souboru, použijte <a href='$1'>dešifrovací stránku</a>.
 verify_mode=Soubor k ověření
@@ -141,6 +150,7 @@ verify_bad=Soubor má podpis od $1, ale není platný.
 verify_noid=Veřejný klíč s ID $1 není k dispozici pro ověření.
 verify_failed=Nepodařilo se ověřit podpis : $1 
 verify_warning=Varování - Tento klíč nebyl ověřen a podepsán na stránce pro správu klíčů.
+
 signkey_title=Podepsat klíč
 signkey_confirm=Opravdu chcete podepsat klíč patřící uživateli $1 $2 ? To znamená, že jste potvrdili platnost klíče kontrolou jeho otisků prstů ($3) u vlastníka.
 signkey_failed=Nepodařilo se podepsat klíč patřící uživateli $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Žádná odpověď
 signkey_trust1=Není zaškrtnuto
 signkey_trust2=Náhodně zkontrolováno
 signkey_trust3=Pečlivě zkontrolováno
+
 send_title=Odeslat na Keyserver
 send_desc=Odesílání klíče $1 na server klíčů $2 ..
 send_failed=Nepodařilo se odeslat klíč : $1 
 send_success=Klíč byl úspěšně odeslán. Ostatní uživatelé GnuPG nyní budou moci získat svůj veřejný klíč pro odesílání e-mailů a šifrování souborů.
+
 recv_title=Načíst z Keyserveru
 recv_desc=Načítání ID klíče 1 od keyerveru $2 ..
 recv_failed=Nepodařilo se načíst klíč : $1 
 recv_same=Klíč již existuje od $1.
 recv_success=Klíč byl úspěšně importován z $1.
+
 secret_title=Přidejte tajný klíč
 secret_desc=Na této stránce můžete vygenerovat další tajný klíč, který můžete použít pro podepisování a dešifrování.
 secret_err=Nepodařilo se přidat tajný klíč
 secret_ok=Nový tajný klíč byl úspěšně vygenerován.
 secret_name=Nový název klíče
 secret_setup=Vytvořit nový klíč
+
 gnupg_esignpass=Pro podpisový klíč dosud nebylo nastaveno žádné přístupové heslo
 gnupg_ecryptid=Šifrovací klíč není k dispozici
 gnupg_ecryptkey=ID tajného klíče šifrování $1 není k dispozici
 gnupg_ecryptpass=Pro tajný klíč $1 dosud nebylo nastaveno heslo
 gnupg_canset=Chcete-li nastavit přístupové heslo pro existující klíč, navštivte <a href='$1'>stránku s podrobnostmi klíčů</a>
+gnupg_ecryptkey2=Neočekávané ID tajného klíče šifrování $1 
+
 trust_title=Nastavte úroveň důvěryhodnosti
 trust_echoice=Musíte zvolit úroveň důvěryhodnosti, nikoli „Ještě nenastaveno“.
 trust_done=Úroveň důvěryhodnosti pro klíč $1 byla úspěšně nastavena.
+
 owner_err1=Nepodařilo se přidat vlastníka
 owner_ename=Nebylo zadáno žádné jméno
 owner_err2=Vlastníka se nepodařilo smazat
 owner_elast=Údaje o posledním vlastníkovi nelze odstranit
+
 delkey_title=Smazat klíč
 delkey_rusure=Opravdu chcete odstranit tajný klíč $1 $2 ? Všechny soubory nebo e-maily zašifrované pomocí této adresy již nebudou dekódovatelné!
 delkey_ok=Ano, smažte to
+
 delkeys_err=Klávesy se nepodařilo smazat
 delkeys_enone=Nebyl vybrán žádný
+
 export_title=Exportovat klíč
 export_desc=Tato stránka vám umožňuje exportovat klíč $1 $2 ze svého klíčence do souboru nebo ke stažení z vašeho prohlížeče.
 export_to=Režim exportu

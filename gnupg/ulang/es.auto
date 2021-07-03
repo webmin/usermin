@@ -1,5 +1,6 @@
 setup_enamelen=El nombre de la clave debe tener al menos $1 caracteres de longitud
 setup_emkdir=Error al crear el directorio.gnupg : $1 
+
 keys_from=Importar clave desde
 keys_mode0=Archivo subido
 keys_mode1=Archivo en el servidor
@@ -14,8 +15,10 @@ keys_searchok=Buscar
 keys_searchnone=No se encontraron claves que coincidan con su búsqueda.
 keys_searchdesc=Esta página le permite buscar el servidor de claves GPG $1 por nombre o dirección de correo electrónico, e importar las claves encontradas.
 keys_status=Estado
+
 import_efile=Archivo de clave faltante o no válido
 import_etext=No se ingresó texto clave
+
 key_owner=Detalles del propietario
 key_oname=Nombre y comentario
 key_oemail=Dirección de correo electrónico
@@ -29,26 +32,38 @@ key_deldesc=Elimine esta clave de su sistema, evitando que se use para firmar, c
 key_revoked=<font color=red>Revocado</font>
 key_got=<font color=#00aa00>Importado</font>
 key_miss=Disponible
+
 encrypt_mode2=Contenido del cuadro de texto
+
 decrypt_mode2=Contenido del cuadro de texto
+decrypt_key=Descifrar usando clave secreta
+
 sign_mode2=Contenido del cuadro de texto
 sign_sep=¿Devolver solo la firma separada?
+
 verify_sig=Firma para archivo
 verify_mode2=Ninguno (parte del archivo firmado)
 verify_mode3=Contenido del cuadro de texto
 verify_esigupload=No se seleccionó ningún archivo de firma
 verify_esiglocal=El archivo de firma no existe o no es legible
+
 signkey_trustlevel=Firmar con nivel de confianza
+
 gnupg_canset=Para establecer una frase de contraseña para una clave existente, visite la <a href='$1'>página de detalles de la clave</a>
+gnupg_ecryptkey2=ID de clave secreta de cifrado inesperado $1 
+
 owner_err1=Error al agregar propietario
 owner_ename=Ningún nombre ingresado
 owner_err2=Error al eliminar el propietario
 owner_elast=No puedes eliminar los detalles del último propietario
+
 delkey_title=Eliminar clave
 delkey_rusure=¿Está seguro de que desea eliminar la clave secreta $1 $2 ? ¡Cualquier archivo o correo electrónico cifrado con él ya no será decodificable!
 delkey_ok=Sí, elimínalo
+
 delkeys_err=Error al eliminar claves
 delkeys_enone=Ninguna seleccionada
+
 export_title=Clave de exportación
 export_desc=Esta página le permite exportar la clave $1 $2 de su llavero, ya sea a un archivo o para descargar desde su navegador.
 export_to=Modo de exportación

@@ -8,6 +8,7 @@ index_pass=Phrase de passe
 index_setup=Configurer GnuPG
 index_return=Index GnuPG
 index_egpg=La commande GnuPG $1 est introuvable sur votre système. Peut-être qu'il n'est pas installé.
+
 setup_err=Impossible de configurer GnuPG
 setup_ename=Nom manquant pour la clé
 setup_enamelen=Le nom de la clé doit comporter au moins $1 caractères
@@ -16,6 +17,7 @@ setup_title=Configurer GnuPG
 setup_ok=GnuPG a été configuré avec succès et une clé secrète a été générée.
 setup_failed=Impossible de créer la clé secrète : $1 
 setup_emkdir=Impossible de créer le répertoire.gnupg : $1 
+
 keys_title=Gérer les clés
 keys_desc=Cette page répertorie toutes les clés publiques de votre trousseau de clés GnuPG. Afin de crypter un fichier pour quelqu'un, vous devez importer sa clé publique afin qu'elle apparaisse sur cette page.
 keys_id=ID clé
@@ -42,11 +44,13 @@ keys_searchok=Chercher
 keys_searchnone=Aucune clé correspondant à votre recherche n'a été trouvée.
 keys_searchdesc=Cette page vous permet de rechercher le serveur de clés GPG $1 par nom ou adresse e-mail et d'importer les clés trouvées.
 keys_status=Statut
+
 import_err=Impossible d'importer la clé
 import_ekey=Aucun fichier clé sélectionné
 import_egpg=Échec de GnuPG : $1 
 import_efile=Fichier de clé manquant ou invalide
 import_etext=Aucun texte clé saisi
+
 key_title=Détails de la clé publique
 key_header=Détails clés
 key_id=ID clé
@@ -80,6 +84,7 @@ key_deldesc=Supprimez cette clé de votre système, l'empêchant d'être utilis�
 key_revoked=<font color=red>Révoqué</font>
 key_got=<font color=#00aa00>Importé</font>
 key_miss=Disponible
+
 encrypt_title=Chiffrer le fichier
 encrypt_desc=Utilisez cette page pour crypter un fichier avec GnuPG et une clé publique choisie. Une fois chiffré, le résultat ne sera déchiffrable que par le propriétaire de la clé privée correspondante.
 encrypt_mode=Fichier à crypter
@@ -93,6 +98,7 @@ encrypt_err=Impossible de crypter le fichier
 encrypt_eupload=Aucun fichier sélectionné pour crypter
 encrypt_elocal=Le fichier sélectionné n'existe pas ou n'est pas lisible
 encrypt_egpg=Échec de GnuPG : $1 
+
 decrypt_title=Déchiffrer le fichier
 decrypt_desc=Utilisez cette page pour décrypter un fichier qui a été crypté à l'aide de votre clé publique, soit par vous-même, soit par quelqu'un d'autre qui possède votre clé.
 decrypt_mode=Fichier à décrypter
@@ -106,6 +112,8 @@ decrypt_err=Impossible de déchiffrer le fichier
 decrypt_eupload=Aucun fichier sélectionné pour déchiffrer
 decrypt_elocal=Le fichier sélectionné n'existe pas ou n'est pas lisible
 decrypt_egpg=Échec de GnuPG : $1 
+decrypt_key=Décrypter à l'aide d'une clé secrète
+
 sign_title=Fichier de signe
 sign_desc=Utilisez cette page pour signer un fichier afin de pouvoir vérifier qu'il a été signé par vous et qu'il n'a pas été modifié depuis la signature.
 sign_mode=Fichier à signer
@@ -121,6 +129,7 @@ sign_elocal=Le fichier sélectionné n'existe pas ou n'est pas lisible
 sign_egpg=Échec de GnuPG : $1 
 sign_epass=Aucune phrase secrète n'a encore été définie pour la clé secrète choisie
 sign_sep=Renvoyer la signature détachée uniquement?
+
 verify_title=Vérifier le fichier signé
 verify_desc=Utilisez cette page pour vérifier un fichier qui a été signé avec GnuPG, afin de vérifier qu'il n'a pas été modifié et savoir qui l'a signé. Si vous souhaitez extraire les données d'origine d'un fichier binaire signé, utilisez la <a href='$1'>page de décryptage</a>.
 verify_mode=Fichier à vérifier
@@ -141,6 +150,7 @@ verify_bad=Le fichier a la signature de $1, mais il n'est pas valide.
 verify_noid=La clé publique avec l'ID $1 n'est pas disponible pour la vérification.
 verify_failed=Impossible de vérifier la signature : $1 
 verify_warning=Avertissement - Cette clé n'a pas été vérifiée et signée sur votre page de gestion des clés.
+
 signkey_title=Clé de signe
 signkey_confirm=Voulez-vous vraiment signer la clé appartenant à $1 $2 ? Cela indiquera que vous avez confirmé la validité de la clé en vérifiant son empreinte digitale ($3) avec le propriétaire.
 signkey_failed=Impossible de signer la clé appartenant à $1 : $2 
@@ -151,38 +161,48 @@ signkey_trust0=Pas de réponse
 signkey_trust1=Non vérifié
 signkey_trust2=Vérifié avec désinvolture
 signkey_trust3=Soigneusement vérifié
+
 send_title=Envoyer à Keyserver
 send_desc=Envoi de la clé $1 au serveur de clés $2 ..
 send_failed=Échec de l'envoi de la clé : $1 
 send_success=Clé soumise avec succès. Les autres utilisateurs de GnuPG pourront désormais récupérer votre clé publique pour envoyer des e-mails et crypter des fichiers.
+
 recv_title=Récupérer à partir du serveur de clés
 recv_desc=Récupération de l'ID de clé $1 à partir du serveur de clés $2 ..
 recv_failed=Impossible de récupérer la clé : $1 
 recv_same=Vous avez déjà la clé de $1.
 recv_success=Clé importée avec succès à partir de $1.
+
 secret_title=Ajouter une clé secrète
 secret_desc=Utilisez cette page pour générer une clé secrète supplémentaire que vous pouvez utiliser pour la signature et le déchiffrement.
 secret_err=Échec de l'ajout de la clé secrète
 secret_ok=Une nouvelle clé secrète a été générée avec succès.
 secret_name=Nouveau nom de clé
 secret_setup=Créer une nouvelle clé
+
 gnupg_esignpass=Aucune phrase secrète n'a encore été définie pour la clé de signature
 gnupg_ecryptid=La clé secrète de chiffrement n'est pas disponible
 gnupg_ecryptkey=ID de clé secrète de chiffrement $1 non disponible
 gnupg_ecryptpass=Aucune phrase secrète n'a encore été définie pour la clé secrète $1 
 gnupg_canset=Pour définir une phrase secrète pour une clé existante, visitez la <a href='$1'>page de détails de la clé</a>
+gnupg_ecryptkey2=ID de clé secrète de chiffrement inattendu $1
+
 trust_title=Définir le niveau de confiance
 trust_echoice=Vous devez choisir un niveau de confiance, pas «Pas encore défini».
 trust_done=Définition du niveau de confiance pour la clé $1.
+
 owner_err1=Échec de l'ajout du propriétaire
 owner_ename=Aucun nom entré
 owner_err2=Impossible de supprimer le propriétaire
 owner_elast=Vous ne pouvez pas supprimer les derniers détails du propriétaire
+
 delkey_title=Supprimer la clé
 delkey_rusure=Voulez-vous vraiment supprimer la clé secrète $1 $2 ? Tout fichier ou e-mail chiffré avec celui-ci ne sera plus décodable!
 delkey_ok=Oui, supprimez-le
+
 delkeys_err=Impossible de supprimer les clés
 delkeys_enone=Aucune sélection
+
 export_title=Clé d'exportation
 export_desc=Cette page vous permet d'exporter la clé $1 $2 de votre trousseau de clés, soit vers un fichier, soit en téléchargement depuis votre navigateur.
 export_to=Mode d'exportation

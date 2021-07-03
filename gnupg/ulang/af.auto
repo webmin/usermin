@@ -8,6 +8,7 @@ index_pass=wagwoord
 index_setup=Stel GnuPG op
 index_return=GnuPG-indeks
 index_egpg=Die GnuPG-opdrag $1 is nie op u stelsel gevind nie. Miskien is dit nie geïnstalleer nie.
+
 setup_err=Kon nie GnuPG opstel nie
 setup_ename=Naam vir sleutel ontbreek
 setup_enamelen=Die naam vir die sleutel moet minstens $1 karakters lank wees
@@ -16,6 +17,7 @@ setup_title=Stel GnuPG op
 setup_ok=GnuPG is suksesvol opgestel en 'n geheime sleutel is gegenereer.
 setup_failed=Kon nie die geheime sleutel skep nie : $1 
 setup_emkdir=Kon nie.gnupg-gids skep : $1 
+
 keys_title=Bestuur van sleutels
 keys_desc=Hierdie bladsy bevat 'n lys van al die openbare sleutels in u GnuPG-sleutelring. Om 'n lêer vir iemand te enkripteer, moet u die openbare sleutel invoer sodat dit op hierdie bladsy verskyn.
 keys_id=Sleutel-ID
@@ -42,11 +44,13 @@ keys_searchok=Soek
 keys_searchnone=Geen sleutels wat ooreenstem met u soektog is gevind nie.
 keys_searchdesc=Op hierdie bladsy kan u die GPG-sleutelbediener $1 op die naam of e-posadres deursoek, en die invoer van sleutels gevind.
 keys_status=status
+
 import_err=Kon nie die sleutel invoer nie
 import_ekey=Geen sleutellêer is gekies nie
 import_egpg=GnuPG misluk : $1 
 import_efile=Ontbrekende of ongeldige sleutellêer
 import_etext=Geen sleutelteks is ingevoer nie
+
 key_title=Openbare sleutelbesonderhede
 key_header=Belangrike besonderhede
 key_id=Sleutel-ID
@@ -80,6 +84,7 @@ key_deldesc=Verwyder hierdie sleutel van u stelsel en voorkom dat dit gebruik wo
 key_revoked=<font color=red>herroep</font>
 key_got=<font color=#00aa00>Ingevoer</font>
 key_miss=beskikbaar
+
 encrypt_title=Enkripteer lêer
 encrypt_desc=Gebruik hierdie bladsy om 'n lêer met GnuPG en 'n gekose openbare sleutel te enkripteer. Sodra dit geïnkripteer is, sal die resultaat slegs deur die eienaar van die bypassende private sleutel ontsyfer kan word.
 encrypt_mode=Lêer om te enkripteer
@@ -93,6 +98,7 @@ encrypt_err=Kon nie lêer enkripteer nie
 encrypt_eupload=Geen lêer is gekies om te enkripteer nie
 encrypt_elocal=Die geselekteerde lêer bestaan nie of is nie leesbaar nie
 encrypt_egpg=GnuPG misluk : $1 
+
 decrypt_title=Ontkryp lêer
 decrypt_desc=Gebruik hierdie bladsy om 'n lêer wat geïnkripteer is met u publieke sleutel, deur u of deur iemand anders wat u sleutel het, te dekripteer.
 decrypt_mode=Lêer om te dekripteer
@@ -106,6 +112,8 @@ decrypt_err=Kon nie lêer dekripteer nie
 decrypt_eupload=Geen lêer is gekies om te dekripteer nie
 decrypt_elocal=Die geselekteerde lêer bestaan nie of is nie leesbaar nie
 decrypt_egpg=GnuPG misluk : $1 
+decrypt_key=Ontsyfer met geheime sleutel
+
 sign_title=Teken lêer
 sign_desc=Gebruik hierdie bladsy om 'n lêer te onderteken sodat bevestig kan word dat dit deur u onderteken is en dat dit nie sedert die ondertekening gewysig is nie.
 sign_mode=Lêer om te teken
@@ -121,6 +129,7 @@ sign_elocal=Die geselekteerde lêer bestaan nie of is nie leesbaar nie
 sign_egpg=GnuPG misluk : $1 
 sign_epass=Geen wagfrase is nog ingestel vir die gekose geheime sleutel nie
 sign_sep=Net losstaande handtekening terugstuur?
+
 verify_title=Verifieer ondertekende lêer
 verify_desc=Gebruik hierdie bladsy om 'n lêer wat met GnuPG onderteken is, te verifieer om seker te maak dat dit nie gewysig is nie en om uit te vind wie dit onderteken het. As u die oorspronklike data uit 'n ondertekende binêre lêer wil onttrek, gebruik dan die <a href='$1'>dekripsie-bladsy</a>.
 verify_mode=Lêer om te verifieer
@@ -141,6 +150,7 @@ verify_bad=Die lêer het handtekening vanaf $1, maar dit is nie geldig nie.
 verify_noid=Openbare sleutel met ID $1 is nie beskikbaar vir verifiëring nie.
 verify_failed=Kon nie handtekening verifieer nie : $1 
 verify_warning=Waarskuwing - hierdie sleutel is nie op u sleutelbestuurbladsy geverifieer en onderteken nie.
+
 signkey_title=Teken sleutel
 signkey_confirm=Is u seker dat u die sleutel wat aan $1 $2 behoort te onderteken? Dit sal aandui dat u die geldigheid van die sleutel bevestig het deur die vingerafdruk ($3) by die eienaar na te gaan.
 signkey_failed=Kon nie die sleutel van $1 : $2 onderteken nie
@@ -151,38 +161,48 @@ signkey_trust0=Geen antwoord
 signkey_trust1=Nie nagegaan nie
 signkey_trust2=Terloops gekontroleer
 signkey_trust3=Noukeurig nagegaan
+
 send_title=Stuur na Keyserver
 send_desc=Stuur sleutel $1 aan sleutelbediener $2.
 send_failed=Kon nie sleutel stuur nie : $1 
 send_success=Sleutel suksesvol ingedien. Ander GnuPG-gebruikers sal nou in staat wees om u openbare sleutel vir die versending van e-pos en lêer te kry.
+
 recv_title=Haal van die sleutelserver af
 recv_desc=Haal sleutel ID $1 van sleuteldienaar $2 af ..
 recv_failed=Kon nie die sleutel ophaal nie : $1 
 recv_same=Het al die sleutel vanaf $1.
 recv_success=Sleutel van $1 af suksesvol ingevoer.
+
 secret_title=Voeg geheime sleutel by
 secret_desc=Gebruik hierdie bladsy om 'n ekstra geheime sleutel te genereer wat u kan gebruik vir ondertekening en dekripsie.
 secret_err=Kon nie die geheime sleutel byvoeg nie
 secret_ok='N Nuwe geheime sleutel is suksesvol gegenereer.
 secret_name=Nuwe sleutelnaam
 secret_setup=Skep 'n nuwe sleutel
+
 gnupg_esignpass=Daar is nog geen wagwoordfrase vir die onderteken-sleutel opgestel nie
 gnupg_ecryptid=Die geheime sleutel van die kodering is nie beskikbaar nie
 gnupg_ecryptkey=Enkripsie geheime sleutel ID $1 nie beskikbaar nie
 gnupg_ecryptpass=Geen wagfrase is nog ingestel vir die geheime sleutel $1 nie
 gnupg_canset=Besoek die <a href='$1'> bladsy met sleutelbesonderhede om 'n wagwoordfrase vir 'n bestaande sleutel in te stel
+gnupg_ecryptkey2=Onverwagse geheime sleutel ID vir kodering $1 
+
 trust_title=Stel vertrouensvlak
 trust_echoice=U moet 'n vertrouensvlak kies, nie 'Nog nie ingestel nie'.
 trust_done=Stel vertrouensvlak vir sleutel $1 suksesvol in.
+
 owner_err1=Kon nie eienaar byvoeg nie
 owner_ename=Geen naam ingevoer nie
 owner_err2=Kon nie die eienaar uitvee nie
 owner_elast=U kan nie die laaste eienaarbesonderhede uitvee nie
+
 delkey_title=Vee sleutel uit
 delkey_rusure=Is u seker dat u die geheime sleutel $1 $2 wil uitvee? Enige lêers of e-pos wat daarmee geïnkripteer is, kan nie meer gedekodeer word nie!
 delkey_ok=Ja, verwyder dit
+
 delkeys_err=Kon nie sleutels uitvee nie
 delkeys_enone=Geen gekies nie
+
 export_title=Uitvoerleutel
 export_desc=Op hierdie bladsy kan u die sleutel $1 $2 vanaf u sleutelring uitvoer, hetsy na 'n lêer of om van u blaaier af te laai.
 export_to=Uitvoermodus

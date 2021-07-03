@@ -1,0 +1,38 @@
+index_title=Autenticação de dois fatores
+
+twofactor_disable=Desativar autenticação de dois fatores
+twofactor_already=Seu login do Usermin já tem autenticação de dois fatores ativada com o provedor $1 e a ID da conta $2.
+twofactor_already2=O login do usermin $3 já tem autenticação de dois fatores habilitada com o provedor $1 e a ID da conta $2.
+twofactor_desc=Esta página permite que você habilite a autenticação de dois fatores para o seu login Usermin usando <a href='$2' target=_blank>$1</a>. Uma vez ativo, um token de autenticação adicional será necessário ao fazer login no Usermin.
+twofactor_desc2=Esta página permite que você habilite a autenticação de dois fatores para o login do Usermin $3 usando <a href='$2' target=_blank>$1</a>. Uma vez ativo, um token de autenticação adicional será necessário ao fazer login no Usermin.
+twofactor_enable=Inscreva-se para autenticação de dois fatores
+twofactor_header=Detalhes de inscrição de autenticação de dois fatores
+twofactor_enrolling=Inscrevendo-se para autenticação de dois fatores com o provedor $1  ..
+twofactor_failed=.. inscrição falhou : $1
+twofactor_done=.. completo. Seu ID com este provedor é <tt>$1</tt>.
+twofactor_setup=A autenticação de dois fatores ainda não foi habilitada neste sistema. Isso deve ser feito pelo administrador do sistema.
+twofactor_ebutton=Nenhum botão clicado!
+
+twofactor_email=Seu endereço de email
+twofactor_country=Código do país do celular
+twofactor_phone=Número de telefone celular
+twofactor_eemail=Endereço de e-mail ausente ou inválido - deve ser formatado como user@domain.com
+twofactor_ecountry=Código do país ausente ou inválido - deve ser um número, como 65
+twofactor_ephone=Número de telefone em falta ou inválido - apenas dígitos, travessões e espaços são permitidos
+twofactor_eauthyenroll=Falha na inscrição : $1
+twofactor_secret=Chave secreta pessoal
+twofactor_secret1=Gerado aleatoriamente
+twofactor_secret0=Use uma chave de 16 caracteres
+twofactor_esecret=A chave secreta deve ter exatamente 16 caracteres e conter apenas letras e números
+twofactor_qrcode=Digite o código secreto $1 no aplicativo Google Authenticator ou escaneie o código QR abaixo.
+
+twofactor_eauthyid=Authy ID do usuário Authy deve ser um número
+twofactor_eauthytoken=Authy token Authy deve ser um número
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Segredo codificado por base32 de TOTP inválido
+twofactor_etotptoken=O token do Google Authenticator deve ser um número
+twofactor_etotpmodule2=Módulo Perl ausente $1
+twofactor_etotpmatch=Código OTP incorreto
+
+enable_title=Autenticação de dois fatores habilitada
+enable_err=A inscrição falhou

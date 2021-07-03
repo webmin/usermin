@@ -1,0 +1,38 @@
+index_title=احراز هویت دو عاملی
+
+twofactor_disable=احراز هویت دو عاملی را غیرفعال کنید
+twofactor_already=در ورود به سیستم Usermin شما تأیید اعتبار دو عاملی با ارائه دهنده $1 و شناسه حساب $2.
+twofactor_already2=ورود به سیستم Usermin $3 قبل دارای تأیید اعتبار دو عاملی با ارائه دهنده $1 و شناسه حساب $2.
+twofactor_desc=<a href='$2' target=_blank>$1</a> احراز هویت دو عاملی را برای ورود به سایت Usermin خود فعال کنید. پس از فعال شدن ، هنگام ورود به Usermin یک رمز احراز هویت اضافی مورد نیاز است.
+twofactor_desc2=این صفحه به شما امکان می دهد احراز هویت دو عاملی را برای ورود $3 Usermin با استفاده از <a href='$2' target=_blank>$1</a>. پس از فعال شدن ، هنگام ورود به Usermin یک رمز احراز هویت اضافی مورد نیاز است.
+twofactor_enable=برای احراز هویت دو عاملی ثبت نام کنید
+twofactor_header=جزئیات ثبت نام احراز هویت دو عاملی
+twofactor_enrolling=ثبت نام برای احراز هویت دو عاملی با ارائه دهنده $1  ..
+twofactor_failed=.. ثبت نام ناموفق بود : $1
+twofactor_done=.. کامل. شناسه شما با این ارائه دهنده <tt>$1</tt>.
+twofactor_setup=احراز هویت دو عاملی هنوز در این سیستم فعال نشده است. این کار باید توسط سرپرست سیستم شما انجام شود.
+twofactor_ebutton=هیچ دکمه ای کلیک نشده است!
+
+twofactor_email=آدرس ایمیل شما
+twofactor_country=کد کشور تلفن همراه
+twofactor_phone=شماره تلفن همراه
+twofactor_eemail=آدرس ایمیل گمشده یا نامعتبر است - باید مانند user@domain.com
+twofactor_ecountry=کد کشور گمشده یا نامعتبر است - باید شماره ای باشد ، مانند 65
+twofactor_ephone=شماره تلفن گمشده یا نامعتبر است - فقط رقم ، فاصله و فاصله مجاز است
+twofactor_eauthyenroll=ثبت نام ناموفق بود : $1
+twofactor_secret=کلید مخفی شخصی
+twofactor_secret1=به صورت تصادفی تولید شده است
+twofactor_secret0=از کلید 16 کاراکتری استفاده کنید
+twofactor_esecret=کلید مخفی باید دقیقاً 16 حرف داشته باشد و فقط شامل حروف و اعداد باشد
+twofactor_qrcode=کد مخفی $1 در برنامه Google Authenticator وارد کنید یا کد QR زیر را اسکن کنید.
+
+twofactor_eauthyid=Authy باید یک عدد باشد
+twofactor_eauthytoken=Authy باید یک عدد باشد
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=پنهان رمزگذاری شده TOTP base32 نامعتبر است
+twofactor_etotptoken=رمز Google Authenticator باید یک عدد باشد
+twofactor_etotpmodule2=ماژول پرل $1
+twofactor_etotpmatch=کد OTP نادرست است
+
+enable_title=احراز هویت دو عاملی فعال است
+enable_err=ثبت نام انجام نشد

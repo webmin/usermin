@@ -1,0 +1,38 @@
+index_title=兩因素身份驗證
+
+twofactor_disable=禁用兩因素身份驗證
+twofactor_already=您的 Usermin 登錄已經啟用了提供者$1和帳戶 ID $2兩因素身份驗證。
+twofactor_already2=Usermin login $3 $1和帳戶 ID $2啟用了兩因素身份驗證。
+twofactor_desc=<a href='$2' target=_blank>$1</a>為您的 Usermin 登錄啟用雙因素身份驗證。一旦激活，登錄 Usermin 時將需要額外的身份驗證令牌。
+twofactor_desc2=此頁面允許您使用<a href='$2' target=_blank>$1</a> $3啟用雙因素身份驗證。一旦激活，登錄 Usermin 時將需要額外的身份驗證令牌。
+twofactor_enable=註冊兩步驗證
+twofactor_header=兩因素身份驗證註冊詳細信息
+twofactor_enrolling=$1註冊兩因素身份驗證  ..
+twofactor_failed=.. 註冊失敗： $1
+twofactor_done=.. 完全的。您在該提供商處的 ID 為<tt>$1</tt> 。
+twofactor_setup=此系統尚未啟用兩因素身份驗證。這必須由您的系統管理員完成。
+twofactor_ebutton=沒有點擊按鈕！
+
+twofactor_email=您的電子郵件地址
+twofactor_country=手機國家代碼
+twofactor_phone=手機號碼
+twofactor_eemail=缺少或無效的電子郵件地址 - 必須採用類似user@domain.com
+twofactor_ecountry=國家/地區代碼缺失或無效 - 必須是數字，例如 65
+twofactor_ephone=電話號碼丟失或無效 - 只允許使用數字、破折號和空格
+twofactor_eauthyenroll=註冊失敗： $1
+twofactor_secret=個人秘鑰
+twofactor_secret1=隨機生成
+twofactor_secret0=使用 16 個字符的鍵
+twofactor_esecret=密鑰長度必須恰好為 16 個字符，並且只能包含字母和數字
+twofactor_qrcode=在 Google Authenticator 應用中輸入密碼$1 ，或掃描下方二維碼。
+
+twofactor_eauthyid=Authy用戶 ID 必須是數字
+twofactor_eauthytoken=Authy令牌必須是數字
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=無效的 TOTP base32 編碼密碼
+twofactor_etotptoken=Google 身份驗證器令牌必須是數字
+twofactor_etotpmodule2=缺少 Perl 模塊$1
+twofactor_etotpmatch=OTP 代碼不正確
+
+enable_title=啟用兩因素身份驗證
+enable_err=註冊失敗

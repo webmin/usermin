@@ -1,0 +1,38 @@
+index_title=Xác thực hai yếu tố
+
+twofactor_disable=Tắt xác thực hai yếu tố
+twofactor_already=Thông tin đăng nhập Usermin của bạn đã được bật xác thực hai yếu tố với nhà cung cấp $1 và ID tài khoản $2.
+twofactor_already2=Đăng nhập Usermin $3 đã được kích hoạt xác thực hai yếu tố với nhà cung cấp $1 và ID tài khoản $2.
+twofactor_desc=Trang này cho phép bạn bật xác thực hai yếu tố cho thông tin đăng nhập Usermin của mình bằng cách sử dụng <a href='$2' target=_blank>$1</a>. Sau khi hoạt động, một mã thông báo xác thực bổ sung sẽ được yêu cầu khi đăng nhập vào Usermin.
+twofactor_desc2=Trang này cho phép bạn kích hoạt xác thực hai yếu tố cho đăng nhập Usermin $3 bằng <a href='$2' target=_blank>$1</a>. Sau khi hoạt động, một mã thông báo xác thực bổ sung sẽ được yêu cầu khi đăng nhập vào Usermin.
+twofactor_enable=Đăng ký Xác thực Hai yếu tố
+twofactor_header=Chi tiết đăng ký xác thực hai yếu tố
+twofactor_enrolling=Đăng ký xác thực hai yếu tố với nhà cung cấp $1  ..
+twofactor_failed=.. đăng ký không thành công : $1
+twofactor_done=.. hoàn thành. ID của bạn với nhà cung cấp này là <tt>$1</tt>.
+twofactor_setup=Xác thực hai yếu tố chưa được bật trên hệ thống này. Điều này phải được thực hiện bởi quản trị viên hệ thống của bạn.
+twofactor_ebutton=Không có nút nào được nhấp!
+
+twofactor_email=địa chỉ email của bạn
+twofactor_country=Mã quốc gia của điện thoại di động
+twofactor_phone=Số điện thoại di động
+twofactor_eemail=Địa chỉ email bị thiếu hoặc không hợp lệ - phải được định dạng như user@domain.com
+twofactor_ecountry=Mã quốc gia bị thiếu hoặc không hợp lệ - phải là một số, chẳng hạn như 65
+twofactor_ephone=Số điện thoại bị thiếu hoặc không hợp lệ - chỉ cho phép các chữ số, dấu gạch ngang và dấu cách
+twofactor_eauthyenroll=Đăng ký không thành công : $1
+twofactor_secret=Khóa bí mật cá nhân
+twofactor_secret1=Được tạo ngẫu nhiên
+twofactor_secret0=Sử dụng phím 16 ký tự
+twofactor_esecret=Khóa bí mật phải dài chính xác 16 ký tự và chỉ chứa các chữ cái và số
+twofactor_qrcode=Nhập mã bí mật $1 trong ứng dụng Google Authenticator hoặc quét mã QR bên dưới.
+
+twofactor_eauthyid=Authy ID người dùng phải là một số
+twofactor_eauthytoken=Authy thông báo xác thực phải là một số
+twofactor_eauthyotp=Authy token is invalid
+twofactor_etotpid=Bí mật được mã hóa base32 TOTP không hợp lệ
+twofactor_etotptoken=Mã thông báo Google Authenticator phải là một số
+twofactor_etotpmodule2=Thiếu mô-đun Perl $1
+twofactor_etotpmatch=Mã OTP không chính xác
+
+enable_title=Đã bật xác thực hai yếu tố
+enable_err=Đăng ký không thành công

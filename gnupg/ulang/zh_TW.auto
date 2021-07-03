@@ -8,6 +8,7 @@ index_pass=密碼短語
 index_setup=設置GnuPG
 index_return=GnuPG指數
 index_egpg=在您的系統上找不到GnuPG命令 $1。也許它沒有安裝。
+
 setup_err=無法設置GnuPG
 setup_ename=密鑰名稱缺失
 setup_enamelen=鍵的名稱必須至少包含 $1個字符
@@ -16,6 +17,7 @@ setup_title=設置GnuPG
 setup_ok=GnuPG已成功設置，並生成了密鑰。
 setup_failed=無法創建密鑰： $1
 setup_emkdir=無法創建.gnupg目錄： $1
+
 keys_title=管理金鑰
 keys_desc=此頁面列出了GnuPG密鑰環中的所有公共密鑰。為了為某人加密文件，您需要導入他們的公鑰，以便它出現在此頁面上。
 keys_id=密鑰ID
@@ -42,11 +44,13 @@ keys_searchok=搜索
 keys_searchnone=找不到與您的搜索匹配的關鍵字。
 keys_searchdesc=該頁面允許您按名稱或電子郵件地址搜索GPG密鑰服務器 $1，並導入找到的密鑰。
 keys_status=狀態
+
 import_err=導入密鑰失敗
 import_ekey=未選擇密鑰文件
 import_egpg=GnuPG失敗： $1
 import_efile=密鑰文件丟失或無效
 import_etext=沒有輸入關鍵文本
+
 key_title=公鑰詳細信息
 key_header=關鍵細節
 key_id=密鑰ID
@@ -80,6 +84,7 @@ key_deldesc=從系統中刪除此密鑰，以防止將其用於簽名，加密�
 key_revoked=<font color=red>已撤銷</font>
 key_got=<font color=＃00aa00>已導入</font>
 key_miss=可用的
+
 encrypt_title=加密檔案
 encrypt_desc=使用此頁面可使用GnuPG和選定的公共密鑰加密文件。加密後，結果只能由匹配的私鑰的所有者解密。
 encrypt_mode=加密文件
@@ -93,6 +98,7 @@ encrypt_err=無法加密文件
 encrypt_eupload=沒有選擇要加密的文件
 encrypt_elocal=所選文件不存在或不可讀
 encrypt_egpg=GnuPG失敗： $1
+
 decrypt_title=解密文件
 decrypt_desc=使用此頁面可以解密由您自己或由擁有您密鑰的其他人使用您的公共密鑰加密的文件。
 decrypt_mode=解密文件
@@ -106,6 +112,8 @@ decrypt_err=解密文件失敗
 decrypt_eupload=未選擇要解密的文件
 decrypt_elocal=所選文件不存在或不可讀
 decrypt_egpg=GnuPG失敗： $1
+decrypt_key=使用秘鑰解密
+
 sign_title=簽名文件
 sign_desc=使用此頁面對文件簽名，以便可以驗證該文件是否由您簽名，並且自簽名以來未進行任何修改。
 sign_mode=檔案簽署
@@ -121,6 +129,7 @@ sign_elocal=所選文件不存在或不可讀
 sign_egpg=GnuPG失敗： $1
 sign_epass=尚未為所選的秘密密鑰設置密碼
 sign_sep=僅返回分離的簽名？
+
 verify_title=驗證簽名文件
 verify_desc=使用此頁面來驗證已使用GnuPG簽名的文件，以檢查該文件是否已被修改並找出簽名者。如果要從簽名的二進製文件中提取原始數據，請使用<a href='$1'>解密頁面</a>。
 verify_mode=檔案驗證
@@ -141,6 +150,7 @@ verify_bad=文件具有來自 $1的簽名，但無效。
 verify_noid=ID為 $1的公鑰不可用於驗證。
 verify_failed=驗證簽名失敗： $1
 verify_warning=警告-此密鑰尚未在密鑰管理頁面上進行驗證和簽名。
+
 signkey_title=簽名密鑰
 signkey_confirm=您確定要對屬於 $1 $2的密鑰進行簽名嗎？這將表明您已通過與所有者檢查密鑰的指紋（$3）來確認密鑰的有效性。
 signkey_failed=無法簽署屬於 $1的密鑰： $2
@@ -151,38 +161,48 @@ signkey_trust0=沒有答案
 signkey_trust1=未檢查
 signkey_trust2=隨便檢查
 signkey_trust3=仔細檢查
+
 send_title=發送到密鑰服務器
 send_desc=正在將密鑰 $1發送到密鑰服務器 $2 ..
 send_failed=無法發送密鑰： $1
 send_success=密鑰已成功提交。現在，其他GnuPG用戶可以檢索您的公共密鑰，以發送電子郵件和加密文件。
+
 recv_title=從密鑰服務器獲取
 recv_desc=從密鑰服務器 $2中獲取密鑰ID $1 ..
 recv_failed=無法獲取密鑰： $1
 recv_same=已經有 $1的密鑰。
 recv_success=已成功從 $1導入密鑰。
+
 secret_title=添加密鑰
 secret_desc=使用此頁面可以生成可用於簽名和解密的其他密鑰。
 secret_err=添加密鑰失敗
 secret_ok=已成功生成新的密鑰。
 secret_name=新鍵名
 secret_setup=建立新金鑰
+
 gnupg_esignpass=尚未為簽名密鑰設置密碼
 gnupg_ecryptid=加密密鑰不可用
 gnupg_ecryptkey=加密密鑰ID $1不可用
 gnupg_ecryptpass=尚未為密鑰 $1設置密碼
 gnupg_canset=要為現有密鑰設置密碼，請訪問<a href='$1'>密鑰詳細信息頁面</a>
+gnupg_ecryptkey2=意外的加密密鑰 ID $1
+
 trust_title=設定信任等級
 trust_echoice=您必須選擇一個信任級別，而不是“尚未設置”。
 trust_done=成功設置密鑰 $1的信任級別。
+
 owner_err1=添加所有者失敗
 owner_ename=沒有輸入名字
 owner_err2=刪除所有者失敗
 owner_elast=您無法刪除最後的所有者詳細信息
+
 delkey_title=刪除金鑰
 delkey_rusure=您確定要刪除密鑰 $1 $2嗎？用它加密的任何文件或電子郵件將不再可解碼！
 delkey_ok=是的，將其刪除
+
 delkeys_err=刪除密鑰失敗
 delkeys_enone=未選擇
+
 export_title=匯出金鑰
 export_desc=此頁面允許您將密鑰 $1 $2從密鑰環導出到文件或從瀏覽器下載。
 export_to=匯出模式

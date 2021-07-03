@@ -8,6 +8,7 @@ index_pass=Passfrase
 index_setup=Sett opp GnuPG
 index_return=GnuPG indeks
 index_egpg=GnuPG kommandoen $1 ble ikke funnet på systemet ditt. Kanskje den ikke er installert.
+
 setup_err=Kunne ikke sette opp GnuPG
 setup_ename=Mangler navn for nøkkel
 setup_enamelen=Navn på nøkkel må være minst $1 tegn langt.
@@ -16,6 +17,7 @@ setup_title=Sett opp GnuPG
 setup_ok=GnuPG er nå satt opp og en nøkkel er generert.
 setup_failed=Kunne ikke opprette hemmelig nøkkel :  $1
 setup_emkdir=Kunne ikke opprette .gnupg katalog : $1
+
 keys_title=Administrer nøkler
 keys_desc=Denne siden viser alle offentlige nøkler i din GnuPG nøkkelring. For å kryptere en fil for noen, må du importere deres offentlige nøkkel slik at du finner den på denne siden.
 keys_id=Nøkkel ID
@@ -42,11 +44,13 @@ keys_searchok=Søk
 keys_searchnone=Fant ingen nøkler som stemte med søket ditt.
 keys_searchdesc=Denne siden lar deg søke gjennom GPG nøkkeltjeneren $1 eller navn eller e-post adresse, og importere nøkler som blir funnet.
 keys_status=Status
+
 import_err=Kunne ikke importere nøkkel
 import_ekey=Ingen nøkkel-fil valgt
 import_egpg=GnuPG feilet : $1
 import_efile=Manglende eller ugyldig nøkkel-fil
 import_etext=Ingen nøkkel-tekst angitt
+
 key_title=Detaljer om offentlig nøkkel
 key_header=Detaljer om nøkkel
 key_id=Nøkkel ID
@@ -80,6 +84,7 @@ key_deldesc=Fjern denne nøkkelen fra systemet ditt. Den vil da ikke kunne bruke
 key_revoked=<font color=red>Tilbakekalt</font>
 key_got=<font color=#00aa00>Importert</font>
 key_miss=Tilgjengelig
+
 encrypt_title=Krypter fil
 encrypt_desc=Bruk denne siden til å kryptere en fil med GnuPG og en valgt offentlig nøkkel. Når den er kryptert vil resultatet kun kunne dekrypteres av eieren av den matchende private nøkkelen.
 encrypt_mode=Fil som skal krypteres
@@ -93,6 +98,7 @@ encrypt_err=Kunne ikke kryptere fil
 encrypt_eupload=Ingen fil valgt for kryptering
 encrypt_elocal=Valgt fil finnes ikke eller er ikke lesbar
 encrypt_egpg=GnuPG feilet : $1
+
 decrypt_title=Dekrypter fil
 decrypt_desc=Bruk denne siden til å dekryptere en fil som er kryptert med din offentlige nøkkel, enten av deg selv, eller av noen andre som har din nøkkel.
 decrypt_mode=Fil som skal dekrypteres
@@ -106,6 +112,7 @@ decrypt_err=Kunne ikke dekryptere fil
 decrypt_eupload=Ingen fil valgt for dekryptering
 decrypt_elocal=Valgt fil finnes ikke eller den er ikke lesbar
 decrypt_egpg=GnuPG feilet : $1
+
 sign_title=Signer fil
 sign_desc=Bruk denne siden til å signere en fil slik at det kan verifiseres at den ble signert av deg og at den ikke er endret etter at den ble signert.
 sign_mode=Fil som skal signeres
@@ -121,6 +128,7 @@ sign_elocal=Valgt fil finnes ikke eller den er ikke lesbar.
 sign_egpg=GnuPG feilet : $1
 sign_epass=Det er ikke satt noen passfrase for den valgte hemmelige nøkkelen
 sign_sep=Returner kun frittstående signatur?
+
 verify_title=Verifiser signert fil
 verify_desc=Bruk denne siden til å verifisere en fil som er signert med GnuPG, for å sjekke at den ikke er blitt endret og for å finne ut hvem som har signert det. Dersom du ønsker å hente ut opprinnelige data fra en signert binær fil, må du bruke <a href='$1'>dekrypteringssiden</a>.
 verify_mode=Fil som skal verifiseres
@@ -141,6 +149,7 @@ verify_bad=Filen har signatur fra $1, men den er ikke gyldig.
 verify_noid=Offentlig nøkkel med ID $1 er ikke tilgjengelig for verifisering.
 verify_failed=Kunne ikke verifisere signatur : $1
 verify_warning=Advarsel - Denne nøkkelen har ikke blitt verifisert og signert på din nøkkeladministrasjonsside.
+
 signkey_title=Signer nøkkel
 signkey_confirm=Er du sikker på at du ønsker å signere nøkkelen som tilhører $1 $2 ? Dette vil indikere at du har bekreftet gyldigheten av nøkkelen  ved å sjekke dens fingeravtrykk ( $3 ) med eieren.
 signkey_failed=Kunne ikke signere nøkkel som tilhører $1 : $2
@@ -151,38 +160,47 @@ signkey_trust0=Ikke noe svar
 signkey_trust1=Ikke sjekket
 signkey_trust2=Tilfeldig sjekket
 signkey_trust3=Sjekket nøye
+
 send_title=Send til nøkkel-tjener
 send_desc=Sender nøkkel $1 til nøkkeltjener $2 ..
 send_failed=Kunne ikke sende nøkkel : $1
 send_success=Nøkkel sendt. Andre GnuPG brukere vil nå kunne hente din offentlige nøkkel for å sende kryptert e-post og filer til deg.
+
 recv_title=Hent fra nøkkeltjener
 recv_desc=Henter nøkkel ID $1 fra nøkkel-tjener $2 ..
 recv_failed=Kunne ikke hente nøkkel : $1
 recv_same=Har allerede nøkkel fra $1.
 recv_success=Importerte nøkkel fra $1.
+
 secret_title=Legg til hemmelig nøkkel
 secret_desc=Bruk denne siden til å generere en ekstra hemmelig nøkkel som du kan bruke til signering og kryptering.
 secret_err=Kunne ikke legge til hemmelig nøkkel
 secret_ok=En ny hemmelig nøkkel er generert.
 secret_name=Nytt nøkkel navn
 secret_setup=Opprett ny nøkkel
+
 gnupg_esignpass=Det ikke satt noen passfrase for signerings-nøkkelen enda
 gnupg_ecryptid=Hemmelig krypteringsnøkkel er ikke tilgjengelig
 gnupg_ecryptkey=Hemmelig krypteringsnøkkel med ID $1 er ikke tilgjengelig
 gnupg_ecryptpass=Ingen passfrase satt enda for den hemmelige nøkkelen $1
 gnupg_canset=For å sette passfrase for en eksisterende nøkkel går du til siden <a href='$1'>Detaljer for nøkkel</a>
+
 trust_title=Sett tillitsnivå
 trust_echoice=Du må velge et tillitsnivå, ikke 'Ikke satt enda'.
 trust_done=Tillitsnivå før nøkkel $1 er satt.
+
 owner_err1=Kunne ikke legge til eier
 owner_ename=Ikke noe navn angitt
 owner_err2=Kunne ikke slette eier
 owner_elast=Du kan ikke slette detaljer om siste eier
+
 delkey_title=Slett nøkkel
 delkey_rusure=Er du sikker på at du ønsker å slette den hemmelige nøkkelen $1 ($2)? Alle filer eller e-post som er kryptert med denne nøkkelen vil ikke lenger kunne bli dekryptert.
 delkey_ok=Ja, slett den
+
 delkeys_err=Kunne ikke slette nøkler
 delkeys_enone=Ingen valgt
+
 export_title=Eksporter nøkkel
 export_desc=Denne siden lar deg eksportere nøkkele $1 $2 fra din nøkkelring, enten til en fil eller som nedlasting i nettleseren din.
 export_to=Eksport-modus

@@ -1417,7 +1417,7 @@ if (@mfroms > 0) {
 
 # Store only unique from addresses
 my %fromsu = ();
-@froms = grep { ! $fromsu{$_} ++ } @froms;
+@froms = grep { !$fromsu{$_} ++ } @froms;
 
 # Add user's real name
 my $ureal = $remote_user_info[6];
@@ -1564,7 +1564,7 @@ my %get_mail_read_cache;
 sub get_mail_read
 {
 my ($folder, $mail) = @_;
-if (defined($get_mail_read_cache{$mail->{'id'}})) {
+if ($mail->{'id'} && defined($get_mail_read_cache{$mail->{'id'}})) {
 	# Already checked in this run
 	return $get_mail_read_cache{$mail->{'id'}};
 	}
@@ -1594,7 +1594,7 @@ if (!$realfolder->{'flags'} || ($realfolder->{'flags'} == 2 && !$rv)) {
 	$rv = int($read{$mail->{'header'}->{'message-id'}});
 	}
 $rv = ($rv|$special);
-$get_mail_read_cache{$mail->{'id'}} = $rv;
+$get_mail_read_cache{$mail->{'id'}} = $rv if ($mail->{'id'});
 return $rv;
 }
 

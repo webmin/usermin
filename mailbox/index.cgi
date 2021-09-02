@@ -309,7 +309,8 @@ if (@mail) {
 		push(@grid, &ui_form_start("index.cgi").
 			    &ui_hidden("folder", $folder->{'index'}).
 			    &ui_submit($text{'mail_jump'}).
-			    &ui_textbox("jump", int($in{'start'} / $perpage)+1,
+			    &ui_textbox("jump",
+					int(int($in{'start'}) / $perpage)+1,
 					3)." $text{'mail_of'} ".
 					   (int(@mail / $perpage)+1).
 			    &ui_form_end());
@@ -381,11 +382,11 @@ sub show_arrows
 my $link = "index.cgi?folder=".$in{'folder'};
 my $left = $in{'start'} ?
            $link."&start=".($in{'start'}-$perpage) : undef;
-my $right = $in{'start'}+$perpage < @mail ?
+my $right = int($in{'start'})+$perpage < @mail ?
             $link."&start=".($in{'start'}+$perpage) : undef;
 my $first = $in{'start'} ?
             $link."&start=0" : undef;
-my $last = $in{'start'}+$perpage < @mail ?
+my $last = int($in{'start'})+$perpage < @mail ?
            $link."&start=".(int((scalar(@mail)-$perpage-1)/$perpage + 1)*$perpage) : undef;
 my $s = @mail-$in{'start'};
 my $e = @mail-$in{'start'}-$perpage+1;

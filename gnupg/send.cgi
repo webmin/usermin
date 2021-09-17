@@ -11,8 +11,9 @@ $key = $keys[$in{'idx'}];
 print &text('send_desc', $key->{'name'}->[0],
 		  "<tt>$config{'keyserver'}</tt>"),"<p>\n";
 
-$cmd = "$gpgpath --keyserver '$config{'keyserver'}' --send-key '$key->{'name'}->[0]'";
-$out = `$cmd 2>&1`;
+$cmd = "$gpgpath --keyserver ".quotemeta($config{'keyserver'}).
+       " --send-key ".quotemeta($key->{'key'});
+$out = &backquote_command("$cmd 2>&1");
 if ($?) {
 	print "<p>",&text('send_failed', "<pre>$out</pre>"),"<p>\n";
 	}

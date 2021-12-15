@@ -3,7 +3,6 @@ display_mode=La pàgina principal mostra,1,0-Totes les ordres i els seus paràme
 width=Amplada de la finestra de l'editor de fitxers,3,Per defecte (80 caràcters)
 height=Alçada de la finestra de l'editor de fitxers,3,Per defecte (20 caràcters)
 wrap=Mode de tall de l'editor de fitxers,1,-Per defecte (Soft),hard-Hard,off-Desactivat
-columns=Columnes per mostrar-hi les ordres,1,2-2,1-1
 sort=Ordena les ordres per,1,desc-Nom d'ordre,html-Descripció,-Ordenació d'ordres
 access=Llista de control d'accés a les ordres&#44; formatada com<br><tt>usuari: id1 id2</tt>i<br><tt>@grup: id3 id4</tt>,9,0,0,\t
 line2=Configuració del sistema,11

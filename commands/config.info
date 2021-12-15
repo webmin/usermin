@@ -3,7 +3,6 @@ display_mode=Main page shows,1,0-All commands and parameters,1-Links to commands
 width=Width of file editor window,3,Default (80 chars)
 height=Height of file editor window,3,Default (20 chars)
 wrap=File editor wrap mode,1,-Default (Soft),hard-Hard,off-Off
-columns=Columns to display commands in,1,2-2,1-1
 sort=Sort commands by,1,desc-Command name,html-Description,-Command ordering
 access=Command access control list&#44; formatted like<br><tt>username: id1 id2</tt><br><tt>@groupname: id3 id4</tt>,9,0,0,\t
 line2=System configuration,11

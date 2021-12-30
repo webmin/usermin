@@ -3,7 +3,6 @@ display_mode=Hovedsiden viser,1,0-Alle kommandoer og parametere,1-Lenker til kom
 width=Bredde p&#229; fileditor vindu,3,Standard (80 tegn)
 height=H&#248;yde p&#229; fileditor vindu,3,Standard (20 tegn)
 wrap=Fileditor delingsmodus,1,-Standard (Myk),hard-Hard,off-Av
-columns=Kolonner kommandoer skal vises i,1,2-2,1-1
 sort=Sorter kommandoer etter,1,desc-Kommandonavn,html-Beskrivelse,-Kommandosortering
 access=Kommando tilgangskontrolliste&#44; formattert som<br><tt>brukernavn: id1 id2</tt><br><tt>@gruppenavn: id3 id4</tt>,9,0,0,\t
 line2=Systemkonfigurasjon,11

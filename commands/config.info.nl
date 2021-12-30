@@ -3,7 +3,6 @@ display_mode=Hoofd pagina laat zien,1,0-Alle opdrachten en parameters,1-Links na
 width=Breedte van de file bewerkings window,3,Standaard (80 karakters)
 height=Hoogte van de file bewerkings window,3,Standaard (20 karakters)
 wrap=File bewerking wrap mode,1,-Standaard (Zacht),hard-Hard,off-Uit
-columns=Kolommen om de opdrachten in te laten zien,1,2-2,1-1
 access=Opdrachten toegangs controle lijst&#44;<br>in <tt>gebruikersnaam: id1 id2</tt> formaat.,9,0,0,\t
 line2=Systeem configuratie,11
 webmin_config=Webmin handmatige opdrachten config directory,0

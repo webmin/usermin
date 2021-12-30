@@ -50,23 +50,19 @@ elsif ($config{'display_mode'} == 0) {
 				}
 			}
 		$html .= &ui_hidden("id", $c->{'id'});
-		$w = $config{'columns'} == 2 ? 2 : 4;
-		$html .= &ui_table_start(undef, undef, $w,
+		$html .= &ui_table_start(undef, undef, 2,
 		   $config{'columns'} == 1 ? [ "width=20%", "width=30%" ]
 					   : [ "width=30%" ]);
-		$html .= &ui_table_row(undef, &ui_submit($c->{'desc'}), $w, []);
+		$html .= &ui_table_row(undef, &ui_submit($c->{'desc'}), 2, []);
 		if ($c->{'html'}) {
 			$html .= &ui_table_row(undef,
-				&filter_javascript($c->{'html'}), $w, []);
+				&filter_javascript($c->{'html'}), 2, []);
 			}
 		foreach $a (@a) {
 			$html .= &ui_table_row(&html_escape($a->{'desc'}),
 					&show_parameter_input($a, $formno));
 			}
-		if (scalar(@a)%2 && $w == 4) {
-			# Hack to make spacing nicer
-			$html .= &ui_table_row(" ", " ");
-			}
+		$links = '';
 		if ($access{'edit'}) {
 			if ($c->{'edit'}) {
 				$link = "<a href='edit_file.cgi?id=$c->{'id'}'>$text{'index_fedit'}</a>";
@@ -77,9 +73,9 @@ elsif ($config{'display_mode'} == 0) {
 			else {
 				$link = "<a href='edit_cmd.cgi?id=$c->{'id'}'>$text{'index_edit'}</a>";
 				}
-			$html .= &ui_table_row(undef,
-					&ui_links_row([ $link ]), $w);
+			$links = &ui_links_row([ $link ]);
 			}
+		$html .= &ui_table_row(undef, $links, 2);
 		$html .= &ui_table_end();
 		$html .= &ui_form_end();
 		push(@grid, $html);

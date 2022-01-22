@@ -7,7 +7,19 @@ our %in;
 
 require './mailbox-lib.pl';
 &ReadParse();
-&create_address($in{'addr'}, $in{'name'});
+
+# Check for a duplicate
+my @addrs = &list_addresses();
+my $found;
+foreach my $a (@addrs) {
+	if (lc($a->[0]) eq lc($in{'addr'})) {
+		$found = $a;
+		}
+	}
+
+if (!$found) {
+	&create_address($in{'addr'}, $in{'name'});
+	}
 my @sub = split(/\0/, $in{'sub'});
 my $subs = join("", map { "&sub=$_" } @sub);
 my $qid = &urlize($in{'id'});

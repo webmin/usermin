@@ -221,6 +221,9 @@ search_dest1=Search Results folder
 search_dest0=New virtual folder named
 search_edest=Missing virtual folder name for results
 search_eself=The search results folder cannot be searched
+search_doing=Searching for $1 in folder $2.
+search_doing2=Searching messages in the selected folder.
+search_results=Match messages will be shown in the <a href='$1'>search results</a> folder when the search completes ...
 
 virtualize_ename=Missing virtual folder name
 

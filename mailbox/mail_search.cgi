@@ -75,6 +75,41 @@ if ($folder && $folder->{'id'} eq $search_folder_id) {
 	&error($text{'search_eself'});
 	}
 
+# Create a virtual folder for the search results
+my $virt;
+if ($in{'dest_def'} || !defined($in{'dest'})) {
+	# Use the default search results folder
+	($virt) = grep { $_->{'type'} == 6 && $_->{'id'} == 1 } @folders;
+	if (!$virt) {
+		$virt = { 'id' => $search_folder_id,
+			  'type' => 6,
+			};
+		}
+	$virt->{'name'} = $text{'search_title'};
+	}
+else {
+	# Create a new virtual folder
+	$in{'dest'} || &error($text{'search_edest'});
+	$virt = { 'type' => 6,
+		  'name' => $in{'dest'} };
+	}
+
+# Show some progress if it's a big folder
+my $large_search = 0;
+if ($in{'returned_format'} ne "json") {
+	$large_search = 1;
+	&ui_print_unbuffered_header(undef, $text{'search_title'}, "");
+	if ($in{'simple'}) {
+		print &text('search_doing', "<i>".$in{'search'}."</i>",
+			    $folder->{'name'}),"\n";
+		}
+	else {
+		print $text{'search_doing2'},"\n";
+		}
+	print &text('search_results',
+		    "index.cgi?id=".&urlize($virt->{'id'})),"<p>\n";
+	}
+
 my @rv;
 my $msg;
 my @sfolders;
@@ -114,7 +149,7 @@ if ($in{'simple'}) {
 	if ($statusmsg) {
 		@rv = &filter_by_status(\@rv, $in{'status'});
 		}
-	$msg = &text('search_msg2', "<i>".$in{'search'}."</i>");
+	$msg = &text('search_msg2', "<i>".&html_escape($in{'search'})."</i>");
 	}
 elsif ($in{'spam'}) {
 	# Search by spam score, using X-Spam-Level header
@@ -170,8 +205,9 @@ else {
 		my $stext = $fields[0]->[1];
 		$stext =~ s/^(\.\*|\^)//;
 		$stext =~ s/(\.\*|\$)$//;
-		$msg = &text('search_msg6', "<i>".$stext."</i>",
-					    "<i>".$fields[0]->[0]."</i>");
+		$msg = &text('search_msg6',
+			"<i>".&html_escape($stext)."</i>",
+			"<i>".&html_escape($fields[0]->[0])."</i>");
 		}
 	else {
 		$msg = $text{'search_msg4'};
@@ -180,24 +216,7 @@ else {
 $msg .= " $limitmsg" if ($limitmsg);
 $msg .= " $statusmsg" if ($statusmsg);
 
-# Create a virtual folder for the search results
-my $virt;
-if ($in{'dest_def'} || !defined($in{'dest'})) {
-	# Use the default search results folder
-	($virt) = grep { $_->{'type'} == 6 && $_->{'id'} == 1 } @folders;
-	if (!$virt) {
-		$virt = { 'id' => $search_folder_id,
-			  'type' => 6,
-			};
-		}
-	$virt->{'name'} = $text{'search_title'};
-	}
-else {
-	# Create a new virtual folder
-	$in{'dest'} || &error($text{'search_edest'});
-	$virt = { 'type' => 6,
-		  'name' => $in{'dest'} };
-	}
+# Populate folder for the search results
 $virt->{'delete'} = 1;
 $virt->{'members'} = [ map { [ $_->{'folder'}, $_->{'id'} ] } @rv ];
 $virt->{'msg'} = $msg;
@@ -231,7 +250,13 @@ if ($in{'returned_format'} eq "json") {
 	$search{'searched_folder_id'} = $folder->{'id'};
 	$search{'searched_folder_file'} = $folder->{'file'};
 	print_json(\%search);
-}
+	}
+elsif ($large_search) {
+	# JS redirect to search results folder
+	print &js_redirect("index.cgi?id=$virt->{'id'}&refresh=2");
+	&ui_print_footer("index.cgi?folder=$in{'folder'}",
+			 $text{'mail_return'});
+	}
 else {
 	# Redirect to it
 	&redirect("index.cgi?id=$virt->{'id'}&refresh=2");

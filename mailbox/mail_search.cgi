@@ -77,10 +77,14 @@ if ($folder && $folder->{'id'} eq $search_folder_id) {
 
 # Create a virtual folder for the search results
 my $virt;
+my $virt_exists = 0;
 if ($in{'dest_def'} || !defined($in{'dest'})) {
 	# Use the default search results folder
 	($virt) = grep { $_->{'type'} == 6 && $_->{'id'} == 1 } @folders;
-	if (!$virt) {
+	if ($virt) {
+		$virt_exists = 1;
+		}
+	else {
 		$virt = { 'id' => $search_folder_id,
 			  'type' => 6,
 			};
@@ -92,6 +96,13 @@ else {
 	$in{'dest'} || &error($text{'search_edest'});
 	$virt = { 'type' => 6,
 		  'name' => $in{'dest'} };
+	}
+
+# Lock the output folder
+if ($virt_exists) {
+	my %act;
+	$act{'search'} = $in{'search'} if ($in{'simple'});
+	&lock_folder($virt, \%act);
 	}
 
 # Show some progress if it's a big folder
@@ -239,6 +250,7 @@ else {
 	}
 &delete_new_sort_index($virt);
 &save_folder($virt, $virt);
+&unlock_folder($virt) if ($virt_exists);
 
 if ($in{'returned_format'} eq "json") {
 	#Return in JSON format if needed

@@ -8,6 +8,7 @@ our ($remote_user, $remote_pass);
 our $special_folder_id;
 our $plen;
 our ($cb); # XXX
+our $search_folder_id;
 
 require './mailbox-lib.pl';
 &ReadParse();
@@ -101,6 +102,21 @@ my $sel = &folder_select(\@folders, $folder, "id", undef, 1, 1);
 
 # Show page flipping arrows
 &show_arrows();
+
+# If this is the search results folder, check if a search is in progress
+if ($folder->{'id'} eq $search_folder_id) {
+	my ($pid, $action) = &test_lock_folder($folder);
+	if ($pid) {
+		if ($action && $action->{'search'}) {
+			print "<b>",&text('index_searching',
+				"<i>".&html_escape($action->{'search'})."</i>"),
+			      "</b><p>\n";
+			}
+		else {
+			print "<b>",&text('index_searching2'),"</b><p>\n";
+			}
+		}
+	}
 
 # Work out displayed range
 my $start = int($in{'start'});

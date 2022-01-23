@@ -1,5 +1,8 @@
 index_title=Mail In $1
 index_return=mail list
+index_searching=A search for $1 is in progress. Results will be shown here when it completes.
+index_searching2=A complex search is in progress. Results will be shown here when it completes.
+
 mail_title=Read Mail
 mail_none=There are no messages in folder $1
 mail_pos=Messages $1 to $2 of $3 in folder $4
@@ -223,7 +226,7 @@ search_edest=Missing virtual folder name for results
 search_eself=The search results folder cannot be searched
 search_doing=Searching for $1 in folder $2.
 search_doing2=Searching messages in the selected folder.
-search_results=Match messages will be shown in the <a href='$1'>search results</a> folder when the search completes ...
+search_results=Matching messages will be shown in the <a href='$1'>search results</a> folder when the search completes ...
 
 virtualize_ename=Missing virtual folder name
 

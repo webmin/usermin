@@ -96,7 +96,8 @@ else {
 
 # Show some progress if it's a big folder
 my $large_search = 0;
-if ($in{'returned_format'} ne "json") {
+if ($in{'returned_format'} ne "json" &&
+    (!$in{'simple'} || &folder_size($folder) > 100*1024*1024)) {
 	$large_search = 1;
 	&ui_print_unbuffered_header(undef, $text{'search_title'}, "");
 	if ($in{'simple'}) {

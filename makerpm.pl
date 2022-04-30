@@ -103,22 +103,11 @@ chmod -R og-w .
 
 %install
 mkdir -p %{buildroot}/usr/libexec/usermin
-mkdir -p %{buildroot}/etc/sysconfig/daemons
-mkdir -p %{buildroot}/etc/rc.d/{rc0.d,rc1.d,rc2.d,rc3.d,rc5.d,rc6.d}
-mkdir -p %{buildroot}/etc/init.d
 mkdir -p %{buildroot}/etc/pam.d
+cp usermin-pam %{buildroot}/etc/pam.d/usermin
 cp -rp * %{buildroot}/usr/libexec/usermin
 rm %{buildroot}/usr/libexec/usermin/blue-theme
 cp -rp %{buildroot}/usr/libexec/usermin/gray-theme %{buildroot}/usr/libexec/usermin/blue-theme
-cp usermin-daemon %{buildroot}/etc/sysconfig/daemons/usermin
-cp usermin-init %{buildroot}/etc/init.d/usermin
-cp usermin-pam %{buildroot}/etc/pam.d/usermin
-ln -s /etc/init.d/usermin %{buildroot}/etc/rc.d/rc2.d/S99usermin
-ln -s /etc/init.d/usermin %{buildroot}/etc/rc.d/rc3.d/S99usermin
-ln -s /etc/init.d/usermin %{buildroot}/etc/rc.d/rc5.d/S99usermin
-ln -s /etc/init.d/usermin %{buildroot}/etc/rc.d/rc0.d/K10usermin
-ln -s /etc/init.d/usermin %{buildroot}/etc/rc.d/rc1.d/K10usermin
-ln -s /etc/init.d/usermin %{buildroot}/etc/rc.d/rc6.d/K10usermin
 echo rpm >%{buildroot}/usr/libexec/usermin/install-type
 echo $pkgname >%{buildroot}/usr/libexec/usermin/rpm-name
 
@@ -129,14 +118,6 @@ echo $pkgname >%{buildroot}/usr/libexec/usermin/rpm-name
 %files
 %defattr(-,root,root)
 /usr/libexec/usermin
-%config /etc/sysconfig/daemons/usermin
-/etc/init.d/usermin
-/etc/rc.d/rc2.d/S99usermin
-/etc/rc.d/rc3.d/S99usermin
-/etc/rc.d/rc5.d/S99usermin
-/etc/rc.d/rc0.d/K10usermin
-/etc/rc.d/rc1.d/K10usermin
-/etc/rc.d/rc6.d/K10usermin
 %config /etc/pam.d/usermin
 
 %pre
@@ -157,7 +138,6 @@ if [ ! -r /etc/usermin/config ]; then
 		echo Unable to identify operating system
 		exit 2
 	fi
-	echo Operating system is \$oscheck
 	if [ "\$USERMIN_PORT\" != \"\" ]; then
 		port=\$USERMIN_PORT
 	else
@@ -175,13 +155,13 @@ fi
 inetd=`grep "^inetd=" /etc/usermin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g'`
 startafter=0
 if [ "\$1" != 1 ]; then
-	# Upgrading the RPM, so stop the old usermin properly
+	# Upgrading the RPM, so stop the old Usermin properly
 	if [ "\$inetd" != "1" ]; then
 		kill -0 `cat /var/usermin/miniserv.pid 2>/dev/null` 2>/dev/null
 		if [ "\$?" = 0 ]; then
 		  startafter=1
 		fi
-		/etc/init.d/usermin stop >/dev/null 2>&1
+		/etc/usermin/stop >/dev/null 2>&1 </dev/null
 	fi
 fi
 cd /usr/libexec/usermin
@@ -197,18 +177,22 @@ fi
 host=`hostname`
 ssl=1
 atboot=1
+makeboot=1
 nochown=1
 autothird=1
 noperlpath=1
 nouninstall=1
 nostart=1
-export config_dir var_dir perl autoos port ssl nochown autothird noperlpath nouninstall nostart allow
+export config_dir var_dir perl autoos port ssl nochown autothird noperlpath nouninstall nostart allow makeboot
 ./setup.sh >/tmp/.webmin/usermin-setup.out 2>&1
 chmod 600 /tmp/.webmin/usermin-setup.out
 rm -f /var/lock/subsys/usermin
 if [ "\$inetd" != "1" -a "\$startafter" = "1" ]; then
-	/etc/init.d/usermin stop >/dev/null 2>&1 </dev/null
-	/etc/init.d/usermin start >/dev/null 2>&1 </dev/null
+	/etc/usermin/stop >/dev/null 2>&1 </dev/null
+	/etc/usermin/start >/dev/null 2>&1 </dev/null
+	if [ "\$?" != "0" ]; then
+		echo "warning: Usermin server cannot be restarted. It is advised to restart it manually by\nrunning \\"/etc/usermin/restart-by-force-kill\\" when upgrade process is finished"
+	fi
 fi
 cat >/etc/usermin/uninstall.sh <<EOFF
 #!/bin/sh
@@ -216,9 +200,9 @@ printf "Are you sure you want to uninstall Usermin? (y/n) : "
 read answer
 printf "\\n"
 if [ "\\\$answer" = "y" ]; then
-	echo "Removing usermin RPM .."
+	echo "Removing Usermin RPM .."
 	rpm -e --nodeps usermin
-	echo "Done!"
+	echo ".. done"
 fi
 EOFF
 chmod +x /etc/usermin/uninstall.sh
@@ -233,11 +217,11 @@ if [ "\$?" = "0" ]; then
 fi
 if [ "\$1" == 1 ]; then
 	if [ "\$sslmode" = "1" ]; then
-		echo "Usermin install complete. You can now login to https://\$host:\$port/"
+		echo "Usermin install complete. You can now login to https://\$host:\$port/" >>/tmp/.webmin/usermin-setup.out 2>&1
 	else
-		echo "Usermin install complete. You can now login to http://\$host:\$port/"
+		echo "Usermin install complete. You can now login to http://\$host:\$port/" >>/tmp/.webmin/usermin-setup.out 2>&1
 	fi
-	echo "as any user on your system."
+	echo "as any user on your system." >>/tmp/.webmin/usermin-setup.out 2>&1
 fi
 /bin/true
 
@@ -247,7 +231,8 @@ if [ "\$1" = 0 ]; then
 	if [ "\$?" = 0 ]; then
 		# RPM is being removed, and no new version of usermin
 		# has taken it's place. Stop the server
-		/etc/init.d/usermin stop >/dev/null 2>&1
+		/etc/usermin/stop >/dev/null 2>&1 </dev/null
+		/etc/usermin/.stop-init --kill >/dev/null 2>&1 </dev/null
 	fi
 fi
 /bin/true

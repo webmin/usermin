@@ -79,7 +79,7 @@ Release: $rel
 Provides: %{name}-%{version}
 PreReq: /bin/sh /usr/bin/perl /bin/rm
 Requires: /bin/sh /usr/bin/perl /bin/rm
-License: Freeware
+License: BSD-3-clause
 Group: System/Tools
 Source: http://www.webmin.com/download/%{name}-%{version}.tar.gz
 Vendor: Jamie Cameron

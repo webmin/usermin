@@ -598,8 +598,6 @@ if [ -x "$systemctlcmd" ]; then
 	echo "#!/bin/sh" >>$config_dir/reload
 	echo "$config_dir/.reload-init >/dev/null 2>&1" >>$config_dir/reload
 
-	# Fix existing systemd usermin.service file to update start and stop commands
-	(cd "$wadir" ; WEBMIN_CONFIG=$config_dir WEBMIN_VAR=$var_dir "$wadir/updateboot.pl")
 	
 	chmod 755 $config_dir/stop $config_dir/start $config_dir/restart $config_dir/restart-by-force-kill $config_dir/reload
 else
@@ -608,6 +606,10 @@ else
 fi
 echo "..done"
 echo ""
+
+# Fix existing init file to update start and stop commands
+(cd "$wadir" ; WEBMIN_CONFIG=$config_dir WEBMIN_VAR=$var_dir "$wadir/updateboot.pl")
+cd "$wadir"
 
 if [ "$upgrading" = 1 ]; then
 	echo "Updating config files.."

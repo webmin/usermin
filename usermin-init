@@ -17,16 +17,17 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="web-based account administration interface for Unix systems"
 NAME=Usermin
 PIDFILE=/var/usermin/miniserv.pid
-SCRIPTNAME=/etc/init.d/$NAME
-START=/etc/usermin/start
-STOP=/etc/usermin/stop
-RELOAD=/etc/usermin/reload
+SCRIPTNAME=/etc/init.d/usermin
+START=/etc/usermin/.start-init
+STOP=/etc/usermin/.stop-init
+FORCERESTART=/etc/usermin/.restart-by-force-kill-init
+RELOAD=/etc/usermin/.reload-init
 LOCKFILE=/var/lock/subsys/usermin
 CONFFILE=/etc/usermin/miniserv.conf
 
 case "$1" in
 start)
-	$START >/dev/null 2>&1 </dev/null
+	$START
 	RETVAL=$?
 	if [ "$RETVAL" = "0" ]; then
 		touch $LOCKFILE >/dev/null 2>&1
@@ -37,12 +38,12 @@ stop)
 	RETVAL=$?
 	if [ "$RETVAL" = "0" ]; then
 		rm -f $LOCKFILE
+		pidfile=`grep "^pidfile=" $CONFFILE | sed -e 's/pidfile=//g'`
+		if [ "$pidfile" = "" ]; then
+			pidfile=$PIDFILE
+		fi
+		rm -f $pidfile
 	fi
-	pidfile=`grep "^pidfile=" $CONFFILE | sed -e 's/pidfile=//g'`
-	if [ "$pidfile" = "" ]; then
-		pidfile=$PIDFILE
-	fi
-	rm -f $pidfile
 	;;
 status)
 	pidfile=`grep "^pidfile=" $CONFFILE | sed -e 's/pidfile=//g'`
@@ -68,12 +69,16 @@ restart)
 	$STOP ; $START
 	RETVAL=$?
 	;;
+restart-by-force-kill)
+	$FORCERESTART
+	RETVAL=$?
+	;;
 reload|force-reload)
 	$RELOAD
 	RETVAL=$?
 	;;
 *)
-	echo "Usage: $0 {start|stop|restart|reload|force-reload|status}" >&2
+	echo "Usage: $0 {start|stop|restart|restart-by-force-kill|reload|force-reload|status}" >&2
 	RETVAL=1
 	;;
 esac

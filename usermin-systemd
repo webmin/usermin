@@ -1,0 +1,13 @@
+[Unit]
+Description=Usermin server daemon
+After=syslog.target
+
+[Service]
+ExecStart=/etc/usermin/.start-init
+ExecStop=/etc/usermin/.stop-init
+PIDFile=/var/usermin/miniserv.pid
+Type=forking
+KillMode=none
+
+[Install]
+WantedBy=multi-user.target

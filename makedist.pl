@@ -21,7 +21,7 @@ $vers = $ARGV[0];
 	  "group_chooser.cgi", "config-irix", "config-osf1", "thirdparty.pl",
 	  "oschooser.pl", "config-unixware",
 	  "config-openserver", "switch_user.cgi", "lang", "ulang",
-	  "lang_list.txt", "usermin-init", "usermin-daemon",
+	  "lang_list.txt", "usermin-systemd", "usermin-init", "updateboot.pl",
 	  "config-openbsd",
 	  "config-macos", "LICENCE",
 	  "session_login.cgi",

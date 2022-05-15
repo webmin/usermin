@@ -183,6 +183,9 @@ if [ "\$1" != 1 ]; then
 		fi
 		/etc/init.d/usermin stop >/dev/null 2>&1
 	fi
+else
+	# Not upgrading, so always start after install
+	startafter=1
 fi
 cd /usr/libexec/usermin
 config_dir=/etc/usermin

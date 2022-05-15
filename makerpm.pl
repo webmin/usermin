@@ -78,7 +78,7 @@ Version: $ver
 Release: $rel
 Provides: %{name}-%{version}
 PreReq: /bin/sh /usr/bin/perl /bin/rm
-Requires: /bin/sh /usr/bin/perl /bin/rm
+Requires: /bin/sh /usr/bin/perl /bin/rm perl(Net::SSLeay) perl(Time::Local) perl(Encode::Detect) perl(Data::Dumper)
 License: BSD-3-clause
 Group: System/Tools
 Source: http://www.webmin.com/download/%{name}-%{version}.tar.gz

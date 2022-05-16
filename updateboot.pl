@@ -31,6 +31,7 @@ if (-d "/etc/systemd" &&
 	}
 elsif (-d "/etc/init.d") {
 	copy_source_dest("usermin-init", "/etc/init.d/$product");
+	system("chkconfig --add $product >/dev/null 2>&1");
 	}
 
 sub get_systemd_root

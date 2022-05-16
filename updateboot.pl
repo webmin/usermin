@@ -25,9 +25,8 @@ if (-d "/etc/systemd" &&
 	    unlink("$p/$product");
 	    }
 	copy_source_dest("usermin-systemd", "$systemd_root/$product.service");
-	system("systemctl unmask $product >/dev/null 2>&1");
-	system("systemctl enable $product >/dev/null 2>&1");
 	system("systemctl daemon-reload >/dev/null 2>&1");
+	system("systemctl enable $product >/dev/null 2>&1");
 	}
 elsif (-d "/etc/init.d") {
 	copy_source_dest("usermin-init", "/etc/init.d/$product");

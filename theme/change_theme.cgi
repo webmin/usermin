@@ -21,7 +21,7 @@ else {
 print "$text{'change_done'}<p>\n";
 
 print "$text{'change_restart'}<br>\n";
-&restart_miniserv();
+&reload_miniserv();
 print "$text{'change_done'}<p>\n";
 
 if (defined(&theme_post_change_theme)) {

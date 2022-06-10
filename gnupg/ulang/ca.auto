@@ -5,7 +5,7 @@ index_email=Correu electrònic
 index_comment=Comentari clau
 index_size=Mida de la clau
 index_pass=Frase de contrasenya
-index_setup=Configuració GnuPG
+index_setup_gnupg=Configuració GnuPG
 index_egpg=La comanda GnuPG $1 no s'ha trobat al sistema. Potser no està instal·lat.
 
 setup_err=No s'ha pogut configurar GnuPG

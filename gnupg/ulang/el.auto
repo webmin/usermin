@@ -5,7 +5,7 @@ index_email=Διεύθυνση ηλεκτρονικού ταχυδρομείου
 index_comment=Βασικό σχόλιο
 index_size=Βασικό μέγεθος
 index_pass=Φράση πρόσβασης
-index_setup=Εγκατάσταση GnuPG
+index_setup_gnupg=Εγκατάσταση GnuPG
 index_return=Δείκτης GnuPG
 index_egpg=Η εντολή $1 του GnuPG δεν βρέθηκε στο σύστημά σας. Ίσως να μην έχει εγκατασταθεί.
 

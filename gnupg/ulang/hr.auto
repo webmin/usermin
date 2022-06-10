@@ -5,7 +5,7 @@ index_email=Email adresa
 index_comment=Ključni komentar
 index_size=Veličina ključa
 index_pass=zaporka
-index_setup=Postavljanje GnuPG
+index_setup_gnupg=Postavljanje GnuPG
 index_return=GnuPG indeks
 index_egpg=Naredba GnuPG $1 nije pronađena u vašem sustavu. Možda nije instaliran.
 

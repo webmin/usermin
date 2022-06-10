@@ -5,7 +5,7 @@ index_email=Posta elektroniko helbidea
 index_comment=Iruzkin gakoa
 index_size=Gakoen tamaina
 index_pass=Pasaesaldiak
-index_setup=Konfiguratu GnuPG
+index_setup_gnupg=Konfiguratu GnuPG
 index_return=GnuPG indizea
 index_egpg=Ez da $1 GnuPG komandoa zure sisteman aurkitu. Agian ez dago instalatuta.
 

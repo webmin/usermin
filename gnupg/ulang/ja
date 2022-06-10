@@ -5,7 +5,7 @@ index_email=Eメールアドレス
 index_comment=キー コメント
 index_size=キー サイズ
 index_pass=パスフレーズ
-index_setup=GnuPG セットアップ
+index_setup_gnupg=GnuPG セットアップ
 index_return=GnuPG インデックス
 index_egpg=GnuPG コマンド $1 は、あなたのシステムではみつかりませんでした。おそらく インストールされていません。
 

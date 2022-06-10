@@ -5,7 +5,7 @@ index_email=E-postadress
 index_comment=Nyckelkommentar
 index_size=Nyckelstorlek
 index_pass=Passphrase
-index_setup=Installera GnuPG
+index_setup_gnupg=Installera GnuPG
 index_return=GnuPG-index
 index_egpg=GnuPG-kommandot $1 hittades inte på ditt system. Kanske är det inte installerat.
 

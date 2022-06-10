@@ -5,7 +5,7 @@ index_email=Indirizz tal-Email
 index_comment=Kumment ewlieni
 index_size=Daqs ewlieni
 index_pass=Frażi tal-kliem
-index_setup=Twaqqif ta 'GnuPG
+index_setup_gnupg=Twaqqif ta 'GnuPG
 index_return=Indiċi GnuPG
 index_egpg=Il-kmand GnuPG $1 ma nstabx fis-sistema tiegħek. Forsi mhuwiex installat.
 

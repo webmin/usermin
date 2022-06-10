@@ -5,7 +5,7 @@ index_email=Адрас электроннай пошты
 index_comment=Ключавы каментар
 index_size=Памер ключа
 index_pass=Заходныя фразы
-index_setup=Налада GnuPG
+index_setup_gnupg=Налада GnuPG
 index_return=Індэкс GnuPG
 index_egpg=Каманда GnuPG $1 не знойдзена ў вашай сістэме. Можа, ён не ўсталяваны.
 

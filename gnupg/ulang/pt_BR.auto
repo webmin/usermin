@@ -5,7 +5,7 @@ index_email=Endereço de e-mail
 index_comment=Comentário chave
 index_size=Tamanho da chave
 index_pass=Frase de acesso
-index_setup=Configuração do GnuPG
+index_setup_gnupg=Configuração do GnuPG
 index_return=Índice GnuPG
 index_egpg=O comando GnuPG $1 não foi encontrado no seu sistema. Talvez não esteja instalado.
 

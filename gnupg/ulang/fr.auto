@@ -5,7 +5,7 @@ index_email=Adresse électronique
 index_comment=Commentaire clé
 index_size=Taille clé
 index_pass=Phrase de passe
-index_setup=Configurer GnuPG
+index_setup_gnupg=Configurer GnuPG
 index_return=Index GnuPG
 index_egpg=La commande GnuPG $1 est introuvable sur votre système. Peut-être qu'il n'est pas installé.
 

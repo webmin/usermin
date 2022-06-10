@@ -5,7 +5,7 @@ index_email=Електронна адреса
 index_comment=Основний коментар
 index_size=Розмір ключа
 index_pass=Парольна фраза
-index_setup=Налаштування GnuPG
+index_setup_gnupg=Налаштування GnuPG
 index_return=Індекс GnuPG
 index_egpg=Команда GnuPG $1 не знайдена у вашій системі. Можливо, він не встановлений.
 

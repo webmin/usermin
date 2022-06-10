@@ -5,7 +5,7 @@ index_email=Adres e-mail
 index_comment=Kluczowy komentarz
 index_size=Rozmiar klucza
 index_pass=Hasło
-index_setup=Skonfiguruj GnuPG
+index_setup_gnupg=Skonfiguruj GnuPG
 index_return=Indeks GnuPG
 index_egpg=W systemie nie znaleziono polecenia GnuPG $1. Może nie jest zainstalowany.
 

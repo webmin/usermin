@@ -5,7 +5,7 @@ index_email=E-pos adres
 index_comment=Sleutelopmerking
 index_size=Sleutelgrootte
 index_pass=wagwoord
-index_setup=Stel GnuPG op
+index_setup_gnupg=Stel GnuPG op
 index_return=GnuPG-indeks
 index_egpg=Die GnuPG-opdrag $1 is nie op u stelsel gevind nie. Miskien is dit nie geïnstalleer nie.
 

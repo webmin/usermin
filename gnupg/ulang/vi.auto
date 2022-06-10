@@ -5,7 +5,7 @@ index_email=Địa chỉ email
 index_comment=Nhận xét chính
 index_size=Kích thước khóa
 index_pass=Cụm mật khẩu
-index_setup=Thiết lập GnuPG
+index_setup_gnupg=Thiết lập GnuPG
 index_return=Chỉ số GnuPG
 index_egpg=Lệnh GnuPG $1 không được tìm thấy trên hệ thống của bạn. Có lẽ nó không được cài đặt.
 

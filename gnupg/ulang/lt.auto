@@ -5,7 +5,7 @@ index_email=Elektroninio pašto adresas
 index_comment=Svarbiausias komentaras
 index_size=Rakto dydis
 index_pass=Slaptafrazė
-index_setup=„GnuPG“ sąranka
+index_setup_gnupg=„GnuPG“ sąranka
 index_return=„GnuPG“ indeksas
 index_egpg=„GnuPG“ komanda $1 jūsų sistemoje nerasta. Galbūt jis neįdiegtas.
 

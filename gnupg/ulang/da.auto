@@ -5,7 +5,7 @@ index_email=Email adresse
 index_comment=Nøglekommentar
 index_size=Nøglestørrelse
 index_pass=Passphrase
-index_setup=Opsætning af GnuPG
+index_setup_gnupg=Opsætning af GnuPG
 index_return=GnuPG-indeks
 index_egpg=GnuPG-kommandoen $1 blev ikke fundet på dit system. Måske er det ikke installeret.
 

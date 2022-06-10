@@ -5,7 +5,7 @@ index_email=ที่อยู่อีเมล
 index_comment=ความคิดเห็นที่สำคัญ
 index_size=ขนาดกุญแจ
 index_pass=ข้อความรหัสผ่าน
-index_setup=ตั้งค่า GnuPG
+index_setup_gnupg=ตั้งค่า GnuPG
 index_return=ดัชนี GnuPG
 index_egpg=ไม่พบคำสั่ง GnuPG ในระบบของคุณ อาจไม่ได้ติดตั้ง
 

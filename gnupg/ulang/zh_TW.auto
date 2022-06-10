@@ -5,7 +5,7 @@ index_email=電子郵件地址
 index_comment=重要評論
 index_size=按鍵大小
 index_pass=密碼短語
-index_setup=設置GnuPG
+index_setup_gnupg=設置GnuPG
 index_return=GnuPG指數
 index_egpg=在您的系統上找不到GnuPG命令 $1。也許它沒有安裝。
 

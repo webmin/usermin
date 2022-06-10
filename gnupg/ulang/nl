@@ -5,7 +5,7 @@ index_email=Email adres
 index_comment=Sleutel commentaar
 index_size=Sleutel grote
 index_pass=Passphrase
-index_setup=Setup GnuPG
+index_setup_gnupg=Setup GnuPG
 index_return=GnuPG index
 index_egpg=De GnuPG opdracht $1 is niet gevonden op uw systeem. Misschien is het niet geinstalleerd.
 

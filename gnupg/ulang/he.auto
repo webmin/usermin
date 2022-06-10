@@ -5,7 +5,7 @@ index_email=כתובת דוא"ל
 index_comment=הערת מפתח
 index_size=גודל מפתח
 index_pass=ביטוי סיסמה
-index_setup=הגדרת GnuPG
+index_setup_gnupg=הגדרת GnuPG
 index_return=אינדקס GnuPG
 index_egpg=פקודת GnuPG $1 לא נמצאה במערכת שלך. אולי זה לא מותקן.
 

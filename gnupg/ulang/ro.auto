@@ -5,7 +5,7 @@ index_email=Adresa de email
 index_comment=Comentariu cheie
 index_size=Dimensiunea cheii
 index_pass=o expresie de acces
-index_setup=Configurare GnuPG
+index_setup_gnupg=Configurare GnuPG
 index_return=Indicele GnuPG
 index_egpg=Comanda GnuPG $1 nu a fost găsită în sistemul tău. Poate că nu este instalat.
 

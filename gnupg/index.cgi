@@ -37,7 +37,7 @@ if (!@keys) {
 		&ui_password("pass", undef, 20));
 
 	print &ui_table_end();
-	print &ui_form_end([ [ undef, $text{'index_setup'} ] ]);
+	print &ui_form_end([ [ undef, $text{'index_setup_gnupg'} ] ]);
 	}
 else {
 	# Show table of options

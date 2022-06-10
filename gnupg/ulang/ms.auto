@@ -5,7 +5,7 @@ index_email=Alamat emel
 index_comment=Komen utama
 index_size=Saiz kunci
 index_pass=Frasa laluan
-index_setup=Persediaan GnuPG
+index_setup_gnupg=Persediaan GnuPG
 index_return=Indeks GnuPG
 index_egpg=Perintah GnuPG $1 tidak dijumpai pada sistem anda. Mungkin ia tidak dipasang.
 

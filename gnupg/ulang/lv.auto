@@ -5,7 +5,7 @@ index_email=Epasta adrese
 index_comment=Galvenais komentārs
 index_size=Taustiņa lielums
 index_pass=Ieejas frāze
-index_setup=Iestatīt GnuPG
+index_setup_gnupg=Iestatīt GnuPG
 index_return=GnuPG indekss
 index_egpg=GnuPG komanda $1 jūsu sistēmā netika atrasta. Varbūt tas nav instalēts.
 

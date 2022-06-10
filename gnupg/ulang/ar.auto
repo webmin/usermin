@@ -5,7 +5,7 @@ index_email=عنوان البريد الالكترونى
 index_comment=تعليق رئيسي
 index_size=حجم المفتاح
 index_pass=عبارة المرور
-index_setup=إعداد GnuPG
+index_setup_gnupg=إعداد GnuPG
 index_return=مؤشر GnuPG
 index_egpg=لم يتم العثور على أمر GnuPG $1 على نظامك. ربما لم يتم تثبيته.
 

@@ -5,7 +5,7 @@ index_email=Emailová adresa
 index_comment=Klíčový komentář
 index_size=Velikost klíče
 index_pass=Přístupová fráze
-index_setup=Nastavení GnuPG
+index_setup_gnupg=Nastavení GnuPG
 index_return=GnuPG index
 index_egpg=Příkaz GnuPG $1 nebyl ve vašem systému nalezen. Možná není nainstalován.
 

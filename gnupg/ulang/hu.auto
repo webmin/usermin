@@ -5,7 +5,7 @@ index_email=Email cím
 index_comment=Kulcsfontosságú megjegyzés
 index_size=Kulcsméret
 index_pass=Jelmondat
-index_setup=A GnuPG beállítása
+index_setup_gnupg=A GnuPG beállítása
 index_return=GnuPG index
 index_egpg=A (z) $1 GnuPG parancs nem található a rendszerén. Lehet, hogy nincs telepítve.
 

@@ -5,7 +5,7 @@ index_email=ای میل اڈریس
 index_comment=اہم تبصرہ
 index_size=کلیدی سائز
 index_pass=پاسفریز
-index_setup=GnuPG سیٹ اپ کریں
+index_setup_gnupg=GnuPG سیٹ اپ کریں
 index_return=GnuPG انڈیکس
 index_egpg=آپ کے سسٹم پر GnuPG کمانڈ$1 نہیں مل سکی۔ ہوسکتا ہے کہ یہ انسٹال نہ ہو۔
 

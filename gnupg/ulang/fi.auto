@@ -5,7 +5,7 @@ index_email=Sähköpostiosoite
 index_comment=Keskeinen kommentti
 index_size=Avaimen koko
 index_pass=tunnuslausetta
-index_setup=Asenna GnuPG
+index_setup_gnupg=Asenna GnuPG
 index_return=GnuPG-indeksi
 index_egpg=GnuPG-komentoa $1 ei löydy järjestelmästäsi. Ehkä sitä ei ole asennettu.
 

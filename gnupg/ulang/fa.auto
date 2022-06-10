@@ -5,7 +5,7 @@ index_email=آدرس ایمیل
 index_comment=نظر کلیدی
 index_size=اندازه کلیدی
 index_pass=عبارات عبور
-index_setup=GnuPG را تنظیم کنید
+index_setup_gnupg=GnuPG را تنظیم کنید
 index_return=فهرست GnuPG
 index_egpg=دستور GnuPG $1 در سیستم شما یافت نشد. شاید نصب نشده باشد.
 

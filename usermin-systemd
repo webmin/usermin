@@ -11,7 +11,6 @@ Type=forking
 Restart=always
 RestartSec=2s
 OOMPolicy=kill
-OOMScoreAdjust=-100
 
 [Install]
 WantedBy=multi-user.target

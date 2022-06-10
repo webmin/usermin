@@ -865,9 +865,11 @@ elsif ($folder->{'type'} == 6) {
 		}
 	my $i;
 	my $mems = $folder->{'members'};
-	for($i=0; $i<@$mems; $i++) {
-		$virt{$i} = &folder_name($mems->[$i]->[0])."\t".
-			    $mems->[$i]->[1];
+	if ($mems) {
+		for($i=0; $i<@$mems; $i++) {
+			$virt{$i} = &folder_name($mems->[$i]->[0])."\t".
+				    $mems->[$i]->[1];
+			}
 		}
 	&write_file("$user_module_config_directory/$folder->{'id'}.virt",
 		    \%virt);

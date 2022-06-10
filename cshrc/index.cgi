@@ -17,8 +17,8 @@ foreach $cshrc_file (@cshrc_files) {
 	open(CSHRC, $cshrc_file);
 	while(<CSHRC>) { print; }
 	close(CSHRC);
-	print "</textarea><br>\n";
-	print "<input type=submit value='$text{'save'}'></form>\n";
+	print "</textarea>\n";
+	print &ui_form_end([ [ undef, $text{'save'} ] ]);
 	$i++;
 	}
  

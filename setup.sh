@@ -591,8 +591,8 @@ if [ -x "$systemctlcmd" ]; then
 	echo "$systemctlcmd restart usermin" >>$config_dir/restart
 	# Force reload systemd
 	echo "#!/bin/sh" >>$config_dir/restart-by-force-kill
-	echo "$config_dir/.stop-init --kill >/dev/null 2>&1" >>$config_dir/restart-by-force-kill
 	echo "$systemctlcmd stop usermin" >>$config_dir/restart-by-force-kill
+	echo "$config_dir/.stop-init --kill >/dev/null 2>&1" >>$config_dir/restart-by-force-kill
 	echo "$systemctlcmd start usermin" >>$config_dir/restart-by-force-kill
 	# Reload systemd
 	echo "#!/bin/sh" >>$config_dir/reload

@@ -24,7 +24,16 @@ if (-d "/etc/systemd" &&
 	    unlink("$p/$product.service");
 	    unlink("$p/$product");
 	    }
-	copy_source_dest("usermin-systemd", "$systemd_root/$product.service");
+
+	my $temp = &transname();
+	&copy_source_dest("$root_directory/usermin-systemd", $temp);
+	my $lref = &read_file_lines($temp);
+	foreach my $l (@{$lref}) {
+		$l =~ s/(WEBMIN_[A-Z]+)/$ENV{$1}/;
+		}
+	&flush_file_lines($temp);
+	copy_source_dest($temp, "$systemd_root/$product.service");
+
 	system("systemctl daemon-reload >/dev/null 2>&1");
 	system("systemctl enable $product >/dev/null 2>&1");
 	}

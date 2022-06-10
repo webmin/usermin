@@ -51,7 +51,7 @@ if (($folder->{'type'} == 2 || $folder->{'type'} == 4) &&
 # Check if this is a POP3 or IMAP inbox with no login set
 if (($folder->{'type'} == 2 || $folder->{'type'} == 4) &&
     $folder->{'mode'} == 3 && !$folder->{'autouser'} && !$folder->{'user'}) {
-	&ui_print_header(undef, &text('index_title', $folder->{'name'}), "",
+	&ui_print_header(undef, &text('index_title', &html_escape($folder->{'name'})), "",
 			 undef, 1, 1, 0, join("<br>", @topright));
 	print &ui_form_start("inbox_login.cgi", "post");
 	print &ui_hidden("folder", $folder->{'index'}),"\n";
@@ -94,7 +94,7 @@ if ($in{'start'} >= @mail && $in{'jump'}) {
 	}
 
 # Show page title
-&ui_print_header(undef, &text('index_title', $folder->{'name'}), "", undef,
+&ui_print_header(undef, &text('index_title', &html_escape($folder->{'name'})), "", undef,
 		 1, 1, 0, join("<br>", @topright));
 
 # Get folder-selection HTML

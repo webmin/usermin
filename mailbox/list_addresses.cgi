@@ -72,7 +72,7 @@ if (@addrs || $in{'add'}) {
 		else {
 			# Just showing this row
 			print "<td width=40%>$a->[0]</td>\n";
-			print "<td width=40%>",$a->[1] ? $a->[1] : "<br>","</td>\n";
+			print "<td width=40%>",$a->[1] ? &html_escape($a->[1]) : "<br>","</td>\n";
 			print "<td>",$a->[3] == 1 ? $text{'yes'} :
 				     $a->[3] == 2 ? $text{'address_yd'} :
 					     	    $text{'no'},"</td>\n"

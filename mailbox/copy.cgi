@@ -12,12 +12,12 @@ my $dest = $folders[$in{'dest'}];
 
 &ui_print_unbuffered_header(undef, $text{'copy_title'}, "");
 
-print &text('copy_doing', $folder->{'name'}, $dest->{'name'}),"<p>\n";
+print &text('copy_doing', &html_escape($folder->{'name'}), &html_escape($dest->{'name'})),"<p>\n";
 &mailbox_copy_folder($folder, $dest);
 print $text{'copy_done'},"<p>\n";
 
 if ($in{'move'}) {
-	print &text('copy_deleting', $folder->{'name'}),"<p>\n";
+	print &text('copy_deleting', &html_escape($folder->{'name'})),"<p>\n";
 	&mailbox_empty_folder($folder);
 	print $text{'copy_done'},"<p>\n";
 	}

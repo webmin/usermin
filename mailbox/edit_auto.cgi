@@ -16,7 +16,7 @@ print &ui_hidden("idx", $in{'idx'});
 print &ui_table_start($text{'auto_header'}, undef, 2);
 
 # Folder name
-print &ui_table_row($text{'auto_name'}, $folder->{'name'});
+print &ui_table_row($text{'auto_name'}, &html_escape($folder->{'name'}));
 
 # Auto-clearing enabled
 my $auto = &get_auto_schedule($folder);
@@ -35,7 +35,7 @@ print &ui_table_row($text{'auto_mode'},
 		     &ui_bytesbox("size", $auto->{'size'}, 5)) ] ]));
 
 # Delete whole mailbox, or just infringing mails, or move to another folder
-my @fopts = map { [ &folder_name($_), $_->{'name'} ] }
+my @fopts = map { [ &folder_name($_), &html_escape($_->{'name'}) ] }
 	     grep { &folder_name($_) ne &folder_name($folder) }
 		  @folders;
 print &ui_table_row($text{'auto_action'},

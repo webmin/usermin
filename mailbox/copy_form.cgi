@@ -16,14 +16,14 @@ print &ui_hidden("idx", $in{'idx'});
 print &ui_table_start($text{'copy_header'}, undef, 2, [ "width=30%" ]);
 
 # Source folder
-print &ui_table_row($text{'copy_source'}, $folder->{'name'});
+print &ui_table_row($text{'copy_source'}, &html_escape($folder->{'name'}));
 
 # Destination folder
 my @dfolders = grep { !$_->{'nowrite'} && $_->{'index'} != $folder->{'index'} }
 		 &list_folders_sorted();
 print &ui_table_row($text{'copy_dest'},
 	    &ui_select("dest", undef,
-		       [ map { [ $_->{'index'}, $_->{'name'} ] } @dfolders ]));
+		       [ map { [ $_->{'index'}, &html_escape($_->{'name'}) ] } @dfolders ]));
 
 # Move or copy
 print &ui_table_row($text{'copy_move'},

@@ -24,14 +24,14 @@ foreach my $f (@folders) {
 	my $deletable = 0;
 	if ($f->{'inbox'} || $f->{'drafts'} || $f->{'spam'}) {
 		# Inbox, drafs or spam folder which cannot be edited
-		push(@cols, $f->{'name'});
+		push(@cols, &html_escape($f->{'name'}));
 		push(@cols, "IMAP");
 		push(@cols, &nice_size(&folder_size($f)));
 		}
 	elsif ($f->{'type'} == 5) {
 		# Link for editing composite folder
 		push(@cols, "<a href='edit_comp.cgi?idx=$f->{'index'}'>".
-			    "$f->{'name'}</a>");
+			    "@{[&html_escape($f->{'name'})]}</a>");
 		push(@cols, $text{'folders_comp'});
 		push(@cols, &nice_size(&folder_size($f)));
 		$deletable = 1;
@@ -39,7 +39,7 @@ foreach my $f (@folders) {
 	elsif ($f->{'type'} == 6) {
 		# Link for editing virtual folder
 		push(@cols, "<a href='edit_virt.cgi?idx=$f->{'index'}'>".
-			    "$f->{'name'}</a>");
+			    "@{[&html_escape($f->{'name'})]}</a>");
 		push(@cols, $text{'folders_virt'});
 		push(@cols, undef);
 		$deletable = 1;
@@ -47,7 +47,7 @@ foreach my $f (@folders) {
 	else {
 		# Edit an IMAP folder
 		push(@cols, "<a href='edit_ifolder.cgi?idx=$f->{'index'}'>".
-			    "$f->{'name'}</a>");
+			    "@{[&html_escape($f->{'name'})]}</a>");
 		push(@cols, "IMAP");
 		push(@cols, &nice_size(&folder_size($f)));
 		$deletable = 1;

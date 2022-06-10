@@ -39,7 +39,7 @@ for(my $i=0; $i<10; $i++) {
 			$names[$i],
 			[ [ "", "&nbsp;" ],
 			  map { [ $_->{'id'} || $_->{'file'} || $_->{'name'},
-				  $_->{'name'} ] }
+				  &html_escape($_->{'name'}) ] }
 			  grep { $_->{'type'} != 5 &&
 				 !$_->{'file'} || -e $_->{'file'} } @folders ]).
 		   "<br>\n";

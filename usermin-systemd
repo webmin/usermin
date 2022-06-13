@@ -10,7 +10,6 @@ PIDFile=WEBMIN_VAR/miniserv.pid
 Type=forking
 Restart=always
 RestartSec=2s
-OOMPolicy=kill
 
 [Install]
 WantedBy=multi-user.target

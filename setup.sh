@@ -69,6 +69,10 @@ else
 fi
 cd "$wadir"
 
+# Export Usermin root dir
+WEBMIN_LIBDIR=$wadir
+export WEBMIN_LIBDIR
+
 # Display install directory
 allmods=`cd "$srcdir"; echo */module.info | sed -e 's/\/module.info//g'`
 if [ "$allmods" = "" ]; then

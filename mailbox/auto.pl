@@ -10,13 +10,37 @@ my @folders = &list_folders();
 
 &open_read_hash();		# hack to force correct DBM mode
 
+my $purge_mail = sub {
+	my ($auto, $f, $folders, $delmails) = @_;
+	if (@{$delmails}) {
+		if ($auto->{'all'} == 1) {
+			# Clear the whole folder
+			&mailbox_empty_folder($f);
+			}
+		elsif ($auto->{'all'} == 0) {
+			# Just delete mails that are over the limit
+			&mailbox_delete_mail($f, reverse(@{$delmails}));
+			}
+		elsif ($auto->{'all'} == 2) {
+			# Move to another folder
+			my ($dest) = grep { &folder_name($_) eq $auto->{'dest'} }
+				       @{$folders};
+			if (!$dest) {
+				print STDERR "destination folder ".
+					    "$auto->{'dest'} does not exist!\n";
+				next;
+				}
+			&mailbox_move_mail($f, $dest, reverse(@{$delmails}));
+			}
+		}
+	};
+
 foreach my $f (@folders) {
 	# Skip folders for which clearing isn't active
 	next if ($f->{'nowrite'});
 	my $auto = &get_auto_schedule($f);
 	next if (!$auto || !$auto->{'enabled'});
 
-	my @delmails;
 	my $headersonly = $auto->{'all'} == 2 ? 0 : 1;
 	if ($auto->{'mode'} == 0) {
 		# Find messages that are too old
@@ -29,7 +53,9 @@ foreach my $f (@folders) {
 			if ($time && $time < $cutoff ||
 			    !$time && $auto->{'invalid'} ||
 			    $time > $future && $auto->{'invalid'}) {
+				my @delmails;
 				push(@delmails, $m);
+				&$purge_mail($auto, $f, \@folders, \@delmails);
 				}
 			}
 		}
@@ -40,31 +66,10 @@ foreach my $f (@folders) {
 		while($size > $auto->{'size'}) {
 			last if (!@mails);	# empty!
 			my $oldmail = shift(@mails);
+			my @delmails;
 			push(@delmails, $oldmail);
 			$size -= $oldmail->{'size'};
-			}
-		}
-
-	my $dest;
-	if (@delmails) {
-		if ($auto->{'all'} == 1) {
-			# Clear the whole folder
-			&mailbox_empty_folder($f);
-			}
-		elsif ($auto->{'all'} == 0) {
-			# Just delete mails that are over the limit
-			&mailbox_delete_mail($f, reverse(@delmails));
-			}
-		elsif ($auto->{'all'} == 2) {
-			# Move to another folder
-			($dest) = grep { &folder_name($_) eq $auto->{'dest'} }
-				       @folders;
-			if (!$dest) {
-				print STDERR "destination folder ".
-					    "$auto->{'dest'} does not exist!\n";
-				next;
-				}
-			&mailbox_move_mail($f, $dest, reverse(@delmails));
+			&$purge_mail($auto, $f, \@folders, \@delmails);
 			}
 		}
 	}

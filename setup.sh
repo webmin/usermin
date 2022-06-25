@@ -69,6 +69,10 @@ else
 fi
 cd "$wadir"
 
+# Export Usermin root dir
+WEBMIN_LIBDIR=$wadir
+export WEBMIN_LIBDIR
+
 # Display install directory
 allmods=`cd "$srcdir"; echo */module.info | sed -e 's/\/module.info//g'`
 if [ "$allmods" = "" ]; then
@@ -596,8 +600,7 @@ if [ -x "$systemctlcmd" ]; then
 	echo "$systemctlcmd start usermin" >>$config_dir/restart-by-force-kill
 	# Reload systemd
 	echo "#!/bin/sh" >>$config_dir/reload
-	echo "$config_dir/.reload-init >/dev/null 2>&1" >>$config_dir/reload
-
+	echo "$systemctlcmd reload usermin" >>$config_dir/reload
 	
 	chmod 755 $config_dir/stop $config_dir/start $config_dir/restart $config_dir/restart-by-force-kill $config_dir/reload
 else

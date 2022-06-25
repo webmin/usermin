@@ -77,15 +77,15 @@ Name: $pkgname
 Version: $ver
 Release: $rel
 Provides: %{name}-%{version}
-PreReq: /bin/sh /usr/bin/perl /bin/rm
-Requires: /bin/sh /usr/bin/perl /bin/rm perl(Net::SSLeay) perl(Time::Local) perl(Encode::Detect) perl(Data::Dumper)
+Requires(pre): /bin/sh /usr/bin/perl /bin/rm
+Requires: /bin/sh /usr/bin/perl /bin/rm perl(Net::SSLeay) perl(Time::Local) perl(Encode::Detect) perl(Data::Dumper) openssl unzip tar
+AutoReq: 0
 License: BSD-3-clause
 Group: System/Tools
 Source: http://www.webmin.com/download/%{name}-%{version}.tar.gz
 Vendor: Jamie Cameron
 BuildRoot: /tmp/%{name}-%{version}
 BuildArchitectures: noarch
-AutoReq: 0
 %description
 A web-based user account administration interface for Unix systems.
 
@@ -256,13 +256,15 @@ close(SPEC);
 
 $cmd = -x "/usr/bin/rpmbuild" ? "rpmbuild" : "rpm";
 system("$cmd -ba --target=noarch $spec_dir/$pkgname-$ver.spec") && exit;
-system("mv $base_dir/RPMS/noarch/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.noarch.rpm");
-print "Moved to rpm/$pkgname-$ver-$rel.noarch.rpm\n";
-system("mv $base_dir/SRPMS/$pkgname-$ver-$rel.src.rpm rpm/$pkgname-$ver-$rel.src.rpm");
-print "Moved to rpm/$pkgname-$ver-$rel.src.rpm\n";
-system("chown jcameron: rpm/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.src.rpm");
-if (!$nosign) {
-	system("rpm --resign rpm/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.src.rpm");
+if (-d "rpm") {
+	system("mv $base_dir/RPMS/noarch/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.noarch.rpm");
+	print "Moved to rpm/$pkgname-$ver-$rel.noarch.rpm\n";
+	system("mv $base_dir/SRPMS/$pkgname-$ver-$rel.src.rpm rpm/$pkgname-$ver-$rel.src.rpm");
+	print "Moved to rpm/$pkgname-$ver-$rel.src.rpm\n";
+	system("chown jcameron: rpm/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.src.rpm");
+	if (!$nosign) {
+		system("rpm --resign rpm/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.src.rpm");
+		}
 	}
 
 if (-d "/usr/local/webadmin/rpm/yum") {

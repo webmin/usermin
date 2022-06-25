@@ -8,7 +8,10 @@ if ($ARGV[0] eq "--webmail" || $ARGV[0] eq "--webmail") {
 if (@ARGV != 1) {
 	die "usage: makedist.pl [--webmail] <version>";
 	}
-$vers = $ARGV[0];
+$fullvers = $ARGV[0];
+$fullvers =~ /^([0-9\.]+)(\-(\d+))?$/ || usage();
+$vers = $1;
+$release = $3;
 
 @files = ("config-*-linux",
 	  "config-solaris", "images", "index.cgi", "mime.types",
@@ -65,6 +68,10 @@ $flist = join(" ", @files);
 system("cp -r -L $flist tarballs/$dir");
 system("touch tarballs/$dir/install-type");
 system("echo $vers > tarballs/$dir/version");
+# Store release version, if set
+if ($release && $release != 1) {
+	system("echo $release > tarballs/$dir/release");
+	}
 
 # Add module files
 foreach $m (@mlist) {

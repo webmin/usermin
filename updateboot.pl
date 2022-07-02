@@ -26,7 +26,7 @@ if (-d "/etc/systemd" &&
 	    }
 
 	my $temp = &transname();
-	my $killcmd = &has_command('kill') || '/bin/kill';
+	my $killcmd = &has_command('kill');
 	$ENV{'WEBMIN_KILLCMD'} = $killcmd;
 	&copy_source_dest("$root_directory/usermin-systemd", $temp);
 	my $lref = &read_file_lines($temp);

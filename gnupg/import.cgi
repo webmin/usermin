@@ -13,7 +13,8 @@ if ($in{'mode'} == 0) {
 	open(TEMP, ">$temp");
 	print TEMP $in{'upload'};
 	close(TEMP);
-	$out = `$gpgpath --import $temp 2>&1`;
+	$out = &backquote_command(
+		"$gpgpath --import ".quotemeta($temp)." 2>&1");
 	unlink($temp);
 	}
 elsif ($in{'mode'} == 1) {
@@ -21,7 +22,8 @@ elsif ($in{'mode'} == 1) {
 	$in{'file'} = "$remote_user_info[7]/$in{'file'}"
 		if ($in{'file'} !~ /^\//);
 	-r $in{'file'} || &error($text{'import_efile'});
-	$out = `$gpgpath --import '$in{'file'}' 2>&1`;
+	$out = &backquote_command(
+		"$gpgpath --import ".quotemeta($in{'file'})." 2>&1");
 	}
 elsif ($in{'mode'} == 2) {
 	# From pasted text
@@ -31,7 +33,8 @@ elsif ($in{'mode'} == 2) {
 	open(TEMP, ">$temp");
 	print TEMP $in{'text'};
 	close(TEMP);
-	$out = `$gpgpath --import $temp 2>&1`;
+	$out = &backquote_command(
+		"$gpgpath --import ".quotemeta($temp)." 2>&1");
 	unlink($temp);
 	}
 if ($?) {

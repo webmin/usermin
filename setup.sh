@@ -154,7 +154,7 @@ if [ "$upgrading" = 1 ]; then
 	atboot=`grep "^atboot=" $config_dir/miniserv.conf | sed -e 's/atboot=//g'`
 	inetd=`grep "^inetd=" $config_dir/miniserv.conf | sed -e 's/inetd=//g'`
 
-	if [ "$inetd" != "1" ]; then
+	if [ "$upgrading" = 1 -a "$inetd" != "1" -a "$nostop" == "" ]; then
 		# Stop old version
 		$config_dir/stop >/dev/null 2>&1
 	fi

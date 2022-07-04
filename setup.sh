@@ -609,11 +609,11 @@ if [ -x "$systemctlcmd" ]; then
 	echo "$systemctlcmd reload usermin" >>$config_dir/reload
 	# Pre-install on systemd
 	echo "#!/bin/sh" >$config_dir/.pre-install
-	# echo "$systemctlcmd kill --signal=SIGSTOP --kill-who=main usermin" >>$config_dir/.pre-install
+	echo "$systemctlcmd stop usermin" >>$config_dir/.pre-install
 	# Post-install on systemd
 	echo "#!/bin/sh" >$config_dir/.post-install
 	# echo "$systemctlcmd kill --signal=SIGCONT --kill-who=main usermin" >>$config_dir/.post-install
-	echo "$systemctlcmd kill --signal=SIGHUP --kill-who=main usermin" >>$config_dir/.post-install
+	echo "$systemctlcmd start usermin" >>$config_dir/.post-install
 
 	
 	chmod 755 $config_dir/stop $config_dir/start $config_dir/restart $config_dir/restart-by-force-kill $config_dir/reload $config_dir/.pre-install $config_dir/.post-install

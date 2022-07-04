@@ -186,7 +186,8 @@ autothird=1
 noperlpath=1
 nouninstall=1
 nostart=1
-export config_dir var_dir perl autoos port ssl nochown autothird noperlpath nouninstall nostart allow makeboot
+nostop=1
+export config_dir var_dir perl autoos port ssl nochown autothird noperlpath nouninstall nostart allow makeboot nostop
 ./setup.sh >/tmp/.webmin/usermin-setup.out 2>&1
 chmod 600 /tmp/.webmin/usermin-setup.out
 rm -f /var/lock/subsys/usermin

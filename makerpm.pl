@@ -153,19 +153,13 @@ fi
 
 %post
 inetd=`grep "^inetd=" /etc/usermin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g'`
-startafter=0
 if [ "\$1" != 1 ]; then
 	# Upgrading the RPM, so stop the old Usermin properly
 	if [ "\$inetd" != "1" ]; then
-		kill -0 `cat /var/usermin/miniserv.pid 2>/dev/null` 2>/dev/null
-		if [ "\$?" = 0 ]; then
-		  startafter=1
+		if [ -e /etc/usermin/.pre-install ]; then
+			/etc/usermin/.pre-install >/dev/null 2>&1 </dev/null
 		fi
-		/etc/usermin/stop >/dev/null 2>&1 </dev/null
 	fi
-else
-	# Not upgrading, so always start after install
-	startafter=1
 fi
 cd /usr/libexec/usermin
 config_dir=/etc/usermin
@@ -191,11 +185,17 @@ export config_dir var_dir perl autoos port ssl nochown autothird noperlpath noun
 ./setup.sh >/tmp/.webmin/usermin-setup.out 2>&1
 chmod 600 /tmp/.webmin/usermin-setup.out
 rm -f /var/lock/subsys/usermin
-if [ "\$inetd" != "1" -a "\$startafter" = "1" ]; then
-	/etc/usermin/stop >/dev/null 2>&1 </dev/null
-	/etc/usermin/start >/dev/null 2>&1 </dev/null
-	if [ "\$?" != "0" ]; then
-		echo "warning: Usermin server cannot be restarted. It is advised to restart it manually by\nrunning \\"/etc/usermin/restart-by-force-kill\\" when upgrade process is finished"
+if [ "\$inetd" != "1" ]; then
+	if [ "\$1" == 1 ]; then
+		/etc/usermin/start >/dev/null 2>&1 </dev/null
+		if [ "\$?" != "0" ]; then
+			echo "error: Usermin server cannot be started. It is advised to start it manually\n       by running \\"/etc/usermin/restart-by-force-kill\\" command"
+		fi
+	else
+		/etc/usermin/.post-install >/dev/null 2>&1 </dev/null
+		if [ "\$?" != "0" ]; then
+			echo "warning: Usermin server cannot be restarted. It is advised to restart it manually\n         by running \\"/etc/usermin/restart-by-force-kill\\" when upgrade process is finished"
+		fi
 	fi
 fi
 cat >/etc/usermin/uninstall.sh <<EOFF
@@ -236,7 +236,6 @@ if [ "\$1" = 0 ]; then
 		# RPM is being removed, and no new version of usermin
 		# has taken it's place. Stop the server
 		/etc/usermin/stop >/dev/null 2>&1 </dev/null
-		/etc/usermin/.stop-init --kill >/dev/null 2>&1 </dev/null
 	fi
 fi
 /bin/true

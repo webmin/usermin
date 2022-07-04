@@ -154,7 +154,7 @@ if [ "$upgrading" = 1 ]; then
 	atboot=`grep "^atboot=" $config_dir/miniserv.conf | sed -e 's/atboot=//g'`
 	inetd=`grep "^inetd=" $config_dir/miniserv.conf | sed -e 's/inetd=//g'`
 
-	if [ "$upgrading" = "1" -a "$inetd" != "1" -a "$nostop" = "" ]; then
+	if [ "$upgrading" = 1 -a "$inetd" != "1" -a "$nostop" == "" ]; then
 		# Stop old version
 		$config_dir/stop >/dev/null 2>&1
 	fi
@@ -416,7 +416,7 @@ else
 	echo "no_ssl2=1" >> $cfile
 	echo "no_ssl3=1" >> $cfile
 	openssl version 2>&1 | grep "OpenSSL 1" 2>&1 >/dev/null
-	if [ "$?" = "0" ]; then
+	if [ "$?" == "0" ]; then
 		echo "no_tls1=1" >> $cfile
 		echo "no_tls1_1=1" >> $cfile    
 	fi
@@ -503,11 +503,10 @@ if [ "$noperlpath" = "" ]; then
 	echo ""
 fi
 
-# Re-generating main
-rm -f $config_dir/.stop-init $config_dir/.start-init $config_dir/.restart-init $config_dir/.restart-by-force-kill-init $config_dir/.reload-init
+# Re-generating main scripts
 echo "Creating start and stop init scripts.."
 # Start main
-echo "#!/bin/sh" >>$config_dir/.start-init
+echo "#!/bin/sh" >$config_dir/.start-init
 echo "echo Starting Usermin server in $wadir" >>$config_dir/.start-init
 echo "trap '' 1" >>$config_dir/.start-init
 echo "LANG=" >>$config_dir/.start-init
@@ -523,7 +522,7 @@ else
 	echo "exec '$wadir/miniserv.pl' \$* $config_dir/miniserv.conf" >>$config_dir/.start-init
 fi
 # Stop main
-echo "#!/bin/sh" >>$config_dir/.stop-init
+echo "#!/bin/sh" >$config_dir/.stop-init
 echo "if [ \"\$1\" = \"--kill\" ]; then" >>$config_dir/.stop-init
 echo "  echo Force stopping Usermin server in $wadir" >>$config_dir/.stop-init
 echo "else" >>$config_dir/.stop-init
@@ -545,20 +544,27 @@ echo "    (ps axf | grep \"usermin\/miniserv\.pl\" | awk '{print \"kill -9 -- -\
 echo "  fi" >>$config_dir/.stop-init
 echo "fi" >>$config_dir/.stop-init
 # Restart main
-echo "#!/bin/sh" >>$config_dir/.restart-init
+echo "#!/bin/sh" >$config_dir/.restart-init
 echo "$config_dir/.stop-init" >>$config_dir/.restart-init
 echo "$config_dir/.start-init" >>$config_dir/.restart-init
 # Force reload main
-echo "#!/bin/sh" >>$config_dir/.restart-by-force-kill-init
+echo "#!/bin/sh" >$config_dir/.restart-by-force-kill-init
 echo "$config_dir/.stop-init --kill" >>$config_dir/.restart-by-force-kill-init
 echo "$config_dir/.start-init" >>$config_dir/.restart-by-force-kill-init
 # Reload main
-echo "#!/bin/sh" >>$config_dir/.reload-init
+echo "#!/bin/sh" >$config_dir/.reload-init
 echo "echo Reloading Usermin server in $wadir" >>$config_dir/.reload-init
 echo "pidfile=\`grep \"^pidfile=\" $config_dir/miniserv.conf | sed -e 's/pidfile=//g'\`" >>$config_dir/.reload-init
 echo "kill -USR1 \`cat \$pidfile\`" >>$config_dir/.reload-init
+# Pre install
+echo "#!/bin/sh" >$config_dir/.pre-install
+echo "$config_dir/.stop-init" >>$config_dir/.pre-install
+# Post install
+echo "#!/bin/sh" >$config_dir/.post-install
+echo "$config_dir/.start-init" >>$config_dir/.post-install
 
-chmod 755 $config_dir/.stop-init $config_dir/.start-init $config_dir/.restart-init $config_dir/.restart-by-force-kill-init $config_dir/.reload-init
+
+chmod 755 $config_dir/.stop-init $config_dir/.start-init $config_dir/.restart-init $config_dir/.restart-by-force-kill-init $config_dir/.reload-init $config_dir/.pre-install $config_dir/.post-install
 echo "..done"
 echo ""
 
@@ -585,24 +591,32 @@ if [ -x "$systemctlcmd" ]; then
 
 	echo "Creating start and stop scripts (systemd).."
 	# Start systemd
-	echo "#!/bin/sh" >>$config_dir/start
+	echo "#!/bin/sh" >$config_dir/start
 	echo "$systemctlcmd start usermin" >>$config_dir/start
 	# Stop systemd
-	echo "#!/bin/sh" >>$config_dir/stop
+	echo "#!/bin/sh" >$config_dir/stop
 	echo "$systemctlcmd stop usermin" >>$config_dir/stop
 	# Restart systemd
-	echo "#!/bin/sh" >>$config_dir/restart
+	echo "#!/bin/sh" >$config_dir/restart
 	echo "$systemctlcmd restart usermin" >>$config_dir/restart
 	# Force reload systemd
-	echo "#!/bin/sh" >>$config_dir/restart-by-force-kill
+	echo "#!/bin/sh" >$config_dir/restart-by-force-kill
 	echo "$systemctlcmd stop usermin" >>$config_dir/restart-by-force-kill
 	echo "$config_dir/.stop-init --kill >/dev/null 2>&1" >>$config_dir/restart-by-force-kill
 	echo "$systemctlcmd start usermin" >>$config_dir/restart-by-force-kill
 	# Reload systemd
-	echo "#!/bin/sh" >>$config_dir/reload
+	echo "#!/bin/sh" >$config_dir/reload
 	echo "$systemctlcmd reload usermin" >>$config_dir/reload
+	# Pre-install on systemd
+	echo "#!/bin/sh" >$config_dir/.pre-install
+	# echo "$systemctlcmd kill --signal=SIGSTOP --kill-who=main usermin" >>$config_dir/.pre-install
+	# Post-install on systemd
+	echo "#!/bin/sh" >$config_dir/.post-install
+	# echo "$systemctlcmd kill --signal=SIGCONT --kill-who=main usermin" >>$config_dir/.post-install
+	echo "$systemctlcmd kill --signal=SIGHUP --kill-who=main usermin" >>$config_dir/.post-install
+
 	
-	chmod 755 $config_dir/stop $config_dir/start $config_dir/restart $config_dir/restart-by-force-kill $config_dir/reload
+	chmod 755 $config_dir/stop $config_dir/start $config_dir/restart $config_dir/restart-by-force-kill $config_dir/reload $config_dir/.pre-install $config_dir/.post-install
 else
 	# Creating symlinks
 	echo "Creating start and stop init symlinks to scripts .."
@@ -739,7 +753,7 @@ fi
 
 if [ "$nostart" = "" ]; then
 	if [ "$inetd" != "1" ]; then
-		echo "Attempting to start Usermin mini web server.."
+		echo "Attempting to start Usermin web server.."
 		$config_dir/start
 		if [ $? != "0" ]; then
 			echo "ERROR: Failed to start web server!"

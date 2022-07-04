@@ -184,7 +184,7 @@ export config_dir var_dir perl autoos port ssl nochown autothird noperlpath noun
 chmod 600 /tmp/.webmin/usermin-setup.out
 rm -f /var/lock/subsys/usermin
 if [ "\$inetd" != "1" ]; then
-	/etc/usermin/start >/dev/null 2>&1 </dev/null
+	/etc/usermin/restart >/dev/null 2>&1 </dev/null
 	if [ "\$?" != "0" ]; then
 		echo "error: Usermin server cannot be started. It is advised to start it manually\n        by running \\"/etc/usermin/restart-by-force-kill\\" command"
 	fi

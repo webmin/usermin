@@ -154,7 +154,7 @@ if [ "$upgrading" = 1 ]; then
 	atboot=`grep "^atboot=" $config_dir/miniserv.conf | sed -e 's/atboot=//g'`
 	inetd=`grep "^inetd=" $config_dir/miniserv.conf | sed -e 's/inetd=//g'`
 
-	if [ "$upgrading" == 1 -a "$inetd" != "1" -a "$nostop" == "" ]; then
+	if [ "$upgrading" = "1" -a "$inetd" != "1" -a "$nostop" = "" ]; then
 		# Stop old version
 		$config_dir/stop >/dev/null 2>&1
 	fi
@@ -416,7 +416,7 @@ else
 	echo "no_ssl2=1" >> $cfile
 	echo "no_ssl3=1" >> $cfile
 	openssl version 2>&1 | grep "OpenSSL 1" 2>&1 >/dev/null
-	if [ "$?" == "0" ]; then
+	if [ "$?" = "0" ]; then
 		echo "no_tls1=1" >> $cfile
 		echo "no_tls1_1=1" >> $cfile    
 	fi

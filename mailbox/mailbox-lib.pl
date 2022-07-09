@@ -2027,6 +2027,7 @@ sub get_sort_field
 {
 my ($folder) = @_;
 return ( ) if (!$folder->{'sortable'});
+return ( ) if (!$userconfig{'show_sort'});
 my $file = &folder_name($folder);
 $file =~ s/\//_/g;
 my %sort;

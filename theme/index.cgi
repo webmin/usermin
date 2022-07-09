@@ -6,7 +6,7 @@ require './theme-lib.pl';
 &ReadParse();
 &ui_print_header(undef, $text{'index_title'}, "", undef, 0, 1);
 
-@themes = sort { $a->{'desc'} cmp $b->{'desc'} } &list_themes();
+@themes = sort { $a->{'desc'} cmp $b->{'desc'} } &list_visible_themes($current_theme);
 $uth = $gconfig{'theme_'.$remote_user};
 
 print "$text{'index_desc'}<br>\n";

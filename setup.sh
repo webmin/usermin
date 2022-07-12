@@ -714,6 +714,8 @@ if [ "\$answer" = "y" ]; then
 	rm -rf "$wadir"
 	echo "Deleting $config_dir .."
 	rm -rf "$config_dir"
+	echo "Deleting $var_dir .."
+	rm -rf "$var_dir"
 	systemctlcmd=\`which systemctl 2>/dev/null\`
 	if [ -x "\$systemctlcmd" ]; then
 		echo "Deleting usermin.service .."

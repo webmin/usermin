@@ -197,6 +197,12 @@ printf "\\n"
 if [ "\\\$answer" = "y" ]; then
 	echo "Removing Usermin RPM .."
 	rpm -e --nodeps usermin
+	systemctlcmd=\\\`which systemctl 2>/dev/null\\\`
+	if [ -x "\\\$systemctlcmd" ]; then
+		\\\$systemctlcmd stop usermin >/dev/null 2>&1 </dev/null
+		rm -f /usr/lib/systemd/system/usermin.service
+		\\\$systemctlcmd daemon-reload
+	fi
 	echo ".. done"
 fi
 EOFF
@@ -238,6 +244,12 @@ if [ "\$1" = 0 ]; then
 		# RPM is being removed, and no new version of usermin
 		# has taken it's place. Delete the config files
 		rm -rf /etc/usermin /var/usermin
+		systemctlcmd=\`which systemctl 2>/dev/null\`
+		if [ -x "\$systemctlcmd" ]; then
+			\$systemctlcmd stop usermin >/dev/null 2>&1 </dev/null
+			rm -f /usr/lib/systemd/system/usermin.service
+			\$systemctlcmd daemon-reload
+		fi
 	fi
 fi
 /bin/true

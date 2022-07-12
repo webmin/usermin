@@ -47,7 +47,7 @@ fi
 # Use the supplied destination directory, if any
 if [ "$1" != "" ]; then
 	wadir=$1
-	echo "Installing Usermin from $srcdir to $wadir ..."
+	echo "Installing Usermin from $srcdir to $wadir"
 	if [ ! -d "$wadir" ]; then
 		mkdir "$wadir"
 		if [ "$?" != "0" ]; then
@@ -65,7 +65,7 @@ if [ "$1" != "" ]; then
 		fi
 	fi
 else
-	echo "Installing Usermin in $wadir ..."
+	echo "Installing Usermin in $wadir"
 fi
 cd "$wadir"
 
@@ -115,8 +115,7 @@ if [ ! -d $config_dir ]; then
 	fi
 fi
 if [ -r "$config_dir/config" ]; then
-	echo "Found existing Usermin configuration in $config_dir"
-	echo ""
+	echo ".. found"
 	upgrading=1
 fi
 
@@ -163,7 +162,7 @@ if [ "$upgrading" = 1 ]; then
 	if [ "$wadir" != "$srcdir" ]; then
 		echo "Copying files to $wadir .."
 		(cd "$srcdir" ; tar cf - . | (cd "$wadir" ; tar xf -))
-		echo "..done"
+		echo ".. done"
 		echo ""
 	fi
 
@@ -188,7 +187,7 @@ if [ "$upgrading" = 1 ]; then
 			autothird=1
 		fi
 		$perl "$wadir/thirdparty.pl" "$wadir" "$oldwadir" $autothird
-		echo "..done"
+		echo ".. done"
 		echo ""
 	fi
 
@@ -219,7 +218,7 @@ else
 	fi
 	if [ "$var_dir" = "/" ]; then
 		echo "Log directory cannot be /"
-		exit ""
+		echo ""
 		exit 3
 	fi
 	if [ ! -d $var_dir ]; then
@@ -264,7 +263,7 @@ else
 	echo ""
 
 	# Test perl 
-	echo "Testing Perl ..."
+	echo "Testing Perl .."
 	if [ ! -x $perl ]; then
 		echo "ERROR: Failed to find perl at $perl"
 		echo ""
@@ -301,7 +300,7 @@ else
 		echo ""
 		exit 8
 	fi
-	echo "Perl seems to be installed ok"
+	echo ".. done"
 	echo ""
 
 	# Create temp files directory
@@ -335,7 +334,7 @@ else
 	echo "to the administration programs. The setup script needs to know :"
 	echo " - What port to run the web server on. There must not be another"
 	echo "   web server already using this port."
-	echo " - If the webserver should use SSL (if your system supports it)."
+	echo " - If the web server should use SSL (if your system supports it)."
 	echo ""
 	printf "Web server port (default 20000): "
 	if [ "$port" = "" ]; then
@@ -393,14 +392,14 @@ else
 	if [ "$wadir" != "$srcdir" ]; then
 		echo "Copying files to $wadir .."
 		(cd "$srcdir" ; tar cf - . | (cd "$wadir" ; tar xf -))
-		echo "..done"
+		echo ".. done"
 		echo ""
 	fi
 
 	# Create webserver config file
 	echo $perl > $config_dir/perl-path
 	echo $var_dir > $config_dir/var-path
-	echo "Creating web server config files.."
+	echo "Creating web server config files .."
 	cfile=$config_dir/miniserv.conf
 	echo "port=$port" >> $cfile
 	echo "root=$wadir" >> $cfile
@@ -461,7 +460,7 @@ else
 .
 .
 .
-Usermin Webserver on $host
+Usermin web server on $host
 .
 *
 root@$host
@@ -479,10 +478,10 @@ EOF
 	echo "keyfile=$config_dir/miniserv.pem" >> $cfile
 
 	chmod 644 $cfile
-	echo "..done"
+	echo ".. done"
 	echo ""
 
-	echo "Creating access control file.."
+	echo "Creating access control file .."
 	defmods=`cat "$wadir/defaultmodules" 2>/dev/null`
 	if [ "$defmods" = "" ]; then
 		defmods="$allmods"
@@ -491,20 +490,20 @@ EOF
 	rm -f $afile
 	echo "user: $defmods" >> $afile
 	chmod 644 $afile
-	echo "..done"
+	echo ".. done"
 	echo ""
 
 fi
 
 if [ "$noperlpath" = "" ]; then
-	echo "Inserting path to perl into scripts.."
+	echo "Inserting path to perl into scripts .."
 	(find "$wadir" -name '*.cgi' -print ; find "$wadir" -name '*.pl' -print) | $perl "$wadir/perlpath.pl" $perl -
-	echo "..done"
+	echo ".. done"
 	echo ""
 fi
 
 # Re-generating main scripts
-echo "Creating start and stop init scripts.."
+echo "Creating start and stop init scripts .."
 # Start main
 echo "#!/bin/sh" >$config_dir/.start-init
 echo "echo Starting Usermin server in $wadir" >>$config_dir/.start-init
@@ -565,7 +564,7 @@ echo "$config_dir/.start-init" >>$config_dir/.post-install
 
 
 chmod 755 $config_dir/.stop-init $config_dir/.start-init $config_dir/.restart-init $config_dir/.restart-by-force-kill-init $config_dir/.reload-init $config_dir/.pre-install $config_dir/.post-install
-echo "..done"
+echo ".. done"
 echo ""
 
 # Re-generating supplementary
@@ -589,7 +588,7 @@ systemctlcmd=`which systemctl 2>/dev/null`
 if [ -x "$systemctlcmd" ]; then
 	rm -f $config_dir/stop $config_dir/start $config_dir/restart $config_dir/restart-by-force-kill $config_dir/reload
 
-	echo "Creating start and stop scripts (systemd).."
+	echo "Creating start and stop scripts (systemd) .."
 	# Start systemd
 	echo "#!/bin/sh" >$config_dir/start
 	echo "$systemctlcmd start usermin" >>$config_dir/start
@@ -621,7 +620,7 @@ else
 	# Creating symlinks
 	echo "Creating start and stop init symlinks to scripts .."
 fi
-echo "..done"
+echo ".. done"
 echo ""
 
 # Fix existing init file to update start and stop commands
@@ -629,11 +628,11 @@ echo ""
 cd "$wadir"
 
 if [ "$upgrading" = 1 ]; then
-	echo "Updating config files.."
+	echo "Updating config files .."
 else
-	echo "Copying config files.."
+	echo "Copying config files .."
 fi
-$perl "$wadir/copyconfig.pl" "$os_type" "$os_version" "$wadir" $config_dir "" $allmods
+newmods=`$perl "$wadir/copyconfig.pl" "$os_type" "$os_version" "$wadir" $config_dir "" $allmods`
 if [ "$upgrading" != 1 ]; then
 	# Store the OS and version
 	echo "os_type=$os_type" >> $config_dir/config
@@ -658,7 +657,7 @@ else
 	fi
 fi
 echo $ver > $config_dir/version
-echo "..done"
+echo ".. done"
 echo ""
 
 # Set passwd_ fields in miniserv.conf from global config
@@ -715,11 +714,18 @@ if [ "\$answer" = "y" ]; then
 	rm -rf "$wadir"
 	echo "Deleting $config_dir .."
 	rm -rf "$config_dir"
+	systemctlcmd=\`which systemctl 2>/dev/null\`
+	if [ -x "\$systemctlcmd" ]; then
+		echo "Deleting usermin.service .."
+		\$systemctlcmd stop usermin >/dev/null 2>&1 </dev/null
+		rm -f /lib/systemd/system/usermin.service /usr/lib/systemd/system/usermin.service
+		\$systemctlcmd daemon-reload
+	fi
 	echo "Done!"
 fi
 EOF
 	chmod +x $config_dir/uninstall.sh
-	echo "..done"
+	echo ".. done"
 	echo ""
 fi
 
@@ -736,7 +742,7 @@ if [ "$nochown" = "" ]; then
 	fi
 fi
 chmod 600 $config_dir/miniserv.pem 2>/dev/null
-echo "..done"
+echo ".. done"
 echo ""
 
 # Save target directory if one was specified
@@ -753,14 +759,18 @@ fi
 
 if [ "$nostart" = "" ]; then
 	if [ "$inetd" != "1" ]; then
-		echo "Attempting to start Usermin web server.."
+		action="start"
+		if [ "$upgrading" = "1" ]; then
+			action="restart"
+		fi
+		echo "Attempting to $action Usermin web server .."
 		$config_dir/start
 		if [ $? != "0" ]; then
-			echo "ERROR: Failed to start web server!"
+			echo "ERROR: Failed to $action web server!"
 			echo ""
 			exit 14
 		fi
-		echo "..done"
+		echo ".. done"
 		echo ""
 	fi
 

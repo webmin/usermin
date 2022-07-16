@@ -186,7 +186,7 @@ rm -f /var/lock/subsys/usermin
 if [ "\$inetd" != "1" ]; then
 	/etc/usermin/restart >/dev/null 2>&1 </dev/null
 	if [ "\$?" != "0" ]; then
-		echo "error: Usermin server cannot be started. It is advised to start it manually\n        by running \\"/etc/usermin/restart-by-force-kill\\" command"
+		echo "error: Usermin server cannot be started. It is advised to start it manually\n       by running \\"/etc/usermin/restart-by-force-kill\\" command"
 	fi
 fi
 cat >/etc/usermin/uninstall.sh <<EOFF

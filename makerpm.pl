@@ -196,6 +196,7 @@ read answer
 printf "\\n"
 if [ "\\\$answer" = "y" ]; then
 	echo "Removing Usermin RPM .."
+	rm -f /usr/libexec/usermin/authentic-theme/manifest-*
 	rpm -e --nodeps usermin
 	systemctlcmd=\\\`which systemctl 2>/dev/null\\\`
 	if [ -x "\\\$systemctlcmd" ]; then
@@ -233,6 +234,7 @@ if [ "\$1" = 0 ]; then
 		# RPM is being removed, and no new version of usermin
 		# has taken it's place. Stop the server
 		/etc/usermin/stop >/dev/null 2>&1 </dev/null
+		rm -f /usr/libexec/usermin/authentic-theme/manifest-*
 	fi
 fi
 /bin/true

@@ -754,6 +754,11 @@ else
 	rm -f $config_dir/install-dir
 fi
 
+# Create manifest link for Authentic
+if [ -r "$wadir/authentic-theme/postinstall-usermin.pl" ]; then
+	(cd "$wadir" ; WEBMIN_CONFIG="$config_dir" WEBMIN_VAR="$var_dir" PERLLIB="$wadir" LANG= "$wadir/authentic-theme/postinstall-usermin.pl") >/dev/null 2>&1 </dev/null
+fi
+
 # Run package-defined post-install script
 if [ -r "$srcdir/setup-post.sh" ]; then
 	. "$srcdir/setup-post.sh"

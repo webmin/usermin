@@ -117,10 +117,12 @@ fi
 if [ -r "$config_dir/config" ]; then
 	echo ".. found"
 	upgrading=1
+else
+	userminrunning=1
 fi
 
 # Check if upgrading from an old version
-if [ "$upgrading" = 1 ]; then
+if [ "$upgrading" = "1" ]; then
 	echo ""
 
 	# Get current var path
@@ -152,8 +154,12 @@ if [ "$upgrading" = 1 ]; then
 	ssl=`grep "^ssl=" $config_dir/miniserv.conf | sed -e 's/ssl=//g'`
 	atboot=`grep "^atboot=" $config_dir/miniserv.conf | sed -e 's/atboot=//g'`
 	inetd=`grep "^inetd=" $config_dir/miniserv.conf | sed -e 's/inetd=//g'`
+	userminpidfile=`grep "^pidfile=" $config_dir/miniserv.conf | sed -e 's/pidfile=//g'`
+	if [ -r "$userminpidfile" ]; then
+		userminrunning=1
+	fi
 
-	if [ "$upgrading" = 1 -a "$inetd" != "1" -a "$nostop" = "" ]; then
+	if [ "$upgrading" = "1" -a "$inetd" != "1" -a "$nostop" = "" ]; then
 		# Stop old version
 		$config_dir/stop >/dev/null 2>&1
 	fi
@@ -770,14 +776,19 @@ if [ "$nostart" = "" ]; then
 		if [ "$upgrading" = "1" ]; then
 			action="restart"
 		fi
-		echo "Attempting to $action Usermin web server .."
-		$config_dir/start
-		if [ $? != "0" ]; then
-			echo "ERROR: Failed to $action web server!"
-			echo ""
-			exit 14
+		if [ "$userminrunning" = "1" ]; then
+			echo "Attempting to $action Usermin web server .."
+			$config_dir/$action
+			if [ $? != "0" ]; then
+				echo "ERROR: Failed to $action web server!"
+				echo ""
+				exit 14
+			fi
+			echo ".. done"
+		else
+			echo "Skipping to $action Usermin web server (wasn't running) .."
+			echo ".. skipped"
 		fi
-		echo ".. done"
 		echo ""
 	fi
 

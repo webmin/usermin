@@ -1,0 +1,75 @@
+line0=Lista de e-mail,11
+perpage=Mensagens de e-mail a serem exibidas por página,0,5
+top_buttons=Mostrar botões na parte superior para,1,2-Caixas de correio e e-mails,1-Somente caixas de correio,0-Nunca
+arrows=Mostrar setas de página na parte inferior para,1,2-Caixas de correio e e-mails,1-Somente caixas de correio,0-Nunca
+show_to=Mostrar Para: nas caixas de correio?,1,1-Sim,0-Não
+refresh=Segundos entre as atualizações automáticas da caixa de entrada,3,não atualizar
+open_mode=Abrir mensagens em,1,1-Nova janela,0-Janela da lista
+show_body=Mostrar prévia do corpo da mensagem na lista?,1,1-Sim,0-Não
+show_body_len=Número de caracteres a serem exibidos na prévia,3,Padrão (100)
+show_sort=Mostrar cabeçalhos para classificar a lista de e-mails?,1,1-Sim,0-Não
+
+line0.5=Lendo e-mail,11
+wrap_width=Largura para encapsular as mensagens de e-mail exibidas,0,5
+auto_mark=Marcar mensagens lidas automaticamente?,1,1-Sim,0-Não
+view_html=Mostrar o corpo da mensagem como,4,0-Sempre texto simples,1-Texto se possível&#44; HTML caso contrário,2-HTML se possível&#44; texto caso contrário,3-Converter HTML em texto simples
+view_images=Mostrar imagens embutidas por padrão?,1,0-Sim,1-Não imagens externas,2-Não
+head_html=Incluir HTML da mensagem &lt;head&gt; seção na página?,1,1-Sim,0-Não
+check_mod=Verificar a modificação da caixa de correio ao excluir e-mail?,1,1-Sim,0-Não
+link_mode=Abrir links em,1,1-Nova janela,0-Mesma janela
+
+line0.7=Escrevendo e-mail,11
+wrap_compose=Largura para encapsular mensagens de e-mail compostas em,10,-Não encapsular,80-80 colunas (padrão),Outro tamanho
+send_buttons=Mostrar botões de envio de e-mail,1,1-Na parte superior e inferior,0-Somente na parte inferior
+html_edit=Usar editor HTML para compor?,4,2-Sempre,1-Ao responder a e-mail HTML,0-Nunca
+html_quote=Modo de citação HTML,1,1-Mensagem abaixo de &lt;hr&gt;,0-Mensagem dentro de &lt;blockquote&gt;
+#nospell=Mostrar opção de verificação ortográfica?,1,0-Sim,1-Não
+#spell_check=Ativar verificação ortográfica por padrão?,1,1-Sim,0-Não
+cc_tabs=Mostrar para endereços CC e BCC,1,1-Na mesma guia,0-Em guias separadas
+
+line1=Enviando e-mail,11
+no_mime=Enviar mensagens somente de texto quando possível?,1,1-Sim,0-Não
+save_sent=Salvar e-mail enviado?,1,1-Sim,0-Não
+real_name=Incluir nome real no rementente?,1,1-Sim,0-Não
+charset=Conjunto de caracteres para e-mail enviado,3,do idioma selecionado
+sig_file=Arquivo de assinatura,10,*-Nenhum,.signature-~/.signature,Outro arquivo
+sig_mode=Inserir assinatura,1,0-na parte inferior,1-na parte superior
+fwd_mode=Encaminhar mensagens com aspas?,1,0-Sim,1-Não
+from_in_to=Mostrar endereços De: ao selecionar um endereço Para:?,1,1-Sim,0-Não
+sort_addrs=Classificar catálogo de endereços por,1,0-pedido adicionado,1-nome real,2-endereço de e-mail
+reply_to=Endereço responder para:,10,x-Nenhum,*-Escolha ao enviar,Endereço..
+bcc_to=Cco: mensagens enviadas para,0
+add_abook=Adicionar destinatários de e-mail ao catálogo de endereços?,1,1-Sim,0-Não
+real_expand=Procurar nomes reais ao enviar?,1,1-Sim,0-Não
+force_subject=Ação se o assunto do e-mail enviado estiver ausente,10,-Não fazer nada,erro-Exibir erro,Definir para
+send_return=Depois de enviar e-mail&#44; exibir,1,1-Lista de e-mail,0-Página de e-mail enviado
+reply_self=Incluir endereço de e-mail próprio ao responder a todos?,1,1-Sim,0-Não
+
+line1.5=Notificações de entrega,11
+req_dsn=Solicitar notificações de status de leitura?,1,1-Sempre,2-Opcionalmente,0-Não
+send_dsn=Responder às notificações de status de leitura?,1,1-Automaticamente,2-Manualmente,0-Não
+req_del=Solicitar notificações de status de entrega?,1,1-Sempre,2-Opcionalmente,0-Não
+
+line2=Configurações de data e hora,11
+date_fmt=Formato de data na lista de e-mails,1,dma-DD/MM/AAAA,mda-MM/DD/AAAA,amd-AAAA/MM/DD
+date_tz=Fuso horário para exibições de data,3,padrão do sistema
+reply_date=Incluir data ao citar e-mail,1,1-Sim,0-Não
+
+line3.5=Excluindo e-mail,11
+delete_warn=Pedir confirmação antes de excluir?,10,y-Sim,n-Não,Para arquivos mbox maiores que
+delete_mode=Ao excluir e-mail,1,0-Excluir e-mail,1-Mover para a pasta Lixeira
+show_delall=Mostrar botão para excluir toda a caixa de correio?,1,1-Sim,0-Não
+maildir_deleted=Ignorar mensagens sinalizadas como excluídas no Maildir?,1,1-Sim,0-Não
+
+line4=Opções de spam,11
+spam_buttons=Mostrar botões de reportar spam para,2,list-Caixas de e-mail,mail-Mensagens
+ham_buttons=Mostrar botões de reportar mensagemn confiáveis para,2,list-Caixas de e-mail,mail-Mensagens
+spam_del=Excluir spam ao denunciar?,1,1-Sim,0-Não
+white_move=Mover e-mails para a caixa de entrada ao colocar na lista de permitidos?,1,1-Sim,0-Não
+ham_move=Mover mensagens para a caixa de entrada ao reportar que é confiável?,1,1-Sim,0-Não
+white_book=Adicionar todas as entradas do catálogo de endereços à lista de permitidos?,1,1-Sim,0-Não
+white_rec=Adicionar destinatários de e-mail à lista de permissões?,1,1-Sim,0-Não
+
+line5=Opções de anexo,11
+thumbnails=Mostrar anexos de imagem como miniaturas?,1,1-Sim,0-Não
+def_attach=Número padrão de anexos enviados,0,8

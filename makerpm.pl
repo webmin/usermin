@@ -153,11 +153,18 @@ fi
 
 %post
 inetd=`grep "^inetd=" /etc/usermin/miniserv.conf 2>/dev/null | sed -e 's/inetd=//g'`
+userminpidfile=`grep "^pidfile=" /etc/usermin/miniserv.conf 2>/dev/null | sed -e 's/pidfile=//g'`
+if [ -r "\$userminpidfile" ]; then
+	userminrunning=1
+fi
 if [ "\$1" != 1 ]; then
 	# Upgrading the RPM, so stop the old Usermin properly
 	if [ "\$inetd" != "1" ]; then
 		/etc/usermin/stop >/dev/null 2>&1 </dev/null
 	fi
+else
+	# Initial install, always start it
+	userminrunning=1
 fi
 cd /usr/libexec/usermin
 config_dir=/etc/usermin
@@ -183,10 +190,10 @@ export config_dir var_dir perl autoos port ssl nochown autothird noperlpath noun
 ./setup.sh >/tmp/.webmin/usermin-setup.out 2>&1
 chmod 600 /tmp/.webmin/usermin-setup.out
 rm -f /var/lock/subsys/usermin
-if [ "\$inetd" != "1" ]; then
+if [ "\$inetd" != "1" ] && [ "\$userminrunning" = "1" ]; then
 	/etc/usermin/restart >/dev/null 2>&1 </dev/null
 	if [ "\$?" != "0" ]; then
-		echo "error: Usermin server cannot be started. It is advised to start it manually\n       by running \\"/etc/usermin/restart-by-force-kill\\" command"
+		echo "error: Usermin server cannot be started. It is advised to start it manually by\n       running \\"/etc/usermin/restart-by-force-kill\\" command"
 	fi
 fi
 cat >/etc/usermin/uninstall.sh <<EOFF

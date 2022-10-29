@@ -162,27 +162,29 @@ sub list_addresses
 {
 my @rv;
 my $i = 0;
-open(my $ADDRESS, "<", $address_book);
-while(<$ADDRESS>) {
-	s/\r|\n//g;
-	my @sp = split(/\t/, $_);
-	if (@sp >= 1) {
-		push(@rv, [ $sp[0], $sp[1], $i, $sp[2] ]);
-		}
-	$i++;
-	}
-close($ADDRESS);
-if ($config{'global_address'}) {
-	my $gab = &group_subs($config{'global_address'});
-	open(my $ADDRESS, "<", $gab);
+if (open(my $ADDRESS, "<", $address_book)) {
 	while(<$ADDRESS>) {
 		s/\r|\n//g;
-		my @sp = split(/\t+/, $_);
-		if (@sp >= 2) {
-			push(@rv, [ $sp[0], $sp[1] ]);
+		my @sp = split(/\t/, $_);
+		if (@sp >= 1) {
+			push(@rv, [ $sp[0], $sp[1], $i, $sp[2] ]);
 			}
+		$i++;
 		}
 	close($ADDRESS);
+	}
+if ($config{'global_address'}) {
+	my $gab = &group_subs($config{'global_address'});
+	if (open(my $ADDRESS, "<", $gab)) {
+		while(<$ADDRESS>) {
+			s/\r|\n//g;
+			my @sp = split(/\t+/, $_);
+			if (@sp >= 2) {
+				push(@rv, [ $sp[0], $sp[1] ]);
+				}
+			}
+		close($ADDRESS);
+		}
 	}
 if ($userconfig{'sort_addrs'} == 2) {
 	return sort { lc($a->[0]) cmp lc($b->[0]) } @rv;
@@ -2052,6 +2054,7 @@ sub field_sort_link
 {
 my ($title, $field, $folder, $start) = @_;
 my ($sortfield, $sortdir) = &get_sort_field($folder);
+$sortfield ||= "";
 my $dir = $sortfield eq $field ? !$sortdir : 0;
 my $img = $sortfield eq $field && $dir ? "sortascgrey.gif" :
 	     $sortfield eq $field && !$dir ? "sortdescgrey.gif" :
@@ -2068,8 +2071,8 @@ else {
 sub view_mail_link
 {
 my ($folder, $id, $start, $txt) = @_;
-my $qid = &urlize($id);
-my $qstart = &urlize($start);
+my $qid = $id ? &urlize($id) : "";
+my $qstart = $start ? &urlize($start) : "";
 my $url = "view_mail.cgi?start=$qstart&id=$qid&folder=$folder->{'index'}";
 if ($userconfig{'open_mode'}) {
 	return "<a href='' onClick='window.open(\"$url\", \"viewmail\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>".

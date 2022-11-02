@@ -3,6 +3,8 @@
 
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 
 # Load libs
 BEGIN { push( @INC, "." ); }

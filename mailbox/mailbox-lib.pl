@@ -1,6 +1,8 @@
 # mailbox-lib.pl
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %config, %gconfig, %userconfig);
 our $remote_user;
 our @remote_user_info;

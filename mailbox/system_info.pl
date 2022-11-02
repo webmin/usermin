@@ -1,6 +1,8 @@
 
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 require 'mailbox-lib.pl';
 our (%text, %gconfig);
 

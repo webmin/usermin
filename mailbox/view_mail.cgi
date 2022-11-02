@@ -3,6 +3,8 @@
 # View a single email message
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %config, %gconfig, %userconfig);
 our $module_name;
 our $user_module_config_directory;

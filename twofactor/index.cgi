@@ -3,6 +3,8 @@
 
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 require './twofactor-lib.pl';
 our (%in, %text, $remote_user);
 &ui_print_header(undef, $text{'index_title'}, "");

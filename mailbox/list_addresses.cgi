@@ -2,6 +2,8 @@
 # Display contents of the user's address book, and allowed and denied addresses
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %config, %userconfig);
 
 require './mailbox-lib.pl';

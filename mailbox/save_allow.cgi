@@ -2,6 +2,8 @@
 # Update allowed or denied email addresses
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in);
 
 require './mailbox-lib.pl';

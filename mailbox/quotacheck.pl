@@ -4,6 +4,8 @@
 # error occurred
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 
 use Net::LDAP;
 

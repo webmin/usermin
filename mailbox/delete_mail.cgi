@@ -3,6 +3,8 @@
 # Delete, mark, move or copy multiple messages
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %userconfig, %gconfig);
 
 require './mailbox-lib.pl';

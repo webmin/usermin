@@ -2,6 +2,8 @@
 # Show a form for setting up scheduled folder clearing
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %config);
 
 require './mailbox-lib.pl';

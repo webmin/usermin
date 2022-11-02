@@ -2,6 +2,8 @@
 # Create, modify or delete a virtual folder
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %config);
 
 require './mailbox-lib.pl';

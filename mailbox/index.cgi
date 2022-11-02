@@ -3,6 +3,8 @@
 # List the mail messages for the user
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %userconfig, %config);
 our ($remote_user, $remote_pass);
 our $special_folder_id;

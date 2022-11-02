@@ -3,6 +3,8 @@
 # Display a form for creating or editing a composite folder
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %config);
 
 require './mailbox-lib.pl';

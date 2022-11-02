@@ -3,6 +3,8 @@
 # Save inbox POP3 login and password
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %pop3);
 our $user_module_config_directory;
 

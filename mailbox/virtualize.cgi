@@ -2,6 +2,8 @@
 # Create a new virtual folder from some search results
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in);
 
 require './mailbox-lib.pl';

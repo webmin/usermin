@@ -3,6 +3,8 @@
 # Clear inbox POP3 login and password
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our %in;
 our $user_module_config_directory;
 

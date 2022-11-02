@@ -2,6 +2,8 @@
 # Output the address book in some format
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, $remote_user);
 
 require './mailbox-lib.pl';

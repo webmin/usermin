@@ -2,6 +2,8 @@
 # Scan through all folders, and apply the scheduled deletion policy for each
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 
 our $no_acl_check++;
 $ENV{'REMOTE_USER'} = getpwuid($<);

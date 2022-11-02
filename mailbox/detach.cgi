@@ -3,6 +3,8 @@
 # View one attachment from a message
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in);
 
 use Socket;

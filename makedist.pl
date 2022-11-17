@@ -50,7 +50,7 @@ if ($webmail) {
 	push(@mlist, "virtual-server-theme");
 	push(@mlist, "virtual-server-mobile");
 	}
-@dirlist = ( "JSON" );
+@dirlist = ( "vendor_perl" );
 
 chdir("/usr/local/useradmin");
 if ($webmail) {

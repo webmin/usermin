@@ -538,6 +538,7 @@ print &ui_hidden("charset", $main::force_charset);
 # Start tabs for from / to / cc / bcc / signing / options
 # Subject is separate
 print &ui_table_start($text{'reply_headers'}, "width=100%", 2);
+print "<tbody><tr><td>";
 my $has_gpg;
 my @keys;
 if (&has_command("gpg") && &foreign_check("gnupg") &&
@@ -546,7 +547,6 @@ if (&has_command("gpg") && &foreign_check("gnupg") &&
 	@keys = &gnupg::list_keys_sorted();
 	$has_gpg = @keys ? 1 : 0;
 	}
-my @tds = ( "width=10%", "width=90% nowrap" );
 my @tabs = ( [ "from", $text{'reply_tabfrom'} ],
 	  $userconfig{'reply_to'} ne 'x' ?
 		( [ "rto", $text{'reply_tabreplyto'} ] ) : ( ),
@@ -556,7 +556,7 @@ my @tabs = ( [ "from", $text{'reply_tabfrom'} ],
 		  [ "bcc", $text{'reply_tabbcc'} ] ),
 	  $has_gpg ? ( [ "signing", $text{'reply_tabsigning'} ] ) : ( ),
 	  [ "options", $text{'reply_taboptions'} ] );
-print &ui_table_row(undef, &ui_tabs_start(\@tabs, "tab", "to", 0), 2);
+print &ui_tabs_start(\@tabs, "tab", "to", 0);
 
 # From address tab
 my @froms;
@@ -645,56 +645,56 @@ else {
 			     &ui_hidden("from", $froms[0]);
 		}
 	}
-print &ui_tabs_start_tabletab("tab", "from");
-print &ui_table_row($text{'mail_from'}, $frominput, 1, \@tds);
-print &ui_tabs_end_tabletab();
+print &ui_tabs_start_tab("tab", "from");
+print &ui_div_row($text{'mail_from'}, $frominput);
+print &ui_tabs_end_tab();
 
 # Show the Reply-To field
 if ($userconfig{'reply_to'} ne 'x') {
 	$rto = $userconfig{'reply_to'} if ($userconfig{'reply_to'} ne '*');
-	print &ui_tabs_start_tabletab("tab", "rto");
-	print &ui_table_row($text{'mail_replyto'},
-			    &ui_address_field("replyto", $rto, 1, 0), 1, \@tds);
-	print &ui_tabs_end_tabletab();
+	print &ui_tabs_start_tab("tab", "rto");
+	print &ui_div_row($text{'mail_replyto'},
+			    &ui_address_field("replyto", $rto, 1, 0));
+	print &ui_tabs_end_tab();
 	}
 
 $bcc ||= $userconfig{'bcc_to'};
 if ($userconfig{'cc_tabs'}) {
 	# Show all address fields in a tab
-	print &ui_tabs_start_tabletab("tab", "to");
+	print &ui_tabs_start_tab("tab", "to");
 
-	print &ui_table_row($text{'mail_to'}, &ui_address_field("to", $to,
-			    0, 1), 1, \@tds);
-	print &ui_table_row($text{'mail_cc'}, &ui_address_field("cc", $cc,
-			    0, 1), 1, \@tds);
-	print &ui_table_row($text{'mail_bcc'}, &ui_address_field("bcc", $bcc,
-			    0, 1), 1, \@tds);
+	print &ui_div_row($text{'mail_to'}, &ui_address_field("to", $to,
+			    0, 1));
+	print &ui_div_row($text{'mail_cc'}, &ui_address_field("cc", $cc,
+			    0, 1));
+	print &ui_div_row($text{'mail_bcc'}, &ui_address_field("bcc", $bcc,
+			    0, 1));
 
-	print &ui_tabs_end_tabletab();
+	print &ui_tabs_end_tab();
 	}
 else {
 	# Show To: field in a tab
-	print &ui_tabs_start_tabletab("tab", "to");
-	print &ui_table_row($text{'mail_to'}, &ui_address_field("to", $to,
-			    0, 1), 1, \@tds);
-	print &ui_tabs_end_tabletab();
+	print &ui_tabs_start_tab("tab", "to");
+	print &ui_div_row($text{'mail_to'}, &ui_address_field("to", $to,
+			    0, 1));
+	print &ui_tabs_end_tab();
 
 	# Show Cc: field in a tab
-	print &ui_tabs_start_tabletab("tab", "cc");
-	print &ui_table_row($text{'mail_cc'}, &ui_address_field("cc", $cc,
-			    0, 1), 1, \@tds);
-	print &ui_tabs_end_tabletab();
+	print &ui_tabs_start_tab("tab", "cc");
+	print &ui_div_row($text{'mail_cc'}, &ui_address_field("cc", $cc,
+			    0, 1));
+	print &ui_tabs_end_tab();
 
 	# Show Bcc: field in a tab
-	print &ui_tabs_start_tabletab("tab", "bcc");
-	print &ui_table_row($text{'mail_bcc'}, &ui_address_field("bcc", $bcc,
-			    0, 1), 1, \@tds);
-	print &ui_tabs_end_tabletab();
+	print &ui_tabs_start_tab("tab", "bcc");
+	print &ui_div_row($text{'mail_bcc'}, &ui_address_field("bcc", $bcc,
+			    0, 1));
+	print &ui_tabs_end_tab();
 	}
 
 # Ask for signing and encryption
 if ($has_gpg) {
-	print &ui_tabs_start_tabletab("tab", "signing");
+	print &ui_tabs_start_tab("tab", "signing");
 	my @signs;
 	my $def_sign = "";
 	my @crypts;
@@ -721,47 +721,46 @@ if ($has_gpg) {
 			}
 		push(@crypts, [ $k->{'index'}, $n ]);
 		}
-	print &ui_table_row($text{'mail_sign'},
+	print &ui_div_row($text{'mail_sign'},
 		&ui_select("sign", $def_sign,
-		   [ [ "", $text{'mail_nosign'} ], @signs ]), 1, \@tds);
-	print &ui_table_row($text{'mail_crypt'},
+		   [ [ "", $text{'mail_nosign'} ], @signs ]));
+	print &ui_div_row($text{'mail_crypt'},
 		&ui_select("crypt", $userconfig{'def_crypt'} ? -1 : "",
 		   [ [ "", $text{'mail_nocrypt'} ],
-		     [ -1, $text{'mail_samecrypt'} ], @crypts ]), 1, \@tds);
-	print &ui_tabs_end_tabletab();
+		     [ -1, $text{'mail_samecrypt'} ], @crypts ]));
+	print &ui_tabs_end_tab();
 	}
 
 # Show tab for options
-print &ui_tabs_start_tabletab("tab", "options");
-print &ui_table_row($text{'mail_pri'},
+print &ui_tabs_start_tab("tab", "options");
+print &ui_div_row($text{'mail_pri'},
 		&ui_select("pri", "",
 			[ [ 1, $text{'mail_highest'} ],
 			  [ 2, $text{'mail_high'} ],
 			  [ "", $text{'mail_normal'} ],
 			  [ 4, $text{'mail_low'} ],
-			  [ 5, $text{'mail_lowest'} ] ]), 1, \@tds);
+			  [ 5, $text{'mail_lowest'} ] ]));
 
 if ($userconfig{'req_dsn'} == 2) {
 	# Ask for a disposition (read) status
-	print &ui_table_row($text{'reply_dsn'},
+	print &ui_div_row($text{'reply_dsn'},
 		&ui_radio("dsn", 0, [ [ 1, $text{'yes'} ],
-				      [ 0, $text{'no'} ] ]), 1, \@tds);
+				      [ 0, $text{'no'} ] ]));
 	}
 
 if ($userconfig{'req_del'} == 2) {
 	# Ask for a delivery status
-	print &ui_table_row($text{'reply_del'},
+	print &ui_div_row($text{'reply_del'},
 		&ui_radio("del", 0, [ [ 1, $text{'yes'} ],
-				      [ 0, $text{'no'} ] ]), 1, \@tds);
+				      [ 0, $text{'no'} ] ]));
 	}
 
 # Ask if should add to address book
-print &ui_table_row(" ",
-    &ui_checkbox("abook", 1, $text{'reply_aboot'}, $userconfig{'add_abook'}),
-    1, \@tds);
-print &ui_tabs_end_tabletab();
+print &ui_div_row(" ",
+    &ui_checkbox("abook", 1, $text{'reply_aboot'}, $userconfig{'add_abook'}));
+print &ui_tabs_end_tab();
 
-print &ui_table_row(undef, &ui_tabs_end());
+print &ui_tabs_end();
 
 # JS to disable enter in subject field
 print <<EOF;
@@ -774,22 +773,22 @@ EOF
 
 # Field for subject is always at the bottom
 if ($userconfig{'send_buttons'}) {
-	print &ui_table_row($text{'mail_subject'},
+	print &ui_div_row($text{'mail_subject'},
 		&ui_textbox("subject", $subject, 40, 0, undef,
-			    "style='width:60%' onKeyPress='return noenter()'").
-		&ui_submit($text{'reply_send'}).
+			    "style='width:50%' onKeyPress='return noenter()'").
+		"&nbsp;&nbsp;".&ui_submit($text{'reply_send'}).
 		&ui_submit($text{'reply_draft'}, "draft", undef,
 			   "onClick='form.draft_clicked = 1'").
 		&ui_submit($text{'reply_save'}, "save", undef,
-			   "onClick='form.draft_clicked = 1'"),
-		1, \@tds);
+			   "onClick='form.draft_clicked = 1'"));
 	}
 else {
 	# Subject only
-	print &ui_table_row($text{'mail_subject'},
+	print &ui_div_row($text{'mail_subject'},
 		&ui_textbox("subject", $subject, 40, 0, undef,
-			    "style='width:95%' onKeyPress='return noenter()'"), 1, \@tds);
+			    "style='width:90%' onKeyPress='return noenter()'"));
 	}
+print "</td></tr></tbody>";
 print &ui_table_end();
 
 # Create link for switching to HTML/text mode for new mail

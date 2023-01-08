@@ -3,6 +3,8 @@
 # Display a form for creating or editing a folder of some kind
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %userconfig);
 our $folders_dir;
 our @remote_user_info;

@@ -3,6 +3,8 @@
 # Display a list of entries from the address book
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %uconfig);
 
 our $trust_unknown_referers = 1;

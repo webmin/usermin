@@ -3,6 +3,8 @@
 # the Special folder
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 
 require './mailbox-lib.pl';
 my $special = &get_special_folder();

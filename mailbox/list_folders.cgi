@@ -3,6 +3,8 @@
 # Display a list of all folders and allows additional and deletion
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in);
 our %folder_types;
 our $remote_user;

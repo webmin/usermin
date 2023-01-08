@@ -3,6 +3,8 @@
 
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 require './twofactor-lib.pl';
 our (%in, %text, $remote_user);
 &error_setup($text{'enable_err'});

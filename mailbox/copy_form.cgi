@@ -2,6 +2,8 @@
 # Show a form for copying or moving all email to another folder
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %config);
 
 require './mailbox-lib.pl';

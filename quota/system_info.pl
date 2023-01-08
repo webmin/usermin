@@ -1,6 +1,8 @@
 
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 require 'quota-lib.pl';
 our (%text, %config, $remote_user, %filesys);
 

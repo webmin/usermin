@@ -2,6 +2,8 @@
 # Display a list of IMAP folders, and allow addition and deletion
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in);
 
 require './mailbox-lib.pl';

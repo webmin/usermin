@@ -1,6 +1,8 @@
 # Function to get the desired menu of folders, for use by themes
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %config, %userconfig);
 our $module_name;
 our $special_folder_id;

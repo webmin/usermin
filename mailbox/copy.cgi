@@ -2,6 +2,8 @@
 # Copy (or move) all messages from one folder to another
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %config);
 
 require './mailbox-lib.pl';

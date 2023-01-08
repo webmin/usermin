@@ -3,6 +3,8 @@
 # Save, add or delete an address group entry
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in);
 
 require './mailbox-lib.pl';

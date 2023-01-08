@@ -3,6 +3,8 @@
 # Let user update IMAP/POP3 login credentials
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in);
 our ($remote_user, $remote_pass);
 

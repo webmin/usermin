@@ -3,6 +3,8 @@
 # Display a form for searching a mailbox
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %userconfig);
 our $search_folder_id;
 

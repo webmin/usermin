@@ -3,6 +3,8 @@
 # View a single email message
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %config, %gconfig, %userconfig);
 our $module_name;
 our $user_module_config_directory;
@@ -296,7 +298,7 @@ if ($bodycontents) {
 	}
 else {
 	print &ui_table_start($text{'view_body'}, "width=100%", 1);
-	print &ui_table_row(undef, "<b>$text{'view_nobody'}</b>");
+	print &ui_table_row(undef, "<strong>$text{'view_nobody'}</strong>");
 	print &ui_table_end();
 	}
 

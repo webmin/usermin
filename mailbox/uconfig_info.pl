@@ -1,5 +1,7 @@
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our %userconfig; # Export this
 
 do 'mailbox-lib.pl';

@@ -2,6 +2,8 @@
 # Display a message for printing
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our (%text, %in, %userconfig);
 
 our $trust_unknown_referers = 1;

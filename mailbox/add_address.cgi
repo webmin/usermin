@@ -3,6 +3,8 @@
 # Add an address from an email to the user's address book
 use strict;
 use warnings;
+no warnings 'redefine';
+no warnings 'uninitialized';
 our %in;
 
 require './mailbox-lib.pl';

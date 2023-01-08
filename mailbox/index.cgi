@@ -26,7 +26,11 @@ elsif (!defined($in{'folder'}) && $userconfig{'default_folder'}) {
 	my $df = &find_named_folder($userconfig{'default_folder'}, \@folders);
 	$in{'folder'} = $df->{'index'} if ($df);
 	}
+
 # Get the folder by index
+if (!defined($in{'folder'})) {
+	$in{'folder'} = 0;
+	}
 my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
 
 # Show page header

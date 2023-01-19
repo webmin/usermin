@@ -97,11 +97,14 @@ if (!$data->{'nofolders'}) {
 push(@rv, { 'type' => 'hr' });
 
 # Search box
+my $left_search_text = $text{'left_search'};
+$left_search_text =~ s/\:$//;
 push(@rv, { 'type' => 'input',
 	    'id' => 'search',
 	    'name' => 'search',
-	    'size' => 10,
-	    'desc' => $text{'left_search'},
+	    'size' => 23,
+	    'desc' => ' ',
+	    'tags' => " placeholder='$left_search_text'",
 	    'cgi' => '/'.$module_name.'/mail_search.cgi',
 	    'hidden' => [ [ 'simple', 1 ],
 			  [ 'lastfolder', 1 ],

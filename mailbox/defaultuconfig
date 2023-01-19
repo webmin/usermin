@@ -56,3 +56,4 @@ reply_self=0
 maildir_deleted=1
 def_crypt=0
 show_sort=1
+folders_menu=1

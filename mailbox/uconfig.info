@@ -71,6 +71,7 @@ show_unread=Show unread messages count,1,2-Yes,1-Only for IMAP,0-No
 related_search=Search for same subject or sender in,1,1-All folders,2-All local folders,0-Current folder
 search_latest=Messages to search,10,-All messages,Only latest
 mailbox_dir=Mailboxes directory under home directory,0,30
+folders_menu=Show mail folders on the left menu?,1,1-Yes,0-No
 
 line3.5=Deleting email,11
 delete_warn=Ask for confirmation before deleting?,10,y-Yes,n-No,For mbox files larger than

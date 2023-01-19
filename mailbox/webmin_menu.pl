@@ -13,6 +13,9 @@ sub list_webmin_menu
 {
 my ($data) = @_;
 my @rv;
+if (!$userconfig{'folders_menu'}) {
+	return ();
+	}
 
 # Desired title
 push(@rv, { 'type' => 'title',

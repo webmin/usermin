@@ -432,9 +432,9 @@ else {
 		    (!$in{'forward'} || !$userconfig{'fwd_mode'});
 	$subject = &convert_header_for_display($mail->{'header'}->{'subject'},
 					       undef, 1);
-	$subject = "Re: ".$subject if ($subject !~ /^Re/i && !$in{'forward'} &&
+	$subject = "Re: ".$subject if ($subject !~ /^Re:/i && !$in{'forward'} &&
 				       !@fwdmail && !$in{'enew'});
-	$subject = "Fwd: ".$subject if ($subject !~ /^Fwd/i &&
+	$subject = "Fwd: ".$subject if ($subject !~ /^Fwd:/i &&
 					($in{'forward'} || @fwdmail));
 
 	# Remove signature

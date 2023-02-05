@@ -32,7 +32,6 @@ push(@table, { 'desc' => $text{'right_usermin'},
 	       'value' => &get_webmin_version() });
 
 # System time
-$main::theme_allow_make_date = 1;
 my $tm = make_date(time());
 push(@table, { 'desc' => $text{'right_time'},
 	       'value' => $tm });

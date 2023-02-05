@@ -51,7 +51,7 @@ send_dsn=Responder às notificações de status de leitura?,1,1-Automaticamente,
 req_del=Solicitar notificações de status de entrega?,1,1-Sempre,2-Opcionalmente,0-Não
 
 line2=Configurações de data e hora,11
-date_fmt=Formato de data na lista de e-mails,1,dma-DD/MM/AAAA,mda-MM/DD/AAAA,amd-AAAA/MM/DD
+date_fmt=Formato de data na lista de e-mails,1,auto-Locale based,dma-DD/MM/AAAA,mda-MM/DD/AAAA,amd-AAAA/MM/DD
 date_tz=Fuso horário para exibições de data,3,padrão do sistema
 reply_date=Incluir data ao citar e-mail,1,1-Sim,0-Não
 

@@ -56,7 +56,7 @@ send_dsn=Respond to read status notifications?,1,1-Automatically,2-Manually,0-No
 req_del=Request delivery status notifications?,1,1-Always,2-Optionally,0-No
 
 line2=Date and time settings,11
-date_fmt=Date format in mail list,1,dmy-DD/MM/YYYY,mdy-MM/DD/YYYY,ymd-YYYY/MM/DD
+date_fmt=Date format in mail list,1,auto-Locale based,dmy-DD/MM/YYYY,mdy-MM/DD/YYYY,ymd-YYYY/MM/DD
 date_tz=Timezone for date displays,3,System default
 reply_date=Include date when quoting email,1,1-Yes,0-No
 

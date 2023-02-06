@@ -32,8 +32,11 @@ push(@table, { 'desc' => $text{'right_usermin'},
 	       'value' => &get_webmin_version() });
 
 # System time
-$main::theme_allow_make_date = 1;
-my $tm = make_date(time());
+my $tm = localtime(time());
+eval "use DateTime; use DateTime::Locale; use DateTime::TimeZone;";
+if (!$@) {
+   $tm = make_date(time(), {get => 'full-tz'});
+   }
 push(@table, { 'desc' => $text{'right_time'},
 	       'value' => $tm });
 

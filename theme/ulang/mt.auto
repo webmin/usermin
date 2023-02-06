@@ -1,9 +1,10 @@
 index_title=Usermin Tema
 index_desc=It-Temi jikkontrollaw id-dehra tal-interface tal-utent Usermin għall-login tiegħek, inklużi ikoni, kuluri, sfondi u possibbilment it-tqassim tal-paġni. Il-kaxxa tal-għażla hawn taħt tista 'tintuża biex tagħżel waħda mit-temi installati fis-sistema tiegħek.
-index_sel=Tema kurrenti :
+index_sel=Tema
 index_default=Tema 'Old Usermin
 index_change=Ibdel
 index_global=Default tal-Usermin Global
+
 change_title=Nibdlu Tema
 change_user=Timmodifika l-login tal-Usermin ..
 change_done=.. sar

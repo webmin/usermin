@@ -1,6 +1,7 @@
 index_title=Jezik
 index_title2=Uporabniški jezik
-index_lang=Prikaz v jeziku:
+index_lang=Jezik
+index_locale=Locale
 index_intro=Ta stran omogoča izbiro jezika, ki ga bo Usermin uporabil za prikaz naslovov, pozivov in sporočil za prijavo.
 index_ok=Spremeni se
 index_global=Global Usermin privzeto

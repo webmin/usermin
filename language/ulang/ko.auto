@@ -1,6 +1,7 @@
 index_title=언어
 index_title2=사용자 민 언어
-index_lang=언어로 표시 :
+index_lang=언어
+index_locale=장소
 index_intro=이 페이지에서 로그인 할 때 제목, 프롬프트 및 메시지를 표시하기 위해 Usermin이 사용할 언어를 선택할 수 있습니다.
 index_ok=변화
 index_global=글로벌 Usermin 기본값

@@ -1,9 +1,10 @@
 index_title=Usermin Téma
 index_desc=Témy ovládajú vzhľad používateľského rozhrania Usermin pre vaše prihlásenie, vrátane ikon, farieb, pozadia a prípadne rozloženia stránok. Výberové pole nižšie môžete použiť na výber jednej z tém nainštalovaných vo vašom systéme.
-index_sel=Aktuálna téma :
+index_sel=Téma
 index_default=Stará téma Usermin
 index_change=zmena
 index_global=Globálne predvolené predvolené
+
 change_title=Zmena témy
 change_user=Úprava prihlasovacieho mena používateľa.
 change_done=.. hotový

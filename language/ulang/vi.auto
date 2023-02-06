@@ -1,6 +1,7 @@
 index_title=Ngôn ngữ
 index_title2=Ngôn ngữ Usermin
-index_lang=Hiển thị bằng ngôn ngữ:
+index_lang=Ngôn ngữ
+index_locale=địa phương
 index_intro=Trang này cho phép bạn chọn ngôn ngữ Usermin sẽ sử dụng để hiển thị tiêu đề, lời nhắc và thông báo cho thông tin đăng nhập của bạn.
 index_ok=Thay đổi
 index_global=Toàn cầu Usermin

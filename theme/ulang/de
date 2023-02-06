@@ -1,9 +1,9 @@
 index_title=Design ändern
 index_desc=Auf dieser Seite können Sie die Darstellung von Usermin einrichten.
-index_sel=Derzeitiges Design :
 index_default=Altes Usermin-Design
 index_change=Ändern
 index_global=Standard Usermin-Design
+
 change_title=Ädere Design
 change_user=Bearbeite Usermin Login ..
 change_done=.. erledigt

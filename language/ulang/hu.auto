@@ -1,6 +1,7 @@
 index_title=Nyelv
 index_title2=Felhasználói nyelv
-index_lang=Megjelenítés nyelven:
+index_lang=Nyelv
+index_locale=Nyelv
 index_intro=Ezen az oldalon kiválaszthatja, hogy a Usermin milyen nyelven jelenítse meg a címeket, utasításokat és üzeneteket a bejelentkezéshez.
 index_ok=változás
 langauto_include=Tartalmazza a gépi fordításokat

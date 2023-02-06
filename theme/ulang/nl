@@ -1,6 +1,5 @@
 index_title=Uiterlijk van Usermin
 index_desc=U kunt het uiterlijk van de Usermin-gebruikers interface veranderen, waaronder o.a. de iconen, kleuren, achtergronden en wellicht de pagina opmaak. Met de keuzelijst kunt u uit de verschillende thema's kiezen die op uw systeem zijn geïnstalleerd.
-index_sel=Huidig thema :
 index_default=Oud uiterlijk:
 index_change=Aanpassen
 index_global=Globale Usermin Standaard

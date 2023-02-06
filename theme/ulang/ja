@@ -1,6 +1,5 @@
 index_title=Usermin テーマ
 index_desc=テーマはアイコン、色、背景、さらにページ レイアウトを含む Usermin ユーザ インターフェイスの外観を制御します。下の選択ボックスは、ご使用のシステムにインストールされたテーマの 1 つを選択するのに使用できます。
-index_sel=現在のテーマ :
 index_default=デフォルトの Usermin テーマ
 index_change=変更
 index_global=Global Usermin default

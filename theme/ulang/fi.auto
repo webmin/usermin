@@ -1,9 +1,10 @@
 index_title=Usermin-teema
 index_desc=Teemat ohjaavat sisäänkirjautumisen Usermin-käyttöliittymän ulkonäköä, mukaan lukien kuvakkeet, värit, taustat ja mahdollisesti sivujen asettelut. Alla olevaa valintaruutua voidaan käyttää valitsemalla yksi järjestelmään asennetuista teemoista.
-index_sel=Nykyinen teema :
+index_sel=Teema
 index_default=Vanha Usermin-teema
 index_change=Muuttaa
 index_global=Global Usermin oletus
+
 change_title=Vaihdettava teema
 change_user=Muutetaan Usermin-kirjautumista ..
 change_done=.. valmis

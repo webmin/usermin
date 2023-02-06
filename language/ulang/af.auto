@@ -1,6 +1,7 @@
 index_title=Taal
 index_title2=Usermin taal
-index_lang=Vertoon in taal:
+index_lang=Taal
+index_locale=Lokaal
 index_intro=Op hierdie bladsy kan u kies watter taal Usermin sal gebruik om titels, aanwysings en boodskappe vir u aanmelding te vertoon.
 index_ok=verandering
 index_global=Global Usermin standaard

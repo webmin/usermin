@@ -1,9 +1,10 @@
 index_title=Usermin Gaia
 index_desc=Gaiak zure saioa hasteko Usermin erabiltzailearen interfazearen itxura kontrolatzen du, ikonoak, koloreak, atzeko planoak eta, agian, orrien diseinua. Beheko hautatutako laukia zure sisteman instalatutako gairen bat aukeratzeko erabil daiteke.
-index_sel=Oraingo gaia :
+index_sel=Gaia
 index_default=Erabiltzaile zaharraren gaia
 index_change=Aldaketa
 index_global=Erabiltzaile orokorraren lehenetsia
+
 change_title=Gaia aldatzen
 change_user=Erabiltzailearen hasierako saioa aldatzen ..
 change_done=.. egin

@@ -1,9 +1,10 @@
 index_title=Tema Usermin
 index_desc=Teme nadzirajo izgled uporabniškega vmesnika Usermin za vašo prijavo, vključno z ikonami, barvami, ozadji in morda postavitvijo strani. Spodnje izbirno polje lahko uporabite za izbiro ene od tem, nameščenih v vašem sistemu.
-index_sel=Trenutna tema :
+index_sel=Tema
 index_default=Stara tema uporabnika
 index_change=Spremeni se
 index_global=Global Usermin privzeto
+
 change_title=Spreminjanje teme
 change_user=Spreminjanje prijave za uporabniško ime ..
 change_done=.. Končano

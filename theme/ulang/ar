@@ -1,6 +1,5 @@
 index_title=ثيم Usermin
 index_desc=تتحكم الثيمات في مظهر واجهة مستخدم Usermin لتسجيل الدخول، بما في ذلك الرموز والألوان والخلفيات وربما تخطيط الصفحات. يمكن استخدام مربع التحديد أدناه لاختيار أحد الثيمات المثبتة على نظامك.
-index_sel=الثيم الحالي :
 index_default=Old Usermin theme
 index_change=تغيير
 index_global=عالمي Usermin الافتراضي

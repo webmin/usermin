@@ -1,9 +1,10 @@
 index_title=Usermin 테마
 index_desc=테마는 아이콘, 색상, 배경 및 페이지 레이아웃을 포함하여 로그인을위한 Usermin 사용자 인터페이스의 모양을 제어합니다. 아래의 선택 상자를 사용하여 시스템에 설치된 테마 중 하나를 선택할 수 있습니다.
-index_sel=현재 주제  :
+index_sel=주제
 index_default=Old Usermin 테마
 index_change=변화
 index_global=글로벌 Usermin 기본값
+
 change_title=테마 변경
 change_user=Usermin 로그인 수정 ..
 change_done=.. 완료

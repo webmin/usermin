@@ -1,9 +1,10 @@
 index_title=Tema Usermin
 index_desc=Tema mengawal rupa antara muka pengguna Usermin untuk log masuk anda, termasuk ikon, warna, latar belakang dan mungkin susun atur halaman. Kotak pilihan di bawah boleh digunakan untuk memilih salah satu tema yang dipasang pada sistem anda.
-index_sel=Tema semasa :
+index_sel=Tema
 index_default=Tema Usermin Lama
 index_change=Ubah
 index_global=Lalai Global Usermin
+
 change_title=Menukar Tema
 change_user=Mengubah suai Usermin ..
 change_done=.. selesai

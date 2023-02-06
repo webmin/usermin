@@ -1,9 +1,10 @@
 index_title=Usermin Tema
 index_desc=Temas beheer die voorkoms van die Usermin-gebruikerskoppelvlak vir u aanmelding, insluitend ikone, kleure, agtergronde en moontlik die uitleg van bladsye. Die keusevak hieronder kan gebruik word om een van die temas te kies wat op u stelsel geïnstalleer is.
-index_sel=Huidige tema :
+index_sel=Tema
 index_default=Ou Usermin-tema
 index_change=verandering
 index_global=Global Usermin standaard
+
 change_title=Tema verander
 change_user=Verander die aanmelding van Usermin ..
 change_done=.. klaar

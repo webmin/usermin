@@ -35,7 +35,7 @@ push(@table, { 'desc' => $text{'right_usermin'},
 my $tm = localtime(time());
 eval "use DateTime; use DateTime::Locale; use DateTime::TimeZone;";
 if (!$@) {
-   $tm = make_date(time(), {get => 'full-tz'});
+   $tm = make_date(time(), {get => 'complete'});
    }
 push(@table, { 'desc' => $text{'right_time'},
 	       'value' => $tm });

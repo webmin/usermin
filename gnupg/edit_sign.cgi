@@ -30,9 +30,9 @@ print &ui_table_row($text{'sign_key'},
 print &ui_table_row($text{'sign_ascii'},
 	&ui_yesno_radio("ascii", 1));
 
-# Separate signature>
+# Separate signature
 print &ui_table_row($text{'sign_sep'},
-	&ui_yesno_radio("sep", 0));
+	&ui_yesno_radio("sep", 1));
 
 print &ui_table_end();
 print &ui_form_end([ [ undef, $text{'sign_ok'} ] ]);

@@ -485,7 +485,7 @@ if ($folder_types{'ext'} && $userconfig{'sent_mail'}) {
 	$done{$userconfig{'sent_mail'}}++;
 	}
 else {
-	my $sfn = $userconfig{'sent_name'} || 'sentmail';
+	my $sfn = $userconfig{'sent_name'} || 'Sent';
 	$sf = "$folders_dir/$sfn";
 	if (!-e $sf && $userconfig{'mailbox_dir'} eq "Maildir") {
 		# For Maildir++ , use .sentmail

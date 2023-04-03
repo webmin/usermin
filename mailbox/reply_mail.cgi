@@ -267,13 +267,15 @@ else {
 		    $in{'white'}) {
 			&mailbox_move_mail($folder, $inbox, $mail);
 			&mail_page_footer(
-				"index.cgi?folder=$in{'folder'}",
+				"index.cgi?folder=$in{'folder'}&".
+				"start=$in{'start'}",
 				  $text{'mail_return'});
 			}
 		else {
 			&mail_page_footer(
 				$viewlink, $text{'view_return'},
-				"index.cgi?folder=$in{'folder'}",
+				"index.cgi?folder=$in{'folder'}&".
+				"start=$in{'start'}",
 				  $text{'mail_return'});
 			}
 		exit;
@@ -342,7 +344,7 @@ else {
 		&mail_page_footer(
 			$deleted ? ( ) :
 			( $viewlink, $text{'view_return'} ),
-			"index.cgi?folder=$in{'folder'}",
+			"index.cgi?folder=$in{'folder'}&start=$in{'start'}",
 			 $text{'mail_return'});
 		exit;
 		}

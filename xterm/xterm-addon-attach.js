@@ -1,0 +1,1 @@
+../webadmin/xterm/xterm-addon-attach.js

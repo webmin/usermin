@@ -1,1 +1,1 @@
-../webadmin/xterm/shellserver.pl
+../../webadmin/xterm/shellserver.pl

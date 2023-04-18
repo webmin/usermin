@@ -1,1 +1,1 @@
-../webadmin/xterm/xterm-addon-fit.js
+../../webadmin/xterm/xterm-addon-fit.js

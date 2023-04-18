@@ -1,1 +1,1 @@
-../webadmin/xterm/xterm.js
+../../webadmin/xterm/xterm.js

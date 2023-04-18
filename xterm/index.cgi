@@ -1,1 +1,1 @@
-../webadmin/xterm/index.cgi
+../../webadmin/xterm/index.cgi

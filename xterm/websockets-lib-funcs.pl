@@ -1,1 +1,1 @@
-../webadmin/xterm/websockets-lib-funcs.pl
+../../webadmin/xterm/websockets-lib-funcs.pl

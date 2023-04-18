@@ -44,7 +44,8 @@ $release = $3;
 	  "procmail", "chfn", "htaccess", "commands", "man", "usermount",
 	  "tunnel", "updown", "postgresql", "spam",
 	  "htaccess-htpasswd", "schedule", "mailcap",
-	  "filter", "gray-theme", "authentic-theme", "filemin", "twofactor",
+	  "filter", "gray-theme", "authentic-theme", "filemin",
+	  "twofactor", "xterm",
 	 );
 if ($webmail) {
 	push(@mlist, "virtual-server-theme");

@@ -1,0 +1,1 @@
+../webadmin/xterm/rc/.bashrc

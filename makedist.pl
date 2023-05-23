@@ -5,9 +5,13 @@ if ($ARGV[0] eq "--webmail" || $ARGV[0] eq "--webmail") {
 	$webmail = 1;
 	shift(@ARGV);
 	}
-if (@ARGV != 1) {
-	die "usage: makedist.pl [--webmail] <version>";
+if ($ARGV[0] =~ /^--exclude-modules/) {
+	$exclude_modules = $ARGV[0];
+	shift(@ARGV);
 	}
+@ARGV == 1 || @ARGV == 2 ||
+	die "usage: makedist.pl [--webmail] [--exclude-modules] <version>";
+
 $fullvers = $ARGV[0];
 $fullvers =~ /^([0-9\.]+)(\-(\d+))?$/ || usage();
 $vers = $1;
@@ -47,6 +51,12 @@ $release = $3;
 	  "filter", "gray-theme", "authentic-theme", "filemin",
 	  "twofactor", "xterm",
 	 );
+if ($exclude_modules) {
+	$exclude_modules =~ s/--exclude-modules=//;
+	my @mlist_excluded =
+	    grep { my $f = $_; ! grep $_ eq $f, split(',', $exclude_modules) } @mlist;
+	@mlist = @mlist_excluded;
+	}
 if ($webmail) {
 	push(@mlist, "virtual-server-theme");
 	push(@mlist, "virtual-server-mobile");

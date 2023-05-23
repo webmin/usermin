@@ -23,7 +23,7 @@ if ($ARGV[0] eq "--webmail" || $ARGV[0] eq "-webmail") {
 	$webmail = 1;
 	shift(@ARGV);
 	}
-$ver = $ARGV[0] || die "usage: makerpm.pl [--webmail] <version> [release]";
+$ver = $ARGV[0] || die "usage: makerpm.pl [--nosign] [--webmail] <version> [release]";
 $rel = $ARGV[1] || "1";
 
 $oscheck = <<EOF;

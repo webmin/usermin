@@ -252,7 +252,7 @@ print &ui_table_end();
 my $image_mode = defined($in{'images'}) ? $in{'images'}
 				     : $userconfig{'view_images'};
 my @bodyright;
-my ($bodycontents, $bodystuff);
+my $bodycontents;
 if ($body && $body->{'data'} =~ /\S/) {
 	if ($body eq $textbody) {
 		# Show plain text
@@ -270,7 +270,7 @@ if ($body && $body->{'data'} =~ /\S/) {
 		}
 	elsif ($body eq $htmlbody) {
 		# Attempt to show HTML
-		($bodycontents, $bodystuff) = &safe_html($body->{'data'});
+		$bodycontents = $body->{'data'};
 		my @imageurls;
 		$bodycontents = &disable_html_images($bodycontents, $image_mode,
 						     \@imageurls);
@@ -287,13 +287,15 @@ if ($body && $body->{'data'} =~ /\S/) {
 			# Link to show images
 			push(@bodyright, "<a href='$baseurl&body=$in{'body'}&headers=$in{'headers'}&images=0'>$text{'view_images'}</a>");
 			}
+		$bodycontents = &iframe_body($bodycontents)
+			if ($bodycontents);
 		}
 	}
 if ($bodycontents) {
 	print &ui_table_start($text{'view_body'}, "width=100%", 1,
 			      undef, @bodyright ? &ui_links_row(\@bodyright)
 						: undef);
-	print &ui_table_row(undef, $bodycontents, undef, [ undef, $bodystuff ]);
+	print &ui_table_row(undef, $bodycontents);
 	print &ui_table_end();
 	}
 else {

@@ -285,7 +285,7 @@ if ($body && $body->{'data'} =~ /\S/) {
 			}
 		if (@imageurls && $image_mode && $image_mode != 3) {
 			# Link to show images
-			push(@bodyright, "<a href='$baseurl&body=$in{'body'}&headers=$in{'headers'}&images=0'>$text{'view_images'}</a>");
+			push(@bodyright, "<a href='$baseurl&body=$in{'body'}&headers=$in{'headers'}&images=3'>$text{'view_images'}</a>");
 			}
 		$bodycontents = &iframe_body($bodycontents)
 			if ($bodycontents);

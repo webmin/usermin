@@ -11,7 +11,6 @@ wrap_width=Bredde som viste meldinger skal deles på,0,5
 auto_mark=Merk leste meldinger automatisk?,1,1-Ja,0-Nei
 view_html=Vis meldingstekst som,4,0-Alltid vanlig tekst,1-Tekst hvis mulig&#44; HTML ellers,2-HTML hvis mulig&#44; tekst ellers,3-Konverter HTML til vanlig tekst
 view_images=VIs innebygde bilde som standard?,1,0-Ja,1-Ingen eksterne bilder,2-Nei
-head_html=Ta med HTML fra meldingens &lt;head&gt; seksjon på siden?,1,1-Ja,0-Nei
 check_mod=Se etter postboks endring ved sletting av e-post?,1,1-Ja,0-Nei
 link_mode=Åpne lenker i,1,1-Nytt vindu,0-Samme vindu
 line0.7=Skriving av e-post,11

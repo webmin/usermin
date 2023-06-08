@@ -11,7 +11,6 @@ wrap_width=Breedte waarin mail bericht getoond word,0,5
 auto_mark=Markeer gelezen bericht automatisch?,1,1-Ja,0-Nee
 view_html=Laat berichten body zien als,4,0-Altijd als tekst,1-Tekst indien mogelijk&#44; anders HTML,2-HTML indien mogelijk&#44; anders tekst,3-Converteer HTML naar gewone tekst
 view_images=Laat plaatjes standaard in lijn zien?,1,0-Ja,1-Nee externe plaatjes,2-Nee
-head_html=Voeg HTML toe van <hoofd> berichten sectie op pagina?,1,1-Ja,0-Nee
 check_mod=Controleer op mailbox modificatie wanneer mail word verwijdert?,1,1-Ja,0-Nee
 link_mode=Open links in,1,1-Nieuw scherm,0-Zelfde scherm
 line0.7=Schrijven email,11

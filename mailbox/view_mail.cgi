@@ -124,12 +124,6 @@ my ($textbody, $htmlbody, $body) = &find_body($mail, $userconfig{'view_html'});
 $body = $htmlbody if ($in{'body'} == 2);
 $body = $textbody if ($in{'body'} == 1);
 
-# Show pre-body HTML
-my $headstuff;
-if ($body && $body eq $htmlbody && $userconfig{'head_html'}) {
-	$headstuff = &head_html($body->{'data'});
-	}
-
 my $mail_charset = &get_mail_charset($mail, $body);
 if ($body && &get_charset() eq 'UTF-8' &&
     &can_convert_to_utf8(undef, $mail_charset)) {
@@ -144,7 +138,7 @@ else {
 	}
 
 &set_module_index($in{'folder'});
-&mail_page_header($text{'view_title'}, $headstuff);
+&mail_page_header($text{'view_title'});
 &show_arrows();
 print "<br>\n";
 

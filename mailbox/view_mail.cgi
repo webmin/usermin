@@ -243,8 +243,8 @@ else {
 print &ui_table_end();
 
 # Show body attachment, with properly linked URLs
-my $image_mode = defined($in{'images'}) ? $in{'images'}
-				     : $userconfig{'view_images'};
+my $image_mode = int(defined($in{'images'}) ? $in{'images'}
+				     : $userconfig{'view_images'});
 my @bodyright;
 my $bodycontents;
 if ($body && $body->{'data'} =~ /\S/) {
@@ -277,9 +277,9 @@ if ($body && $body->{'data'} =~ /\S/) {
 			# Link to show text
 			push(@bodyright, "<a href='$baseurl&body=1&headers=$in{'headers'}&images=$in{'images'}'>$text{'view_astext'}</a>");
 			}
-		if (@imageurls && $image_mode) {
+		if (@imageurls && $image_mode && $image_mode != 3) {
 			# Link to show images
-			push(@bodyright, "<a href='$baseurl&body=$in{'body'}&headers=$in{'headers'}&images=0'>$text{'view_images'}</a>");
+			push(@bodyright, "<a href='$baseurl&body=$in{'body'}&headers=$in{'headers'}&images=3'>$text{'view_images'}</a>");
 			}
 		$bodycontents = &iframe_body($bodycontents)
 			if ($bodycontents);

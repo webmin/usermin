@@ -22,6 +22,7 @@ line0.7=Writing email,11
 wrap_compose=Width to wrap composed mail messages at,10,-Don't wrap,80-80 columns (standard),Other size
 send_buttons=Show mail sending buttons,1,1-At top and bottom,0-At bottom only
 html_edit=Use HTML editor for composing?,4,2-Always,1-When replying to HTML email,0-Never
+html_edit_mode=HTML editor toolbar mode?,4,basic-Basic,simple-Simple,advanced-Advanced
 html_quote=HTML quoting mode,1,1-Message below &lt;hr&gt;,0-Message inside &lt;blockquote&gt;
 nospell=Show spell checking option?,1,0-Yes,1-No
 spell_check=Enable spell checking by default?,1,1-Yes,0-No

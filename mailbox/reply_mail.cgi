@@ -848,7 +848,7 @@ else {
 			     0,
 			     $wcols ? "" : "style='width:100%'"), 2);
 	}
-if (&has_command("ispell") && !$userconfig{'nospell'}) {
+if (&has_command("ispell") && !$userconfig{'nospellcheck'}) {
 	print &ui_table_row(undef,
 	      &ui_checkbox("spell", 1, $text{'reply_spell'},
 			   $userconfig{'spell_check'}), 2);

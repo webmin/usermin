@@ -22,7 +22,7 @@ wrap_compose=Largura para encapsular mensagens de e-mail compostas em,10,-Não e
 send_buttons=Mostrar botões de envio de e-mail,1,1-Na parte superior e inferior,0-Somente na parte inferior
 html_edit=Usar editor HTML para compor?,4,2-Sempre,1-Ao responder a e-mail HTML,0-Nunca
 html_quote=Modo de citação HTML,1,1-Mensagem abaixo de &lt;hr&gt;,0-Mensagem dentro de &lt;blockquote&gt;
-#nospell=Mostrar opção de verificação ortográfica?,1,0-Sim,1-Não
+#nospellcheck=Mostrar opção de verificação ortográfica?,1,0-Sim,1-Não
 #spell_check=Ativar verificação ortográfica por padrão?,1,1-Sim,0-Não
 cc_tabs=Mostrar para endereços CC e BCC,1,1-Na mesma guia,0-Em guias separadas
 

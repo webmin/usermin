@@ -268,19 +268,22 @@ close(SPEC);
 
 $cmd = -x "/usr/bin/rpmbuild" ? "rpmbuild" : "rpm";
 system("$cmd -ba --target=noarch $spec_dir/$pkgname-$ver.spec") && exit;
-if (-d "rpm") {
-	system("mv $base_dir/RPMS/noarch/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.noarch.rpm");
-	print "Moved to rpm/$pkgname-$ver-$rel.noarch.rpm\n";
-	system("mv $base_dir/SRPMS/$pkgname-$ver-$rel.src.rpm rpm/$pkgname-$ver-$rel.src.rpm");
-	print "Moved to rpm/$pkgname-$ver-$rel.src.rpm\n";
-	system("chown jcameron: rpm/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.src.rpm");
-	if (!$nosign) {
-		system("rpm --resign rpm/$pkgname-$ver-$rel.noarch.rpm rpm/$pkgname-$ver-$rel.src.rpm");
+
+foreach $rpm ("rpm", "newkey/rpm") {
+	if (-d $rpm) {
+		system("cp $base_dir/RPMS/noarch/$pkgname-$ver-$rel.noarch.rpm $rpm/$pkgname-$ver-$rel.noarch.rpm");
+		print "Moved to $rpm/$pkgname-$ver-$rel.noarch.rpm\n";
+		system("cp $base_dir/SRPMS/$pkgname-$ver-$rel.src.rpm $rpm/$pkgname-$ver-$rel.src.rpm");
+		print "Moved to $rpm/$pkgname-$ver-$rel.src.rpm\n";
+		system("chown jcameron: $rpm/$pkgname-$ver-$rel.noarch.rpm $rpm/$pkgname-$ver-$rel.src.rpm");
+		if (!$nosign) {
+			$key = $rpm eq "rpm" ? "jcameron\@webmin.com" : "developers\@webmin.com";
+			system("rpm --resign -D '_gpg_name $key' $rpm/$pkgname-$ver-$rel.noarch.rpm $rpm/$pkgname-$ver-$rel.src.rpm");
+			}
+		}
+
+	if (-d "/usr/local/webadmin/$rpm/yum") {
+		# Add to our repository
+		system("cp $rpm/$pkgname-$ver-$rel.noarch.rpm /usr/local/webadmin/$rpm/yum");
 		}
 	}
-
-if (-d "/usr/local/webadmin/rpm/yum") {
-	# Add to our repository
-	system("cp rpm/$pkgname-$ver-$rel.noarch.rpm /usr/local/webadmin/rpm/yum");
-	}
-

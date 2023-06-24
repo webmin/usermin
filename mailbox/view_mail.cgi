@@ -124,12 +124,6 @@ my ($textbody, $htmlbody, $body) = &find_body($mail, $userconfig{'view_html'});
 $body = $htmlbody if ($in{'body'} == 2);
 $body = $textbody if ($in{'body'} == 1);
 
-# Show pre-body HTML
-my $headstuff;
-if ($body && $body eq $htmlbody && $userconfig{'head_html'}) {
-	$headstuff = &head_html($body->{'data'});
-	}
-
 my $mail_charset = &get_mail_charset($mail, $body);
 if ($body && &get_charset() eq 'UTF-8' &&
     &can_convert_to_utf8(undef, $mail_charset)) {
@@ -144,7 +138,7 @@ else {
 	}
 
 &set_module_index($in{'folder'});
-&mail_page_header($text{'view_title'}, $headstuff);
+&mail_page_header($text{'view_title'});
 &show_arrows();
 print "<br>\n";
 
@@ -249,10 +243,10 @@ else {
 print &ui_table_end();
 
 # Show body attachment, with properly linked URLs
-my $image_mode = defined($in{'images'}) ? $in{'images'}
-				     : $userconfig{'view_images'};
+my $image_mode = int(defined($in{'images'}) ? $in{'images'}
+				     : $userconfig{'view_images'});
 my @bodyright;
-my ($bodycontents, $bodystuff);
+my $bodycontents;
 if ($body && $body->{'data'} =~ /\S/) {
 	if ($body eq $textbody) {
 		# Show plain text
@@ -270,7 +264,7 @@ if ($body && $body->{'data'} =~ /\S/) {
 		}
 	elsif ($body eq $htmlbody) {
 		# Attempt to show HTML
-		($bodycontents, $bodystuff) = &safe_html($body->{'data'});
+		$bodycontents = $body->{'data'};
 		my @imageurls;
 		$bodycontents = &disable_html_images($bodycontents, $image_mode,
 						     \@imageurls);
@@ -283,17 +277,19 @@ if ($body && $body->{'data'} =~ /\S/) {
 			# Link to show text
 			push(@bodyright, "<a href='$baseurl&body=1&headers=$in{'headers'}&images=$in{'images'}'>$text{'view_astext'}</a>");
 			}
-		if (@imageurls && $image_mode) {
+		if (@imageurls && $image_mode && $image_mode != 3) {
 			# Link to show images
-			push(@bodyright, "<a href='$baseurl&body=$in{'body'}&headers=$in{'headers'}&images=0'>$text{'view_images'}</a>");
+			push(@bodyright, "<a href='$baseurl&body=$in{'body'}&headers=$in{'headers'}&images=3'>$text{'view_images'}</a>");
 			}
+		$bodycontents = &iframe_body($bodycontents)
+			if ($bodycontents);
 		}
 	}
 if ($bodycontents) {
 	print &ui_table_start($text{'view_body'}, "width=100%", 1,
 			      undef, @bodyright ? &ui_links_row(\@bodyright)
 						: undef);
-	print &ui_table_row(undef, $bodycontents, undef, [ undef, $bodystuff ]);
+	print &ui_table_row(undef, $bodycontents);
 	print &ui_table_end();
 	}
 else {

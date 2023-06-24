@@ -14,7 +14,6 @@ wrap_width=Largura para encapsular as mensagens de e-mail exibidas,0,5
 auto_mark=Marcar mensagens lidas automaticamente?,1,1-Sim,0-Não
 view_html=Mostrar o corpo da mensagem como,4,0-Sempre texto simples,1-Texto se possível&#44; HTML caso contrário,2-HTML se possível&#44; texto caso contrário,3-Converter HTML em texto simples
 view_images=Mostrar imagens embutidas por padrão?,1,0-Sim,1-Não imagens externas,2-Não
-head_html=Incluir HTML da mensagem &lt;head&gt; seção na página?,1,1-Sim,0-Não
 check_mod=Verificar a modificação da caixa de correio ao excluir e-mail?,1,1-Sim,0-Não
 link_mode=Abrir links em,1,1-Nova janela,0-Mesma janela
 
@@ -23,7 +22,7 @@ wrap_compose=Largura para encapsular mensagens de e-mail compostas em,10,-Não e
 send_buttons=Mostrar botões de envio de e-mail,1,1-Na parte superior e inferior,0-Somente na parte inferior
 html_edit=Usar editor HTML para compor?,4,2-Sempre,1-Ao responder a e-mail HTML,0-Nunca
 html_quote=Modo de citação HTML,1,1-Mensagem abaixo de &lt;hr&gt;,0-Mensagem dentro de &lt;blockquote&gt;
-#nospell=Mostrar opção de verificação ortográfica?,1,0-Sim,1-Não
+#nospellcheck=Mostrar opção de verificação ortográfica?,1,0-Sim,1-Não
 #spell_check=Ativar verificação ortográfica por padrão?,1,1-Sim,0-Não
 cc_tabs=Mostrar para endereços CC e BCC,1,1-Na mesma guia,0-Em guias separadas
 

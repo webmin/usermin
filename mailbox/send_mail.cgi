@@ -9,6 +9,7 @@ our (%text, %in, %config, %userconfig);
 our @remote_user_info;
 
 require './mailbox-lib.pl';
+require '../html-editor-lib.pl';
 
 # Check inputs
 my %getin;
@@ -98,6 +99,9 @@ my (@attach, $bodyattach);
 my @inline_images;
 my $quoted_printable;
 if ($in{'body'} =~ /\S/) {
+	if ($in{'html_edit'}) {
+		$in{'body'} = &html_editor_substitute_classes_with_styles($in{'body'});
+		}
 	my $preplainbody = $in{'body'};
 	my $prehtmlbody = $in{'body'};
 	

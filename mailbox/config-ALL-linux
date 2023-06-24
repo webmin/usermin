@@ -27,4 +27,5 @@ smtp_ssl=0
 html_base64=0
 pop3_ssl=0
 view_html=2
-view_images=1
+view_images=3
+html_edit_mode=simple

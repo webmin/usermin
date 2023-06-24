@@ -1,0 +1,1 @@
+../../webadmin/mailboxes/xhr.cgi

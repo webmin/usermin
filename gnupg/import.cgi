@@ -19,11 +19,11 @@ if ($in{'mode'} == 0) {
 	}
 elsif ($in{'mode'} == 1) {
 	# From local file
-	$in{'file'} = "$remote_user_info[7]/$in{'file'}"
-		if ($in{'file'} !~ /^\//);
-	-r $in{'file'} || &error($text{'import_efile'});
+	$in{'local'} = "$remote_user_info[7]/$in{'local'}"
+		if ($in{'local'} !~ /^\//);
+	-r $in{'local'} || &error($text{'import_efile'});
 	$out = &backquote_command(
-		"$gpgpath --import ".quotemeta($in{'file'})." 2>&1");
+		"$gpgpath --import ".quotemeta($in{'local'})." 2>&1");
 	}
 elsif ($in{'mode'} == 2) {
 	# From pasted text

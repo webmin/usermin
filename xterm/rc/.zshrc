@@ -1,1 +1,1 @@
-../webadmin/xterm/rc/.zshrc
+../../../webadmin/xterm/rc/.zshrc

@@ -1,1 +1,1 @@
-../webadmin/xterm/rc/.bashrc
+../../../webadmin/xterm/rc/.bashrc

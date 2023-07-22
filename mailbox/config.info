@@ -23,10 +23,10 @@ no_mailer=Include Webmin version in X-Mailer header?,1,0-Yes,1-No
 html_base64=Encoding for HTML email,1,2-Base64,1-Quoted Printable,0-Automatic
 
 line3=User From addresses,11
-server_name=Default hostname for From: addresses,10,-From real hostname,*-From URL,ldap-Lookup in LDAP
-edit_from=Allow editing of From: address,1,1-Yes,0-No (always username@hostname),2-Only the username part
-from_map=From: address mapping file,3,None
-from_format=Address mapping file format,1,0-Username to address (genericstable),1-Address to username (virtusertable)
+server_name=Default hostname for <tt>From:</tt> addresses,10,-From real hostname,*-From URL,ldap-Lookup in LDAP
+edit_from=Allow editing of <tt>From:</tt> address,1,1-Yes,0-No (always <tt>username@hostname</tt>),2-Only the username part
+from_map=<tt>From:</tt> address mapping file,3,None
+from_format=Address mapping file format,1,0-Username to address (<tt>genericstable</tt>),1-Address to username (<tt>virtusertable</tt>)
 
 line3.5=LDAP options,11
 ldap_host=LDAP server,3,Not used

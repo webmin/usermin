@@ -78,7 +78,7 @@ Version: $ver
 Release: $rel
 Provides: %{name}-%{version}
 Requires(pre): /bin/sh /usr/bin/perl /bin/rm
-Requires: /bin/sh /usr/bin/perl /bin/rm perl(lib) perl(open) perl(Net::SSLeay) perl(Time::Local) perl(Encode::Detect) perl(Data::Dumper) perl(File::Path) perl(File::Basename) openssl unzip tar
+Requires: /bin/sh /usr/bin/perl /bin/rm perl(lib) perl(open) perl(Net::SSLeay) perl(Time::Local) perl(Encode::Detect) perl(Data::Dumper) perl(File::Path) perl(File::Basename) openssl unzip tar gzip
 AutoReq: 0
 License: BSD-3-clause
 Group: System/Tools

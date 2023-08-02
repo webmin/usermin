@@ -12,8 +12,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-        with:
-          path: 'build'
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with: 
           packages: git tar gzip openssl curl openssh-client rpm perl libdigest-sha-perl liblist-moreutils-perl libencode-detect-perl
@@ -21,7 +19,7 @@ jobs:
       - uses: szenius/set-timezone@v1.2
         with:
           timezoneLinux: "Europe/Nicosia"
-      - name: Install dependencies
+      - name: Fetch dependencies
         run: |-
           curl -O https://raw.githubusercontent.com/webmin/webmin/master/.github/build/vars.sh
           curl -O https://raw.githubusercontent.com/webmin/webmin/master/.github/build/init.sh
@@ -35,5 +33,5 @@ jobs:
           WEBMIN_DEV__GPG_PH: ${{ secrets.WEBMIN_DEV__GPG_PH }}
           ENV_BUILD__CLOUD_UPLOAD_SSH_HOST: ${{ secrets.WEBMIN_DEV__IP_ADDR }}
         run: |-
-          build/deb.sh usermin --devel
-          build/rpm.sh usermin --devel
+          ./deb.sh usermin --devel
+          ./rpm.sh usermin --devel

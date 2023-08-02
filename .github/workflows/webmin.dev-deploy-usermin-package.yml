@@ -35,3 +35,4 @@ jobs:
         run: |-
           bash deb.sh usermin --devel
           bash rpm.sh usermin --devel
+

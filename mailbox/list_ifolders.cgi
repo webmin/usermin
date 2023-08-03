@@ -32,24 +32,24 @@ foreach my $f (@folders) {
 		}
 	elsif ($f->{'type'} == 5) {
 		# Link for editing composite folder
-		push(@cols, "<a href='edit_comp.cgi?idx=$f->{'index'}'>".
-			    "@{[&html_escape($f->{'name'})]}</a>");
+		push(@cols, &ui_link("edit_comp.cgi?idx=$f->{'index'}",
+				     &html_escape($f->{'name'})));
 		push(@cols, $text{'folders_comp'});
 		push(@cols, &nice_size(&folder_size($f)));
 		$deletable = 1;
 		}
 	elsif ($f->{'type'} == 6) {
 		# Link for editing virtual folder
-		push(@cols, "<a href='edit_virt.cgi?idx=$f->{'index'}'>".
-			    "@{[&html_escape($f->{'name'})]}</a>");
+		push(@cols, &ui_link("edit_virt.cgi?idx=$f->{'index'}",
+				     &html_escape($f->{'name'})));
 		push(@cols, $text{'folders_virt'});
 		push(@cols, undef);
 		$deletable = 1;
 		}
 	else {
 		# Edit an IMAP folder
-		push(@cols, "<a href='edit_ifolder.cgi?idx=$f->{'index'}'>".
-			    "@{[&html_escape($f->{'name'})]}</a>");
+		push(@cols, &ui_link("edit_ifolder.cgi?idx=$f->{'index'}",
+			    	     &html_escape($f->{'name'})));
 		push(@cols, "IMAP");
 		push(@cols, &nice_size(&folder_size($f)));
 		$deletable = 1;

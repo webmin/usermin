@@ -26,7 +26,7 @@ if (!-r $in{'vfile'}) {
 	$from = $froms->[0];
 	}
 
-print &text('vfile_desc', "<tt>$in{'vfile'}</tt>"),"<p>\n";
+print &text('vfile_desc', "<tt>@{[&html_escape($in{'vfile'})]}</tt>"),"<p>\n";
 
 print "<form action=save_vfile.cgi method=post enctype=multipart/form-data>\n";
 print &ui_hidden("file", $in{'file'}),"\n";
@@ -59,7 +59,7 @@ print "<input type=submit value=\"$text{'save'}\"> ",
 print "</form>\n";
 
 &ui_print_footer(defined($in{'idx'}) ?
-		 ( "edit_vacation.cgi?num=$in{'num'}&file=$in{'file'}&idx=$in{'idx'}", $text{'vacation_return'} ) : ( ),
-		 "edit_alias.cgi?num=$in{'num'}&file=$in{'file'}",
+		 ( "edit_vacation.cgi?num=$in{'num'}&file=@{[&urlize($in{'file'})]}&idx=$in{'idx'}", $text{'vacation_return'} ) : ( ),
+		 "edit_alias.cgi?num=$in{'num'}&file=@{[&urlize($in{'file'})]}",
 		 $text{'aform_return'});
 

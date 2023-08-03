@@ -19,7 +19,7 @@ if ($simple) {
 			print "<span data-unckecked>" . $text{'index_simple'.$s},"</span>\n";
 			}
 		else {
-			print "<a href='index.cgi?simple=$s'>",$text{'index_simple'.$s},"</a>\n";
+			print &ui_link("index.cgi?simple=$s", $text{'index_simple'.$s});
 			}
 		print "&nbsp;|&nbsp;\n" if ($s != 0);
 		}
@@ -149,10 +149,9 @@ else {
 	}
 
 if (!$in{'simple'} || !$simple) {
-	@links = ( "<a href='edit_alias.cgi?new=1'>$text{'index_add'}</a>" );
+	@links = ( &ui_link('edit_alias.cgi?new=1', $text{'index_add'}) );
 	if ($config{'mail_system'} == 0 && $config{'edit'}) {
-		push(@links, "<a href='edit_forward.cgi'>".
-		      	     &text('index_edit', "<tt>.forward</tt>")."</a>");
+		push(@links, &ui_link('edit_forward.cgi', &text('index_edit', "<tt>.forward</tt>")));
 		}
 	print &ui_links_row(\@links);
 	}
@@ -165,13 +164,12 @@ print &ui_columns_start([ $text{'aliases_to'},
 			  $text{'aliases_enabled'} ], 100, 2);
 foreach my $a (@_) {
 	my @cols;
-	my $e = "<a href=\"edit_alias.cgi?num=$a->{'num'}\">";
+	my $e = "";
 	foreach $v (@{$a->{'values'}}) {
 		($anum, $astr) = &alias_type($v);
-		$e .= &text("aliases_type$anum", "<tt>$astr</tt>")."<br>\n";
+		$e .= &text("aliases_type$anum", "<tt>@{[&html_escape($astr)]}</tt>")."<br>\n";
 		}
-	$e .= "</a>";
-	push(@cols, $e);
+	push(@cols, &ui_link("edit_alias.cgi?num=$a->{'num'}", $e));
 	push(@cols, $a->{'enabled'} ? $text{'yes'} :
                 	"<font color=#ff0000>$text{'no'}</font>");
 	print &ui_columns_row(\@cols);
@@ -185,9 +183,10 @@ print "<table border width=100%>\n";
 print "<tr $tb> <td><b>$text{'aliases_from'}</b></td> <td><b>$text{'aliases_to'}</b></td> </tr>\n";
 foreach $a (@_) {
 	print "<tr $cb>\n";
-	print "<td><a href=\"edit_alias.cgi?file=$a->{'file'}\">",
-	      $a->{'name'} ? "$remote_user-$a->{'name'}" : $remote_user,
-	      "</td> <td>\n";
+	my $lnk = &ui_link("edit_alias.cgi?file=$a->{'file'}",
+				&html_escape($a->{'name'} ? "$remote_user-$a->{'name'}" : $remote_user));
+	print "<td>$lnk</td>\n";
+	print "<td>\n";
 	foreach $v (@{$a->{'values'}}) {
 		($anum, $astr) = &alias_type($v);
 		print &text("aliases_type$anum", "<tt>$astr</tt>"),"<br>\n";

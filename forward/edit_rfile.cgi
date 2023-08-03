@@ -31,7 +31,7 @@ if (!-r $in{'vfile'}) {
 	$from = $froms->[0];
 	}
 
-print &text('rfile_desc', "<tt>$in{'vfile'}</tt>"),"<p>\n";
+print &text('rfile_desc', "<tt>@{[&html_escape($in{'vfile'})]}</tt>"),"<p>\n";
 print "$text{'rfile_desc2'}<p>\n";
 
 print "<form action=save_rfile.cgi method=post enctype=multipart/form-data>\n";
@@ -78,6 +78,6 @@ print "<input type=submit value=\"$text{'save'}\"> ",
       "<input type=reset value=\"$text{'rfile_undo'}\">\n";
 print "</form>\n";
 
-&ui_print_footer("edit_alias.cgi?num=$in{'num'}&file=$in{'file'}",
+&ui_print_footer("edit_alias.cgi?num=$in{'num'}&file=@{[&urlize($in{'file'})]}",
 		 $text{'aform_return'});
 

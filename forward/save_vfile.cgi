@@ -26,4 +26,4 @@ if ($hl && $in{'text'} !~ /^(\S+):\s+\S/) {
 	}
 &print_tempfile(FILE, $in{'text'});
 &close_tempfile(FILE);
-&redirect("edit_alias.cgi?num=$in{'num'}&file=$in{'file'}");
+&redirect("edit_alias.cgi?num=$in{'num'}&file=@{[&urlize($in{'file'})]}");

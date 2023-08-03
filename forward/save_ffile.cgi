@@ -18,5 +18,5 @@ push(@filter, "2 ".$in{'other'}."\n") if ($in{'other'});
 &open_tempfile(FILE, ">$in{'vfile'}", 1) || &error(&text('ffile_ewrite', $!));
 &print_tempfile(FILE, @filter);
 &close_tempfile(FILE);
-&redirect("edit_alias.cgi?num=$in{'num'}&file=$in{'file'}");
+&redirect("edit_alias.cgi?num=$in{'num'}&file=@{[&urlize($in{'file'})]}");
 

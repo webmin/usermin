@@ -19,7 +19,7 @@ while(<FILE>) {
 	}
 close(FILE);
 
-print "<b>",&text('ffile_desc', "<tt>$in{'vfile'}</tt>"),"</b><p>\n";
+print "<b>",&text('ffile_desc', "<tt>@{[&html_escape($in{'vfile'})]}</tt>"),"</b><p>\n";
 
 print "<form action=save_ffile.cgi method=post enctype=multipart/form-data>\n";
 print &ui_hidden("file", $in{'file'}),"\n";
@@ -56,6 +56,6 @@ print &text('ffile_other',
 print "<input type=submit value=\"$text{'save'}\">\n";
 print "</form>\n";
 
-&ui_print_footer("edit_alias.cgi?num=$in{'num'}&file=$in{'file'}",
+&ui_print_footer("edit_alias.cgi?num=$in{'num'}&file=@{[&urlize($in{'file'})]}",
 		 $text{'aform_return'});
 

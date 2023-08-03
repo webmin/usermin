@@ -43,37 +43,37 @@ foreach my $f (@folders) {
 		}
 	elsif ($f->{'type'} == 2) {
 		# Link for editing POP3 folder
-		push(@cols, "<a href='edit_pop3.cgi?idx=$f->{'index'}'>".
-			    "$f->{'name'}</a>");
+		push(@cols, &ui_link("edit_pop3.cgi?idx=$f->{'index'}",
+				     &html_escape($f->{'name'})));
 		$deletable = 1;
 		}
 	elsif ($f->{'type'} == 4) {
 		# Link for editing IMAP folder
-		push(@cols, "<a href='edit_imap.cgi?idx=$f->{'index'}'>".
-			    "$f->{'name'}</a>");
+		push(@cols, &ui_link("edit_imap.cgi?idx=$f->{'index'}",
+				     &html_escape($f->{'name'})));
 		$deletable = 1;
 		}
 	elsif ($f->{'mode'} == 2 && !$folder_types{'ext'}) {
 		# Sent mail folder can only be changed if external folders
 		# are allowed
-		push(@cols, $f->{'name'});
+		push(@cols, &html_escape($f->{'name'}));
 		}
 	elsif ($f->{'type'} == 5) {
 		# Link for editing composite folder
-		push(@cols, "<a href='edit_comp.cgi?idx=$f->{'index'}'>".
-			    "$f->{'name'}</a>");
+		push(@cols, &ui_link("edit_comp.cgi?idx=$f->{'index'}",
+				     &html_escape($f->{'name'})));
 		$deletable = 1;
 		}
 	elsif ($f->{'type'} == 6) {
 		# Link for editing virtual folder
-		push(@cols, "<a href='edit_virt.cgi?idx=$f->{'index'}'>".
-			    "$f->{'name'}</a>");
+		push(@cols, &ui_link("edit_virt.cgi?idx=$f->{'index'}",
+				     &html_escape($f->{'name'})));
 		$deletable = 1;
 		}
 	else {
 		# Link for editing local or external folder
-		push(@cols, "<a href='edit_folder.cgi?idx=$f->{'index'}'>".
-			    "$f->{'name'}</a>");
+		push(@cols, &ui_link("edit_folder.cgi?idx=$f->{'index'}",
+				     &html_escape($f->{'name'})));
 		$deletable = 1;
 		}
 	if ($f->{'type'} == 2 || $f->{'type'} == 4) {

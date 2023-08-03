@@ -169,7 +169,7 @@ if (&foreign_available("filter")) {
 
 if ($userconfig{'top_buttons'} == 2 && &editable_mail($mail)) {
 	&show_buttons(1, scalar(@sub));
-	print "<br>\n";
+	print "<p class='mail_buttons_divide'></p>\n";
 	}
 
 # Start of headers section

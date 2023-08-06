@@ -42,7 +42,7 @@ $release = $3;
 	  "password_form.cgi", "password_change.cgi", "ui-lib.pl",
 	  "pam_login.cgi", "WebminUI", "uptracker.cgi", "webmin_search.cgi",
 	  "webmin-search-lib.pl", "WebminCore.pm", "robots.txt", "html-editor-lib.pl" );
-@mlist = ("cshrc", "file", "forward", "language", "mailbox",
+@mlist = ("cshrc", "forward", "language", "mailbox",
 	  "plan", "ssh", "telnet", "theme", "gnupg", "proc", "cron",
 	  "changepass", "shell", "at", "fetchmail", "quota", "mysql",
 	  "procmail", "chfn", "htaccess", "commands", "man", "usermount",

@@ -69,7 +69,6 @@ open(SPEC, ">$spec_dir/$pkgname-$ver.spec");
 print SPEC <<EOF;
 %global __perl_provides %{nil}
 
-#%define BuildRoot /tmp/%{name}-%{version}
 %define __spec_install_post %{nil}
 
 Summary: A web-based user account administration interface

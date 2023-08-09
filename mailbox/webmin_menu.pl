@@ -51,7 +51,7 @@ if (!$data->{'nofolders'}) {
 		my $item = { 'type' => 'item',
 			     'id' => 'folder_'.$fid,
 			     'folder' => 1,
-			     'desc' => $f->{'name'},
+			     'desc' => &html_escape($f->{'name'}),
 			     'link' => '/'.$module_name.
 				       '/index.cgi?id='.&urlize($fid) };
 		if ($f->{'type'} == 6 &&

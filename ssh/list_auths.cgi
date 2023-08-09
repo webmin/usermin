@@ -17,7 +17,7 @@ if (@auths) {
 	foreach $a (@auths) {
 		print &ui_columns_row([ 
 			"<a href='edit_auth.cgi?idx=$a->{'index'}'>".
-			  "$a->{'name'}</a>",
+			  "@{[&html_escape($a->{'name'})]}</a>",
 			"<tt>".substr($a->{'key'}, 0, 40)." ... ".
 			      substr($a->{'key'}, -40)."</tt>",
 			]);

@@ -11,7 +11,7 @@ foreach $h (@$hconf) {
 	if (lc($h->{'name'}) eq 'host') {
 		push(@links, "edit_host.cgi?idx=$i");
 		push(@icons, "images/host.gif");
-		push(@titles, $h->{'values'}->[0] eq '*' ? "<i>$text{'hosts_all'}</i>" : $h->{'values'}->[0]);
+		push(@titles, $h->{'values'}->[0] eq '*' ? "<i>$text{'hosts_all'}</i>" : &html_escape($h->{'values'}->[0]));
 		}
 	$i++;
 	}

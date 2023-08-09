@@ -62,10 +62,11 @@ elsif ($gconfig{"notabs_${base_remote_user}"} == 2 ||
 		if ($pos % $cols == 0) { print "<tr>\n"; }
 		print "<td valign=top align=center width=$per\%>\n";
 		local $idx = $m->{'index_link'};
-		print "<table border><tr><td><a href=$gconfig{'webprefix'}/$m->{'dir'}/$idx>",
+		my $alink = &urlize("$gconfig{'webprefix'}/$m->{'dir'}/$idx");
+		print "<table border><tr><td><a href='$alink'>",
 		      "<img src=$m->{'dir'}/images/icon.gif border=0 ",
 		      "width=48 height=48></a></td></tr></table>\n";
-		print "<a href=$gconfig{'webprefix'}/$m->{'dir'}/$idx>$m->{'desc'}</a></td>\n";
+		print "<a href='$alink'>@{[&html_escape($m->{'desc'})]}</a></td>\n";
 		if ($pos % $cols == $cols - 1) { print "</tr>\n"; }
 		$pos++;
 		}
@@ -128,7 +129,7 @@ else {
 			print "<td valign=top $tb>", $usercol ? "<br>" :
 			  "<img src=images/lc1.gif alt=\"\">","</td>\n";
 			print "<td $tb>&nbsp;",
-			      "<a href=$gconfig{'webprefix'}/?cat=$c><b>$t</b></a>&nbsp;</td>\n";
+			      "<a href=$gconfig{'webprefix'}/?cat=@{[&urlize($c)]}><b>@{[&html_escape($t)]}</b></a>&nbsp;</td>\n";
 			print "<td valign=top $tb>", $usercol ? "<br>" :
 			  "<img src=images/rc1.gif alt=\"\">","</td>\n";
 			}
@@ -147,10 +148,11 @@ else {
 
 		if ($pos % $cols == 0) { print "<tr>\n"; }
 		print "<td valign=top align=center width=$per\%>\n";
-		print "<table border bgcolor=#ffffff><tr><td><a href=$gconfig{'webprefix'}/$m->{'dir'}/>",
+		my $mlink = &urlize("$gconfig{'webprefix'}/$m->{'dir'}/");
+		print "<table border bgcolor=#ffffff><tr><td><a href='$mlink'>",
 		      "<img src=$m->{'dir'}/images/icon.gif alt=\"\" border=0></a>",
 		      "</td></tr></table>\n";
-		print "<a href=$gconfig{'webprefix'}/$m->{'dir'}/>$m->{'desc'}</a></td>\n";
+		print "<a href='$mlink'>@{[&html_escape($m->{'desc'})]}</a></td>\n";
 		if ($pos++ % $cols == $cols - 1) { print "</tr>\n"; }
 		}
 	while($pos++ % $cols) {

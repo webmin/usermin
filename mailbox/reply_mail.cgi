@@ -809,8 +809,9 @@ print &ui_table_start($text{'reply_body'}, "width=100%", 2, undef,
 # Process email quote
 my $iframe_quote;
 $iframe_quote = &iframe_quote($quote)
-	if (!$in{'new'});
-
+	if (!$in{'new'} && !$in{'enew'});
+my $draft;
+$draft = $quote if ($in{'enew'});
 
 if ($html_edit) {
 	# Get HTML editor and replies
@@ -832,7 +833,7 @@ if ($html_edit) {
 	$sig = "<br><br>$sig<br><br>"
 		if ($sig);
 	print &ui_table_row(undef,
-		&ui_textarea("body", $sig, 16, 80, undef, 0,
+		&ui_textarea("body", $draft || $sig, 16, 80, undef, 0,
 		             "style='display: none' id=body data-html-mode='$userconfig{'html_edit_mode'}'").
 		$html_editor, 2);
 	}
@@ -842,7 +843,7 @@ else {
 	$wm =~ s/^wrap=//g;
 	my $wcols = $userconfig{'wrap_compose'};
 	print &ui_table_row(undef,
-		&ui_textarea("body", "\n\n$sig\n\n$quote", 16,
+		&ui_textarea("body", "\n".$draft || "\n\n$sig\n\n$quote", 16,
 			     $wcols || 80,
 			     $wcols ? "hard" : "",
 			     0,

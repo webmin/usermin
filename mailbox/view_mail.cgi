@@ -521,15 +521,15 @@ if (!@sub) {
 	if ($mail->{'sortidx'} != 0) {
 		my $mailprv = $beside[$prv];
 		$left = "view_mail.cgi?id=".&urlize($mailprv->{'id'}).
-			"&folder=$in{'folder'}&start=$in{'start'}";
+			"&folder=@{[&urlize($in{'folder'})]}&start=$in{'start'}";
 		}
 	if ($mail->{'sortidx'} < $c-1) {
 		my $mailnxt = $beside[$nxt];
 		$right = "view_mail.cgi?id=".&urlize($mailnxt->{'id'}).
-		      	 "&folder=$in{'folder'}&start=$in{'start'}";
+		      	 "&folder=@{[&urlize($in{'folder'})]}&start=$in{'start'}";
 		}
 	print &ui_page_flipper(&text('view_desc', $mail->{'sortidx'}+1,
-				     $folder->{'name'}),
+				     &html_escape($folder->{'name'})),
 			       undef, undef, $left, $right);
 	}
 else {

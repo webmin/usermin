@@ -28,18 +28,23 @@ print &ui_hidden_end("instr");
 print &ui_form_start("delete_folders.cgi", "post");
 my @tds = ( "width=5" );
 my @folders = &list_folders_sorted();
+foreach my $folder (@folders) {
+	$folder->{'file'} = &html_escape($folder->{'file'})
+		if ($folder->{'file'});
+	}
 print &ui_columns_start([ "",
 			  $text{'folders_name'},
 			  $text{'folders_path'},
 			  $text{'folders_type'},
 			  $text{'folders_size'},
 			  $text{'folders_action'} ], undef, 0, \@tds);
+			#   var_dump(\@folders);
 foreach my $f (@folders) {
 	my @cols;
 	my $deletable = 0;
 	if ($f->{'inbox'} || $f->{'drafts'} || $f->{'spam'}) {
 		# Inbox, drafs or spam folder which cannot be edited
-		push(@cols, $f->{'name'});
+		push(@cols, &html_escape($f->{'name'}));
 		}
 	elsif ($f->{'type'} == 2) {
 		# Link for editing POP3 folder

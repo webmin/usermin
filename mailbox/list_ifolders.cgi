@@ -12,6 +12,10 @@ require './mailbox-lib.pl';
 print &ui_form_start("delete_folders.cgi", "post");
 my @tds = ( "width=5" );
 my @folders = &list_folders_sorted();
+foreach my $folder (@folders) {
+	$folder->{'file'} = &html_escape($folder->{'file'})
+		if ($folder->{'file'});
+	}
 my @adders = ( "<a href='edit_ifolder.cgi?new=1'>$text{'folders_addimap'}</a>",
 	    "<a href='edit_comp.cgi?new=1'>$text{'folders_addcomp'}</a>",
 	    "<a href='edit_virt.cgi?new=1'>$text{'folders_addvirt'}</a>" );

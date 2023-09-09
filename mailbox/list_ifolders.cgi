@@ -58,6 +58,9 @@ foreach my $f (@folders) {
 		push(@cols, &nice_size(&folder_size($f)));
 		$deletable = 1;
 		}
+	if ($f->{'inbox'} || $f->{'sent'} || $f->{'drafts'}) {
+		$cols[0] = "<b>".$cols[0]."</b>";
+		}
 
 	# Action links
 	my @acts;

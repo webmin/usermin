@@ -114,6 +114,9 @@ foreach my $f (@folders) {
 					        $text{'folders_mbox'});
 		push(@cols, &nice_size(&folder_size($f)));
 		}
+	if ($f->{'inbox'} || $f->{'sent'} || $f->{'drafts'}) {
+		$cols[0] = "<b>".$cols[0]."</b>";
+		}
 
 	# Action links
 	my @acts;

@@ -811,7 +811,7 @@ my $iframe_quote;
 $iframe_quote = &iframe_quote($quote)
 	if (!$in{'new'} && !$in{'enew'});
 my $draft;
-$draft = $quote if ($in{'enew'});
+$draft = $quote if ($in{'new'} || $in{'enew'});
 
 if ($html_edit) {
 	# Get HTML editor and replies
@@ -843,7 +843,7 @@ else {
 	$wm =~ s/^wrap=//g;
 	my $wcols = $userconfig{'wrap_compose'};
 	print &ui_table_row(undef,
-		&ui_textarea("body", "\n".$draft || "\n\n$sig\n\n$quote", 16,
+		&ui_textarea("body", "\n".($draft || "\n\n$sig\n\n$quote"), 16,
 			     $wcols || 80,
 			     $wcols ? "hard" : "",
 			     0,

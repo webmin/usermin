@@ -335,10 +335,12 @@ elsif ($config{'mail_system'} == 4) {
 	my $sf;
 	my $sent;
 	if ($userconfig{'sent_name'}) {
+		$sf = $userconfig{'sent_name'};
 		($sent) = grep { lc($_->{'name'}) eq lc($sf) } @rv;
 		}
 	else {
-		($sent) = grep { lc($_->{'name'}) eq 'sent' } @rv;
+		$sf = "sent";
+		($sent) = grep { lc($_->{'name'}) eq $sf } @rv;
 		if (!$sent) {
 			($sent) = grep { $_->{'name'} =~ /sent/i } @rv;
 			}

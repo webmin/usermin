@@ -42,8 +42,8 @@ print &ui_columns_start([ "",
 foreach my $f (@folders) {
 	my @cols;
 	my $deletable = 0;
-	if ($f->{'inbox'} || $f->{'drafts'} || $f->{'spam'}) {
-		# Inbox, drafs or spam folder which cannot be edited
+	if ($f->{'inbox'} || $f->{'drafts'} || $f->{'sent'} || $f->{'spam'}) {
+		# Inbox, drafs, sent or spam folder which cannot be edited
 		push(@cols, &html_escape($f->{'name'}));
 		}
 	elsif ($f->{'type'} == 2) {

@@ -38,7 +38,6 @@ print &ui_columns_start([ "",
 			  $text{'folders_type'},
 			  $text{'folders_size'},
 			  $text{'folders_action'} ], undef, 0, \@tds);
-			#   var_dump(\@folders);
 foreach my $f (@folders) {
 	my @cols;
 	my $deletable = 0;

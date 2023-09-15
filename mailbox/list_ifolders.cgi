@@ -4,7 +4,7 @@ use strict;
 use warnings;
 no warnings 'redefine';
 no warnings 'uninitialized';
-our (%text, %in);
+our (%text, %in, %config);
 
 require './mailbox-lib.pl';
 &ui_print_header(undef, $text{'folders_title'}, "");
@@ -20,17 +20,20 @@ my @adders = ( "<a href='edit_ifolder.cgi?new=1'>$text{'folders_addimap'}</a>",
 	    "<a href='edit_comp.cgi?new=1'>$text{'folders_addcomp'}</a>",
 	    "<a href='edit_virt.cgi?new=1'>$text{'folders_addvirt'}</a>" );
 print &ui_links_row(\@adders);
-print &ui_columns_start([ "",
-			  $text{'folders_name'},
-			  $text{'folders_type'},
-			  $text{'folders_size'},
-			  $text{'folders_action'} ], undef, 0, \@tds);
+my $cols = [ "", $text{'folders_name'}, $text{'folders_type'},
+            $text{'folders_size'}, $text{'folders_action'} ];
+my $can_fpath = $config{'mail_system'} != 2;
+if ($can_fpath) {
+	splice(@$cols, 1, 0, $text{'folders_path'});
+	}
+print &ui_columns_start($cols, undef, 0, \@tds);
 foreach my $f (@folders) {
 	my @cols;
 	my $deletable = 0;
 	if ($f->{'inbox'} || $f->{'sent'} || $f->{'drafts'} || $f->{'spam'}) {
 		# Inbox, drafs, sent or spam folder which cannot be edited
 		push(@cols, &html_escape($f->{'name'}));
+		push(@cols, &html_escape($f->{'file'})) if ($can_fpath);
 		push(@cols, "IMAP");
 		push(@cols, &nice_size(&folder_size($f)));
 		}
@@ -38,6 +41,7 @@ foreach my $f (@folders) {
 		# Link for editing composite folder
 		push(@cols, &ui_link("edit_comp.cgi?idx=$f->{'index'}",
 				     &html_escape($f->{'name'})));
+		push(@cols, &html_escape($f->{'file'})) if ($can_fpath);
 		push(@cols, $text{'folders_comp'});
 		push(@cols, &nice_size(&folder_size($f)));
 		$deletable = 1;
@@ -46,6 +50,7 @@ foreach my $f (@folders) {
 		# Link for editing virtual folder
 		push(@cols, &ui_link("edit_virt.cgi?idx=$f->{'index'}",
 				     &html_escape($f->{'name'})));
+		push(@cols, &html_escape($f->{'file'})) if ($can_fpath);
 		push(@cols, $text{'folders_virt'});
 		push(@cols, undef);
 		$deletable = 1;
@@ -54,6 +59,7 @@ foreach my $f (@folders) {
 		# Edit an IMAP folder
 		push(@cols, &ui_link("edit_ifolder.cgi?idx=$f->{'index'}",
 			    	     &html_escape($f->{'name'})));
+		push(@cols, &html_escape($f->{'file'})) if ($can_fpath);
 		push(@cols, "IMAP");
 		push(@cols, &nice_size(&folder_size($f)));
 		$deletable = 1;

@@ -38,12 +38,11 @@ print &ui_columns_start([ "",
 			  $text{'folders_type'},
 			  $text{'folders_size'},
 			  $text{'folders_action'} ], undef, 0, \@tds);
-			#   var_dump(\@folders);
 foreach my $f (@folders) {
 	my @cols;
 	my $deletable = 0;
-	if ($f->{'inbox'} || $f->{'drafts'} || $f->{'spam'}) {
-		# Inbox, drafs or spam folder which cannot be edited
+	if ($f->{'inbox'} || $f->{'sent'} || $f->{'drafts'} || $f->{'spam'}) {
+		# Inbox, drafs, sent or spam folder which cannot be edited
 		push(@cols, &html_escape($f->{'name'}));
 		}
 	elsif ($f->{'type'} == 2) {

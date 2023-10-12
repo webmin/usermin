@@ -25,4 +25,3 @@ else {
 print &ui_links_row(\@rowlinks);
 
 &ui_print_footer("", $text{'index_return'});
-

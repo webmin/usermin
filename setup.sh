@@ -347,6 +347,7 @@ else
 		read port
 		if [ "$port" = "" ]; then
 			port=20000
+			echo ""
 		fi
 	fi
 	if [ $port -lt 1 ]; then

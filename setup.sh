@@ -342,7 +342,8 @@ else
 	echo "   web server already using this port."
 	echo " - If the web server should use SSL (if your system supports it)."
 	echo ""
-	printf "Web server port (default 20000): "
+	printf "Web server port (default 20000)"
+	echo ""
 	if [ "$port" = "" ]; then
 		read port
 		if [ "$port" = "" ]; then

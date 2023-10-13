@@ -792,7 +792,7 @@ if [ "$nostart" = "" ]; then
 		fi
 		if [ "$userminrunning" = "1" ]; then
 			echo "Attempting to $action Usermin web server .."
-			$config_dir/$action
+			$config_dir/$action >/dev/null 2>&1 </dev/null
 			if [ $? != "0" ]; then
 				echo "ERROR: Failed to $action web server!"
 				echo ""

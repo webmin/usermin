@@ -27,7 +27,7 @@ if [ $? != "0" ]; then
 fi
 
 echo "****************************************************************************"
-echo "*             Welcome to the Usermin setup script, version $ver           *"
+echo "          Welcome to the Usermin setup script, version $ver"
 echo "****************************************************************************"
 echo "Usermin is a web-based interface that allows Unix-like operating"
 echo "systems and common Unix services to be easily administered."

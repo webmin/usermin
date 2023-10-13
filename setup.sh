@@ -347,7 +347,6 @@ else
 		read port
 		if [ "$port" = "" ]; then
 			port=20000
-			echo ""
 		fi
 	fi
 	if [ $port -lt 1 ]; then
@@ -369,7 +368,7 @@ else
 			exit 13
 		fi
 	fi
-
+	echo ""
 	# Ask the user if SSL should be used
 	if [ "$ssl" = "" ]; then
 		ssl=0

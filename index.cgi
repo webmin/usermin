@@ -62,7 +62,7 @@ elsif ($gconfig{"notabs_${base_remote_user}"} == 2 ||
 		if ($pos % $cols == 0) { print "<tr>\n"; }
 		print "<td valign=top align=center width=$per\%>\n";
 		local $idx = $m->{'index_link'};
-		my $alink = &urlize("$gconfig{'webprefix'}/$m->{'dir'}/$idx");
+		my $alink = "$gconfig{'webprefix'}/@{[&urlize($m->{'dir'})]}/$idx";
 		print "<table border><tr><td><a href='$alink'>",
 		      "<img src=$m->{'dir'}/images/icon.gif border=0 ",
 		      "width=48 height=48></a></td></tr></table>\n";
@@ -148,7 +148,7 @@ else {
 
 		if ($pos % $cols == 0) { print "<tr>\n"; }
 		print "<td valign=top align=center width=$per\%>\n";
-		my $mlink = &urlize("$gconfig{'webprefix'}/$m->{'dir'}/");
+		my $mlink = "$gconfig{'webprefix'}/@{[&urlize($m->{'dir'})]}/";
 		print "<table border bgcolor=#ffffff><tr><td><a href='$mlink'>",
 		      "<img src=$m->{'dir'}/images/icon.gif alt=\"\" border=0></a>",
 		      "</td></tr></table>\n";

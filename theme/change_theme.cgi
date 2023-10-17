@@ -18,18 +18,18 @@ else {
 	}
 &put_miniserv_config(\%miniserv);
 &write_file("$config_directory/config", \%gconfig);
-print "$text{'change_done'}<p>\n";
+print "$text{'change_done'}<br><p></p>\n";
 
 print "$text{'change_restart'}<br>\n";
 &reload_miniserv();
-print "$text{'change_done'}<p>\n";
+print "$text{'change_done'}<br><p></p>\n";
 
 if (defined(&theme_post_change_theme)) {
 	&theme_post_change_theme();
 	}
 print "$text{'change_redirect'}<br>\n";
 print &js_redirect("/", "top");
-print "$text{'change_done'}<p>\n";
+print "$text{'change_done'}<br><p></p>\n";
 
 &ui_print_footer("/", $text{'index'});
 

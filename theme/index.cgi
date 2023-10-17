@@ -12,9 +12,16 @@ $uth = $gconfig{'theme_'.$remote_user};
 print "$text{'index_desc'}<p>\n";
 print &ui_form_start("change_theme.cgi");
 print &ui_table_start(undef, "width=100%", 2);
+my $defaulttheme = &trim(&read_file_contents("$root_directory/defaulttheme"));
+if (! -r "$root_directory/$defaulttheme") {
+	$defaulttheme = 'gray-theme';
+	if (! -r "$root_directory/$defaulttheme") {
+		$defaulttheme = "";
+		}
+	}
 print &ui_table_row($text{'index_sel'},
 	&ui_select("theme", $uth,
-	[ [ "", $text{'index_global'} ],
+	[ [ $defaulttheme, $text{'index_global'} ],
 	  map { [ $_->{'dir'}, $_->{'desc'}."" ] }
 	      @themes ]));
 

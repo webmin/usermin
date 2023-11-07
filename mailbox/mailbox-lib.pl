@@ -1058,7 +1058,7 @@ if (@list_folders_cache) {
 # Delete mbox or Maildir index
 if ($folder->{'type'} == 0) {
 	my $ifile = &user_index_file($folder->{'file'});
-	unlink(glob("$ifile.*"), $ifile);
+	unlink(glob("\Q$ifile\E.*"), $ifile);
 	}
 elsif ($folder->{'type'} == 1) {
 	my $cachefile = &get_maildir_cachefile($folder->{'file'});
@@ -1067,7 +1067,7 @@ elsif ($folder->{'type'} == 1) {
 
 # Delete sort index
 my $ifile = &folder_new_sort_index_file($folder);
-unlink(glob("$ifile.*"), $ifile);
+unlink(glob("\Q$ifile\E.*"), $ifile);
 
 # Delete sort direction file
 my $file = &folder_name($folder);

@@ -15,6 +15,10 @@ $< == 0 || die "updateboot.pl must be run as root";
 if (-d "/etc/systemd" &&
     &has_command("systemctl") &&
     &execute_command("systemctl list-units") == 0) {
+	# Save status of service
+	my $status = &backquote_logged("systemctl is-enabled ".
+		quotemeta($product).".service 2>&1");
+	$status = &trim($status) if ($status);
 	# Delete all possible service files
 	my $systemd_root = &get_systemd_root();
 	foreach my $p (
@@ -35,12 +39,9 @@ if (-d "/etc/systemd" &&
 		}
 	&flush_file_lines($temp);
 	
-	my $status = &backquote_logged("systemctl is-enabled ".
-			quotemeta($product).".service 2>&1");
-	$status = &trim($status);
-	
 	copy_source_dest($temp, "$systemd_root/$product.service");
 	system("systemctl daemon-reload >/dev/null 2>&1");
+	sleep(3); # Wait for systemd to update configuration
 
 	if ($status eq "disabled") {
 		system("systemctl disable ".

@@ -15,6 +15,10 @@ $< == 0 || die "updateboot.pl must be run as root";
 if (-d "/etc/systemd" &&
     &has_command("systemctl") &&
     &execute_command("systemctl list-units") == 0) {
+	# Save status of service
+	my $status = &backquote_logged("systemctl is-enabled ".
+		quotemeta($product).".service 2>&1");
+	$status = &trim($status) if ($status);
 	# Delete all possible service files
 	my $systemd_root = &get_systemd_root();
 	foreach my $p (
@@ -34,10 +38,23 @@ if (-d "/etc/systemd" &&
 		$l =~ s/(WEBMIN_[A-Z]+)/$ENV{$1}/g;
 		}
 	&flush_file_lines($temp);
+	
 	copy_source_dest($temp, "$systemd_root/$product.service");
-
 	system("systemctl daemon-reload >/dev/null 2>&1");
-	system("systemctl enable $product >/dev/null 2>&1");
+	sleep(3); # Wait for systemd to update configuration
+
+	if ($status eq "disabled") {
+		system("systemctl disable ".
+			quotemeta($product).".service >/dev/null 2>&1");
+		}
+	elsif ($status eq "masked") {
+		system("systemctl mask ".
+			quotemeta($product).".service >/dev/null 2>&1");
+		}
+	else {
+		system("systemctl enable ".
+			quotemeta($product).".service >/dev/null 2>&1");
+		}
 	}
 elsif (-d "/etc/init.d") {
 	copy_source_dest("usermin-init", "/etc/init.d/$product");

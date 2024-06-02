@@ -764,6 +764,22 @@ foreach my $f (@rv) {
 		}
 	}
 
+# Filter out duplicate folders by inode
+my @frv;
+my %idone;
+foreach my $f (@rv) {
+	if (!$f->{'file'}) {
+		push(@frv, $f);
+		}
+	else {
+		my @st = stat($f->{'file'});
+		if (!@st || !$done{$st[0],$st[1]}++) {
+			push(@frv, $f);
+			}
+		}
+	}
+@rv = @frv;
+
 @list_folders_cache = @rv;
 return @rv;
 }

@@ -681,6 +681,7 @@ if (&foreign_check("spam")) {
 			# In IMAP mode, the first folder named spam is marked
 			my ($sf) = grep { $_->{'name'} =~ /^\.?spam$/i } @rv;
 			if ($sf) {
+				$sf->{'name'} = "Spam";
 				$sf->{'spam'} = 1;
 				}
 			}

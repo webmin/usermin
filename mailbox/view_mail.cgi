@@ -119,6 +119,15 @@ if ($userconfig{'auto_mark'}) {
 my ($deccode, $decmessage) = &decrypt_attachments($mail);
 my @attach = @{$mail->{'attach'}};
 
+# Calendar attachments
+my @calendars;
+eval {
+foreach my $i (grep { $_->{'data'} }
+	       grep { $_->{'type'} =~ /^text\/calendar/ } @attach) {
+	my $calendars = &parse_calendar_file($i->{'data'});
+	push(@calendars, @{$calendars});
+	}};
+
 # Find body attachment and type
 my ($textbody, $htmlbody, $body) = &find_body($mail, $userconfig{'view_html'});
 $body = $htmlbody if ($in{'body'} == 2);
@@ -247,10 +256,13 @@ my $image_mode = int(defined($in{'images'}) ? $in{'images'}
 				     : $userconfig{'view_images'});
 my @bodyright;
 my $bodycontents;
+my $calendars = &get_calendar_data(\@calendars);
 if ($body && $body->{'data'} =~ /\S/) {
 	if ($body eq $textbody) {
 		# Show plain text
 		$bodycontents = "<pre>";
+		$bodycontents .= $calendars->{'text'}
+			if ($calendars->{'text'});
 		foreach my $l (&wrap_lines(&eucconv($body->{'data'}),
 					$userconfig{'wrap_width'})) {
 			$bodycontents .= &link_urls_and_escape($l,
@@ -264,7 +276,9 @@ if ($body && $body->{'data'} =~ /\S/) {
 		}
 	elsif ($body eq $htmlbody) {
 		# Attempt to show HTML
-		$bodycontents = $body->{'data'};
+		$bodycontents = $calendars->{'html'}
+			if ($calendars->{'html'});
+		$bodycontents .= $body->{'data'};
 		my @imageurls;
 		$bodycontents = &disable_html_images($bodycontents, $image_mode,
 						     \@imageurls);

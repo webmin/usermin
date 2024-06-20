@@ -644,7 +644,7 @@ foreach my $f (@folderfiles) {
 		}
 	}
 
-# When in IMAP inbox mode, we goto this label to skip all my folders
+# When in IMAP inbox mode, we goto this label to skip all local folders
 IMAPONLY:
 
 # Add user-defined composite folders
@@ -668,43 +668,41 @@ foreach my $f (@folderfiles) {
 
 # Add spam folder as specified in spamassassin module, in case it is
 # outside of the folders we scan
-if (&foreign_check("spam")) {
-	my %suserconfig = &foreign_config("spam", 1);
-	my $file = $suserconfig{'spam_file'};
-	$file ||= "";
+my %suserconfig;
+if ($config{'mail_system'} == 4) {
+	# In IMAP mode, the first folder named spam is marked
+	my ($sf) = grep { lc($_->{'name'}) eq 'spam' } @rv;
+	if ($sf) {
+		$sf->{'name'} = $text{'folder_spam'};
+		$sf->{'spam'} = 1;
+		}
+	}
+elsif (&foreign_check("spam") &&
+       (%suserconfig = &foreign_config("spam", 1)) &&
+       (my $file = $suserconfig{'spam_file'})) {
 	$file =~ s/\.$//;
 	$file =~ s/\/$//;
 	$file = "$remote_user_info[7]/$file" if ($file && $file !~ /^\//);
 	$file =~ s/\~/$remote_user_info[7]/;
-	if ($file) {
-		if ($config{'mail_system'} == 4) {
-			# In IMAP mode, the first folder named spam is marked
-			my ($sf) = grep { $_->{'name'} =~ /^\.?spam$/i } @rv;
-			if ($sf) {
-				$sf->{'name'} = "Spam";
-				$sf->{'spam'} = 1;
-				}
-			}
-		elsif (!$done{$file}) {
-			# Need to add
-			push(@rv, { 'name' => "Spam",
-				    'file' => $file,
-				    'type' => &folder_type($file),
-				    'perpage' => $userconfig{"perpage_$file"},
-				    'fromaddr' => $userconfig{"fromaddr_$file"},
-				    'sent' => $userconfig{"sent_$file"},
-				    'hide' => 0,
-				    'mode' => 0,
-				    'spam' => 1,
-				    'index' => scalar(@rv) } );
-			$done{$file}++;
-			}
-		else {
-			# Mark as spam folder
-			my ($sf) = grep { $_->{'file'} eq $file } @rv;
-			if ($sf) {
-				$sf->{'spam'} = 1;
-				}
+	if (!$done{$file}) {
+		# Need to add
+		push(@rv, { 'name' => "Spam",
+			    'file' => $file,
+			    'type' => &folder_type($file),
+			    'perpage' => $userconfig{"perpage_$file"},
+			    'fromaddr' => $userconfig{"fromaddr_$file"},
+			    'sent' => $userconfig{"sent_$file"},
+			    'hide' => 0,
+			    'mode' => 0,
+			    'spam' => 1,
+			    'index' => scalar(@rv) } );
+		$done{$file}++;
+		}
+	else {
+		# Mark as spam folder
+		my ($sf) = grep { $_->{'file'} eq $file } @rv;
+		if ($sf) {
+			$sf->{'spam'} = 1;
 			}
 		}
 	}

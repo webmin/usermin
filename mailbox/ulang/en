@@ -287,5 +287,5 @@ allow_eaddr='$1' is not a valid email address
 right_header=System Information
 right_host=System hostname
 right_os=Operating system
-right_usermin=Usermin Version
+right_usermin=Usermin version
 right_time=Time on system

@@ -259,5 +259,5 @@ allow_eaddr='$1' ist keine gültige Mail-Adresse
 right_header=System Information
 right_host=System Hostname
 right_os=Betriebssystem
-right_usermin=Usermin Version
+right_usermin=Usermin version
 right_time=Systemzeit

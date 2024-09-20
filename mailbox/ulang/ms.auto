@@ -260,5 +260,5 @@ allow_eaddr='$1' bukan alamat e-mel yang sah
 right_header=Maklumat sistem
 right_host=Nama hos sistem
 right_os=Sistem operasi
-right_usermin=Usermin Version
+right_usermin=Usermin version
 right_time=Masa pada sistem

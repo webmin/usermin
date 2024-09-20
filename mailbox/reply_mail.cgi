@@ -16,7 +16,8 @@ require '../html-editor-lib.pl';
 &ReadParse();
 &set_module_index($in{'folder'});
 my @folders = &list_folders();
-my $folder = $folders[$in{'folder'}];
+my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
+$folder || &error($text{'view_efolder'});
 
 # XXX Egads, this is hairy!
 my $html_edit;

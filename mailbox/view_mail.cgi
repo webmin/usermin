@@ -20,6 +20,7 @@ foreach my $a (&list_addresses()) {
 # Get the actual email being viewed, even if is a sub-message
 my @folders = &list_folders_sorted();
 my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
+$folder || &error($text{'view_efolder'});
 my $qid = &urlize($in{'id'});
 my $mail = &mailbox_get_mail($folder, $in{'id'}, 0);
 $mail || &error($text{'view_egone'});

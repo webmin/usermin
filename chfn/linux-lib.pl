@@ -1,5 +1,6 @@
 # linux-lib.pl
 # Functions for changing user details on linux
+use utf8;
 
 # change_details(realname, office, ophone, hphone, shell)
 sub change_details
@@ -8,7 +9,8 @@ foreach $a (@_) {
 	$a =~ s/\\//g;
 	$a =~ s/'//g;
 	}
-
+utf8::decode($_[0]) if (!utf8::is_utf8($_[0]));
+utf8::decode($_[1]) if (!utf8::is_utf8($_[1]));
 local @ruser = getpwnam($remote_user);
 local @uinfo = split(/,/, $ruser[6]);
 

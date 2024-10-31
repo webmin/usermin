@@ -36,3 +36,6 @@ twofactor_etotpmatch=Incorrect OTP code
 
 enable_title=Enabled Two-Factor Authentication
 enable_err=Enrollment failed
+
+qr_err=Failed to generate QR code
+qr_estr=Missing QR code string!

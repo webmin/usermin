@@ -8,8 +8,9 @@ our %in;
 
 require './mailbox-lib.pl';
 &ReadParse();
-my @folders = &list_folders();
+my @folders = &list_folders_sorted();
 my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
+$folder || &error($text{'view_efolder'});
 &save_sort_field($folder, $in{'field'}, $in{'dir'});
 
 #Return in JSON format if needed

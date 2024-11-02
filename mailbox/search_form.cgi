@@ -10,8 +10,9 @@ our $search_folder_id;
 
 require './mailbox-lib.pl';
 &ReadParse();
-my @folders = &list_folders_sorted();
+my @folders = &list_folders_sorted(); 
 my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
+$folder || &error($text{'view_efolder'});
 &set_module_index($in{'folder'});
 &ui_print_header(undef, $text{'sform_title'}, "");
 

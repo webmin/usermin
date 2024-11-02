@@ -19,7 +19,9 @@ my $folder = { 'type' => 6,
 foreach my $k (keys %in) {
 	if ($k =~ /^idx_(\d+)$/) {
 		my ($idx, $fidx) = split(/\s+/, $in{$k}, 2);
-		$folder->{'members'}->[$1] = [ $folders[$fidx], $idx ];
+		my ($folder) = grep { $_->{'index'} == $fidx } @folders;
+		$folder || &error($text{'view_efolder'});
+		$folder->{'members'}->[$1] = [ $folder, $idx ];
 		}
 	}
 &save_folder($folder);

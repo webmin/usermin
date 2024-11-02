@@ -19,8 +19,9 @@ foreach my $k (keys %in) {
 	$in{$k} = join("\0", @{$in{$k}}) if ($k !~ /^attach\d+/);
 	}
 &set_module_index($in{'folder'});
-my @folders = &list_folders();
-my $folder = $folders[$in{'folder'}];
+my @folders = &list_folders_sorted(); 
+my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
+$folder || &error($text{'view_efolder'});
 &error_setup($text{'send_err'});
 if (!$in{'subject'}) {
 	if ($userconfig{'force_subject'} eq 'error') {

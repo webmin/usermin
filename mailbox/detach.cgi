@@ -11,8 +11,9 @@ use Socket;
 require './mailbox-lib.pl';
 
 &ReadParse();
-my @folders = &list_folders();
-my $folder = $folders[$in{'folder'}];
+my @folders = &list_folders_sorted();
+my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
+$folder || &error($text{'view_efolder'});
 my $mail = &mailbox_get_mail($folder, $in{'id'}, 0);
 $mail || &error($text{'view_egone'});
 &parse_mail($mail);

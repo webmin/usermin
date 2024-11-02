@@ -10,8 +10,9 @@ our (%text, %in, %userconfig, %gconfig);
 require './mailbox-lib.pl';
 &ReadParse();
 my @ids = sort { $a <=> $b } split(/\0/, $in{'d'});
-my @folders = &list_folders();
-my $folder = $folders[$in{'folder'}];
+my @folders = &list_folders_sorted();
+my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
+$folder || &error($text{'view_efolder'});
 my $r = time().$$;
 
 my @delmail;

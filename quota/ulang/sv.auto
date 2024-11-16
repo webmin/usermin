@@ -2,5 +2,6 @@ index_title=Diskkvoter
 index_quotas=Diskkvoter för $1 på monterade filsystem
 index_none=Du har inga användardiskkvoter på några monterade filsystem.
 index_gquotas=Diskkvoter för grupp $1 på monterade filsystem
+
 right_header=Diskkvoter
 right_out=$1 av $2 

@@ -1,4 +1,7 @@
-index_title=Przydział dysku
-index_quotas=Przydział dysku dla $1 na zamontowanym systemie plików
-index_none=Brak użytkowników z przydziałem dysku na zamontowanym systemie plików.
-index_gquotas=Przydział dysku dla grupy $1 na zamontowanym systemie plików
+index_title=Przydziały dysku
+index_quotas=Przydziały dysku dla $1 na zamontowanych systemach plików
+index_none=Nie masz żadnych przydziałów użytkownika na zamontowanych systemach plików.
+index_gquotas=Przydziały dysku dla grupy $1 na zamontowanych systemach plików
+
+right_header=Przydziały dysku
+right_out=$1&nbsp;z&nbsp;$2

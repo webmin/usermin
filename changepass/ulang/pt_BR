@@ -6,7 +6,7 @@ index_new1=Nova senha
 index_new2=Nova senha novamente
 index_change=Alterar Agora
 index_return=senha trocada
-index_return=senha trocada
+
 change_err=Falha ao alterar a senha
 change_title=Senha Alterada
 change_enew1=Faltando a nova senha

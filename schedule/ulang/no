@@ -13,6 +13,7 @@ index_cleardesc=Klikk på denne knappen for å slette alle tidsplanlagte e-poste
 index_delete=Slett valgte e-poster
 index_disable=Deaktiver valgte
 index_enable=Aktiver valgte
+
 edit_title1=Opprett tidsplanlagt e-post
 edit_title2=Rediger tidsplanlagt e-post
 edit_header=Detaljer om tidsplanlagt e-post melding
@@ -33,10 +34,12 @@ edit_files=Vedlagte filer
 edit_file=Filnavn
 edit_type=Kilde
 edit_uploaded=Opplastet
+
 save_err=Kunne ikke lagre tidsplanlagt e-post
 save_esubject=Mangler emne for meldingen
 save_eto=Mangler send til adresse
 save_emailfile=Manglende eller ugyldig meldingstekst-fil
 save_efrom=Manglende send fra adresse
 save_eat=Manglende eller ugyldig klokkeslett for sending
+
 view_efile=Filen finnes ikke lenger

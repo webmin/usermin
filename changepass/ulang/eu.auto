@@ -7,13 +7,13 @@ index_new1=Pasahitz berria
 index_new2=Pasahitz berria berriro
 index_change=Aldatu orain
 index_return=pasahitza aldatzeko inprimakia
+
 index_passtab=Pasahitza aldatu
 index_recoverytab=Pasahitza berreskuratzeko helbidea
 index_desc3=Erabili formulario hau aldi baterako pasahitz bat bidal diezazun beste helbide bat idazteko uneko pasahitza ahaztuz gero.
 index_recovery=Pasahitza berreskuratzeko helbide alternatiboa
 index_recoverydef=Ez da batere ezarri
 index_recoverysel=Bidali mezu elektronikoa helbidera
-index_return=pasahitza aldatzeko inprimakia
 change_err=Ezin izan da pasahitza aldatu
 change_title=Pasahitza aldatu da
 change_oka=$1 -eko zure pasahitza ondo aldatu da. Hemendik aurrera Erabiltzaile, SSH, FTP edo posta elektroniko bidezko edozein erregistroko pasahitza beharko da.
@@ -37,9 +37,11 @@ change_epasswd_same=Pasahitzak erabiltzaile izenaren berdina dauka
 change_epasswd_new=Pasahitza pasahitz zaharraren berdina da
 change_emysql=MySQL moduluan uneko saioa okerra da.
 change_eformat=Ez da onartzen konfiguratutako pasahitza hashing formatua
+
 recovery_title=Berreskuratzeko helbidea
 recovery_err=Ezin izan da berreskuratze-helbidea ezarri
 recovery_eemail=Ez da baliozko itxura duen helbide elektronikoa idatzi
 recovery_cleared=Berreskuratzeko helbidea garbitu egin da.
 recovery_set=Pasahitza berrezartzeko eskaria erabiltzeko berreskuratzeko helbidea $1 ezarri da.
+
 left_changepass=Aldatu pasahitza

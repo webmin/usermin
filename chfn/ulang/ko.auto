@@ -7,6 +7,7 @@ index_office=사무실 번호
 index_ophone=직장 전화
 index_hphone=집 전화
 index_shell=로그인 쉘
+
 save_err=세부 사항을 변경하지 못했습니다
 save_ereal=실명은 또는 문자를 포함 할 수 없습니다.
 save_eoffice=사무실 번호는 또는 문자를 포함 할 수 없습니다.

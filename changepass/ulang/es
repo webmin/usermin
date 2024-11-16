@@ -6,7 +6,7 @@ index_new1=Nueva clave
 index_new2=Repita la nueva clave
 index_change=Cambiar Ahora
 index_return=formulario de cambio de clave
-index_return=formulario de cambio de clave
+
 change_err=Fallo al cambiar clave
 change_title=Clave cambiada
 change_enew1=Falta la nueva clave

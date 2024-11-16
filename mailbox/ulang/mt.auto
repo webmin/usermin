@@ -1,16 +1,21 @@
 index_title=Mail f' $1 
 index_return=lista tal-posta
+index_searching=Tfittxija għal $1 għaddejja. Ir-riżultati jintwerew hawn meta jitlesta.
+index_searching2=Qed għaddejja tfittxija kumplessa. Ir-riżultati jintwerew hawn meta jitlesta.
+
 mail_title=Aqra Mail
 mail_none=M'hemm l-ebda messaġġ fil-folder $1 
 mail_pos=Messaġġi $1 sa $2 ta ' $3 fil-folder $4 
 mail_return=kaxxa tal-posta
 mail_quota=Uża $1 barra minn $2 
 mail_special=Speċjali
+
 send_efile=Fajl mehmuż $1 ma jistax jinqara jew ma jeżistix
 send_nobody=ħadd
 send_etomsg=L-indirizz No, Cc jew Bcc ġie mdaħħal
 send_esubjectmsg=L-ebda Suġġett ma ġie mdaħħal - nispera li OK
 send_eclosemsg=Int żgur li trid tagħlaq din il-paġna u titlef il-messaġġ li għaddej?
+
 address_chooser=Agħżel Indirizz ..
 address_addr=Indirizz tal-Email
 address_name=Isem reali
@@ -61,6 +66,7 @@ address_exportdup0=Inkludi t-tnejn
 address_exportdup1=Jinkludu biss l-ewwel waħda
 address_exportfmt=Esportazzjoni f'format
 address_exportok=Esportazzjoni Issa
+
 import_err=Ma rnexxielux jimporta l-indirizzi
 import_title=Ktieb tal-Indirizzi ta 'Importazzjoni
 import_doing=Riżultati ta 'l-importazzjoni tal-ktieb ta' l-indirizzi ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Indirizz tal-email nieqes jew invalidu</font>
 import_same=Ma nbidilx, skipped
 import_skip=Indirizz duplikat, skipped
 import_enetvcard=Il-modulu <tt>Net::vCard</tt> Perl huwa meħtieġ biex jinqraw fajls tal-format vCard
+
 export_err=Ma rnexxielux jesporta l-indirizzi
+
 group_err=Ma rnexxielux isalva l-indirizz tal-grupp
 group_egroup=Isem tal-grupp nieqes jew invalidu
 group_emembers=L-ebda indirizz elettroniku tal-membru ma daħal
+
 folders_title=Immaniġġja Folders
 folders_instr=Għajnuna u tipi ta 'folder
 folders_desc2=Kull waħda mill-fowlders elenkati hawn taħt jista 'jkun fiha posta li ddaħħal fiha, jew posta li titpoġġa fiha awtomatikament. It-tipi ta 'folder li ġejjin huma disponibbli :
@@ -124,6 +133,7 @@ folders_delete=Ħassar il-Folders Magħżula
 folders_addimap=Żid fowlder ġdid.
 folders_addcomp=Żid folder ġdid kompost.
 folders_addvirt=Żid folder virtwali ġdid.
+
 edit_title1=Oħloq Folder
 edit_title2=Editja Folder
 edit_header=Dettalji tal-folder tal-Mail
@@ -161,6 +171,7 @@ edit_comps=Sub-folders, l-eqdem l-ewwel
 edit_comp=Kompost
 edit_virt=Virtwali
 edit_delete=Tħassar messaġġ reali meta tħassar minn folder?
+
 save_err=Ma rnexxielux isalva fowlder
 save_ecannot=M'għandekx permess tuża dan it-tip ta 'folder
 save_ename=Isem il-fowlder nieqes
@@ -191,7 +202,9 @@ save_edelete=Ma rnexxiex tħassar posta : $1
 save_eflag=Ma rnexxielux jistabbilixxi bnadar IMAP : $1 
 save_eappend=Naqset milli żżid posta fil-kaxxa postali IMAP : $1 
 save_esearch=Naqset milli tfittex il-kaxxa postali tal-IMAP : $1 
+
 epop3lock_tries=Ma rnexxielux jissakkar il-fajl tal-posta $1 wara li pprova $2 minuti, minħabba l-illokkjar tal-fajl POP3.
+
 view_dsn=Status tal-Konsenja Notifika
 view_dnsnow=Messaġġ ta 'notifika tal-istatus tal-kunsinna għadu kif intbagħat lil $1.
 view_dsnbefore=Messaġġ ta 'notifika tal-istatus tal-kunsinna ntbagħat lil $1 fuq $2.
@@ -204,21 +217,30 @@ view_quick=Risposta malajr
 view_quick_all=Irrispondi għal kulħadd
 view_quick_quote=Kwotazzjoni oriġinali
 view_quick_send=Ibgħat
+
 search_virtualize=Oħloq Folder Virtwali msemmi:
 search_dest=Aħżen ir-riżultati f '
 search_dest1=Fowlder tar-Riżultati tat-Tiftix
 search_dest0=Fowlder virtwali ġdid jismu
 search_edest=Nieqes l-isem tal-fowlder virtwali għar-riżultati
 search_eself=Ma tistax titfittex il-fowlder tar-riżultati tat-tfittxija
+search_doing=Tiftix għal $1 fil-folder $2.
+search_doing2=Tiftix messaġġi fil-folder magħżul.
+search_results=Messaġġi li jaqblu se jintwerew fil-folder <a href='$1'>riżultati tat-tfittxija</a> meta t-tfittxija titlesta...
+
 virtualize_ename=Isem il-fowlder virtwali nieqes
+
 delete_enoadd=Il-messaġġi ma jistgħux jiġu trasferiti f'folders virtwali, ikkupjati biss
+
 sig_title=Editja Firma
 sig_desc=Uża din il-formola biex teditja l-firma tal-email tiegħek fil-fajl $1.
 sig_undo=Annulla
 sig_enone=L-ebda fajl tal-firma ma ġie definit
 sig_eopen=Ma rnexxielux jiftaħ fajl tal-firma : $1 
+
 quota_inbox=Il-kwota għall-posta ta ’ $1 inqabżet
 quota_inbox2=Kwota ta ’ $1 messaġġi tal-posta inqabżet
+
 auto_title=Clearing tal-Folder Awtomatiku
 auto_header=Għażliet skedati għall-ikklerjar tal-fowlder
 auto_enabled=Ħassar awtomatikament il-messaġġi?
@@ -236,6 +258,7 @@ auto_action1=Ħassar il-messaġġi kollha fil-fowlder
 auto_action2=Mexxi għall-folder $1 
 auto_edest=Fowlder tad-destinazzjoni magħżul ma jeżistix!
 auto_ewrite=Ma tistax tinkiteb folder ta 'destinazzjoni magħżula
+
 copy_title=Ikkopja Il-Posta Kollha
 copy_header=Ikkopja l-messaġġi kollha fil-fowlder
 copy_source=Fowlder tas-sors
@@ -245,18 +268,22 @@ copy_ok=Ikkopja Issa
 copy_doing=Ikkopja l-messaġġi kollha minn $1 sa $2 ..
 copy_done=.. sar
 copy_deleting=Folder vojt $1 ..
+
 fdelete_title=Ħassar Folders
 fdelete_err=Ma rnexxielhiex tħassar il-fowlders
 fdelete_enone=L-ebda magħżul
 fdelete_rusure=Int żgur li trid tħassar il-fowlders magħżula $1 ? $2 tal-imejl jitħassru għal dejjem.
 fdelete_rusure2=Int żgur li trid tħassar il-fowlders magħżula $1 ?
 fdelete_delete=Ħassar issa
+
 detachall_err=Ma rnexxielux isalva l-annessi kollha
 detachall_emkdir=Ma setgħetx toħloq direttorju temporanju : $1 
 detachall_ezip=ZIP fallut : $1 
+
 allow_err=Ma rnexxielux isalva l-indirizzi permessi
 deny_err=Ma rnexxielux isalva l-indirizzi miċħuda
 allow_eaddr="$1" mhuwiex indirizz elettroniku validu
+
 right_header=Informazzjoni tas-Sistema
 right_host=Isem tas-sistema
 right_os=Sistema operattiva

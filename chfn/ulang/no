@@ -7,6 +7,7 @@ index_office=Kontor nummer
 index_ophone=Telefon arbeid
 index_hphone=Telefon privat
 index_shell=Innloggings-skall
+
 save_err=Kunne ikke endre opplysninger
 save_ereal=Fullt navn kan ikke inneholde tegnene , eller :
 save_eoffice=Kontornummer kan ikke inneholde tegnene , eller :

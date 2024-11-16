@@ -1,16 +1,21 @@
 index_title=שלח דואר $1 
 index_return=רשימת דואר
+index_searching=חיפוש עבור $1 מתבצע. התוצאות יוצגו כאן כאשר זה יסתיים.
+index_searching2=חיפוש מורכב מתבצע. התוצאות יוצגו כאן כאשר זה יסתיים.
+
 mail_title=קרא את הדואר
 mail_none=אין הודעות בתיקיה $1 
 mail_pos=הודעות $1 עד $2 מתוך $3 בתיקיה $4 
 mail_return=תיבת דואר
 mail_quota=משתמש ב- $1 מתוך $2 
 mail_special=מיוחד
+
 send_efile=הקובץ המצורף $1 אינו ניתן לקריאה או שאינו קיים
 send_nobody=אף אחד
 send_etomsg=לא הוזנה כתובת לא, עותק או עותק מוסתר
 send_esubjectmsg=אף נושא לא הוזן - מקווה שזה בסדר
 send_eclosemsg=האם אתה בטוח שברצונך לסגור דף זה ולאבד את ההודעה בתהליך?
+
 address_chooser=בחר כתובת ..
 address_addr=כתובת דוא"ל
 address_name=שם אמיתי
@@ -61,6 +66,7 @@ address_exportdup0=כלול את שניהם
 address_exportdup1=כלול רק את הראשון
 address_exportfmt=ייצא בפורמט
 address_exportok=ייצא עכשיו
+
 import_err=ייבוא הכתובות נכשל
 import_title=ייבא את פנקס הכתובות
 import_doing=תוצאות יבוא פנקס כתובות.
@@ -75,10 +81,13 @@ import_noemail=<font color=red>כתובת דוא"ל חסרה או לא חוקי�
 import_same=ללא שינוי, דילג
 import_skip=כתובת משוכפלת, דילגה
 import_enetvcard=יש צורך במודול <tt>Net::vCard</tt> לפרל כדי לקרוא קבצי פורמט vCard
+
 export_err=ייצוא הכתובות נכשל
+
 group_err=שמירת קבוצת הכתובות נכשלה
 group_egroup=שם קבוצה חסר או לא חוקי
 group_emembers=לא הוזנו כתובות דוא"ל לחברים
+
 folders_title=נהל תיקיות
 folders_instr=סוגי עזרה ותיקיות
 folders_desc2=כל אחת מהתיקיות המפורטות להלן יכולה להכיל דואר שאתה מעביר לתוכו, או דואר שמוצב לתוכו באופן אוטומטי. סוגי התיקיות הבאים זמינים :
@@ -124,6 +133,7 @@ folders_delete=מחק תיקיות שנבחרו
 folders_addimap=הוסף תיקיה חדשה.
 folders_addcomp=הוסף תיקיה מורכבת חדשה.
 folders_addvirt=הוסף תיקיה וירטואלית חדשה.
+
 edit_title1=צור תיקיה
 edit_title2=ערוך תיקיה
 edit_header=פרטי תיקיית הדואר
@@ -161,6 +171,7 @@ edit_comps=תיקיות משנה, העתיקה הראשונה
 edit_comp=מרוכבים
 edit_virt=וירטואלי
 edit_delete=למחוק הודעה אמיתית בעת מחיקה מהתיקיה?
+
 save_err=שמירת התיקיה נכשלה
 save_ecannot=אינך רשאי להשתמש בתיקיה מסוג זה
 save_ename=שם התיקיה חסר
@@ -191,7 +202,9 @@ save_edelete=מחיקת הדואר נכשלה : $1
 save_eflag=הגדרת דגלי IMAP נכשלה : $1 
 save_eappend=הוספת דואר לתיבת הדואר של IMAP נכשלה : $1 
 save_esearch=חיפוש בתיבת הדואר ב- IMAP נכשל : $1 
+
 epop3lock_tries=נכשלה לנעול את קובץ הדואר $1 לאחר הניסיון במשך $2 דקות, בגלל קובץ הנעילה של POP3.
+
 view_dsn=הודעת סטטוס משלוח
 view_dnsnow=הודעת התראה על מצב משלוח נשלחה זה עתה ל- $1.
 view_dsnbefore=הודעת התראת מצב מסירה נשלחה ל- $1 ב- $2.
@@ -204,21 +217,30 @@ view_quick=תגובה מהירה
 view_quick_all=השב לכולם
 view_quick_quote=ציטוט מקורי
 view_quick_send=שלח
+
 search_virtualize=צור תיקייה וירטואלית בשם:
 search_dest=אחסן תוצאות ב
 search_dest1=תיקיית תוצאות חיפוש
 search_dest0=תיקיה וירטואלית חדשה בשם
 search_edest=חסר שם תיקיה וירטואלית לתוצאות
 search_eself=לא ניתן לחפש בתיקיית תוצאות החיפוש
+search_doing=מחפש $1 בתיקייה $2.
+search_doing2=חיפוש הודעות בתיקייה שנבחרה.
+search_results=הודעות תואמות יוצגו בתיקיית <a href='$1'>תוצאות חיפוש</a> כשהחיפוש יסתיים...
+
 virtualize_ename=חסר שם התיקיה הווירטואלית
+
 delete_enoadd=לא ניתן להעביר הודעות לתיקיות וירטואליות, אלא להעתיק רק
+
 sig_title=ערוך חתימה
 sig_desc=השתמש בטופס זה כדי לערוך את חתימת הדוא"ל שלך בקובץ $1.
 sig_undo=לבטל
 sig_enone=לא הוגדר קובץ חתימה
 sig_eopen=פתיחת קובץ החתימה נכשלה : $1 
+
 quota_inbox=המכסה לדואר של $1 חרגה
 quota_inbox2=המכסה של $1 הודעות דואר חרגה
+
 auto_title=ניקוי תיקיות אוטומטי
 auto_header=אפשרויות ניקוי תיקיות מתוזמנות
 auto_enabled=למחוק הודעות באופן אוטומטי?
@@ -236,6 +258,7 @@ auto_action1=מחק את כל ההודעות בתיקיה
 auto_action2=עבור לתיקיה $1 
 auto_edest=תיקיית היעד שנבחרה אינה קיימת!
 auto_ewrite=לא ניתן לכתוב לתיקיית היעד שנבחרה
+
 copy_title=העתק את כל הדואר
 copy_header=העתק את כל ההודעות בתיקיה
 copy_source=תיקיית המקור
@@ -245,18 +268,22 @@ copy_ok=העתק עכשיו
 copy_doing=מעתיק את כל ההודעות מ- $1 ל- $2.
 copy_done=.. בוצע
 copy_deleting=ריקון תיקיה $1 ..
+
 fdelete_title=מחק תיקיות
 fdelete_err=מחיקת התיקיות נכשלה
 fdelete_enone=לא נבחר
 fdelete_rusure=האם אתה בטוח שברצונך למחוק את התיקיות $1 שנבחרו? $2 מהדוא"ל יימחק לנצח.
 fdelete_rusure2=האם אתה בטוח שברצונך למחוק את התיקיות $1 שנבחרו?
 fdelete_delete=תמחק עכשיו
+
 detachall_err=שמירת כל הקבצים המצורפים נכשלה
 detachall_emkdir=לא ניתן היה ליצור ספרייה זמנית : $1 
 detachall_ezip=ZIP נכשל : $1 
+
 allow_err=שמירת כתובות מותר נכשלה
 deny_err=שמירת כתובות שנדחו נכשלה
 allow_eaddr='$1' אינה כתובת דוא"ל חוקית
+
 right_header=מידע מערכת
 right_host=שם מארח מערכת
 right_os=מערכת הפעלה

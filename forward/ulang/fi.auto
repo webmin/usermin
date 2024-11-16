@@ -3,6 +3,7 @@ index_fromdef=Oletusosoitteesi
 index_charset=Viestin merkistö
 index_charsetdef=Nykyisestä kielestä
 index_charsetother=Muu merkistö
+
 asave_err=Huolinnan tallentaminen epäonnistui
 asave_eaddr='$1' ei ole kelvollinen osoite
 asave_etype1='$1' ei ole kelvollinen sähköpostiosoite
@@ -18,6 +19,7 @@ asave_ename=Puuttuva tai virheellinen nimi nimestä
 asave_esame=Tälle osoitteelle on jo alias
 asave_enone=Mitään ei valittu lähetettäväksi
 asave_ecannot=Virheellinen edelleenlähetystapa valittu
+
 ffile_title=Muokkaa suodatustiedostoa
 ffile_desc=Asenna alla olevan lomakkeen suodatussäännöt tiedostoon $1.
 ffile_efile=Sinulla ei ole oikeutta muokata tuotetta $1.
@@ -34,6 +36,7 @@ ffile_err=Suodatustiedoston tallentaminen epäonnistui
 ffile_ematch=Puuttuu ottelu
 ffile_eaction=Puuttuva edelleenlähetysosoite
 ffile_ewrite=Suodatetun tiedoston kirjoittaminen epäonnistui : $1 
+
 rfile_title=Muokkaa automaattisen vastauksen tiedostoa
 rfile_desc=Käytä alla olevaa tekstialuetta muokataksesi automaattivastausviestiä $1 : ssä. Viesti voi sisältää makroja $SUBJECT, $FROM, $TO, $DATE ja $BODY, joita laajennetaan, kun automaattinen vastaus aktivoidaan.
 rfile_desc2=Voit myös asettaa posti otsikot, jotka lisäävät tai korvaavat automaattisessa vastauksessa käytetyt oletusasetukset asettamalla rivit kuten: <br><tt> Lähettäjä: foo@bar.com </tt><br> <tt>Aihe: lomalla</tt> <br> viestin yläosassa, erotettuna rungosta yhdellä tyhjellä rivillä.
@@ -51,13 +54,16 @@ rfile_auto=Automaattinen (perustuu vastaanottajan osoitteeseen)
 rfile_efrom=Puuttuu: osoite
 rfile_fromdesc=Alkaen: Osoite on aina määritettävä, kun mahdollista, koska automaattinen menetelmä ei ehkä ole luotettava.
 rfile_err=Automaattivastaustiedoston tallentaminen epäonnistui
+
 vfile_title=Muokkaa lomavastaustiedostoa
 vfile_desc=Käytä alla olevaa tekstialuetta muokataksesi automaattivastausviestiä $1 : ssä.
 vfile_subject=Viestin aihe
 vfile_err=Loman vastaustiedoston tallentaminen epäonnistui
 vfile_esubject=Puuttuu viestin aihe
+
 edit_title=Muokkaa eteenpäin-tiedostoa
 edit_desc=Tällä sivulla voit muokata $1 -tiedostosi sisältöä manuaalisesti. Ole varovainen, koska syötteesi ei tarkista virheitä.
+
 vacation_title=Lomavaihtoehdot
 vacation_header=Loma automaattisen vastauksen vaihtoehdot
 vacation_user=Sinun käyttäjä nimesi
@@ -72,6 +78,7 @@ vacation_einterval=Puuttuva tai virheellinen vastausaika
 vacation_euser=Puuttuva tai virheellinen käyttäjänimi
 vacation_emsg=Puuttuva tai virheellinen viestitiedosto
 vacation_return=lomavaihtoehdot
+
 simple_err=Postin edelleenlähetysvaihtoehtojen tallentaminen epäonnistui
 simple_eforward=Lähetysosoitetta ei ole annettu
 simple_eforward2=Yksi edelleenlähetysosoite on annettava, kuten <tt>foo@bar.com</tt>

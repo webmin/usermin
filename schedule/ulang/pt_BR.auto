@@ -3,5 +3,6 @@ edit_delete=Excluir após o primeiro envio
 edit_size=Tamanho
 edit_upload1=Fazer upload de arquivos
 edit_upload2=Anexar um arquivo
+
 save_notice_title=Programação salva
 save_notice=O email agendado foi criado com sucesso - visualize, edite ou exclua-o seguindo <a href="$1">este</a> link.

@@ -1,0 +1,21 @@
+index_title=Zmień szczegóły użytkownika
+index_desc=Ta strona pozwala na zmianę informacji o Twoim koncie Unix, w tym powłoki logowania używanej podczas połączeń telnet lub SSH. Bądź ostrożny przy zmianie powłoki, ponieważ niektóre wybory mogą uniemożliwić zalogowanie się.
+index_desc2=Ta strona pozwala na zmianę informacji o Twoim koncie Unix, takich jak rzeczywiste imię i nazwisko oraz dane kontaktowe.
+index_header=Bieżące szczegóły użytkownika
+index_real=Rzeczywiste imię i nazwisko
+index_office=Numer pokoju biurowego
+index_ophone=Telefon służbowy
+index_hphone=Telefon domowy
+index_shell=Powłoka logowania
+
+save_err=Nie udało się zmienić szczegółów
+save_ereal=Rzeczywiste imię i nazwisko nie może zawierać znaków , ani :
+save_eoffice=Numer pokoju biurowego nie może zawierać znaków , ani :
+save_eophone=Telefon służbowy nie może zawierać znaków , ani :
+save_ehphone=Telefon domowy nie może zawierać znaków , ani :
+save_eshell=Powłoka nie może zawierać znaków , ani :
+save_title=Zmieniono szczegóły
+save_desc=Udało się zmienić szczegóły użytkownika i powłokę systemu Unix dla $1.
+save_desc2=Udało się zmienić szczegóły użytkownika systemu Unix dla $1.
+save_eshell2=Brak powłoki
+save_ereal2=Brak rzeczywistego imienia i nazwiska

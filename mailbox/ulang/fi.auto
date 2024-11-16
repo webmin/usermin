@@ -1,8 +1,13 @@
 index_return=postituslista
+index_searching=Haku $1 on käynnissä. Tulokset näkyvät täällä, kun se on valmis.
+index_searching2=Monimutkainen haku on meneillään. Tulokset näytetään täällä, kun se on valmis.
+
 mail_special=erityinen
+
 send_etomsg=No To, Cc tai Bcc-osoitetta ei annettu
 send_esubjectmsg=Aihetta ei annettu - toivottavasti se on OK
 send_eclosemsg=Haluatko varmasti sulkea tämän sivun ja kadottaa meneillään olevan viestin?
+
 address_users=Sähköpostiosoitteet
 address_groups=Sähköposti lempinimet
 address_allow=Sallitut osoitteet
@@ -31,6 +36,7 @@ address_exportdup0=Sisällytä molemmat
 address_exportdup1=Sisällytä vain ensimmäinen
 address_exportfmt=Vie muodossa
 address_exportok=Vie nyt
+
 import_err=Osoitteiden tuonti epäonnistui
 import_title=Tuo osoitekirja
 import_doing=Osoitekirjan tuonnin tulokset ..
@@ -45,28 +51,41 @@ import_noemail=<font color=red>Puuttuva tai virheellinen sähköpostiosoite</fon
 import_same=Ei muutoksia, ohitettu
 import_skip=Kopioitu osoite, ohitettu
 import_enetvcard=<tt>Net::vCard</tt> Perl-moduulia tarvitaan vCard-muotoisten tiedostojen lukemiseen
+
 export_err=Osoitteiden vienti epäonnistui
+
 folders_instr=Ohje- ja kansiotyypit
+
 edit_mode3=Roskakoritiedosto
 edit_type7=Yksittäinen tiedosto (MBX)
 edit_usersame=Sama kuin Usermin kirjautuminen
+
 save_ename4=Kansioiden nimet voivat sisältää vain kirjaimia, numeroita, välilyöntejä ja merkkejä piste, viiva ja alaviiva
 save_ecompsame=Yhdistetyssä kansiossa ei voi olla samaa alakansiota kahdesti
 save_eflag=IMAP-lippujen asettaminen epäonnistui : $1 
+
 view_quick=Nopea vastaus
 view_quick_all=Vastaa kaikille
 view_quick_quote=Lainaus alkuperäinen
 view_quick_send=Lähettää
+
 search_eself=Hakutuloskansiota ei voi hakea
+search_doing=Haetaan $1 kansiosta $2.
+search_doing2=Etsitään viestejä valitusta kansiosta.
+search_results=Vastaavat viestit näkyvät <a href='$1'>hakutuloskansiossa</a>, kun haku on valmis...
+
 auto_action2=Siirry kansioon $1 
 auto_edest=Valittua kohdekansiota ei ole!
 auto_ewrite=Valittua kohdekansiota ei voida kirjoittaa
+
 detachall_err=Kaikkien liitteiden tallentaminen epäonnistui
 detachall_emkdir=Väliaikaista hakemistoa ei voitu luoda : $1 
 detachall_ezip=Postin lähetys epäonnistui : $1 
+
 allow_err=Sallittujen osoitteiden tallentaminen epäonnistui
 deny_err=Estettyjen osoitteiden tallentaminen epäonnistui
 allow_eaddr='$1' ei ole kelvollinen sähköpostiosoite
+
 right_header=Järjestelmätiedot
 right_host=Järjestelmän isäntänimi
 right_os=Käyttöjärjestelmä

@@ -19,17 +19,23 @@ index_fromdef=Varsayılan adresiniz
 index_charset=Mesaj karakter kümesi
 index_charsetdef=Mevcut dilden
 index_charsetother=Diğer karakter seti
+
 aliases_type8=Otomatik olarak tatil
+
 aform_type8=Otomatik olarak tatil
 aform_vacation=Tatil seçeneklerini düzenle ..
+
 asave_etype5=Otomatik olarak dosya adı verilmiyor
 asave_etype6=Filtre dosya adı belirtilmedi
+
 rfile_err=Otomatik kaydetme dosyası kaydedilemedi
+
 vfile_title=Tatil Yanıt Dosyasını Düzenle
 vfile_desc=$1 içindeki otomatik kaydetme iletisini düzenlemek için aşağıdaki metin alanını kullanın.
 vfile_subject=Mesaj Konusu
 vfile_err=Tatil yanıt dosyası kaydedilemedi
 vfile_esubject=Eksik mesaj konusu
+
 vacation_title=Tatil Seçenekleri
 vacation_header=Otomatik tatil cevap seçenekleri
 vacation_user=Kullanıcı adınızı
@@ -44,6 +50,7 @@ vacation_einterval=Eksik veya geçersiz cevap aralığı
 vacation_euser=Eksik veya geçersiz kullanıcı adı
 vacation_emsg=Eksik veya geçersiz mesaj dosyası
 vacation_return=tatil seçenekleri
+
 simple_err=Posta yönlendirme seçenekleri kaydedilemedi
 simple_eforward=Yönlendirme adresi girilmedi
 simple_eforward2=<tt>foo@bar.com</tt> gibi tek bir yönlendirme adresi girilmelidir

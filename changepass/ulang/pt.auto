@@ -7,13 +7,13 @@ index_new1=Nova senha
 index_new2=Nova senha novamente
 index_change=Mude agora
 index_return=formulário de alteração de senha
+
 index_passtab=Mudança de senha
 index_recoverytab=Endereço de recuperação de senha
 index_desc3=Use este formulário para inserir um endereço alternativo para o qual uma senha temporária possa ser enviada se você esquecer sua senha atual.
 index_recovery=Endereço alternativo para recuperação de senha
 index_recoverydef=Nenhuma definida
 index_recoverysel=Enviar um email a
-index_return=formulário de alteração de senha
 change_err=Falha ao alterar a senha
 change_title=Senha alterada
 change_oka=Sua senha para $1 foi alterada com sucesso. Qualquer login de usuário, SSH, FTP ou e-mail a partir de agora exigirá a nova senha.
@@ -37,9 +37,11 @@ change_epasswd_same=A senha contém ou é igual ao nome de usuário
 change_epasswd_new=Senha é igual à senha antiga
 change_emysql=O login atual no módulo MySQL está incorreto.
 change_eformat=O formato de hash da senha configurado não é suportado
+
 recovery_title=Endereço de recuperação
 recovery_err=Falha ao definir o endereço de recuperação
 recovery_eemail=Um endereço de email com aparência válida não foi inserido
 recovery_cleared=O endereço de recuperação foi limpo.
 recovery_set=O endereço de recuperação a ser usado ao solicitar uma redefinição de senha foi definido como $1.
+
 left_changepass=Mudar senha

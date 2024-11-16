@@ -1,16 +1,21 @@
 index_title=Pošta $1 
 index_return=zoznam pošty
+index_searching=Prebieha vyhľadávanie $1. Po dokončení sa tu zobrazia výsledky.
+index_searching2=Prebieha komplexné vyhľadávanie. Po dokončení sa tu zobrazia výsledky.
+
 mail_title=Čítať poštu
 mail_none=V priečinku $1 nie sú žiadne správy
 mail_pos=Správy $1 až $2 z $3 v priečinku $4 
 mail_return=poštová schránka
 mail_quota=Používa $1 z $2 
 mail_special=špeciálna
+
 send_efile=Pripojený súbor $1 nie je čitateľný alebo neexistuje
 send_nobody=nikto
 send_etomsg=Nebola zadaná adresa Komu, Kopie alebo Skrytá
 send_esubjectmsg=Nebol zadaný žiadny predmet - dúfam, že je to v poriadku
 send_eclosemsg=Naozaj chcete túto stránku zavrieť a stratiť prebiehajúcu správu?
+
 address_chooser=Vyberte adresu.
 address_addr=Emailová adresa
 address_name=Skutočné meno
@@ -61,6 +66,7 @@ address_exportdup0=Zahrňte obe
 address_exportdup1=Zahrňte iba prvú
 address_exportfmt=Exportovať vo formáte
 address_exportok=Exportovať teraz
+
 import_err=Nepodarilo sa importovať adresy
 import_title=Importovať adresár
 import_doing=Výsledky importu adresára.
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Chýbajúca alebo neplatná e-mailová adresa</fo
 import_same=Nezmenené, preskočené
 import_skip=Duplikovaná adresa, preskočená
 import_enetvcard=Modul <tt>Net::vCard</tt> Perl je potrebný na čítanie súborov vo formáte vCard
+
 export_err=Export adries zlyhal
+
 group_err=Nepodarilo sa uložiť skupinu adries
 group_egroup=Chýba alebo je neplatný názov skupiny
 group_emembers=Neboli zadané žiadne e-mailové adresy členov
+
 folders_title=Správa priečinkov
 folders_instr=Typy pomocníka a priečinkov
 folders_desc2=Každý z nižšie uvedených priečinkov môže obsahovať poštu, ktorú do nej presuniete, alebo e-mail, ktorý sa do nej automaticky umiestni. K dispozícii sú nasledujúce typy priečinkov :
@@ -124,6 +133,7 @@ folders_delete=Odstrániť vybrané priečinky
 folders_addimap=Pridajte nový priečinok.
 folders_addcomp=Pridajte nový zložený priečinok.
 folders_addvirt=Pridajte nový virtuálny priečinok.
+
 edit_title1=Vytvoriť priečinok
 edit_title2=Upraviť priečinok
 edit_header=Podrobnosti o poštovom priečinku
@@ -161,6 +171,7 @@ edit_comps=Podadresáre, najstaršie ako prvé
 edit_comp=zložený
 edit_virt=virtuálne
 edit_delete=Chcete pri odstraňovaní z priečinka odstrániť skutočnú správu?
+
 save_err=Nepodarilo sa uložiť priečinok
 save_ecannot=Nemáte dovolené používať tento typ priečinka
 save_ename=Chýba názov priečinka
@@ -191,7 +202,9 @@ save_edelete=Nepodarilo sa odstrániť e-mail : $1
 save_eflag=Nepodarilo sa nastaviť príznaky IMAP : $1 
 save_eappend=Nepodarilo sa pridať poštu do poštovej schránky IMAP : $1 
 save_esearch=Nepodarilo sa prehľadať poštovú schránku IMAP : $1 
+
 epop3lock_tries=Po vyskúšaní $2 minút sa nepodarilo uzamknúť poštový súbor $1 z dôvodu súboru zamykania POP3.
+
 view_dsn=Oznámenie o stave dodávky
 view_dnsnow=Správa s upozornením o stave dodávky bola práve odoslaná na $1.
 view_dsnbefore=Správa s upozornením o stave doručenia bola odoslaná na $1 dňa $2.
@@ -204,21 +217,30 @@ view_quick=Rýchla odpoveď
 view_quick_all=Odpovedať všetkým
 view_quick_quote=Originál ponuky
 view_quick_send=send
+
 search_virtualize=Vytvoriť virtuálny priečinok s názvom:
 search_dest=Výsledky ukladajte do
 search_dest1=Priečinok s výsledkami vyhľadávania
 search_dest0=Nový virtuálny priečinok s názvom
 search_edest=Chýba názov virtuálneho priečinka pre výsledky
 search_eself=Priečinok s výsledkami vyhľadávania nie je možné vyhľadávať
+search_doing=Hľadá sa $1 v priečinku $2.
+search_doing2=Vyhľadávanie správ vo vybranom priečinku.
+search_results=Po dokončení vyhľadávania sa v priečinku <a href='$1'>výsledky vyhľadávania</a> zobrazia zodpovedajúce správy...
+
 virtualize_ename=Chýba názov virtuálneho priečinka
+
 delete_enoadd=Správy nie je možné presunúť do virtuálnych priečinkov, iba kopírovať
+
 sig_title=Upraviť podpis
 sig_desc=Pomocou tohto formulára môžete upraviť svoj e-mailový podpis v súbore $1.
 sig_undo=Vrátenie späť
 sig_enone=Nie je definovaný žiadny podpisový súbor
 sig_eopen=Nepodarilo sa otvoriť podpisový súbor : $1 
+
 quota_inbox=Kvóta na poštu $1 bola prekročená
 quota_inbox2=Bola prekročená kvóta $1 mailových správ
+
 auto_title=Automatické mazanie priečinkov
 auto_header=Možnosti plánovaného vymazania priečinka
 auto_enabled=Automaticky odstrániť správy?
@@ -236,6 +258,7 @@ auto_action1=Odstráňte všetky správy v priečinku
 auto_action2=Presunúť do priečinka $1 
 auto_edest=Vybraný cieľový priečinok neexistuje!
 auto_ewrite=Vybraný cieľový priečinok nie je možné zapísať
+
 copy_title=Kopírovať všetku poštu
 copy_header=Skopírujte všetky správy do priečinka
 copy_source=Zdrojový priečinok
@@ -245,18 +268,22 @@ copy_ok=Teraz skopírujte
 copy_doing=Kopírujú sa všetky správy od $1 do $2 ..
 copy_done=.. hotový
 copy_deleting=Vyprázdňuje sa priečinok $1 ..
+
 fdelete_title=Odstrániť priečinky
 fdelete_err=Priečinky sa nepodarilo odstrániť
 fdelete_enone=Žiadne vybraté
 fdelete_rusure=Naozaj chcete odstrániť vybraté priečinky $1 ? $2 e-mailov bude navždy odstránených.
 fdelete_rusure2=Naozaj chcete odstrániť vybraté priečinky $1 ?
 fdelete_delete=Odstrániť teraz
+
 detachall_err=Nepodarilo sa uložiť všetky prílohy
 detachall_emkdir=Nepodarilo sa vytvoriť dočasný adresár : $1 
 detachall_ezip=Zlyhanie súboru ZIP : $1 
+
 allow_err=Nepodarilo sa uložiť povolené adresy
 deny_err=Nepodarilo sa uložiť zamietnuté adresy
 allow_eaddr=$1 nie je platná e-mailová adresa
+
 right_header=Systémové informácie
 right_host=Názov hostiteľa systému
 right_os=Operačný systém

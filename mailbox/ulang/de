@@ -1,15 +1,18 @@
 index_title=Mails in $1
+
 mail_title=Mail lesen
 mail_none=Es gibt keine Mails im Verzeichnis $1
 mail_pos=Mail $1 bis $2 von $3 im Ordner $4
 mail_return=Mailbox
 mail_quota=$1 von $2 werden verwendet
 mail_special=Spezial
+
 send_efile=Die anghängte Datei $1 ist nicht lesbar oder existiert nicht.
 send_nobody=niemandem
 send_etomsg=Es wurde keine To, Cc oder Bcc Adresse eingegeben.
 send_esubjectmsg=Es wurde kein Betreff eingegeben - hoffe das ist OK
 send_eclosemsg=Moechten Sie wirklich die Seite verlassen und den Inhalt der Nachricht verlieren?
+
 address_chooser=Adresse auswählen
 address_addr=Mail-Adresse
 address_name=Real- oder Spitzname
@@ -60,6 +63,7 @@ address_exportdup0=Beide exportieren
 address_exportdup1=Nur die erste exportieren
 address_exportfmt=Export Format
 address_exportok=Jetzt Exportieren
+
 import_err=Importieren der Adressen fehlgeschlagen
 import_title=Adressbuch Importieren
 import_doing=Ergebis des Adressbuch Imports
@@ -74,10 +78,13 @@ import_noemail=<font color=red>Fehlende oder ungueltige Mail Adresse</font>
 import_same=Vorhanden, ueberspringe
 import_skip=Doppelte Adresse, ueberspringe
 import_enetvcard=The <tt>Net::vCard</tt> Perl module is needed to read vCard format files
+
 export_err=Exportieren der Adressen fehlgeschlagen
+
 group_err=Konnte die Mail-Gruppe nicht speichern
 group_egroup=Fehlender oder ungültiger Gruppenname
 group_emembers=Es wurden keine Mitglieds-Mail-Adressen eingegeben
+
 folders_title=Verzeichnisse verwalten
 folders_instr=Hilfe- und Ordner-Typen
 folders_desc2=Jeder der unten aufgelisteten Ordner können Mails, die Sie in ihn verschieben, oder Mails, die automatisch in ihn gesetzt wurden, enthalten. Die folgenden Ordner stehen zur Verfügung:
@@ -123,6 +130,7 @@ folders_delete=Ausgewählte Ordner löschen
 folders_addimap=Einen neuen Ordner hinzufügen.
 folders_addcomp=Einen neuen kombinierten Ordner hinzufügen.
 folders_addvirt=Einen neuen virtuellen Ordner hinzufügen.
+
 edit_title1=Verzeichnis erstellen
 edit_title2=Verzeichnis bearbeiten
 edit_header=Mailverzeichnis-Eigenschaften
@@ -160,6 +168,7 @@ edit_comps=Unterordner, älteste zuerst
 edit_comp=Kombiniert
 edit_virt=Virtuell
 edit_delete=Lösche eigentliche Botschaft beim Löschen vom Ordner?
+
 save_err=Konnte Verzeichnis nicht speichern
 save_ecannot=Sie dürfen diese Art der Verzeichnisse nicht benutzen.
 save_ename=Fehlender oder ungültiger Verzeichnisname
@@ -190,7 +199,9 @@ save_edelete=Konnte die Mail nicht löschen : $1
 save_eflag=Fehler beim Festlegen der IMAP-Flags : $1
 save_eappend=Konnte diese Mail(s) nicht der IMAP-Mailbox zustellen : $1
 save_esearch=Fehler beim Suchen der IMAP-Mailbox : $1
+
 epop3lock_tries=Konnte die Mail-Speicherdatei $1 nach entsprechenden Versuchen in den letzten $2 Minuten nicht sperren, da eine POP3-Sperrdatei vorlag.
+
 view_dsn=Übermittlungsbestätigung
 view_dnsnow=Eine Übermittlungsbestätigung wurde gerade an $1 verschickt.
 view_dsnbefore=Eine Übermittlungsbestätigung wurde gerade an $1 auf $2 geschickt.
@@ -203,21 +214,27 @@ view_quick=Schnelle Antwort
 view_quick_all=Allen antworten
 view_quick_quote=Original zitieren
 view_quick_send=Senden
+
 search_virtualize=Erstelle den virtuellen Ordner mit dem Namen:
 search_dest=speichere Ergebnisse in
 search_dest1=Such-Ergebniss Ordner
 search_dest0=Neuer virtueller Ordner mit dem Namen
 search_edest=Der Virtuelle Ordnername für Ergebnisse fehlt
 search_eself=Der Suchergebnisse-Ordner kann nicht durchsucht werden
+
 virtualize_ename=Der Virtuelle Ordnername fehlt
+
 delete_enoadd=Nachrichten können nicht in virtuelle Ordner verschoben werden, nur kopiert
+
 sig_title=Signatur bearbeiten
 sig_desc=Mit diesem Formular können Sie Ihre Mail-Signatur in der Datei $1 bearbeiten.
 sig_undo=Rückgängig machen
 sig_enone=Keine Signaturdatei festgelegt
 sig_eopen=Fehler beim öffnen der Signaturdatei : $1
+
 quota_inbox=Quota für Mail von $1 ist überschritten
 quota_inbox2=Quota von $1 Mail-Nachrichten ist überschritten
+
 auto_title=Automatische Ordner-Bereinigung
 auto_header=Optionen für geplante Ordner Bereinigung
 auto_enabled=Nachrichten automatisch löschen?
@@ -235,6 +252,7 @@ auto_action1=Lösche alle Nachrichten im Ordner
 auto_action2=Verschiebe in Verzeichnis $1
 auto_edest=Ausgewaehltes Zielverzeichnis existiert nicht!
 auto_ewrite=Ausgewahltes Zieverzeichnis ist nicht beschreibbar
+
 copy_title=Kopien aller Mails
 copy_header=Kopieren aller Nachrichten im Ordner
 copy_source=Quellordner
@@ -244,18 +262,22 @@ copy_ok=Jetzt kopieren
 copy_doing=Kopieren aller Nachrichten von $1 zu $2 ..
 copy_done=.. fertig
 copy_deleting=Entleeren des Ordners $1 ..
+
 fdelete_title=Ordner löschen
 fdelete_err=Fehler beim Löschen von Ordnern
 fdelete_enone=Nichts ausgewählt
 fdelete_rusure=Sind Sie sicher, dass Sie die $1 ausgewählten Ordner löschen möchten? $2 der Mails werden für immer gelöscht.
 fdelete_rusure2=Sind Sie sicher, dass Sie die $1 ausgewählten Ordner löschen möchten?
 fdelete_delete=Jetzt löschen
+
 detachall_err=Das Speichern aller Anhänge ist fehlgeschlagen.
 detachall_emkdir=Temporäres Verzeichnis konnte nicht erstellt werden: $1
 detachall_ezip=ZIP ist fehlgeschlagen : $1
+
 allow_err=Fehler beim speichern erlaubter Adressen
 deny_err=Fehler beim speichern verweigerter Adressen
 allow_eaddr='$1' ist keine gültige Mail-Adresse
+
 right_header=System Information
 right_host=System Hostname
 right_os=Betriebssystem

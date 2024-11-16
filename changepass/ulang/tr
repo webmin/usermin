@@ -6,7 +6,7 @@ index_new1=Yeni şifren
 index_new2=Tekrar yeni şifren 
 index_change=Şimdi değiştir
 index_return=Şifre değiştirme formu 
-index_return=Şifre değiştirme formu 
+
 change_err=Şifre değiştirilemedi
 change_title=Şifreyi değiştir
 change_enew1=Eksik yeni şifre

@@ -1,0 +1,2 @@
+index_nodir=Katalog niestandardowych poleceń Webmin $1 nie został znaleziony w Twoim systemie. Ten moduł wymaga zainstalowania Webmina, aby można było definiować polecenia.
+index_none=Nie zdefiniowano żadnych niestandardowych poleceń w Webmin ani nie oznaczono ich jako dostępne do uruchamiania w Usermin.

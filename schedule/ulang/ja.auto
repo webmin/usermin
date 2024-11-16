@@ -13,6 +13,7 @@ index_cleardesc=このボタンをクリックして、一度に設定され、�
 index_delete=選択したメールを削除しました
 index_disable=選択を無効にする
 index_enable=選択を有効にする
+
 edit_title1=スケジュールされたメールを作成する
 edit_title2=スケジュールされたメールを編集
 edit_header=スケジュールされたメールメッセージの詳細
@@ -38,12 +39,14 @@ edit_type=ソース
 edit_uploaded=アップロードしました
 edit_upload1=ファイルをアップロードする
 edit_upload2=ファイルを添付
+
 save_err=スケジュールされたメールを保存できませんでした
 save_esubject=メッセージの件名がありません
 save_eto=送信先アドレスがありません
 save_emailfile=メッセージテキストファイルが見つからないか無効です
 save_efrom=送信元アドレスがありません
 save_eat=実行する時間がないか無効です
+
 view_efile=ファイルは存在しません
 save_notice_title=保存されたスケジュール
 save_notice=スケジュールされたメールが正常に作成されました-<a href="$1">この</a>リンクをクリックして、表示、編集、または削除してください。

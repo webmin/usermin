@@ -1,11 +1,14 @@
 index_title=Sähköposti kansiossa $1
+
 mail_title=Lue Sähköposti
 mail_none=Kansiossa $1 ei ole viestejä
 mail_pos=Viestit $1-$2 / $3 kansiossa $4
 mail_return=sähköpostilaatikko
 mail_quota=Käytetty $1 / $2
+
 send_efile=Liitetiedosto $1 is ole luettavissa tai se ei ole olemassa
 send_nobody=ei kukaan
+
 address_chooser=Valitse osoite..
 address_addr=Sähköpostiosoite
 address_name=Koko nimi
@@ -28,9 +31,11 @@ address_members=Sähköpostiosoitteet
 address_m=$1 jäsenet
 address_search=Etsi haun toteuttavat osoitteet:
 address_ok=Etsi
+
 group_err=Osoiteryhmän tallennus epäonnistui
 group_egroup=Puuttuva tai virheellinen ryhmän nimi
 group_emembers=Ei syötetty jäsenten sähköpostiosoitteita
+
 folders_title=Hallitse kansioita
 folders_desc2=Kaikki alla luetellut kansiotyypit voivat sisältää sähköposteja, joita siirrät niihin itse tai ne toimitetaan sinne automaattisesti. Seuraavat kansiotyypit ovat käytettävissä :
 folders_descsys=Systeemikansiot kuten Inbox, Drafts ja Sent mail ovat aina olemassa.
@@ -75,6 +80,7 @@ folders_delete=Poista valitut kansiot
 folders_addimap=Lisää uusi kansio.
 folders_addcomp=Lisää uusi kansioiden yhdistelmä.
 folders_addvirt=Lisää uusi virtuaalinen kansio.
+
 edit_title1=Luo kansio
 edit_title2=Muokkaa kansiota
 edit_header=Postikansion tiedot
@@ -109,6 +115,7 @@ edit_comps=Alikansiot, vanhin ensin
 edit_comp=Yhdistelmäkansiot
 edit_virt=Virtuaalikansiot
 edit_delete=Poista oikeat viestit kansiosta poistettaessa?
+
 save_err=Failed to save folder
 save_ecannot=You are not allowed to use this type of folder
 save_ename=Missing or invalid folder name
@@ -136,7 +143,9 @@ save_emailbox2=Missing or invalid IMAP mailbox
 save_edelete=Failed to delete mail : $1
 save_eappend=Failed to add mail to IMAP mailbox : $1
 save_esearch=Failed to search IMAP mailbox : $1
+
 epop3lock_tries=Failed to lock mail file $1 after trying for $2 minutes, due to a POP3 lock file.
+
 view_dsn=Delivery Status Notification
 view_dnsnow=A delivery status notification message has just been sent to $1.
 view_dsnbefore=A delivery status notification message was sent to $1 on $2.
@@ -145,20 +154,26 @@ view_dsnsend=Send Notification Now
 view_dsngot=This message was read by $1 on $2.
 view_delfailed=This message could not be delivered to $1 on $2.
 view_delok=This message was delivered to $1 on $2.
+
 search_virtualize=Create Virtual Folder Named:
 search_dest=Store results in
 search_dest1=Search Results folder
 search_dest0=New virtual folder named
 search_edest=Missing virtual folder name for results
+
 virtualize_ename=Missing virtual folder name
+
 delete_enoadd=Messages cannot be moved into virtual folders, only copied
+
 sig_title=Muokkaa allekirjoitusta
 sig_desc=Käytä tätä lomaketta muokataksesi sähköposti allekirjoitustasi tiedostossa $1.
 sig_undo=Peruuta
 sig_enone=Ei allekirjoitustiedostoa määritelty
 sig_eopen=Allekirjoitustiedoston avaaminen epäonnistui : $1
+
 quota_inbox=$1 levykiintiö on ylitetty
 quota_inbox2=$1 sähköpostiviestin kiintiö ylitetty
+
 auto_title=Automatic Folder Clearing
 auto_header=Scheduled folder clearing options
 auto_enabled=Automatically delete messages?
@@ -173,6 +188,7 @@ auto_invalid=Delete messages with invalid date
 auto_action=Action when messages to delete are found
 auto_action0=Delete matching messages
 auto_action1=Delete all messages in folder
+
 copy_title=Kopioi kaikki viestit
 copy_header=Kopioi kaikki viestit kansiossa
 copy_source=Lähdekansio
@@ -182,6 +198,7 @@ copy_ok=Kopioi nyt
 copy_doing=Kopioidaan kaikkia viestejä kansiosta $1 kansioon $2 ..
 copy_done=.. tehty
 copy_deleting=Tyhjennetään kansio $1 ..
+
 fdelete_title=Poista kansioita
 fdelete_err=Kansioiden poisto epäonnistui
 fdelete_enone=Ei yhtään valittuna

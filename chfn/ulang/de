@@ -7,6 +7,7 @@ index_office=Raumnummer des Büros
 index_ophone=Telefon (Arbeit)
 index_hphone=Telefon (Privat)
 index_shell=Login-Shell
+
 save_err=Benutzer-Details konnten nicht geändert werden
 save_ereal=Realname darf kein <tt>,</tt> oder <tt>-</tt> enthalten
 save_eoffice=Raumnummer des Büros darf kein <tt>,</tt> noch <tt>-</tt> enthalten

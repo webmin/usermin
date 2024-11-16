@@ -7,6 +7,7 @@ index_office=Toimistohuoneen numero
 index_ophone=Työpuhelin
 index_hphone=Kotipuhelin
 index_shell=Kirjaudu sisään
+
 save_err=Tietojen muuttaminen epäonnistui
 save_ereal=Oikea nimi ei voi sisältää tai: merkkejä
 save_eoffice=Toimistotilan numero ei voi sisältää tai: merkkejä

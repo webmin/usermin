@@ -5,7 +5,7 @@ index_new1=あたらしいパスワード
 index_new2=あたらしいパスワードをもう１度
 index_change=変更する
 index_return=password changing form
-index_return=password changing form
+
 change_err=パスワードの変更に失敗しました。
 change_title=Changed Password
 change_enew1=新しいパスワードが欠けています

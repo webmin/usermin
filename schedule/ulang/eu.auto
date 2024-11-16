@@ -13,6 +13,7 @@ index_cleardesc=Egin klik botoi honetan behin bakarrik konfiguratutako eta dagoe
 index_delete=Hautatutako mezu elektronikoak ezabatu dira
 index_disable=Desgaitu hautatua
 index_enable=Gaitu hautatua
+
 edit_title1=Sortu Programatutako helbide elektronikoa
 edit_title2=Editatu Aurreikusitako posta elektronikoa
 edit_header=Programatutako mezuen xehetasunak
@@ -38,12 +39,14 @@ edit_type=Iturria
 edit_uploaded=Uploaded
 edit_upload1=Kargatu fitxategiak
 edit_upload2=Fitxategia erantsi
+
 save_err=Ezin izan da aurreikusitako mezu elektronikoa gorde
 save_esubject=Mezuaren gaia falta da
 save_eto=Falta da bidali helbidera
 save_emailfile=Falta da edo ez da mezuen testu fitxategia baliogabea
 save_efrom=Bidali falta helbidetik
 save_eat=Falta denbora edo baliogabea da exekutatzeko
+
 view_efile=Fitxategia ez da gehiago
 save_notice_title=Ordutegia gordeta
 save_notice=Programatutako posta elektronikoa arrakastaz sortu da - ikusi, editatu edo ezabatu <a href="$1">esteka</a> hau jarraituz.

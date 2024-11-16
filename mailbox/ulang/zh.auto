@@ -1,16 +1,21 @@
 index_title=邮寄 $1
 index_return=邮件清单
+index_searching=正在搜索 $1。搜索完成后，结果将显示在此处。
+index_searching2=正在进行复杂搜索。完成后将在此处显示结果。
+
 mail_title=阅读邮件
 mail_none=文件夹 $1中没有消息
 mail_pos=文件夹 $4中 $3的消息 $1至 $2
 mail_return=邮箱
 mail_quota=在 $2中使用 $1
 mail_special=特别
+
 send_efile=附件 $1不可读或不存在
 send_nobody=没有人
 send_etomsg=没有输入收件人，抄送或密件抄送地址
 send_esubjectmsg=没有输入主题-希望没问题
 send_eclosemsg=您确定要关闭此页面并丢失正在进行的消息吗？
+
 address_chooser=选择地址。
 address_addr=电子邮件地址
 address_name=真正的名字
@@ -61,6 +66,7 @@ address_exportdup0=同时包括
 address_exportdup1=仅包括第一个
 address_exportfmt=导出格式
 address_exportok=立即导出
+
 import_err=导入地址失败
 import_title=导入通讯录
 import_doing=地址簿导入结果 ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>缺少或无效的电子邮件地址</font>
 import_same=不变，已跳过
 import_skip=地址重复，已跳过
 import_enetvcard=要读取vCard格式文件，需要<tt>Net::vCard</tt> Perl模块
+
 export_err=导出地址失败
+
 group_err=保存地址组失败
 group_egroup=群组名称缺失或无效
 group_emembers=没有输入会员的电子邮件地址
+
 folders_title=管理资料夹
 folders_instr=帮助和文件夹类型
 folders_desc2=下面列出的每个文件夹都可以包含您要移入其中的邮件，也可以包含自动放入其中的邮件。可以使用以下文件夹类型：
@@ -124,6 +133,7 @@ folders_delete=删除所选文件夹
 folders_addimap=添加一个新文件夹。
 folders_addcomp=添加一个新的复合文件夹。
 folders_addvirt=添加一个新的虚拟文件夹。
+
 edit_title1=创建文件夹
 edit_title2=编辑资料夹
 edit_header=邮件文件夹详细信息
@@ -161,6 +171,7 @@ edit_comps=子文件夹，最旧的优先
 edit_comp=综合
 edit_virt=虚拟
 edit_delete=从文件夹删除时删除真实消息？
+
 save_err=保存文件夹失败
 save_ecannot=您不允许使用这种类型的文件夹
 save_ename=缺少文件夹名称
@@ -191,7 +202,9 @@ save_edelete=删除邮件失败： $1
 save_eflag=设置IMAP标志失败： $1
 save_eappend=无法将邮件添加到IMAP邮箱： $1
 save_esearch=无法搜索IMAP邮箱： $1
+
 epop3lock_tries=由于POP3锁定文件，尝试 $2分钟后无法锁定邮件文件 $1。
+
 view_dsn=快递状态通知
 view_dnsnow=传递状态通知消息刚刚发送到 $1。
 view_dsnbefore=传递状态通知消息已发送到 $2上的 $1。
@@ -204,21 +217,30 @@ view_quick=快速回复
 view_quick_all=回复全部
 view_quick_quote=引用原始
 view_quick_send=发送
+
 search_virtualize=创建虚拟文件夹，其名称为：
 search_dest=将结果存储在
 search_dest1=搜索结果文件夹
 search_dest0=新的虚拟文件夹名为
 search_edest=缺少虚拟文件夹名称的结果
 search_eself=搜索结果文件夹无法搜索
+search_doing=在文件夹 $2 中搜索 $1。
+search_doing2=在选定的文件夹中搜索消息。
+search_results=搜索完成后，匹配的消息将显示在<a href='$1'>搜索结果</a>文件夹中...
+
 virtualize_ename=缺少虚拟文件夹名称
+
 delete_enoadd=邮件不能移动到虚拟文件夹中，只能复制
+
 sig_title=编辑签名
 sig_desc=使用此表单在文件 $1中编辑您的电子邮件签名。
 sig_undo=撤消
 sig_enone=未定义签名文件
 sig_eopen=无法打开签名文件： $1
+
 quota_inbox=超出了 $1的邮件配额
 quota_inbox2=超出了 $1个邮件的配额
+
 auto_title=自动清除文件夹
 auto_header=计划的文件夹清除选项
 auto_enabled=自动删除邮件？
@@ -236,6 +258,7 @@ auto_action1=删除文件夹中的所有邮件
 auto_action2=移至文件夹 $1
 auto_edest=所选的目标文件夹不存在！
 auto_ewrite=所选目标文件夹无法写入
+
 copy_title=复制所有邮件
 copy_header=复制文件夹中的所有邮件
 copy_source=源文件夹
@@ -245,18 +268,22 @@ copy_ok=立即复制
 copy_doing=将所有消息从 $1复制到 $2 ..
 copy_done=..完成
 copy_deleting=清空文件夹 $1 ..
+
 fdelete_title=删除资料夹
 fdelete_err=删除文件夹失败
 fdelete_enone=未选择
 fdelete_rusure=您确定要删除 $1个选定的文件夹吗？ $2的电子邮件将被永久删除。
 fdelete_rusure2=您确定要删除 $1个选定的文件夹吗？
 fdelete_delete=立即删除
+
 detachall_err=无法保存所有附件
 detachall_emkdir=无法创建临时目录： $1
 detachall_ezip=ZIP失败： $1
+
 allow_err=无法保存允许的地址
 deny_err=无法保存拒绝的地址
 allow_eaddr=“$1”不是有效的电子邮件地址
+
 right_header=系统信息
 right_host=系统主机名
 right_os=操作系统

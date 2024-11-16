@@ -13,6 +13,7 @@ index_cleardesc=Cliquez sur ce bouton pour supprimer tous les e-mails planifiés
 index_delete=E-mails sélectionnés supprimés
 index_disable=Désactiver la sélection
 index_enable=Activer la sélection
+
 edit_title1=Créer un e-mail planifié
 edit_title2=Modifier l'e-mail planifié
 edit_header=Détails des e-mails planifiés
@@ -38,12 +39,14 @@ edit_type=La source
 edit_uploaded=Téléchargé
 edit_upload1=Télécharger des fichiers
 edit_upload2=Joindre un fichier
+
 save_err=Échec de l'enregistrement de l'e-mail planifié
 save_esubject=Objet du message manquant
 save_eto=Adresse d'envoi manquante
 save_emailfile=Fichier texte de message manquant ou non valide
 save_efrom=Adresse d'envoi manquante
 save_eat=Heure manquante ou non valide pour s'exécuter
+
 view_efile=Le fichier n'existe plus
 save_notice_title=Planification enregistrée
 save_notice=L'e-mail planifié a été créé avec succès - affichez-le, modifiez-le ou supprimez-le en suivant <a href="$1">ce</a> lien.

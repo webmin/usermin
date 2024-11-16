@@ -1,16 +1,21 @@
 index_title=$1のメール
 index_return=メールリスト
+index_searching=$1 の検索が進行中です。完了すると結果がここに表示されます。
+index_searching2=複雑な検索が進行中です。完了すると結果がここに表示されます。
+
 mail_title=メールを読む
 mail_none=フォルダ $1にメッセージはありません
 mail_pos=フォルダ $4の $3のメッセージ $1から $2
 mail_return=メールボックス
 mail_quota=$2のうち $1を使用しています
 mail_special=特殊な
+
 send_efile=添付ファイル $1は読み取りできないか、存在しません
 send_nobody=だれも
 send_etomsg=宛先、CC、またはBCCアドレスが入力されていません
 send_esubjectmsg=件名が入力されていません-よろしいですか
 send_eclosemsg=このページを閉じて、進行中のメッセージを失ってもよろしいですか？
+
 address_chooser=[アドレス]を選択します。
 address_addr=電子メールアドレス
 address_name=本名
@@ -61,6 +66,7 @@ address_exportdup0=両方を含める
 address_exportdup1=最初のもののみを含める
 address_exportfmt=形式でエクスポート
 address_exportok=今すぐエクスポート
+
 import_err=住所をインポートできませんでした
 import_title=アドレス帳をインポート
 import_doing=アドレス帳インポートの結果 ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>メールアドレスがないか無効です</fo
 import_same=変更なし、スキップ
 import_skip=重複した住所、スキップ
 import_enetvcard=<tt>Net::vCard</tt> Perlモジュールは、vCard形式のファイルを読み取るために必要です
+
 export_err=アドレスをエクスポートできませんでした
+
 group_err=アドレスグループを保存できませんでした
 group_egroup=グループ名がないか無効です
 group_emembers=メンバーのメールアドレスが入力されていません
+
 folders_title=フォルダを管理する
 folders_instr=ヘルプとフォルダーの種類
 folders_desc2=下記の各フォルダには、そこに移動したメール、または自動的に配置されたメールを含めることができます。次のフォルダタイプを使用できます。
@@ -124,6 +133,7 @@ folders_delete=選択したフォルダを削除
 folders_addimap=新しいフォルダを追加します。
 folders_addcomp=新しい複合フォルダを追加します。
 folders_addvirt=新しい仮想フォルダを追加します。
+
 edit_title1=フォルダーを作る
 edit_title2=フォルダを編集
 edit_header=メールフォルダの詳細
@@ -161,6 +171,7 @@ edit_comps=一番古いサブフォルダ
 edit_comp=複合
 edit_virt=バーチャル
 edit_delete=フォルダから削除するときに実際のメッセージを削除しますか？
+
 save_err=フォルダを保存できませんでした
 save_ecannot=このタイプのフォルダの使用は許可されていません
 save_ename=フォルダ名がありません
@@ -191,7 +202,9 @@ save_edelete=メールの削除に失敗しました： $1
 save_eflag=IMAPフラグの設定に失敗しました： $1
 save_eappend=IMAPメールボックスにメールを追加できませんでした： $1
 save_esearch=IMAPメールボックスの検索に失敗しました： $1
+
 epop3lock_tries=POP3ロックファイルが原因で、 $2分間試行した後、メールファイル $1をロックできませんでした。
+
 view_dsn=配信ステータス通知
 view_dnsnow=配信ステータス通知メッセージが $1に送信されました。
 view_dsnbefore=配信状態通知メッセージが $2の $1に送信されました。
@@ -204,21 +217,30 @@ view_quick=素早い返信
 view_quick_all=全員に返信
 view_quick_quote=オリジナルを引用
 view_quick_send=送る
+
 search_virtualize=次の名前の仮想フォルダを作成します。
 search_dest=結果を保存
 search_dest1=検索結果フォルダー
 search_dest0=という名前の新しい仮想フォルダ
 search_edest=結果の仮想フォルダ名がありません
 search_eself=検索結果フォルダを検索できません
+search_doing=フォルダ $2 で $1 を検索しています。
+search_doing2=選択したフォルダー内のメッセージを検索しています。
+search_results=検索が完了すると、一致するメッセージが <a href='$1'>検索結果</a> フォルダーに表示されます...
+
 virtualize_ename=仮想フォルダ名がありません
+
 delete_enoadd=メッセージは仮想フォルダに移動できず、コピーのみ
+
 sig_title=署名を編集
 sig_desc=このフォームを使用して、ファイル $1の電子メール署名を編集します。
 sig_undo=元に戻す
 sig_enone=署名ファイルが定義されていません
 sig_eopen=署名ファイルを開けませんでした： $1
+
 quota_inbox=$1のメールのクォータを超えました
 quota_inbox2=$1メールメッセージの割り当てを超えました
+
 auto_title=自動フォルダークリア
 auto_header=スケジュールされたフォルダのクリアオプション
 auto_enabled=メッセージを自動的に削除しますか？
@@ -236,6 +258,7 @@ auto_action1=フォルダ内のすべてのメッセージを削除
 auto_action2=フォルダ $1に移動
 auto_edest=選択した宛先フォルダは存在しません！
 auto_ewrite=選択した宛先フォルダに書き込めません
+
 copy_title=すべてのメールをコピー
 copy_header=フォルダ内のすべてのメッセージをコピー
 copy_source=ソースフォルダ
@@ -245,18 +268,22 @@ copy_ok=今すぐコピー
 copy_doing=すべてのメッセージを $1から $2にコピーしています. ..
 copy_done=..完了
 copy_deleting=フォルダ $1を空にしています ..
+
 fdelete_title=フォルダを削除
 fdelete_err=フォルダを削除できませんでした
 fdelete_enone=何も選択されていません
 fdelete_rusure=選択した $1個のフォルダを削除してもよろしいですか？メールの $2は完全に削除されます。
 fdelete_rusure2=選択した $1個のフォルダを削除してもよろしいですか？
 fdelete_delete=今すぐ削除
+
 detachall_err=すべての添付ファイルを保存できませんでした
 detachall_emkdir=一時ディレクトリを作成できませんでした： $1
 detachall_ezip=ZIPに失敗しました： $1
+
 allow_err=許可されたアドレスを保存できませんでした
 deny_err=拒否されたアドレスを保存できませんでした
 allow_eaddr=「$1」は有効なメールアドレスではありません
+
 right_header=システムインフォメーション
 right_host=システムのホスト名
 right_os=オペレーティング・システム

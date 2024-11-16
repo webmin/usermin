@@ -1,16 +1,21 @@
 index_title=Paštas $1 
 index_return=pašto sąrašą
+index_searching=Vykdoma $1 paieška. Rezultatai bus rodomi čia, kai jis bus baigtas.
+index_searching2=Vyksta kompleksinė paieška. Rezultatai bus rodomi čia, kai jis bus baigtas.
+
 mail_title=Skaityti paštą
 mail_none=$1 aplanke nėra pranešimų
 mail_pos=$4 aplanke esantys pranešimai nuo $1 iki $2 iš $3 
 mail_return=pašto dėžutę
 mail_quota=Naudojant $1 iš $2 
 mail_special=Ypatinga
+
 send_efile=Pridedamas failas $1 negali būti skaitomas arba jo nėra
 send_nobody=niekas
 send_etomsg=Nebuvo įvestas adresas „Kam“, „Kopija“ arba „Neišsaugota kopija“
 send_esubjectmsg=Nebuvo įrašyta tema - tikiuosi, kad viskas gerai
 send_eclosemsg=Ar tikrai norite uždaryti šį puslapį ir prarasti vykdomą pranešimą?
+
 address_chooser=Pasirinkite adresą ..
 address_addr=Elektroninio pašto adresas
 address_name=Tikras vardas
@@ -61,6 +66,7 @@ address_exportdup0=Įtraukite abu
 address_exportdup1=Įtraukite tik pirmąjį
 address_exportfmt=Eksportuoti formatu
 address_exportok=Eksportuoti dabar
+
 import_err=Nepavyko importuoti adresų
 import_title=Importuoti adresų knygą
 import_doing=Adresų knygos importavimo rezultatai ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Trūksta arba netinkamas el. pašto adresas</font
 import_same=Nekeista, praleista
 import_skip=Kopijuotas adresas, praleistas
 import_enetvcard=<tt>Net::vCard</tt> „Perl“ modulis reikalingas vCard formato failų skaitymui
+
 export_err=Nepavyko eksportuoti adresų
+
 group_err=Nepavyko išsaugoti adresų grupės
 group_egroup=Trūksta arba netinkamas grupės pavadinimas
 group_emembers=Neįvestas narių el. Pašto adresas
+
 folders_title=Tvarkyti aplankus
 folders_instr=Pagalba ir aplankų tipai
 folders_desc2=Kiekviename iš žemiau pateiktų aplankų gali būti laiškų, kuriuos perkeliate į jį, arba laiškų, kurie įdedami į jį automatiškai. Galimi šie aplankų tipai :
@@ -124,6 +133,7 @@ folders_delete=Ištrinti pasirinktus aplankus
 folders_addimap=Pridėkite naują aplanką.
 folders_addcomp=Pridėkite naują sudėtinį aplanką.
 folders_addvirt=Pridėkite naują virtualų aplanką.
+
 edit_title1=Sukurti aplanką
 edit_title2=Redaguoti aplanką
 edit_header=Pašto aplanko informacija
@@ -161,6 +171,7 @@ edit_comps=Pakatalogiai, seniausi pirmiausia
 edit_comp=Sudėtinis
 edit_virt=Virtualus
 edit_delete=Ištrinti tikrąjį pranešimą ištrinant iš aplanko?
+
 save_err=Nepavyko išsaugoti aplanko
 save_ecannot=Jums neleidžiama naudoti šio tipo aplanko
 save_ename=Trūksta aplanko pavadinimo
@@ -191,7 +202,9 @@ save_edelete=Nepavyko ištrinti laiškų : $1
 save_eflag=Nepavyko nustatyti IMAP vėliavų : $1 
 save_eappend=Nepavyko pridėti laiškų į IMAP pašto dėžutę : $1 
 save_esearch=Nepavyko ieškoti IMAP pašto dėžutės : $1 
+
 epop3lock_tries=Nepavyko užrakinti $1 pašto failo, kai bandėte $2 minutes, dėl POP3 užrakto failo.
+
 view_dsn=siuntinio būsenos pranešimas
 view_dnsnow=Pristatymo būklės pranešimas buvo ką tik išsiųstas $1.
 view_dsnbefore=Pristatymo būklės pranešimas buvo išsiųstas $1 $2.
@@ -204,21 +217,30 @@ view_quick=Greitas atsakymas
 view_quick_all=Atsakyti visiems
 view_quick_quote=Citata originali
 view_quick_send=Siųsti
+
 search_virtualize=Sukurti virtualų aplanką pavadinimu:
 search_dest=Saugokite rezultatus
 search_dest1=Paieškos rezultatų aplankas
 search_dest0=Naujas virtualus aplankas pavadintas
 search_edest=Trūksta virtualaus aplanko pavadinimo rezultatams
 search_eself=Paieškos rezultatų aplanke negalima ieškoti
+search_doing=Ieškoma $1 aplanke $2.
+search_doing2=Ieškoma žinučių pasirinktame aplanke.
+search_results=Atitinkantys pranešimai bus rodomi <a href='$1'>paieškos rezultatų</a> aplanke, kai paieška bus baigta...
+
 virtualize_ename=Trūksta virtualaus aplanko pavadinimo
+
 delete_enoadd=Žinutės negali būti perkeltos į virtualius aplankus, tik nukopijuotos
+
 sig_title=Redaguoti parašą
 sig_desc=Naudokite šią formą norėdami redaguoti savo el. Pašto parašą faile $1.
 sig_undo=Anuliuoti
 sig_enone=Nebuvo apibrėžtas parašo failas
 sig_eopen=Nepavyko atidaryti parašo failo : $1 
+
 quota_inbox=Viršyta $1 pašto kvota
 quota_inbox2=Viršyta $1 pašto pranešimų kvota
+
 auto_title=Automatinis aplankų išvalymas
 auto_header=Suplanuotos aplanko valymo parinktys
 auto_enabled=Automatiškai ištrinti pranešimus?
@@ -236,6 +258,7 @@ auto_action1=Ištrinkite visus aplanke esančius pranešimus
 auto_action2=Perkelti į aplanką $1 
 auto_edest=Pasirinkto tikslo aplanko nėra!
 auto_ewrite=Negalima parašyti pasirinkto aplanko
+
 copy_title=Nukopijuokite visus laiškus
 copy_header=Nukopijuokite visus aplanke esančius pranešimus
 copy_source=Šaltinio aplankas
@@ -245,18 +268,22 @@ copy_ok=Kopijuoti dabar
 copy_doing=Kopijuojami visi pranešimai iš $1 į $2.
 copy_done=.. padaryta
 copy_deleting=Ištuštinamas aplankas $1 ..
+
 fdelete_title=Ištrinti aplankus
 fdelete_err=Nepavyko ištrinti aplankų
 fdelete_enone=Nepasirinkta
 fdelete_rusure=Ar tikrai norite ištrinti $1 pasirinktus aplankus? $2 el. Pašto adresas bus ištrintas visam laikui.
 fdelete_rusure2=Ar tikrai norite ištrinti $1 pasirinktus aplankus?
 fdelete_delete=Ištrinti dabar
+
 detachall_err=Nepavyko išsaugoti visų priedų
 detachall_emkdir=Nepavyko sukurti laikino katalogo : $1 
 detachall_ezip=Siuntimas nepavyko : $1 
+
 allow_err=Nepavyko išsaugoti leidžiamų adresų
 deny_err=Nepavyko išsaugoti atmestų adresų
 allow_eaddr=„$1“ nėra teisingas el. Pašto adresas
+
 right_header=Sistemos informacija
 right_host=Sistemos pagrindinio kompiuterio vardas
 right_os=Operacinė sistema

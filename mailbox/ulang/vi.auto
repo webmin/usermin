@@ -1,16 +1,21 @@
 index_title=Gửi thư trong $1 
 index_return=danh sách thư
+index_searching=Đang tìm kiếm $1. Kết quả sẽ được hiển thị ở đây khi hoàn tất.
+index_searching2=Đang tiến hành tìm kiếm phức tạp. Kết quả sẽ được hiển thị ở đây khi hoàn tất.
+
 mail_title=Đọc thư
 mail_none=Không có tin nhắn trong thư mục $1 
 mail_pos=Tin nhắn $1 đến $2 của $3 trong thư mục $4 
 mail_return=hộp thư
 mail_quota=Sử dụng $1 trên $2 
 mail_special=Đặc biệt
+
 send_efile=Tệp đính kèm $1 không thể đọc được hoặc không tồn tại
 send_nobody=không ai
 send_etomsg=Không nhập địa chỉ To, Cc hoặc Bcc
 send_esubjectmsg=Không có chủ đề nào được nhập vào - hy vọng điều đó ổn
 send_eclosemsg=Bạn có chắc chắn muốn đóng trang này và mất tin nhắn đang diễn ra không?
+
 address_chooser=Chọn địa chỉ ..
 address_addr=Địa chỉ email
 address_name=Tên thật
@@ -61,6 +66,7 @@ address_exportdup0=Bao gồm cả
 address_exportdup1=Chỉ bao gồm cái đầu tiên
 address_exportfmt=Xuất ở định dạng
 address_exportok=Xuất ngay
+
 import_err=Không thể nhập địa chỉ
 import_title=Sổ địa chỉ nhập khẩu
 import_doing=Kết quả nhập sổ địa chỉ ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Địa chỉ email bị thiếu hoặc không h�
 import_same=Không thay đổi, bỏ qua
 import_skip=Địa chỉ trùng lặp, bỏ qua
 import_enetvcard=Mô-đun <tt>Net::vCard</tt> Perl là cần thiết để đọc các tệp định dạng vCard
+
 export_err=Không thể xuất địa chỉ
+
 group_err=Không thể lưu nhóm địa chỉ
 group_egroup=Tên nhóm bị thiếu hoặc không hợp lệ
 group_emembers=Không có địa chỉ email thành viên nào được nhập
+
 folders_title=Quản lý thư mục
 folders_instr=Trợ giúp và các loại thư mục
 folders_desc2=Mỗi thư mục được liệt kê dưới đây có thể chứa thư mà bạn di chuyển vào đó hoặc thư được đặt tự động. Các loại thư mục sau đây có sẵn :
@@ -124,6 +133,7 @@ folders_delete=Xóa các thư mục đã chọn
 folders_addimap=Thêm một thư mục mới.
 folders_addcomp=Thêm một thư mục tổng hợp mới.
 folders_addvirt=Thêm một thư mục ảo mới.
+
 edit_title1=Tạo thư mục
 edit_title2=Chỉnh sửa thư mục
 edit_header=Chi tiết thư mục thư
@@ -161,6 +171,7 @@ edit_comps=Thư mục con, cũ nhất
 edit_comp=Tổng hợp
 edit_virt=Ảo
 edit_delete=Xóa tin nhắn thật khi xóa khỏi thư mục?
+
 save_err=Không thể lưu thư mục
 save_ecannot=Bạn không được phép sử dụng loại thư mục này
 save_ename=Tên thư mục bị thiếu
@@ -191,7 +202,9 @@ save_edelete=Không thể xóa thư : $1
 save_eflag=Không thể đặt cờ IMAP : $1 
 save_eappend=Không thể thêm thư vào hộp thư IMAP : $1 
 save_esearch=Không thể tìm kiếm hộp thư IMAP : $1 
+
 epop3lock_tries=Không thể khóa tệp thư $1 sau khi thử $2 phút, do tệp khóa POP3.
+
 view_dsn=Thông báo tình trạng giao hàng
 view_dnsnow=Một thông báo thông báo trạng thái giao hàng vừa được gửi tới $1.
 view_dsnbefore=Một thông báo thông báo trạng thái giao hàng đã được gửi tới $1 trên $2.
@@ -204,21 +217,30 @@ view_quick=Trả lời nhanh
 view_quick_all=Trả lời tất cả
 view_quick_quote=Trích dẫn bản gốc
 view_quick_send=Gửi
+
 search_virtualize=Tạo thư mục ảo được đặt tên:
 search_dest=Lưu trữ kết quả trong
 search_dest1=Thư mục kết quả tìm kiếm
 search_dest0=Thư mục ảo mới có tên
 search_edest=Thiếu tên thư mục ảo cho kết quả
 search_eself=Thư mục kết quả tìm kiếm không thể được tìm kiếm
+search_doing=Đang tìm kiếm $1 trong thư mục $2.
+search_doing2=Tìm kiếm tin nhắn trong thư mục đã chọn.
+search_results=Các tin nhắn phù hợp sẽ được hiển thị trong thư mục <a href='$1'>kết quả tìm kiếm</a> khi tìm kiếm hoàn tất...
+
 virtualize_ename=Thiếu tên thư mục ảo
+
 delete_enoadd=Tin nhắn không thể được chuyển vào các thư mục ảo, chỉ được sao chép
+
 sig_title=Chỉnh sửa chữ ký
 sig_desc=Sử dụng mẫu này để chỉnh sửa chữ ký email của bạn trong tệp $1.
 sig_undo=Hoàn tác
 sig_enone=Không có tệp chữ ký được xác định
 sig_eopen=Không thể mở tệp chữ ký : $1 
+
 quota_inbox=Đã vượt quá hạn ngạch cho thư của $1 
 quota_inbox2=Đã vượt quá hạn ngạch của $1 thư
+
 auto_title=Xóa thư mục tự động
 auto_header=Tùy chọn xóa thư mục theo lịch trình
 auto_enabled=Tự động xóa tin nhắn?
@@ -236,6 +258,7 @@ auto_action1=Xóa tất cả tin nhắn trong thư mục
 auto_action2=Di chuyển đến thư mục $1 
 auto_edest=Thư mục đích đã chọn không tồn tại!
 auto_ewrite=Thư mục đích đã chọn không thể được ghi vào
+
 copy_title=Sao chép tất cả thư
 copy_header=Sao chép tất cả tin nhắn trong thư mục
 copy_source=Thư mục nguồn
@@ -245,18 +268,22 @@ copy_ok=Sao chép ngay
 copy_doing=Sao chép tất cả các tin nhắn từ $1 đến $2 ..
 copy_done=.. làm xong
 copy_deleting=Làm trống thư mục $1 ..
+
 fdelete_title=Xóa thư mục
 fdelete_err=Không thể xóa các thư mục
 fdelete_enone=Không được chọn
 fdelete_rusure=Bạn có chắc chắn muốn xóa các thư mục đã chọn $1 không? $2 email sẽ bị xóa vĩnh viễn.
 fdelete_rusure2=Bạn có chắc chắn muốn xóa các thư mục đã chọn $1 không?
 fdelete_delete=Xóa ngay bây giờ
+
 detachall_err=Không thể lưu tất cả tệp đính kèm
 detachall_emkdir=Không thể tạo thư mục tạm thời : $1 
 detachall_ezip=ZIP không thành công : $1 
+
 allow_err=Không thể lưu địa chỉ được phép
 deny_err=Không thể lưu địa chỉ bị từ chối
 allow_eaddr='$1' không phải là địa chỉ email hợp lệ
+
 right_header=Thông tin hệ thống
 right_host=Tên máy chủ hệ thống
 right_os=Hệ điều hành

@@ -25,6 +25,7 @@ index_fromdef=您的默認地址
 index_charset=消息字符集
 index_charsetdef=從當前語言
 index_charsetother=其他字符集
+
 aliases_to=轉發 ..
 aliases_from=寄給 ..
 aliases_type1=地址1
@@ -36,6 +37,7 @@ aliases_type6=應用過濾文件 $1
 aliases_type7=普通用戶郵箱
 aliases_type8=假期自動回复
 aliases_enabled=已啟用？
+
 aform_type0=沒有
 aform_type1=電子郵件地址
 aform_type2=文件中的地址
@@ -53,10 +55,12 @@ aform_afile=編輯 ..
 aform_return=別名
 aform_name=寄給 ..
 aform_vacation=編輯休假選項 ..
+
 afile_title=編輯地址文件
 afile_desc=使用下面的文本區域編輯文件 $1中的地址。
 afile_undo=取消更改
 afile_ewrite=寫入地址文件失敗： $1
+
 asave_err=保存轉發失敗
 asave_eaddr=“$1”不是有效地址
 asave_etype1=“$1”不是有效的電子郵件地址
@@ -72,6 +76,7 @@ asave_ename=姓名郵件丟失或無效
 asave_esame=該地址的別名已存在
 asave_enone=沒有選擇要轉發的內容
 asave_ecannot=選擇了無效的轉發類型
+
 ffile_title=編輯過濾文件
 ffile_desc=請使用下面的表格在文件 $1中設置過濾規則。
 ffile_efile=您無權編輯 $1。
@@ -88,6 +93,7 @@ ffile_err=無法保存過濾器文件
 ffile_ematch=缺少比賽
 ffile_eaction=缺少轉寄地址
 ffile_ewrite=無法寫入篩選器文件： $1
+
 rfile_title=編輯自動回复文件
 rfile_desc=使用下面的文本區域編輯 $1中的自動回复消息。該消息可能包含宏$SUBJECT，$FROM，$TO，$DATE和$BODY，這些宏將在激活自動回復後擴展。
 rfile_desc2=您還可以通過添加如下行來設置添加或替換自動回復中使用的默認郵件標題：<br><tt>發件人：foo@bar.com </tt><br> <tt>主題：節假日<消息頂部的/tt><br>，與正文之間用一個空白行隔開。
@@ -105,13 +111,16 @@ rfile_auto=自動（根據收件人的地址）
 rfile_efrom=缺少發件人：地址
 rfile_fromdesc=盡可能始終指定發件人：地址，因為自動方法可能不可靠。
 rfile_err=保存自動回复文件失敗
+
 vfile_title=編輯假期回复文件
 vfile_desc=使用下面的文本區域編輯 $1中的自動回复消息。
 vfile_subject=信息主題
 vfile_err=保存假期回复文件失敗
 vfile_esubject=郵件主題缺失
+
 edit_title=編輯轉發文件
 edit_desc=此頁面使您可以手動編輯 $1文件的內容。請小心，因為不會對您的輸入執行任何錯誤檢查。
+
 vacation_title=假期選項
 vacation_header=假期自動回複選項
 vacation_user=您的用戶名
@@ -126,6 +135,7 @@ vacation_einterval=缺少或無效的回复間隔
 vacation_euser=用戶名缺失或無效
 vacation_emsg=消息文件缺失或無效
 vacation_return=假期選擇
+
 simple_err=保存郵件轉發選項失敗
 simple_eforward=沒有輸入轉發地址
 simple_eforward2=必須輸入一個轉發地址，例如<tt>foo@bar.com</tt>

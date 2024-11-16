@@ -6,7 +6,7 @@ index_new1=新的密碼
 index_new2=確認新密碼 (再輸入一次)
 index_change=變更
 index_return=變更密碼 表單
-index_return=變更密碼 表單
+
 change_err=變更密碼失敗
 change_title=變更密碼
 change_enew1=沒有輸入新密碼

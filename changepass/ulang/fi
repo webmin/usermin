@@ -6,7 +6,7 @@ index_new1=Uusi salasana
 index_new2=Uusi salasana uudelleen
 index_change=Vaihda nyt
 index_return=salasanan muutos lomake
-index_return=salasanan muutos lomake
+
 change_err=Salasanan muuttaminen epäonnistui
 change_title=Salasana vaihdettu
 change_enew1=Uusi salasana puuttuu

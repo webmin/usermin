@@ -20,6 +20,7 @@ index_noperiod=常に自動返信する
 index_mins=分以内に来たものは自動返信しない
 index_from=自動返信に使う From:
 index_fromauto=自動検出
+
 aliases_to=転送先..
 aliases_from=Mail for..
 aliases_type1=メール転送 $1
@@ -31,6 +32,7 @@ aliases_type6=フィルタ条件を適用 $1
 aliases_type7=自分の受信箱
 aliases_type8=Vacation autoreply
 aliases_enabled=有効か?
+
 aform_type0=なし
 aform_type1=電子メールアドレス
 aform_type2=アドレス一覧をファイルから
@@ -46,10 +48,12 @@ aform_val=転送先
 aform_afile=編集..
 aform_return=メール転送先
 aform_name=Mail for..
+
 afile_title=アドレスファイルを編集
 afile_desc=ファイル $1 の内容を編集できます。電子メールアドレスを１行ずつ列挙してください。
 afile_undo=変更を元に戻す
 afile_ewrite=アドレス一覧ファイル $1 に書き込めませんでした
+
 asave_err=転送の保存に失敗しました
 asave_eaddr='$1' is not a valid address
 asave_etype1='$1' は正しいメールアドレスではありません
@@ -62,6 +66,7 @@ asave_etype2q=Qmail requires the Mailbox path to be set by system administrator
 asave_ename=Missing or invalid mail for name
 asave_esame=そのアドレスのエイリアスがすでに存在します
 asave_enone=何も転送に選択されませんでした
+
 ffile_title=Filter File の編集
 ffile_desc=フィルタ設定ファイル $1 の内容を設定します。
 ffile_efile=$1 の書き込み権限がありません。
@@ -78,6 +83,7 @@ ffile_err=フィルタファイルが保存できませんでした
 ffile_ematch=一致条件が指定されていません
 ffile_eaction=転送先が指定されていません
 ffile_ewrite=フィルタファイル $1 に書き込めませんでした
+
 rfile_title=自動返信ファイル の編集
 rfile_desc=このテキストエリアでは $1 の自動返信メッセージを編集できます。 文中に <TT>$SUBJECT, $FROM, $TO, $DATE, $BODY</TT> を含めると、自動返信時に補完されます。
 rfile_desc2=先頭に<br><tt>From: hoge@example.co.jp</tt><br><tt>Subject: 休暇中です</tt><br>　<br>(↑本文との間に空行１行)と書くことで、電子メールのヘッダも編集できます。
@@ -95,8 +101,10 @@ rfile_auto=自動 (もとの宛先を使う)
 rfile_efrom=返信の差出人が指定されていません
 rfile_fromdesc=From: は明示することをお勧めします。自動判定は必ずしも正しくない場合があります。
 rfile_err=自動返信ファイルの保存に失敗しました
+
 edit_title=Forward File の編集
 edit_desc=手作業で $1 ファイルの内容を編集できます。 !注意! エラーチェックは行いません。
+
 simple_err=メール転送設定の保存に失敗しました
 simple_eforward=転送先のアドレスが指定されていません
 simple_eforward2=１つの転送先アドレスを指定してください 例：<tt>hoge@example.co.jp</tt>

@@ -5,14 +5,17 @@ index_desc3=Utilizzare questo modulo per inserire un indirizzo alternativo a cui
 index_recovery=Indirizzo alternativo per il recupero della password
 index_recoverydef=Nessuno impostato
 index_recoverysel=Invia e-mail a
+
 change_oka=La tua password per $1 è stata cambiata correttamente. Da questo momento in poi qualsiasi accesso Usermin, SSH, FTP o e-mail richiederà la nuova password.
 change_mysql=Anche la password del database MySQL è stata modificata.
 change_mysql2=Tuttavia, la password del database MySQL non è stata modificata : $1 
 change_emysql=L'accesso corrente nel modulo MySQL non è corretto.
 change_eformat=Il formato di hashing della password configurato non è supportato
+
 recovery_title=Indirizzo di recupero
 recovery_err=Impossibile impostare l'indirizzo di recupero
 recovery_eemail=Non è stato inserito un indirizzo e-mail dall'aspetto valido
 recovery_cleared=L'indirizzo di recupero è stato cancellato.
 recovery_set=L'indirizzo di recupero da utilizzare quando si richiede un ripristino della password è stato impostato su $1.
+
 left_changepass=Cambia la password

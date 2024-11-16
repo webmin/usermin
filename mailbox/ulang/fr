@@ -2,7 +2,9 @@ mail_title=Lecture des Mails
 mail_none=Il n'y a pas de mail dans le dossier $1
 mail_pos=Mails $1 à $2 (sur $3) du dossier $4
 mail_return=mailbox
+
 send_efile=Le fichier attaché $1 ne peut être lu ou n'existe pas
+
 address_chooser=Choisir Adresse..
 address_addr=Adresse Email
 address_name=Nom réel
@@ -23,6 +25,7 @@ address_allow=Adresses autorisées
 address_deny=Adresses refusées
 address_allowdesc=Les adresse e-mails suivantes seront toujours acceptées, et jamais classées comme spam.
 address_denydesc=Les adresses e-mails suivantes seront toujours considérées comme du spam, et seront placées dans votre dossier spam ou supprimées.
+
 folders_title=Gérer les dossiers
 folders_name=Folder name
 folders_path=Location
@@ -37,6 +40,7 @@ folders_return=folders list
 folders_serv=$1 on server $2
 folders_padd=Add a POP3 account as a folder
 folders_iadd=Add an IMAP mailbox as a folder
+
 edit_title1=Create Folder
 edit_title2=Edit Folder
 edit_header=Mail folder details
@@ -65,6 +69,7 @@ edit_mailbox=IMAP mailbox
 edit_imapinbox=User's inbox
 edit_imapother=Other mailbox
 edit_fromaddr=From: address for messages sent from folder
+
 save_err=Failed to save folder
 save_ecannot=You are not allowed to use this type of folder
 save_ename=Missing or invalid folder name
@@ -88,5 +93,7 @@ save_emailbox2=Missing or invalid IMAP mailbox
 save_edelete=Failed to delete mail : $1
 save_eappend=Failed to add mail to IMAP mailbox : $1
 save_esearch=Failed to search IMAP mailbox : $1
+
 view_quick_send=Envoyer
+
 allow_eaddr='$1' n'est pas une adresse e-mail valide

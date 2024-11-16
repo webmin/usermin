@@ -1,0 +1,12 @@
+index_title=Motyw Usermin
+index_desc=Motywy kontrolują wygląd interfejsu użytkownika Usermin dla Twojego loginu, w tym ikony, kolory, tła, a także układ stron. Poniższe pole wyboru umożliwia wybór jednego z motywów zainstalowanych w systemie.
+index_sel=Motyw
+index_default=Stary motyw Usermin
+index_change=Zmień
+index_global=Domyślny motyw Usermin dla systemu
+
+change_title=Zmienianie Motywu
+change_user=Modyfikowanie logowania Usermin ..
+change_done=.. zakończono
+change_restart=Przeładowywanie Usermin ..
+change_redirect=Przekierowywanie do głównego menu ..

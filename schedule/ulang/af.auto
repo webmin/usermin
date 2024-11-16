@@ -13,6 +13,7 @@ index_cleardesc=Klik op hierdie knoppie om alle geskeduleerde e-posse wat vir 'n
 index_delete=Geselekteerde e-posse uitgevee
 index_disable=Deaktiveer gekies
 index_enable=Aktiveer geselekteerde
+
 edit_title1=Skep geskeduleerde e-pos
 edit_title2=Wysig geskeduleerde e-pos
 edit_header=Besonderhede van geskeduleerde e-posboodskappe
@@ -38,12 +39,14 @@ edit_type=Bron
 edit_uploaded=opgelaai
 edit_upload1=Laai lêers op
 edit_upload2=Heg 'n lêer aan
+
 save_err=Kon nie geskeduleerde e-pos stoor nie
 save_esubject=Onderwerp ontbreek
 save_eto=Ontbrekende adres gestuur
 save_emailfile=Ontbrekende of ongeldige tekslêer
 save_efrom=Ontbrekende adres vanaf adres ontbreek
 save_eat=Ontbrekende of ongeldige tyd om te hardloop op
+
 view_efile=Lêer bestaan nie meer nie
 save_notice_title=Skedule gestoor
 save_notice=Geplande e-posadres is suksesvol geskep - sien, wysig of verwyder dit na <a href="$1">hierdie</a> skakel.

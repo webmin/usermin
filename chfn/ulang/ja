@@ -6,6 +6,7 @@ index_office=オフィスのルームナンバー
 index_ophone=勤務先 電話番号
 index_hphone=自宅 電話番号
 index_shell=ログイン シェル
+
 save_err=詳細の変更に失敗しました
 save_ereal=本名に 「,」 と 「:」 の文字は使えません
 save_eoffice==オフィスのルームナンバーに 「,」 と 「:」 の文字は使えません

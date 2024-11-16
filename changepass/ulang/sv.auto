@@ -7,13 +7,13 @@ index_new1=Nytt lösenord
 index_new2=Nytt Lösenord Igen
 index_change=Ändra nu
 index_return=lösenordsändringsformulär
+
 index_passtab=Lösenordsändring
 index_recoverytab=Lösenordåterställningsadress
 index_desc3=Använd detta formulär för att ange en alternativ adress som ett tillfälligt lösenord kan skickas till om du glömmer ditt nuvarande lösenord.
 index_recovery=Alternativ adress för återställning av lösenord
 index_recoverydef=Ingen uppsättning
 index_recoverysel=Skicka e-post till
-index_return=lösenordsändringsformulär
 change_err=Det gick inte att ändra lösenordet
 change_title=Ändrat lösenord
 change_oka=Ditt lösenord för $1 har ändrats. Alla inloggningar på Usermin, SSH, FTP eller e-post från och med nu kommer att kräva det nya lösenordet.
@@ -37,9 +37,11 @@ change_epasswd_same=Lösenordet innehåller eller är samma som användarnamn
 change_epasswd_new=Lösenordet är detsamma som det gamla lösenordet
 change_emysql=Aktuell inloggning i MySQL-modulen är felaktig.
 change_eformat=Det konfigurerade hashingformatet för lösenord stöds inte
+
 recovery_title=Återställningsadress
 recovery_err=Det gick inte att ange återställningsadress
 recovery_eemail=En giltig e-postadress angavs inte
 recovery_cleared=Återställningsadressen har raderats.
 recovery_set=Återställningsadressen för användning när du begär en återställning av lösenord har ställts in på $1.
+
 left_changepass=Ändra lösenord

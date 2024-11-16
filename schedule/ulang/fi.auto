@@ -13,6 +13,7 @@ index_cleardesc=Napsauta tätä painiketta, jos haluat poistaa kaikki ajoitetut 
 index_delete=Poistetut valitut sähköpostit
 index_disable=Poista valitut käytöstä
 index_enable=Ota valitut käyttöön
+
 edit_title1=Luo ajoitettu sähköposti
 edit_title2=Muokkaa ajoitettua sähköpostia
 edit_header=Ajoitetun sähköpostiviestin tiedot
@@ -38,12 +39,14 @@ edit_type=Lähde
 edit_uploaded=Ladattu
 edit_upload1=Lataa tiedostot
 edit_upload2=Liitä tiedosto
+
 save_err=Ajoitetun sähköpostin tallentaminen epäonnistui
 save_esubject=Puuttuu viestin aihe
 save_eto=Puuttuu lähetys osoitteeseen
 save_emailfile=Puuttuva tai virheellinen viestitiedosto
 save_efrom=Puuttuu lähetys osoitteesta
 save_eat=Puuttuva tai kelpaa ajoaika osoitteeseen
+
 view_efile=Tiedostoa ei enää ole
 save_notice_title=Aikataulu tallennettu
 save_notice=Ajoitettu sähköposti on luotu onnistuneesti - katsele, muokkaa tai poista se seuraavan <a href="$1">tämän</a> linkin avulla.

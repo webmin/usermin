@@ -7,6 +7,7 @@ index_office=Nombor bilik pejabat
 index_ophone=Telefon kerja
 index_hphone=Telefon rumah
 index_shell=Shell login
+
 save_err=Gagal menukar butiran
 save_ereal=Nama sebenar tidak boleh mengandungi, atau: aksara
 save_eoffice=Nombor bilik pejabat tidak boleh mengandungi, atau: aksara

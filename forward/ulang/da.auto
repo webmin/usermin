@@ -25,6 +25,7 @@ index_fromdef=Din standardadresse
 index_charset=Meddelelse tegnsæt
 index_charsetdef=Fra det aktuelle sprog
 index_charsetother=Andet tegnsæt
+
 aliases_to=Henimod ..
 aliases_from=Mail til ..
 aliases_type1=Adresse 1
@@ -36,6 +37,7 @@ aliases_type6=Anvend filterfil $1
 aliases_type7=Normal brugerpostkasse
 aliases_type8=Ferie autoreply
 aliases_enabled=Aktiveret?
+
 aform_type0=Ingen
 aform_type1=Email adresse
 aform_type2=Adresser i fil
@@ -53,10 +55,12 @@ aform_afile=Redigere ..
 aform_return=alias
 aform_name=Mail til ..
 aform_vacation=Rediger feriemuligheder ..
+
 afile_title=Rediger adressefil
 afile_desc=Brug tekstområdet nedenfor til at redigere adresserne i filen $1.
 afile_undo=Fortryd ændringer
 afile_ewrite=Kunne ikke skrive til adressefilen : $1 
+
 asave_err=Kunne ikke gemme videresendelse
 asave_eaddr='$1' er ikke en gyldig adresse
 asave_etype1='$1' er ikke en gyldig e-mail-adresse
@@ -72,6 +76,7 @@ asave_ename=Manglende eller ugyldig e-mail til navn
 asave_esame=Et alias for den adresse findes allerede
 asave_enone=Intet blev valgt at videresende til
 asave_ecannot=Valgt ugyldig videresendelse
+
 ffile_title=Rediger filterfil
 ffile_desc=Brug formularen herunder til at indstille filterregler i filen $1.
 ffile_efile=Du har ikke tilladelse til at redigere $1.
@@ -88,6 +93,7 @@ ffile_err=Kunne ikke gemme filterfilen
 ffile_ematch=Manglende kamp
 ffile_eaction=Manglende viderestillingsadresse
 ffile_ewrite=Kunne ikke skrive til filterfil : $1 
+
 rfile_title=Rediger fil automatisk
 rfile_desc=Brug tekstområdet nedenfor til at redigere autosvarmeddelelsen i $1. Meddelelsen kan indeholde makroerne $SUBJECT, $FROM, $TO, $DATE og $BODY, som vil blive udvidet, når autoreply er aktiveret.
 rfile_desc2=Du kan også indstille mailoverskrifter, der tilføjer eller erstatter standardindstillingerne, der bruges i autoreplayet, ved at lægge linjer som: <br><tt> Fra: foo@bar.com </tt><br> <tt>Emne: På ferie</tt> <br> øverst i meddelelsen, adskilt fra kroppen med en enkelt tom linje.
@@ -105,13 +111,16 @@ rfile_auto=Automatisk (baseret på modtagerens adresse)
 rfile_efrom=Mangler fra: adresse
 rfile_fromdesc=A Fra: adresse skal altid specificeres, hvor det er muligt, da den automatiske metode muligvis ikke er pålidelig.
 rfile_err=Kunne ikke gemme autoreply-filen
+
 vfile_title=Rediger feriebesvarelsesfil
 vfile_desc=Brug tekstområdet nedenfor til at redigere autosvarmeddelelsen i $1.
 vfile_subject=Besked Emne
 vfile_err=Kunne ikke gemme feriesvarefilen
 vfile_esubject=Manglende beskedemne
+
 edit_title=Rediger fremad-fil
 edit_desc=På denne side kan du manuelt redigere indholdet af din $1 -fil. Vær forsigtig, da der ikke foretages nogen fejlkontrol på dit input.
+
 vacation_title=Ferie muligheder
 vacation_header=Indstillinger for automatisk svar til ferie
 vacation_user=Dit brugernavn
@@ -126,6 +135,7 @@ vacation_einterval=Manglende eller ugyldigt svarinterval
 vacation_euser=Manglende eller ugyldigt brugernavn
 vacation_emsg=Manglende eller ugyldig meddelelsesfil
 vacation_return=ferie muligheder
+
 simple_err=Kunne ikke gemme indstillinger for videresendelse af mails
 simple_eforward=Ingen adresse sendt ind
 simple_eforward2=Der skal indtastes en enkelt videresendingsadresse som <tt>foo@bar.com</tt>

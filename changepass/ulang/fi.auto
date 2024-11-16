@@ -5,11 +5,14 @@ index_desc3=Tämän lomakkeen avulla voit kirjoittaa vaihtoehtoisen osoitteen, j
 index_recovery=Vaihtoehtoinen osoite salasanan palautusta varten
 index_recoverydef=Ei asetettu
 index_recoverysel=Lähetä sähköpostia osoitteeseen
+
 change_oka=$1 salasanasi on vaihdettu onnistuneesti. Kaikista Usermin-, SSH-, FTP- tai sähköpostitilinseista lähtien tarvitaan uusi salasana.
 change_eformat=Konfiguroitua salasanan hajautusmuotoa ei tueta
+
 recovery_title=Palautusosoite
 recovery_err=Palautusosoitteen määrittäminen epäonnistui
 recovery_eemail=Kelvollisen näköistä sähköpostiosoitetta ei annettu
 recovery_cleared=Palautusosoite on tyhjennetty.
 recovery_set=Salasanan palauttamista pyydettäessä käytettävä palautusosoite on asetettu arvoon $1.
+
 left_changepass=Vaihda salasana

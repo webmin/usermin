@@ -7,6 +7,7 @@ index_office=Kontorsrum nummer
 index_ophone=Jobbtelefon
 index_hphone=Hemtelefon
 index_shell=Inloggningsskal
+
 save_err=Det gick inte att ändra detaljer
 save_ereal=Riktigt namn kan inte innehålla eller: tecken
 save_eoffice=Kontorsrumsnummer kan inte innehålla eller: tecken

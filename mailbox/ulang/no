@@ -1,15 +1,18 @@
 index_title=E-post i $1
+
 mail_title=Les e-post
 mail_none=Det er ingen meldinger i mappen $1
 mail_pos=Meldingene $1 til $2 av $3 i mappen $4
 mail_return=postboks
 mail_quota=Bruker $1 av $2
 mail_special=Spesial
+
 send_efile=Vedlagt fil $1 er ikke lesbar eller den finnes ikke
 send_nobody=ingen
 send_etomsg=Ingen Til, Kopi eller Blindkopi adresse angitt
 send_esubjectmsg=Ikke noe emne angitt - håper det er OK
 send_eclosemsg=Er du sikker på at du ønsker å lukke denne siden og miste meldingen som er under behandling?
+
 address_chooser=Velg adresse..
 address_addr=E-post adresse
 address_name=Fullt navn
@@ -52,6 +55,7 @@ address_importdup0=Ignorer
 address_importdup1=Oppdater navn
 address_importok=Importer nå
 address_return=adressebok
+
 import_err=Kunne ikke importere adresser
 import_title=Importer adressebok
 import_doing=Resultat av adressebok import ..
@@ -66,9 +70,11 @@ import_noemail=<font color=red>Manglende eller ugyldig e-post adresse</font>
 import_same=Uendret, hoppet over
 import_skip=Duplisert adresse, hoppet over
 import_enetvcard=Perl modulen <tt>Net::vCard</tt> er nødvendig for å lese filer på vCard format
+
 group_err=Kunne ikke lagre adressegruppe
 group_egroup=Manglende eller ugyldig gruppenavn
 group_emembers=Ingen medlem e-post adresser angitt
+
 folders_title=Administrer mapper
 folders_instr=Hjelp og mappetyper
 folders_desc2=Hver av mappene nedenfor kan inneholde e-post som du flytter inn i dem, eller e-post som er plassert der automatisk. Følgende mappetyper er tilgjengelige:
@@ -114,6 +120,7 @@ folders_delete=Slett valgte mapper
 folders_addimap=Legg til en ny mappe.
 folders_addcomp=Legg til en ny sammensatt mappe.
 folders_addvirt=Legg til en ny virtuell mappe.
+
 edit_title1=Opprett mappe
 edit_title2=Rediger mappe
 edit_header=Detaljer om e-post mappe
@@ -151,6 +158,7 @@ edit_comps=Undermapper, eldste først
 edit_comp=Sammensatt
 edit_virt=Virtuell
 edit_delete=Slett fysisk melding når den slettes fra mappe?
+
 save_err=Kunne ikke lagre mappe
 save_ecannot=Du har ikke lov til å bruke denne mappetypen
 save_ename=Mangler mappenavn
@@ -181,7 +189,9 @@ save_edelete=Kunne ikke slette e-post : $1
 save_eflag=Kunne ikke sette IMAP flagg : $1
 save_eappend=Kunne ikke legge til e-post i IMAP postboks : $1
 save_esearch=Kunne ikke søke i IMAP postboks : $1
+
 epop3lock_tries=Kunne ikke låse e-post fil $1 eter å ha prøvd i $2 minutter, pga. em POP3 låse-fil.
+
 view_dsn=Leveringsstatus melding
 view_dnsnow=Det er akkurat blitt sendt en leveringsstatus-melding til $1.
 view_dsnbefore=En leveringsstatus-melding ble sendt til $1 $2.
@@ -194,21 +204,27 @@ view_quick=Hurtigsvar
 view_quick_all=Svar til alle
 view_quick_quote=Siter original
 view_quick_send=Send
+
 search_virtualize=Opprett virtuell mappe med navn:
 search_dest=Lagre resultater i
 search_dest1=Søk resultater mappe
 search_dest0=Ny virtuell mappe med navn
 search_edest=Manglende virtuelt mappenavn for resultater
 search_eself=Mappen for søkeresultater kan ikke søkes i
+
 virtualize_ename=Mangler navn på virtuell mappe
+
 delete_enoadd=Meldinger kan ikke flyttes til virtuelle mapper, bare kopieres
+
 sig_title=Rediger signatur
 sig_desc=Bruk dette skjemaet til å redigere din e-post signatur i filen $1.
 sig_undo=Angre
 sig_enone=Ingen signsturfil definert
 sig_eopen=Kunne ikke åpne signaturfil : $1
+
 quota_inbox=Kvote for e-post for $1 overskredet
 quota_inbox2=Kvote på $1 e-postmeldinger overskredet
+
 auto_title=Automatisk mappetømming
 auto_header=Innstillinger for tidsplanlagt mappetømming
 auto_enabled=Slett meldinger automatisk?
@@ -226,6 +242,7 @@ auto_action1=Slett alle meldinger i mappen
 auto_action2=Flytt til mappe $1
 auto_edest=Valgt mål-mappe finnes ikke!
 auto_ewrite=Valgt mål-mappe kan ikke skrives til
+
 copy_title=Kopier all e-post
 copy_header=Kopier alle meldinger i mappen
 copy_source=Kilde-mappe
@@ -235,18 +252,22 @@ copy_ok=Kopier nå
 copy_doing=Kopierer alle meldinger fra $1 til $2 ..
 copy_done=.. ferdig
 copy_deleting=Tømmer mappen $1 ..
+
 fdelete_title=Slett mapper
 fdelete_err=Kunne ikke slette mapper
 fdelete_enone=Ingen valgt
 fdelete_rusure=Er du sikker på at du ønsker å slette de $1 valgte mappene? $2 meldinger vil bli slette for alltid.
 fdelete_rusure2=Er du sikker på at du ønsker å slette de $1 valgte mappene?
 fdelete_delete=Slett nå
+
 detachall_err=Kunne ikke lagre alle vedlegg
 detachall_emkdir=Kunne ikke opprette midlertidig katalog : $1
 detachall_ezip=ZIP feilet : $1
+
 allow_err=Kunne ikke lagre tillatte adresser
 deny_err=Kunne ikke lagre nektede adresser
 allow_eaddr='$1' er ikke en gyldig e-post adresse
+
 right_header=Systeminformasjon
 right_host=System vertsnavn
 right_os=Operativsystem

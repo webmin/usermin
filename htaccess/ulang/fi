@@ -8,6 +8,7 @@ index_find=Etsi asetustiedostot hakemistosta:
 index_finddesc=Etsii manuaalisesti luotuja $1 asetustiedostoja syötetystä hakemistosta. Kunnes manuaalisesti tehty tiedosto on löydetty, sitä ei voi muokata tällä moduulilla.
 index_return=asetustiedosto lista
 index_apache=Apache versiota ja moduuli informaatiota ei löytynyt Webmin konfiguraatio hakemistosta $1. Tämä moduli vaatii, että Webmin on asennettu ja sen Apache moduli on konfiguroitu oikein.
+
 find_title=Etsi asetustiedostot
 find_list=Seuraavat asetustiedostot löytyivät hakemistosta $1 ..
 find_none=Yhtään asetustiedostoa $1 ei löytynyt hakemistosta $2.

@@ -20,6 +20,7 @@ index_noperiod=Ei minimiä
 index_mins=minuuttia
 index_from=From: osoite vastauksiin
 index_fromauto=Päättele automaattisesti
+
 aliases_to=Edelleenohjaa osoitteeseen..
 aliases_from=Mail for..
 aliases_type1=Sähköpostiosoite $1
@@ -31,6 +32,7 @@ aliases_type6=Ota käyttöön suodatin tiedosto $1
 aliases_type7=Normaali käyttäjän sähköpostilaatikko
 aliases_type8=Lomavastaaja
 aliases_enabled=Päällä?
+
 aform_type0=Ei mitään
 aform_type1=Sähköpostiosoite
 aform_type2=Osoitteet tiedostossa
@@ -48,6 +50,7 @@ aform_afile=Muokkaa..
 aform_return=alias
 aform_name=Sähköposti..
 aform_vacation=Muokkaa lomavastaajan asetuksia..
+
 afile_title=Muokkaa osoitetiedostoa
 afile_desc=Käytä alla olevaa tekstikenttää muokataksesi osoitteita tiedostossa $1.
 afile_undo=Peru muutokset

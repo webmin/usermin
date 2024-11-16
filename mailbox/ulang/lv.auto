@@ -1,16 +1,21 @@
 index_title=Pasts $1 
 index_return=pastu saraksts
+index_searching=Notiek $1 meklēšana. Rezultāti tiks parādīti šeit, kad tas būs pabeigts.
+index_searching2=Notiek sarežģīta meklēšana. Rezultāti tiks parādīti šeit, kad tas būs pabeigts.
+
 mail_title=Lasīt pastu
 mail_none=Mapē $1 nav ziņojumu
 mail_pos=Ziņojumi no $1 līdz $2 no $3 mapē $4 
 mail_return=pastkaste
 mail_quota=Izmantojot $1 no $2 
 mail_special=Īpašais
+
 send_efile=Pievienotais fails $1 nav salasāms vai neeksistē
 send_nobody=neviens
 send_etomsg=Netika ievadīta adresāta Nr., Kopija vai Kopija kopija
 send_esubjectmsg=Tēma netika ievadīta - ceru, ka viss ir kārtībā
 send_eclosemsg=Vai tiešām vēlaties aizvērt šo lapu un pazaudēt notiekošo ziņojumu?
+
 address_chooser=Atlasiet Adrese ..
 address_addr=Epasta adrese
 address_name=Īstais vārds
@@ -61,6 +66,7 @@ address_exportdup0=Iekļaujiet abus
 address_exportdup1=Iekļaujiet tikai pirmo
 address_exportfmt=Eksportēt formātā
 address_exportok=Eksportēt tūlīt
+
 import_err=Neizdevās importēt adreses
 import_title=Importēt adrešu grāmatu
 import_doing=Rezultāti adrešu grāmatas importēšanā ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Trūkst vai nav derīga e-pasta adrese</font>
 import_same=Nemainīts, izlaists
 import_skip=Kopēta adrese, izlaista
 import_enetvcard=<tt>Net::vCard</tt> Perl modulis ir nepieciešams vCard formāta failu lasīšanai
+
 export_err=Neizdevās eksportēt adreses
+
 group_err=Neizdevās saglabāt adrešu grupu
 group_egroup=Trūkst vai nav derīgs grupas nosaukums
 group_emembers=Nav ievadītas dalībnieku e-pasta adreses
+
 folders_title=Pārvaldīt mapes
 folders_instr=Palīdzība un mapju veidi
 folders_desc2=Katrā no zemāk uzskaitītajām mapēm var būt pasts, kuru jūs tajā pārvietojat, vai pasts, kas tajā tiek ievietots automātiski. Ir pieejami šādi mapju veidi :
@@ -124,6 +133,7 @@ folders_delete=Dzēst atlasītās mapes
 folders_addimap=Pievienojiet jaunu mapi.
 folders_addcomp=Pievienojiet jaunu saliktu mapi.
 folders_addvirt=Pievienojiet jaunu virtuālo mapi.
+
 edit_title1=Izveidot mapi
 edit_title2=Rediģēt mapi
 edit_header=Informācija par pasta mapi
@@ -161,6 +171,7 @@ edit_comps=Apakšmapes, vecākās pirmās
 edit_comp=Salikts
 edit_virt=Virtuāls
 edit_delete=Vai izdzēst īsto ziņojumu, izdzēšot no mapes?
+
 save_err=Neizdevās saglabāt mapi
 save_ecannot=Jums nav atļauts izmantot šāda veida mapes
 save_ename=Trūkst mapes nosaukuma
@@ -191,7 +202,9 @@ save_edelete=Neizdevās izdzēst pastu : $1
 save_eflag=Neizdevās iestatīt IMAP karodziņus : $1 
 save_eappend=Neizdevās pievienot pastu IMAP pastkastei : $1 
 save_esearch=Neizdevās meklēt IMAP pastkasti : $1 
+
 epop3lock_tries=Pēc $2 minūšu mēģināšanas neizdevās bloķēt pasta failu $1 POP3 bloķēšanas faila dēļ.
+
 view_dsn=Paziņojums par piegādes statusu
 view_dnsnow=Piegādes statusa paziņojums ir tikko nosūtīts uz $1.
 view_dsnbefore=Piegādes statusa paziņojums tika nosūtīts uz $1 $2.
@@ -204,21 +217,30 @@ view_quick=Ātra atbilde
 view_quick_all=Atbildēt uz visiem
 view_quick_quote=Citāts oriģināls
 view_quick_send=Sūtīt
+
 search_virtualize=Izveidot virtuālo mapi ar nosaukumu:
 search_dest=Saglabājiet rezultātus
 search_dest1=Meklēšanas rezultātu mape
 search_dest0=Jauna virtuālā mape nosaukta
 search_edest=Trūkst virtuālās mapes nosaukuma rezultātiem
 search_eself=Meklēšanas rezultātu mapē nevar meklēt
+search_doing=Tiek meklēts $1 mapē $2.
+search_doing2=Notiek ziņojumu meklēšana atlasītajā mapē.
+search_results=Kad meklēšana būs pabeigta, atbilstošie ziņojumi tiks parādīti mapē <a href='$1'>meklēšanas rezultāti</a>...
+
 virtualize_ename=Trūkst virtuālās mapes nosaukuma
+
 delete_enoadd=Ziņojumus nevar pārvietot uz virtuālajām mapēm, tikai kopēt
+
 sig_title=Rediģēt parakstu
 sig_desc=Izmantojiet šo formu, lai rediģētu e-pasta parakstu failā $1.
 sig_undo=Atsaukt
 sig_enone=Nav definēts paraksta fails
 sig_eopen=Neizdevās atvērt paraksta failu : $1 
+
 quota_inbox=Pārsniegta $1 pasta kvota
 quota_inbox2=Tika pārsniegta $1 pasta ziņojumu kvota
+
 auto_title=Automātiska mapes tīrīšana
 auto_header=Plānotās mapes tīrīšanas iespējas
 auto_enabled=Vai automātiski izdzēst ziņojumus?
@@ -236,6 +258,7 @@ auto_action1=Izdzēsiet visas mapē esošās ziņas
 auto_action2=Pārvietot uz mapi $1 
 auto_edest=Atlasītā mērķa mape neeksistē!
 auto_ewrite=Atlasītajā mērķa mapē nevar uzrakstīt
+
 copy_title=Kopēt visu pastu
 copy_header=Kopējiet visus mapē esošos ziņojumus
 copy_source=Avota mape
@@ -245,18 +268,22 @@ copy_ok=Kopēt tūlīt
 copy_doing=Visu ziņojumu kopēšana no $1 uz $2.
 copy_done=.. darīts
 copy_deleting=Iztukšot mapi $1.
+
 fdelete_title=Dzēst mapes
 fdelete_err=Neizdevās izdzēst mapes
 fdelete_enone=Nav atlasīts
 fdelete_rusure=Vai tiešām vēlaties dzēst atlasītās mapes $1 ? $2 e-pasts tiks izdzēsts uz visiem laikiem.
 fdelete_rusure2=Vai tiešām vēlaties dzēst atlasītās mapes $1 ?
 fdelete_delete=Dzēst tūlīt
+
 detachall_err=Neizdevās saglabāt visus pielikumus
 detachall_emkdir=Nevarēja izveidot pagaidu direktoriju : $1 
 detachall_ezip=ZIP neizdevās : $1 
+
 allow_err=Neizdevās saglabāt atļautās adreses
 deny_err=Neizdevās saglabāt noraidītās adreses
 allow_eaddr='$1' nav derīga e-pasta adrese
+
 right_header=Sistēmas informācija
 right_host=Sistēmas resursdators
 right_os=Operētājsistēma

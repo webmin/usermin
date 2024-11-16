@@ -1,16 +1,21 @@
 index_title=$1 میں میل کریں
 index_return=میل کی فہرست
+index_searching=$1 کی تلاش جاری ہے۔ اس کے مکمل ہونے پر نتائج یہاں دکھائے جائیں گے۔
+index_searching2=ایک پیچیدہ تلاش جاری ہے۔ اس کے مکمل ہونے پر نتائج یہاں دکھائے جائیں گے۔
+
 mail_title=میل پڑھیں
 mail_none=$1 فولڈر میں کوئی پیغامات نہیں ہیں
 mail_pos=فولڈر$4 میں $1 سے$2 کے پیغامات
 mail_return=میل باکس
 mail_quota=$2 میں سے$1 کا استعمال کرنا
 mail_special=خصوصی
+
 send_efile=منسلک فائل$1 پڑھنے کے قابل نہیں ہے یا موجود نہیں ہے
 send_nobody=کوئی نہیں
 send_etomsg=No To، Cc یا Bcc ایڈریس داخل نہیں کیا گیا تھا
 send_esubjectmsg=کوئی مضمون داخل نہیں کیا گیا - امید ہے کہ ٹھیک ہے
 send_eclosemsg=کیا آپ واقعی اس صفحے کو بند کرنا چاہتے ہیں اور اس پیغام کو جاری رکھنا چاہتے ہیں؟
+
 address_chooser=پتہ منتخب کریں ..
 address_addr=ای میل اڈریس
 address_name=اصلی نام
@@ -61,6 +66,7 @@ address_exportdup0=دونوں کو شامل کریں
 address_exportdup1=صرف پہلے کو شامل کریں
 address_exportfmt=شکل میں برآمد کریں
 address_exportok=ابھی برآمد کریں
+
 import_err=پتے درآمد کرنے میں ناکام
 import_title=ایڈریس بک درآمد کریں
 import_doing=ایڈریس بک کی درآمد کے نتائج ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Missing or invalid email address</font>
 import_same=بدلاؤ ، اچٹ گیا
 import_skip=نقل کا پتہ ، چھوڑ دیا گیا
 import_enetvcard=The <tt>Net::vCard</tt> Perl module is needed to read vCard format files
+
 export_err=پتے برآمد کرنے میں ناکام
+
 group_err=ایڈریس گروپ کو محفوظ کرنے میں ناکام
 group_egroup=گروپ کا نام غائب یا غلط
 group_emembers=کوئی ممبر ای میل ایڈریس داخل نہیں کیا
+
 folders_title=فولڈرز کا نظم کریں
 folders_instr=مدد اور فولڈر کی اقسام
 folders_desc2=نیچے دیئے گئے ہر فولڈر میں وہ میل ہوسکتی ہے جو آپ اس میں منتقل کرتے ہیں ، یا میل جو خود بخود اس میں رکھا جاتا ہے۔ درج ذیل فولڈر کی اقسام دستیاب ہیں۔
@@ -124,6 +133,7 @@ folders_delete=منتخب فولڈرز کو حذف کریں
 folders_addimap=ایک نیا فولڈر شامل کریں۔
 folders_addcomp=ایک نیا مرکب فولڈر شامل کریں۔
 folders_addvirt=ایک نیا ورچوئل فولڈر شامل کریں۔
+
 edit_title1=فولڈر بنائیں
 edit_title2=فولڈر میں ترمیم کریں
 edit_header=میل فولڈر کی تفصیلات
@@ -161,6 +171,7 @@ edit_comps=سب فولڈرز ، سب سے قدیم
 edit_comp=جامع
 edit_virt=مجازی
 edit_delete=فولڈر سے حذف کرتے وقت حقیقی پیغام حذف کریں؟
+
 save_err=فولڈر کو بچانے میں ناکام
 save_ecannot=آپ کو اس قسم کے فولڈر کو استعمال کرنے کی اجازت نہیں ہے
 save_ename=گمشدہ فولڈر کا نام
@@ -191,7 +202,9 @@ save_edelete=میل کو حذف کرنے میں ناکام :$1
 save_eflag=IMAP پرچم ترتیب دینے میں ناکام :$1
 save_eappend=IMAP میل باکس میں میل شامل کرنے میں ناکام :$1
 save_esearch=IMAP میل باکس تلاش کرنے میں ناکام :$1
+
 epop3lock_tries=POP3 لاک فائل کی وجہ سے ،$2 منٹ کی کوشش کرنے کے بعد میل فائل$1 کو لاک کرنے میں ناکام۔
+
 view_dsn=ترسیل کے مراحل کی اطلاع
 view_dnsnow=ابھی ترسیل کی حیثیت سے متعلق اطلاع کا پیغام$1 پر بھیج دیا گیا ہے۔
 view_dsnbefore=ترسیل کی حیثیت سے متعلق اطلاع کا پیغام$2 پر$1 پر بھیجا گیا تھا۔
@@ -204,21 +217,30 @@ view_quick=فوری جواب
 view_quick_all=سب کو جواب
 view_quick_quote=اصل حوالہ
 view_quick_send=بھیجیں
+
 search_virtualize=مجازی فولڈر بنائیں جس کا نام ہے:
 search_dest=اسٹور کے نتائج
 search_dest1=تلاش کے نتائج کا فولڈر
 search_dest0=نیا ورچوئل فولڈر نامزد کیا گیا
 search_edest=نتائج کے ل virtual ورچوئل فولڈر کا نام غائب ہے
 search_eself=تلاش کے نتائج والے فولڈر کو تلاش نہیں کیا جاسکتا
+search_doing=فولڈر $2 میں $1 تلاش کر رہا ہے۔
+search_doing2=منتخب فولڈر میں پیغامات تلاش کرنا۔
+search_results=Matching messages will be shown in the <a href='$1'>search results</a> folder when the search completes ...
+
 virtualize_ename=ورچوئل فولڈر کا نام غائب ہے
+
 delete_enoadd=پیغامات کو ورچوئل فولڈرز میں منتقل نہیں کیا جاسکتا ، صرف کاپی کیا گیا
+
 sig_title=دستخط میں ترمیم کریں
 sig_desc=فائل $1 میں اپنے ای میل دستخط میں ترمیم کرنے کے لئے اس فارم کا استعمال کریں۔
 sig_undo=کالعدم کریں
 sig_enone=کوئی دستخط فائل کی وضاحت نہیں کی گئی ہے
 sig_eopen=دستخط فائل کو کھولنے میں ناکام :$1
+
 quota_inbox=$1 کے میل کیلئے کوٹہ حد سے تجاوز کرگیا
 quota_inbox2=$1 میل پیغامات کا کوٹہ تجاوز کر گیا
+
 auto_title=خودکار فولڈر کلیئرنگ
 auto_header=شیڈول فولڈر صاف کرنے کے اختیارات
 auto_enabled=پیغامات کو خود بخود حذف کریں؟
@@ -236,6 +258,7 @@ auto_action1=فولڈر میں موجود تمام پیغامات کو حذف ک
 auto_action2=فولڈر$1 میں منتقل کریں
 auto_edest=منتخب کردہ منزل فولڈر موجود نہیں ہے!
 auto_ewrite=منتخب کردہ منزل والے فولڈر کو لکھا نہیں جاسکتا
+
 copy_title=تمام میل کاپی کریں
 copy_header=فولڈر میں تمام پیغامات کاپی کریں
 copy_source=ماخذ فولڈر
@@ -245,18 +268,22 @@ copy_ok=ابھی کاپی کریں
 copy_doing=$1 سے$2 تک تمام پیغامات کاپی کرنا۔
 copy_done=.. ہو گیا
 copy_deleting=$1 فولڈر کو خالی کر رہا ہے۔
+
 fdelete_title=فولڈرز کو حذف کریں
 fdelete_err=فولڈرز کو حذف کرنے میں ناکام
 fdelete_enone=کوئی بھی منتخب نہیں ہوا
 fdelete_rusure=کیا آپ واقعی منتخب کردہ$1 فولڈرز کو حذف کرنا چاہتے ہیں؟ ای میل کا$2 ہمیشہ کے لئے حذف ہوجائے گا۔
 fdelete_rusure2=کیا آپ واقعی منتخب کردہ$1 فولڈرز کو حذف کرنا چاہتے ہیں؟
 fdelete_delete=ابھی حذف کریں
+
 detachall_err=تمام منسلکات کو محفوظ کرنے میں ناکام
 detachall_emkdir=عارضی ڈائرکٹری تشکیل نہیں دے سکی :$1
 detachall_ezip=زپ ناکام ہوگیا :$1
+
 allow_err=اجازت شدہ پتوں کو محفوظ کرنے میں ناکام
 deny_err=تردید شدہ پتے محفوظ کرنے میں ناکام
 allow_eaddr='$1' درست ای میل پتہ نہیں ہے
+
 right_header=سسٹم کی معلومات
 right_host=سسٹم کا میزبان نام
 right_os=آپریٹنگ سسٹم

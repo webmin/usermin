@@ -1,12 +1,15 @@
 index_title=Posta in $1
+
 mail_title=Leggi la posta
 mail_none=Non ci sono messaggi nella cartella $1
 mail_pos=Messaggi dal $1° al $2° su $3 nella cartella $4
 mail_return=posta in arrivo
 mail_quota=Sto usando $1 su $2
 mail_special=Speciale
+
 send_efile=L'allegato $1 non è leggibile o non esiste
 send_nobody=nessuno
+
 address_chooser=Seleziona indirizzo...
 address_addr=Indirizzo email
 address_name=Nome reale
@@ -31,9 +34,11 @@ address_search=Trova gli indirizzi corrispondenti a:
 address_ok=Cerca
 address_users=Indirizzi email
 address_groups=Nickname email
+
 group_err=Salvataggio del gruppo di indirizzi non riuscito
 group_egroup=Nome gruppo mancante o non valido
 group_emembers=Nessun indirizzo email membro inserito
+
 folders_title=Gestisci cartelle
 folders_instr=Informazioni sui diversi tipi di cartelle
 folders_desc2=Ciascuna cartella nell'elenco in basso può contenere dei messaggi che puoi spostare al loro interno, o messaggi che vengono salvati nella cartella in maniera automatica. Sono disponibili i seguenti tipi di cartelle:
@@ -79,6 +84,7 @@ folders_delete=Cancella le cartelle selezionate
 folders_addimap=Aggiungi una nuova cartella.
 folders_addcomp=Aggiungi una nuova cartella combinata.
 folders_addvirt=Aggiungi una nuova cartella virtuale.
+
 edit_title1=Crea cartella
 edit_title2=Modifica cartella
 edit_header=Dettagli della cartella di posta
@@ -113,6 +119,7 @@ edit_comps=Sottocartelle, le più vecchie prima
 edit_comp=Combinata
 edit_virt=Virtuale
 edit_delete=Cancellare realmente il messaggio vero e proprio quando lo si cancella dalla cartella?
+
 save_err=Salvataggio cartella non riuscito
 save_ecannot=Non hai i permessi per usare questo tipo di cartella
 save_ename=Nome cartella mancante
@@ -142,7 +149,9 @@ save_edelete=Cancellazione del messaggio non riuscita: $1
 save_eflag=Impostazione dei flag IMAP non riuscita: $1
 save_eappend=Aggiunta del messaggio alla casella IMAP non riuscita: $1
 save_esearch=Ricerca della casela IMAP non riuscita: $1
+
 epop3lock_tries=Blocco del file di posta $1 non riuscito dopo aver tentato per $2 minuti, a causa di un blocco del file POP3.
+
 view_dsn=Ricevuta di ritorno
 view_dnsnow=Una ricevuta di ritorno è stata inviata a $1.
 view_dsnbefore=Una ricevuta di ritorno è stata inviata a $1 alle ore $2.
@@ -155,20 +164,26 @@ view_quick=Risposta veloce
 view_quick_all=Rispondi a tutti
 view_quick_quote=Cita l'originale
 view_quick_send=Invia
+
 search_virtualize=Crea una cartella virtuale con nome:
 search_dest=Memorizza i risultati in
 search_dest1=Cartella per i risultati della ricerca
 search_dest0=Nuova cartella virtuale con nome
 search_edest=Nome della cartella virtuale per i risultati mancante
+
 virtualize_ename=Nome della cartella virtuale mancante
+
 delete_enoadd=I messaggi non possono essere spostati nelle cartelle virtuali, possono essere solo copiati
+
 sig_title=Modfiica firma
 sig_desc=Usa questo form per modificare la tua firma per i messaggi contenuta nel file $1.
 sig_undo=Annulla
 sig_enone=Nessun file della firma definito
 sig_eopen=Apertura del file della firma non riuscito: $1
+
 quota_inbox=Superato il limite di posta di $1
 quota_inbox2=Superato il limite di messaggi di posta di $1
+
 auto_title=Pulizia automatica della cartella
 auto_header=Opzioni di pulizia pianificata della cartella
 auto_enabled=Cancellare automaticamente i messaggi?
@@ -183,6 +198,7 @@ auto_invalid=Cancella i messaggi con data non valida
 auto_action=Azione da eseguire quando sono presenti messaggi da cancellare
 auto_action0=Cancella i messaggi corrispondenti
 auto_action1=Cancella tutti i messaggi nella cartella
+
 copy_title=Copia tutti i messaggi
 copy_header=Copia tutti i messaggi nella cartella
 copy_source=Cartella sorgente
@@ -192,12 +208,14 @@ copy_ok=Copia adesso
 copy_doing=Copia di tutti i messaggi da $1 a $2 in corso...
 copy_done=... fatto!!!
 copy_deleting=Svuoto la cartella $1...
+
 fdelete_title=Rimuovi cartelle
 fdelete_err=Rimozione delle cartelle non riuscita
 fdelete_enone=Nessun selezione
 fdelete_rusure=Sei sicuro di voler rimuovere le $1 cartelle selezionate? $2 di posta saranno cancellati in maniera irreversibile.
 fdelete_rusure2=Sei sicuro di voler rimuovere le $1 cartelle selezionate?
 fdelete_delete=Rimuovi adesso
+
 detachall_err=Salvataggio degli allegati non riuscito
 detachall_emkdir=Non è stato possibile creare la directory temporanea: $1
 detachall_ezip=ZIP non riuscito: $1

@@ -13,6 +13,7 @@ index_cleardesc=Noklikšķiniet uz šīs pogas, lai izdzēstu visus ieplānotos 
 index_delete=Izdzēsti atlasītie e-pasti
 index_disable=Atspējot atlasīto
 index_enable=Iespējot atlasīto
+
 edit_title1=Izveidojiet plānotu e-pastu
 edit_title2=Rediģēt ieplānoto e-pastu
 edit_header=Plānotā e-pasta ziņas informācija
@@ -38,12 +39,14 @@ edit_type=Avots
 edit_uploaded=Augšupielādēts
 edit_upload1=Augšupielādēt failus
 edit_upload2=Pievienojiet failu
+
 save_err=Neizdevās saglabāt ieplānoto e-pastu
 save_esubject=Trūkst ziņojuma tēmas
 save_eto=Trūkst nosūtīšanas uz adresi
 save_emailfile=Trūkst vai nav derīgs ziņojuma teksta fails
 save_efrom=Trūkst nosūtīšanas no adreses
 save_eat=Trūkst vai nav derīgs laiks, lai palaistu plkst
+
 view_efile=Fails vairs nepastāv
 save_notice_title=Grafiks saglabāts
 save_notice=Plānotais e-pasts ir veiksmīgi izveidots - skatiet, rediģējiet vai izdzēsiet to, izmantojot <a href="$1">šo</a> saiti.

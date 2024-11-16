@@ -1,1 +1,7 @@
 index_return=Mail-Liste
+index_searching=Eine Suche nach $1 ist im Gange. Die Ergebnisse werden hier angezeigt, sobald sie abgeschlossen sind.
+index_searching2=Eine komplexe Suche ist im Gange. Die Ergebnisse werden hier angezeigt, sobald sie abgeschlossen sind.
+
+search_doing=Suche nach $1 im Ordner $2.
+search_doing2=Suche nach Nachrichten im ausgewählten Ordner.
+search_results=Übereinstimmende Nachrichten werden nach Abschluss der Suche im Ordner <a href='$1'>Suchergebnisse</a> angezeigt...

@@ -5,11 +5,14 @@ index_desc3=Gebruik dit formulier om een alternatief adres in te voeren waarnaar
 index_recovery=Alternatief adres voor wachtwoordherstel
 index_recoverydef=Geen ingesteld
 index_recoverysel=Stuur een email naar
+
 change_oka=Uw wachtwoord voor $1 is succesvol gewijzigd. Voor alle Usermin-, SSH-, FTP- of e-mailaanmeldingen vanaf nu is het nieuwe wachtwoord vereist.
 change_eformat=Het geconfigureerde wachtwoordhash-formaat wordt niet ondersteund
+
 recovery_title=Hersteladres
 recovery_err=Kan hersteladres niet instellen
 recovery_eemail=Er is geen geldig ogend e-mailadres ingevoerd
 recovery_cleared=Het hersteladres is gewist.
 recovery_set=Het hersteladres voor gebruik bij het aanvragen van een wachtwoordreset is ingesteld op $1.
+
 left_changepass=Wijzig wachtwoord

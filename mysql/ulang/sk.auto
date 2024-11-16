@@ -4,4 +4,5 @@ index_eadmin=Program MySQL $1 nebol vo vašom systéme nájdený. Možno nie je 
 index_esql=Klientsky program MySQL $1 nebol vo vašom systéme nájdený. Možno nie je MySQL nainštalovaný alebo je konfigurácia modulu nesprávna.
 index_ever=Klientsky program MySQL $1 sa nejaví ako správna verzia. Webmin podporuje iba MySQL verzie 3 a vyššie.
 index_elibrary=Klientsky program MySQL $1 sa nedal spustiť, pretože nenašiel zdieľané knižnice MySQL. Skontrolujte konfiguráciu modulu a skontrolujte, či je nastavená možnosť <i>Cesta k zdieľaným knižniciam MySQL</i>.
+
 login_epass=Nesprávne používateľské meno alebo heslo MySQL

@@ -7,13 +7,13 @@ index_new1=Neues Passwort
 index_new2=Neues Passwort bestätigen
 index_change=Jetzt ändern
 index_return=Passwort ändern
+
 index_passtab=Passwort Zurücksetzen
 index_recoverytab=Adresse zum Zurücksetzen 
 index_desc3=Mit diesem Formular kannst Du eine alternative e-Mail Adresse angeben, an die ein temporäres Passwort gesendet wird, falls Du Dein Passwort vergessen hast..
 index_recovery=Alternative e-Mail Adresse zum Zurücksetzen des Passworts
 index_recoverydef=Keine
 index_recoverysel=Sende e-Mail an
-index_return=Passwort ändern
 change_err=Konnte Passwort nicht ändern
 change_title=Geändertes Passwort
 change_oka=Das Passwort für $1 wurde erfolgreich geändert. Alle Usermin, SSH, FTP oder Mail Anmeldungen benötigen ab sofort das neue Passwort.
@@ -37,9 +37,11 @@ change_epasswd_same=Das Passwort ist gleich oder beinhaltet den Benutzernamen un
 change_epasswd_new=Das neue Passwort ist gleich dem alten Passwort und wird abgewiesen
 change_emysql=Das aktuelle Passwort im MySQL-Modul ist falsch.
 change_eformat=Das konfigurierte Kennwort-Hashing-Format wird nicht unterstützt
+
 recovery_title=Adresse zum Zurücksetzen
 recovery_err=Einrichten der Adresse zum Zurücksetzen ist fehlgeschlagen
 recovery_eemail=Keine valide e-Mail Adresse eingegeben
 recovery_cleared=Die Adresse zum Zurücksetzen wurde gelöscht
 recovery_set=Die Adresse zum Zurücksetzen wurde auf $1 geändert
+
 left_changepass=Passwort ändern

@@ -8,6 +8,7 @@ index_find=Sib fajls ta 'għażliet fi:
 index_finddesc=Tfittxija fid-direttorju mdaħħal għal kull fajl $1 li nħoloq manwalment. Sakemm jinstabu fajls maħluqa bl-idejn, ma jistgħux jiġu editjati bl-użu ta 'dan il-modulu.
 index_return=lista ta 'fajls ta' għażliet
 index_apache=Il-verżjoni u l-informazzjoni tal-modulu Apache ma nstabetx fid-direttorju tal-konfigurazzjoni ta 'Webmin $1. Dan il-modulu jirrikjedi li Webmin jiġi installat u l-modulu Apache tiegħu konfigurat kif suppost.
+
 find_title=Sib Għażliet ta 'Fajls
 find_list=Il-fajls ta 'għażliet li ġejjin instabu taħt $1 ..
 find_none=L-ebda fajl ta 'għażliet ta' $1 ma nstab taħt $2.

@@ -1,15 +1,18 @@
 index_title=Correu de: $1
+
 mail_title=Lectura de Correu
 mail_none=No hi ha cap missatge a la carpeta $1
 mail_pos=Missatges $1 a $2 de $3 a la carpeta $4
 mail_return=a la bústia
 mail_quota=Utilitzant $1 de $2
 mail_special=Especial
+
 send_efile=El fitxer adjuntat $1 no és llegible o bé no existeix
 send_nobody=nobody
 send_etomsg=No has introduït cap adreça To, Cc ni Bcc
 send_esubjectmsg=No has introduït cap Assumpte - espero que sigui correcte
 send_eclosemsg=Segur que vols tancar aquesta pàgina i perdre el missatge en progrés?
+
 address_chooser=Selecciona una Adreça...
 address_addr=Adreça E-mail
 address_name=Nom real
@@ -60,6 +63,7 @@ address_exportdup0=Inclou-les totes
 address_exportdup1=Inclou només la primera
 address_exportfmt=Exporta en format
 address_exportok=Exporta-ho ara
+
 import_err=No s'han pogut importar les adreces
 import_title=Importació de Llibreta d'Adreces
 import_doing=Resultats de la importació de la llibreta d'adreces...
@@ -74,10 +78,13 @@ import_noemail=<font color=red>HI falta una adreça e-mail o bé és invàlida</
 import_same=Sense canvis, s'ha omès
 import_skip=Adreça duplicada, s'ha omès
 import_enetvcard=Cal el mòdul Perl <tt>Net::vCard</tt> per a llegir fitxers en format vCard
+
 export_err=No s'han pogut exportar les adreces
+
 group_err=No s'ha pogut desar el grup d'adreces
 group_egroup=Hi falta el nom del grup o bé és invàlid
 group_emembers=No has introduït cap adreça de membres del grup
+
 folders_title=Gestió de Carpetes
 folders_instr=Ajuda i tipus de carpetes
 folders_desc2=Cadascuna de les carpetes de sota pot contenir correu que tu hi has desplaçat, o bé correu que s'hi ha desat automàticament. Els tipus de carpetes disponibles són els següents:
@@ -123,6 +130,7 @@ folders_delete=Suprimeix les Carpetes Seleccionades
 folders_addimap=Afegeix una nova carpeta.
 folders_addcomp=Afegeix una nova carpeta composta.
 folders_addvirt=Afegeix una nova carpeta virtual.
+
 edit_title1=Creació de Carpeta
 edit_title2=Edició de Carpeta
 edit_header=Detalls de la carpeta de correu
@@ -160,6 +168,7 @@ edit_comps=Subcarpetes, les més velles primer
 edit_comp=Composta
 edit_virt=Virtual
 edit_delete=Suprimeix el missatge real quan el suprimeixis de la carpeta
+
 save_err=No s'ha pogut desar la carpeta
 save_ecannot=No tens permís per utilitzar aquest tipus de carpeta
 save_ename=Hi falta el nom de la carpeta o bé és invàlid
@@ -190,7 +199,9 @@ save_edelete=No s'ha pogut suprimir el coreu: $1
 save_eflag=No s'ha pogut establir les banderes IMAP: $1
 save_eappend=No s'ha pogut afegir el correu a la bústia IMAP: $1
 save_esearch=No s'ha pogut buscar a la bústia IMAP mailbox: $1
+
 epop3lock_tries=No s'ha pogut bloquejar el fitxer de correu $1 després de provar-ho durant $2 minuts, degut a un fitxer de bloqueig POP3.
+
 view_dsn=Notificació de l'Estat del Lliurament
 view_dnsnow=S'ha enviat un missatge de notificació d'estat del lliurament a $1.
 view_dsnbefore=S'ha enviat un missatge de notificació d'estat del lliurament a $1 de $2.
@@ -203,21 +214,27 @@ view_quick=Resposta ràpida
 view_quick_all=Respon a tots
 view_quick_quote=Cita l'original
 view_quick_send=Envia
+
 search_virtualize=Crea una carpeta virtual anomenada:
 search_dest=Emmagatzema els resultats a
 search_dest1=Busca la carpeta de Resultats
 search_dest0=Nova carpeta virtual anomenada
 search_edest=Hi falta el nom de la carpeta virtuals dels resultats
 search_eself=No es pot cercar a la carpeta de resultats de la recerca
+
 virtualize_ename=Hi falta el nom de la carpeta virtual
+
 delete_enoadd=Els missatges no es poden desplaçar a les carpetes virtuals, només copiar-los
+
 sig_title=Edició de Signatura
 sig_desc=Utilitza aquest formulari per editar la teva signatura de correu al fitxer $1.
 sig_undo=Desfés
 sig_enone=No has definit cap fitxer de signatura
 sig_eopen=No s'ha pogut obrir el fitxer de signatura: $1
+
 quota_inbox=S'ha excedit la quota de coreu de $1
 quota_inbox2=S'ha excedit la quota de $1 missatges de correu
+
 auto_title=Neteja Automàtica de Carpetes
 auto_header=Opcions de neteja planificada de carpetes
 auto_enabled=Suprimeix automàticament els missatges
@@ -235,6 +252,7 @@ auto_action1=Suprimeix tots els missatges de la carpeta
 auto_action2=Desplaça a la carpeta $1
 auto_edest=La carpeta destí seleccionada no existeix!
 auto_ewrite=No es pot escriure a la carpeta destí seleccionada
+
 copy_title=Còpia de Tot el Correu
 copy_header=Copia tots els missatges de la carpeta
 copy_source=Carpeta origen
@@ -244,18 +262,22 @@ copy_ok=Copia-ho Ara
 copy_doing=S'estan copiant tots els missatges de $1 a $2...
 copy_done=...fet
 copy_deleting=S'està buidant la carpeta...
+
 fdelete_title=Supressió de Carpetes
 fdelete_err=No s'han pogut suprimir les carpetes
 fdelete_enone=No n'has seleccionat cap
 fdelete_rusure=Segur que vols suprimir les $1 carpetes seleccionades? Se suprimirà per sempre $2 de correu.
 fdelete_rusure2=Segur que vols suprimir les $1 carpetes seleccionades?
 fdelete_delete=Suprimeix-les Ara
+
 detachall_err=No s'han pogut desar totes les adjuncions
 detachall_emkdir=No s'ha pogut crear el directori temporal: $1
 detachall_ezip=ZIP ha fallat: $1
+
 allow_err=No s'han pogut desar les adreces permeses
 deny_err=No s'han pogut desar les adreces denegades
 allow_eaddr='$1' no és una adreça vàlida de correu electrònic
+
 right_header=Informació del Sistema
 right_host=Nom de host del sistema
 right_os=Sistema operatiu

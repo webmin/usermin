@@ -25,6 +25,7 @@ index_fromdef=Jūsu noklusējuma adrese
 index_charset=Ziņojuma rakstzīmju kopa
 index_charsetdef=No pašreizējās valodas
 index_charsetother=Citu rakstzīmju kopa
+
 aliases_to=Pārsūtīt ..
 aliases_from=Pasts uz ..
 aliases_type1=Adrese 1
@@ -36,6 +37,7 @@ aliases_type6=Lietot filtra failu $1
 aliases_type7=Parasta lietotāja pastkaste
 aliases_type8=Atvaļinājums automātiski
 aliases_enabled=Iespējots?
+
 aform_type0=Nav
 aform_type1=Epasta adrese
 aform_type2=Adreses failā
@@ -53,10 +55,12 @@ aform_afile=Rediģēt ..
 aform_return=pseidonīms
 aform_name=Pasts uz ..
 aform_vacation=Rediģēt atvaļinājumu iespējas ..
+
 afile_title=Rediģēt adreses failu
 afile_desc=Izmantojiet zemāk esošo teksta laukumu, lai rediģētu adreses failā $1.
 afile_undo=Atsaukt izmaiņas
 afile_ewrite=Neizdevās uzrakstīt uz adrešu failu : $1 
+
 asave_err=Neizdevās saglabāt pārsūtīšanu
 asave_eaddr=“$1” nav derīga adrese
 asave_etype1='$1' nav derīga e-pasta adrese
@@ -72,6 +76,7 @@ asave_ename=Trūkst vai nav derīga vārda pasts
 asave_esame=Šīs adreses aizstājvārds jau pastāv
 asave_enone=Neviens netika atlasīts, lai pārsūtītu
 asave_ecannot=Atlasīts nederīgs pārsūtīšanas veids
+
 ffile_title=Rediģēt filtra failu
 ffile_desc=Izmantojiet zemāk esošo formu, lai iestatītu filtra kārtulas failā $1.
 ffile_efile=Jums nav atļauts rediģēt $1.
@@ -88,6 +93,7 @@ ffile_err=Neizdevās saglabāt filtra failu
 ffile_ematch=Trūkst spēles
 ffile_eaction=Trūkst pārsūtīšanas adreses
 ffile_ewrite=Neizdevās uzrakstīt filtrēšanas failu : $1 
+
 rfile_title=Rediģēt automātiskās atbildes failu
 rfile_desc=Izmantojiet zemāk esošo teksta laukumu, lai rediģētu automātiskās atbildes ziņojumu $1. Ziņojumā var būt makro $SUBJECT, $FROM, $TO, $DATE un $BODY, kas tiks izvērsti, kad tiks aktivizēta automātiskā atbilde.
 rfile_desc2=Varat arī iestatīt pasta galvenes, kas papildina vai aizvieto automātiskajā atbildē izmantotos noklusējumus, ievietojot šādas rindiņas: <br><tt> No: foo@bar.com </tt><br> <tt>Temats: Brīvdienās</tt> <br> ziņojuma augšdaļā, atdalīta no pamatteksta ar vienu tukšu līniju.
@@ -105,13 +111,16 @@ rfile_auto=Automātiska (pamatojoties uz adresāta adresi)
 rfile_efrom=Trūkst No: adrese
 rfile_fromdesc=A No: adrese vienmēr jānorāda, kur iespējams, jo automātiskā metode var nebūt uzticama.
 rfile_err=Neizdevās saglabāt automātiskās atbildes failu
+
 vfile_title=Rediģēt atvaļinājuma atbildes failu
 vfile_desc=Izmantojiet zemāk esošo teksta laukumu, lai rediģētu automātiskās atbildes ziņojumu $1.
 vfile_subject=Ziņojuma tēma
 vfile_err=Neizdevās saglabāt atvaļinājuma atbildes failu
 vfile_esubject=Trūkst ziņojuma tēmas
+
 edit_title=Rediģēt pārsūtīt failu
 edit_desc=Šī lapa ļauj manuāli rediģēt faila $1 saturu. Esiet piesardzīgs, jo, ievadot datus, netiek veikta kļūdu pārbaude.
+
 vacation_title=Atvaļinājumu iespējas
 vacation_header=Atvaļinājumu automātiskās atbildes iespējas
 vacation_user=Tavs lietotājvārds
@@ -126,6 +135,7 @@ vacation_einterval=Trūkst vai nav derīgs atbildes intervāls
 vacation_euser=Trūkst vai nav derīgs lietotājvārds
 vacation_emsg=Trūkst vai nav derīgs ziņojuma fails
 vacation_return=brīvdienu iespējas
+
 simple_err=Neizdevās saglabāt pasta pāradresācijas iespējas
 simple_eforward=Nav ievadīta pārsūtīšanas adrese
 simple_eforward2=Jāievada viena pārsūtīšanas adrese, piemēram, <tt>foo@bar.com</tt>

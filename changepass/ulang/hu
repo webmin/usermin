@@ -6,7 +6,7 @@ index_new1=Új jelszó
 index_new2=Új jelszó mégegyszer
 index_change=Módosít
 index_return=Jelszavak megváltoztatása
-index_return=Jelszavak megváltoztatása
+
 change_err=Failed to change jelszó
 change_title=Jelszó módosítása
 change_enew1=Hiányzik az új jelszó

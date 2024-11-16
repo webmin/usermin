@@ -7,13 +7,13 @@ index_new1=Parolă Nouă
 index_new2=Parola noua din nou
 index_change=Schimbă acum
 index_return=forma de schimbare a parolei
+
 index_passtab=Schimbare parolă
 index_recoverytab=Adresa de recuperare a parolei
 index_desc3=Utilizați acest formular pentru a introduce o adresă alternativă la care o parolă temporară poate fi trimisă dacă uitați parola curentă.
 index_recovery=Adresa alternativă pentru recuperarea parolei
 index_recoverydef=Nu este setat
 index_recoverysel=Trimiteți un e-mail la
-index_return=forma de schimbare a parolei
 change_err=Nu a reușit să schimbe parola
 change_title=Parolă modificată
 change_oka=Parola dvs. pentru $1 a fost schimbată cu succes. Orice logare Usermin, SSH, FTP sau e-mail de acum va necesita noua parolă.
@@ -37,9 +37,11 @@ change_epasswd_same=Parola conține sau este identică cu numele de utilizator
 change_epasswd_new=Parola este aceeași cu parola veche
 change_emysql=Autentificarea curentă în modulul MySQL este incorectă.
 change_eformat=Formatul de modificare a parolei configurat nu este acceptat
+
 recovery_title=Adresa de recuperare
 recovery_err=Setarea adresei de recuperare nu a reușit
 recovery_eemail=O adresă de e-mail cu aspect valid nu a fost introdusă
 recovery_cleared=Adresa de recuperare a fost ștersă.
 recovery_set=Adresa de recuperare pentru utilizare la solicitarea unei resetări a parolei a fost setată la $1.
+
 left_changepass=Schimbați parola

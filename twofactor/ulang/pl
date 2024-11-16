@@ -1,0 +1,38 @@
+index_title=Uwierzytelnianie Dwuskładnikowe
+
+twofactor_disable=Wyłącz uwierzytelnianie dwuskładnikowe
+twofactor_already=Twoje logowanie do Usermin ma już włączone uwierzytelnianie dwuskładnikowe z dostawcą $1 i identyfikatorem konta $2.
+twofactor_already2=Logowanie Usermin $3 ma już włączone uwierzytelnianie dwuskładnikowe z dostawcą $1 i identyfikatorem konta $2.
+twofactor_desc=Ta strona pozwala na włączenie uwierzytelniania dwuskładnikowego dla logowania do Usermin za pomocą <a href='$2' target=_blank>$1</a>. Po włączeniu, przy logowaniu do Usermin będzie wymagany dodatkowy token uwierzytelniający.
+twofactor_desc2=Ta strona pozwala na włączenie uwierzytelniania dwuskładnikowego dla logowania do Usermin $3 za pomocą <a href='$2' target=_blank>$1</a>. Po włączeniu, przy logowaniu do Usermin będzie wymagany dodatkowy token uwierzytelniający.
+twofactor_enable=Zarejestruj się do uwierzytelniania dwuskładnikowego
+twofactor_header=Szczegóły rejestracji uwierzytelniania dwuskładnikowego
+twofactor_enrolling=Rejestrowanie do uwierzytelniania dwuskładnikowego u dostawcy $1 ..
+twofactor_failed=.. rejestracja nie powiodła się: $1
+twofactor_done=.. zakończone. Twój identyfikator u tego dostawcy to <tt>$1</tt>.
+twofactor_setup=Uwierzytelnianie dwuskładnikowe nie zostało jeszcze włączone w tym systemie. Musi to zrobić administrator systemu.
+twofactor_ebutton=Nie kliknięto żadnego przycisku!
+
+twofactor_email=Twój adres e-mail
+twofactor_country=Kod kraju telefonu komórkowego
+twofactor_phone=Numer telefonu komórkowego
+twofactor_eemail=Brak lub niepoprawny adres e-mail - musi mieć format user@domain.com
+twofactor_ecountry=Brak lub niepoprawny kod kraju - musi być liczbą, np. 65
+twofactor_ephone=Brak lub niepoprawny numer telefonu - dozwolone są tylko cyfry, kreski i spacje
+twofactor_eauthyenroll=Rejestracja nie powiodła się: $1
+twofactor_secret=Osobisty klucz tajny
+twofactor_secret1=Wygenerowany losowo
+twofactor_secret0=Użyj klucza o długości 16 znaków
+twofactor_esecret=Klucz tajny musi mieć dokładnie 16 znaków i zawierać tylko litery i cyfry
+twofactor_qrcode=Wprowadź kod tajny $1 w aplikacji Google Authenticator lub zeskanuj poniższy kod QR.
+
+twofactor_eauthyid=ID użytkownika Authy musi być liczbą
+twofactor_eauthytoken=Token Authy musi być liczbą
+twofactor_eauthyotp=Token Authy jest nieprawidłowy
+twofactor_etotpid=Nieprawidłowy tajny klucz TOTP zakodowany w base32
+twofactor_etotptoken=Token Google Authenticator musi być liczbą
+twofactor_etotpmodule2=Brak modułu Perl $1
+twofactor_etotpmatch=Niepoprawny kod OTP
+
+enable_title=Włączono uwierzytelnianie dwuskładnikowe
+enable_err=Rejestracja nie powiodła się

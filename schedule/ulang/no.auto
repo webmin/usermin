@@ -3,5 +3,6 @@ edit_delete=Slett etter første sending
 edit_size=Størrelse
 edit_upload1=Last opp filer
 edit_upload2=Legg ved en fil
+
 save_notice_title=Planen er lagret
 save_notice=Planlagt e-postadresse er opprettet vellykket - se, rediger eller slett den etter <a href="$1">denne</a> lenken.

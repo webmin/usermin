@@ -13,6 +13,7 @@ index_cleardesc=Click nesse botão para deletar todos os e-emails agendados para
 index_delete=Apagar e-mails selecionados
 index_disable=Desabilitar seleção
 index_enable=Habilitar Seleção
+
 edit_title1=Criar Agendamento de E-mail
 edit_title2=Editar Agendamento de E-mail
 edit_header=Detalhes da mensagem do e-mail agendado
@@ -33,10 +34,12 @@ edit_files=Arquivos anexados
 edit_file=Nome do arquivo
 edit_type=Fonte
 edit_uploaded=Carregado
+
 save_err=Falha para salvar um agendamento de e-mail
 save_esubject=Faltando o assunto
 save_eto=Faltando o endereço para envio
 save_emailfile=Mensagem de texto do arquivo está faltando ou é inválida
 save_efrom=Falha para enviar para o endereço
 save_eat=A hora para executar está faltando ou é inválida
+
 view_efile=Arquivo não existe mais

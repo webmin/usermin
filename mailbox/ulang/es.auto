@@ -1,9 +1,13 @@
 index_return=lista de correo
+index_searching=Se está realizando una búsqueda de $1. Los resultados se mostrarán aquí cuando se complete.
+index_searching2=Se está realizando una búsqueda compleja. Los resultados se mostrarán aquí cuando se complete.
+
 send_efile=El archivo adjunto $1 no es legible o no existe
 send_nobody=nadie
 send_etomsg=No se ingresó la dirección A, CC o CCO
 send_esubjectmsg=No se ingresó ningún tema, espero que esté bien
 send_eclosemsg=¿Estás seguro de que deseas cerrar esta página y perder el mensaje en progreso?
+
 address_import=Importar direcciones
 address_importdesc=Este formulario le permite agregar direcciones a Usermin desde un archivo, generalmente exportado desde otro cliente de correo o administrador de contactos.
 address_importsrc=Importar direcciones de
@@ -26,6 +30,7 @@ address_exportdup0=Incluye ambos
 address_exportdup1=Solo incluye el primero
 address_exportfmt=Exportar en formato
 address_exportok=Exportar ahora
+
 import_err=Error al importar direcciones
 import_title=Importar libreta de direcciones
 import_doing=Resultados de la importación de la libreta de direcciones.
@@ -40,7 +45,9 @@ import_noemail=<font color=red>Dirección de correo electrónico faltante o no v
 import_same=Sin cambios, saltado
 import_skip=Dirección duplicada, omitida
 import_enetvcard=El módulo Perl <tt>Net::vCard</tt> es necesario para leer archivos en formato vCard
+
 export_err=Error al exportar direcciones
+
 folders_instr=Ayuda y tipos de carpeta
 folders_desc2=Cada una de las carpetas que se enumeran a continuación puede contener el correo que usted transfiere o el que se coloca automáticamente. Los siguientes tipos de carpetas están disponibles :
 folders_descsys=Carpetas del sistema como Bandeja de entrada, Borradores y Correo enviado que siempre existen.
@@ -60,11 +67,13 @@ folders_iadd=Agregue un buzón IMAP como una carpeta.
 folders_num=Contiene $2 mensajes en $1 carpetas
 folders_type_ext=Archivo de correo externo
 folders_type_comp=Compuesto de carpetas
+
 edit_mode3=Archivo basura
 edit_type0=Archivo único (mbox)
 edit_type1=Directorio de correo de Qmail (Maildir)
 edit_type3=Directorio MH (MH)
 edit_type7=Archivo único (MBX)
+
 save_ename4=Los nombres de las carpetas solo pueden contener letras, números, espacios y los caracteres punto, guión y guión bajo
 save_ecompsame=Una carpeta compuesta no puede contener la misma subcarpeta dos veces
 save_esys=El nombre de la carpeta choca con una de las carpetas del sistema
@@ -76,21 +85,30 @@ save_rusure2=¿Está seguro de que desea eliminar la carpeta $1 ? $2 del correo 
 save_eperpage=Número de mensajes faltantes o no válidos por página
 save_eflag=Error al establecer indicadores IMAP : $1 
 save_esearch=Error al buscar buzón IMAP : $1 
+
 epop3lock_tries=Error al bloquear el archivo de correo $1 después de intentarlo durante $2 minutos, debido a un archivo de bloqueo POP3.
+
 view_dnsnow=Se acaba de enviar un mensaje de notificación del estado de entrega a $1.
 view_delfailed=Este mensaje no se pudo entregar a $1 en $2.
+
 search_virtualize=Crear carpeta virtual con nombre:
 search_dest=Almacenar resultados en
 search_dest1=Carpeta de resultados de búsqueda
 search_dest0=Nueva carpeta virtual llamada
 search_edest=Falta el nombre de la carpeta virtual para obtener resultados
 search_eself=La carpeta de resultados de búsqueda no se puede buscar
+search_doing=Buscando $1 en la carpeta $2.
+search_doing2=Buscando mensajes en la carpeta seleccionada.
+search_results=Los mensajes coincidentes se mostrarán en la carpeta <a href='$1'>resultados de búsqueda</a> cuando se complete la búsqueda...
+
 sig_desc=Use este formulario para editar su firma de correo electrónico en el archivo $1.
 sig_enone=No hay archivo de firma definido
 sig_eopen=Error al abrir el archivo de firma : $1 
+
 auto_action2=Mover a la carpeta $1 
 auto_edest=¡La carpeta de destino seleccionada no existe!
 auto_ewrite=La carpeta de destino seleccionada no se puede escribir en
+
 right_header=Información del sistema
 right_host=Nombre de host del sistema
 right_os=Sistema operativo

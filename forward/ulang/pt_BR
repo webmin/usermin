@@ -20,6 +20,7 @@ index_noperiod=Nenhum minimo
 index_mins=minutos
 index_from=Origem: endreco para resposta
 index_fromauto=Determina automaticamente
+
 aliases_to=Encaminhar para..
 aliases_from=E-mail de..
 aliases_type1=Endereco $1
@@ -31,6 +32,7 @@ aliases_type6=Aplica filtro no  arquivo $1
 aliases_type7=Caixa postal do usuario normal
 aliases_type8=Resposta automatica de ferias
 aliases_enabled=Habilitar ?
+
 aform_type0=Nada
 aform_type1=Endereco de e-mail
 aform_type2=Enderecos no arquivo
@@ -47,6 +49,7 @@ aform_val=Encaminhar para
 aform_return=Apelido
 aform_name=E-mail para..
 aform_vacation=Editar opcoes de ferias..
+
 asave_err=Falha para salvar o encaminhamento
 asave_eaddr='$1' nao e um endereco valido
 asave_etype1='$1' nao e um endereco de e-mail valido
@@ -62,8 +65,10 @@ asave_ename=Faltando ou invalido o e-mail para o nome
 asave_esame=Um apelido para esse endereco ja existe
 asave_enone=Nada foi selecionado para encaminhar para
 asave_ecannot=Tipo de encaminhamento selecionado e invalido
+
 edit_title=Editar Arquivo de Encaminhamento
 edit_desc=Essa pagina permite voce editar manualmente o conteudo do seu arquivo $1 . Seja cuidadoso, nenhum checagem de erro sera aplicada nas informacoes que voce colocar.
+
 vacation_title=Opcoes de Ferias
 vacation_header=Opcoes de resposta automatica de ferias
 vacation_user=Seu usuario
@@ -78,6 +83,7 @@ vacation_einterval=Faltando ou invalido o intervalo de resposta
 vacation_euser=Faltando ou invalido o usuario
 vacation_emsg=Faltando ou invalido o arquivo da mensagem
 vacation_return=opcoes de ferias
+
 simple_err=Falha para salvar opcoes de encaminhamento de e-mail
 simple_eforward=Nenhum endereco para encaminhamento foi informado
 simple_eforward2=Um enderco unico para encaminhamento deve ser informado, como <tt>foo@bar.com</tt>

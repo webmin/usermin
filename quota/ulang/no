@@ -2,5 +2,6 @@ index_title=Disk kvoter
 index_quotas=Disk-kvoter for $1 på monterte filsystemer
 index_none=Du har ingen bruker disk-kvoter på noen monterte filsystem.
 index_gquotas=Disk-kvoter for gruppen $1 på monterte filsystemer
+
 right_header=Diskkvoter
 right_out=$1 av $2

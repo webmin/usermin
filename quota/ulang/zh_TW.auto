@@ -2,5 +2,6 @@ index_title=磁盤配額
 index_quotas=已掛載文件系統上 $1的磁盤配額
 index_none=您在任何已掛載的文件系統上都沒有用戶磁盤配額。
 index_gquotas=安裝的文件系統上組 $1的磁盤配額
+
 right_header=磁盤配額
 right_out=$2的 $1

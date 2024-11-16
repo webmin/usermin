@@ -7,6 +7,7 @@ index_office=辦公室房間號
 index_ophone=工作電話
 index_hphone=家庭電話
 index_shell=登錄外殼
+
 save_err=無法更改詳細信息
 save_ereal=真實姓名不能包含或：個字符
 save_eoffice=辦公室房間號不能包含或：個字符

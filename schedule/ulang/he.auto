@@ -13,6 +13,7 @@ index_cleardesc=לחץ על כפתור זה כדי למחוק את כל הדוא
 index_delete=נמחקו אימיילים שנבחרו
 index_disable=השבת נבחר
 index_enable=אפשר נבחרים
+
 edit_title1=צור דוא"ל מתוזמן
 edit_title2=ערוך דוא"ל מתוזמן
 edit_header=פרטי הודעת דוא"ל מתוזמנת
@@ -38,12 +39,14 @@ edit_type=מקור
 edit_uploaded=הועלה
 edit_upload1=העלה קבצים
 edit_upload2=צרף קובץ
+
 save_err=שמירת דוא"ל מתוזמן נכשלה
 save_esubject=נושא ההודעה חסר
 save_eto=שלח חסר לכתובת
 save_emailfile=קובץ טקסט חסר או לא חוקי
 save_efrom=משלוח חסר מהכתובת
 save_eat=זמן חסר או לא חוקי להפעלה בשעה
+
 view_efile=הקובץ כבר לא קיים
 save_notice_title=לוח הזמנים נשמר
 save_notice=דוא"ל מתוזמן נוצר בהצלחה - צפה, ערוך או מחק אותו בעקבות <a href="$1">קישור</a> זה.

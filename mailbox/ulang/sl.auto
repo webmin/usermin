@@ -1,16 +1,21 @@
 index_title=Pošta v $1 
 index_return=poštni seznam
+index_searching=Iskanje $1 je v teku. Rezultati bodo prikazani tukaj, ko bo končan.
+index_searching2=V teku je kompleksno iskanje. Rezultati bodo prikazani tukaj, ko bo končan.
+
 mail_title=Preberite pošto
 mail_none=V mapi $1 ni sporočil
 mail_pos=Sporočila $1 do $2 od $3 v mapi $4 
 mail_return=nabiralnik
 mail_quota=Uporaba $1 od $2 
 mail_special=Poseben
+
 send_efile=Priložena datoteka $1 ni berljiva ali ne obstaja
 send_nobody=nihče
 send_etomsg=Vnesel je naslov Ne, Cc ali Bcc
 send_esubjectmsg=Predmet ni bil vnesen - upam, da je v redu
 send_eclosemsg=Ali ste prepričani, da želite zapreti to stran in izgubiti sporočilo v teku?
+
 address_chooser=Izberite naslov ..
 address_addr=Email naslov
 address_name=Pravo ime
@@ -61,6 +66,7 @@ address_exportdup0=Vključi oboje
 address_exportdup1=Vključi samo prvo
 address_exportfmt=Izvozi v formatu
 address_exportok=Izvozi zdaj
+
 import_err=Uvoz naslovov ni uspel
 import_title=Uvozi imenik
 import_doing=Rezultati uvoza imenika.
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Manjkajoči ali neveljaven e-poštni naslov</font
 import_same=Nespremenjeno, preskočeno
 import_skip=Podvojen naslov, preskočen
 import_enetvcard=Modul <tt>Net::vCard</tt> Perl je potreben za branje datotek vCard
+
 export_err=Izvoz naslovov ni uspel
+
 group_err=Skupine naslovov ni bilo mogoče shraniti
 group_egroup=Manjkajoče ali neveljavno ime skupine
 group_emembers=Nobenega e-poštnega naslova člana ni vnesel
+
 folders_title=Upravljanje map
 folders_instr=Pomoč in vrste map
 folders_desc2=Vsaka od spodaj naštetih map lahko vsebuje pošto, ki jo premaknete vanj, ali pošto, ki se samodejno vloži vnjo. Na voljo so naslednje vrste map :
@@ -124,6 +133,7 @@ folders_delete=Izbrišite izbrane mape
 folders_addimap=Dodajte novo mapo.
 folders_addcomp=Dodajte novo sestavljeno mapo.
 folders_addvirt=Dodajte novo virtualno mapo.
+
 edit_title1=Ustvari mapo
 edit_title2=Uredi mapo
 edit_header=Podrobnosti mape po pošti
@@ -161,6 +171,7 @@ edit_comps=Podmape, najprej najstarejše
 edit_comp=Kompozitni
 edit_virt=Navidezni
 edit_delete=Ali ob brisanju iz mape izbrišete resnično sporočilo?
+
 save_err=Mape ni bilo mogoče shraniti
 save_ecannot=Te vrste mape ne smete uporabljati
 save_ename=Manjka ime mape
@@ -191,7 +202,9 @@ save_edelete=Brisanje pošte ni uspelo : $1
 save_eflag=Oznak IMAP ni bilo mogoče nastaviti : $1 
 save_eappend=Ni bilo mogoče dodati pošte v nabiralnik IMAP : $1 
 save_esearch=Iskanje poštnega predala IMAP ni uspelo : $1 
+
 epop3lock_tries=Poklepne datoteke $1 po poskusu $2 minut ni bilo mogoče zakleniti zaradi zaklenjene datoteke POP3.
+
 view_dsn=Obvestilo o stanju dostave
 view_dnsnow=Sporočilo o stanju dostave je bilo pravkar poslano na $1.
 view_dsnbefore=Obvestilo o stanju dostave je bilo poslano $1 na $2.
@@ -204,21 +217,30 @@ view_quick=Hiter odgovor
 view_quick_all=Odgovori vsem
 view_quick_quote=Citat original
 view_quick_send=Pošlji
+
 search_virtualize=Ustvari navidezno mapo z imenom:
 search_dest=Shrani rezultate v
 search_dest1=Mapa z rezultati iskanja
 search_dest0=Nova virtualna mapa z imenom
 search_edest=Za rezultate manjka ime virtualne mape
 search_eself=V mapi z rezultati iskanja ni mogoče iskati
+search_doing=Iskanje $1 v mapi $2.
+search_doing2=Iskanje sporočil v izbrani mapi.
+search_results=Ujemajoča se sporočila bodo prikazana v mapi z <a href='$1'>rezultati iskanja</a>, ko bo iskanje končano...
+
 virtualize_ename=Manjka ime navidezne mape
+
 delete_enoadd=Sporočila ni mogoče premakniti v navidezne mape, temveč le kopirati
+
 sig_title=Uredi podpis
 sig_desc=S tem obrazcem uredite svoj e-poštni podpis v datoteki $1.
 sig_undo=Razveljavi
 sig_enone=Podpisovana datoteka ni podpisana
 sig_eopen=Ni uspelo odpreti podpisne datoteke : $1 
+
 quota_inbox=Kvota za pošto $1 je presežena
 quota_inbox2=Presežena je kvota $1 sporočil
+
 auto_title=Samodejno čiščenje map
 auto_header=Načrtovane možnosti čiščenja mape
 auto_enabled=Samodejno izbrišete sporočila?
@@ -236,6 +258,7 @@ auto_action1=Izbrišite vsa sporočila v mapi
 auto_action2=Premakni se v mapo $1 
 auto_edest=Izbrana ciljna mapa ne obstaja!
 auto_ewrite=Izbrane ciljne mape ni mogoče zapisati
+
 copy_title=Kopiraj vso pošto
 copy_header=Kopirajte vsa sporočila v mapo
 copy_source=Izvorna mapa
@@ -245,18 +268,22 @@ copy_ok=Kopiraj zdaj
 copy_doing=Kopiranje vseh sporočil od $1 do $2 ..
 copy_done=.. Končano
 copy_deleting=Izpraznitev mape $1 ..
+
 fdelete_title=Brisanje map
 fdelete_err=Mape ni bilo mogoče izbrisati
 fdelete_enone=Izbrana ni nobena
 fdelete_rusure=Ali ste prepričani, da želite izbrisati $1 izbrane mape? $2 e-poštnih sporočil bo za vedno izbrisano.
 fdelete_rusure2=Ali ste prepričani, da želite izbrisati $1 izbrane mape?
 fdelete_delete=Izbriši zdaj
+
 detachall_err=Vse priloge ni bilo mogoče shraniti
 detachall_emkdir=Začasnega imenika ni bilo mogoče ustvariti : $1 
 detachall_ezip=ZIP ni uspel : $1 
+
 allow_err=Dovoljenih naslovov ni bilo mogoče shraniti
 deny_err=Zavrnjenih naslovov ni bilo mogoče shraniti
 allow_eaddr='$1' ni veljaven e-poštni naslov
+
 right_header=Sistemska informacija
 right_host=Ime gostitelja sistema
 right_os=Operacijski sistem

@@ -2,8 +2,10 @@ mail_title=Maili oku
 mail_none= $1 dosyasında hiçbir mesaj bulunmamakta
 mail_pos= $3 deki $1 $2 arası mesajlar  $4 klasöründe 
 mail_return=mailkutusu
+
 send_efile=Eklenen $1 dosyası okunamıyor veya mevcut değil 
 send_nobody=Hiçkimse 
+
 address_chooser=Adresleri seç..
 address_addr=Email Adresi
 address_name=Gerçek adı
@@ -23,9 +25,11 @@ address_gnone=Grup listeniz boş.
 address_group=Gurup
 address_members=Email Adresleri
 address_m=$1 Üyeleri 
+
 group_err=Grup adresleri kaydedilemedi
 group_egroup=Eksik veya hatalı gurup ismi
 group_emembers=Guruba hiçbir mail adresi eklenmemiştir.
+
 folders_title=Klasörleri yönet 
 folders_name=Dosya ismi
 folders_path=Konum
@@ -41,6 +45,7 @@ folders_serv=$2 serverendaki $1
 folders_servp= $2 port $3 deki $1 serverı  
 folders_padd=Klasör olarak POP3 hesabı ekle  
 folders_iadd=Klasör olarak IMAP mailkutusu ekle 
+
 edit_title1=Dosya yarat
 edit_title2=Dosya ekle
 edit_header=Mail dosyası detayları
@@ -70,6 +75,7 @@ edit_mailbox=IMAP mailkutusu
 edit_imapinbox=Kullanıcı gelen kutusu 
 edit_imapother=Diğer  mailkutusu
 edit_fromaddr=From: Klasörden mailler için gönderim adresleri 
+
 save_err=Dosya kaydedilemedi
 save_ecannot=Bu tip bir klasör kullanmaya yetkili değilsiniz
 save_ename=Eksik veya hatalı dosya adı
@@ -94,4 +100,5 @@ save_emailbox2=Eksik veya hatalı IMAP mailkutusu
 save_edelete=Mail silme başarısız: $1
 save_eappend= IMAP mailkutusuna mail ekleme başarısız : $1
 save_esearch= IMAP mailkutusundaki arama başarısız : $1
+
 epop3lock_tries=$1 $2 dakika denendi fakat engelleme POP3 için başarısız.

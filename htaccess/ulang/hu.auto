@@ -8,6 +8,7 @@ index_find=Opciófájlok keresése itt:
 index_finddesc=A megadott könyvtárat megkeresi a manuálisan létrehozott $1 fájlokhoz. Amíg nem találják meg a manuálisan létrehozott fájlokat, nem szerkeszthetők ezen a modulon.
 index_return=opciók listája
 index_apache=Az Apache verzió- és modulinformációja nem található a $1 Webmin konfigurációs könyvtárban. Ehhez a modulhoz szükség van a Webmin telepítésére és az Apache modul megfelelő konfigurálására.
+
 find_title=Keresse meg az Opciók fájlokat
 find_list=A következő opciós fájlok találhatóak a $1 alatt.
 find_none=Nem található $1 opciós fájl a $2 alatt.

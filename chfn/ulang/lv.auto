@@ -7,6 +7,7 @@ index_office=Biroja telpas numurs
 index_ophone=Darba telefons
 index_hphone=Mājas tālrunis
 index_shell=Pieteikšanās apvalks
+
 save_err=Neizdevās mainīt informāciju
 save_ereal=Īstajā vārdā nedrīkst būt rakstzīmes
 save_eoffice=Biroja telpas numurs nedrīkst saturēt vai: rakstzīmes

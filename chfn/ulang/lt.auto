@@ -7,6 +7,7 @@ index_office=Biuro kambario numeris
 index_ophone=Darbo telefonas
 index_hphone=Namų telefono
 index_shell=Prisijungimo apvalkalas
+
 save_err=Nepavyko pakeisti informacijos
 save_ereal=Tikrajame varde negali būti arba: simbolių
 save_eoffice=Biuro kambario numeryje negali būti arba: simbolių

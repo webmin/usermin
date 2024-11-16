@@ -25,6 +25,7 @@ index_fromdef=기본 주소
 index_charset=메시지 문자 세트
 index_charsetdef=현재 언어에서
 index_charsetother=다른 문자 세트
+
 aliases_to=를 향해서 ..
 aliases_from=우편 ..
 aliases_type1=주소 1
@@ -36,6 +37,7 @@ aliases_type6=필터 파일 $1 적용
 aliases_type7=일반 사용자 사서함
 aliases_type8=휴가 자동 회신
 aliases_enabled=활성화 되었습니까?
+
 aform_type0=없음
 aform_type1=이메일 주소
 aform_type2=파일의 주소
@@ -53,10 +55,12 @@ aform_afile=편집하다 ..
 aform_return=별명
 aform_name=우편 ..
 aform_vacation=휴가 옵션 편집 ..
+
 afile_title=주소 파일 편집
 afile_desc=아래 텍스트 영역을 사용하여 $1 파일의 주소를 편집하십시오.
 afile_undo=변경 사항 취소
 afile_ewrite=주소 파일에 쓰지 못했습니다  : $1 
+
 asave_err=전달을 저장하지 못했습니다
 asave_eaddr='$1'은 (는) 유효한 주소가 아닙니다
 asave_etype1='$1'은 (는) 유효한 이메일 주소가 아닙니다
@@ -72,6 +76,7 @@ asave_ename=이름이 없거나 잘못 된 메일
 asave_esame=해당 주소의 별칭이 이미 존재합니다
 asave_enone=전달할 항목이 없습니다
 asave_ecannot=잘못된 전달 유형을 선택했습니다
+
 ffile_title=필터 파일 편집
 ffile_desc=$1 파일에서 필터 규칙을 설정하려면 아래 양식을 사용하십시오.
 ffile_efile=$1 을 (를) 편집 할 수 없습니다.
@@ -88,6 +93,7 @@ ffile_err=필터 파일을 저장하지 못했습니다
 ffile_ematch=일치하지 않는 항목
 ffile_eaction=전달 주소가 없습니다.
 ffile_ewrite=필터 파일에 쓰지 못했습니다  : $1 
+
 rfile_title=자동 회신 파일 편집
 rfile_desc=아래 텍스트 영역을 사용하여 자동 회신 메시지를 $1 에서 편집하십시오. 메시지에는 $SUBJECT, $FROM, $TO, $DATE 및 $BODY 매크로가 포함될 수 있으며 자동 회신이 활성화 될 때 확장됩니다.
 rfile_desc2=<br><tt> 보낸 사람 : foo@bar.com </tt><tt> 제목 : 휴일에 </tt><br> 메시지 상단에 단일 빈 줄로 본문과 구분됩니다.
@@ -105,13 +111,16 @@ rfile_auto=자동 (수신인 주소 기준)
 rfile_efrom=발신인 : 주소
 rfile_fromdesc=자동 방법이 신뢰할 수 없으므로 From : 주소는 가능한 한 항상 지정해야합니다.
 rfile_err=자동 회신 파일을 저장하지 못했습니다
+
 vfile_title=휴가 회신 파일 편집
 vfile_desc=아래 텍스트 영역을 사용하여 자동 회신 메시지를 $1 에서 편집하십시오.
 vfile_subject=메시지 제목
 vfile_err=휴가 회신 파일을 저장하지 못했습니다
 vfile_esubject=누락 된 메시지 제목
+
 edit_title=전달 파일 편집
 edit_desc=이 페이지에서 $1 파일의 내용을 수동으로 편집 할 수 있습니다. 입력에 오류 점검이 수행되지 않으므로주의하십시오.
+
 vacation_title=휴가 옵션
 vacation_header=휴가 자동 회신 옵션
 vacation_user=사용자 이름
@@ -126,6 +135,7 @@ vacation_einterval=응답 간격이 없거나 잘못되었습니다
 vacation_euser=사용자 이름이 없거나 잘못되었습니다
 vacation_emsg=누락되거나 잘못된 메시지 파일
 vacation_return=휴가 옵션
+
 simple_err=메일 전달 옵션을 저장하지 못했습니다.
 simple_eforward=전달 주소가 입력되지 않았습니다
 simple_eforward2=<tt>foo@bar.com</tt>과 같이 단일 전달 주소를 입력해야합니다

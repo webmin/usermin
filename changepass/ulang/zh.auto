@@ -7,13 +7,13 @@ index_new1=新密码
 index_new2=确认新密码
 index_change=立即更改
 index_return=密码变更表
+
 index_passtab=密码变更
 index_recoverytab=密码恢复地址
 index_desc3=使用此表单输入备用地址，如果您忘记了当前密码，可以将临时密码发送到该备用地址。
 index_recovery=密码恢复的备用地址
 index_recoverydef=没有设置
 index_recoverysel=发送电子邮件至
-index_return=密码变更表
 change_err=密码修改失败
 change_title=修改密码
 change_oka=您的 $1密码已成功更改。从现在开始，任何Usermin，SSH，FTP或电子邮件登录都将需要新密码。
@@ -37,9 +37,11 @@ change_epasswd_same=密码包含或与用户名相同
 change_epasswd_new=密码与旧密码相同
 change_emysql=当前在MySQL模块中的登录错误。
 change_eformat=不支持配置的密码哈希格式
+
 recovery_title=恢复地址
 recovery_err=设置恢复地址失败
 recovery_eemail=未输入有效的电子邮件地址
 recovery_cleared=恢复地址已清除。
 recovery_set=请求重设密码时使用的恢复地址已设置为 $1。
+
 left_changepass=更改密码

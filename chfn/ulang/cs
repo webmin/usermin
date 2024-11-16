@@ -7,6 +7,7 @@ index_office=Číslo kanceláře
 index_ophone=Telefon do práce
 index_hphone=Telefon domů
 index_shell=Přihlašovací shell
+
 save_err=Chyba při změně detailů
 save_ereal=Plné jméno nemůže obsahovat znaky , nebo :
 save_eoffice=Číslo kanceláře nemůže obsahovat znaky , nebo :

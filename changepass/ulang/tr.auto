@@ -5,14 +5,17 @@ index_desc3=Mevcut şifrenizi unutursanız, geçici bir şifrenin gönderilebile
 index_recovery=Şifre kurtarma için alternatif adres
 index_recoverydef=Hiçbiri ayarlanmadı
 index_recoverysel=Email gönder
+
 change_oka=$1 için şifreniz başarıyla değiştirildi. Şu andan itibaren herhangi bir Usermin, SSH, FTP veya e-posta girişi yeni şifre gerektirecektir.
 change_mysql=MySQL veritabanı şifreniz de değiştirildi.
 change_mysql2=Ancak, MySQL veritabanı şifreniz değiştirilmedi : $1 
 change_emysql=MySQL modülünde geçerli oturum açma yanlış.
 change_eformat=Yapılandırılan parola karması biçimi desteklenmiyor
+
 recovery_title=Kurtarma Adresi
 recovery_err=Kurtarma adresi ayarlanamadı
 recovery_eemail=Geçerli görünen bir e-posta adresi girilmedi
 recovery_cleared=Kurtarma adresi silindi.
 recovery_set=Parola sıfırlama istenirken kullanılacak kurtarma adresi $1 olarak ayarlandı.
+
 left_changepass=Şifre değiştir

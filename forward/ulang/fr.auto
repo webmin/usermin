@@ -19,22 +19,28 @@ index_fromdef=Votre adresse par défaut
 index_charset=Jeu de caractères du message
 index_charsetdef=De la langue actuelle
 index_charsetother=Autre jeu de caractères
+
 aliases_type8=Vacances en auto-réponse
+
 aform_type8=Vacances en auto-réponse
 aform_vacation=Modifier les options de vacances ..
+
 asave_etype5=Aucun nom de fichier à réponse automatique donné
 asave_etype6=Aucun nom de fichier de filtre donné
+
 rfile_no_autoreply=N'envoyez pas de réponses automatiques à
 rfile_from=De: adresse de réponse
 rfile_auto=Automatique (basé sur l'adresse du destinataire)
 rfile_efrom=Absent de: adresse
 rfile_fromdesc=A De: l'adresse doit toujours être spécifiée dans la mesure du possible, car la méthode automatique peut ne pas être fiable.
 rfile_err=Impossible d'enregistrer le fichier à réponse automatique
+
 vfile_title=Modifier le fichier de réponses de vacances
 vfile_desc=Utilisez la zone de texte ci-dessous pour modifier le message de réponse automatique dans $1.
 vfile_subject=Objet du message
 vfile_err=Échec de l'enregistrement du fichier de réponses concernant les vacances
 vfile_esubject=Objet du message manquant
+
 vacation_title=Options de vacances
 vacation_header=Options de réponse automatique pour les vacances
 vacation_user=Votre nom d'utilisateur
@@ -49,6 +55,7 @@ vacation_einterval=Intervalle de réponse manquant ou non valide
 vacation_euser=Nom d'utilisateur manquant ou invalide
 vacation_emsg=Fichier de message manquant ou invalide
 vacation_return=options de vacances
+
 simple_err=Échec de l'enregistrement des options de transfert de courrier
 simple_eforward=Aucune adresse de transfert saisie
 simple_eforward2=Une seule adresse de transfert doit être saisie, comme <tt>foo@bar.com</tt>

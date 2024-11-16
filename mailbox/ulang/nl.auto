@@ -1,5 +1,9 @@
 index_return=mail lijst
+index_searching=Er wordt gezocht naar $1. Resultaten worden hier weergegeven zodra deze is voltooid.
+index_searching2=Er is een complexe zoekopdracht gaande. Resultaten worden hier getoond zodra deze is voltooid.
+
 send_eclosemsg=Weet u zeker dat u deze pagina wilt sluiten en het lopende bericht wilt verliezen?
+
 address_import=Adressen importeren
 address_importdesc=Met dit formulier kunt u adressen toevoegen aan Usermin vanuit een bestand, meestal geëxporteerd vanuit een andere e-mailclient of contactbeheer.
 address_importsrc=Adressen importeren uit
@@ -22,6 +26,7 @@ address_exportdup0=Neem beide op
 address_exportdup1=Neem alleen de eerste op
 address_exportfmt=Exporteer in formaat
 address_exportok=Nu exporteren
+
 import_err=Kan adressen niet importeren
 import_title=Adresboek importeren
 import_doing=Resultaten van het importeren van adresboek ..
@@ -36,12 +41,20 @@ import_noemail=<font color=red>Ontbrekend of ongeldig e-mailadres</font>
 import_same=Ongewijzigd, overgeslagen
 import_skip=Dubbel adres, overgeslagen
 import_enetvcard=De <tt>Net::vCard</tt> Perl-module is nodig om bestanden in vCard-indeling te lezen
+
 export_err=Kan adressen niet exporteren
+
 edit_mode3=Prullenbak
 edit_type7=Eén bestand (MBX)
+
+search_doing=Zoeken naar $1 in map $2.
+search_doing2=Berichten zoeken in de geselecteerde map.
+search_results=Overeenkomende berichten worden weergegeven in de map <a href='$1'>zoekresultaten</a> zodra de zoekopdracht is voltooid...
+
 auto_action2=Ga naar map $1 
 auto_edest=De geselecteerde bestemmingsmap bestaat niet!
 auto_ewrite=Er kan niet naar de geselecteerde bestemmingsmap worden geschreven
+
 right_header=Systeem informatie
 right_host=Systeem hostnaam
 right_os=Besturingssysteem

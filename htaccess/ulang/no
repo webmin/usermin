@@ -8,6 +8,7 @@ index_find=Finn innstillings-filer i:
 index_finddesc=Søker i angitt katalog etter $1 filer som er opprettet manuelt. Før manuelt opprettede filer blir funnet, kan de ikke redigeres vha. denne modulen.
 index_return=liste med innstillings-filer
 index_apache=Apache versjons- og modulinformasjon ble ikke funnet i webmin konfigurasjonskatalogen $1. Denne modulen krever at Webmin er installert og at Apache modulen er konfigurert korrekt.
+
 find_title=Finn innstillingsfiler
 find_list=Følgende innstillings-filer ble funnet under $1 ..
 find_none=Ingen $1 innstillings-filer ble funnet under $2.

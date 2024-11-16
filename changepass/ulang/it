@@ -6,7 +6,7 @@ index_new1=Nuova password
 index_new2=Nuova password (verifica)
 index_change=Cambia
 index_return=pagina cambio password
-index_return=pagina cambio password
+
 change_err=Impossibile cambiare la password
 change_title=Password cambiata
 change_enew1=Nuova password non specificata

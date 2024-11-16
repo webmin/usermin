@@ -7,13 +7,13 @@ index_new1=Nova lozinka
 index_new2=Ponovno nova lozinka
 index_change=Promijeni odmah
 index_return=obrazac za promjenu lozinke
+
 index_passtab=Promjena lozinke
 index_recoverytab=Adresa za oporavak zaporke
 index_desc3=Pomoću ovog obrasca unesite alternativnu adresu na koju se može poslati privremena lozinka ako zaboravite trenutnu lozinku.
 index_recovery=Alternativna adresa za oporavak lozinke
 index_recoverydef=Nijedan nije postavljen
 index_recoverysel=Pošaljite e-poštu na
-index_return=obrazac za promjenu lozinke
 change_err=Promjena zaporke nije uspjela
 change_title=Izmijenjena lozinka
 change_oka=Vaša lozinka za $1 uspješno je promijenjena. Bilo koja prijava za Usermin, SSH, FTP ili e-poštu od sada će zahtijevati novu lozinku.
@@ -37,9 +37,11 @@ change_epasswd_same=Lozinka sadrži ili je isto što i korisničko ime
 change_epasswd_new=Lozinka je jednaka staroj
 change_emysql=Trenutačna prijava u MySQL modul nije ispravna.
 change_eformat=Konfigurirani format raspršivanja zaporke nije podržan
+
 recovery_title=Adresa za oporavak
 recovery_err=Nije uspjelo postavljanje adrese za oporavak
 recovery_eemail=Valjana e-adresa nije unesena
 recovery_cleared=Adresa za oporavak izbrisana je.
 recovery_set=Adresa za oporavak za uporabu kod zahtjeva za resetiranjem zaporke postavljena je na $1.
+
 left_changepass=Promijenite lozinku

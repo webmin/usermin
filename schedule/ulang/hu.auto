@@ -3,5 +3,6 @@ edit_delete=Törlés az első küldés után
 edit_size=Méret
 edit_upload1=Tölts fel fájlokat
 edit_upload2=Fájl csatolása
+
 save_notice_title=Menetrend mentve
 save_notice=Az ütemezett e-mail sikeresen létrejött - tekintse meg, szerkessze vagy törölje azt <a href="$1">ennek a</a> linknek a segítségével.

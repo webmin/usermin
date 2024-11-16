@@ -1,0 +1,2 @@
+longdesc_pl=Włącz lub wyłącz uwierzytelnianie dwuskładnikowe.
+desc_pl=Uwierzytelnianie Dwuskładnikowe

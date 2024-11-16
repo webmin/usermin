@@ -4,6 +4,7 @@ index_none=Hiçbir mail iletimi ayarlanmaz.Tüm mailler yalnızca mail kutunuza 
 index_add=Bir mail iletimi kuralı eklemek.
 index_return=mail iletimi
 index_edit=$1 dosyasını elle düzenlemek.
+
 aliases_to=..e iletim
 aliases_from=..için Mail
 aliases_type1=$1 Adresi 
@@ -14,6 +15,7 @@ aliases_type5=$1 dosyasını otomatik cevaplama
 aliases_type6=$1 dosyasına filtre uygulamak
 aliases_type7=Normal kullanıcı mail kutusu
 aliases_enabled=Görünsün mü?
+
 aform_type0=Hiçbiri
 aform_type1=Email adres
 aform_type2=Dosyadaki adresler
@@ -29,10 +31,12 @@ aform_val=..e iletim
 aform_afile=..Düzenlemek
 aform_return=takma isim
 aform_name=..için Mail
+
 afile_title=Dosya Adresi Düzenlemek
 afile_desc=$1 dosyasındaki adresleri düzenlemek için aşağıdaki metin alanını kullanmak.
 afile_undo=Değişiklikleri geri al
 afile_ewrite=Dosya adreslerine yazma başarısız : $1
+
 asave_err=İletimi kaydetme başarısız
 asave_eaddr='$1' geçerli bir adres değil
 asave_etype1='$1' geçerli bir email adresi değil
@@ -46,6 +50,7 @@ asave_ename=İsim için atlanılmış ya da geçersiz mail
 asave_esame=Mevcut olan adresler için bir takma ad
 asave_enone=İletim için hiçbirşey seçilmedi
 asave_ecannot=Geçersiz iletim tipi seçildi
+
 ffile_title=Dosya Filtresi Düzenlemek
 ffile_desc=$1 dosyasındaki filtreleme kurallarını ayarlamak için aşağıdaki formu kullanmak.
 ffile_efile=$1 i düzenlemenize izin verilmez.
@@ -62,6 +67,7 @@ ffile_err=Filtre dosyasını kaydetme başarısız
 ffile_ematch=Atlanılmış birleştirme
 ffile_eaction=Atlanılmış iletim adresleri
 ffile_ewrite=Filtre dosyasına yazma başarısız : $1
+
 rfile_title=Otomatik cevaplama Dosyasını Düzenlemek
 rfile_desc=$1 deki otomatik cevaplama mesajını düzenlemek için aşağıdaki metin alanını kullanmak. Mesaj şu makroları kapsar $SUBJECT, $FROM, $TO, $DATE and $BODY ki bunlar otomatik cevaplama aktif olduğunda genişletilebilir.
 rfile_desc2=Konulan çizgiler tarafından  otomatik cevaplamadaki defaultları değiştiren veya ekleyen mail başlıklarını ayarlayabilirsiniz. Örneğin:<br><tt>From: foo@bar.com</tt><br><tt>Subject: On holiday</tt><br>mesajın tepesinde, yalnız boş bir çizgi tarafından gövdeden ayrılmış.
@@ -78,5 +84,6 @@ rfile_from=Den: cevaplar için adresler
 rfile_auto=Otomatik (alıcının adresine bağlı)
 rfile_efrom=adres : den atlanmış 
 rfile_fromdesc=Bir yerden : adresler olabilecekleri yerlerden özelleştirilmiş olamalıdır, güvenilir olmayan metotlar gibi.
+
 edit_title=İletim Dosyasını Düzenlemek
 edit_desc=Bu sayfa $1 dosyanızın içeriğini elle düzeltmenize izin verir. Dikkatli olun, girdiğiniz değerlerde hiçbir hata kontrolü yapılmadığı gibi.

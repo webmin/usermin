@@ -7,6 +7,7 @@ index_office=Despatx
 index_ophone=Telèfon de la feina
 index_hphone=Telèfon particular
 index_shell=Shell d'entrada
+
 save_err=No he pogut canviar els detalls
 save_ereal=El nom real no pot contenir els caràcters , ni :
 save_eoffice=El despatx no pot contenir els caràcters , ni :

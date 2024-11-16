@@ -6,7 +6,7 @@ index_new1=Nové heslo
 index_new2=Nové heslo znovu
 index_change=Změnit nyní
 index_return=formulář pro změnu hesla
-index_return=formulář pro změnu hesla
+
 change_err=Nepodařilo se změnit heslo
 change_title=Změněné heslo
 change_enew1=Chybějící nové heslo

@@ -7,13 +7,13 @@ index_new1=סיסמה חדשה
 index_new2=סיסמא חדשה שוב
 index_change=החלף עכשיו
 index_return=טופס שינוי סיסמא
+
 index_passtab=שינוי סיסמה
 index_recoverytab=כתובת לשחזור סיסמה
 index_desc3=השתמש בטופס זה כדי להזין כתובת חלופית שאליה ניתן לשלוח סיסמה זמנית אם תשכח את הסיסמה הנוכחית שלך.
 index_recovery=כתובת חלופית לשחזור סיסמה
 index_recoverydef=אין סטים
 index_recoverysel=שלח דוא"ל אל
-index_return=טופס שינוי סיסמא
 change_err=שינוי הסיסמה נכשל
 change_title=סיסמא שונתה
 change_oka=הסיסמה שלך עבור $1 השתנתה בהצלחה. כל כניסה Usermin, SSH, FTP או אימייל מעכשיו והלאה ידרוש את הסיסמה החדשה.
@@ -37,9 +37,11 @@ change_epasswd_same=הסיסמה מכילה או זהה לשם המשתמש
 change_epasswd_new=הסיסמה זהה לסיסמה הישנה
 change_emysql=הכניסה הנוכחית במודול MySQL אינה נכונה.
 change_eformat=אין תמיכה בפורמט hashing להגדרת סיסמה
+
 recovery_title=כתובת גיבוי
 recovery_err=הגדרת כתובת השחזור נכשלה
 recovery_eemail=כתובת אימייל חוקית למראה לא הוזנה
 recovery_cleared=כתובת השחזור נמחקה.
 recovery_set=כתובת השחזור לשימוש בבקשת איפוס סיסמה הוגדרה ל- $1.
+
 left_changepass=שנה סיסמא

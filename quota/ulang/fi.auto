@@ -2,5 +2,6 @@ index_title=Levykiintiöt
 index_quotas=Levykiintiöt $1 : lle kytketyissä tiedostojärjestelmissä
 index_none=Sinulla ei ole käyttäjän levykiintiöitä missään kytketyssä tiedostojärjestelmässä.
 index_gquotas=Levykiintiöt ryhmälle $1 kytketyille tiedostojärjestelmille
+
 right_header=Levykiintiöt
 right_out=$1 of $2 

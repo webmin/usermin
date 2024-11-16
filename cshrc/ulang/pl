@@ -1,0 +1,3 @@
+index_title=Skrypty Logowania
+index_desc_0=Skrypt $1 poniżej będzie wykonywany za każdym razem, gdy uruchamiasz nową powłokę lub logujesz się przez SSH lub telnet.
+index_desc_1=Skrypt $1 poniżej będzie wykonywany tylko podczas logowania przez SSH lub telnet.

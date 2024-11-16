@@ -13,6 +13,7 @@ index_cleardesc=Klik på denne knap for at slette alle planlagte e-mails, der bl
 index_delete=Slettede valgte e-mails
 index_disable=Deaktiver valgt
 index_enable=Aktivér valgt
+
 edit_title1=Opret planlagt e-mail
 edit_title2=Rediger planlagt e-mail
 edit_header=Planlagte e-mail-meddelelsesoplysninger
@@ -38,12 +39,14 @@ edit_type=Kilde
 edit_uploaded=Uploadet
 edit_upload1=Upload filer
 edit_upload2=Vedhæft en fil
+
 save_err=Kunne ikke gemme den planlagte e-mail
 save_esubject=Manglende beskedemne
 save_eto=Manglende send til adresse
 save_emailfile=Manglende eller ugyldig tekstfil i meddelelsen
 save_efrom=Manglende send fra adresse
 save_eat=Manglende eller ugyldig tid til at køre kl
+
 view_efile=Fil findes ikke længere
 save_notice_title=Plan gemt
 save_notice=Planlagt e-mail er oprettet med succes - se, rediger eller slet den efter <a href="$1">dette</a> link.

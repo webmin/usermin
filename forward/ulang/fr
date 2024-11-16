@@ -4,6 +4,7 @@ index_none=Aucune règle de gestion n'est définie. Tous les messages seront del
 index_add=Ajouter une règle de gestion.
 index_return=règles de gestion des messages
 index_edit=Editer le fichier $1 manuellement.
+
 aliases_to=Règle de gestion
 aliases_from=Message destiné à..
 aliases_type1=Transférer à $1
@@ -14,6 +15,7 @@ aliases_type5=Répondre automatiquement avec le message contenu dans le fichier 
 aliases_type6=Appliquer les filtres du fichier $1
 aliases_type7=Rediriger dans la boîte aux lettres
 aliases_enabled=Activée?
+
 aform_type0=(aucune)
 aform_type1=Transférer à...
 aform_type2=Transférer aux adresses listées dans le fichier...
@@ -29,10 +31,12 @@ aform_val=Action
 aform_afile=Modifier..
 aform_return=règle de gestion
 aform_name=Message destiné à...
+
 afile_title=Edition du fichier d'adresses
 afile_desc=Utilisez la zone de texte ci-dessous pour modifier les adresses du fichier $1
 afile_undo=Annuler les modifications
 afile_ewrite=Erreur lors de l'écriture dans le fichier d'adresses : $1
+
 asave_err=Impossible de sauvegarder la règle de gestion
 asave_eaddr='$1' n'est pas une adresse valide
 asave_etype1='$1' n'est pas une adresse email valide
@@ -46,6 +50,7 @@ asave_ename=L'adresse e-mail manque ou est invalide
 asave_esame=Un alias pour cette adresse existe déjà
 asave_enone=Aucun email n'a été entrée comme email destination de la redirection
 asave_ecannot=Type de redirection selectionné invalide
+
 ffile_title=Edition du fichier de filtres
 ffile_desc=Utilisez le formulaire ci-dessous pour définir les filtres du fichier $1.
 ffile_efile=Vous n'avez pas la permission d'éditer $1.
@@ -62,6 +67,7 @@ ffile_err=La sauvegarde du fichier de filtres a échoué
 ffile_ematch=Correspondance manquante
 ffile_eaction=Vous devez indiquer une adresse de transfert
 ffile_ewrite=Erreur lors de l'écriture dans le fichier de filtre : $1
+
 rfile_title=Edition du fichier de réponse automatique
 rfile_desc=Utilisez la zone de texte ci-dessous pour éditer le message de réponse automatique $1. Ce message peut contenir les macros $SUBJECT, $FROM, $TO, $DATE et $BODY qui seront résolues lorsque le message sera envoyé.
 rfile_desc2=Vous pouvez aussi faire modifier ou ajouter les en-tête du mail redirigé en spécifiant des lignes comme:<br><tt>From: foo@bar.com</tt><br><tt>Subject: En vacance</tt><br>au début du message separé du message lui même par une ligne blanche.
@@ -73,5 +79,6 @@ rfile_period=Interval minimum entre réponses
 rfile_default=Defaut (1 heure)
 rfile_secs=secondes
 rfile_eperiod=Nombre de secondes entre les réponses manquant ou invalide
+
 edit_title=Editer le fichier Forward
 edit_desc=Cette page vous permet d'éditer manuellement le contenu du fichier $1. Attention, aucun controle d'erreur n'est réalisé sur ce que vous saisissez.

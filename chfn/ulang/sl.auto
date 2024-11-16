@@ -7,6 +7,7 @@ index_office=Številka pisarniške sobe
 index_ophone=Službeni telefon
 index_hphone=Domači telefon
 index_shell=Lupina za prijavo
+
 save_err=Podrobnosti ni bilo mogoče spremeniti
 save_ereal=Resnično ime ne sme vsebovati znakov ali:
 save_eoffice=Številka pisarniške sobe ne sme vsebovati znakov ali:

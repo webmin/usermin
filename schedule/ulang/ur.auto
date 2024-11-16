@@ -13,6 +13,7 @@ index_cleardesc=تمام شیڈول ای میلز کو حذف کرنے کے لئ
 index_delete=حذف شدہ منتخب ای میلز
 index_disable=غیر فعال منتخب
 index_enable=منتخب کردہ کو فعال کریں
+
 edit_title1=شیڈول ای میل بنائیں
 edit_title2=شیڈول ای میل میں ترمیم کریں
 edit_header=شیڈول ای میل پیغام کی تفصیلات
@@ -38,12 +39,14 @@ edit_type=ذریعہ
 edit_uploaded=اپ لوڈ کردہ
 edit_upload1=فائلیں اپ لوڈ کرو
 edit_upload2=فائل منسلک کریں
+
 save_err=شیڈول ای میل کو محفوظ کرنے میں ناکام
 save_esubject=گمشدہ پیغام کا مضمون
 save_eto=پتہ پر بھیجنا غائب ہے
 save_emailfile=گم شدہ یا غلط پیغام کی متن فائل
 save_efrom=پتہ سے بھیجنا غائب ہے
 save_eat=چلانے کے لئے لاپتہ یا غلط وقت
+
 view_efile=فائل اب موجود نہیں ہے
 save_notice_title=نظام الاوقات محفوظ ہوگیا
 save_notice=Scheduled email has been created successfully - view, edit or delete it following <a href="$1">this</a> link.

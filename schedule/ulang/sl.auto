@@ -13,6 +13,7 @@ index_cleardesc=Kliknite ta gumb, da izbrišete vsa predvidena e-poštna sporoč
 index_delete=Izbrisana izbrana e-poštna sporočila
 index_disable=Onemogoči izbrano
 index_enable=Omogoči izbrano
+
 edit_title1=Ustvari načrtovano e-pošto
 edit_title2=Urejanje načrtovane e-pošte
 edit_header=Načrtovani podatki o elektronskem sporočilu
@@ -38,12 +39,14 @@ edit_type=Vir
 edit_uploaded=Naloženo
 edit_upload1=Naložite datoteke
 edit_upload2=Priložite datoteko
+
 save_err=Naročnika ni bilo mogoče shraniti
 save_esubject=Manjka zadeva sporočila
 save_eto=Manjka pošiljanje na naslov
 save_emailfile=Manjkajoča ali neveljavna besedilna datoteka sporočila
 save_efrom=Manjka pošiljanje z naslova
 save_eat=Manjkajoči ali neveljaven čas za tek
+
 view_efile=Datoteka ne obstaja več
 save_notice_title=Urnik je shranjen
 save_notice=Urejeno e-poštno sporočilo je bilo ustvarjeno uspešno - poglejte ga, uredite ali izbrišite po <a href="$1">tej</a> povezavi.

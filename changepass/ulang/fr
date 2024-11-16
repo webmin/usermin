@@ -6,7 +6,7 @@ index_new1=Nouveau mot de passe
 index_new2=Confirmation nouveau mot de passe
 index_change=Changer maintenant
 index_return=Formulaire changement mot de passe
-index_return=Formulaire changement mot de passe
+
 change_err=Echec du changement de mot de passe
 change_title=Mot de passe modifié
 change_enew1=Nouveau mot de passe non renseigné

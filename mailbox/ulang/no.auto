@@ -1,4 +1,7 @@
 index_return=postliste
+index_searching=Et søk etter $1 pågår. Resultatene vises her når den er fullført.
+index_searching2=Et komplekst søk pågår. Resultatene vises her når den er fullført.
+
 address_exportdesc=Dette skjemaet lar deg laste ned adresser fra Usermin for import til andre programmer.
 address_export=Eksporter adresser
 address_exportformat=Eksporter i format
@@ -7,4 +10,9 @@ address_exportdup0=Inkluder begge deler
 address_exportdup1=Inkluder bare den første
 address_exportfmt=Eksporter i format
 address_exportok=Eksporter nå
+
 export_err=Kunne ikke eksportere adresser
+
+search_doing=Søker etter $1 i mappen $2.
+search_doing2=Søker etter meldinger i den valgte mappen.
+search_results=Samsvarende meldinger vises i mappen <a href='$1'>søkeresultater</a> når søket er fullført...

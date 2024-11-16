@@ -8,6 +8,7 @@ index_find=Bilatu aukeren fitxategiak:
 index_finddesc=Sartutako direktorioan eskuz sortutako $1 fitxategiren bat bilatzen du. Eskuz sortutako fitxategiak aurkitu arte, ezin dira editatu modulu hau erabiliz.
 index_return=aukeren fitxategi zerrenda
 index_apache=Apache bertsioaren eta moduluaren informazioa ez da aurkitu Webmin konfigurazioaren $1 direktorioan. Modulu honek Webmin instalatu behar du eta bere Apache modulua behar bezala konfiguratu behar da.
+
 find_title=Aurkitu Aukerak fitxategiak
 find_list=Hurrengo aukera fitxategiak $1 pean aurkitu dira.
 find_none=Ez da $1 aukeren fitxategirik aurkitu $2 azpian.

@@ -25,6 +25,7 @@ index_fromdef=آپ کا پہلے سے پتہ
 index_charset=پیغام کردار سیٹ
 index_charsetdef=موجودہ زبان سے
 index_charsetother=دیگر کرداروں کا سیٹ
+
 aliases_to=آگے بھیجو ..
 aliases_from=کے لئے میل ..
 aliases_type1=پتہ 1
@@ -36,6 +37,7 @@ aliases_type6=فلٹر فائل$1 کا اطلاق کریں
 aliases_type7=عام صارف میل باکس
 aliases_type8=تعطیل خود سے
 aliases_enabled=قابل کیا گیا؟
+
 aform_type0=کوئی نہیں
 aform_type1=ای میل اڈریس
 aform_type2=فائل میں پتے
@@ -53,10 +55,12 @@ aform_afile=ترمیم ..
 aform_return=عرف
 aform_name=کے لئے میل ..
 aform_vacation=تعطیلات کے اختیارات میں ترمیم کریں ..
+
 afile_title=ایڈریس فائل میں ترمیم کریں
 afile_desc=فائل$1 میں پتے میں ترمیم کرنے کے لئے نیچے ٹیکسٹ ایریا کا استعمال کریں۔
 afile_undo=تبدیلیوں کو کالعدم کریں
 afile_ewrite=ایڈریس فائل :$1 پر لکھنے میں ناکام
+
 asave_err=فارورڈنگ کو بچانے میں ناکام
 asave_eaddr='$1' درست پتہ نہیں ہے
 asave_etype1='$1' درست ای میل پتہ نہیں ہے
@@ -72,6 +76,7 @@ asave_ename=نام کے لئے گم یا غلط میل
 asave_esame=اس پتے کا ایک عرف پہلے ہی موجود ہے
 asave_enone=آگے بھیجنے کے لئے کچھ منتخب نہیں کیا گیا تھا
 asave_ecannot=غلط فارورڈنگ قسم منتخب کی گئی
+
 ffile_title=فلٹر فائل میں ترمیم کریں
 ffile_desc=فائل$1 میں فلٹر قواعد ترتیب دینے کے لئے نیچے دیئے گئے فارم کا استعمال کریں۔
 ffile_efile=آپ کو$1 میں ترمیم کرنے کی اجازت نہیں ہے۔
@@ -88,6 +93,7 @@ ffile_err=فلٹر فائل کو محفوظ کرنے میں ناکام
 ffile_ematch=گمشدہ میچ
 ffile_eaction=فارورڈنگ پتہ غائب ہے
 ffile_ewrite=فلٹر فائل :$1 پر لکھنے میں ناکام
+
 rfile_title=خودکار طریقے سے فائل میں ترمیم کریں
 rfile_desc=Use the text area below to edit the autoreply message in $1. The message may contain the macros $SUBJECT, $FROM, $TO, $DATE and $BODY which will be expanded when the autoreply is activated.
 rfile_desc2=You can also set mail headers that add to or replace the defaults used in the autoreply by putting lines like:<br><tt>From: foo@bar.com</tt><br><tt>Subject: On holiday</tt><br>at the top of the message, separated from the body by a single blank line.
@@ -105,13 +111,16 @@ rfile_auto=خودکار (وصول کنندہ کے پتے پر مبنی)
 rfile_efrom=گم: منجانب
 rfile_fromdesc=A منجانب: جہاں بھی ممکن ہو پتا ہمیشہ ہی واضح کرنا چاہئے ، کیونکہ خودکار طریقہ قابل اعتماد نہیں ہوسکتا ہے۔
 rfile_err=خود کار طریقے سے فائل کو محفوظ کرنے میں ناکام
+
 vfile_title=تعطیل کے جوابی فائل میں ترمیم کریں
 vfile_desc=$1 میں خودکار طریقے سے پیغام میں ترمیم کرنے کے لئے نیچے دیئے گئے ٹیکسٹ ایریا کا استعمال کریں۔
 vfile_subject=پیغام کا موضوع
 vfile_err=چھٹی کی جواب فائل محفوظ کرنے میں ناکام
 vfile_esubject=گمشدہ پیغام کا مضمون
+
 edit_title=فارورڈ فائل میں ترمیم کریں
 edit_desc=یہ صفحہ آپ کو اپنی$1 فائل کے مندرجات کو دستی طور پر ترمیم کرنے کی اجازت دیتا ہے۔ ہوشیار رہیں ، کیوں کہ آپ کے ان پٹ پر غلطی کی جانچ نہیں کی جاتی ہے۔
+
 vacation_title=تعطیل کے اختیارات
 vacation_header=تعطیل آٹو-جوابی اختیارات
 vacation_user=اپنا اسم رکنیت
@@ -126,6 +135,7 @@ vacation_einterval=گمشدہ یا غلط جوابی وقفہ
 vacation_euser=غائب یا غلط صارف نام
 vacation_emsg=گم شدہ یا غلط فائل کی فائل
 vacation_return=چھٹی کے اختیارات
+
 simple_err=میل فارورڈنگ آپشنز کو بچانے میں ناکام
 simple_eforward=کوئی فارورڈنگ پتہ داخل نہیں کیا گیا
 simple_eforward2=A single forwarding address must be entered, like <tt>foo@bar.com</tt>

@@ -25,6 +25,7 @@ index_fromdef=Adresa dvs. implicită
 index_charset=Set de caractere pentru mesaje
 index_charsetdef=Din limbajul actual
 index_charsetother=Alt set de caractere
+
 aliases_to=Transmite ..
 aliases_from=Mail pentru ..
 aliases_type1=Adresa 1
@@ -36,6 +37,7 @@ aliases_type6=Aplicați fișierul de filtru $1
 aliases_type7=Cutie poștală normală pentru utilizatori
 aliases_type8=Vacanță în mod automat
 aliases_enabled=Activat?
+
 aform_type0=Nici unul
 aform_type1=Adresa de email
 aform_type2=Adrese din dosar
@@ -53,10 +55,12 @@ aform_afile=Editați | × ..
 aform_return=alias
 aform_name=Mail pentru ..
 aform_vacation=Editați opțiunile de vacanță ..
+
 afile_title=Editează fișierul de adrese
 afile_desc=Utilizați zona de text de mai jos pentru a edita adresele din fișierul $1.
 afile_undo=Anulează modificările
 afile_ewrite=Eroare la scrierea în fișierul de adrese : $1 
+
 asave_err=Nu a reușit să salvați redirecționarea
 asave_eaddr=„$1” nu este o adresă validă
 asave_etype1=„$1” nu este o adresă de e-mail validă
@@ -72,6 +76,7 @@ asave_ename=Mesaj care lipsește sau nu este valabil pentru nume
 asave_esame=Există deja un alias pentru această adresă
 asave_enone=Nimic nu a fost selectat pentru a fi trimis
 asave_ecannot=A fost selectat un tip de redirecționare nevalid
+
 ffile_title=Editează fișierul de filtru
 ffile_desc=Utilizați formularul de mai jos pentru a configura regulile de filtrare din fișierul $1.
 ffile_efile=Nu aveți voie să editați $1.
@@ -88,6 +93,7 @@ ffile_err=Nu a reușit să salvați fișierul de filtru
 ffile_ematch=Meciul lipsă
 ffile_eaction=Adresa de expediere lipsește
 ffile_ewrite=Eroare la scrierea în fișierul de filtrare : $1 
+
 rfile_title=Editați fișierul automat
 rfile_desc=Utilizați zona de text de mai jos pentru a edita mesajul de autoreply în $1. Mesajul poate conține macros macro $SUBJECT, $FROM, $TO, $DATE și $BODY, care vor fi extinse atunci când este activată automată.
 rfile_desc2=Puteți seta, de asemenea, anteturi de e-mail care adaugă sau înlocuiește valorile implicite utilizate în autoreply, punând linii precum: <br><tt> From: foo@bar.com </tt><br> <tt>Subiect: În vacanță</tt> <br> în partea de sus a mesajului, separată de corp printr-o singură linie goală.
@@ -105,13 +111,16 @@ rfile_auto=Automat (bazat pe adresa destinatarului)
 rfile_efrom=Lipsește de la: adresa
 rfile_fromdesc=A From: adresa trebuie să fie întotdeauna specificată acolo unde este posibil, deoarece metoda automată poate să nu fie fiabilă.
 rfile_err=Nu a reușit să salvați fișierul automat
+
 vfile_title=Editați fișierul de răspuns pentru vacanță
 vfile_desc=Utilizați zona de text de mai jos pentru a edita mesajul de autoreply în $1.
 vfile_subject=Subiectul mesajului
 vfile_err=Nu a reușit să salvați fișierul cu răspunsuri la concediu
 vfile_esubject=Lipsește subiectul mesajului
+
 edit_title=Editați fișierul înainte
 edit_desc=Această pagină vă permite să editați manual conținutul fișierului dvs. $1. Aveți grijă, deoarece nu este efectuată nicio eroare de verificare la intrarea dvs.
+
 vacation_title=Opțiuni de vacanță
 vacation_header=Opțiuni de răspuns automat pentru vacanță
 vacation_user=Nume de utilizator
@@ -126,6 +135,7 @@ vacation_einterval=Interval de răspuns lipsă sau nevalid
 vacation_euser=Nume de utilizator lipsă sau nevalid
 vacation_emsg=Fișierul de mesaje lipsă sau nevalid
 vacation_return=opțiuni de vacanță
+
 simple_err=Nu a reușit să salvați opțiunile de redirecționare prin poștă
 simple_eforward=Nu a fost introdusă nicio adresă de redirecționare
 simple_eforward2=Trebuie introdusă o singură adresă de redirecționare, cum ar fi <tt>foo@bar.com</tt>

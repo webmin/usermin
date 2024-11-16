@@ -7,6 +7,7 @@ index_office= Ofis Numarası
 index_ophone=İş telefonu 
 index_hphone=Ev telefonu 
 index_shell=Giriş kabuğu 
+
 save_err=Bilgileri değiştirme başarısız.
 save_ereal=İsim , veya  : gibi karekterleri kapsayamaz
 save_eoffice=Ofis numarası , veya : karekterleri kapsayamaz

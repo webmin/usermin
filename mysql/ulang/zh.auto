@@ -4,4 +4,5 @@ index_eadmin=在您的系统上找不到MySQL管理程序 $1。也许未安装My
 index_esql=在您的系统上找不到MySQL客户端程序 $1。也许未安装MySQL，或者模块配置不正确。
 index_ever=MySQL客户端程序 $1似乎不是正确的版本。 Webmin仅支持MySQL 3及更高版本。
 index_elibrary=MySQL客户端程序 $1无法运行，因为它找不到MySQL共享库。检查模块配置，并确保已设置<i>MySQL共享库的路径</i>。
+
 login_epass=不正确的MySQL用户名或密码

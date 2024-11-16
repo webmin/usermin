@@ -25,6 +25,7 @@ index_fromdef=Zure helbide lehenetsia
 index_charset=Mezuen karaktere-multzoa
 index_charsetdef=Egungo hizkuntzatik
 index_charsetother=Bestelako karaktere multzoa
+
 aliases_to=Birbidali ..
 aliases_from=Mail ..
 aliases_type1=Helbidea 1
@@ -36,6 +37,7 @@ aliases_type6=Aplikatu $1 iragazkia
 aliases_type7=Erabiltzaileen postontzi normala
 aliases_type8=Oporrak autoreply
 aliases_enabled=Gaituta?
+
 aform_type0=Bat ere ez
 aform_type1=Posta elektroniko helbidea
 aform_type2=Helbideak fitxategian
@@ -53,10 +55,12 @@ aform_afile=Editatu ..
 aform_return=alias
 aform_name=Mail ..
 aform_vacation=Oporretako aukerak editatu ..
+
 afile_title=Editatu helbide-fitxategia
 afile_desc=Erabili beheko testu-eremua $1 fitxategiaren helbideak editatzeko.
 afile_undo=Aldaketak desegin
 afile_ewrite=Huts egin du helbideen fitxategian idazteak : $1 
+
 asave_err=Ezin izan da birbidaltzea gorde
 asave_eaddr='$1' ez da baliozko helbide bat
 asave_etype1='$1' ez da baliozko helbide elektronikoa
@@ -72,6 +76,7 @@ asave_ename=Izenaren posta elektronikoa edo falta da
 asave_esame=Helbide horretarako ezizena badago
 asave_enone=Ez da ezer hautatu birbidaltzeko
 asave_ecannot=Hautatu birbidaltze mota baliogabea
+
 ffile_title=Editatu iragazkiaren fitxategia
 ffile_desc=Erabili beheko formularioa $1 fitxategiaren iragazkiak konfiguratzeko.
 ffile_efile=Ezin duzu $1 editatu.
@@ -88,6 +93,7 @@ ffile_err=Ezin izan da iragazkiaren fitxategia gorde
 ffile_ematch=Partida falta da
 ffile_eaction=Ez dago birbidaltzearen helbidea
 ffile_ewrite=Huts egin du iragazkiaren fitxategian idaztean : $1 
+
 rfile_title=Editatu automatikoki fitxategia
 rfile_desc=Erabili beheko test eremua automatikoki bidaltzeko mezua $1 ean editatzeko. Mezuak $SUBJECT, $FROM, $TO, $DATE eta $BODY makroak izan ditzake, automatikoki hornitzen denean aktibatuko direnak.
 rfile_desc2=Autoreplantean erabilitako lehenetsiak gehitu edo ordezkatzen dituzten posta-goiburuak ere ezar ditzakezu, honela lerroak jarriz: <br><tt> From: foo@bar.com </tt><br> <tt>Asunto: Oporretan</tt> <br> mezuaren goiko aldean, gorputzetik marra zuri bakar batez bereizita.
@@ -105,13 +111,16 @@ rfile_auto=Automatikoa (hartzailearen helbidean oinarrituta)
 rfile_efrom=Falta da: helbidea
 rfile_fromdesc=A From: helbidea beti zehaztu behar da posible den heinean, metodo automatikoa fidagarria ez baita.
 rfile_err=Ezin izan da autoreplanteren fitxategia gorde
+
 vfile_title=Editatu Oporrak Erantzun Fitxategia
 vfile_desc=Erabili beheko test eremua automatikoki bidaltzeko mezua $1 ean editatzeko.
 vfile_subject=Mezuaren gaia
 vfile_err=Ezin izan da oporren erantzun fitxategia gorde
 vfile_esubject=Mezuaren gaia falta da
+
 edit_title=Editatu Birbidali fitxategia
 edit_desc=Orrialde honek $1 fitxategiaren edukia eskuz editatu ahal izango duzu. Kontuz ibili, zure sarreran ez baita akatsik egiaztatzen.
+
 vacation_title=Oporretako Aukerak
 vacation_header=Oporretarako erantzun automatikoko aukerak
 vacation_user=Zure erabiltzaile izena
@@ -126,6 +135,7 @@ vacation_einterval=Erantzun-tartearen falta edo baliogabea
 vacation_euser=Erabiltzaile-izena falta edo baliogabea
 vacation_emsg=Falta da edo ez da mezuen fitxategia
 vacation_return=oporretako aukerak
+
 simple_err=Huts egin du mezuak birbidaltzeko aukerak gordetzean
 simple_eforward=Ez da birbidaltzeko helbiderik idatzi
 simple_eforward2=Birbidaltzeko helbide bakarra idatzi behar da, <tt>foo@bar.com</tt> bezala

@@ -1,16 +1,21 @@
 index_title=Correio em $1 
 index_return=lista de Email
+index_searching=Uma busca por $1 está em andamento. Os resultados serão mostrados aqui quando ela for concluída.
+index_searching2=Uma busca complexa está em andamento. Os resultados serão mostrados aqui quando ela for concluída.
+
 mail_title=Ler E-mail
 mail_none=Não há mensagens na pasta $1 
 mail_pos=Mensagens $1 a $2 de $3 na pasta $4 
 mail_return=caixa de correio
 mail_quota=Usando $1 de $2 
 mail_special=Especial
+
 send_efile=O arquivo anexado $1 não é legível ou não existe
 send_nobody=ninguém
 send_etomsg=Nenhum endereço Para, Cc ou Cco foi inserido
 send_esubjectmsg=Nenhum assunto foi inserido - espero que esteja tudo bem
 send_eclosemsg=Tem certeza de que deseja fechar esta página e perder a mensagem em andamento?
+
 address_chooser=Selecione Endereço.
 address_addr=Endereço de e-mail
 address_name=Nome real
@@ -61,6 +66,7 @@ address_exportdup0=Incluir ambos
 address_exportdup1=Incluir apenas o primeiro
 address_exportfmt=Exportar em formato
 address_exportok=Exportar agora
+
 import_err=Falha ao importar endereços
 import_title=Importar catálogo de endereços
 import_doing=Resultados da importação do catálogo de endereços.
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Endereço de e-mail ausente ou inválido</font>
 import_same=Inalterado, ignorado
 import_skip=Endereço duplicado, ignorado
 import_enetvcard=O módulo <tt>Net::vCard</tt> Perl é necessário para ler arquivos no formato vCard
+
 export_err=Falha ao exportar endereços
+
 group_err=Falha ao salvar o grupo de endereços
 group_egroup=Nome de grupo ausente ou inválido
 group_emembers=Nenhum endereço de e-mail do membro inserido
+
 folders_title=Gerenciar pastas
 folders_instr=Tipos de ajuda e pasta
 folders_desc2=Cada uma das pastas listadas abaixo pode conter mensagens que você move para ela ou mensagens colocadas nele automaticamente. Os seguintes tipos de pastas estão disponíveis :
@@ -124,6 +133,7 @@ folders_delete=Excluir pastas selecionadas
 folders_addimap=Adicione uma nova pasta.
 folders_addcomp=Adicione uma nova pasta composta.
 folders_addvirt=Adicione uma nova pasta virtual.
+
 edit_title1=Criar pasta
 edit_title2=Editar Pasta
 edit_header=Detalhes da pasta de correio
@@ -161,6 +171,7 @@ edit_comps=Subpastas, mais antigas primeiro
 edit_comp=Composto
 edit_virt=Virtual
 edit_delete=Excluir mensagem real ao excluir da pasta?
+
 save_err=Falha ao salvar a pasta
 save_ecannot=Você não tem permissão para usar este tipo de pasta
 save_ename=Nome de pasta ausente
@@ -191,7 +202,9 @@ save_edelete=Falha ao excluir email : $1
 save_eflag=Falha ao definir sinalizadores IMAP : $1 
 save_eappend=Falha ao adicionar email à caixa de correio IMAP : $1 
 save_esearch=Falha ao pesquisar a caixa de correio IMAP : $1 
+
 epop3lock_tries=Falha ao bloquear o arquivo de mensagens $1 após tentar $2 minutos, devido a um arquivo de bloqueio POP3.
+
 view_dsn=Notificação de status de entrega
 view_dnsnow=Uma mensagem de notificação de status de entrega acaba de ser enviada para $1.
 view_dsnbefore=Uma mensagem de notificação de status de entrega foi enviada para $1 em $2.
@@ -204,21 +217,30 @@ view_quick=Resposta rápida
 view_quick_all=Responder a todos
 view_quick_quote=Citar original
 view_quick_send=Mandar
+
 search_virtualize=Criar pasta virtual nomeada:
 search_dest=Armazenar resultados em
 search_dest1=Pasta Resultados da Pesquisa
 search_dest0=Nova pasta virtual chamada
 search_edest=Nome de pasta virtual ausente para resultados
 search_eself=A pasta de resultados da pesquisa não pode ser pesquisada
+search_doing=Procurando por $1 na pasta $2.
+search_doing2=Pesquisando mensagens na pasta selecionada.
+search_results=As mensagens correspondentes serão exibidas na pasta <a href='$1'>resultados da pesquisa</a> quando a pesquisa for concluída...
+
 virtualize_ename=Nome de pasta virtual ausente
+
 delete_enoadd=As mensagens não podem ser movidas para pastas virtuais, apenas copiadas
+
 sig_title=editar assinatura
 sig_desc=Use este formulário para editar sua assinatura de email no arquivo $1.
 sig_undo=Desfazer
 sig_enone=Nenhum arquivo de assinatura definido
 sig_eopen=Falha ao abrir o arquivo de assinatura : $1 
+
 quota_inbox=Cota para correio de $1 excedida
 quota_inbox2=Cota de $1 mensagens de email excedida
+
 auto_title=Compensação automática de pastas
 auto_header=Opções de limpeza agendada de pastas
 auto_enabled=Excluir mensagens automaticamente?
@@ -236,6 +258,7 @@ auto_action1=Excluir todas as mensagens da pasta
 auto_action2=Mover para a pasta $1 
 auto_edest=A pasta de destino selecionada não existe!
 auto_ewrite=A pasta de destino selecionada não pode ser gravada em
+
 copy_title=Copiar todo o correio
 copy_header=Copie todas as mensagens na pasta
 copy_source=Pasta de origem
@@ -245,18 +268,22 @@ copy_ok=Copie agora
 copy_doing=Copiando todas as mensagens de $1 para $2 ..
 copy_done=.. feito
 copy_deleting=Esvaziando a pasta $1 ..
+
 fdelete_title=Excluir pastas
 fdelete_err=Falha ao excluir pastas
 fdelete_enone=Nenhum selecionado
 fdelete_rusure=Tem certeza de que deseja excluir as $1 pastas selecionadas? $2 do email será excluído para sempre.
 fdelete_rusure2=Tem certeza de que deseja excluir as $1 pastas selecionadas?
 fdelete_delete=Excluir agora
+
 detachall_err=Falha ao salvar todos os anexos
 detachall_emkdir=Não foi possível criar o diretório temporário : $1 
 detachall_ezip=Falha no ZIP : $1 
+
 allow_err=Falha ao salvar endereços permitidos
 deny_err=Falha ao salvar endereços negados
 allow_eaddr='$1' não é um endereço de email válido
+
 right_header=Informação do sistema
 right_host=Nome do host do sistema
 right_os=Sistema operacional

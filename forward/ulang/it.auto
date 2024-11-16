@@ -25,6 +25,7 @@ index_fromdef=Il tuo indirizzo predefinito
 index_charset=Set di caratteri del messaggio
 index_charsetdef=Dalla lingua corrente
 index_charsetother=Altro set di caratteri
+
 aliases_to=Inoltra a ..
 aliases_from=Mail for ..
 aliases_type1=Indirizzo 1
@@ -36,6 +37,7 @@ aliases_type6=Applica il file filtro $1
 aliases_type7=Cassetta postale utente normale
 aliases_type8=Risposta automatica per le vacanze
 aliases_enabled=Abilitato?
+
 aform_type0=Nessuna
 aform_type1=Indirizzo email
 aform_type2=Indirizzi nel file
@@ -53,10 +55,12 @@ aform_afile=Modificare ..
 aform_return=alias
 aform_name=Mail for ..
 aform_vacation=Modifica le opzioni di vacanza.
+
 afile_title=Modifica file indirizzo
 afile_desc=Utilizza l'area di testo in basso per modificare gli indirizzi nel file $1.
 afile_undo=Cancella i cambiamenti
 afile_ewrite=Impossibile scrivere nel file degli indirizzi : $1 
+
 asave_err=Impossibile salvare l'inoltro
 asave_eaddr='$1' non è un indirizzo valido
 asave_etype1='$1' non è un indirizzo email valido
@@ -72,6 +76,7 @@ asave_ename=Posta mancante o non valida per nome
 asave_esame=Un alias per quell'indirizzo esiste già
 asave_enone=Non è stato selezionato nulla a cui inoltrare
 asave_ecannot=Tipo di inoltro non valido selezionato
+
 ffile_title=Modifica file filtro
 ffile_desc=Utilizza il modulo seguente per impostare le regole di filtro nel file $1.
 ffile_efile=Non puoi modificare $1.
@@ -88,6 +93,7 @@ ffile_err=Impossibile salvare il file del filtro
 ffile_ematch=Partita mancante
 ffile_eaction=Indirizzo di inoltro mancante
 ffile_ewrite=Impossibile scrivere nel file di filtro : $1 
+
 rfile_title=Modifica file Autoreply
 rfile_desc=Utilizza l'area di testo in basso per modificare il messaggio di risposta automatica in $1. Il messaggio può contenere le macro $SUBJECT, $FROM, $TO, $DATE e $BODY che verranno espanse quando viene attivata la risposta automatica.
 rfile_desc2=Puoi anche impostare intestazioni di posta che aggiungono o sostituiscono i valori predefiniti utilizzati nell'autoreply inserendo righe come: <br><tt> Da: foo@bar.com </tt><br> <tt>Oggetto: In vacanza</tt> <br> nella parte superiore del messaggio, separato dal corpo da un'unica riga vuota.
@@ -105,13 +111,16 @@ rfile_auto=Automatico (basato sull'indirizzo del destinatario)
 rfile_efrom=Mancante da: indirizzo
 rfile_fromdesc=Un indirizzo Da: deve essere sempre specificato ove possibile, poiché il metodo automatico potrebbe non essere affidabile.
 rfile_err=Impossibile salvare il file di risposta automatica
+
 vfile_title=Modifica file di risposta per le vacanze
 vfile_desc=Utilizza l'area di testo in basso per modificare il messaggio di risposta automatica in $1.
 vfile_subject=Soggetto del messaggio
 vfile_err=Impossibile salvare il file di risposta delle vacanze
 vfile_esubject=Oggetto del messaggio mancante
+
 edit_title=Modifica file forward
 edit_desc=Questa pagina ti consente di modificare manualmente i contenuti del tuo file $1. Fare attenzione, poiché non viene eseguito alcun controllo degli errori sull'input.
+
 vacation_title=Opzioni di vacanza
 vacation_header=Opzioni di risposta automatica delle vacanze
 vacation_user=Il tuo nome utente
@@ -126,6 +135,7 @@ vacation_einterval=Intervallo di risposta mancante o non valido
 vacation_euser=Nome utente mancante o non valido
 vacation_emsg=File di messaggi mancante o non valido
 vacation_return=opzioni di vacanza
+
 simple_err=Impossibile salvare le opzioni di inoltro della posta
 simple_eforward=Nessun indirizzo di inoltro inserito
 simple_eforward2=È necessario inserire un unico indirizzo di inoltro, ad esempio <tt>foo@bar.com</tt>

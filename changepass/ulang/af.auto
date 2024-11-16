@@ -7,13 +7,13 @@ index_new1=Nuwe Wagwoord
 index_new2=Nuwe wagwoord weer
 index_change=Verander nou
 index_return=wagwoord verander vorm
+
 index_passtab=Wagwoordverandering
 index_recoverytab=Wagwoordhersteladres
 index_desc3=Gebruik hierdie vorm om 'n alternatiewe adres in te voer waarheen 'n tydelike wagwoord gestuur kan word as u u huidige wagwoord vergeet.
 index_recovery=Alternatiewe adres vir wagwoordherwinning
 index_recoverydef=Geen stel nie
 index_recoverysel=Stuur e-pos aan
-index_return=wagwoord verander vorm
 change_err=Kon nie wagwoord verander nie
 change_title=Wagwoord verander
 change_oka=U wagwoord vir $1 is suksesvol verander. Die nuwe wagwoord is nodig vir enige aanmelding op Usermin, SSH, FTP of e-pos.
@@ -37,9 +37,11 @@ change_epasswd_same=Wagwoord bevat of is dieselfde as gebruikersnaam
 change_epasswd_new=Wagwoord is dieselfde as die ou wagwoord
 change_emysql=Die huidige aanmelding in MySQL-module is verkeerd.
 change_eformat=Die opgestelde wagwoord-haasformaat word nie ondersteun nie
+
 recovery_title=Hersteladres
 recovery_err=Kon nie die hersteladres instel nie
 recovery_eemail='N Geldige e-posadres is nie ingevoer nie
 recovery_cleared=Die hersteladres is skoongemaak.
 recovery_set=Die hersteladres vir gebruik wanneer u 'n wagwoordterugstelling versoek, is ingestel op $1.
+
 left_changepass=Verander wagwoord

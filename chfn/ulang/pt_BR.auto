@@ -7,6 +7,7 @@ index_office=Número da sala do escritório
 index_ophone=Telefone de Trabalho
 index_hphone=Telefone residencial
 index_shell=Shell de login
+
 save_err=Falha ao alterar detalhes
 save_ereal=O nome real não pode conter, ou: caracteres
 save_eoffice=O número da sala do escritório não pode conter ou: caracteres

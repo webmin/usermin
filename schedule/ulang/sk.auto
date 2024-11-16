@@ -13,6 +13,7 @@ index_cleardesc=Kliknutím na toto tlačidlo odstránite všetky naplánované e
 index_delete=Odstránené vybrané e-maily
 index_disable=Zakázať vybraté
 index_enable=Povoliť vybraté
+
 edit_title1=Vytvoriť naplánovaný e-mail
 edit_title2=Upraviť naplánovaný e-mail
 edit_header=Podrobnosti naplánovanej e-mailovej správy
@@ -38,12 +39,14 @@ edit_type=zdroj
 edit_uploaded=nahraný
 edit_upload1=Nahrať súbory
 edit_upload2=Priložiť súbor
+
 save_err=Uloženie naplánovaného e-mailu zlyhalo
 save_esubject=Chýba predmet správy
 save_eto=Chýba poslanie na adresu
 save_emailfile=Chýba alebo je neplatný textový súbor správy
 save_efrom=Chýba posielanie z adresy
 save_eat=Chýba alebo neplatný čas na spustenie
+
 view_efile=Súbor už neexistuje
 save_notice_title=Rozvrh bol uložený
 save_notice=Naplánovaný e-mail bol úspešne vytvorený - zobrazte ho, upravte alebo odstráňte po <a href="$1">tomto</a> odkaze.

@@ -1,1 +1,7 @@
 index_return=llista de correu
+index_searching=S'està cercant $1. Els resultats es mostraran aquí quan finalitzi.
+index_searching2=Hi ha una recerca complexa en curs. Els resultats es mostraran aquí quan finalitzi.
+
+search_doing=S'està cercant $1 a la carpeta $2.
+search_doing2=Cerca de missatges a la carpeta seleccionada.
+search_results=Els missatges coincidents es mostraran a la carpeta <a href='$1'>resultats de la cerca</a> quan finalitzi la cerca...

@@ -4,4 +4,5 @@ index_eadmin=MySQL admin programmet $1 ble ikke funnet på systemet ditt. Kanskj
 index_esql=MySQL klientprogrammet $1 ble ikke funnet på systemet ditt. Kanskje MySQL ikke er installert, eller så er modulkonfigurasjonen feil.
 index_ever=MySQL klientprogrammet $1 ser ikke ut til å være av riktig versjon,. Webmin støtter bare MySQL versjon 3 og nyere.
 index_elibrary=MySQL klientprogrammet $1 kunne ikke kjøre fordi det ikke kunne finne MySQLs delte biblioteker. Sjekk modulkonfigurasjonen og sjekk at <i>Sti til MySQL delte biblioteker</i> er satt.
+
 login_epass=Feil MySQL brukernavn eller passord

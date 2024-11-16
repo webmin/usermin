@@ -13,6 +13,7 @@ index_cleardesc=Click this button to delete all scheduled emails that were set f
 index_delete=Deleted Selected Emails
 index_disable=Disable Selected
 index_enable=Enable Selected
+
 edit_title1=Create Scheduled Email
 edit_title2=Edit Scheduled Email
 edit_header=Scheduled email message details
@@ -33,10 +34,12 @@ edit_files=Attached files
 edit_file=Filename
 edit_type=Source
 edit_uploaded=Uploaded
+
 save_err=Failed to save scheduled email
 save_esubject=Missing message subject
 save_eto=Missing send to address
 save_emailfile=Missing or invalid message text file
 save_efrom=Missing send from address
 save_eat=Missing or invalid time to run at
+
 view_efile=File no longer exists

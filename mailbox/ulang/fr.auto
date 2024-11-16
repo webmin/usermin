@@ -1,11 +1,16 @@
 index_title=Envoyer par courrier électronique $1 
 index_return=liste de diffusion
+index_searching=Une recherche de $1 est en cours. Les résultats seront affichés ici une fois la recherche terminée.
+index_searching2=Une recherche complexe est en cours. Les résultats seront affichés ici une fois la recherche terminée.
+
 mail_quota=Utilisation de $1 sur $2 
 mail_special=Spécial
+
 send_nobody=personne
 send_etomsg=Aucune adresse To, Cc ou Cci n'a été saisie
 send_esubjectmsg=Aucun sujet n'a été saisi - j'espère que c'est OK
 send_eclosemsg=Voulez-vous vraiment fermer cette page et perdre le message en cours?
+
 address_none2=Aucune adresse ne correspond à votre recherche.
 address_gdesc=Cette section répertorie les surnoms que vous pouvez utiliser pour envoyer facilement des e-mails à des individus ou à des groupes d'adresses, sans avoir à saisir l'adresse complète.
 address_gadd=Ajoutez un nouveau surnom ou groupe.
@@ -36,6 +41,7 @@ address_exportdup0=Inclure les deux
 address_exportdup1=N'incluez que le premier
 address_exportfmt=Exporter au format
 address_exportok=Exporter maintenant
+
 import_err=Impossible d'importer des adresses
 import_title=Importer le carnet d'adresses
 import_doing=Résultats de l'importation du carnet d'adresses.
@@ -50,10 +56,13 @@ import_noemail=<font color=red>Adresse e-mail manquante ou non valide</font>
 import_same=Inchangé, ignoré
 import_skip=Adresse dupliquée, ignorée
 import_enetvcard=Le module <tt>Net::vCard</tt> Perl est nécessaire pour lire les fichiers au format vCard
+
 export_err=Échec de l'exportation des adresses
+
 group_err=Échec de l'enregistrement du groupe d'adresses
 group_egroup=Nom de groupe manquant ou invalide
 group_emembers=Aucune adresse e-mail de membre saisie
+
 folders_instr=Aide et types de dossiers
 folders_desc2=Chacun des dossiers répertoriés ci-dessous peut contenir du courrier que vous y déplacez ou du courrier qui y est placé automatiquement. Les types de dossier suivants sont disponibles :
 folders_descsys=Dossiers système comme Boîte de réception, Brouillons et Courriers envoyés qui existent toujours.
@@ -85,6 +94,7 @@ folders_delete=Supprimer les dossiers sélectionnés
 folders_addimap=Ajoutez un nouveau dossier.
 folders_addcomp=Ajoutez un nouveau dossier composite.
 folders_addvirt=Ajoutez un nouveau dossier virtuel.
+
 edit_mode3=Fichier de corbeille
 edit_type7=Fichier unique (MBX)
 edit_port=Numéro de port
@@ -94,6 +104,7 @@ edit_comps=Sous-dossiers, les plus anciens en premier
 edit_comp=Composite
 edit_virt=Virtuel
 edit_delete=Supprimer le vrai message lors de la suppression du dossier?
+
 save_ename4=Les noms de dossier ne peuvent contenir que des lettres, des chiffres, des espaces et les caractères point, tiret et trait de soulignement
 save_ecompsame=Un dossier composite ne peut pas contenir deux fois le même sous-dossier
 save_ename2=Les noms de dossier ne peuvent pas contenir ..
@@ -101,7 +112,9 @@ save_ename3=Le nom du dossier INBOX est réservé au serveur IMAP
 save_rusure2=Voulez-vous vraiment supprimer le dossier $1 ? $2 de l'e-mail sera définitivement supprimé.
 save_eport=Numéro de port manquant ou invalide
 save_eflag=Impossible de définir les indicateurs IMAP : $1 
+
 epop3lock_tries=Impossible de verrouiller le fichier courrier $1 après avoir essayé pendant $2 minutes, en raison d'un fichier de verrouillage POP3.
+
 view_dsn=Notification de statut de livraison
 view_dnsnow=Un message de notification d'état de remise vient d'être envoyé à $1.
 view_dsnbefore=Un message de notification d'état de remise a été envoyé à $1 sur $2.
@@ -113,21 +126,30 @@ view_delok=Ce message a été remis à $1 sur $2.
 view_quick=Réponse rapide
 view_quick_all=Répondre à tous
 view_quick_quote=Devis original
+
 search_virtualize=Créer un dossier virtuel nommé:
 search_dest=Stocker les résultats dans
 search_dest1=Dossier Résultats de la recherche
 search_dest0=Nouveau dossier virtuel nommé
 search_edest=Nom de dossier virtuel manquant pour les résultats
 search_eself=Impossible de rechercher le dossier des résultats de la recherche
+search_doing=Recherche de $1 dans le dossier $2.
+search_doing2=Recherche de messages dans le dossier sélectionné.
+search_results=Les messages correspondants seront affichés dans le dossier <a href='$1'>résultats de la recherche</a> une fois la recherche terminée...
+
 virtualize_ename=Nom de dossier virtuel manquant
+
 delete_enoadd=Les messages ne peuvent pas être déplacés dans des dossiers virtuels, uniquement copiés
+
 sig_title=Editer la signature
 sig_desc=Utilisez ce formulaire pour modifier votre signature électronique dans le fichier $1.
 sig_undo=annuler
 sig_enone=Aucun fichier de signature défini
 sig_eopen=Impossible d'ouvrir le fichier de signature : $1 
+
 quota_inbox=Dépassement du quota de courrier de $1 
 quota_inbox2=Dépassement du quota de $1 messages électroniques
+
 auto_title=Suppression automatique des dossiers
 auto_header=Options de suppression planifiée des dossiers
 auto_enabled=Supprimer automatiquement les messages?
@@ -145,6 +167,7 @@ auto_action1=Supprimer tous les messages du dossier
 auto_action2=Déplacer vers le dossier $1 
 auto_edest=Le dossier de destination sélectionné n'existe pas!
 auto_ewrite=Impossible d'écrire dans le dossier de destination sélectionné
+
 copy_title=Copier tout le courrier
 copy_header=Copiez tous les messages dans le dossier
 copy_source=Dossier d'origine
@@ -154,17 +177,21 @@ copy_ok=Copiez maintenant
 copy_doing=Copie de tous les messages de $1 vers $2 ..
 copy_done=.. terminé
 copy_deleting=Vidage du dossier $1 ..
+
 fdelete_title=Supprimer des dossiers
 fdelete_err=Impossible de supprimer les dossiers
 fdelete_enone=Aucune sélection
 fdelete_rusure=Voulez-vous vraiment supprimer les dossiers $1 sélectionnés? $2 de l'e-mail sera définitivement supprimé.
 fdelete_rusure2=Voulez-vous vraiment supprimer les dossiers $1 sélectionnés?
 fdelete_delete=Effacer maintenant
+
 detachall_err=Impossible d'enregistrer toutes les pièces jointes
 detachall_emkdir=Impossible de créer un répertoire temporaire : $1 
 detachall_ezip=Échec du ZIP : $1 
+
 allow_err=Impossible d'enregistrer les adresses autorisées
 deny_err=Impossible d'enregistrer les adresses refusées
+
 right_header=Informations système
 right_host=Nom d'hôte du système
 right_os=Système opérateur

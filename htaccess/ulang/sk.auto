@@ -8,6 +8,7 @@ index_find=Vyhľadajte súbory možností v:
 index_finddesc=Vyhľadá v zadanom adresári všetky $1 súbory, ktoré boli vytvorené ručne. Kým sa nenájdu ručne vytvorené súbory, nie je možné ich pomocou tohto modulu upravovať.
 index_return=zoznam súborov možností
 index_apache=Informácie o verzii a module Apache sa nenašli v konfiguračnom adresári Webmin $1. Tento modul vyžaduje, aby bol Webmin nainštalovaný a jeho modul Apache správne nakonfigurovaný.
+
 find_title=Vyhľadajte súbory možností
 find_list=V priečinku $1 boli nájdené nasledujúce súbory s možnosťami.
 find_none=V priečinku $2 sa nenašli žiadne súbory možností $1.

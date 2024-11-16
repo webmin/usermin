@@ -7,6 +7,7 @@ index_office=Kantoor kamer nommer
 index_ophone=Werk telefoon
 index_hphone=Huis telefoon
 index_shell=Aanmeldingsskulp
+
 save_err=Kon nie besonderhede verander nie
 save_ereal=Die regte naam kan nie of karakters bevat nie
 save_eoffice=Kantoor kamer nommer kan nie bevat nie, of: karakters

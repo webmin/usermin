@@ -8,6 +8,7 @@ index_find=Suche Options Dateien in:
 index_finddesc=Durchsucht das angegebene Verzeichnis nach allen $1 Dateien, die manuell erstellt wurden. Solange manuell erstellte Options Dateien gefunden werden, können diese nicht mit diesem Modul bearbeitet werden.
 index_return=Liste der Options Dateien
 index_apache=Die Apache-Version und Modul-Information konnten im Webmin-Installationsverzeichnis $1 nicht gefunden werden. Dieses Modul benötigt jedoch ein installiertes Webmin und eine gültige Webmin-Apache-Modul-Konfiguration.
+
 find_title=Finde Options Dateien
 find_list=Folgende Options Dateien wurden in $1 gefunden ..
 find_none=Es wurden keine $1 Options Dateien in $2 gefunden.

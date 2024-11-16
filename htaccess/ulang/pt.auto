@@ -8,6 +8,7 @@ index_find=Encontre arquivos de opções em:
 index_finddesc=Procura no diretório digitado por $1 arquivos que foram criados manualmente. Até que os arquivos criados manualmente sejam encontrados, eles não podem ser editados usando este módulo.
 index_return=lista de arquivos de opções
 index_apache=As informações da versão e do módulo Apache não foram encontradas no diretório de configuração do Webmin $1. Este módulo requer que o Webmin esteja instalado e seu módulo Apache configurado corretamente.
+
 find_title=Arquivos de opções de localização
 find_list=Os seguintes arquivos de opções foram encontrados em $1 ..
 find_none=Nenhum $1 arquivo de opções foi encontrado em $2.

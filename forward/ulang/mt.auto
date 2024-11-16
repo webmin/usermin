@@ -25,6 +25,7 @@ index_fromdef=L-indirizz default tiegħek
 index_charset=Sett tal-karattri tal-messaġġ
 index_charsetdef=Minn lingwa kurrenti
 index_charsetother=Sett ta 'karattri oħra
+
 aliases_to=Ibgħat lil ..
 aliases_from=Mail għal ..
 aliases_type1=Indirizz $1 
@@ -36,6 +37,7 @@ aliases_type6=Applika l-fajl tal-filtru $1
 aliases_type7=Kaxxa tal-posta normali għall-utent
 aliases_type8=Vaganzi awtomatikament
 aliases_enabled=Abilitata?
+
 aform_type0=Xejn
 aform_type1=Indirizz tal-Email
 aform_type2=Indirizzi fil-fajl
@@ -53,10 +55,12 @@ aform_afile=Editja ..
 aform_return=psewdonimu
 aform_name=Mail għal ..
 aform_vacation=Editja għażliet ta 'vaganza ..
+
 afile_title=Editja l-Fajl tal-Indirizz
 afile_desc=Uża ż-żona tat-test hawn taħt biex teditja l-indirizzi fil-fajl $1.
 afile_undo=Ħassar il-Bidliet
 afile_ewrite=Naqset milli tikteb fil-fajl tal-indirizzi : $1 
+
 asave_err=Ma rnexxielux jiffranka l-ispedizzjoni
 asave_eaddr="$1" mhuwiex indirizz validu
 asave_etype1="$1" mhuwiex indirizz elettroniku validu
@@ -72,6 +76,7 @@ asave_ename=Mail nieqsa jew invalida għall-isem
 asave_esame=Alias għal dak l-indirizz diġà jeżisti
 asave_enone=Ma ntgħażel xejn biex jgħaddiha
 asave_ecannot=Tip ta 'trażmissjoni mhux validu magħżul
+
 ffile_title=Editja l-File File
 ffile_desc=Uża l-formola hawn taħt biex tissettja r-regoli tal-filtru fil-fajl $1.
 ffile_efile=Mhux permess li jeditja $1.
@@ -88,6 +93,7 @@ ffile_err=Ma rnexxielux isalva fajl tal-filtru
 ffile_ematch=Partita nieqsa
 ffile_eaction=Indirizz tat-trasmissjoni nieqsa
 ffile_ewrite=Naqset milli tikteb fil-fajl tal-filtru : $1 
+
 rfile_title=Editja l-Fajl Autoreply
 rfile_desc=Uża l-erja tat-test hawn taħt biex teditja l-messaġġ awtomatiku f ' $1. Il-messaġġ jista 'jkun fih il-makros $SUBJECT, $FROM, $TO, $DATE u $BODY li se jitwessgħu meta l-autoreply ikun attivat.
 rfile_desc2=Tista 'wkoll tissettja intestaturi tal-posta li jżidu ma' jew jibdlu n-nuqqasijiet użati fl-autoreply billi tpoġġi linji bħal: <br><tt> Minn: foo@bar.com </tt><br> <tt>Suġġett: Fil-vaganza</tt> <br> fil-quċċata tal-messaġġ, separat mill-ġisem b'linja vojta waħda.
@@ -105,13 +111,16 @@ rfile_auto=Awtomatika (ibbażata fuq l-indirizz tar-riċevitur)
 rfile_efrom=Nieqes Minn: indirizz
 rfile_fromdesc=A Minn: l-indirizz għandu dejjem ikun speċifikat fejn possibbli, billi l-metodu awtomatiku jista 'ma jkunx ta' min joqgħod fuqu.
 rfile_err=Ma rnexxielux isalva fajl awtomatiku
+
 vfile_title=Editja l-Fajl tar-Risposta tal-Vakanzi
 vfile_desc=Uża l-erja tat-test hawn taħt biex teditja l-messaġġ awtomatiku f ' $1.
 vfile_subject=Suġġett tal-messaġġ
 vfile_err=Ma rnexxielux isalva l-fajl tar-risposta tal-vaganzi
 vfile_esubject=Suġġett tal-messaġġ nieqes
+
 edit_title=Edit Forward File
 edit_desc=Din il-paġna jippermettilek teditja manwalment il-kontenut tal-fajl $1 tiegħek. Oqgħod attent, għax ma jsir l-ebda żball ta ’verifika fuq l-input tiegħek.
+
 vacation_title=Għażliet ta 'vaganza
 vacation_header=Opzjonijiet ta 'tweġibiet awtomatiċi għall-vaganzi
 vacation_user=Il-username tiegħek
@@ -126,6 +135,7 @@ vacation_einterval=Intervall ta 'tweġiba nieqsa jew invalida
 vacation_euser=Username nieqes jew invalidu
 vacation_emsg=Fajl ta 'messaġġ nieqes jew invalidu
 vacation_return=għażliet ta 'vaganza
+
 simple_err=Ma rnexxielux isalva l-għażliet li jibagħtu l-posta
 simple_eforward=L-ebda indirizz ta 'trażmissjoni ma daħal
 simple_eforward2=Indirizz ta 'trażmissjoni uniku għandu jiddaħħal, bħal <tt>foo@bar.com</tt>

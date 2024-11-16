@@ -7,6 +7,7 @@ index_office=Số phòng văn phòng
 index_ophone=Điện thoại làm việc
 index_hphone=Điện thoại nhà
 index_shell=Đăng nhập vỏ
+
 save_err=Không thể thay đổi chi tiết
 save_ereal=Tên thật không thể chứa, hoặc: ký tự
 save_eoffice=Số phòng văn phòng không thể chứa, hoặc: ký tự

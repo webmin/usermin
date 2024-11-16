@@ -4,4 +4,5 @@ index_eadmin=MySQL kudeatzailearen programa $1 ez da zure sisteman aurkitu. MySQ
 index_esql=MySQL bezeroaren programa $1 ez da zure sisteman aurkitu. MySQL ez dago instalatuta, edo moduluaren konfigurazioa okerra da.
 index_ever=MySQL bezeroaren $1 programa ez dirudi bertsio zuzena denik. Webmin-ek MySQL 3. bertsioak eta ondorengoak bakarrik onartzen ditu.
 index_elibrary=MySQL bezeroaren $1 programa ezin izan da exekutatu MySQL partekatutako liburutegiak ezin dituelako aurkitu. Egiaztatu moduluaren konfigurazioa eta ziurtatu <i>Path to MySQL partekatutako liburutegiak</i> ezarrita dagoela.
+
 login_epass=MySQL erabiltzaile edo pasahitz okerra

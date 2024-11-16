@@ -13,6 +13,7 @@ index_cleardesc=Klik butang ini untuk memadam semua e-mel yang telah ditetapkan 
 index_delete=Dihapus E-mel Dipilih
 index_disable=Lumpuhkan Terpilih
 index_enable=Dayakan Terpilih
+
 edit_title1=Buat E-mel Berjadual
 edit_title2=Edit E-mel Dijadualkan
 edit_header=Butiran mesej e-mel yang dijadualkan
@@ -38,12 +39,14 @@ edit_type=Sumber
 edit_uploaded=Dimuat naik
 edit_upload1=Memuat naik fail
 edit_upload2=Lampirkan fail
+
 save_err=Gagal menyimpan e-mel yang dijadualkan
 save_esubject=Subjek mesej yang hilang
 save_eto=Hilang hantar ke alamat
 save_emailfile=Fail teks mesej yang hilang atau tidak sah
 save_efrom=Hilang hantar dari alamat
 save_eat=Masa hilang atau tidak sah untuk dijalankan pada
+
 view_efile=Fail tidak lagi wujud
 save_notice_title=Jadual Disimpan
 save_notice=E-mel yang dijadwalkan telah berjaya diwujudkan - melihat, edit atau padamnya selepas pautan <a href="$1">ini</a>.

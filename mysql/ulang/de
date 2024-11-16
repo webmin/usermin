@@ -4,4 +4,5 @@ index_eadmin=Das MySQL-Administrationsprogramm $1 wurde auf Ihrem System nicht g
 index_esql=Das MySQL-Clientprogramm $1 wurde auf Ihrem System nicht gefunden. Entweder ist MySQL nicht installiert oder die Modulkonfiguration ist fehlerhaft. Wenden Sie sich an Ihren Systemadministrator.
 index_ever=Das MySQL-Clientprogramm $1 scheint nicht in der richtigen Version vorzuliegen. Webmin unterstützt MySQL-Version 3 und höher. Wenden Sie sich an Ihren Systemadministrator.
 index_elibrary=Das MySQL-Clientprogramm $1 konnte nicht ausgeführt werden da es die MySQL-Shared-Libraries nicht gefunden hat. Lassen Sie die Modulkonfiguration durch Ihren Systemadministrator prüfen und sicherstellen, daß der <i>Pfad zu den MySQL-Shared-Libraries</i> richtig gesetzt ist.
+
 login_epass=Falscher MySQL-Benutzername oder -Passwort

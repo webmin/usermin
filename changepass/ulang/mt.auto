@@ -7,13 +7,13 @@ index_new1=Password gdida
 index_new2=Password ġdida għal darb'oħra
 index_change=Ibdel Issa
 index_return=forma ta 'bidla tal-password
+
 index_passtab=Bidla tal-Password
 index_recoverytab=Indirizz ta 'rkupru tal-password
 index_desc3=Uża din il-formola biex tidħol f’indirizz alternattiv li tista ’tintbagħat password temporanja jekk tinsa l-password kurrenti tiegħek.
 index_recovery=Indirizz alternattiv għall-irkupru tal-password
 index_recoverydef=L-ebda sett
 index_recoverysel=Ibgħat email lil
-index_return=forma ta 'bidla tal-password
 change_err=Ma rnexxielux ibiddel il-password
 change_title=Bidla l-Password
 change_oka=Il-password tiegħek għal $1 inbidlet b'suċċess. Kull usermin, SSH, FTP jew logins tal-email minn issa 'l quddiem se jeħtieġu l-password il-ġdid.
@@ -37,9 +37,11 @@ change_epasswd_same=Il-password fiha jew hija l-istess bħal username
 change_epasswd_new=Il-password hija l-istess bħall-password l-antika
 change_emysql=L-login kurrenti fil-modulu MySQL mhuwiex korrett.
 change_eformat=Il-format tal-hashing tal-password ikkonfigurat mhux sostnut
+
 recovery_title=Indirizz ta 'rkupru
 recovery_err=Ma rnexxielux jistabbilixxi l-indirizz tal-irkupru
 recovery_eemail=Indirizz ta 'email li jħares validu ma kienx imdaħħal
 recovery_cleared=L-indirizz tal-irkupru ġie kklerjat.
 recovery_set=L-indirizz ta 'l-irkupru għall-użu meta ġiet mitluba reset tal-password ġie stabbilit għal $1.
+
 left_changepass=Biddel il-password

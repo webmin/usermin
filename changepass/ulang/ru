@@ -6,7 +6,7 @@ index_new1=Новый пароль
 index_new2=Введите новый пароль ещё раз
 index_change=Смена пароля
 index_return=Форма для изменения пароля
-index_return=Форма для изменения пароля
+
 change_err=невозможно изменить пароль
 change_title=Смена пароля
 change_enew1=отсутствует новый пароль

@@ -1,5 +1,9 @@
 index_return=seznam e-mailů
+index_searching=Probíhá vyhledávání $1. Po dokončení se zde zobrazí výsledky.
+index_searching2=Probíhá složité hledání. Po dokončení se zde zobrazí výsledky.
+
 send_eclosemsg=Opravdu chcete tuto stránku zavřít a ztratit probíhající zprávu?
+
 address_allow=Povolené adresy
 address_deny=Odepřené adresy
 address_allowdesc=E-mail z následujících adres bude vždy přijat a nikdy nebude klasifikován jako spam.
@@ -26,6 +30,7 @@ address_exportdup0=Zahrňte oba
 address_exportdup1=Zahrnout pouze první
 address_exportfmt=Export ve formátu
 address_exportok=Exportovat nyní
+
 import_err=Import adres se nezdařil
 import_title=Import adresáře
 import_doing=Výsledky importu adresáře.
@@ -40,17 +45,27 @@ import_noemail=<font color=red>Chybějící nebo neplatná e-mailová adresa</fo
 import_same=Beze změny, přeskočeno
 import_skip=Duplikovaná adresa, přeskočena
 import_enetvcard=Modul <tt>Net::vCard</tt> Perl je potřebný ke čtení souborů ve formátu vCard
+
 export_err=Export se nezdařil
+
 edit_mode3=Soubor koše
 edit_type7=Jeden soubor (MBX)
+
 save_ename4=Názvy složek mohou obsahovat pouze písmena, čísla, mezery a tečky, pomlčky a podtržítka
+
 search_eself=Složku výsledků hledání nelze prohledat
+search_doing=Hledání $1 ve složce $2.
+search_doing2=Hledání zpráv ve vybrané složce.
+search_results=Po dokončení vyhledávání se ve složce <a href='$1'>výsledky vyhledávání</a> zobrazí odpovídající zprávy...
+
 auto_action2=Přesunout do složky $1 
 auto_edest=Vybraná cílová složka neexistuje!
 auto_ewrite=Vybranou cílovou složku nelze zapsat
+
 allow_err=Uložení povolených adres se nezdařilo
 deny_err=Uložení zamítnutých adres se nezdařilo
 allow_eaddr='$1' není platná e-mailová adresa
+
 right_header=Systémové informace
 right_host=Název hostitele systému
 right_os=Operační systém

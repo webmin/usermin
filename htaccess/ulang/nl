@@ -8,6 +8,7 @@ index_find=Zoek optie files in:
 index_finddesc=Doorzoek de ingevulde directory naar een $1 file die handmatig gemaakt is. Pas wanneer handmatig gemaakte files zijn gevonden kunnen ze worden bewerkt met deze module.
 index_return=optie file lijst
 index_apache=Er is geen Apache versie en module informatie gevonden in de Webmin configuratie directory $1. Deze module vereist dat Webmin is geinstalleerd en de Apache module correct is geconfigureerd.
+
 find_title=Zoek Optie Files
 find_list=De volgende optie files zijn gevonden onder $1 ..
 find_none=Er zijn geen $1 optie files gevonden onder $2.

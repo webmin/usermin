@@ -13,6 +13,7 @@ index_cleardesc=Tímto tlačítkem vymažete všechny emaily, které byly úspě
 index_delete=Smazány vybrané maily
 index_disable=Vyřadit vybrané
 index_enable=Zařadit vybrané
+
 edit_title1=Vytvořit plánovanou zprávu
 edit_title2=Upravit plánovanou zprávu
 edit_header=Podrobnosti plánované zprávy
@@ -33,10 +34,12 @@ edit_files=Přílohy
 edit_file=Název souboru
 edit_type=Zdroj
 edit_uploaded=Nahráno
+
 save_err=Nepodařilo se uložit naplánovanou zprávu
 save_esubject=Chybějící předmět zprávy
 save_eto=Chybějící adresa příjemce
 save_emailfile=Chybějící nebo neplatný soubor s textem
 save_efrom=Chybějící adresa odesilatele
 save_eat=Chybějící nebo neplatný naplánovaný čas
+
 view_efile=Soubor již neexistuje

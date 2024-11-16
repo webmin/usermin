@@ -25,6 +25,7 @@ index_fromdef=Alamat lalai anda
 index_charset=Set aksara aksara
 index_charsetdef=Dari bahasa semasa
 index_charsetother=Set aksara lain
+
 aliases_to=Teruskan ..
 aliases_from=Mel untuk ..
 aliases_type1=Alamat 1
@@ -36,6 +37,7 @@ aliases_type6=Gunakan fail penapis $1
 aliases_type7=Peti mel pengguna biasa
 aliases_type8=Percutian autoreply
 aliases_enabled=Dihidupkan?
+
 aform_type0=Tiada
 aform_type1=Alamat emel
 aform_type2=Alamat dalam fail
@@ -53,10 +55,12 @@ aform_afile=Edit ..
 aform_return=alias
 aform_name=Mel untuk ..
 aform_vacation=Edit pilihan percutian.
+
 afile_title=Edit Fail Alamat
 afile_desc=Gunakan kawasan teks di bawah untuk mengedit alamat dalam fail $1.
 afile_undo=Undo Perubahan
 afile_ewrite=Gagal menulis ke alamat fail : $1 
+
 asave_err=Gagal menyimpan penghantaran
 asave_eaddr='$1' bukan alamat yang sah
 asave_etype1='$1' bukan alamat e-mel yang sah
@@ -72,6 +76,7 @@ asave_ename=Surat yang hilang atau tidak sah untuk nama
 asave_esame=Alias untuk alamat itu sudah wujud
 asave_enone=Tiada apa-apa yang dipilih untuk terus maju
 asave_ecannot=Jenis pemajuan tidak sah dipilih
+
 ffile_title=Edit Fail Penapis
 ffile_desc=Gunakan borang di bawah untuk menetapkan peraturan penapis dalam fail $1.
 ffile_efile=Anda tidak dibenarkan mengedit $1.
@@ -88,6 +93,7 @@ ffile_err=Gagal menyimpan fail penapis
 ffile_ematch=Perlawanan yang tiada
 ffile_eaction=Alamat penghantaran yang hilang
 ffile_ewrite=Gagal menulis ke fail penapis : $1 
+
 rfile_title=Edit Fail Autoreply
 rfile_desc=Gunakan kawasan teks di bawah untuk mengedit mesej autoreply dalam $1. Mesej itu mungkin mengandungi makro $SUBJECT, $FROM, $TO, $DATE dan $BODY yang akan diperluaskan apabila autoreply diaktifkan.
 rfile_desc2=Anda juga boleh menetapkan tajuk surat yang menambah atau menggantikan lalai yang digunakan dalam autoreply dengan meletakkan garis seperti: <br><tt> Dari: foo@bar.com </tt><br> <tt>Subjek: Pada hari cuti</tt> <br> di bahagian atas mesej, dipisahkan dari tubuh dengan satu baris kosong.
@@ -105,13 +111,16 @@ rfile_auto=Automatik (berdasarkan alamat penerima)
 rfile_efrom=Kehilangan Daripada: alamat
 rfile_fromdesc=A Dari: alamat harus selalu ditentukan jika mungkin, kerana kaedah automatik mungkin tidak boleh dipercayai.
 rfile_err=Gagal menyimpan fail autoreply
+
 vfile_title=Edit Fail Balas Percutian
 vfile_desc=Gunakan kawasan teks di bawah untuk mengedit mesej autoreply dalam $1.
 vfile_subject=Subjek mesej
 vfile_err=Gagal menyimpan fail balas bercuti
 vfile_esubject=Subjek mesej yang hilang
+
 edit_title=Edit Fail Hadapan
 edit_desc=Halaman ini membolehkan anda mengedit secara manual kandungan fail $1 anda. Berhati-hati, kerana tiada pemeriksaan ralat dilakukan pada input anda.
+
 vacation_title=Pilihan Percutian
 vacation_header=Pilihan auto jawapan percutian
 vacation_user=Nama pengguna anda
@@ -126,6 +135,7 @@ vacation_einterval=Selang jawapan yang tidak dijawab atau tidak sah
 vacation_euser=Nama pengguna yang hilang atau tidak sah
 vacation_emsg=Fail mesej hilang atau tidak sah
 vacation_return=pilihan percutian
+
 simple_err=Gagal menyimpan pilihan penghantaran mel
 simple_eforward=Tiada alamat pemajuan yang dimasukkan
 simple_eforward2=Alamat pemajuan tunggal mesti dimasukkan, seperti <tt>foo@bar.com</tt>

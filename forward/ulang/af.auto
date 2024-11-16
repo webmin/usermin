@@ -25,6 +25,7 @@ index_fromdef=U verstekadres
 index_charset=Boodskapkarakterstel
 index_charsetdef=Van die huidige taal
 index_charsetother=Ander karakterset
+
 aliases_to=Stuur aan na ..
 aliases_from=Pos vir ..
 aliases_type1=Adres 1
@@ -36,6 +37,7 @@ aliases_type6=Pas filterlêer $1 toe
 aliases_type7=Normale gebruiker-posbus
 aliases_type8=Vakansie reageer
 aliases_enabled=In staat gestel?
+
 aform_type0=Geen
 aform_type1=E-pos adres
 aform_type2=Adresse in lêer
@@ -53,10 +55,12 @@ aform_afile=Wysig ..
 aform_return=alias
 aform_name=Pos vir ..
 aform_vacation=Wysig vakansie-opsies ..
+
 afile_title=Bewerk adreslêer
 afile_desc=Gebruik die onderstaande teksarea om die adresse in die lêer $1 te wysig.
 afile_undo=Ontdoen veranderinge
 afile_ewrite=Kon nie na adreslêer skryf nie : $1 
+
 asave_err=Kon nie aanstuur stoor nie
 asave_eaddr='$1' is nie 'n geldige adres nie
 asave_etype1='$1' is nie 'n geldige e-posadres nie
@@ -72,6 +76,7 @@ asave_ename=Ontbrekende of ongeldige pos vir naam
 asave_esame='N Alias vir daardie adres bestaan reeds
 asave_enone=Niks is gekies om aan te stuur nie
 asave_ecannot=Ongeldige aanstuurtipe is gekies
+
 ffile_title=Wysig filterlêer
 ffile_desc=Gebruik die onderstaande vorm om filterreëls in die lêer $1 op te stel.
 ffile_efile=U mag nie $1 wysig nie.
@@ -88,6 +93,7 @@ ffile_err=Kon nie die filterlêer stoor nie
 ffile_ematch=Ontbrekende wedstryd
 ffile_eaction=Aanstuuradres ontbreek
 ffile_ewrite=Kon nie skryf na filterlêer nie : $1 
+
 rfile_title=Wysig lêer outomaties aan
 rfile_desc=Gebruik die onderstaande teksarea om die outoritiese boodskap in $1 te wysig. Die boodskap kan die makro's bevat $SUBJECT, $FROM, $TO, $DATE en $ LIGGAAM wat uitgebrei sal word wanneer die outoreplaas geaktiveer is.
 rfile_desc2=U kan ook poshoofde instel wat die standaardinstellings wat in die outorepassing gebruik word, byvoeg of vervang deur lyne soos: <br><tt> Vanaf: foo@bar.com </tt><br> <tt>Onderwerp: Op vakansie</tt> <br> aan die bokant van die boodskap, geskei van die liggaam met 'n enkele leë lyn.
@@ -105,13 +111,16 @@ rfile_auto=Outomaties (gebaseer op die adres van die ontvanger)
 rfile_efrom=Ontbreek vanaf: adres
 rfile_fromdesc=A Van: adres moet altyd gespesifiseer word waar moontlik, aangesien die outomatiese metode moontlik nie betroubaar is nie.
 rfile_err=Kon nie outomatiese lêer stoor nie
+
 vfile_title=Wysig lêer vir die antwoord van vakansie
 vfile_desc=Gebruik die onderstaande teksarea om die outoritiese boodskap in $1 te wysig.
 vfile_subject=Boodskap onderwerp
 vfile_err=Kon nie die antwoordantwoordlêer van vakansie slaan nie
 vfile_esubject=Onderwerp ontbreek
+
 edit_title=Wysig aanstuurlêer
 edit_desc=Op hierdie bladsy kan u die inhoud van u $1 -lêer met die hand wysig. Wees versigtig, aangesien u foute nie op u invoer gedoen word nie.
+
 vacation_title=Vakansie-opsies
 vacation_header=Opsies vir outo-antwoorde vir vakansie
 vacation_user=Jou verbruikersnaam
@@ -126,6 +135,7 @@ vacation_einterval=Antwoordinterval ontbreek of ongeldig
 vacation_euser=Gebruikernaam ontbreek of ongeldig
 vacation_emsg=Ontbrekende of ongeldige boodskaplêer
 vacation_return=vakansie-opsies
+
 simple_err=Stooropsies vir e-pos kon nie gestoor word nie
 simple_eforward=Geen aanstuuradres ingevoer nie
 simple_eforward2='N Enkele aanstuuradres moet ingevoer word, soos <tt>foo@bar.com</tt>

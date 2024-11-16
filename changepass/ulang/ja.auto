@@ -6,6 +6,7 @@ index_desc3=このフォームを使用して、現在のパスワードを忘�
 index_recovery=パスワード回復用の代替アドレス
 index_recoverydef=設定なし
 index_recoverysel=にメールを送信
+
 change_oka=$1のパスワードは正常に変更されました。これ以降、Usermin、SSH、FTP、または電子メールのログインでは、新しいパスワードが必要になります。
 change_mysql=MySQLデータベースのパスワードも変更されました。
 change_mysql2=ただし、MySQLデータベースのパスワードは変更されませんでした： $1
@@ -20,9 +21,11 @@ change_epasswd_same=パスワードにユーザー名が含まれている、ま
 change_epasswd_new=パスワードは古いパスワードと同じです
 change_emysql=MySQLモジュールの現在のログインが正しくありません。
 change_eformat=構成されたパスワードハッシュ形式はサポートされていません
+
 recovery_title=復旧アドレス
 recovery_err=予備のアドレスを設定できませんでした
 recovery_eemail=有効なメールアドレスが入力されていません
 recovery_cleared=リカバリアドレスがクリアされました。
 recovery_set=パスワードのリセットを要求するときに使用する回復アドレスが $1に設定されました。
+
 left_changepass=パスワードを変更する

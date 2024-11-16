@@ -1,16 +1,21 @@
 index_title=E-mail în $1 
 index_return=lista de e-mail
+index_searching=O căutare pentru $1 este în curs. Rezultatele vor fi afișate aici când se finalizează.
+index_searching2=O căutare complexă este în curs. Rezultatele vor fi afișate aici când se finalizează.
+
 mail_title=Citiți Mail
 mail_none=Nu există mesaje în folderul $1 
 mail_pos=Mesaje $1 la $2 din $3 în folderul $4 
 mail_return=cutie poștală
 mail_quota=Utilizarea $1 din $2 
 mail_special=Special
+
 send_efile=Fișierul atașat $1 nu poate fi citit sau nu există
 send_nobody=nimeni
 send_etomsg=Nu a fost introdusă adresa No To, Cc sau Bcc
 send_esubjectmsg=Nu a fost introdus subiectul - sper să fie OK
 send_eclosemsg=Sigur doriți să închideți această pagină și să pierdeți mesajul în desfășurare?
+
 address_chooser=Selectați adresa ..
 address_addr=Adresa de email
 address_name=Nume real
@@ -61,6 +66,7 @@ address_exportdup0=Includeți ambele
 address_exportdup1=Includeți doar primul
 address_exportfmt=Export în format
 address_exportok=Exportați acum
+
 import_err=Importarea adreselor nu a reușit
 import_title=Importați agenda de adrese
 import_doing=Rezultatele importului agendei de adrese ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Adresa de e-mail lipsă sau nevalidă</font>
 import_same=Neschimbat, sărit
 import_skip=Adresa duplicată, sărită
 import_enetvcard=Modulul <tt>Net::vCard</tt> Perl este necesar pentru a citi fișierele în format vCard
+
 export_err=Exportul nu a reușit
+
 group_err=Nu a reușit salvarea grupului de adrese
 group_egroup=Numele grupului lipsă sau nevalid
 group_emembers=Nu au fost introduse adrese de e-mail ale membrilor
+
 folders_title=Gestionează dosare
 folders_instr=Ajutor și tipuri de folder
 folders_desc2=Fiecare dintre folderele enumerate mai jos poate conține e-mailuri pe care le mutați în el sau e-mailuri introduse automat. Sunt disponibile următoarele tipuri de folder :
@@ -124,6 +133,7 @@ folders_delete=Ștergeți dosarele selectate
 folders_addimap=Adăugați un nou folder.
 folders_addcomp=Adăugați un nou folder compus.
 folders_addvirt=Adăugați un nou folder virtual.
+
 edit_title1=Creeaza dosar
 edit_title2=Editează dosarul
 edit_header=Detalii despre folderul de e-mail
@@ -161,6 +171,7 @@ edit_comps=Sub-foldere, cele mai vechi mai întâi
 edit_comp=Compozit
 edit_virt=Virtual
 edit_delete=Ștergeți mesajul real când ștergeți din dosar?
+
 save_err=Salvarea dosarului nu a reușit
 save_ecannot=Nu aveți voie să utilizați acest tip de folder
 save_ename=Numele folderului lipsește
@@ -191,7 +202,9 @@ save_edelete=Nu a reușit să ștergeți e-mailul : $1
 save_eflag=Setarea indicatorilor IMAP nu a reușit : $1 
 save_eappend=Nu a putut adăuga e-mail la căsuța poștală IMAP : $1 
 save_esearch=Căutarea poștală IMAP nu a reușit : $1 
+
 epop3lock_tries=Nu a reușit să blocheze fișierul de mail $1 după ce ați încercat $2 minute, din cauza unui fișier de blocare POP3.
+
 view_dsn=Notificarea stării livrării
 view_dnsnow=Un mesaj de notificare a stării de livrare tocmai a fost trimis la $1.
 view_dsnbefore=Un mesaj de notificare a stării de livrare a fost trimis la $1 pe $2.
@@ -204,21 +217,30 @@ view_quick=Raspuns rapid
 view_quick_all=Răspunde la toți
 view_quick_quote=Citat original
 view_quick_send=Trimite
+
 search_virtualize=Creați un folder virtual numit:
 search_dest=Magazinează rezultatele în
 search_dest1=Dosarul Rezultate căutare
 search_dest0=Nume folder virtual numit
 search_edest=Lipsește numele folderului virtual pentru rezultate
 search_eself=Nu se poate căuta folderul cu rezultatele căutării
+search_doing=Se caută $1 în folderul $2.
+search_doing2=Căutarea mesajelor în folderul selectat.
+search_results=Mesajele care se potrivesc vor fi afișate în dosarul <a href='$1'>rezultatele căutării</a> când căutarea se finalizează...
+
 virtualize_ename=Lipsește numele folderului virtual
+
 delete_enoadd=Mesajele nu pot fi mutate în dosare virtuale, doar copiate
+
 sig_title=Editează semnătură
 sig_desc=Utilizați acest formular pentru a edita semnătura dvs. de e-mail în fișierul $1.
 sig_undo=Anula
 sig_enone=Nu a fost definit un fișier de semnătură
 sig_eopen=Nu a putut fi deschis fișierul de semnătură : $1 
+
 quota_inbox=Cota pentru e-mail de $1 a fost depășită
 quota_inbox2=Cota de mesaje de mail $1 depășită
+
 auto_title=Eliminarea automată a dosarelor
 auto_header=Opțiuni de ștergere a folderului programat
 auto_enabled=Ștergeți automat mesajele?
@@ -236,6 +258,7 @@ auto_action1=Ștergeți toate mesajele din folder
 auto_action2=Mutați-vă în folderul $1 
 auto_edest=Dosarul de destinație selectat nu există!
 auto_ewrite=Dosarul de destinație selectat nu poate fi scris
+
 copy_title=Copiați toate e-mailurile
 copy_header=Copiați toate mesajele din folder
 copy_source=Dosarul sursă
@@ -245,18 +268,22 @@ copy_ok=Copiați acum
 copy_doing=Copierea tuturor mesajelor de la $1 la $2.
 copy_done=.. Terminat
 copy_deleting=Folderul gol $1 ..
+
 fdelete_title=Ștergeți folderele
 fdelete_err=Nu a reușit ștergerea dosarelor
 fdelete_enone=Nimic selectat
 fdelete_rusure=Sigur doriți să ștergeți folderele selectate $1 ? $2 de e-mail vor fi șterse pentru totdeauna.
 fdelete_rusure2=Sigur doriți să ștergeți folderele selectate $1 ?
 fdelete_delete=Șterge acum
+
 detachall_err=Nu a reușit salvarea tuturor atașamentelor
 detachall_emkdir=Nu s-a putut crea directorul temporar : $1 
 detachall_ezip=Cod poștal eșuat : $1 
+
 allow_err=Nu a reușit salvarea adreselor permise
 deny_err=Nu a reușit să salveze adresele refuzate
 allow_eaddr=„$1” nu este o adresă de e-mail validă
+
 right_header=Informatii despre sistem
 right_host=Nume gazdă sistem
 right_os=Sistem de operare

@@ -2,5 +2,6 @@ index_title=Kvote diska
 index_quotas=Diskovne kvote za $1 v nameščenih datotečnih sistemih
 index_none=V nobenem nameščenem datotečnem sistemu nimate nobenih uporabniških kvot.
 index_gquotas=Diskovne kvote za skupino $1 na nameščenih datotečnih sistemih
+
 right_header=Diskovne kvote
 right_out=$1 % $2 

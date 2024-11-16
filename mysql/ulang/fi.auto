@@ -4,4 +4,5 @@ index_eadmin=MySQL-hallintaohjelmaa $1 ei löydy järjestelmästäsi. Ehkä MySQ
 index_esql=MySQL-asiakasohjelmaa $1 ei löydy järjestelmästäsi. Ehkä MySQL: tä ei ole asennettu tai moduulin kokoonpano on väärä.
 index_ever=MySQL-asiakasohjelma $1 ei näytä olevan oikea versio. Webmin tukee vain MySQL-versioita 3 ja sitä uudempia.
 index_elibrary=MySQL-asiakasohjelmaa $1 ei voitu suorittaa, koska se ei löytänyt MySQL-jaettuja kirjastoja. Tarkista moduulin kokoonpano ja varmista, että <i>Polku MySQL-jaettuihin kirjastoihin</i> on määritetty.
+
 login_epass=Virheellinen MySQL-käyttäjänimi tai salasana

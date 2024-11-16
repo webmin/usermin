@@ -13,6 +13,7 @@ index_cleardesc=Klicka på den här knappen för att ta bort alla schemalagda e-
 index_delete=Raderade valda e-postmeddelanden
 index_disable=Inaktivera vald
 index_enable=Aktivera vald
+
 edit_title1=Skapa schemalagd e-post
 edit_title2=Redigera schemalagd e-post
 edit_header=Planerade e-postmeddelandedetaljer
@@ -38,12 +39,14 @@ edit_type=Källa
 edit_uploaded=uppladdad
 edit_upload1=Ladda upp filer
 edit_upload2=Bifoga en fil
+
 save_err=Det gick inte att spara schemalagd e-post
 save_esubject=Ämnet saknas meddelandet
 save_eto=Saknas skicka till adress
 save_emailfile=Textfil för meddelanden saknas eller ogiltig
 save_efrom=Saknad skicka från adress
 save_eat=Saknas eller ogiltig tid att köra kl
+
 view_efile=Filen finns inte längre
 save_notice_title=Schema sparat
 save_notice=Schemalagd e-post har skapats med framgång - visa, redigera eller ta bort den efter <a href="$1">den här länken</a>.

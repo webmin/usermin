@@ -1,16 +1,21 @@
 index_title=Mail i $1 
 index_return=mail-liste
+index_searching=En søgning efter $1 er i gang. Resultaterne vil blive vist her, når det er færdigt.
+index_searching2=En kompleks søgning er i gang. Resultaterne vil blive vist her, når det er færdigt.
+
 mail_title=Læs mail
 mail_none=Der er ingen meddelelser i mappen $1 
 mail_pos=Meddelelser $1 til $2 af $3 i mappe $4 
 mail_return=postkasse
 mail_quota=Brug af $1 ud af $2 
 mail_special=Særlig
+
 send_efile=Den vedhæftede fil $1 kan ikke læses eller findes ikke
 send_nobody=ingen
 send_etomsg=Ingen til, Cc eller Bcc adresse blev indtastet
 send_esubjectmsg=Intet emne blev angivet - håber det er OK
 send_eclosemsg=Er du sikker på, at du vil lukke denne side og miste den igangværende meddelelse?
+
 address_chooser=Vælg adresse ..
 address_addr=Email adresse
 address_name=Rigtige navn
@@ -61,6 +66,7 @@ address_exportdup0=Medtag begge dele
 address_exportdup1=Inkluder kun den første
 address_exportfmt=Eksport i format
 address_exportok=Eksporter nu
+
 import_err=Import af adresser mislykkedes
 import_title=Importer adressebog
 import_doing=Resultater af import af adressebog ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Manglende eller ugyldig e-mail-adresse</font>
 import_same=Uændret, sprunget over
 import_skip=Dupliceret adresse, sprunget over
 import_enetvcard=Modulet <tt>Net::vCard</tt> er nødvendigt for at læse filer i vCard-format
+
 export_err=Eksport af adresser mislykkedes
+
 group_err=Adressegruppen kunne ikke gemmes
 group_egroup=Manglende eller ugyldigt gruppenavn
 group_emembers=Der er ikke indtastet nogen e-mailadresser for medlemmer
+
 folders_title=Administrer mapper
 folders_instr=Hjælp og mappetyper
 folders_desc2=Hver af de mapper, der er anført nedenfor, kan indeholde e-mail, som du flytter ind i den, eller e-mails, der automatisk placeres i den. Følgende mappetyper er tilgængelige :
@@ -124,6 +133,7 @@ folders_delete=Slet valgte mapper
 folders_addimap=Tilføj en ny mappe.
 folders_addcomp=Tilføj en ny sammensat mappe.
 folders_addvirt=Tilføj en ny virtuel mappe.
+
 edit_title1=Opret mappe
 edit_title2=Rediger mappe
 edit_header=Oplysninger om postmappe
@@ -161,6 +171,7 @@ edit_comps=Undermapper, ældst først
 edit_comp=Sammensatte
 edit_virt=Virtual
 edit_delete=Slet ægte besked, når du sletter fra mappen?
+
 save_err=Mappen kunne ikke gemmes
 save_ecannot=Du har ikke tilladelse til at bruge denne mappetype
 save_ename=Manglende mappenavn
@@ -191,7 +202,9 @@ save_edelete=Kunne ikke slette e-mail : $1
 save_eflag=Kunne ikke indstille IMAP-flag : $1 
 save_eappend=Kunne ikke tilføje e-mail til IMAP-postkassen : $1 
 save_esearch=Kunne ikke søge IMAP-postkasse : $1 
+
 epop3lock_tries=Kunne ikke låse mail-fil $1 efter at have prøvet i $2 minutter på grund af en POP3-låsefil.
+
 view_dsn=Meddelelse om leveringsstatus
 view_dnsnow=En meddelelse om leveringsstatus er netop blevet sendt til $1.
 view_dsnbefore=Der blev sendt en meddelelse om leveringsstatus til $1 på $2.
@@ -204,21 +217,30 @@ view_quick=Hurtigt svar
 view_quick_all=Svar alle
 view_quick_quote=Citat original
 view_quick_send=Sende
+
 search_virtualize=Opret virtuel mappe navngivet:
 search_dest=Gem resultater i
 search_dest1=Mappe med søgeresultater
 search_dest0=Ny virtuel mappe navngivet
 search_edest=Manglende virtuel mappenavn til resultater
 search_eself=Mappen med søgeresultater kan ikke søges
+search_doing=Søger efter $1 i mappen $2.
+search_doing2=Søger efter beskeder i den valgte mappe.
+search_results=Matchende beskeder vil blive vist i mappen <a href='$1'>søgeresultater</a>, når søgningen er fuldført...
+
 virtualize_ename=Manglende virtuel mappenavn
+
 delete_enoadd=Meddelelser kan ikke flyttes til virtuelle mapper, kun kopieres
+
 sig_title=Rediger underskrift
 sig_desc=Brug denne formular til at redigere din e-mail-signatur i filen $1.
 sig_undo=Fortryd
 sig_enone=Ingen signaturfil defineret
 sig_eopen=Kunne ikke åbne signaturfilen : $1 
+
 quota_inbox=Kvote for post på $1 overskredet
 quota_inbox2=Kvoten på $1 e-mails overskredet
+
 auto_title=Automatisk mappe-rydning
 auto_header=Valgmuligheder for planlagt mappe
 auto_enabled=Slet meddelelser automatisk?
@@ -236,6 +258,7 @@ auto_action1=Slet alle meddelelser i mappen
 auto_action2=Gå til mappe $1 
 auto_edest=Den valgte destinationsmappe findes ikke!
 auto_ewrite=Den valgte destinationsmappe kan ikke skrives til
+
 copy_title=Kopier al post
 copy_header=Kopier alle meddelelser i mappen
 copy_source=Kildemappe
@@ -245,18 +268,22 @@ copy_ok=Kopier nu
 copy_doing=Kopiering af alle meddelelser fra $1 til $2 ..
 copy_done=.. Færdig
 copy_deleting=Tøm mappe $1 ..
+
 fdelete_title=Slet mapper
 fdelete_err=Kunne ikke slette mapper
 fdelete_enone=Ingen valgt
 fdelete_rusure=Er du sikker på, at du vil slette de valgte% mapper? $2 af e-mail vil blive slettet for evigt.
 fdelete_rusure2=Er du sikker på, at du vil slette de valgte% mapper?
 fdelete_delete=Slet nu
+
 detachall_err=Kunne ikke gemme alle vedhæftede filer
 detachall_emkdir=Kunne ikke oprette midlertidig mappe : $1 
 detachall_ezip=ZIP mislykkedes : $1 
+
 allow_err=Kunne ikke gemme tilladte adresser
 deny_err=Kunne ikke gemme afviste adresser
 allow_eaddr='$1' er ikke en gyldig e-mail-adresse
+
 right_header=Systemoplysninger
 right_host=Systemværtsnavn
 right_os=Operativ system

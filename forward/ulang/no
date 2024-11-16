@@ -22,6 +22,7 @@ index_from=Fra: adresse for svar
 index_fromauto=Gjett basert på mottaker
 index_fromaddr=Bruk adresse
 index_fromdef=Din standard adresse
+
 aliases_to=Videresend til..
 aliases_from=E-post til..
 aliases_type1=Adresse $1
@@ -33,6 +34,7 @@ aliases_type6=Bruk filterfil $1
 aliases_type7=Normal bruker postboks
 aliases_type8=Ferie autosvar
 aliases_enabled=Aktivert?
+
 aform_type0=Ingen
 aform_type1=E-post adresse
 aform_type2=Adresser i fil
@@ -50,10 +52,12 @@ aform_afile=Rediger..
 aform_return=alias
 aform_name=E-post til..
 aform_vacation=Rediger ferieinnstillinger..
+
 afile_title=Rediger adressefil
 afile_desc=Bruk tekstområdet nedenfor til å redigere adressene i filen $1.
 afile_undo=Angre endringer
 afile_ewrite=Kunne ikke skrive til fil med adresser : $1
+
 asave_err=Kunne ikke lagre videresending
 asave_eaddr='$1' er ikke en gyldig adresse
 asave_etype1='$1' er ikke en gyldig e-post adresse
@@ -69,6 +73,7 @@ asave_ename=Manglende eller ugyldig e-post til navn
 asave_esame=Det finnes allerede et alias for den adressen
 asave_enone=Ingenting var valgt å videresende til
 asave_ecannot=Ugyldig videresendingstype valgt
+
 ffile_title=Rediger filterfil
 ffile_desc=Bruk skjemaet nedenfor til å sette opp filterregler i filen $1.
 ffile_efile=Du har ikke lov til å redigere $1.
@@ -85,6 +90,7 @@ ffile_err=Kunne ikke lagre filterfil
 ffile_ematch=Manglende match
 ffile_eaction=Mangler videresendingsadresse
 ffile_ewrite=Kunne ikke skrive til filterfil : $1
+
 rfile_title=Rediger Autosvar fil
 rfile_desc=Bruk tekstområdet nedenfor til å redigere autosvar meldingen i  $1. Meldingen kan inneholde makroene $SUBJECT, $FROM, $TO, $DATE og $BODY som vil bli utvidet når autosvar aktiveres.
 rfile_desc2=Du kan også angi e-post headere som legger til eller erstatter standardverdien brukt i autosvar ved å legge inn linjer som <br><tt>From: foo@bar.com</tt><br><tt>Subject: På ferie</tt><br>i toppen av meldingen, adskilt fra meldingsteksten med en enkelt blank linje.
@@ -102,13 +108,16 @@ rfile_auto=Automatisk (basert på mottakers adresse)
 rfile_efrom=Mangler Fra: adresse
 rfile_fromdesc=En Fra: adresse bør alltid angis hvis mulig, siden den automatiske metoden ikke alltid er pålitelig.
 rfile_err=Kunne ikke lagre autosvarfil
+
 vfile_title=Rediger feriesvar til
 vfile_desc=Bruk tekstområdet nedenfor til å lagre autosvar meldingen i $1.
 vfile_subject=Meldingsemne
 vfile_err=Kunne ikke lagre feriesvar fil
 vfile_esubject=Mangler meldingsemne
+
 edit_title=Rediger videresendingsfil
 edit_desc=Denne siden lar deg manuelt redigere innholdet i din $1 fil. Vær forsiktig, siden det ikke foretas noen feilsjekk på det du skriver inn.
+
 vacation_title=Ferie innstillinger
 vacation_header=Ferie autosvar innstillinger
 vacation_user=Ditt brukernavn
@@ -123,6 +132,7 @@ vacation_einterval=Manglende eller ugyldig svarintervall
 vacation_euser=Manglende eller ugyldig brukernavn
 vacation_emsg=Manglende eller ugyldig meldingsfil
 vacation_return=ferie innstillinger
+
 simple_err=Kunne ikke lagre innstillinger for videresending av e-post
 simple_eforward=Ingen videresendingsadresse angitt
 simple_eforward2=Du må angi en enkelt videresendingsadresse som <tt>foo@bar.com</tt>

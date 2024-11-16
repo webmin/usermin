@@ -7,13 +7,13 @@ index_new1=Nové heslo
 index_new2=Nové heslo znova
 index_change=Zmeniť
 index_return=formulár na zmenu hesla
+
 index_passtab=Zmena hesla
 index_recoverytab=Adresa na obnovenie hesla
 index_desc3=Pomocou tohto formulára môžete zadať alternatívnu adresu, na ktorú je možné poslať dočasné heslo, ak zabudnete svoje súčasné heslo.
 index_recovery=Alternatívna adresa na obnovenie hesla
 index_recoverydef=Žiadne
 index_recoverysel=Poslať e-mail na adresu
-index_return=formulár na zmenu hesla
 change_err=Heslo sa nepodarilo zmeniť
 change_title=Zmenené heslo
 change_oka=Vaše heslo pre $1 bolo úspešne zmenené. Nové prihlásenie Usermin, SSH, FTP alebo e-mail bude odteraz vyžadovať nové heslo.
@@ -37,9 +37,11 @@ change_epasswd_same=Heslo obsahuje alebo je rovnaké ako používateľské meno
 change_epasswd_new=Heslo je rovnaké ako staré heslo
 change_emysql=Aktuálne prihlásenie do modulu MySQL je nesprávne.
 change_eformat=Konfigurovaný formát hashovania heslom nie je podporovaný
+
 recovery_title=Obnovovacia adresa
 recovery_err=Nepodarilo sa nastaviť adresu na obnovenie
 recovery_eemail=Nebola zadaná platná e-mailová adresa
 recovery_cleared=Adresa na obnovenie účtu bola vymazaná.
 recovery_set=Obnovovacia adresa, ktorá sa má použiť pri žiadosti o obnovenie hesla, bola nastavená na $1.
+
 left_changepass=Zmeniť heslo

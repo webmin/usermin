@@ -13,6 +13,7 @@ index_cleardesc=Faceți clic pe acest buton pentru a șterge toate e-mailurile p
 index_delete=Șterse e-mailuri selectate
 index_disable=Dezactivare selectat
 index_enable=Activați selectat
+
 edit_title1=Creați e-mail programat
 edit_title2=Editați e-mailul programat
 edit_header=Detalii programate de e-mail
@@ -38,12 +39,14 @@ edit_type=Sursă
 edit_uploaded=încărcat
 edit_upload1=Încărca fișiere
 edit_upload2=Ataseaza un fisier
+
 save_err=Nu a reușit să salvați e-mailul programat
 save_esubject=Lipsește subiectul mesajului
 save_eto=Lipsește trimiterea la adresă
 save_emailfile=Fișier text cu text lipsit sau nevalid
 save_efrom=Lipsește trimiterea de la adresă
 save_eat=Timp lipsit sau invalid pentru a rula la
+
 view_efile=Fișierul nu mai există
 save_notice_title=Program salvat
 save_notice=E-mailul programat a fost creat cu succes - vizualizați-l, editați-l sau ștergeți-l după <a href="$1">acest link</a>.

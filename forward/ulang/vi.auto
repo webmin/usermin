@@ -25,6 +25,7 @@ index_fromdef=Địa chỉ mặc định của bạn
 index_charset=Bộ ký tự tin nhắn
 index_charsetdef=Từ ngôn ngữ hiện tại
 index_charsetother=Bộ ký tự khác
+
 aliases_to=Chuyển tiếp đến ..
 aliases_from=Gửi thư cho ..
 aliases_type1=Địa chỉ 1
@@ -36,6 +37,7 @@ aliases_type6=Áp dụng tệp lọc $1
 aliases_type7=Hộp thư người dùng bình thường
 aliases_type8=Tự động nghỉ
 aliases_enabled=Đã bật?
+
 aform_type0=không ai
 aform_type1=Địa chỉ email
 aform_type2=Địa chỉ trong tập tin
@@ -53,10 +55,12 @@ aform_afile=Biên tập ..
 aform_return=bí danh
 aform_name=Gửi thư cho ..
 aform_vacation=Chỉnh sửa tùy chọn kỳ nghỉ ..
+
 afile_title=Chỉnh sửa tập tin địa chỉ
 afile_desc=Sử dụng vùng văn bản bên dưới để chỉnh sửa địa chỉ trong tệp $1.
 afile_undo=Hoàn tác thay đổi
 afile_ewrite=Không thể ghi vào tệp địa chỉ : $1 
+
 asave_err=Không thể lưu chuyển tiếp
 asave_eaddr='$1' không phải là địa chỉ hợp lệ
 asave_etype1='$1' không phải là địa chỉ email hợp lệ
@@ -72,6 +76,7 @@ asave_ename=Thư bị thiếu hoặc không hợp lệ cho tên
 asave_esame=Một bí danh cho địa chỉ đó đã tồn tại
 asave_enone=Không có gì được chọn để chuyển tiếp đến
 asave_ecannot=Loại chuyển tiếp không hợp lệ được chọn
+
 ffile_title=Chỉnh sửa tập tin bộ lọc
 ffile_desc=Sử dụng mẫu dưới đây để thiết lập quy tắc lọc trong tệp $1.
 ffile_efile=Bạn không được phép chỉnh sửa $1.
@@ -88,6 +93,7 @@ ffile_err=Không thể lưu tệp bộ lọc
 ffile_ematch=Trận đấu mất tích
 ffile_eaction=Thiếu địa chỉ chuyển tiếp
 ffile_ewrite=Không thể ghi vào tập tin bộ lọc : $1 
+
 rfile_title=Chỉnh sửa tập tin tự động
 rfile_desc=Sử dụng vùng văn bản bên dưới để chỉnh sửa thông báo tự động trong $1. Thông báo có thể chứa các macro $SUBJECT, $FROM, $TO, $DATE và $BODY sẽ được mở rộng khi tự động kích hoạt được kích hoạt.
 rfile_desc2=Bạn cũng có thể đặt tiêu đề thư bổ sung hoặc thay thế các mặc định được sử dụng trong tự động trả lời bằng cách đặt các dòng như: <br><tt> Từ: foo@bar.com </tt><br> <tt>Chủ đề: Vào ngày lễ</tt> <br> ở đầu tin nhắn, được phân tách khỏi phần thân bằng một dòng trống duy nhất.
@@ -105,13 +111,16 @@ rfile_auto=Tự động (dựa trên địa chỉ người nhận)
 rfile_efrom=Thiếu từ: địa chỉ
 rfile_fromdesc=Địa chỉ From: phải luôn được chỉ định khi có thể, vì phương thức tự động có thể không đáng tin cậy.
 rfile_err=Không thể lưu tệp tự động
+
 vfile_title=Chỉnh sửa tập tin trả lời kỳ nghỉ
 vfile_desc=Sử dụng vùng văn bản bên dưới để chỉnh sửa thông báo tự động trong $1.
 vfile_subject=Chủ đề tin nhắn
 vfile_err=Không thể lưu tệp trả lời kỳ nghỉ
 vfile_esubject=Thiếu chủ đề tin nhắn
+
 edit_title=Chỉnh sửa tập tin chuyển tiếp
 edit_desc=Trang này cho phép bạn chỉnh sửa thủ công nội dung của tệp $1. Hãy cẩn thận, vì không có kiểm tra lỗi được thực hiện trên đầu vào của bạn.
+
 vacation_title=Tùy chọn kỳ nghỉ
 vacation_header=Tùy chọn tự động trả lời kỳ nghỉ
 vacation_user=Tên người dùng của bạn
@@ -126,6 +135,7 @@ vacation_einterval=Khoảng thời gian trả lời bị thiếu hoặc không h
 vacation_euser=Tên người dùng bị thiếu hoặc không hợp lệ
 vacation_emsg=Tệp tin bị thiếu hoặc không hợp lệ
 vacation_return=lựa chọn kỳ nghỉ
+
 simple_err=Không thể lưu tùy chọn chuyển tiếp thư
 simple_eforward=Không có địa chỉ chuyển tiếp được nhập
 simple_eforward2=Phải nhập một địa chỉ chuyển tiếp duy nhất, như <tt>foo@bar.com</tt>

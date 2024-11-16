@@ -25,6 +25,7 @@ index_fromdef=Ihre Standard-Adresse
 index_charset=Zeichen-Kodierung der Nachricht
 index_charsetdef=Wie aktuelle Nachricht
 index_charsetother=Andere Zeichen-Kodierung
+
 aliases_to=Weiterleiten an..
 aliases_from=Mail an...
 aliases_type1=Adresse $1
@@ -36,6 +37,7 @@ aliases_type6=Filtern durch Filterdatei $1
 aliases_type7=Lokales Postfach
 aliases_type8=Abwesenheitsbenachrichtigung
 aliases_enabled=Aktiv?
+
 aform_type0=Keine
 aform_type1=Mail-Adresse
 aform_type2=Mail-Addressen in Datei
@@ -53,10 +55,12 @@ aform_afile=Bearbeiten...
 aform_return=Alias
 aform_name=Mail an...
 aform_vacation=Editiere Abwesenheitsbenachrichtigungsoptionen..
+
 afile_title=Adressdatei bearbeiten
 afile_desc=Sie können hier die Adressen in der Datei $1 ändern.
 afile_undo=Änderungen rückgängig machen
 afile_ewrite=Konnte Datei nicht schreiben : $1
+
 asave_err=Konnte Einstellungen nicht sichern
 asave_eaddr='$1' ist keine gültige Adresse
 asave_etype1='$1' ist keine gültige Mail-Adresse
@@ -72,6 +76,7 @@ asave_ename=Die Adresse, für die eine Weiterleitung definiert werden soll, ist 
 asave_esame=Ein Alias für diese Adresse existiert bereits
 asave_enone=Es wurde kein Ziel für die Weiterleitung ausgewählt
 asave_ecannot=Ungültige Weiterleitungsart ausgewählt
+
 ffile_title=Filterdatei bearbeiten
 ffile_desc=Sie können hier die Filterdatei $1 bearbeiten.
 ffile_efile=Zugriff auf Datei $1 verweigert.
@@ -88,6 +93,7 @@ ffile_err=Konnte Filterdatei nicht schreiben
 ffile_ematch=Regelausdruck fehlt
 ffile_eaction=Zieladresse fehlt
 ffile_ewrite=Konnte Datei nicht speichern : $1
+
 rfile_title=Text für automatische Antwort bearbeiten
 rfile_desc=Sie können hier die Antwort in der Datei $1 bearbeiten. Sie können die Makros $SUBJECT, $FROM, $TO, $DATE und $BODY verwenden, die durch den jeweiligen Wert ersetzt werden, wenn eine automatische Antwort verschickt wird.
 rfile_desc2=Sie können die Mail-Header auch ändern oder Daten in Ihrem Autoreply ergänzen. Beispiel:<br><tt>From: foo@bar.com</tt><br><tt>Subject: Bin in Urlaub</tt>.<br>Setzen Sie diese an den Beginn Ihrer Nachricht und trennen Sie Header und Body durch eine einzelne leere Zeile.
@@ -105,13 +111,16 @@ rfile_auto=Automatisch (basierend auf der Empfänger-Mail-Adresse)
 rfile_efrom=Fehlende From:-Adresse
 rfile_fromdesc=Eine From:-Adresse sollte immer festgelegt werden, da die automatische Methode nicht wirklich zuverlässig ist.
 rfile_err=Konnte Abwesenheitsbenachrichtigungsdatei nicht speichern
+
 vfile_title=Editiere Datei für die Abwesenheitsbenachrichtigung
 vfile_desc=Benutzen Sie das Textfeld unten um die Abwesenheitsbenachrichtigung in $1 zu bearbeiten.
 vfile_subject=Nachrichten-Betreff
 vfile_err=Konnte die Antwortdatei für die Abwesenheitsbenachrichtigung nicht speichern
 vfile_esubject=Fehlender Nachrichten-Betreff
+
 edit_title=Weiterleitung von Hand bearbeiten
 edit_desc=Sie können hier den Inhalt der Datei $1 von Hand bearbeiten. Vorsicht, es erfolgt keine Überprüfung auf Fehler.
+
 vacation_title=Optionen der Abwesenheitsbenachrichtigung
 vacation_header=Optionen der automatischen Abwesenheitsbenachrichtigung
 vacation_user=Ihr Benutzername
@@ -126,6 +135,7 @@ vacation_einterval=Fehlendes oder ungültiges Antowrt-Intervall
 vacation_euser=Fehlender oder ungültiger Benutzername
 vacation_emsg=Fehlende oder ungültige Nachrichtendatei
 vacation_return=Optionen der Abwesenheitsbenachrichtigung
+
 simple_err=Weiterleitungsoptionen konnten nicht gespeichert werden
 simple_eforward=Keine Adresse für die Weiterleitung eingegeben
 simple_eforward2=Eine einzelne Weiterleitungsadresse muss eingegeben werden, wie z.B. <tt>foo@bar.com</tt>

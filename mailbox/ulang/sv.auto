@@ -1,16 +1,21 @@
 index_title=Maila $1 
 index_return=e-postlista
+index_searching=En sökning efter $1 pågår. Resultaten kommer att visas här när det är klart.
+index_searching2=En komplex sökning pågår. Resultaten kommer att visas här när det är klart.
+
 mail_title=Läs mail
 mail_none=Det finns inga meddelanden i mappen $1 
 mail_pos=Meddelanden $1 till $2 av $3 i mappen $4 
 mail_return=brevlåda
 mail_quota=Med hjälp av $1 av $2 
 mail_special=Särskild
+
 send_efile=Den bifogade filen $1 är inte läsbar eller finns inte
 send_nobody=ingen
 send_etomsg=Ingen till, Cc eller Bcc-adress angavs
 send_esubjectmsg=Inget ämne angavs - hoppas att det är OK
 send_eclosemsg=Är du säker på att du vill stänga den här sidan och förlora det pågående meddelandet?
+
 address_chooser=Välj adress ..
 address_addr=E-postadress
 address_name=Riktiga namn
@@ -61,6 +66,7 @@ address_exportdup0=Inkludera båda
 address_exportdup1=Inkludera endast första
 address_exportfmt=Exportera i format
 address_exportok=Exportera nu
+
 import_err=Det gick inte att importera adresser
 import_title=Importera adressbok
 import_doing=Resultat av import av adressbok ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Saknas eller ogiltig e-postadress</font>
 import_same=Oförändrad, hoppade över
 import_skip=Duplicerad adress, hoppade över
 import_enetvcard=Modulen <tt>Net::vCard</tt> behövs för att läsa filer i vCard-format
+
 export_err=Det gick inte att exportera adresser
+
 group_err=Det gick inte att spara adressgruppen
 group_egroup=Gruppnamn saknas eller ogiltigt
 group_emembers=Inga e-postadresser registrerade
+
 folders_title=Hantera mappar
 folders_instr=Hjälp och mapptyper
 folders_desc2=Var och en av de mappar som listas nedan kan innehålla e-post som du flyttar till den eller e-post som placeras i den automatiskt. Följande mapptyper är tillgängliga :
@@ -124,6 +133,7 @@ folders_delete=Radera valda mappar
 folders_addimap=Lägg till en ny mapp.
 folders_addcomp=Lägg till en ny kompositmapp.
 folders_addvirt=Lägg till en ny virtuell mapp.
+
 edit_title1=Skapa mapp
 edit_title2=Redigera mapp
 edit_header=Detaljer för postmapp
@@ -161,6 +171,7 @@ edit_comps=Undermappar, äldsta först
 edit_comp=Sammansatt
 edit_virt=Virtuell
 edit_delete=Radera verkligt meddelande när du tar bort från mappen?
+
 save_err=Det gick inte att spara mappen
 save_ecannot=Du får inte använda den här mapptypen
 save_ename=Saknas mappnamn
@@ -191,7 +202,9 @@ save_edelete=Det gick inte att ta bort e-post : $1
 save_eflag=Det gick inte att sätta IMAP-flaggor : $1 
 save_eappend=Det gick inte att lägga till e-post till IMAP-brevlådan : $1 
 save_esearch=Det gick inte att söka i IMAP-brevlåda : $1 
+
 epop3lock_tries=Det gick inte att låsa e-postfilen $1 efter att ha försökt i $2 minuter på grund av en POP3-låsfil.
+
 view_dsn=Leverans statusmeddelande
 view_dnsnow=Ett meddelande om leveransstatus har just skickats till $1.
 view_dsnbefore=Ett meddelande om leveransstatus skickades till $1 på $2.
@@ -204,21 +217,30 @@ view_quick=Snabbt svar
 view_quick_all=Svara alla
 view_quick_quote=Citat original
 view_quick_send=Skicka
+
 search_virtualize=Skapa virtuella mappnamn:
 search_dest=Lagra resultat i
 search_dest1=Sökresultat-mappen
 search_dest0=Ny virtuell mapp med namnet
 search_edest=Saknas virtuell mappnamn för resultat
 search_eself=Sökresultatmappen kan inte sökas
+search_doing=Söker efter $1 i mappen $2.
+search_doing2=Söker efter meddelanden i den valda mappen.
+search_results=Matchande meddelanden kommer att visas i mappen <a href='$1'>sökresultat</a> när sökningen är klar...
+
 virtualize_ename=Saknas virtuell mappnamn
+
 delete_enoadd=Meddelanden kan inte flyttas till virtuella mappar, bara kopieras
+
 sig_title=Redigera signatur
 sig_desc=Använd detta formulär för att redigera din e-postsignatur i filen $1.
 sig_undo=Ångra
 sig_enone=Ingen signaturfil definierad
 sig_eopen=Det gick inte att öppna signaturfilen : $1 
+
 quota_inbox=Kvoten för post på $1 överskred
 quota_inbox2=Kvoten på $1 e-postmeddelanden överskred
+
 auto_title=Automatisk mapprengöring
 auto_header=Alternativ för schemalagd mappröjning
 auto_enabled=Radera meddelanden automatiskt?
@@ -236,6 +258,7 @@ auto_action1=Ta bort alla meddelanden i mappen
 auto_action2=Flytta till mapp $1 
 auto_edest=Den valda destinationsmappen finns inte!
 auto_ewrite=Den valda destinationsmappen kan inte skrivas till
+
 copy_title=Kopiera all post
 copy_header=Kopiera alla meddelanden i mappen
 copy_source=Källmapp
@@ -245,18 +268,22 @@ copy_ok=Kopiera nu
 copy_doing=Kopierar alla meddelanden från $1 till $2 ..
 copy_done=.. Gjort
 copy_deleting=Tömma mappen $1 ..
+
 fdelete_title=Radera mappar
 fdelete_err=Det gick inte att ta bort mappar
 fdelete_enone=Ingen vald
 fdelete_rusure=Är du säker på att du vill ta bort de valda mapparna $1 ? $2 av e-post kommer att raderas för alltid.
 fdelete_rusure2=Är du säker på att du vill ta bort de valda mapparna $1 ?
 fdelete_delete=Radera nu
+
 detachall_err=Det gick inte att spara alla bilagor
 detachall_emkdir=Det gick inte att skapa tillfällig katalog : $1 
 detachall_ezip=ZIP misslyckades : $1 
+
 allow_err=Det gick inte att spara tillåtna adresser
 deny_err=Det gick inte att spara avvisade adresser
 allow_eaddr='$1' är inte en giltig e-postadress
+
 right_header=Systeminformation
 right_host=System värdnamn
 right_os=Operativ system

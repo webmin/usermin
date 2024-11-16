@@ -4,4 +4,5 @@ index_eadmin=Il programma di amministrazione MySQL $1 non è stato trovato sul t
 index_esql=Il programma client MySQL $1 non è stato trovato sul tuo sistema. Forse MySQL non è installato o la configurazione del modulo non è corretta.
 index_ever=Il programma client MySQL $1 non sembra essere la versione corretta. Webmin supporta solo MySQL versioni 3 e successive.
 index_elibrary=Impossibile eseguire il programma client MySQL $1 perché non è stato possibile trovare le librerie condivise MySQL. Controlla la configurazione del modulo e assicurati che <i>Percorso delle librerie condivise MySQL</i> sia impostato.
+
 login_epass=Nome utente o password MySQL errati

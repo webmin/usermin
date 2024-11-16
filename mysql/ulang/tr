@@ -4,4 +4,5 @@ index_eadmin=MySQL admin programı $1 sisteminizde bulunamadı. Belki MySQL yük
 index_esql=MySQL istemci programı $1 sisteminizde bulunamadı. Belki MySQL yüklü değil ya da modül konfigürasyonu yanlış.
 index_ever=MySQL istemci programı $1 doğru versiyonda gibi görünmüyor. Webmin sadece MySQL 3.versiyonunu ve üstündeki versiyonları destekler.
 index_elibrary=MySQL istemci program? $1 çalışmıyor çünkü MySQL paylaştırma kütüphanesinde bulunamad?. Modül konfigürasyonunu kontrol edin ve <i>MySQL paylaştırma kütüphanesi için yol</i> un belirli olduğundan  emin olun.
+
 login_epass=Yanlış MySQL kullanıcı adı ya da şifre.

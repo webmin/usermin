@@ -13,6 +13,7 @@ index_cleardesc=Nhấp vào nút này để xóa tất cả các email đã lên
 index_delete=Đã xóa các email đã chọn
 index_disable=Vô hiệu hóa được chọn
 index_enable=Cho phép chọn
+
 edit_title1=Tạo email theo lịch trình
 edit_title2=Chỉnh sửa email theo lịch trình
 edit_header=Chi tiết tin nhắn email theo lịch trình
@@ -38,12 +39,14 @@ edit_type=Nguồn
 edit_uploaded=Đã tải lên
 edit_upload1=Tải lên tập tin
 edit_upload2=Đính kèm một tập tin
+
 save_err=Không thể lưu email theo lịch trình
 save_esubject=Thiếu chủ đề tin nhắn
 save_eto=Thiếu gửi đến địa chỉ
 save_emailfile=Tệp văn bản tin nhắn bị thiếu hoặc không hợp lệ
 save_efrom=Thiếu gửi từ địa chỉ
 save_eat=Thiếu hoặc không hợp lệ thời gian để chạy tại
+
 view_efile=Tệp không còn tồn tại
 save_notice_title=Lịch trình lưu
 save_notice=Email được lên lịch đã được tạo thành công - xem, chỉnh sửa hoặc xóa nó theo liên kết <a href="$1">này</a>.

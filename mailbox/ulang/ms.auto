@@ -1,16 +1,21 @@
 index_title=Mel Dalam $1 
 index_return=senarai mel
+index_searching=Carian untuk $1 sedang dijalankan. Keputusan akan ditunjukkan di sini apabila ia selesai.
+index_searching2=Pencarian kompleks sedang dijalankan. Keputusan akan ditunjukkan di sini apabila ia selesai.
+
 mail_title=Baca Mel
 mail_none=Tiada mesej dalam folder $1 
 mail_pos=Mesej $1 hingga $2 daripada $3 dalam folder $4 
 mail_return=peti mel
 mail_quota=Menggunakan $1 daripada $2 
 mail_special=Khas
+
 send_efile=Fail yang dilampirkan $1 tidak boleh dibaca atau tidak wujud
 send_nobody=tiada siapa
 send_etomsg=Alamat No To, Cc atau Bcc telah dimasukkan
 send_esubjectmsg=Tiada Subjek telah dimasukkan - harapan itu OK
 send_eclosemsg=Adakah anda pasti mahu menutup halaman ini dan kehilangan mesej yang sedang berlangsung?
+
 address_chooser=Pilih Alamat ..
 address_addr=Alamat emel
 address_name=Nama sebenar
@@ -61,6 +66,7 @@ address_exportdup0=Termasuk kedua-duanya
 address_exportdup1=Hanya masukkan yang pertama
 address_exportfmt=Eksport dalam format
 address_exportok=Eksport Sekarang
+
 import_err=Gagal mengimport alamat
 import_title=Import Buku Alamat
 import_doing=Keputusan import buku alamat ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Alamat e-mel yang hilang atau tidak sah</font>
 import_same=Tidak berubah, dilangkau
 import_skip=Alamat duplikat, dilangkau
 import_enetvcard=Mod <tt>Net::vCard</tt> Perl diperlukan untuk membaca fail format vCard
+
 export_err=Gagal mengeksport alamat
+
 group_err=Gagal menyimpan kumpulan alamat
 group_egroup=Nama kumpulan yang hilang atau tidak sah
 group_emembers=Tiada alamat e-mel ahli yang dimasukkan
+
 folders_title=Urus Folder
 folders_instr=Jenis bantuan dan folder
 folders_desc2=Setiap folder yang disenaraikan di bawah boleh mengandungi mel yang anda masuk ke dalamnya, atau mel yang dimasukkan ke dalamnya secara automatik. Jenis folder berikut boleh didapati :
@@ -124,6 +133,7 @@ folders_delete=Padamkan Folder Terpilih
 folders_addimap=Tambah folder baru.
 folders_addcomp=Tambah folder komposit baharu.
 folders_addvirt=Tambah folder maya yang baru.
+
 edit_title1=Buat Folder
 edit_title2=Edit Folder
 edit_header=Butiran folder mel
@@ -161,6 +171,7 @@ edit_comps=Sub-folder, tertua pertama
 edit_comp=Komposit
 edit_virt=Maya
 edit_delete=Padam mesej sebenar apabila memadam dari folder?
+
 save_err=Gagal menyimpan folder
 save_ecannot=Anda tidak dibenarkan menggunakan folder jenis ini
 save_ename=Nama folder hilang
@@ -191,7 +202,9 @@ save_edelete=Gagal memadamkan mel : $1
 save_eflag=Gagal untuk menetapkan bendera IMAP : $1 
 save_eappend=Gagal menambah mel ke peti mel IMAP : $1 
 save_esearch=Gagal mencari peti mel IMAP : $1 
+
 epop3lock_tries=Gagal mengunci fail mel $1 selepas mencuba untuk $2 minit, kerana fail kunci POP3.
+
 view_dsn=Pemberitahuan Status Penghantaran
 view_dnsnow=Mesej pemberitahuan status penghantaran hanya dihantar ke $1.
 view_dsnbefore=Mesej pemberitahuan status penghantaran telah dihantar kepada $1 pada $2.
@@ -204,21 +217,30 @@ view_quick=Jawapan Pantas
 view_quick_all=Balas kepada semua
 view_quick_quote=Sebut harga asal
 view_quick_send=Hantar
+
 search_virtualize=Buat Folder Maya Dinamakan:
 search_dest=Simpan keputusan
 search_dest1=Folder Keputusan Carian
 search_dest0=Folder maya baharu dinamakan
 search_edest=Nama folder maya yang hilang untuk hasil
 search_eself=Folder hasil carian tidak boleh dicari
+search_doing=Mencari $1 dalam folder $2.
+search_doing2=Mencari mesej dalam folder yang dipilih.
+search_results=Mesej yang sepadan akan ditunjukkan dalam folder <a href='$1'>hasil carian</a> apabila carian selesai...
+
 virtualize_ename=Nama folder maya yang hilang
+
 delete_enoadd=Mesej tidak boleh dipindahkan ke folder maya, hanya disalin
+
 sig_title=Edit Tandatangan
 sig_desc=Gunakan borang ini untuk mengedit tandatangan e-mel anda dalam fail $1.
 sig_undo=Undo
 sig_enone=Tiada fail tandatangan yang ditakrifkan
 sig_eopen=Gagal membuka fail tandatangan : $1 
+
 quota_inbox=Kuota untuk mel%% melebihi
 quota_inbox2=Kuota $1 mesej mel melebihi
+
 auto_title=Clearing Folder Automatik
 auto_header=Pilihan penjelasan folder terjadual
 auto_enabled=Memadam mesej secara automatik?
@@ -236,6 +258,7 @@ auto_action1=Padam semua mesej dalam folder
 auto_action2=Pindah ke folder $1 
 auto_edest=Folder tujuan terpilih tidak wujud!
 auto_ewrite=Folder destinasi terpilih tidak boleh ditulis
+
 copy_title=Salin Semua Mel
 copy_header=Salin semua mesej dalam folder
 copy_source=Folder sumber
@@ -245,18 +268,22 @@ copy_ok=Salin Sekarang
 copy_doing=Menyalin semua mesej dari $1 hingga $2 ..
 copy_done=.. selesai
 copy_deleting=Mengosongkan folder $1 ..
+
 fdelete_title=Padamkan Folder
 fdelete_err=Gagal memadam folder
 fdelete_enone=Tiada yang dipilih
 fdelete_rusure=Adakah anda pasti mahu memadamkan folder $1 terpilih? $2 e-mel akan dihapuskan selama-lamanya.
 fdelete_rusure2=Adakah anda pasti mahu memadamkan folder $1 terpilih?
 fdelete_delete=Padamkan Sekarang
+
 detachall_err=Gagal menyimpan semua lampiran
 detachall_emkdir=Tidak dapat membuat direktori sementara : $1 
 detachall_ezip=ZIP gagal : $1 
+
 allow_err=Gagal menyimpan alamat yang dibenarkan
 deny_err=Gagal menyimpan alamat yang ditolak
 allow_eaddr='$1' bukan alamat e-mel yang sah
+
 right_header=Maklumat sistem
 right_host=Nama hos sistem
 right_os=Sistem operasi

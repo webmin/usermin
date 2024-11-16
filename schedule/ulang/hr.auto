@@ -13,6 +13,7 @@ index_cleardesc=Kliknite ovaj gumb za brisanje svih zakazanih poruka e-pošte ko
 index_delete=Izbrisane odabrane e-poruke
 index_disable=Onemogući odabrano
 index_enable=Omogući odabrano
+
 edit_title1=Stvaranje zakazane e-pošte
 edit_title2=Uređivanje zakazane e-pošte
 edit_header=Planirani detalji e-pošte
@@ -38,12 +39,14 @@ edit_type=Izvor
 edit_uploaded=Uploaded
 edit_upload1=Prenesite datoteke
 edit_upload2=Priložite datoteku
+
 save_err=Spremanje zakazane e-pošte nije uspjelo
 save_esubject=Nedostaje predmet poruke
 save_eto=Nedostaje slanje na adresu
 save_emailfile=Nedostaje ili nije važeća tekstna datoteka s porukom
 save_efrom=Nedostaje slanje s adrese
 save_eat=Nedostaje ili nevažeće vrijeme za pokretanje
+
 view_efile=Datoteka više ne postoji
 save_notice_title=Raspored je spremljen
 save_notice=Zakazana e-pošta uspješno je stvorena - pregledajte je, uredite ili obrišite slijedeći <a href="$1">ovu</a> vezu.

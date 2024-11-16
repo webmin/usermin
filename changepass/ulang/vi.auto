@@ -7,13 +7,13 @@ index_new1=Mật khẩu mới
 index_new2=Mật khẩu mới một lần nữa
 index_change=Thay đổi ngay
 index_return=hình thức thay đổi mật khẩu
+
 index_passtab=Thay đổi mật khẩu
 index_recoverytab=Địa chỉ khôi phục mật khẩu
 index_desc3=Sử dụng mẫu này để nhập địa chỉ thay thế mà mật khẩu tạm thời có thể được gửi đến nếu bạn quên mật khẩu hiện tại.
 index_recovery=Địa chỉ thay thế để khôi phục mật khẩu
 index_recoverydef=Không có bộ nào
 index_recoverysel=Gửi email đến
-index_return=hình thức thay đổi mật khẩu
 change_err=Không thể thay đổi mật khẩu
 change_title=Mật khẩu đã thay đổi
 change_oka=Mật khẩu của bạn cho $1 đã được thay đổi thành công. Bất kỳ thông tin đăng nhập Usermin, SSH, FTP hoặc email nào kể từ bây giờ sẽ yêu cầu mật khẩu mới.
@@ -37,9 +37,11 @@ change_epasswd_same=Mật khẩu chứa hoặc giống như tên người dùng
 change_epasswd_new=Mật khẩu giống như mật khẩu cũ
 change_emysql=Đăng nhập hiện tại trong mô-đun MySQL là không chính xác.
 change_eformat=Định dạng băm mật khẩu được cấu hình không được hỗ trợ
+
 recovery_title=Địa chỉ phục hồi
 recovery_err=Không thể đặt địa chỉ khôi phục
 recovery_eemail=Một địa chỉ email trông hợp lệ đã không được nhập
 recovery_cleared=Địa chỉ phục hồi đã bị xóa.
 recovery_set=Địa chỉ khôi phục để sử dụng khi yêu cầu đặt lại mật khẩu đã được đặt thành $1.
+
 left_changepass=Đổi mật khẩu

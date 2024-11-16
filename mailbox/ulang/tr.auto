@@ -1,10 +1,15 @@
 index_title=Posta Girişi $1 
 index_return=posta Listesi
+index_searching=$1 için bir arama devam ediyor. Sonuçlar tamamlandığında burada gösterilecek.
+index_searching2=Karmaşık bir arama devam ediyor. Sonuçlar tamamlandığında burada gösterilecek.
+
 mail_quota=$2 üzerinden $1 kullanma
 mail_special=Özel
+
 send_etomsg=Hayır, Bilgi veya Gizli adresi girildi
 send_esubjectmsg=Konu girilmedi - umarım sorun olmaz
 send_eclosemsg=Bu sayfayı kapatmak ve devam etmekte olan mesajı kaybetmek istediğinizden emin misiniz?
+
 address_none2=Aramanızla eşleşen adres yok.
 address_search=Eşleşen adresleri bulun:
 address_ok=Arama
@@ -36,6 +41,7 @@ address_exportdup0=Her ikisini de dahil et
 address_exportdup1=Yalnızca ilkini ekle
 address_exportfmt=Biçimde dışa aktar
 address_exportok=Şimdi Dışa Aktar
+
 import_err=Adresler içe aktarılamadı
 import_title=Adres Defterini İçe Aktar
 import_doing=Adres defteri içe aktarmanın sonuçları ..
@@ -50,7 +56,9 @@ import_noemail=<font color=red>Eksik veya geçersiz e-posta adresi</font>
 import_same=Değişmedi, atlandı
 import_skip=Yinelenen adres, atlandı
 import_enetvcard=VCard biçimindeki dosyaları okumak için <tt>Net::vCard</tt> Perl modülü gereklidir
+
 export_err=Adresler dışa aktarılamadı
+
 folders_instr=Yardım ve klasör türleri
 folders_desc2=Aşağıda listelenen klasörlerin her biri, içine taşıdığınız veya otomatik olarak yerleştirilen postaları içerebilir. Aşağıdaki klasör türleri kullanılabilir :
 folders_descsys=Her zaman var olan Gelen Kutusu, Taslaklar ve Gönderilmiş Postalar gibi sistem klasörleri.
@@ -81,6 +89,7 @@ folders_delete=Seçilen Klasörleri Sil
 folders_addimap=Yeni bir klasör ekleyin.
 folders_addcomp=Yeni bir bileşik klasör ekleyin.
 folders_addvirt=Yeni bir sanal klasör ekleyin.
+
 edit_mode3=Çöp kutusu dosyası
 edit_type7=Tek dosya (MBX)
 edit_usersame=Usermin girişiyle aynı
@@ -89,12 +98,14 @@ edit_comps=Alt klasörler, önce en eskisi
 edit_comp=karma
 edit_virt=Gerçek
 edit_delete=Klasörden silerken gerçek mesaj silinsin mi?
+
 save_ename4=Klasör adları yalnızca harf, rakam, boşluk ve nokta, tire ve alt çizgi karakterlerini içerebilir
 save_ecompsame=Bileşik klasör aynı alt klasörü iki kez içeremez
 save_ename2=Klasör adları içeremez ..
 save_ename3=INBOX klasör adı IMAP sunucusu için ayrılmıştır
 save_rusure2=$1 klasörünü silmek istediğinizden emin misiniz? $2 e-posta sonsuza kadar silinecek.
 save_eflag=IMAP bayrakları ayarlanamadı : $1 
+
 view_dsn=teslimat durum Bildirimi
 view_dnsnow=$1 adresine bir teslimat durumu bildirim mesajı gönderildi.
 view_dsnbefore=$2 üzerindeki $1 adresine bir teslim durumu bildirim mesajı gönderildi.
@@ -107,21 +118,30 @@ view_quick=Hızlı cevap
 view_quick_all=Tümünü yanıtla
 view_quick_quote=Alıntı orijinal
 view_quick_send=Gönder
+
 search_virtualize=Adlandırılmış Sanal Klasör Oluştur:
 search_dest=Sonuçları şurada sakla:
 search_dest1=Arama Sonuçları klasörü
 search_dest0=Adlı yeni sanal klasör
 search_edest=Sonuçlar için sanal klasör adı eksik
 search_eself=Arama sonuçları klasörü aranamıyor
+search_doing=$2 klasöründe $1 aranıyor.
+search_doing2=Seçili klasördeki mesajları arama.
+search_results=Arama tamamlandığında eşleşen mesajlar <a href='$1'>arama sonuçları</a> klasöründe gösterilecektir...
+
 virtualize_ename=Sanal klasör adı eksik
+
 delete_enoadd=Mesajlar sanal klasörlere taşınamaz, sadece kopyalanır
+
 sig_title=İmzayı Düzenle
 sig_desc=$1 dosyasında e-posta imzanızı düzenlemek için bu formu kullanın.
 sig_undo=Geri alma
 sig_enone=İmza dosyası tanımlanmadı
 sig_eopen=İmza dosyası açılamadı : $1 
+
 quota_inbox=$1 postası için kota aşıldı
 quota_inbox2=$1 posta iletisinin kotası aşıldı
+
 auto_title=Otomatik Klasör Silme
 auto_header=Zamanlanmış klasör temizleme seçenekleri
 auto_enabled=Mesajlar otomatik olarak silinsin mi?
@@ -139,6 +159,7 @@ auto_action1=Klasördeki tüm mesajları sil
 auto_action2=$1 klasörüne taşı
 auto_edest=Seçilen hedef klasör mevcut değil!
 auto_ewrite=Seçilen hedef klasöre yazılamıyor
+
 copy_title=Tüm Postaları Kopyala
 copy_header=Klasördeki tüm mesajları kopyala
 copy_source=Kaynak dosya
@@ -148,18 +169,22 @@ copy_ok=Şimdi Kopyala
 copy_doing=$1 'den $2 'ye tüm iletiler kopyalanıyor.
 copy_done=.. bitti
 copy_deleting=$1 klasörü boşaltılıyor.
+
 fdelete_title=Klasörleri Sil
 fdelete_err=Klasörler silinemedi
 fdelete_enone=Hiçbiri seçilmedi
 fdelete_rusure=Seçilen $1 klasörü silmek istediğinizden emin misiniz? $2 e-posta sonsuza kadar silinecek.
 fdelete_rusure2=Seçilen $1 klasörü silmek istediğinizden emin misiniz?
 fdelete_delete=Şimdi sil
+
 detachall_err=Tüm ekler kaydedilemedi
 detachall_emkdir=Geçici dizin oluşturulamadı : $1 
 detachall_ezip=ZIP başarısız oldu : $1 
+
 allow_err=İzin verilen adresler kaydedilemedi
 deny_err=Reddedilen adresler kaydedilemedi
 allow_eaddr='$1' geçerli bir e-posta adresi değil
+
 right_header=Sistem bilgisi
 right_host=Sistem ana bilgisayar adı
 right_os=İşletim sistemi

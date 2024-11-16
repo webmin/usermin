@@ -13,6 +13,7 @@ index_cleardesc=Clique neste botão para excluir todos os emails agendados que f
 index_delete=E-mails selecionados excluídos
 index_disable=Desativar selecionado
 index_enable=Ativar selecionado
+
 edit_title1=Criar email agendado
 edit_title2=Editar email agendado
 edit_header=Detalhes da mensagem de email agendada
@@ -38,12 +39,14 @@ edit_type=Fonte
 edit_uploaded=Carregado
 edit_upload1=Fazer upload de arquivos
 edit_upload2=Anexar um arquivo
+
 save_err=Falha ao salvar o email agendado
 save_esubject=Assunto da mensagem ausente
 save_eto=Enviar para endereço ausente
 save_emailfile=Arquivo de texto de mensagem ausente ou inválido
 save_efrom=Endereço de envio ausente
 save_eat=Tempo ausente ou inválido para executar em
+
 view_efile=O arquivo não existe mais
 save_notice_title=Programação salva
 save_notice=O email agendado foi criado com sucesso - visualize, edite ou exclua-o seguindo <a href="$1">este</a> link.

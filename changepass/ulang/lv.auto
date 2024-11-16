@@ -7,13 +7,13 @@ index_new1=Jauna parole
 index_new2=Atkal jauna parole
 index_change=Mainīt tūlīt
 index_return=paroles maiņas forma
+
 index_passtab=Paroles maiņa
 index_recoverytab=Paroles atkopšanas adrese
 index_desc3=Izmantojiet šo veidlapu, lai ievadītu alternatīvu adresi, kurai var nosūtīt pagaidu paroli, ja aizmirstat pašreizējo paroli.
 index_recovery=Alternatīva adrese paroles atkopšanai
 index_recoverydef=Nav iestatīts
 index_recoverysel=Sūtīt e-pastu uz
-index_return=paroles maiņas forma
 change_err=Neizdevās mainīt paroli
 change_title=Mainīta parole
 change_oka=Jūsu parole $1 ir veiksmīgi nomainīta. Jebkuriem Usermin, SSH, FTP vai e-pasta pieteikumiem, sākot no šī brīža, būs nepieciešama jaunā parole.
@@ -37,9 +37,11 @@ change_epasswd_same=Parole satur vai ir tāda pati kā lietotājvārds
 change_epasswd_new=Parole ir tāda pati kā vecā parole
 change_emysql=Pašreizējā pieteikšanās MySQL modulī nav pareiza.
 change_eformat=Konfigurētais paroles sajaukšanas formāts netiek atbalstīts
+
 recovery_title=Atkopšanas adrese
 recovery_err=Neizdevās iestatīt atkopšanas adresi
 recovery_eemail=Netika ievadīta derīga izskata e-pasta adrese
 recovery_cleared=Atkopšanas adrese ir notīrīta.
 recovery_set=Paroles atiestatīšanai izmantojamā atkopšanas adrese ir iestatīta uz $1.
+
 left_changepass=Mainīt paroli

@@ -2,5 +2,6 @@ index_title=ディスククォータ
 index_quotas=マウントされたファイルシステム上の $1のディスククォータ
 index_none=マウントされたファイルシステムにユーザーディスククォータがありません。
 index_gquotas=マウントされたファイルシステム上のグループ $1のディスククォータ
+
 right_header=ディスククォータ
 right_out=$1 / $2

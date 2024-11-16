@@ -1,0 +1,1 @@
+index_desc=Ten moduł pozwala na skonfigurowanie filtrowania wiadomości e-mail wysyłanych na Twój adres na tym serwerze. Jednakże, będzie on działał tylko, jeśli administrator systemu zainstalował Procmail globalnie lub jeśli skonfigurowałeś dostarczanie do programu Procmail w module Przekazywanie poczty.

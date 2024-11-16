@@ -1,16 +1,21 @@
 index_title=Pos $1 in
 index_return=poslys
+index_searching='n Soektog vir $1 is aan die gang. Resultate sal hier gewys word wanneer dit voltooi is.
+index_searching2=’n Komplekse soektog is aan die gang. Resultate sal hier gewys word wanneer dit voltooi is.
+
 mail_title=Lees Mail
 mail_none=Daar is geen boodskappe in die vouer $1 nie
 mail_pos=Boodskappe $1 tot $2 van $3 in vouer $4 
 mail_return=posbus
 mail_quota=Gebruik $1 uit $2 
 mail_special=spesiale
+
 send_efile=Die aangehegte lêer $1 is nie leesbaar of bestaan nie
 send_nobody=niemand
 send_etomsg=Geen adres-, kopie- of kopiereg-adres is ingevoer nie
 send_esubjectmsg=Geen onderwerp is ingeskryf nie - hoop dat dit goed gaan
 send_eclosemsg=Is u seker dat u hierdie bladsy wil sluit en die boodskap wat aan die gang is, verloor?
+
 address_chooser=Kies adres ..
 address_addr=E-pos adres
 address_name=Regte naam
@@ -61,6 +66,7 @@ address_exportdup0=Sluit albei in
 address_exportdup1=Sluit slegs die eerste in
 address_exportfmt=Uitvoer in formaat
 address_exportok=Voer nou uit
+
 import_err=Kon nie adresse invoer nie
 import_title=Voer adresboek in
 import_doing=Uitslae van die invoer van die adresboek ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>E-posadres ontbreek of ongeldig</font>
 import_same=Onveranderd, oorgeslaan
 import_skip=Duplikaat adres, oorgeslaan
 import_enetvcard=Die <tt>Net::vCard</tt> Perl-module is nodig om vCard-formaatlêers te lees
+
 export_err=Kon nie adresse uitvoer nie
+
 group_err=Die adresgroep kon nie gestoor word nie
 group_egroup=Groepnaam ontbreek of ongeldig
 group_emembers=Geen lid-e-posadresse ingevoer nie
+
 folders_title=Bestuur dopgehou
 folders_instr=Hulp en vouer-tipes
 folders_desc2=Elk van die onderstaande dopgehoude vouers kan pos bevat waarin u daarin beweeg, of e-pos wat outomaties daarin geplaas word. Die volgende voueripes is beskikbaar :
@@ -124,6 +133,7 @@ folders_delete=Vee geselekteerde vouers uit
 folders_addimap=Voeg 'n nuwe lêergids by.
 folders_addcomp=Voeg 'n nuwe saamgestelde gids by.
 folders_addvirt=Voeg 'n nuwe virtuele vouer by.
+
 edit_title1=Skep gids
 edit_title2=Wysig vouer
 edit_header=Besonderhede van die posmap
@@ -161,6 +171,7 @@ edit_comps=Sub-gidse, oudste eerste
 edit_comp=Saamgestelde
 edit_virt=virtuele
 edit_delete=Vee die regte boodskap uit as u uit die vouer verwyder?
+
 save_err=Kon nie die vouer stoor nie
 save_ecannot=U mag nie hierdie tipe lêergids gebruik nie
 save_ename=Die gidsnaam ontbreek
@@ -191,7 +202,9 @@ save_edelete=Kon nie e-pos uitvee nie : $1
 save_eflag=Kon nie IMAP-vlae opstel nie : $1 
 save_eappend=Kon nie e-pos by IMAP-posbus voeg nie : $1 
 save_esearch=Kon nie IMAP-posbus soek nie : $1 
+
 epop3lock_tries=Kon nie poslêer $1 toesluit nie nadat u $2 minute probeer het, weens 'n POP3-sluitlêer.
+
 view_dsn=Aflewering Status Kennisgewing
 view_dnsnow='N Kennisgewing oor afleweringstatus is pas na $1 gestuur.
 view_dsnbefore='N Kennisgewing oor afleweringstatus is na $1 op $2 gestuur.
@@ -204,21 +217,30 @@ view_quick=Vinnige antwoord
 view_quick_all=Antwoord alles
 view_quick_quote=Haal oorspronklike aan
 view_quick_send=Stuur
+
 search_virtualize=Skep virtuele gids genaamd:
 search_dest=Stoor resultate in
 search_dest1=Soekresultate-lêergids
 search_dest0=Nuwe virtuele gids met die naam
 search_edest=Virtuele vouernaam vir resultate ontbreek
 search_eself=Die soekresultate-gids kan nie deursoek word nie
+search_doing=Soek tans vir $1 in vouer $2.
+search_doing2=Soek tans boodskappe in die geselekteerde vouer.
+search_results=Ooreenstemmende boodskappe sal in die <a href='$1'>soekresultate</a>-lêergids gewys word wanneer die soektog voltooi is...
+
 virtualize_ename=Virtuele vouernaam ontbreek
+
 delete_enoadd=Boodskappe kan nie in virtuele gidse geskuif word nie, maar slegs gekopieër word
+
 sig_title=Wysig handtekening
 sig_desc=Gebruik hierdie vorm om u e-poshandtekening in die lêer $1 te wysig.
 sig_undo=ongedaan
 sig_enone=Geen handtekeninglêer gedefinieër nie
 sig_eopen=Kon nie handtekeninglêer oopmaak nie : $1 
+
 quota_inbox=Die kwota vir pos van $1 is oorskry
 quota_inbox2=Die kwota van $1 posboodskappe is oorskry
+
 auto_title=Outomatiese vouer skoonmaak
 auto_header=Opsies vir geskeduleerde lêergidse
 auto_enabled=Vee boodskappe outomaties uit?
@@ -236,6 +258,7 @@ auto_action1=Vee alle boodskappe in die lêergids uit
 auto_action2=Gaan na vouer $1 
 auto_edest=Die gekose bestemmingsmap bestaan nie!
 auto_ewrite=Daar kan nie aan die geselekteerde bestemmingsmap geskryf word nie
+
 copy_title=Kopieer alle pos
 copy_header=Kopieer alle boodskappe in die lêergids
 copy_source=Bronmap
@@ -245,18 +268,22 @@ copy_ok=Kopieer nou
 copy_doing=Kopieer alle boodskappe van $1 tot $2.
 copy_done=.. klaar
 copy_deleting=Maak gids $1 leeg
+
 fdelete_title=Vee vouers uit
 fdelete_err=Kon nie vouers uitvee nie
 fdelete_enone=Geen gekies nie
 fdelete_rusure=Is u seker dat u die $1 geselekteerde vouers wil uitvee? $2 van e-pos sal vir ewig uitgevee word.
 fdelete_rusure2=Is u seker dat u die $1 geselekteerde vouers wil uitvee?
 fdelete_delete=Vee nou uit
+
 detachall_err=Kon nie alle aanhegsels stoor nie
 detachall_emkdir=Kon nie tydelike gids skep nie : $1 
 detachall_ezip=ZIP misluk : $1 
+
 allow_err=Die toegelate adresse kon nie gestoor word nie
 deny_err=Kon nie geweierde adresse stoor nie
 allow_eaddr='$1' is nie 'n geldige e-posadres nie
+
 right_header=Stelselinligting
 right_host=Stelsel gasheernaam
 right_os=Bedryfstelsel

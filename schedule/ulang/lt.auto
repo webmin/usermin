@@ -13,6 +13,7 @@ index_cleardesc=Spustelėkite šį mygtuką, jei norite ištrinti visus suplanuo
 index_delete=Ištrinti pasirinkti el. Laiškai
 index_disable=Išjungti pasirinktą
 index_enable=Įgalinti pasirinktą
+
 edit_title1=Kurti suplanuotą el. Paštą
 edit_title2=Redaguoti suplanuotą el. Paštą
 edit_header=Suplanuota el. Pašto pranešimo informacija
@@ -38,12 +39,14 @@ edit_type=Šaltinis
 edit_uploaded=Įkelta
 edit_upload1=Įkelti failus
 edit_upload2=Pridėkite failą
+
 save_err=Nepavyko išsaugoti suplanuoto el. Pašto
 save_esubject=Trūksta pranešimo temos
 save_eto=Trūksta siuntimo adreso
 save_emailfile=Trūksta arba netinkamas pranešimo tekstinis failas
 save_efrom=Trūksta siuntimo iš adreso
 save_eat=Trūksta arba netinkamas laikas bėgti
+
 view_efile=Failas nebeegzistuoja
 save_notice_title=Tvarkaraštis išsaugotas
 save_notice=Suplanuotas el. Laiškas buvo sėkmingai sukurtas - peržiūrėkite, redaguokite arba ištrinkite jį spustelėję <a href="$1">šią</a> nuorodą.

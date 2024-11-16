@@ -5,14 +5,17 @@ index_desc3=Utilisez ce formulaire pour entrer une autre adresse à laquelle un 
 index_recovery=Adresse alternative pour la récupération du mot de passe
 index_recoverydef=Aucun ensemble
 index_recoverysel=Envoyer un e-mail à
+
 change_oka=Votre mot de passe pour $1 a été modifié avec succès. Toutes les connexions Usermin, SSH, FTP ou e-mail nécessitent désormais le nouveau mot de passe.
 change_mysql=Le mot de passe de votre base de données MySQL a également été modifié.
 change_mysql2=Cependant, votre mot de passe de base de données MySQL n'a pas été modifié : $1 
 change_emysql=La connexion actuelle dans le module MySQL est incorrecte.
 change_eformat=Le format de hachage de mot de passe configuré n'est pas pris en charge
+
 recovery_title=Adresse de récuperation
 recovery_err=Impossible de définir l'adresse de récupération
 recovery_eemail=Aucune adresse e-mail d'apparence valide n'a été saisie
 recovery_cleared=L'adresse de récupération a été effacée.
 recovery_set=L'adresse de récupération à utiliser lors de la demande de réinitialisation du mot de passe a été définie sur $1.
+
 left_changepass=Changer le mot de passe

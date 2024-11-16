@@ -1,16 +1,21 @@
 index_title=Levél $1 -ben
 index_return=levelezőlista
+index_searching=A(z) $1 keresése folyamatban van. Az eredmények itt jelennek meg, amikor befejeződik.
+index_searching2=Összetett keresés van folyamatban. Az eredmények itt jelennek meg, amikor befejeződik.
+
 mail_title=Olvassa el a levelet
 mail_none=A (z) $1 mappában nincs üzenet
 mail_pos=$1 - $2 üzenet a (z) $4 mappában
 mail_return=postafiók
 mail_quota=$2 felhasználása
 mail_special=Különleges
+
 send_efile=A (z) $1 csatolt fájl nem olvasható, vagy nem létezik
 send_nobody=senki
 send_etomsg=Nincs megadva cím, másolat vagy titkos másolat címe
 send_esubjectmsg=Nem került be a téma, remélem, hogy rendben van
 send_eclosemsg=Biztosan bezárja ezt az oldalt, és elveszíti a folyamatban lévő üzenetet?
+
 address_chooser=Válassza a Cím ..
 address_addr=Email cím
 address_name=Igazi neve
@@ -61,6 +66,7 @@ address_exportdup0=Tartalmazza mindkettőt
 address_exportdup1=Csak az elsőt tartalmazza
 address_exportfmt=Exportálás formátumban
 address_exportok=Exportálás most
+
 import_err=A címek importálása nem sikerült
 import_title=Címjegyzék importálása
 import_doing=A címjegyzék behozatalának eredményei ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>Hiányzó vagy érvénytelen e-mail cím</font>
 import_same=Változatlan, kihagyva
 import_skip=Másolt cím, kihagyva
 import_enetvcard=A <tt>Net::vCard</tt> Perl modulra van szükség a vCard formátumú fájlok olvasásához
+
 export_err=Nem sikerült a címek exportálása
+
 group_err=A címcsoport mentése nem sikerült
 group_egroup=Hiányzó vagy érvénytelen csoportnév
 group_emembers=Nincs megadva tag-e-mail cím
+
 folders_title=Mappakezelés
 folders_instr=Súgó és mappatípusok
 folders_desc2=Az alább felsorolt mappák mindegyike tartalmazhat e-maileket, amelyekbe áthelyezi, vagy e-maileket, amelyeket automatikusan behelyez. A következő mappatípusok érhetők el :
@@ -124,6 +133,7 @@ folders_delete=Törölje a kijelölt mappákat
 folders_addimap=Adjon hozzá egy új mappát.
 folders_addcomp=Adjon hozzá egy új összetett mappát.
 folders_addvirt=Adjon hozzá egy új virtuális mappát.
+
 edit_title1=Mappa létrehozás
 edit_title2=Mappa szerkesztése
 edit_header=A levélmappa részletei
@@ -161,6 +171,7 @@ edit_comps=Almappák, az első a legrégebbi
 edit_comp=Összetett
 edit_virt=tényleges
 edit_delete=Törli a valódi üzenetet, amikor törli a mappából?
+
 save_err=A mappa mentése nem sikerült
 save_ecannot=Nem szabad ilyen típusú mappát használni
 save_ename=Hiányzik a mappa neve
@@ -191,7 +202,9 @@ save_edelete=A levél törlése nem sikerült : $1
 save_eflag=Az IMAP zászlók beállítása nem sikerült : $1 
 save_eappend=Nem sikerült e-mailt hozzáadni az IMAP postafiókhoz : $1 
 save_esearch=Nem sikerült keresni az IMAP postafiókban : $1 
+
 epop3lock_tries=A (z) $1 levélfájl zárolása a (z) $2 perc próbálkozása után nem sikerült, a POP3 zárolási fájl miatt.
+
 view_dsn=Értesítés a kézbesítési állapotról
 view_dnsnow=Nemrég elküldtük a kézbesítési állapot értesítő üzenetet a (z) $1 címre.
 view_dsnbefore=A kézbesítési állapot értesítő üzenetet küldtük a (z) $1 $2 -re.
@@ -204,21 +217,30 @@ view_quick=Gyors válasz
 view_quick_all=Válasz mindenkinek
 view_quick_quote=Idézet eredeti
 view_quick_send=Küld
+
 search_virtualize=Virtuális mappa létrehozása:
 search_dest=Tárolja az eredményeket
 search_dest1=Keresési eredmények mappa
 search_dest0=Új virtuális mappa nevű
 search_edest=Hiányzik az eredmények virtuális mappa neve
 search_eself=A keresési eredmények mappában nem lehet keresni
+search_doing=$1 keresése a $2 mappában.
+search_doing2=Üzenetek keresése a kiválasztott mappában.
+search_results=A keresés befejeztével a megfelelő üzenetek megjelennek a <a href='$1'>keresési eredmények</a> mappában...
+
 virtualize_ename=Hiányzik a virtuális mappa neve
+
 delete_enoadd=Az üzeneteket nem lehet virtuális mappákba helyezni, csak másolni
+
 sig_title=Aláírás szerkesztése
 sig_desc=Ezzel az űrlappal szerkesztheti e-mail aláírását a $1 fájlban.
 sig_undo=Undo
 sig_enone=Nincs megadva aláírási fájl
 sig_eopen=Nem sikerült megnyitni az aláírási fájlt : $1 
+
 quota_inbox=A (z) $1 levelezési kvóta túllépte
 quota_inbox2=A (z) $1 e-mail üzenetek kvóta túllépte
+
 auto_title=Automatikus mappa törlés
 auto_header=Ütemezett mappa törlési lehetőségek
 auto_enabled=Automatikusan törli az üzeneteket?
@@ -236,6 +258,7 @@ auto_action1=Törölje a mappában lévő összes üzenetet
 auto_action2=Lépjen a (z) $1 mappába
 auto_edest=A kiválasztott célmappa nem létezik!
 auto_ewrite=A kiválasztott célmappa nem írható ide
+
 copy_title=Az összes levél másolása
 copy_header=Másolja az összes üzenetet a mappába
 copy_source=Forrás mappa
@@ -245,18 +268,22 @@ copy_ok=Másolás most
 copy_doing=Az összes üzenet másolása a (z) $1 -től a $2 -ig.
 copy_done=.. Kész
 copy_deleting=A $1 mappa ürítése ..
+
 fdelete_title=Mappák törlése
 fdelete_err=Nem sikerült a mappák törlése
 fdelete_enone=Egy sincs kiválasztva
 fdelete_rusure=Biztosan törli a kiválasztott $1 mappákat? Az e-mail $2 örökre törlődik.
 fdelete_rusure2=Biztosan törli a kiválasztott $1 mappákat?
 fdelete_delete=Törlés most
+
 detachall_err=Az összes melléklet mentése nem sikerült
 detachall_emkdir=Nem sikerült létrehozni az ideiglenes könyvtárat : $1 
 detachall_ezip=A ZIP nem sikerült : $1 
+
 allow_err=Nem sikerült menteni az engedélyezett címeket
 deny_err=Nem sikerült menteni az elutasított címeket
 allow_eaddr=A '$1' nem érvényes e-mail cím
+
 right_header=Rendszer információ
 right_host=Rendszer gazdagép neve
 right_os=Operációs rendszer

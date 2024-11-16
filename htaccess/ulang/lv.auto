@@ -8,6 +8,7 @@ index_find=Atrodiet iespēju failus:
 index_finddesc=Ievada ievadīto direktoriju visiem $1 failiem, kas ir izveidoti manuāli. Kamēr nav atrasti manuāli izveidoti faili, tos nevar rediģēt, izmantojot šo moduli.
 index_return=opciju failu saraksts
 index_apache=Webmin konfigurācijas direktorijā $1 netika atrasta Apache versija un moduļa informācija. Šis modulis prasa Webmin instalēšanu un tā Apache moduļa pareizu konfigurēšanu.
+
 find_title=Atrodiet opciju failus
 find_list=$1 tika atrasti šādi opciju faili.
 find_none=$2 opciju faili netika atrasti.

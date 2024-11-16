@@ -25,6 +25,7 @@ index_fromdef=Seu endereço padrão
 index_charset=Conjunto de caracteres da mensagem
 index_charsetdef=Do idioma atual
 index_charsetother=Outro conjunto de caracteres
+
 aliases_to=Para a frente ..
 aliases_from=Mail for ..
 aliases_type1=Endereço 1
@@ -36,6 +37,7 @@ aliases_type6=Aplicar arquivo de filtro $1
 aliases_type7=Caixa de correio normal do usuário
 aliases_type8=Resposta automática de férias
 aliases_enabled=Ativado?
+
 aform_type0=Nenhum
 aform_type1=Endereço de e-mail
 aform_type2=Endereços no arquivo
@@ -53,10 +55,12 @@ aform_afile=Editar ..
 aform_return=pseudônimo
 aform_name=Mail for ..
 aform_vacation=Editar opções de férias.
+
 afile_title=Editar arquivo de endereço
 afile_desc=Use a área de texto abaixo para editar os endereços no arquivo $1.
 afile_undo=Desfazer mudanças
 afile_ewrite=Falha ao gravar no arquivo de endereços : $1 
+
 asave_err=Falha ao salvar o encaminhamento
 asave_eaddr='$1' não é um endereço válido
 asave_etype1='$1' não é um endereço de email válido
@@ -72,6 +76,7 @@ asave_ename=Correio ausente ou inválido para o nome
 asave_esame=Já existe um alias para esse endereço
 asave_enone=Nada foi selecionado para encaminhar para
 asave_ecannot=Tipo de encaminhamento inválido selecionado
+
 ffile_title=Editar arquivo de filtro
 ffile_desc=Use o formulário abaixo para configurar as regras de filtro no arquivo $1.
 ffile_efile=Você não tem permissão para editar $1.
@@ -88,6 +93,7 @@ ffile_err=Falha ao salvar o arquivo de filtro
 ffile_ematch=Falta partida
 ffile_eaction=Endereço de encaminhamento ausente
 ffile_ewrite=Falha ao gravar no arquivo de filtro : $1 
+
 rfile_title=Editar arquivo de resposta automática
 rfile_desc=Use a área de texto abaixo para editar a mensagem de resposta automática em $1. A mensagem pode conter as macros $SUBJECT, $FROM, $TO, $DATE e $BODY que serão expandidas quando a resposta automática for ativada.
 rfile_desc2=Você também pode definir cabeçalhos de email que adicionem ou substituam os padrões usados na resposta automática, colocando linhas como: <br><tt> De: foo@bar.com </tt><br> <tt>Assunto: Em férias</tt> <br> na parte superior da mensagem, separado do corpo por uma única linha em branco.
@@ -105,13 +111,16 @@ rfile_auto=Automático (com base no endereço do destinatário)
 rfile_efrom=Endereço ausente de:
 rfile_fromdesc=Um endereço De: sempre deve ser especificado sempre que possível, pois o método automático pode não ser confiável.
 rfile_err=Falha ao salvar o arquivo de resposta automática
+
 vfile_title=Editar arquivo de resposta de férias
 vfile_desc=Use a área de texto abaixo para editar a mensagem de resposta automática em $1.
 vfile_subject=Assunto da mensagem
 vfile_err=Falha ao salvar o arquivo de resposta de férias
 vfile_esubject=Assunto da mensagem ausente
+
 edit_title=Editar arquivo encaminhado
 edit_desc=Esta página permite editar manualmente o conteúdo do seu arquivo $1. Tenha cuidado, pois nenhuma verificação de erro é feita em sua entrada.
+
 vacation_title=Opções de férias
 vacation_header=Opções de resposta automática de férias
 vacation_user=Seu nome de usuário
@@ -126,6 +135,7 @@ vacation_einterval=Intervalo de resposta ausente ou inválido
 vacation_euser=Nome de usuário ausente ou inválido
 vacation_emsg=Arquivo de mensagem ausente ou inválido
 vacation_return=opções de férias
+
 simple_err=Falha ao salvar as opções de encaminhamento de email
 simple_eforward=Nenhum endereço de encaminhamento digitado
 simple_eforward2=Um único endereço de encaminhamento deve ser inserido, como <tt>foo@bar.com</tt>

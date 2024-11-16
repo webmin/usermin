@@ -7,6 +7,7 @@ index_office=Broj uredske sobe
 index_ophone=Telefon na poslu
 index_hphone=Kućni telefon
 index_shell=Školjka za prijavu
+
 save_err=Promjena detalja nije uspjela
 save_ereal=Pravo ime ne može sadržavati ili: znakove
 save_eoffice=Broj uredske sobe ne može sadržavati ili: znakove

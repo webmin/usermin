@@ -20,6 +20,7 @@ index_noperiod=Bez minima
 index_mins=minut
 index_from=Adresa odesilatele pro odpovědi
 index_fromauto=Určit automaticky
+
 aliases_to=Přeposlat na..
 aliases_from=Zprávy pro ..
 aliases_type1=Adresa $1
@@ -31,6 +32,7 @@ aliases_type6=Použít soubor fitlrů $1
 aliases_type7=Normální schránka
 aliases_type8=Automatická odpověď v nepřítomnosti
 aliases_enabled=Povoleno?
+
 aform_type0=Žádné
 aform_type1=Emailová adresa
 aform_type2=Adresy v souboru
@@ -48,10 +50,12 @@ aform_afile=Upravit..
 aform_return=alias
 aform_name=Pošta pro..
 aform_vacation=Úprava voleb pro nepřítomnost..
+
 afile_title=Úprava souboru adres
 afile_desc=V následujícím textovém okénku můžete upravovat adresy ze souboru $1.
 afile_undo=Vrátit změny
 afile_ewrite=Selhal zápis do souboru adres: $1
+
 asave_err=Selhalo uložení přeposílání
 asave_eaddr='$1' není platná adresa
 asave_etype1='$1' není platná emailová adresa
@@ -67,6 +71,7 @@ asave_ename=Chybějící, nebo neplatná pošta pro
 asave_esame=Alias pro tuto adresu již existuje
 asave_enone=Nebylo nic vybráno k přeposílání
 asave_ecannot=Byl zvolen neplatný typ přeposílání
+
 ffile_title=Úpravy souboru filtrů
 ffile_desc=Použijte následujícíc formulář pro nastavení pravidel fitrů v souboru $1.
 ffile_efile=Nemáte oprávbnění upravovat $1.
@@ -83,6 +88,7 @@ ffile_err=Selhalo uložení souboru filtrů
 ffile_ematch=Chybějící shoda
 ffile_eaction=Chybějící adresa přeposlání
 ffile_ewrite=Selhal zápis do souboru fitrů: $1
+
 rfile_title=Úpravy souboru automatické odpovědi
 rfile_desc=Následující textová oblastje určena k úpravám zprávy automatické odpovědi v $1. Zpráva může obsahovat makra $SUBJECT, $FROM, $TO, $DATE a $BODY, která budou nrozvinuta pokud bude přeposlání aktivováno.
 rfile_desc2=Můžete rovněž nastavit hlavičky zprávy, která nahradí nebo doplní implicitně používané tím, že zadáte:<br><tt>From: jmeno@domena.com</tt><br><tt>Subject: Mám dovolenou</tt><br>na začátku zprávy, oddělené od těla zprávy jedním prázdným řádkem.
@@ -100,13 +106,16 @@ rfile_auto=Automaticky (podle addresy příjemce)
 rfile_efrom=Chybějící adresa Od: (From:)
 rfile_fromdesc=Adresa Od: (From:) by měla být pokud možno uváděna všude, kde je to možné, neboť automatické určení nemusí být spolehlivé.
 rfile_err=Selhalo uložení souboru automatické odpovědi
+
 vfile_title=Úpravy souboru zpráv v nepřítomnosti
 vfile_desc=V následujícím textovém poli můžete upravovat zprávu automatické odpovědi na $1.
 vfile_subject=Předmět:
 vfile_err=Selhalo uložení souboru automatické odpovědi v nepřítomnosti.
 vfile_esubject=Chybějící předmět zprávy
+
 edit_title=Upravit soubor přesměrování
 edit_desc=Tato stránka umožňuje upravovat obsah Vašeho souboru $1. Buďte obezřetní, neprovádí se žádná kontrola na chyby.
+
 vacation_title=Volby pro zprávy v nepřítomnosti
 vacation_header=Volby pro automatické odpovědi v nepřítomnosti
 vacation_user=Vaše uživatelské jméno
@@ -121,6 +130,7 @@ vacation_einterval=Chybějící nebo neplatný interval odpovědí.
 vacation_euser=Chybějící nebo neplatné uživatelské jméno
 vacation_emsg=Chybějící nebo neplatný soubor se zprávou
 vacation_return=volby pro zprávy v nepřítomnosti
+
 simple_err=Nepodařilo se uložit nastavení přesměrování
 simple_eforward=Nebyla zadána adresa pro přesměrování
 simple_eforward2=Musí být zadána adresa pro přesměrování, jako např. <tt>foo@bar.com</tt>

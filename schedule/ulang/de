@@ -13,6 +13,7 @@ index_cleardesc=Klicken Sie auf diesen Button, um alle E-Mails, die für einen e
 index_delete=Lösche ausgewählte E-Mails
 index_disable=Ausgewählte deaktivieren
 index_enable=Ausgewählte aktivieren
+
 edit_title1=Erzeuge zeitversetzten E-Mail-Versand
 edit_title2=Bearbeite zeitversetzten E-Mail-Versand
 edit_header=Details des zeitversetzten E-Mail-Versandes
@@ -33,10 +34,12 @@ edit_files=Angehängte Dateien
 edit_file=Dateiname
 edit_type=Quelle
 edit_uploaded=Hochgeladen
+
 save_err=Konnte zeitversetzten E-Mail-Versand nicht speichern
 save_esubject=Fehlender Nachrichtenbetreff
 save_eto=Fehlende Empfänger-E-Mail-Adresse
 save_emailfile=Fehlende oder ungültige Textdatei
 save_efrom=Fehlende Absender-E-Mail-Adresse
 save_eat=Fehlender oder ungültiger Zeitpunkt für den Versand
+
 view_efile=Datei existiert nicht länger

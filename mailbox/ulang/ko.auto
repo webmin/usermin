@@ -1,16 +1,21 @@
 index_title=$1 의 메일
 index_return=메일 목록
+index_searching=$1에 대한 검색이 진행 중입니다. 완료되면 결과가 여기에 표시됩니다.
+index_searching2=복잡한 검색이 진행 중입니다. 완료되면 결과가 여기에 표시됩니다.
+
 mail_title=메일 읽기
 mail_none=$1 폴더에 메시지가 없습니다
 mail_pos=$4 폴더에있는 $3 의 $1 에서 $2 메시지
 mail_return=사서함
 mail_quota=$2 중 $1 사용
 mail_special=특별한
+
 send_efile=첨부 된 파일 $1 을 읽을 수 없거나 존재하지 않습니다
 send_nobody=아무도
 send_etomsg=받는 사람, 참조 또는 숨은 참조 주소가 입력되지 않았습니다.
 send_esubjectmsg=제목이 입력되지 않았습니다. 괜찮습니다.
 send_eclosemsg=이 페이지를 닫고 진행중인 메시지를 잃으시겠습니까?
+
 address_chooser=주소를 선택하십시오.
 address_addr=이메일 주소
 address_name=실제 이름
@@ -61,6 +66,7 @@ address_exportdup0=둘 다 포함
 address_exportdup1=첫 번째 만 포함
 address_exportfmt=형식으로 내보내기
 address_exportok=지금 수출
+
 import_err=주소를 가져 오지 못했습니다
 import_title=주소록 가져 오기
 import_doing=주소록 가져 오기 결과 ..
@@ -75,10 +81,13 @@ import_noemail=<font color=red>이메일 주소가 없거나 잘못되었습니�
 import_same=변경되지 않은, 건너 뛴
 import_skip=중복 된 주소, 건너 뛴
 import_enetvcard=vCard 형식 파일을 읽으려면 <tt>Net::vCard</tt> Perl 모듈이 필요합니다
+
 export_err=주소를 내 보내지 못했습니다
+
 group_err=주소 그룹을 저장하지 못했습니다
 group_egroup=그룹 이름이 없거나 잘못되었습니다
 group_emembers=회원 이메일 주소가 입력되지 않았습니다
+
 folders_title=폴더 관리
 folders_instr=도움말 및 폴더 유형
 folders_desc2=아래 나열된 각 폴더에는 사용자가 이동 한 메일이나 자동으로 저장된 메일이 포함될 수 있습니다. 사용 가능한 폴더 유형은 다음과 같습니다.
@@ -124,6 +133,7 @@ folders_delete=선택한 폴더 삭제
 folders_addimap=새 폴더를 추가하십시오.
 folders_addcomp=새 복합 폴더를 추가하십시오.
 folders_addvirt=새 가상 폴더를 추가하십시오.
+
 edit_title1=폴더 생성
 edit_title2=폴더 편집
 edit_header=메일 폴더 세부 사항
@@ -161,6 +171,7 @@ edit_comps=가장 오래된 하위 폴더
 edit_comp=합성물
 edit_virt=가상
 edit_delete=폴더에서 삭제할 때 실제 메시지를 삭제 하시겠습니까?
+
 save_err=폴더를 저장하지 못했습니다
 save_ecannot=이 유형의 폴더를 사용할 수 없습니다
 save_ename=폴더 이름이 없습니다
@@ -191,7 +202,9 @@ save_edelete=메일을 삭제하지 못했습니다  : $1
 save_eflag=IMAP 플래그를 설정하지 못했습니다  : $1 
 save_eappend=IMAP 사서함에 메일을 추가하지 못했습니다  : $1 
 save_esearch=IMAP 편지함을 검색하지 못했습니다  : $1 
+
 epop3lock_tries=POP3 잠금 파일로 인해 $2 분 동안 시도한 후 메일 파일 $1 을 (를) 잠그지 못했습니다.
+
 view_dsn=배달 상태 알림
 view_dnsnow=배달 상태 알림 메시지가 $1 (으)로 전송되었습니다.
 view_dsnbefore=배달 상태 알림 메시지가 $2 의 $1 (으)로 전송되었습니다.
@@ -204,21 +217,30 @@ view_quick=빠른 답변
 view_quick_all=모두에게 답장
 view_quick_quote=원본 인용
 view_quick_send=보내다
+
 search_virtualize=명명 된 가상 폴더 생성 :
 search_dest=결과 저장
 search_dest1=검색 결과 폴더
 search_dest0=이름이 지정된 새 가상 폴더
 search_edest=결과에 대한 가상 폴더 이름이 없습니다.
 search_eself=검색 결과 폴더를 검색 할 수 없습니다
+search_doing=$2 폴더에서 $1을(를) 검색합니다.
+search_doing2=선택한 폴더에서 메시지를 검색합니다.
+search_results=검색이 완료되면 <a href='$1'>검색 결과</a> 폴더에 일치하는 메시지가 표시됩니다..
+
 virtualize_ename=가상 폴더 이름이 없습니다.
+
 delete_enoadd=메시지는 가상 폴더로 이동할 수 없으며 복사 만 가능합니다
+
 sig_title=서명 편집
 sig_desc=이 양식을 사용하여 $1 파일에서 이메일 서명을 편집하십시오.
 sig_undo=실행 취소
 sig_enone=서명 파일이 정의되지 않았습니다
 sig_eopen=서명 파일을 열지 못했습니다  : $1 
+
 quota_inbox=메일 $1 의 할당량을 초과했습니다
 quota_inbox2=$1 개의 메일 메시지 할당량을 초과했습니다
+
 auto_title=자동 폴더 지우기
 auto_header=예약 된 폴더 지우기 옵션
 auto_enabled=메시지를 자동으로 삭제 하시겠습니까?
@@ -236,6 +258,7 @@ auto_action1=폴더의 모든 메시지 삭제
 auto_action2=$1 폴더로 이동
 auto_edest=선택한 대상 폴더가 없습니다!
 auto_ewrite=선택한 대상 폴더를 쓸 수 없습니다
+
 copy_title=모든 메일 복사
 copy_header=폴더의 모든 메시지를 복사
 copy_source=소스 폴더
@@ -245,18 +268,22 @@ copy_ok=지금 복사
 copy_doing=$1 에서 $2 (으)로 모든 메시지 복사
 copy_done=.. 완료
 copy_deleting=폴더 $1 비우기 ..
+
 fdelete_title=폴더 삭제
 fdelete_err=폴더를 삭제하지 못했습니다
 fdelete_enone=선택된 사항 없음
 fdelete_rusure=선택한 $1 개의 폴더를 삭제 하시겠습니까? 이메일 $2 이 (가) 완전히 삭제됩니다.
 fdelete_rusure2=선택한 $1 개의 폴더를 삭제 하시겠습니까?
 fdelete_delete=지금 삭제
+
 detachall_err=첨부 파일을 모두 저장하지 못했습니다.
 detachall_emkdir=임시 디렉토리를 만들 수 없습니다  : $1 
 detachall_ezip=ZIP 실패  : $1 
+
 allow_err=허용 된 주소를 저장하지 못했습니다
 deny_err=거부 된 주소를 저장하지 못했습니다
 allow_eaddr='$1'은 (는) 유효한 이메일 주소가 아닙니다
+
 right_header=시스템 정보
 right_host=시스템 호스트 이름
 right_os=운영 체제

@@ -1,10 +1,12 @@
 index_title=Mail en $1
+
 mail_title=Leer correo
 mail_none=No hay mensajes en la carpeta $1
 mail_pos=Mensajes $1 a $2 de $3 en la carpeta $4
 mail_return=Buzon
 mail_quota=Con $1 de cada $2
 mail_special=Especial
+
 address_chooser=Seleccionar dirección
 address_addr=Dirección de email
 address_name=Nombre real
@@ -33,9 +35,11 @@ address_allow=Direcciones permitidas
 address_deny=Direcciones no permitidas
 address_allowdesc=Los emails de las siguientes direcciones siempre serán aceptadas, y nunca se clasificarán como spam
 address_denydesc=Los emails de las siguientes direcciones siempre serán clasificadas como spam, y serán situados en la carpeta de spam o serán borrados.
+
 group_err=Error al salvar grupo de direcciones
 group_egroup=Error en el nombre de grupo
 group_emembers=No ha introducido direccion de email del miembro
+
 folders_title=Gestionar carpetas
 folders_name=Nombre de carpeta
 folders_type=Tipo
@@ -62,6 +66,7 @@ folders_delete=Borrar carpetas selecionadas
 folders_addimap=Añadir nueva carpeta
 folders_addcomp=Añadir nueva composite carpeta
 folders_addvirt=Añadir nueva carpeta virtual
+
 edit_title1=Crear carpeta
 edit_title2=Editar carpeta
 edit_header=Detalles de la carpeta de correo
@@ -94,6 +99,7 @@ edit_comps=Subcarpetas, antiguas primero
 edit_comp=Nuevo
 edit_virt=Virtual
 edit_delete=¿Borrar mensaje real cuando se realice el borrardo desde carpetas?
+
 save_err=Error al salvar carpeta
 save_ecannot=No está autorizado a usar este tipo de carpeta
 save_ename=Error en nombre de carpeta
@@ -113,6 +119,7 @@ save_emailbox=Error al abrir el buzon IMAP: $1
 save_emailbox2=Error en el buzon IMAP
 save_edelete=Error al borrar mail: $1
 save_eappend=Error al añadir mail to buzon IMAP: $1
+
 view_dsn=Confirmacion de Estado de envío
 view_dsnbefore=Un mensaje de confirmacion de estado fue remitido a $1 en $2
 view_dsnreq=La confirmación de estado fue solicitado por $1
@@ -123,12 +130,17 @@ view_quick=Respuesta rapida
 view_quick_all=Responder a todos
 view_quick_quote=Incluir el original
 view_quick_send=Enviar
+
 virtualize_ename=Nombre de carpeta virtual no existe
+
 delete_enoadd=Mensajes no pueden ser movidos a carpetas virtuales, solo copiados
+
 sig_title=Editar firma
 sig_undo=Deshacer
+
 quota_inbox=Cuota de mail $1 excedida
 quota_inbox2=Cuota de $1 mensajes de mail excedida
+
 auto_title=Limpieza automática de carpeta
 auto_header=Opciones de programación de limpieza de carpetas
 auto_enabled=¿Borrar mensajes automaticamente?
@@ -143,6 +155,7 @@ auto_invalid=Borrar mensajes con fecha erronea o no válida
 auto_action=Acción cuando se encuentran mensajes para borrar
 auto_action0=Borrar mensajes que coincidan
 auto_action1=Borrar todos los mensajes de la carpeta
+
 copy_title=Copiar todo el mail
 copy_header=Copiar todos los mensajes de la carpeta
 copy_source=Carpeta origen
@@ -152,15 +165,18 @@ copy_ok=Copiar ahora
 copy_doing=Copiando todos los mensajes de $1 a $2 ...
 copy_done=... hecho
 copy_deleting=Borrando carpeta $1 ...
+
 fdelete_title=Borrar carpetas
 fdelete_err=Error al borrar carpetas
 fdelete_enone=Ninguno seleccionado
 fdelete_rusure=Esta seguro que quiere borrar las carpetas seleccionadas $1? $2 de email serán borrados permanentemente
 fdelete_rusure2=Esta seguro que quiere borrar las carpetas seleccionadas $1?
 fdelete_delete=Borrar ahora
+
 detachall_err=Error al salvar todos los adjuntos
 detachall_emkdir=No se puede crear directorio temporal: $1
 detachall_ezip=Error en ZIP: $1
+
 allow_err=Error al salvar las direcciones permitidas
 deny_err=Error al salvar direcciones
 allow_eaddr='$1' no es una direccion de email válida

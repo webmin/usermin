@@ -8,6 +8,7 @@ index_find=Seçenekler dosyası içinde bul:
 index_finddesc=Girilen daha önceden oluşturulmuş herhangibir $1 dosyası aranıyor.
 index_return=Seçenekler dosyası listesi
 index_apache=Apache versiyon ve modul bilgisi Webmin yapılandırma klasörü $1 içinde bulunmamaktadır.
+
 find_title=Seçenekler dosyalarını bul
 find_list=Bir sonraki Seçenekler dosyası $1 klasörü altında bulundu..
 find_none=$2 altında $1 Seçenekler dosyası bulunamadı .

@@ -13,6 +13,7 @@ index_cleardesc=Fes clic sobre aquest botó per suprimir tots els missatges plan
 index_delete=Suprimeix els Missatges Seleccionats
 index_disable=Desactiva els Seleccionats
 index_enable=Activa els Seleccionats
+
 edit_title1=Creació de Correu Planificat
 edit_title2=Edició de Correu Planificat
 edit_header=Detalls del missatge de correu planificat
@@ -33,10 +34,12 @@ edit_files=Fitxers adjunts
 edit_file=Nom del fitxer
 edit_type=Origen
 edit_uploaded=Pujat
+
 save_err=No he pogut desar el coreu planificat
 save_esubject=Hi falta l'assumpte del missatge
 save_eto=Hi falta l'adreça de destí
 save_emailfile=Hi falta el fitxer de text del missatge o bé és invàlid
 save_efrom=Hi falta l'adreça d'origen
 save_eat=Hi falta el dia/hora d'execució o bé és invàlid
+
 view_efile=El fitxer ja no existeix

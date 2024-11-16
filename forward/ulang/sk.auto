@@ -25,6 +25,7 @@ index_fromdef=Vaša predvolená adresa
 index_charset=Znaková sada správ
 index_charsetdef=Z aktuálneho jazyka
 index_charsetother=Ďalšia znaková sada
+
 aliases_to=Ďalej ..
 aliases_from=E-mail pre ..
 aliases_type1=Adresa 1
@@ -36,6 +37,7 @@ aliases_type6=Použiť súbor filtra $1
 aliases_type7=Normálna schránka používateľa
 aliases_type8=Dovolenka autoreply
 aliases_enabled=Povolené?
+
 aform_type0=nikto
 aform_type1=Emailová adresa
 aform_type2=Adresy v súbore
@@ -53,10 +55,12 @@ aform_afile=Edit ..
 aform_return=prezývka
 aform_name=E-mail pre ..
 aform_vacation=Upravte možnosti dovolenky ..
+
 afile_title=Upraviť súbor s adresou
 afile_desc=Pomocou textovej oblasti nižšie upravte adresy v súbore $1.
 afile_undo=Vrátiť zmeny
 afile_ewrite=Nepodarilo sa zapísať do súboru s adresami : $1 
+
 asave_err=Uloženie presmerovania zlyhalo
 asave_eaddr='$1' nie je platná adresa
 asave_etype1=$1 nie je platná e-mailová adresa
@@ -72,6 +76,7 @@ asave_ename=Chýbajúca alebo neplatná pošta pre meno
 asave_esame=Alias pre túto adresu už existuje
 asave_enone=Nič, pre koho sa má poslať ďalej, nebolo vybraté
 asave_ecannot=Bol vybratý neplatný typ preposielania
+
 ffile_title=Upraviť súbor filtra
 ffile_desc=Použite nasledujúci formulár na nastavenie pravidiel filtra v súbore $1.
 ffile_efile=Nemáte oprávnenie upravovať $1.
@@ -88,6 +93,7 @@ ffile_err=Súbor filtra sa nepodarilo uložiť
 ffile_ematch=Chýba zápas
 ffile_eaction=Chýba presmerovacia adresa
 ffile_ewrite=Nepodarilo sa zapísať do súboru filtra : $1 
+
 rfile_title=Upraviť autoreply súbor
 rfile_desc=Pomocou textovej oblasti nižšie upravte autoreply správu v $1. Správa môže obsahovať makrá $SUBJECT, $FROM, $TO, $DATE a $BODY, ktoré sa po aktivácii autoreply budú rozširovať.
 rfile_desc2=Môžete tiež nastaviť hlavičky pošty, ktoré pridávajú alebo nahrádzajú predvolené hodnoty použité v autoreply tak, že zadáte riadky ako: <br><tt> Od: foo@bar.com </tt><br> <tt>Predmet: Na dovolenke</tt> <br> v hornej časti správy, oddelené od tela jediným prázdnym riadkom.
@@ -105,13 +111,16 @@ rfile_auto=Automaticky (na základe adresy príjemcu)
 rfile_efrom=Chýba od: adresa
 rfile_fromdesc=Od: Adresa by sa mala uvádzať vždy, keď je to možné, pretože automatická metóda nemusí byť spoľahlivá.
 rfile_err=Nepodarilo sa uložiť autoreply súbor
+
 vfile_title=Upraviť súbor odpovedí na dovolenku
 vfile_desc=Pomocou textovej oblasti nižšie upravte autoreply správu v $1.
 vfile_subject=Predmet správy
 vfile_err=Súbor s odpoveďou na dovolenku sa nepodarilo uložiť
 vfile_esubject=Chýba predmet správy
+
 edit_title=Upraviť súbor vpred
 edit_desc=Táto stránka vám umožňuje manuálne upravovať obsah vášho súboru $1. Buďte opatrní, pretože pri vstupe sa nevykonáva žiadna kontrola chýb.
+
 vacation_title=Možnosti dovolenky
 vacation_header=Možnosti automatickej odpovede na dovolenku
 vacation_user=Vaše užívateľské meno
@@ -126,6 +135,7 @@ vacation_einterval=Chýbajúci alebo neplatný interval odpovede
 vacation_euser=Chýbajúce alebo neplatné používateľské meno
 vacation_emsg=Chýba alebo je neplatný súbor správ
 vacation_return=prázdninové možnosti
+
 simple_err=Možnosti uloženia presmerovania pošty sa nepodarilo uložiť
 simple_eforward=Nebola zadaná žiadna adresa na presmerovanie
 simple_eforward2=Musíte zadať jednu adresu na presmerovanie, napríklad <tt>foo@bar.com</tt>

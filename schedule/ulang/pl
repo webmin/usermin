@@ -1,0 +1,52 @@
+index_title=Zaplanowane wiadomości e-mail
+index_none=Nie utworzyłeś jeszcze żadnych zaplanowanych wiadomości e-mail.
+index_add=Dodaj nową zaplanowaną wiadomość e-mail.
+index_subject=Temat wiadomości
+index_when=Wyślij o
+index_to=Wyślij do
+index_enabled=Włączona?
+index_self=Do siebie
+index_return=listy e-maili
+index_ran=Wysłane
+index_clear=Wyczyść wysłane e-maile
+index_cleardesc=Kliknij ten przycisk, aby usunąć wszystkie zaplanowane wiadomości e-mail, które były ustawione na pojedynczy czas i zostały już wysłane.
+index_delete=Usuń wybrane e-maile
+index_disable=Wyłącz wybrane
+index_enable=Włącz wybrane
+
+edit_title1=Utwórz zaplanowaną wiadomość e-mail
+edit_title2=Edytuj zaplanowaną wiadomość e-mail
+edit_header=Szczegóły zaplanowanej wiadomości e-mail
+edit_subject=Temat wiadomości
+edit_to=Wyślij do
+edit_cc=Kopia do
+edit_bcc=Ukryta kopia do
+edit_self=Twój adres ($1)
+edit_addr=Inny adres
+edit_from=Wyślij od
+edit_mail=Wiadomość
+edit_mailfile=Pobierz tekst z pliku
+edit_html=Zezwól na HTML w wiadomości
+edit_delete=Usuń po pierwszym wysłaniu
+edit_enabled=Wysyłanie włączone?
+edit_mode=Wyślij o
+edit_at=Czas i data
+edit_cron=Harmonogram cykliczny poniżej ..
+edit_files=Załączone pliki
+edit_file=Nazwa pliku
+edit_size=Rozmiar
+edit_type=Źródło
+edit_uploaded=Załadowane
+edit_upload1=Prześlij pliki
+edit_upload2=Dołącz plik
+
+save_err=Nie udało się zapisać zaplanowanej wiadomości e-mail
+save_esubject=Brak tematu wiadomości
+save_eto=Brak adresu odbiorcy
+save_emailfile=Brak lub nieprawidłowy plik z tekstem wiadomości
+save_efrom=Brak adresu nadawcy
+save_eat=Brak lub nieprawidłowy czas wysyłki
+
+view_efile=Plik już nie istnieje
+save_notice_title=Zaplanowano zapis
+save_notice=Zaplanowana wiadomość e-mail została pomyślnie utworzona - wyświetl, edytuj lub usuń ją, korzystając z <a href="$1">tego</a> linku.

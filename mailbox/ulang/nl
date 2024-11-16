@@ -1,14 +1,17 @@
 index_title=Mail In $1
+
 mail_title=Lees Mail
 mail_none=Er zijn geen berichten in map $1
 mail_pos=Berichten $1 tot $2 van $3 in map $4
 mail_return=mailbox
 mail_quota=Gebruik $1 van de $2
 mail_special=Speciaal
+
 send_efile=Bijlage file $1 is niet leesbaar of bestaat niet
 send_nobody=niemand
 send_etomsg=Er is geen Naar, Cc of Bcc adres ingevuld
 send_esubjectmsg=Er is geen Onderwerp ingevuld - hoop dat dit goed is?
+
 address_chooser=Kies Adres..
 address_addr=E-mail adres
 address_name=Volledige naam
@@ -37,9 +40,11 @@ address_allow=Toegestane adressen
 address_deny=Geweigerde adressen
 address_allowdesc=Email van de volgende adressen zullen altijd geaccepteerd worden en nooit als spam geclassificeerd worden.
 address_denydesc=Email van de volgende adressen zullen altijd als spam geclassificeerd worden en geplaatst worden in de spam map of worden verwijdert.
+
 group_err=Mislukt om adres van groep op te slaan
 group_egroup=Ontbrekende of ongeldige groepen naam
 group_emembers=Geen leden email adres ingevuld
+
 folders_title=Beheer Folders
 folders_instr=Help en folder soorten
 folders_desc2=Iedere folder in de lijst hieronder kan mail bevatten die u erin verplaatst heeft, of mail die er automatisch in geplaatst is. De volgende soorten folders zijn beschikbaar:
@@ -85,6 +90,7 @@ folders_delete=Verwijder Geselecteerde Folders
 folders_addimap=Voeg een nieuwe folder toe.
 folders_addcomp=Voeg een nieuwe samengestelde folder toe.
 folders_addvirt=Voeg een nieuwe virtuele folder toe.
+
 edit_title1=Nieuwe Map
 edit_title2=Bewerk Map
 edit_header=E-mail map details
@@ -120,6 +126,7 @@ edit_comps=Sub-folders, oudste eerst
 edit_comp=Samenstellen
 edit_virt=Virtueel
 edit_delete=Verwijder echte berichten wanneer die verwijdert worden van een folder?
+
 save_err=Kon map niet opslaan
 save_ecannot=U bent niet bevoegd om dit type folder te gebruiken
 save_ename=Ontbrekende of ongeldige mapnaam
@@ -150,7 +157,9 @@ save_edelete=Mislukt om mail te verwijderen : $1
 save_eflag=Mislukt om IMAP flags te zetten : $1
 save_eappend=Mislukt om mail toe te voegen aan de IMAP mailbox : $1
 save_esearch=Zoeken mislukt naar de IMAP mailbox : $1
+
 epop3lock_tries=Mislukt om file $1 op slot te zetten na $2 minuten proberen, door middel van een POP3 Slot file.
+
 view_dsn=Aflever Status Notitie
 view_dnsnow=Een aflever status notitie bericht is zojuist verstuurd naar $1.
 view_dsnbefore=Een aflever status notitie bericht is verstuurd naar $1 op $2.
@@ -163,21 +172,27 @@ view_quick=Snel antwoorden
 view_quick_all=Antwoord iedereen
 view_quick_quote=Quote origineel
 view_quick_send=Verstuur
+
 search_virtualize=Maak Virtuele Folder Genaamd:
 search_dest=Sla de resultaten op in
 search_dest1=Zoek Resultaten folder
 search_dest0=Nieuwe virtuele folder met de naam
 search_edest=Ontbrekende virtuele folder naam voor resultaten
 search_eself=De zoekresultaten folder kan niet worden opgezocht
+
 virtualize_ename=Ontbrekende virtuele folder naam
+
 delete_enoadd=Berichten kunnen niet worden verplaats naar virtuele folders, alleen worden gekopieerd
+
 sig_title=Bewerk Handtekening
 sig_desc=Gebruik dit formulier om uw email ondertekening te bewerken in de file $1
 sig_undo=ongedaan maken
 sig_enone=Geen ondertekening file gedefinieerd
 sig_eopen=Mislukt om de ondertekening file te openen : $1
+
 quota_inbox=Quota voor mail van $1 overschreden
 quota_inbox2=Quota van $1 mail berichten overschreden
+
 auto_title=Automatische Folder Opschoning
 auto_header=Planning voor folder opschoon opties
 auto_enabled=Berichten automatisch verwijderen?
@@ -192,6 +207,7 @@ auto_invalid=Verwijder berichten met een ongeldige datum
 auto_action=Wat moet er gebeuren met berichten die gevonden zijn om te verwijderen
 auto_action0=Verwijder overeenkomende berichten
 auto_action1=Verwijder alle berichten in folder
+
 copy_title=Kopieer Alle Mail
 copy_header=Kopieer alle berichten in folder
 copy_source=Bron folder
@@ -201,15 +217,18 @@ copy_ok=Kopieer NU
 copy_doing=Kopiëren van alle berichten van $1 naar $2 ..
 copy_done=.. klaar
 copy_deleting=Legen van folder $1 ..
+
 fdelete_title=Verwijder Folders
 fdelete_err=Mislukt om folders te verwijderen
 fdelete_enone=Niets geselecteerd
 fdelete_rusure=Weet u zeker dat u de $1 geselecteerde folders wilt verwijderen? $2 aan email zal voorgoed worden verwijdert.
 fdelete_rusure2=Weet u zeker dat u de $1 geselecteerde folders wilt verwijderen?
 fdelete_delete=Verwijder Nu
+
 detachall_err=Mislukt om alle bijlagen op te slaan
 detachall_emkdir=Kon geen tijdelijke directory aanmaken : $1
 detachall_ezip=ZIP mislukt : $1
+
 allow_err=Mislukt om Toegestane adressen op te slaan
 deny_err=Mislukt om geweigerde adressen op te slaan
 allow_eaddr='$1' is geen geldig email adres

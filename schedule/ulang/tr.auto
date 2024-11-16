@@ -13,6 +13,7 @@ index_cleardesc=Tek bir kez ayarlanmış ve önceden gönderilmiş tüm zamanlan
 index_delete=Seçilen E-postaları Silindi
 index_disable=Seçilenleri Devre Dışı Bırak
 index_enable=Seçilenleri Etkinleştir
+
 edit_title1=Zamanlanmış E-posta Oluştur
 edit_title2=Zamanlanmış E-postayı Düzenle
 edit_header=Zamanlanmış e-posta mesajı ayrıntıları
@@ -38,12 +39,14 @@ edit_type=Kaynak
 edit_uploaded=Yüklenen
 edit_upload1=Dosyaları yükle
 edit_upload2=Dosya ekle
+
 save_err=Planlanmış e-posta kaydedilemedi
 save_esubject=Eksik mesaj konusu
 save_eto=Adrese gönderilemedi
 save_emailfile=Eksik veya geçersiz mesaj metin dosyası
 save_efrom=Adresinden eksik gönderme
 save_eat=Çalıştırılacak eksik veya geçersiz zaman
+
 view_efile=Dosya artık mevcut değil
 save_notice_title=Program Kaydedildi
 save_notice=Zamanlanmış e-posta başarıyla oluşturuldu - <a href="$1">bu</a> bağlantısını izleyerek e-postayı görüntüleyin, düzenleyin veya silin.

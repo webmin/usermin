@@ -20,6 +20,7 @@ index_noperiod=Sin mínimo
 index_mins=minutos
 index_from=Dirección de remite para las respuestas
 index_fromauto=Determinar automáticamente
+
 aliases_to=Reenviar a..
 aliases_from=Correo para..
 aliases_type1=Dirección $1
@@ -31,6 +32,7 @@ aliases_type6=Aplicar archivo de filtro $1
 aliases_type7=Buzón normal de correo
 aliases_type8=Autoresputesa por vacaciones
 aliases_enabled=Habilitado?
+
 aform_type0=Ninguno
 aform_type1=Dirección de correo
 aform_type2=Direcciones en archivo
@@ -48,10 +50,12 @@ aform_afile=Editar..
 aform_return=alias
 aform_name=Correo para..
 aform_vacation=Editar opciones de vacaciones..
+
 afile_title=Editar Archivo de Direcciones
 afile_desc=Use el área de texto debajo para editar las direcciones en el archivo $1.
 afile_undo=Deshacer Cambios
 afile_ewrite=Falló al escribir archivo de direcciones: $1
+
 asave_err=No se pudo guardar el reenvío
 asave_eaddr='$1' no es una dirección válida
 asave_etype1='$1' no es una dirección email válida
@@ -67,6 +71,7 @@ asave_ename=Missing or invalid mail for name
 asave_esame=Ya existe un alias para esa dirección
 asave_enone=No se seleccionó nada para el reenvío
 asave_ecannot=Se ha seleccionado un tipo de reenvío inválido
+
 ffile_title=Editar archivo de filtrado
 ffile_desc=Use el formulario de debajo para configurar reglas de filtrado en el fichero $1.
 ffile_efile=No se le permite editar $1.
@@ -83,6 +88,7 @@ ffile_err=No se pudo guardar el fichero de filtrado
 ffile_ematch=Missing match
 ffile_eaction=Dirección de reenvío ausente
 ffile_ewrite=No se pudo escribir el archivo de filtrado : $1
+
 rfile_title=Editar archivo de autorespuesta
 rfile_desc=Use el área de texto debajo para editar el mensaje de autorespuesta en $1. El mensaje puede contener las variables $SUBJECT (Asunto), $FROM (De), $TO (Para), $DATE (Fecha) y $BODY (Cuerpo) que serán expandidas cuando la autorespuesta sea utilizada.
 rfile_desc2=También puede colocar encabezados de correo para agregar o reemplazar a los de por defecto usados en la autorespuesta, colocando líneas como:<br><tt>From: foo@bar.com</tt><br><tt>Subject: De vacaciones</tt><br>al principio del mensaje, separado del cuerpo por una sola lína en blanco.
@@ -100,13 +106,16 @@ rfile_auto=Automático (basado en la dirección del destinatario)
 rfile_efrom=Falta la dirección de remite
 rfile_fromdesc=Si es posible, la dirección de remite debería ser especificada, ya que el método automático puede ser poco confiable.
 rfile_err=No se pudo guardar el fichero de autorespuesta
+
 vfile_title=Editar fichero de respuesta por vacaciones
 vfile_desc=Use el área de texto de debajo para editar su mensaje de autorespuesta en $1.
 vfile_subject=Asunto del mensaje
 vfile_err=No se pudo guardar el fichero de respuesta por vacaciones
 vfile_esubject=Falta el asunto del mensaje
+
 edit_title=Editar Archivo de Reenvío
 edit_desc=Esta página permite editar manualmente los contenidos de su archivo $1. Sea cuidadoso, ya que no se verificará que lo que usted escriba esté libre de errores.
+
 vacation_title=Opciones de vacaciones
 vacation_header=Opciones de autorespuesta por vacaciones
 vacation_user=Su nombre de usuario
@@ -121,6 +130,7 @@ vacation_einterval=Falta el intervalo entre respuestas, o es inválido
 vacation_euser=Falta el nombre de usuario, o es inválido
 vacation_emsg=Falta el fichero de mensaje, o es inválido
 vacation_return=opciones de vacaciones
+
 simple_err=No se pudieron guardar las opciones de reenvío
 simple_eforward=No se especificó la dirección de reenvío
 simple_eforward2=Solo se puede especificar una única dirección de reenvío, como <tt>foo@bar.com</tt>

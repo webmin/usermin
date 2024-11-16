@@ -13,6 +13,7 @@ index_cleardesc=Ikklikkja din il-buttuna biex tħassar l-emails skedati kollha l
 index_delete=Imħassar E-Mails Magħżula
 index_disable=Iddiżattiva l-Għażla
 index_enable=Attiv magħżula
+
 edit_title1=Oħloq Email Skedat
 edit_title2=Editja Email Skedat
 edit_header=Dettalji skedati ta 'messaġġi bl-email
@@ -38,12 +39,14 @@ edit_type=Sors
 edit_uploaded=Imtella '
 edit_upload1=Itella 'l-fajls
 edit_upload2=Waħħal fajl
+
 save_err=Ma rnexxielux isalva email skedat
 save_esubject=Suġġett tal-messaġġ nieqes
 save_eto=Nieqes tibgħat lill-indirizz
 save_emailfile=Fajl tat-test tal-messaġġ nieqes jew invalidu
 save_efrom=Nieqes tibgħat mill-indirizz
 save_eat=Żmien nieqes jew invalidu biex tmexxi
+
 view_efile=Fajl m'għadux jeżisti
 save_notice_title=Skeda Salvata
 save_notice=L-email skedat inħoloq b'suċċess - tara, edita jew ħassarha wara <a href="$1">din ir-rabta</a>.

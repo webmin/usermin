@@ -25,6 +25,7 @@ index_fromdef=Din standardadress
 index_charset=Meddelandeteckenuppsättning
 index_charsetdef=Från nuvarande språk
 index_charsetother=Annan teckenuppsättning
+
 aliases_to=Vidarebefordra till ..
 aliases_from=Maila för ..
 aliases_type1=Adress 1
@@ -36,6 +37,7 @@ aliases_type6=Använd filterfil $1
 aliases_type7=Normal användarbrevlåda
 aliases_type8=Semester autoreply
 aliases_enabled=Aktiverad?
+
 aform_type0=Ingen
 aform_type1=E-postadress
 aform_type2=Adresser i fil
@@ -53,10 +55,12 @@ aform_afile=Redigera ..
 aform_return=alias
 aform_name=Maila för ..
 aform_vacation=Redigera semesteralternativ. ..
+
 afile_title=Redigera adressfil
 afile_desc=Använd textområdet nedan för att redigera adresserna i filen $1.
 afile_undo=Ångra ändringar
 afile_ewrite=Det gick inte att skriva till adressfilen : $1 
+
 asave_err=Det gick inte att spara vidarebefordran
 asave_eaddr='$1' är inte en giltig adress
 asave_etype1='$1' är inte en giltig e-postadress
@@ -72,6 +76,7 @@ asave_ename=Saknas eller ogiltig e-post för namn
 asave_esame=Ett alias för den adressen finns redan
 asave_enone=Ingenting valdes att vidarebefordra till
 asave_ecannot=Ogiltig vidarekopplingstyp vald
+
 ffile_title=Redigera filterfil
 ffile_desc=Använd formuläret nedan för att ställa in filterregler i filen $1.
 ffile_efile=Du får inte redigera $1.
@@ -88,6 +93,7 @@ ffile_err=Det gick inte att spara filterfilen
 ffile_ematch=Matchen saknas
 ffile_eaction=Saknad vidarebefordringsadress
 ffile_ewrite=Det gick inte att skriva till filterfil : $1 
+
 rfile_title=Redigera Autoreply File
 rfile_desc=Använd textområdet nedan för att redigera autosvarmeddelandet i $1. Meddelandet kan innehålla makron $SUBJECT, $FROM, $TO, $DATE och $BODY som kommer att utökas när autoreply aktiveras.
 rfile_desc2=Du kan också ställa e-posthuvuden som lägger till eller ersätter standardinställningarna som används i autoskyddet genom att sätta rader som: <br><tt> Från: foo@bar.com </tt><br> <tt>Ämne: På semester</tt> <br> högst upp i meddelandet, separerat från kroppen med en enda tom rad.
@@ -105,13 +111,16 @@ rfile_auto=Automatisk (baserad på mottagarens adress)
 rfile_efrom=Saknas från: adress
 rfile_fromdesc=A Från: adress ska alltid anges där det är möjligt eftersom den automatiska metoden kanske inte är tillförlitlig.
 rfile_err=Det gick inte att spara autosvar-filen
+
 vfile_title=Redigera semestersvarfil
 vfile_desc=Använd textområdet nedan för att redigera autosvarmeddelandet i $1.
 vfile_subject=Meddelandets Ämne
 vfile_err=Det gick inte att spara semestersvarfilen
 vfile_esubject=Ämnet saknas meddelandet
+
 edit_title=Redigera framåt-fil
 edit_desc=På den här sidan kan du redigera innehållet i din $1 -fil manuellt. Var försiktig, eftersom ingen felkontroll görs på din ingång.
+
 vacation_title=Semesteralternativ
 vacation_header=Alternativ för automatisk svar på semester
 vacation_user=Ditt användarnamn
@@ -126,6 +135,7 @@ vacation_einterval=Svarsintervall saknas eller ogiltigt
 vacation_euser=Saknat eller ogiltigt användarnamn
 vacation_emsg=Saknad eller ogiltig meddelandefil
 vacation_return=semester alternativ
+
 simple_err=Det gick inte att spara alternativen för vidarebefordran av e-post
 simple_eforward=Ingen vidarekopplingsadress anges
 simple_eforward2=En enda vidarekopplingsadress måste anges, till exempel <tt>foo@bar.com</tt>

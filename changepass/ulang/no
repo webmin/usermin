@@ -7,13 +7,13 @@ index_new1=Nytt passord
 index_new2=Gjenta nytt passord
 index_change=Endre nå
 index_return=skjema for passordendring
+
 index_passtab=Endre passord
 index_recoverytab=Adresse for passord-gjenoppretting
 index_desc3=Bruk dette skjemaert til å angi en alternativ adresse som et midlertidig passord kan sendes til, dersom du glemmer ditt nåværende passord
 index_recovery=Alternativ adresse for gjenoppretting av passord
 index_recoverydef=Ingen satt
 index_recoverysel=Send e-post til
-index_return=skjema for passordendring
 change_err=Kunne ikke endre passord
 change_title=Endret passord
 change_oka=Passordet ditt for $1 er endret. Alle Usermin, SSH, FTP eller e-post innlogginger vil fra nå av måtte bruke det nye passordet.
@@ -37,9 +37,11 @@ change_epasswd_same=Passordet inneholder eller er det samme som brukernavnet
 change_epasswd_new=Det nye passordet er det samme som det gamle passordet
 change_emysql=Gjeldende login i MySQL modulen er feil.
 change_eformat=Konfigurert hashing-format for passord støttes ikke
+
 recovery_title=Gjenopprettings-adresse
 recovery_err=Kunne ikke sette gjenopprettings-adresse
 recovery_eemail=Du må oppgi en gyldig e-post adresse
 recovery_cleared=Gjenopprettings-adressen er fjernet,
 recovery_set=Gjenopprettings-adressen som bruker for å be om nytt passord er satt til $1.
+
 left_changepass=Endre passord

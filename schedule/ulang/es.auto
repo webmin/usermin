@@ -13,6 +13,7 @@ index_cleardesc=Haga clic en este botón para eliminar todos los correos electr�
 index_delete=Correos electrónicos seleccionados eliminados
 index_disable=Desactivar seleccionado
 index_enable=Habilitar seleccionado
+
 edit_title1=Crear correo electrónico programado
 edit_title2=Editar correo electrónico programado
 edit_header=Detalles de mensajes de correo electrónico programados
@@ -38,12 +39,14 @@ edit_type=Fuente
 edit_uploaded=Subido
 edit_upload1=Subir archivos
 edit_upload2=Adjuntar un archivo
+
 save_err=No se pudo guardar el correo electrónico programado
 save_esubject=Asunto del mensaje faltante
 save_eto=Falta el envío a la dirección
 save_emailfile=Archivo de texto de mensaje faltante o no válido
 save_efrom=Falta el envío desde la dirección
 save_eat=Tiempo perdido o no válido para correr a las
+
 view_efile=El archivo ya no existe
 save_notice_title=Horario guardado
 save_notice=El correo electrónico programado se ha creado correctamente: visualícelo, edítelo o elimínelo siguiendo <a href="$1">este</a> enlace.

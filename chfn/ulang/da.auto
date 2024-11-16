@@ -7,6 +7,7 @@ index_office=Kontor værelse nummer
 index_ophone=Arbejdstelefon
 index_hphone=Hjemmetelefon
 index_shell=Login shell
+
 save_err=Kunne ikke ændre detaljer
 save_ereal=Rigtigt navn kan ikke indeholde eller: tegn
 save_eoffice=Kontorrumsnummer kan ikke indeholde eller: tegn

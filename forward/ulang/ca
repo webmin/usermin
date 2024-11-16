@@ -25,6 +25,7 @@ index_fromdef=La teva adreça per defecte
 index_charset=Joc de caràcters del missatge
 index_charsetdef=El de l'idioma actual
 index_charsetother=Un altre joc de caràcters
+
 aliases_to=Reenvia a...
 aliases_from=Correu de...
 aliases_type1=Adreça $1
@@ -36,6 +37,7 @@ aliases_type6=Aplica el fitxer de filtre $1
 aliases_type7=Bústia normal de l'usuari
 aliases_type8=Autoresposta de vacances
 aliases_enabled=Activada
+
 aform_type0=Cap
 aform_type1=Adreça de correu
 aform_type2=Adreces del fitxer
@@ -53,10 +55,12 @@ aform_afile=Edita...
 aform_return=àlies
 aform_name=Correu de...
 aform_vacation=Edita les opcions de vacances...
+
 afile_title=Edició de Fitxer d'Adreces
 afile_desc=Fes servir l'àrea de text de sota per editar les adreces del fitxer $1.
 afile_undo=Desfés els Canvis
 afile_ewrite=No he pogut gravar el fitxer d'adreces: $1
+
 asave_err=No he pogut desar el reenviament
 asave_eaddr='$1' no és una adreça vàlida
 asave_etype1='$1' no és una adreça de correu vàlida
@@ -72,6 +76,7 @@ asave_ename=Hi falta el correu o bé és invàlid
 asave_esame=Ja existeix un àlies d'aquesta adreça
 asave_enone=No has seleccionat res per reenviar-hi
 asave_ecannot=Has seleccionat un tipus de reenviament invàlid
+
 ffile_title=Edició del Fitxer de Filtre
 ffile_desc=Utilitza el formulari de sota per configurar les regles de filtratge del fitxer $1.
 ffile_efile=No tens permís per editar $1.
@@ -88,6 +93,7 @@ ffile_err=No he pogut desar el fitxer de filtre
 ffile_ematch=Hi falta el patró de coincidència
 ffile_eaction=Hi falta l'adreça de reenviament
 ffile_ewrite=No he pogut gravar el fitxer de filtre: $1
+
 rfile_title=Edició del Fitxer d'Autoresposta
 rfile_desc=Utilitza l'àrea de text de sota per editar el missatge d'autoresposta de $1. El missatge pot contenir les macros $SUBJECT, $FROM, $TO, $DATE i $BODY, que s'expandiran quan l'autoresposta s'activi.
 rfile_desc2=També pots establir capçaleres de correu que s'afegeixen o substitueixen les capçaleres per defecte posant línies com ara:<br><tt>From: foo@bar.com</tt><br><tt>Subject: De vacances</tt><br>a dalt de tot del missatge, separant-les del cos amb un línia en blanc.
@@ -105,13 +111,16 @@ rfile_auto=Automàtic (basat en l'adreça del destinatari)
 rfile_efrom=Hi falta l'adreça From:
 rfile_fromdesc=S'hauria d'especificar una adreça From: sempre que sigui possible, ja que el mètode automàtic pot no ser fiable.
 rfile_err=No he pogut desar el fitxer d'autoresposta
+
 vfile_title=Edició del Fitxer de Resposta de Vacances
 vfile_desc=Utilitza l'àrea de text de sota per editar el missatge d'autoresposta de $1.
 vfile_subject=Assumpte del missatge
 vfile_err=No he pogut desar el fitxer de resposta de vacances
 vfile_esubject=Hi falta l'assumpte del missatge
+
 edit_title=Edició del Fitxer de Reenviament
 edit_desc=Aquesta pàgina permet editar manualment el contingut del teu fitxer $1. Ves amb compte, ja que no es fa cap comprovació d'errors.
+
 vacation_title=Opcions de Vacances
 vacation_header=Opcions d'autoresposta de vacances
 vacation_user=El teu nom d'usuari
@@ -126,6 +135,7 @@ vacation_einterval=Hi falta l'interval de la resposta o bé és invàlid
 vacation_euser=Hi falta el nom d'usuari o bé és invàlid
 vacation_emsg=Hi falta el fitxer de missatge o bé és invàlid
 vacation_return=a les opcions de vacances
+
 simple_err=No he pogut desar les opcions de reenviament de correu
 simple_eforward=No has introduït cap adreça de reenviament
 simple_eforward2=S'ha d'introduir una sola adreça de reenviament, com ara <tt>foo@bar.com</tt>

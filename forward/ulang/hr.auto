@@ -25,6 +25,7 @@ index_fromdef=Vaša zadana adresa
 index_charset=Skup znakova poruke
 index_charsetdef=S trenutnog jezika
 index_charsetother=Drugi skup znakova
+
 aliases_to=Naprijed na ..
 aliases_from=Mail za ..
 aliases_type1=Adresa 1
@@ -36,6 +37,7 @@ aliases_type6=Primjeni datoteku filtra $1
 aliases_type7=Normalni poštanski pretinac
 aliases_type8=Odmor automatski
 aliases_enabled=Omogućeno?
+
 aform_type0=nijedan
 aform_type1=Email adresa
 aform_type2=Adrese u datoteci
@@ -53,10 +55,12 @@ aform_afile=Uredi ..
 aform_return=pseudonim
 aform_name=Mail za ..
 aform_vacation=Uređivanje opcija za godišnji odmor ..
+
 afile_title=Uredi datoteku adresa
 afile_desc=Pomoću područja teksta u nastavku uredite adrese u datoteci $1.
 afile_undo=Poništi promjene
 afile_ewrite=Pisanje u datoteku adresa nije uspjelo : $1 
+
 asave_err=Spremanje prosljeđivanja nije uspjelo
 asave_eaddr='$1' nije valjana adresa
 asave_etype1='$1' nije valjana adresa e-pošte
@@ -72,6 +76,7 @@ asave_ename=Nedostaje ili nevažeća pošta za ime
 asave_esame=Alias za tu adresu već postoji
 asave_enone=Ništa nije odabrano za prosljeđivanje
 asave_ecannot=Odabrana je nevažeća vrsta prosljeđivanja
+
 ffile_title=Uredi datoteku filtra
 ffile_desc=Upotrijebite donji obrazac za postavljanje pravila filtra u datoteci $1.
 ffile_efile=Nije vam dopušteno uređivanje $1.
@@ -88,6 +93,7 @@ ffile_err=Spremanje datoteke filtra nije uspjelo
 ffile_ematch=Nedostaje utakmica
 ffile_eaction=Nedostaje adresa za prosljeđivanje
 ffile_ewrite=Pisanje u datoteku filtra nije uspjelo : $1 
+
 rfile_title=Uređivanje datoteke Automatski odgovor
 rfile_desc=Pomoću područja teksta u nastavku uredite automatsku poruku u $1. Poruka može sadržavati makronaredbe $SUBJECT, $FROM, $TO, $DATE i $BODY koje će se proširiti kad je aktivirano automatsko odgovaranje.
 rfile_desc2=Možete postaviti i zaglavlja e-pošte koja dodaju ili zamjenjuju zadane postavke korištene u automatskom odgovoru stavljanjem redaka poput: <br><tt> Od: foo@bar.com </tt><br> <tt>Tema: Na odmor</tt> <br> na vrhu poruke, odvojen od tijela jednim praznim retkom.
@@ -105,13 +111,16 @@ rfile_auto=Automatski (na temelju adrese primatelja)
 rfile_efrom=Nedostaje: adresa
 rfile_fromdesc=O: Od adrese: uvijek treba navesti gdje je to moguće, jer automatska metoda možda nije pouzdana.
 rfile_err=Spremanje datoteke sa automatskim odgovorom nije uspjelo
+
 vfile_title=Uredite datoteku odgovora na odmor
 vfile_desc=Pomoću područja teksta u nastavku uredite automatsku poruku u $1.
 vfile_subject=Naslov poruke
 vfile_err=Spremanje datoteke odgovora na godišnji odmor nije uspjelo
 vfile_esubject=Nedostaje predmet poruke
+
 edit_title=Uređivanje datoteke za prosljeđivanje
 edit_desc=Ova vam stranica omogućuje ručno uređivanje sadržaja vaše $1 datoteke. Budite oprezni jer se na vašem unosu ne provjerava pogreška.
+
 vacation_title=Opcije odmora
 vacation_header=Opcije automatskog odgovora s odmora
 vacation_user=Vaše korisničko ime
@@ -126,6 +135,7 @@ vacation_einterval=Nedostaje ili nije važeći interval odgovora
 vacation_euser=Nedostaje ili nije valjano korisničko ime
 vacation_emsg=Nedostaje ili nije važeća datoteka s porukom
 vacation_return=mogućnosti odmora
+
 simple_err=Spremanje opcija prosljeđivanja pošte nije uspjelo
 simple_eforward=Nije unesena adresa za prosljeđivanje
 simple_eforward2=Morate unijeti jednu adresu za prosljeđivanje, poput <tt>foo@bar.com</tt>

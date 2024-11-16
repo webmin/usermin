@@ -10,6 +10,7 @@ index_return=lista indirizzi
 index_ran=inviata
 index_clear=elimina messaggi inviati
 index_cleardesc=click qui per eliminare tutte le email a scadenza impostate per n solo invio, gia' effettauto
+
 edit_title1=crea email a scadenza
 edit_title2=modifica email a scadenza
 edit_header=dettagli email a scadenza
@@ -26,6 +27,7 @@ edit_enabled=invio abilitato?
 edit_mode=invia a 
 edit_at=ora e data
 edit_cron=ripeti invio come sotto ..
+
 save_err=Failed to save scheduled email
 save_esubject=oggetto mancante
 save_eto=indirizzo destinatario mancante

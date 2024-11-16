@@ -1,13 +1,14 @@
-index_title=Opcje plików Apache
-index_desc=Ten moduł pozwala edytować pliki $1, ustawiać katalogi obsługiwane przez serwer Apache. Opcje mają zastosowanie do każdego katalogu i podkatalogu, chyba że zostaną nadpisane przez inny plik konfiguracyjny.
+index_title=Pliki opcji Apache
+index_desc=Ten moduł umożliwia edytowanie plików $1, które ustawiają opcje dla katalogów obsługiwanych przez serwer Apache. Opcje dotyczą wszystkich plików w katalogu oraz wszelkich podkatalogów, chyba że zostaną nadpisane przez inny plik opcji.
 index_header=Istniejące pliki opcji
-index_none=Pliki opcji nie zostały jeszcze utworzone.
+index_none=Nie utworzono jeszcze żadnych plików opcji.
 index_create=Dodaj opcje dla:
 index_createdesc=Tworzy nowy plik opcji w określonym katalogu.
-index_find=Znajdź pliki z opcjami w:
-index_finddesc=Wyszukano wpisany katalog dla $1 plików, które zostały utworzone ręcznie. Dopóki istnieją pliki ręcznie utworzone nie można używać tego modułu.
-index_return=lista pliku opcji
-index_apache=Informacja o wersji i module Apache nie została znaleziona w katalogu konfiguracji Webmin $1. Ten moduł wymaga, aby Webmin był zainstalowany, a moduł Apache poprawnie skonfigurowany.
-find_title=Znajdź pliki z opcjami
-find_list=Następujące pliki opcji zostały znalezione w ramach $1 ..
-find_none=Brak $1 plików opcji znalezionych w ramach $2.
+index_find=Znajdź pliki opcji w:
+index_finddesc=Przeszukuje podany katalog w poszukiwaniu ręcznie utworzonych plików $1. Dopóki ręcznie utworzone pliki nie zostaną znalezione, nie można ich edytować za pomocą tego modułu.
+index_return=listy plików opcji
+index_apache=Informacje o wersji Apache i module nie zostały znalezione w katalogu konfiguracyjnym Webmina $1. Ten moduł wymaga, aby Webmin był zainstalowany, a jego moduł Apache odpowiednio skonfigurowany.
+
+find_title=Znajdź pliki opcji
+find_list=Znaleziono następujące pliki opcji w $1 ..
+find_none=Nie znaleziono żadnych plików $1 w $2.

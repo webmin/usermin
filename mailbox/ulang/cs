@@ -1,14 +1,17 @@
 index_title=Pošta ve složce $1
+
 mail_title=Číst poštu
 mail_none=Ve složce nejsou žádné zprávy  $1
 mail_pos=Zprávy $1 až $2 ze $3 ve složce $4
 mail_return=poštovní schránku
 mail_quota=Je využito $1 ze $2
 mail_special=Speciální
+
 send_efile=Přiložený soubor $1 není čitelný nebo neexistuje
 send_nobody=nikdo
 send_etomsg=Nebyla zadána žádná adresa Komu, Kopie, Skrytá kopie
 send_esubjectmsg=Zpráva nemá žádný předmět - předpokládáme, že je to v pořádku
+
 address_chooser=Vybrat adresu..
 address_addr=Emailová adresa
 address_name=Jméno
@@ -33,9 +36,11 @@ address_search=Najít adresy odpovídající:
 address_ok=Hledat
 address_users=Emailové adresy
 address_groups=Emailové přezdívky
+
 group_err=Nepodařio se uložit skupinu adres
 group_egroup=chybějící nebo neplatné jméno skupiny
 group_emembers=Ve skupině nebyla zadaná žádná emailová adresa
+
 folders_title=Spravovat složky
 folders_instr=Nápověda a druhy složek
 folders_desc2=Každá z níže uvedených složek může obsahovat poštu, kterou do nich můžete přesunout nebo která je do nich umísťována automaticky. K dispozici jsou následující druhy složek:
@@ -81,6 +86,7 @@ folders_delete=Smazat vybrané složky
 folders_addimap=Přidat novou složku.
 folders_addcomp=Přidat novou složenou složku.
 folders_addvirt=Přidat novou virtuální složku.
+
 edit_title1=Vytvořit složky
 edit_title2=Upravit složku
 edit_header=Detaily poštovní složky
@@ -116,6 +122,7 @@ edit_comps=podsložky, nejstarší první
 edit_comp=Složená
 edit_virt=Virtuální
 edit_delete=Mazat reálné emaily během mazání ve složce?
+
 save_err=Nepodařilo se uložit složku
 save_ecannot=Nejste oprávněn používat složku tohoto typu
 save_ename=Chybějící jméno složky
@@ -145,7 +152,9 @@ save_edelete=Nepodařilo se smazat email : $1
 save_eflag=Nepodařilo se nastavit příznaky IMAP : $1
 save_eappend=Nepodařilo se přidat email do IMAP mailboxu : $1
 save_esearch=Nepodařilo se prohledávat IMAP mailbox : $1
+
 epop3lock_tries=Po dobu $2 minut se nepodařilo zamknout soubor s poštou $1, z důvodů zámku POP3.
+
 view_dsn=Potvrzení o doručení
 view_dnsnow=Potvrzení o doručení bylo právě posláno na $1.
 view_dsnbefore=Potvrzení o doručení bylo posláno na $1 na $2.
@@ -158,20 +167,26 @@ view_quick=Rychlá odpověď
 view_quick_all=Odpovědět všem
 view_quick_quote=Citovat původní zprávu
 view_quick_send=Odeslat
+
 search_virtualize=Vytvořit virtuální složku se jménem:
 search_dest=Uložit výsledky do
 search_dest1=Složka s výsledky hledání
 search_dest0=Nová virtuální složka pojmenovaná
 search_edest=Pro výsledky chybí jméno virtuální složky
+
 virtualize_ename=Chybějící virtuální složka jména
+
 delete_enoadd=Zprávy nelze přesunout do virtuálních složek, pouze kopírovat
+
 sig_title=Upravit podpis
 sig_desc=Tento formulář slouží pro úpravu vašeho podpisu připojovaného k emailu v souboru $1.
 sig_undo=Změny zpět
 sig_enone=Nebyl definován žádný soubor s podpisem
 sig_eopen=Nepodařilo se otevřít soubor s podpisem : $1
+
 quota_inbox=Byla překročena kvóta $1 pro email
 quota_inbox2=Kvóta $1 emailů byla překročena
+
 auto_title=Automatické promazávání složek
 auto_header=Možnosti plánování promazávaní složek
 auto_enabled=Mazat zprávy automaticky?
@@ -186,6 +201,7 @@ auto_invalid=Mazat zprávy s neplatným datumem
 auto_action=Akce když budou nalezeny zprávy ke smazání
 auto_action0=Smazat odpovídající zprávy
 auto_action1=Smazat všechny zprávy ve složce
+
 copy_title=Kopírování veškeré pošty
 copy_header=Zkopírovat všechny zprávy ve složce
 copy_source=Zdrojová složka
@@ -195,12 +211,14 @@ copy_ok=Zkopírovat nyní
 copy_doing=Kopírování všech zpráv z $1 do $2 ..
 copy_done=.. dokončeno
 copy_deleting=Promazávání složky $1 ..
+
 fdelete_title=Mazání složek
 fdelete_err=Nepodařilo se odstranit složky
 fdelete_enone=Nebylo nic vybráno
 fdelete_rusure=Opravdu chcete smazat $1 vybraných složek? $2 emailů bude nenávratně odstraněno.
 fdelete_rusure2=Opravdu chcete smazat $1 vybraných složek?
 fdelete_delete=Smazat nyní
+
 detachall_err=Nepodařilo se uložit všechny přílohy
 detachall_emkdir=Nepodařilo se vytvořit dočasný adresář : $1
 detachall_ezip=ZIP selhal : $1

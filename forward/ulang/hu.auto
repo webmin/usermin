@@ -25,6 +25,7 @@ index_fromdef=Az alapértelmezett cím
 index_charset=Üzenet karakterkészlet
 index_charsetdef=A jelenlegi nyelvtől
 index_charsetother=Egyéb karakterkészlet
+
 aliases_to=Tovább a ..
 aliases_from=Levél ..
 aliases_type1=Cím 1
@@ -36,6 +37,7 @@ aliases_type6=Alkalmazza a (z) $1 szűrőfájlt
 aliases_type7=Normál felhasználói postafiók
 aliases_type8=Nyaralás automatikus válasz
 aliases_enabled=Engedélyezve van?
+
 aform_type0=Egyik sem
 aform_type1=Email cím
 aform_type2=A címek a fájlban
@@ -53,10 +55,12 @@ aform_afile=Szerkesztése ..
 aform_return=álnév
 aform_name=Levél ..
 aform_vacation=Nyaralási lehetőségek szerkesztése ..
+
 afile_title=Címcím szerkesztése
 afile_desc=Használja az alábbi szövegmezőt a $1 fájl címeinek szerkesztéséhez.
 afile_undo=Változtatások visszavonása
 afile_ewrite=Nem sikerült írni a címfájlba : $1 
+
 asave_err=A továbbítás mentése nem sikerült
 asave_eaddr=A '$1' nem érvényes cím
 asave_etype1=A '$1' nem érvényes e-mail cím
@@ -72,6 +76,7 @@ asave_ename=Hiányzó vagy érvénytelen e-mail név
 asave_esame=A cím álneve már létezik
 asave_enone=Semmit sem választottunk továbbításra
 asave_ecannot=Érvénytelen továbbítási típus van kiválasztva
+
 ffile_title=Szűrőfájl szerkesztése
 ffile_desc=Az alábbi űrlap segítségével állítsa be a $1 fájl szűrési szabályait.
 ffile_efile=A (z) $1 szerkesztése nem engedélyezett.
@@ -88,6 +93,7 @@ ffile_err=A szűrőfájl mentése nem sikerült
 ffile_ematch=Hiányzik a mérkőzés
 ffile_eaction=Hiányzik a továbbítási cím
 ffile_ewrite=A fájl szűrése nem sikerült : $1 
+
 rfile_title=Az Automatikus válasz fájl szerkesztése
 rfile_desc=Használja az alábbi szövegmezőt az automatikus válasz üzenet szerkesztéséhez $1 -ben. Az üzenet tartalmazhatja a $SUBJECT, $FROM, $TO, $DATE és $BODY makrókat, amelyek az automatikus válasz aktiválásakor kibővülnek.
 rfile_desc2=Beállíthat olyan levélfejléceket is, amelyek hozzáadják vagy felváltják az automatikus válaszban szereplő alapértelmezéseket, sorok felhelyezésével: <br><tt> Feladó: foo@bar.com </tt><br> <tt>Tárgy: Nyaralás alatt</tt> <br> az üzenet tetején, elválasztva a törzsről egyetlen üres sorral.
@@ -105,13 +111,16 @@ rfile_auto=Automatikus (a címzett címe alapján)
 rfile_efrom=Hiányzik: cím
 rfile_fromdesc=A -tól: a címet mindig meg kell adni, ahol lehetséges, mivel az automatikus módszer nem megbízható.
 rfile_err=Nem sikerült menteni az automatikus válasz fájlt
+
 vfile_title=Szerkessze a nyaralás válaszfájlját
 vfile_desc=Használja az alábbi szövegmezőt az automatikus válasz üzenet szerkesztéséhez $1 -ben.
 vfile_subject=Üzenet Tárgya
 vfile_err=Nem sikerült menteni a vakációra vonatkozó válaszfájlt
 vfile_esubject=Hiányzó üzenet tárgya
+
 edit_title=Az előző fájl szerkesztése
 edit_desc=Ezen az oldalon manuálisan szerkesztheti a (z) $1 fájl tartalmát. Legyen óvatos, mivel a bemeneten nem történik hibaellenőrzés.
+
 vacation_title=Nyaralási lehetőségek
 vacation_header=Nyaralás automatikus válasz lehetőségek
 vacation_user=Felhasználóneved
@@ -126,6 +135,7 @@ vacation_einterval=Hiányzó vagy érvénytelen válaszidő
 vacation_euser=Hiányzik vagy érvénytelen felhasználónév
 vacation_emsg=Hiányzó vagy érvénytelen üzenetfájl
 vacation_return=nyaralási lehetőségek
+
 simple_err=Nem sikerült menteni az e-mail továbbítási lehetőségeket
 simple_eforward=Nincs megadva továbbítási cím
 simple_eforward2=Egyetlen továbbítási címet kell beírni, például <tt>foo@bar.com</tt>

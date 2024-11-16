@@ -1,0 +1,220 @@
+index_title=Szyfrowanie GnuPG
+index_setupdesc=GnuPG nie został skonfigurowany na Twoim koncie. Użyj poniższego formularza, aby utworzyć nowy prywatny klucz GnuPG, który będzie potrzebny do szyfrowania i podpisywania.
+index_name=Twoje imię i nazwisko
+index_email=Adres email
+index_comment=Komentarz klucza
+index_size=Rozmiar klucza
+index_pass=Hasło
+index_setup_gnupg=Skonfiguruj GnuPG
+index_return=Indeks GnuPG
+index_egpg=Polecenie GnuPG $1 nie zostało znalezione w Twoim systemie. Może nie jest zainstalowane.
+
+setup_err=Nie udało się skonfigurować GnuPG
+setup_ename=Brak nazwy klucza
+setup_enamelen=Nazwa klucza musi mieć co najmniej $1 znaków
+setup_eemail=Brak adresu email dla klucza
+setup_title=Konfiguracja GnuPG
+setup_ok=GnuPG zostało pomyślnie skonfigurowane, a klucz prywatny został utworzony.
+setup_failed=Nie udało się utworzyć klucza prywatnego: $1
+setup_emkdir=Nie udało się utworzyć katalogu .gnupg: $1
+
+keys_title=Zarządzaj kluczami
+keys_desc=Ta strona wyświetla wszystkie klucze publiczne w Twoim kluczu GnuPG. Aby zaszyfrować plik dla kogoś, musisz zaimportować jego klucz publiczny, aby pojawił się na tej liście.
+keys_id=ID klucza
+keys_secret=Klucz prywatny?
+keys_date=Data utworzenia
+keys_name=Imię właściciela
+keys_email=Email właściciela
+keys_importdesc=Jeśli otrzymałeś klucz od innego użytkownika GnuPG w pliku, użyj tego formularza, aby zaimportować go do swojej listy kluczy.
+keys_import=Importuj klucz
+keys_recvdesc=Możesz także pobrać klucze z serwera kluczy $1, jeśli znasz ID klucza.
+keys_recv=Pobierz ID klucza z serwera kluczy:
+keys_return=listy kluczy
+keys_from=Importuj klucz z
+keys_mode0=Przesłanego pliku
+keys_mode1=Pliku na serwerze
+keys_delete=Usuń zaznaczone klucze
+keys_tablist=Lista kluczy
+keys_tabimport=Importuj klucz
+keys_tabrecv=Pobierz klucz
+keys_tabsearch=Szukaj na serwerze kluczy
+keys_searchclick=Kliknij na ID klucza poniżej, aby zaimportować go do swojego klucza:
+keys_search=Znajdź klucze pasujące do:
+keys_searchok=Szukaj
+keys_searchnone=Nie znaleziono kluczy pasujących do Twojego zapytania.
+keys_searchdesc=Ta strona umożliwia przeszukiwanie serwera kluczy GPG $1 według imienia lub adresu email i importowanie znalezionych kluczy.
+keys_status=Status
+
+import_err=Nie udało się zaimportować klucza
+import_ekey=Nie wybrano pliku z kluczem
+import_egpg=Błąd GnuPG: $1
+import_efile=Brak lub nieprawidłowy plik z kluczem
+import_etext=Nie wprowadzono tekstu klucza
+
+key_title=Szczegóły klucza publicznego
+key_header=Szczegóły klucza
+key_id=ID klucza
+key_date=Data utworzenia
+key_owner=Szczegóły właściciela
+key_oname=Imię i komentarz
+key_oemail=Adres email
+key_addowner=Dodaj
+key_finger=Odrys klucza
+key_ascii=Klucz w formacie ASCII
+key_sign=Podpisz klucz
+key_signdesc=Podpisz ten klucz, aby potwierdzić, że zweryfikowałeś właściciela.
+key_exportform=Eksportuj klucz
+key_exportformdesc=Eksportuj ten klucz do pliku, aby zaimportować go na inny system lub wysłać komuś publiczny klucz.
+key_desc=Ta strona pokazuje pełne szczegóły jednego z kluczy w Twoim kluczu GnuPG. Jeśli chcesz przekazać ten klucz komuś innemu, aby mógł szyfrować pliki za jego pomocą, użyj przycisków poniżej, aby wyeksportować go do pliku.
+key_send=Wyślij na serwer kluczy
+key_senddesc=Wyślij ten klucz na serwer kluczy, aby mógł być automatycznie pobrany przez innych w celu weryfikacji Twojego podpisu.
+key_changepass=Zmień hasło na
+key_setpass=Ustaw hasło na
+key_passdesc=Ten klucz nie ma jeszcze ustawionego hasła, więc powinieneś je tutaj wpisać.
+key_passdesc2=Ten klucz ma już ustawione hasło, więc prawdopodobnie nie musisz go zmieniać.
+key_trust=Poziom zaufania klucza
+key_trust_0=Nie ustawiono
+key_trust_1=Poziom zaufania nieznany
+key_trust_2=Brak zaufania
+key_trust_3=Częściowe zaufanie
+key_trust_4=Pełne zaufanie
+key_changetrust=Zmień
+key_del=Usuń klucz
+key_deldesc=Usuń ten klucz z systemu, co uniemożliwi jego użycie do podpisywania, szyfrowania lub odszyfrowywania.
+key_revoked=<font color=red>Cofnięty</font>
+key_got=<font color=#00aa00>Zaimportowany</font>
+key_miss=Dostępny
+
+encrypt_title=Szyfruj plik
+encrypt_desc=Użyj tej strony, aby zaszyfrować plik za pomocą GnuPG i wybranego klucza publicznego. Po zaszyfrowaniu wynik będzie można odszyfrować jedynie za pomocą odpowiadającego klucza prywatnego.
+encrypt_mode=Plik do zaszyfrowania
+encrypt_mode0=Przesłany plik
+encrypt_mode1=Plik lokalny
+encrypt_mode2=Zawartość pola tekstowego
+encrypt_key=Użyj klucza publicznego
+encrypt_ascii=Zaszyfruj do pliku ASCII?
+encrypt_ok=Szyfruj teraz
+encrypt_err=Nie udało się zaszyfrować pliku
+encrypt_eupload=Nie wybrano pliku do zaszyfrowania
+encrypt_elocal=Wybrany plik nie istnieje lub nie jest czytelny
+encrypt_egpg=Błąd GnuPG: $1
+
+decrypt_title=Odszyfruj plik
+decrypt_desc=Użyj tej strony, aby odszyfrować plik zaszyfrowany za pomocą Twojego klucza publicznego, czy to przez Ciebie, czy przez kogoś innego.
+decrypt_mode=Plik do odszyfrowania
+decrypt_mode0=Przesłany plik
+decrypt_mode1=Plik lokalny
+decrypt_mode2=Zawartość pola tekstowego
+decrypt_pass=Hasło do klucza prywatnego
+decrypt_ok=Odszyfruj teraz
+decrypt_def=Bieżące hasło
+decrypt_err=Nie udało się odszyfrować pliku
+decrypt_eupload=Nie wybrano pliku do odszyfrowania
+decrypt_elocal=Wybrany plik nie istnieje lub nie jest czytelny
+decrypt_egpg=Błąd GnuPG: $1
+decrypt_key=Odszyfruj używając klucza prywatnego
+
+sign_title=Podpisz plik
+sign_desc=Użyj tej strony, aby podpisać plik, co pozwoli na weryfikację, że pochodzi od Ciebie i nie został zmodyfikowany od czasu podpisania.
+sign_mode=Plik do podpisania
+sign_mode0=Przesłany plik
+sign_mode1=Plik lokalny
+sign_mode2=Zawartość pola tekstowego
+sign_key=Podpisz używając klucza prywatnego
+sign_ascii=Dodaj podpis jako tekst na końcu pliku?
+sign_ok=Podpisz teraz
+sign_err=Nie udało się podpisać pliku
+sign_eupload=Nie wybrano pliku do podpisania
+sign_elocal=Wybrany plik nie istnieje lub nie jest czytelny
+sign_egpg=Błąd GnuPG: $1
+sign_epass=Nie ustawiono jeszcze hasła dla wybranego klucza prywatnego
+sign_sep=Zwróć tylko oddzielny podpis?
+
+verify_title=Zweryfikuj podpisany plik
+verify_desc=Użyj tej strony, aby zweryfikować plik podpisany za pomocą GnuPG, sprawdzając, czy nie został zmodyfikowany i dowiedzieć się, kto go podpisał. Jeśli chcesz wyodrębnić oryginalne dane z podpisanego pliku binarnego, użyj <a href='$1'>strony odszyfrowywania</a>.
+verify_mode=Plik do weryfikacji
+verify_mode0=Przesłany plik
+verify_mode1=Plik lokalny
+verify_sig=Podpis dla pliku
+verify_mode2=Brak (część podpisanego pliku)
+verify_mode3=Zawartość pola tekstowego
+verify_ok=Zweryfikuj teraz
+verify_err=Nie udało się zweryfikować pliku
+verify_eupload=Nie wybrano pliku do weryfikacji
+verify_elocal=Wybrany plik nie istnieje lub nie jest czytelny
+verify_esigupload=Nie wybrano pliku z podpisem
+verify_esiglocal=Plik z podpisem nie istnieje lub nie jest czytelny
+verify_egpg=Błąd GnuPG: $1
+verify_good=Plik ma poprawny podpis od $1.
+verify_bad=Plik ma podpis od $1, ale jest on nieprawidłowy.
+verify_noid=Klucz publiczny z ID $1 nie jest dostępny do weryfikacji.
+verify_failed=Nie udało się zweryfikować podpisu: $1
+verify_warning=Ostrzeżenie - Ten klucz nie został zweryfikowany i podpisany na stronie zarządzania kluczami.
+
+signkey_title=Podpisz klucz
+signkey_confirm=Czy na pewno chcesz podpisać klucz należący do $1 $2? To oznacza, że potwierdziłeś jego ważność, sprawdzając odcisk palca ($3) z właścicielem.
+signkey_failed=Nie udało się podpisać klucza należącego do $1: $2
+signkey_success=Klucz należący do $1 został pomyślnie podpisany.
+signkey_already=Klucz należący do $1 został już podpisany.
+signkey_trustlevel=Podpisz z poziomem zaufania
+signkey_trust0=Brak odpowiedzi
+signkey_trust1=Nie sprawdzono
+signkey_trust2=Sprawdzono pobieżnie
+signkey_trust3=Sprawdzono dokładnie
+
+send_title=Wyślij na serwer kluczy
+send_desc=Wysyłanie klucza $1 na serwer kluczy $2 ..
+send_failed=Nie udało się wysłać klucza: $1
+send_success=Klucz został pomyślnie przesłany. Inni użytkownicy GnuPG będą mogli teraz pobrać Twój klucz publiczny, aby wysyłać e-maile i szyfrować pliki.
+
+recv_title=Pobierz z serwera kluczy
+recv_desc=Pobieranie klucza ID $1 z serwera kluczy $2 ..
+recv_failed=Nie udało się pobrać klucza: $1
+recv_same=Klucz od $1 jest już obecny.
+recv_success=Klucz od $1 został pomyślnie zaimportowany.
+
+secret_title=Dodaj klucz prywatny
+secret_desc=Użyj tej strony, aby wygenerować dodatkowy klucz prywatny, który możesz używać do podpisywania i odszyfrowywania.
+secret_err=Nie udało się dodać klucza prywatnego
+secret_ok=Nowy klucz prywatny został pomyślnie wygenerowany.
+secret_name=Nazwa nowego klucza
+secret_setup=Utwórz nowy klucz
+
+gnupg_esignpass=Nie ustawiono jeszcze hasła dla klucza podpisującego
+gnupg_ecryptid=Klucz prywatny do szyfrowania nie jest dostępny
+gnupg_ecryptkey=Klucz prywatny do szyfrowania z ID $1 nie jest dostępny
+gnupg_ecryptpass=Nie ustawiono jeszcze hasła dla klucza prywatnego $1
+gnupg_canset=Aby ustawić hasło dla istniejącego klucza, odwiedź <a href='$1'>stronę szczegółów klucza</a>
+gnupg_ecryptkey2=Nieoczekiwany klucz prywatny do szyfrowania z ID $1
+
+trust_title=Ustaw poziom zaufania
+trust_echoice=Musisz wybrać poziom zaufania inny niż „Nie ustawiono”.
+trust_done=Poziom zaufania dla klucza $1 został pomyślnie ustawiony.
+
+owner_err1=Nie udało się dodać właściciela
+owner_ename=Nie podano nazwy
+owner_err2=Nie udało się usunąć właściciela
+owner_elast=Nie można usunąć ostatnich danych właściciela
+
+delkey_title=Usuń klucz
+delkey_rusure=Czy na pewno chcesz usunąć klucz prywatny $1 $2? Wszelkie pliki lub e-maile zaszyfrowane przy jego użyciu nie będą już dekodowalne!
+delkey_ok=Tak, usuń
+
+delkeys_err=Nie udało się usunąć kluczy
+delkeys_enone=Nie wybrano żadnych kluczy
+
+export_title=Eksportuj klucz
+export_desc=Ta strona umożliwia eksport klucza $1 $2 z Twojego klucza, do pliku lub pobrania z przeglądarki.
+export_to=Tryb eksportu
+export_mode0=Wyświetl w przeglądarce
+export_mode1=Zapisz do pliku/katalogu
+export_format=Format eksportu
+export_ascii=Tekst ASCII
+export_binary=Binarny
+export_smode=Klucz do eksportu
+export_secret=Pełny klucz prywatny i publiczny
+export_public=Tylko klucz publiczny
+export_ok=Eksportuj teraz
+export_err=Nie udało się wyeksportować klucza
+export_efile=Nie wprowadzono pliku lub katalogu
+export_done=Klucz został pomyślnie zapisany do pliku $1.

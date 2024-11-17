@@ -443,17 +443,6 @@ else {
 	}
 print $spacer;
 
-if ($userconfig{'open_mode'}) {
-	# Compose button needs to pop up a window
-	print &ui_submit($text{'mail_compose'}, "new", undef,
-	      "onClick='window.open(\"reply_mail.cgi?new=1\", \"compose\", \"toolbar=no,menubar=no,scrollbars=yes,width=1024,height=768\"); return false'>");
-	}
-else {
-	# Compose button can just submit and redirect
-	print &ui_submit($text{'mail_compose'}, "new");
-	}
-print $spacer;
-
 print &ui_submit($text{'view_forward'}, "forward");
 print $spacer;
 

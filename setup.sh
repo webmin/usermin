@@ -17,7 +17,7 @@ ver=`cat "$wadir/version"`
 
 # Find temp directory
 if [ "$tempdir" = "" ]; then
-	tempdir=$tempdir
+	tempdir=/tmp/.webmin
 fi
 
 if [ $? != "0" ]; then

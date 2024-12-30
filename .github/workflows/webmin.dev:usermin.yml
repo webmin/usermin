@@ -1,4 +1,4 @@
-name: "webmin.dev: Usermin package"
+name: "webmin.dev: Usermin"
 
 on:
   push:

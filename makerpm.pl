@@ -10,6 +10,7 @@ elsif (-d "$ENV{'HOME'}/rpmbuild") {
 else {
 	$base_dir = "/usr/src/redhat";
 	}
+$rpm_maintainer = $ENV{'RPM_MAINTAINER'} || "Jamie Cameron";
 $spec_dir = "$base_dir/SPECS";
 $source_dir = "$base_dir/SOURCES";
 $rpms_dir = "$base_dir/RPMS/noarch";
@@ -66,7 +67,6 @@ $pkgname = $webmail ? "usermin-webmail" : "usermin";
 system("cp tarballs/$pkgname-$ver.tar.gz $source_dir") &&
 	die "Source file tarballs/$pkgname-$ver.tar.gz not found!";
 open(SPEC, ">$spec_dir/$pkgname-$ver.spec");
-$rpm_maintainer = $ENV{'RPM_MAINTAINER'} || "Jamie Cameron";
 print SPEC <<EOF;
 %global __perl_provides %{nil}
 

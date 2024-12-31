@@ -66,6 +66,7 @@ $pkgname = $webmail ? "usermin-webmail" : "usermin";
 system("cp tarballs/$pkgname-$ver.tar.gz $source_dir") &&
 	die "Source file tarballs/$pkgname-$ver.tar.gz not found!";
 open(SPEC, ">$spec_dir/$pkgname-$ver.spec");
+$rpm_maintainer = $ENV{'RPM_MAINTAINER'} || "Jamie Cameron";
 print SPEC <<EOF;
 %global __perl_provides %{nil}
 
@@ -83,7 +84,7 @@ AutoReq: 0
 License: BSD-3-clause
 Group: System/Tools
 Source: http://www.webmin.com/download/%{name}-%{version}.tar.gz
-Vendor: Jamie Cameron
+Vendor: $rpm_maintainer
 BuildRoot: /tmp/%{name}-%{version}
 BuildArchitectures: noarch
 %description

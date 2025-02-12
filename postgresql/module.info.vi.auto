@@ -1,3 +1,0 @@
-name_vi=PostgreSQL
-desc_vi=Cơ sở dữ liệu PostgreSQL
-longdesc_vi=Đăng nhập vào PostgreSQL và quản lý các bảng và bản ghi thông qua một giao diện tương tự như mô-đun PostgreQuery của Webmin.

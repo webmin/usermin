@@ -1,3 +1,0 @@
-index_edb=Không thể kết nối với cơ sở dữ liệu cấu hình SpamAssassin: $1. Yêu cầu quản trị viên hệ thống của bạn kiểm tra cài đặt cấu hình mô-đun.
-awl_title=Quản lý danh sách trắng tự động
-awl_deleteonedesc=Xóa tất cả các mục nhập danh sách trắng tự động hiện tại của bạn

@@ -1,6 +1,0 @@
-index_title=PostgreSQL datu bāze
-index_esql=PostgreSQL klienta programma $1 jūsu sistēmā netika atrasta. Varbūt PostgreSQL nav instalēts vai moduļa konfigurācija ir nepareiza.
-index_elibrary=PostgreSQL klienta programmu $1 nevarēja palaist, jo tā nevarēja atrast Postgres koplietotās bibliotēkas.
-index_superuser=PostgreSQL klienta programmu psql nevarēja izpildīt jūsu sistēmā. Varbūt PostgreSQL nav instalēts vai moduļa konfigurācija ir nepareiza.
-index_nopass=Lai izveidotu savienojumu ar datu bāzi, jums jāievada PostgreSQL lietotājvārds un parole.
-login_epass=Nepareizs PostgreSQL lietotājvārds vai parole

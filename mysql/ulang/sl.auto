@@ -1,8 +1,0 @@
-login_elogin=Nepravilno uporabniško ime ali geslo
-index_nopass=Za povezavo z bazo podatkov morate vnesti uporabniško ime in geslo MySQL.
-index_eadmin=Administratorskega programa MySQL $1 v vašem sistemu ni bilo mogoče najti. Mogoče MySQL ni nameščen ali je konfiguracija modula napačna.
-index_esql=Programskega odjemalca MySQL $1 v vašem sistemu ni bilo mogoče najti. Mogoče MySQL ni nameščen ali je konfiguracija modula napačna.
-index_ever=Zdi se, da odjemalec MySQL program $1 ni pravilna različica. Webmin podpira samo MySQL različice 3 in novejše.
-index_elibrary=Programskega odjemalca MySQL $1 ni bilo mogoče zagnati, ker ni mogel najti knjižnic v skupni rabi MySQL. Preverite konfiguracijo modula in se prepričajte, da je nastavljena <i>Pot v knjižnice v skupni rabi MySQL</i>.
-
-login_epass=Nepravilno uporabniško ime ali geslo MySQL

@@ -1,3 +1,0 @@
-index_title=Scripturi de autentificare
-index_desc_0=Scriptul $1 de mai jos va fi executat de fiecare dată când porniți un shell nou sau când vă conectați prin SSH sau telnet.
-index_desc_1=Scriptul $1 de mai jos va fi executat numai atunci când vă conectați prin SSH sau telnet.

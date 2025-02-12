@@ -1,2 +1,0 @@
-index_nodir=Không tìm thấy thư mục lệnh tùy chỉnh Webmin $1 trên hệ thống của bạn. Mô-đun này yêu cầu Webmin phải được cài đặt để có thể sử dụng nó để xác định các lệnh.
-index_none=Không có lệnh tùy chỉnh nào được xác định trong Webmin hoặc được chỉ định là có sẵn để chạy trong Usermin.

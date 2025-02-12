@@ -1,8 +1,0 @@
-login_elogin=Nepareizs lietotājvārds vai parole
-index_nopass=Lai izveidotu savienojumu ar datu bāzi, jums jāievada MySQL lietotājvārds un parole.
-index_eadmin=MySQL administratora programma $1 jūsu sistēmā netika atrasta. Varbūt MySQL nav instalēts vai moduļa konfigurācija ir nepareiza.
-index_esql=MySQL klienta programma $1 jūsu sistēmā netika atrasta. Varbūt MySQL nav instalēts vai moduļa konfigurācija ir nepareiza.
-index_ever=MySQL klienta programma $1 nešķiet pareiza. Webmin atbalsta tikai MySQL 3. un jaunākas versijas.
-index_elibrary=MySQL klienta programmu $1 nevarēja palaist, jo tā nevarēja atrast MySQL koplietotās bibliotēkas. Pārbaudiet moduļa konfigurāciju un pārliecinieties, vai ir iestatīts <i>Ceļš uz MySQL koplietotajām bibliotēkām</i>.
-
-login_epass=Nepareizs MySQL lietotājvārds vai parole

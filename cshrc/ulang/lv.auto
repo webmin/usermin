@@ -1,3 +1,0 @@
-index_title=Pieteikšanās skripti
-index_desc_0=Zemāk esošais skripts $1 tiks izpildīts ikreiz, kad sākat jaunu apvalku vai kad piesakāties caur SSH vai telnet.
-index_desc_1=Zemāk esošais skripts $1 tiks izpildīts tikai tad, kad jūs piesakāties, izmantojot SSH vai telnet.

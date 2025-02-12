@@ -1,1 +1,0 @@
-index_desc=Mô-đun này cho phép bạn định cấu hình lọc để gửi email đến địa chỉ của bạn trên máy chủ này. Tuy nhiên, nó sẽ chỉ hoạt động nếu quản trị viên hệ thống của bạn đã cài đặt Procmail trên toàn cầu hoặc nếu bạn đã thiết lập phân phối đến chương trình Procmail trong mô-đun Chuyển tiếp Thư.

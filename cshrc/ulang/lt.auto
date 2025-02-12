@@ -1,3 +1,0 @@
-index_title=Prisijungimo scenarijai
-index_desc_0=Žemiau pateiktas scenarijus $1 bus vykdomas kiekvieną kartą paleidus naują apvalkalą arba prisijungus per SSH ar telnet.
-index_desc_1=Žemiau esantis scenarijus $1 bus vykdomas tik prisijungus per SSH arba telnet.

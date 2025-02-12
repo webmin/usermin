@@ -1,6 +1,0 @@
-index_title=Cơ sở dữ liệu PostgreSQL
-index_esql=Không tìm thấy chương trình khách PostgreSQL $1 trên hệ thống của bạn. Có thể PostgreSQL chưa được cài đặt hoặc cấu hình mô-đun không chính xác.
-index_elibrary=Không thể chạy chương trình khách PostgreSQL $1 vì không thể tìm thấy các thư viện chia sẻ Postgres.
-index_superuser=Chương trình máy khách PostgreSQL không thể thực thi trên hệ thống của bạn. Có thể PostgreSQL chưa được cài đặt hoặc cấu hình mô-đun không chính xác.
-index_nopass=Bạn phải nhập tên người dùng và mật khẩu PostgreSQL để kết nối với cơ sở dữ liệu.
-login_epass=Tên người dùng hoặc mật khẩu PostgreSQL không chính xác

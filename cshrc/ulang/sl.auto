@@ -1,3 +1,0 @@
-index_title=Skripti za prijavo
-index_desc_0=Skript $1 spodaj se bo izvajal vsakič, ko zaženete novo lupino ali ko se prijavite prek SSH ali telnet.
-index_desc_1=Skript $1 spodaj bo izveden samo, ko se prijavite prek SSH ali telnet.

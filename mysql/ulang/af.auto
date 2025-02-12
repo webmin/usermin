@@ -1,8 +1,0 @@
-login_elogin=verkeerde gebruikersnaam of wagwoord
-index_nopass=U moet 'n MySQL-gebruikersnaam en -wagwoord invoer om aan die databasis te kan skakel.
-index_eadmin=Die MySQL-adminprogram $1 is nie op u stelsel gevind nie. Miskien is MySQL nie geïnstalleer nie, of is die module-opstelling verkeerd.
-index_esql=Die MySQL-klientprogram $1 is nie op u stelsel gevind nie. Miskien is MySQL nie geïnstalleer nie, of is die module-opstelling verkeerd.
-index_ever=Die MySQL-klientprogram $1 blyk nie die regte weergawe te wees nie. Webmin ondersteun slegs MySQL-weergawes 3 en hoër.
-index_elibrary=Die MySQL-kliëntprogram $1 kon nie uitgevoer word nie, omdat dit nie die gedeelde biblioteke van MySQL kon vind nie. Gaan die modulekonfigurasie na en maak seker dat die <i>Pad na MySQL-gedeelde biblioteke</i> ingestel is.
-
-login_epass=Verkeerde MySQL gebruikersnaam of wagwoord

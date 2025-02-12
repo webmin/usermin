@@ -1,7 +1,0 @@
-index_title=Cota de disc
-index_quotas=Cotele de disc pentru $1 pe sistemele de fișiere montate
-index_none=Nu aveți cote de disc de utilizator pe niciun sistem de fișiere montat.
-index_gquotas=Cotele de disc pentru grupul $1 pe sistemele de fișiere montate
-
-right_header=Cotele de disc
-right_out=$1 of $2 

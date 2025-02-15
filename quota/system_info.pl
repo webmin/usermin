@@ -10,7 +10,7 @@ our (%text, %config, $remote_user, %filesys);
 # Return some basic info about the system
 sub list_system_info
 {
-my $n = &quota::user_filesystems($remote_user);
+my $n = &user_filesystems($remote_user);
 if ($n > 0) {
 	my @chart;
 	my $chart = { 'type' => 'chart',

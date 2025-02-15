@@ -1,1 +1,0 @@
-../../webadmin/file/extract.cgi

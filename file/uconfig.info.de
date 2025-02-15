@@ -1,8 +1,0 @@
-hide_dot_files=Zeige Dateien mit einem Punkt am Anfang?,1,0-Yes,1-No
-iconsize=Größe der Buttons in der Toolbar,1,1-Klein,0-Groß mit Bildunterschriften
-nocharset=Versuche den richtigen Zeichensatz zu verwenden?,1,0-Ja,1-Nein
-width=Breite für skalierte Bilder,3,Standard (300 Pixel)
-fixed=Schriftgröße für Text,3,Standard (12 Punkte)
-small_fixed=Schriftgröße für Buttons,3,Standard (10 Punkte)
-force_text=Editor für HTML Dateien,1,1-Text Editor,0-HTML Editor
-htmlexts=Datei Erweiterungen welche als HTML bearbeitet werden sollen,3,Standard (.htm und .html)

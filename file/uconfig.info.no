@@ -1,8 +1,0 @@
-hide_dot_files=Vis filer som starter med punktum?,1,0-Ja,1-Nei
-iconsize=Størrelse på knapper i verktøylinjen,1,1-Små,0-Store med etiketter
-nocharset=Forsøk å bruke riktig tegnsett,1,0-Ja,1-Nei
-width=Bredde for skalerte bilder,3,Standard (300 piksler)
-fixed=Skriftstørrelse for tekst,3,Standard (12 punkt)
-small_fixed=Skriftstørrelse for knapper,3,Standard (12 punkt)
-force_text=Editor for HTM filer,1,1-Tekst-editor,0-HTML editor
-htmlexts=FIltyper som skal redigeres som HTML,3,Standard (.htm og .html)

@@ -1,4 +1,0 @@
-desc=SSH Login
-category=login
-usermin=1
-longdesc=Login to the server with SSH.

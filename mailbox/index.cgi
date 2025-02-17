@@ -233,7 +233,7 @@ for(my $i=$start; $i<=$end; $i++) {
 		}
 
 	# Date and size columns
-	push(@cols, $bs.&eucconv(&simplify_date(&html_escape($m->{'header'}->{'date'}))).$be);
+	push(@cols, $bs.&simplify_date($m->{'header'}->{'date'}).$be);
 	push(@cols, $bs.&nice_size($m->{'size'}, 1024).$be);
 	$rowtds[$#cols] .= " data-sort=".$m->{'size'};
 

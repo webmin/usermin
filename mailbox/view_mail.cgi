@@ -237,8 +237,7 @@ else {
 					$in{'id'}, $subs));
 		}
 	print &ui_table_row($text{'mail_date'},
-		&eucconv(
-			&simplify_date(&html_escape($mail->{'header'}->{'date'}))));
+		&simplify_date($mail->{'header'}->{'date'}));
 
 	my $subj = $mail->{'header'}->{'subject'};
 	$subj =~ s/^((Re:|Fwd:|\[\S+\])\s*)+//ig;

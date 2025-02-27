@@ -13,7 +13,8 @@ require './mailbox-lib.pl';
 # Get the folder
 &set_module_index($in{'folder'});
 my @folders = &list_folders();
-my $folder = $folders[$in{'folder'}];
+my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
+$folder || &error($text{'view_efolder'});
 
 # Get the mail
 my $mail = &mailbox_get_mail($folder, $in{'id'}, 0);

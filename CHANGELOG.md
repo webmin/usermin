@@ -1,5 +1,15 @@
 ## Changelog
 
+#### 2.203 (March 17, 2025)
+* Fix permissions error when attempting to open a temp file for writing
+* Fix to run `man` as `nobody` to prevent section param misuse in System Documentation module
+* Update German translations
+
+#### 2.202 (March 3, 2025)
+* Add enhancements to module config saving to ensure reliability under all conditions
+* Fix regression in MySQL/MariaDB database user permission assignment
+* Update German translations
+
 #### 2.201
 * Fix to properly escape HTML in date fields
 * Fix the line height of plain-text email body

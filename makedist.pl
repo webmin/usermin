@@ -224,7 +224,6 @@ if (!$webmail) {
 	if ($lastvers == $vers) {
 		$lastvers = sprintf("%.2f0", $vers-0.006);
 		}
-	system("./showchangelog.pl --html $lastvers >/home/jcameron/webmin.com/uchanges-$vers.html");
 	}
 
 # read_file(file, &assoc, [&order])

@@ -6,3 +6,4 @@ index_intro=This page allows you to choose which language Usermin will use for d
 index_ok=Change
 index_global=Global Usermin default
 langauto_include=Include machine translations
+langneutral_include=Include neutral translations

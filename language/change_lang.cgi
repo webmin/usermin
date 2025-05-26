@@ -7,6 +7,7 @@ require './language-lib.pl';
 
 # Language
 if ($in{'lang'}) {
+	$gconfig{"langneutral_$remote_user"} = int($in{'langneutral'});
 	$gconfig{"langauto_$remote_user"} = int($in{'langauto'});
 	$gconfig{"lang_$remote_user"} = $in{'lang'};
 	}

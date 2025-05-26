@@ -13,12 +13,18 @@ print &ui_table_start(undef, "width=100%", 2);
 # Language
 my $ulang = $gconfig{'lang_'.$remote_user};
 my $ulangauto = load_language_auto();
+my $ulangneutral = $gconfig{"langneutral_$remote_user"};
 print &ui_table_row($text{'index_lang'},
   &ui_select("lang", $ulang,
 	[ [ "", $text{'index_global'} ],
 	  map { [ $_->{'lang'}, $_->{'desc'}."" ] }
-	      &list_languages() ]) ." ". 
-	&ui_checkbox("langauto", 1, $text{'langauto_include'}, $ulangauto));
+	      &list_languages() ]) .
+          "<wbr data-group><span data-nowrap>&nbsp;&nbsp;". 
+	          &ui_checkbox("langneutral", 1,
+              $text{'langneutral_include'}, $ulangneutral).
+	          &ui_checkbox("langauto", 1,
+              $text{'langauto_include'}, $ulangauto).
+          "</span>");
 
 # Locale
 my $ulocale = $gconfig{'locale_'.$remote_user};

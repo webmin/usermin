@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 2.300 (May 25, 2025)
+* Add support for enabling gender-neutral translations if supported by the language
+* Fix to follow German translation rules that most people already accept
+  
 #### 2.203 (March 17, 2025)
 * Fix permissions error when attempting to open a temp file for writing
 * Fix to run `man` as `nobody` to prevent section param misuse in System Documentation module

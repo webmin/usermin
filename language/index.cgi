@@ -14,17 +14,37 @@ print &ui_table_start(undef, "width=100%", 2);
 my $ulang = $gconfig{'lang_'.$remote_user};
 my $ulangauto = load_language_auto();
 my $ulangneutral = $gconfig{"langneutral_$remote_user"};
+my $selectjs = <<EOF;
+<script>
+(function () {
+    const select = document.querySelector('select[name="lang"]'),
+          span = document.querySelector('span[data-neutral]'),
+	  checkbox = document.querySelector('input[name="langneutral"]');
+    const update = function() {
+        const selected = select.options[select.selectedIndex],
+              show = selected.getAttribute('data-neutral') === '1';
+        span.style.visibility = show ? 'visible' : 'hidden';
+	if (!show) checkbox.checked = false;
+    }
+    update();
+    select.addEventListener('change', update);
+})();
+</script>
+EOF
+
 print &ui_table_row($text{'index_lang'},
   &ui_select("lang", $ulang,
 	[ [ "", $text{'index_global'} ],
-	  map { [ $_->{'lang'}, $_->{'desc'}."" ] }
+	  map { [ $_->{'lang'}, $_->{'desc'}, "data-neutral='$_->{'neutral'}'" ] }
 	      &list_languages() ]) .
           "<wbr data-group><span data-nowrap>&nbsp;&nbsp;". 
-	          &ui_checkbox("langneutral", 1,
-              $text{'langneutral_include'}, $ulangneutral).
-	          &ui_checkbox("langauto", 1,
-              $text{'langauto_include'}, $ulangauto).
-          "</span>");
+            &ui_checkbox("langauto", 1,
+                $text{'langauto_include'}, $ulangauto).
+            "&nbsp;&nbsp;<span data-neutral>".
+            &ui_checkbox("langneutral", 1,
+                $text{'langneutral_include'}, $ulangneutral).
+            "</span>".
+          "</span>$selectjs");
 
 # Locale
 my $ulocale = $gconfig{'locale_'.$remote_user};

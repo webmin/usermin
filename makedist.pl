@@ -49,7 +49,8 @@ $release = $3;
 	  "tunnel", "updown", "postgresql", "spam",
 	  "htaccess-htpasswd", "schedule", "mailcap",
 	  "filter", "gray-theme", "authentic-theme", "filemin",
-	  "twofactor", "xterm", "unauthenticated", "forgot_form.cgi",
+	  "twofactor", "xterm", "unauthenticated",
+	  "forgot_form.cgi", "forgot_send.cgi",
 	 );
 if ($exclude_modules) {
 	$exclude_modules =~ s/--exclude-modules=//;

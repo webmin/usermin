@@ -41,7 +41,8 @@ $release = $3;
 	  "config-lib.pl", "entities_map.txt",
 	  "password_form.cgi", "password_change.cgi", "ui-lib.pl",
 	  "pam_login.cgi", "uptracker.cgi", "webmin_search.cgi",
-	  "webmin-search-lib.pl", "WebminCore.pm", "robots.txt", "html-editor-lib.pl" );
+	  "webmin-search-lib.pl", "WebminCore.pm", "robots.txt", "html-editor-lib.pl",
+	  "forgot_form.cgi", "forgot_send.cgi", );
 @mlist = ("cshrc", "forward", "language", "mailbox",
 	  "plan", "ssh", "theme", "gnupg", "proc", "cron",
 	  "changepass", "shell", "at", "fetchmail", "quota", "mysql",
@@ -50,7 +51,6 @@ $release = $3;
 	  "htaccess-htpasswd", "schedule", "mailcap",
 	  "filter", "gray-theme", "authentic-theme", "filemin",
 	  "twofactor", "xterm", "unauthenticated",
-	  "forgot_form.cgi", "forgot_send.cgi",
 	 );
 if ($exclude_modules) {
 	$exclude_modules =~ s/--exclude-modules=//;

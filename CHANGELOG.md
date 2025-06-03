@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 2.301 (June 2, 2025)
+* Add support for password reset functionality on login page if enabled
+
 #### 2.300 (May 25, 2025)
 * Add support for enabling gender-neutral translations if supported by the language
 * Fix to follow German translation rules that most people already accept

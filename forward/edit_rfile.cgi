@@ -56,7 +56,10 @@ print "<tr> <td></td> <td><font size=-1>$text{'rfile_fromdesc'}</font></td> </tr
 # Show reply-tracking option
 printf "<tr> <td colspan=2><input type=checkbox name=replies value=1 %s> %s</td> </tr>\n",
 	$replies ? "checked" : "", $text{'rfile_replies'};
-print "<input type=hidden name=replies_file value='$replies'>\n";
+if (&is_under_directory($user_module_config_directory, $replies) ||
+    &is_under_directory($remote_user_info[7], $replies)) {
+	print "<input type=hidden name=replies_file value='$replies'>\n";
+	}
 
 # Show reply period input
 print "<tr> <td>&nbsp;&nbsp;&nbsp;$text{'rfile_period'}</td>\n";

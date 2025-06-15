@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 2.302 (June 9, 2025)
+* Update the Authentic theme to the latest version with various fixes and improvements
+
 #### 2.301 (June 2, 2025)
 * Add support for password reset functionality on login page if enabled
 

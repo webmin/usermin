@@ -1,21 +1,24 @@
 #!/usr/local/bin/perl
 
-if ($ARGV[0] eq "--webmail" || $ARGV[0] eq "--webmail") {
-	# Modding for webmail
-	$webmail = 1;
-	shift(@ARGV);
+@ARGV = map { /^--\S+\s+/ ? split(/\s+/, $_) : $_ } @ARGV;
+while (@ARGV && $ARGV[0] =~ /^--?/) {
+	my $opt = shift(@ARGV);
+	if ($opt eq '--webmail') {
+		$webmail = 1;
+		next;
+		}
+	# For compatibility with Webmin
+	if ($opt eq '--mod-list') {
+		shift(@ARGV) // usage();
+		next;
+		}
+	usage();
 	}
-if ($ARGV[0] =~ /^--exclude-modules/) {
-	$exclude_modules = $ARGV[0];
-	shift(@ARGV);
-	}
-@ARGV == 1 || @ARGV == 2 ||
-	die "usage: makedist.pl [--webmail] [--exclude-modules] <version>";
 
+@ARGV == 1 || usage();
 $fullvers = $ARGV[0];
-$fullvers =~ /^([0-9\.]+)(\-(\d+))?$/ || usage();
-$vers = $1;
-$release = $3;
+$fullvers =~ /^([0-9.]+)(?:-(\d+))?$/ || usage();
+($vers, $release) = ($1, $2);
 
 @files = ("config-*-linux",
 	  "config-solaris", "images", "index.cgi", "mime.types",
@@ -51,12 +54,6 @@ $release = $3;
 	  "filter", "gray-theme", "authentic-theme", "filemin",
 	  "twofactor", "xterm", "unauthenticated"
 	 );
-if ($exclude_modules) {
-	$exclude_modules =~ s/--exclude-modules=//;
-	my @mlist_excluded =
-	    grep { my $f = $_; ! grep $_ eq $f, split(',', $exclude_modules) } @mlist;
-	@mlist = @mlist_excluded;
-	}
 if ($webmail) {
 	push(@mlist, "virtual-server-theme");
 	push(@mlist, "virtual-server-mobile");
@@ -253,4 +250,9 @@ foreach $k (keys %$arr) {
         print ARFILE "$k=$$arr{$k}\n";
         }
 close(ARFILE);
+}
+
+sub usage
+{
+	die "usage: makedist.pl [--webmail] <version>\n";
 }

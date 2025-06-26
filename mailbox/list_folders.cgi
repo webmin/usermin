@@ -127,8 +127,8 @@ foreach my $f (@folders) {
 		if ($auto && $auto->{'enabled'}) {
 			($is, $ie) = ("<b>", "</b>");
 			}
-		push(@acts, $is."<a href='edit_auto.cgi?idx=$f->{'index'}'>".
-			    "$text{'folders_auto'}</a>".$ie);
+		push(@acts, "<a href='edit_auto.cgi?idx=$f->{'index'}'>".
+			    "$is$text{'folders_auto'}$ie</a>");
 		}
 	push(@acts, "<a href='copy_form.cgi?idx=$f->{'index'}'>".
 		    "$text{'folders_copy'}</a>");

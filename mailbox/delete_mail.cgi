@@ -40,7 +40,8 @@ elsif ($in{'move1'} || $in{'move2'}) {
 	# Moving mails to some other folder
 	&error_setup($text{'delete_errm'});
 	@delmail || &error($text{'delete_emnone'});
-	my $mfolder = $folders[$in{'move1'} ? $in{'mfolder1'} : $in{'mfolder2'}];
+	my ($mfolder) = grep { $_->{'index'} == ($in{'move1'} ? $in{'mfolder1'} : $in{'mfolder2'}) } @folders;
+	$mfolder || &error($text{'view_efolder'});
 	$mfolder->{'noadd'} && &error($text{'delete_enoadd'});
 	&lock_folder($folder);
 	&lock_folder($mfolder);
@@ -53,7 +54,8 @@ elsif ($in{'copy1'} || $in{'copy2'}) {
 	# Copying mails to some other folder
 	&error_setup($text{'delete_errc'});
 	@delmail || &error($text{'delete_emnone'});
-	my $cfolder = $folders[$in{'copy1'} ? $in{'mfolder1'} : $in{'mfolder2'}];
+	my ($cfolder) = grep { $_->{'index'} == ($in{'copy1'} ? $in{'mfolder1'} : $in{'mfolder2'}) } @folders;
+	$cfolder || &error($text{'view_efolder'});
 	my $qerr = &would_exceed_quota($cfolder, @delmail);
 	&error($qerr) if ($qerr);
 	&lock_folder($cfolder);

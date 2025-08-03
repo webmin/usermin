@@ -19,7 +19,7 @@ use Socket;
 do "$module_root_directory/boxes-lib.pl";
 do "$module_root_directory/folders-lib.pl";
 
-open(DEBUG, ">>/tmp/mailbox.debug");
+#open(DEBUG, ">>/tmp/mailbox.debug");
 
 our $qmail_maildir;
 if ($config{'mail_qmail'}) {

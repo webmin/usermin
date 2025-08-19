@@ -17,6 +17,7 @@ if ($in{'replies'}) {
 	$rfile = "$user_module_config_directory/replies";
 	$rfile = $in{'replies_file'} if ($in{'replies_file'} &&
 					 $in{'replies_file'} ne $rfile);
+	$rfile =~ s/$remote_user_info[7]\//~\//;
 	&print_tempfile(FILE, "Reply-Tracking: $rfile\n");
 	}
 if (!$in{'period_def'}) {

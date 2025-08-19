@@ -258,9 +258,11 @@ if (@list_folders_cache) {
 my (@rv, $f, $o, %done);
 
 # Read the module's config directory, to find folders files
-opendir(DIR, $user_module_config_directory);
-my @folderfiles = readdir(DIR);
-closedir(DIR);
+my @folderfiles;
+if (opendir(DIR, $user_module_config_directory)) {
+	@folderfiles = readdir(DIR);
+	closedir(DIR);
+	}
 
 if ($config{'mail_system'} == 2) {
 	# POP3 inbox

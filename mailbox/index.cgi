@@ -53,7 +53,6 @@ if (($folder->{'type'} == 2 || $folder->{'type'} == 4) &&
 			"</a>");
 	}
 
-
 # Check if this is a POP3 or IMAP inbox with no login set
 if (($folder->{'type'} == 2 || $folder->{'type'} == 4) &&
     $folder->{'mode'} == 3 && !$folder->{'autouser'} && !$folder->{'user'}) {

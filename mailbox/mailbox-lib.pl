@@ -300,6 +300,11 @@ elsif ($config{'mail_system'} == 4) {
 		$rv[0]->{'autouser'} = 1;
 		}
 
+	# No need to prompt for a login if using the local dovecot command
+	if ($imapserver eq "*") {
+		$rv[0]->{'autouser'} = 1;
+		}
+
 	# Get other IMAP folders (if we can)
 	my ($ok, $ih) = &imap_login($rv[0]);
 	if ($ok == 1) {
@@ -317,6 +322,7 @@ elsif ($config{'mail_system'} == 4) {
 					    'server' => $imapserver,
 					    'user' => $rv[0]->{'user'},
 					    'pass' => $rv[0]->{'pass'},
+					    'autouser' => $rv[0]->{'autouser'},
 					    'mode' => 0,
 					    'remote' => 1,
 					    'flags' => 1,

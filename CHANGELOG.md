@@ -1,5 +1,23 @@
 ## Changelog
 
+#### 2.400 (September 4, 2025)
+* Add support for IMAP through a local command if enabled in configuration
+* Update the Authentic theme to the latest version with various improvements and fixes:
+  - Add support to automatically set the color palette based on OS or browser preferences
+  - Add improvements to tooltips in dark palette
+  - Change the default shortcut key for toggling the light/dark palette
+  - Change the default shortcut key for toggling right slider
+  - Change wording to use "shortcut" instead of "hotkey"
+  - Change the default maximum column width
+  - Fix navigation menu load in proxy mode #2502
+  - Fix navigation menu to always stay in sync with the product switch
+  - Fix sporadic issue where the navigation menu disappeared and the content page was shifted
+  - Fix info alert text color and button color in the dark palette
+  - Fix styling of checkboxes and radios for backup and restore pages in Virtualmin
+  - Fix styling for extra backup destinations in Virtualmin
+  - Fix advanced schedule display in the cron chooser in Virtualmin
+    [More details...](https://github.com/webmin/authentic-theme/releases/tag/25.00)
+
 #### 2.302 (June 9, 2025)
 * Update the Authentic theme to the latest version with various fixes and improvements
 

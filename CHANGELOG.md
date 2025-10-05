@@ -1,5 +1,14 @@
 ## Changelog
 
+#### 2.420 (October 4, 2025)
+* Fix to make sure the mail URL uses a well-known host name [security]
+* Fix to avoid using short hostname in HTTPS redirects when an FQDN is available
+* Update the Authentic theme to the latest version with various fixes:
+  - Fix the text color when reading email in the Read User Mail module [webmin#2555](https://github.com/webmin/webmin/issues/2555)
+  - Fix to ensure the selected color palette is correctly stored when changed manually [webmin#2552](https://github.com/webmin/webmin/issues/2552)
+  - Fix spinner color in toast messages for dark palette
+  - Fix other bugs and add various small improvements
+
 #### 2.400 (September 4, 2025)
 * Add support for IMAP through a local command if enabled in configuration
 * Update the Authentic theme to the latest version with various improvements and fixes:

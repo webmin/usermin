@@ -1,4 +1,4 @@
-Usermin Version 2.400
+Usermin Version 2.410
 ---------------------
 To setup usermin, simply run the  setup.sh  shell script, which should be
 found in the same directory as this README file. This will setup Usermin

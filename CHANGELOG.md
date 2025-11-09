@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 2.500 (November 9, 2025)
+* Add a major Authentic theme UI update with lots of visual and structural improvements for a smoother and more modern experience
+[More details...](https://forum.virtualmin.com/t/authentic-theme-version-26-00-release-overview/135755?u=ilia)
+
 #### 2.420 (October 4, 2025)
 * Fix to make sure the mail URL uses a well-known host name [security]
 * Fix to avoid using short hostname in HTTPS redirects when an FQDN is available

@@ -1,5 +1,17 @@
 ## Changelog
 
+#### 2.510 (November 23, 2025)
+* Update the Authentic theme to the latest version with various improvements and fixes:
+  - Add a range slider to adjust content page margins more precisely
+  - Add an option to enable rounded corners for content page
+  - Add more customization options for pie charts
+  - Fix to increase clickable area for checkboxes in File Manager
+  - Fix to correct rotation of pin and unpin button for right side slider
+  - Fix color of selected items in the multiselect dropdown
+  - Fix to improve the visibility of disabled checkboxes
+  - Fix to send saved params in the post body when saving theme configuration
+    [More details...](https://github.com/webmin/authentic-theme/releases/tag/26.20)
+
 #### 2.500 (November 9, 2025)
 * Add a major Authentic theme UI update with lots of visual and structural improvements for a smoother and more modern experience
 [More details...](https://forum.virtualmin.com/t/authentic-theme-version-26-00-release-overview/135755?u=ilia)

@@ -1,5 +1,14 @@
 ## Changelog
 
+#### 2.520 (January 9, 2026)
+* Fix issues for German and Farsi translations
+* Update Authentic theme to the latest version with various improvements and fixes:
+  * Add support for multiple scrollable tabs in the File Manager
+  * Fix displaying of the right-side toolbar in File Manager when using Safari
+  * Fix to print menu separator when no virtual servers are added yet in Virtualmin
+  * Fix bugs in white palette
+  * Fix exported file name in data tables
+
 #### 2.510 (November 23, 2025)
 * Update the Authentic theme to the latest version with various improvements and fixes:
   - Add a range slider to adjust content page margins more precisely

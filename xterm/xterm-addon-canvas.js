@@ -1,1 +1,0 @@
-../../webadmin/xterm/xterm-addon-canvas.js

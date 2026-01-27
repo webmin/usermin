@@ -1,5 +1,14 @@
 ## Changelog
 
+#### 2.521 (January 25, 2026)
+* Fix to make upload tracking work correctly in all situations and on all systems
+* Update Xterm.js to the latest version with lots of improvements and fixes
+* Update Authentic theme to the latest version with various improvements and fixes:
+  * Fix the support for the cloned Terminal module
+  * Fix error handling for file uploads when the user is out of quota or the system is out of disk space in the File Manager module
+  * Fix to stop loading full file into memory for upload check to prevent memory leak on large uploads in the File Manager module
+  * Fix to permanently save the state of the navigation menu and right-side slider when toggled
+
 #### 2.520 (January 9, 2026)
 * Fix issues for German and Farsi translations
 * Update Authentic theme to the latest version with various improvements and fixes:

@@ -1,5 +1,14 @@
 ## Changelog
 
+#### 2.530 (March 24, 2026)
+* Update Authentic theme to the latest version with various improvements and fixes:
+  - Add a new airy button style to the light palette to match the dark one  
+  - Fix to optimize stats server to reduce WebSocket memory usage  
+  - Fix the real-time follow indicator when viewing the journal  
+  - Fix regex-based match highlighting when viewing the journal  
+  - Fix mail compose panel sizing in HTML mode on low-DPR screens  
+  - Fix display of the 2FA QR code in the dark palette
+
 #### 2.521 (January 25, 2026)
 * Fix to make upload tracking work correctly in all situations and on all systems
 * Update Xterm.js to the latest version with lots of improvements and fixes

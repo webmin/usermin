@@ -63,7 +63,7 @@ PreReq: /bin/sh /usr/bin/perl
 Requires: /bin/sh /usr/bin/perl
 Copyright: Freeware
 Group: System/Tools
-Source: http://www.webmin.com/download/usermin-%{version}.tar.gz
+Source: https://webmin.com/download/usermin-%{version}.tar.gz
 Vendor: Open Country, Inc.
 BuildRoot: /tmp/%{name}-%{version}
 BuildArchitectures: noarch

@@ -259,7 +259,7 @@ if ($remote_user && @_ > 1) {
 	print qq~<table width="100%" border="0" cellspacing="0" cellpadding="0" background="$gconfig{'webprefix'}/images/top_bar/bg.jpg" height="32">
 	  <tr>
 	    <td width="4" nowrap><img src="$gconfig{'webprefix'}/images/top_bar/left.jpg" width="4" height="32"></td>
-	    <td width="100%" nowrap><a href="http://www.usermin.com/"><img src="$gconfig{'webprefix'}/usermin_logo.gif" width="99" height="32" border="0" alt="Webmin home page"></td>~;
+	    <td width="100%" nowrap><a href="https://usermin.com/"><img src="$gconfig{'webprefix'}/usermin_logo.gif" width="99" height="32" border="0" alt="Webmin home page"></td>~;
         if ($gconfig{'feedback'}) {
 		print qq~<td><a href='$gconfig{'webprefix'}/feedback_form.cgi?module=$module_name'><img src=$gconfig{'webprefix'}/images/top_bar/feedback.jpg width=97 height=32 alt="$text{'main_feedback'}" border=0></a></td>~;
 		if (!$ENV{'LOCAL_USER'}) {

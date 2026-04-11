@@ -38,7 +38,7 @@ else {
 	"<a href=$tconfig{'brand_url'}>$tconfig{'brand'}</a>" :
 	$gconfig{'brand'} ? 
 	"<a href=$gconfig{'brand_url'}>$gconfig{'brand'}</a>" :
-	"<a href=http://www.usermin.com/>$text{'main_homepage'}</a>".
+	"<a href=https://usermin.com/>$text{'main_homepage'}</a>".
 	($gconfig{'feedback'} ? "<br><a href=feedback_form.cgi>$text{'main_feedback'}</a>" : "")
 	);
 print "<center><font size=+1>",

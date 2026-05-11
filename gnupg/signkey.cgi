@@ -133,6 +133,8 @@ else {
 &ui_print_footer("list_keys.cgi", $text{'keys_return'},
 	"", $text{'index_return'});
 
+# key_signed_by(&key, &signer)
+# Returns 1 if the key already has a signature from the signing key.
 sub key_signed_by
 {
 my ($key, $signer) = @_;
@@ -151,6 +153,8 @@ foreach my $line (split(/\r?\n/, $out)) {
 return 0;
 }
 
+# signkey_passphrase(&key)
+# Returns the stored passphrase for the signing key, or undef if unavailable.
 sub signkey_passphrase
 {
 my ($key) = @_;
@@ -162,6 +166,9 @@ chomp($pass);
 return $pass;
 }
 
+# signkey_passphrase_file(&key)
+# Returns the stored passphrase file, accepting fingerprint, key ID and legacy
+# generic filenames so GnuPG can read the same file Usermin found.
 sub signkey_passphrase_file
 {
 my ($key) = @_;
@@ -182,6 +189,8 @@ foreach my $file (@files) {
 return $key && $key->{'key'} ? &get_passphrase_file($key) : $files[-1];
 }
 
+# key_primary_fingerprint(&key)
+# Returns the primary key fingerprint without spaces, or undef if not available.
 sub key_primary_fingerprint
 {
 my ($key) = @_;
@@ -191,12 +200,16 @@ $fpr =~ s/\s+//g;
 return $fpr =~ /^[A-F0-9]{40}$/i ? $fpr : undef;
 }
 
+# key_edit_id(&key)
+# Returns the most reliable key identifier for the older --edit-key fallback.
 sub key_edit_id
 {
 my ($key) = @_;
 return &key_primary_fingerprint($key) || $key->{'key'} || $key->{'name'}->[0];
 }
 
+# gpg_supports_option(option)
+# Returns 1 if the installed GnuPG supports a command or option.
 sub gpg_supports_option
 {
 my ($option) = @_;

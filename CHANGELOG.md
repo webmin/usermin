@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 2.540 (May 12, 2026)
+* Fix key signing with modern GnuPG
+
 #### 2.530 (March 24, 2026)
 * Update Authentic theme to the latest version with various improvements and fixes:
   - Add a new airy button style to the light palette to match the dark one  

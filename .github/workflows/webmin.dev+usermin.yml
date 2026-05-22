@@ -1,4 +1,4 @@
-name: "webmin.dev: webmin/usermin"
+name: Build
 
 on:
   push:

@@ -1639,7 +1639,7 @@ my ($realfolder, $realid);
 if ($mail->{'id'}) {
 	my $sfolder = &get_special_folder();
 	($realfolder, $realid) = &get_underlying_folder($folder, $mail);
-	print DEBUG "id=$mail->{'id'} realid=$realid\n";
+	# print DEBUG "id=$mail->{'id'} realid=$realid\n";
 	my $spec;
 	if ($sfolder || ($read&2) != 0) {
 		if ($sfolder) {
@@ -1647,7 +1647,7 @@ if ($mail->{'id'}) {
 			($spec) = grep { $_->[0] eq $realfolder &&
 					 $_->[1] eq $realid }
 				       @{$sfolder->{'members'}};
-			print DEBUG "spec=$spec\n";
+			# print DEBUG "spec=$spec\n";
 			}
 		if (($read&2) != 0 && !$spec) {
 			# Add to special folder

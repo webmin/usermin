@@ -1,5 +1,8 @@
 ## Changelog
 
+#### 2.550 (May 16, 2026)
+* Update Webmin systemd service unit to run without forking
+
 #### 2.540 (May 12, 2026)
 * Fix key signing with modern GnuPG
 

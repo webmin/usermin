@@ -1,6 +1,6 @@
 ## Changelog
 
-#### 2.550 (June 16, 2026)
+#### 2.550 (June 26, 2026)
 * Update Webmin systemd service unit to run without forking
 
 #### 2.540 (May 12, 2026)

@@ -254,6 +254,9 @@ if [ "\$1" = 0 ]; then
 	if [ "\$?" = 0 ]; then
 		# RPM is being removed, and no new version of usermin
 		# has taken it's place. Delete the config files
+		if command -v semanage >/dev/null 2>&1; then
+			semanage fcontext -d "/var/usermin(/.*)?" >/dev/null 2>&1 || true
+		fi
 		rm -rf /etc/usermin /var/usermin
 		systemctlcmd=\`which systemctl 2>/dev/null\`
 		if [ -x "\$systemctlcmd" ]; then

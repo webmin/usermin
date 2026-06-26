@@ -735,6 +735,9 @@ if [ "\$answer" = "y" ]; then
 	echo "Deleting $config_dir .."
 	rm -rf "$config_dir"
 	echo "Deleting $var_dir .."
+	if [ "$var_dir" = "/var/usermin" ] && command -v semanage >/dev/null 2>&1; then
+		semanage fcontext -d "/var/usermin(/.*)?" >/dev/null 2>&1 || true
+	fi
 	rm -rf "$var_dir"
 	systemctlcmd=\`which systemctl 2>/dev/null\`
 	if [ -x "\$systemctlcmd" ]; then
@@ -766,6 +769,34 @@ fi
 chmod 600 $config_dir/miniserv.pem 2>/dev/null
 echo ".. done"
 echo ""
+
+fix_selinux_var_dir()
+{
+	selinux_var_dir="$1"
+	case "$selinux_var_dir" in
+	/var/usermin) ;;
+	*) return 0 ;;
+	esac
+	if ! command -v selinuxenabled >/dev/null 2>&1 ||
+	   ! selinuxenabled >/dev/null 2>&1; then
+		return 0
+	fi
+	restored=0
+	if command -v semanage >/dev/null 2>&1; then
+		if semanage fcontext -m -t var_run_t "$selinux_var_dir(/.*)?" >/dev/null 2>&1 ||
+		   semanage fcontext -a -t var_run_t "$selinux_var_dir(/.*)?" >/dev/null 2>&1; then
+			if command -v restorecon >/dev/null 2>&1; then
+				restorecon -R "$selinux_var_dir" >/dev/null 2>&1 && restored=1
+			fi
+		fi
+	fi
+	# chcon is an immediate fallback only; semanage above makes it persistent.
+	if [ "$restored" != "1" ] && command -v chcon >/dev/null 2>&1; then
+		chcon -R -t var_run_t "$selinux_var_dir" >/dev/null 2>&1 || true
+	fi
+	return 0
+}
+fix_selinux_var_dir "$var_dir"
 
 # Save target directory if one was specified
 if [ "$wadir" != "$srcdir" ]; then

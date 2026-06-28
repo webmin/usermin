@@ -1,6 +1,6 @@
 ## Changelog
 
-#### 2.550 (June 26, 2026)
+#### 2.550 (June 28, 2026)
 * Update Usermin systemd service unit to run without forking
 * Update session handling to improve security, which will require users to re-authenticate after upgrading
 * Update the Authentic theme to the latest version with various improvements and fixes:
@@ -9,6 +9,9 @@
   - Fix editor save handling, clean-state indication and dirty reload guard
   - Fix popover positioning, z-index and border color for help bubbles
   - Fix the active product switch border in the navigation menu for the dark palette
+  - Fix search-result all-items delete in File Manager
+  - Fix search-result delete ordering in File Manager
+  - Fix to speed up search-result deletion cleanup in File Manager
 
 #### 2.540 (May 12, 2026)
 * Fix key signing with modern GnuPG

@@ -600,8 +600,17 @@ ln -s $config_dir/.restart-by-force-kill-init $config_dir/restart-by-force-kill 
 ln -s $config_dir/.reload-init $config_dir/reload >/dev/null 2>&1
 
 # For systemd create different start/stop scripts
-systemctlcmd=`which systemctl 2>/dev/null`
-if [ -x "$systemctlcmd" ]; then
+systemctlcmd=
+if type systemctl >/dev/null 2>&1; then
+	systemctlcmd=systemctl
+fi
+if [ "$systemctlcmd" != "" ]; then
+	initsys=`cat /proc/1/comm 2>/dev/null`
+	if [ "$initsys" != "systemd" ]; then
+		systemctlcmd=
+	fi
+fi
+if [ "$systemctlcmd" != "" ]; then
 	rm -f $config_dir/stop $config_dir/start $config_dir/restart $config_dir/restart-by-force-kill $config_dir/reload
 
 	echo "Creating start and stop scripts (systemd) .."
@@ -735,9 +744,15 @@ if [ "\$answer" = "y" ]; then
 	echo "Deleting $config_dir .."
 	rm -rf "$config_dir"
 	echo "Deleting $var_dir .."
+	if [ "$var_dir" = "/var/usermin" ] && type semanage >/dev/null 2>&1; then
+		semanage fcontext -d "/var/usermin(/.*)?" >/dev/null 2>&1 || true
+	fi
 	rm -rf "$var_dir"
-	systemctlcmd=\`which systemctl 2>/dev/null\`
-	if [ -x "\$systemctlcmd" ]; then
+	systemctlcmd=
+	if type systemctl >/dev/null 2>&1; then
+		systemctlcmd=systemctl
+	fi
+	if [ "\$systemctlcmd" != "" ]; then
 		echo "Deleting usermin.service .."
 		\$systemctlcmd stop usermin >/dev/null 2>&1 </dev/null
 		rm -f /lib/systemd/system/usermin.service /usr/lib/systemd/system/usermin.service
@@ -766,6 +781,34 @@ fi
 chmod 600 $config_dir/miniserv.pem 2>/dev/null
 echo ".. done"
 echo ""
+
+fix_selinux_var_dir()
+{
+	selinux_var_dir="$1"
+	case "$selinux_var_dir" in
+	/var/usermin) ;;
+	*) return 0 ;;
+	esac
+	if ! type selinuxenabled >/dev/null 2>&1 ||
+	   ! selinuxenabled >/dev/null 2>&1; then
+		return 0
+	fi
+	restored=0
+	if type semanage >/dev/null 2>&1; then
+		if semanage fcontext -m -t var_run_t "$selinux_var_dir(/.*)?" >/dev/null 2>&1 ||
+		   semanage fcontext -a -t var_run_t "$selinux_var_dir(/.*)?" >/dev/null 2>&1; then
+			if type restorecon >/dev/null 2>&1; then
+				restorecon -R "$selinux_var_dir" >/dev/null 2>&1 && restored=1
+			fi
+		fi
+	fi
+	# chcon is an immediate fallback only; semanage above makes it persistent.
+	if [ "$restored" != "1" ] && type chcon >/dev/null 2>&1; then
+		chcon -R -t var_run_t "$selinux_var_dir" >/dev/null 2>&1 || true
+	fi
+	return 0
+}
+fix_selinux_var_dir "$var_dir"
 
 # Save target directory if one was specified
 if [ "$wadir" != "$srcdir" ]; then

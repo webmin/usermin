@@ -207,7 +207,7 @@ if [ "\\\$answer" = "y" ]; then
 	echo "Removing Usermin RPM .."
 	rm -f /usr/libexec/usermin/authentic-theme/manifest-*
 	rpm -e --nodeps usermin
-	systemctlcmd=\\`command -v systemctl 2>/dev/null\\`
+	systemctlcmd=\\\`command -v systemctl 2>/dev/null\\\`
 	if [ -x "\\\$systemctlcmd" ]; then
 		\\\$systemctlcmd stop usermin >/dev/null 2>&1 </dev/null
 		rm -f /usr/lib/systemd/system/usermin.service

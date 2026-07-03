@@ -600,17 +600,14 @@ ln -s $config_dir/.restart-by-force-kill-init $config_dir/restart-by-force-kill 
 ln -s $config_dir/.reload-init $config_dir/reload >/dev/null 2>&1
 
 # For systemd create different start/stop scripts
-systemctlcmd=
-if type systemctl >/dev/null 2>&1; then
-	systemctlcmd=systemctl
-fi
-if [ "$systemctlcmd" != "" ]; then
+systemctlcmd=`command -v systemctl 2>/dev/null`
+if [ -x "$systemctlcmd" ]; then
 	initsys=`cat /proc/1/comm 2>/dev/null`
 	if [ "$initsys" != "systemd" ]; then
 		systemctlcmd=
 	fi
 fi
-if [ "$systemctlcmd" != "" ]; then
+if [ -x "$systemctlcmd" ]; then
 	rm -f $config_dir/stop $config_dir/start $config_dir/restart $config_dir/restart-by-force-kill $config_dir/reload
 
 	echo "Creating start and stop scripts (systemd) .."
@@ -744,15 +741,12 @@ if [ "\$answer" = "y" ]; then
 	echo "Deleting $config_dir .."
 	rm -rf "$config_dir"
 	echo "Deleting $var_dir .."
-	if [ "$var_dir" = "/var/usermin" ] && type semanage >/dev/null 2>&1; then
+	if [ "$var_dir" = "/var/usermin" ] && command -v semanage >/dev/null 2>&1; then
 		semanage fcontext -d "/var/usermin(/.*)?" >/dev/null 2>&1 || true
 	fi
 	rm -rf "$var_dir"
-	systemctlcmd=
-	if type systemctl >/dev/null 2>&1; then
-		systemctlcmd=systemctl
-	fi
-	if [ "\$systemctlcmd" != "" ]; then
+	systemctlcmd=\`command -v systemctl 2>/dev/null\`
+	if [ -x "\$systemctlcmd" ]; then
 		echo "Deleting usermin.service .."
 		\$systemctlcmd stop usermin >/dev/null 2>&1 </dev/null
 		rm -f /lib/systemd/system/usermin.service /usr/lib/systemd/system/usermin.service
@@ -789,21 +783,21 @@ fix_selinux_var_dir()
 	/var/usermin) ;;
 	*) return 0 ;;
 	esac
-	if ! type selinuxenabled >/dev/null 2>&1 ||
+	if ! command -v selinuxenabled >/dev/null 2>&1 ||
 	   ! selinuxenabled >/dev/null 2>&1; then
 		return 0
 	fi
 	restored=0
-	if type semanage >/dev/null 2>&1; then
+	if command -v semanage >/dev/null 2>&1; then
 		if semanage fcontext -m -t var_run_t "$selinux_var_dir(/.*)?" >/dev/null 2>&1 ||
 		   semanage fcontext -a -t var_run_t "$selinux_var_dir(/.*)?" >/dev/null 2>&1; then
-			if type restorecon >/dev/null 2>&1; then
+			if command -v restorecon >/dev/null 2>&1; then
 				restorecon -R "$selinux_var_dir" >/dev/null 2>&1 && restored=1
 			fi
 		fi
 	fi
 	# chcon is an immediate fallback only; semanage above makes it persistent.
-	if [ "$restored" != "1" ] && type chcon >/dev/null 2>&1; then
+	if [ "$restored" != "1" ] && command -v chcon >/dev/null 2>&1; then
 		chcon -R -t var_run_t "$selinux_var_dir" >/dev/null 2>&1 || true
 	fi
 	return 0

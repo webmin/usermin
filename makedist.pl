@@ -22,7 +22,7 @@ $fullvers =~ /^([0-9.]+)(?:-(\d+))?$/ || usage();
 
 @files = ("config-*-linux",
 	  "config-solaris", "images", "index.cgi", "mime.types",
-	  "miniserv.pl", "os_list.txt", "perlpath.pl", "setup.sh",
+	  "miniserv.pl", "miniserv-lib.pl", "os_list.txt", "perlpath.pl", "setup.sh",
 	  "version", "web-lib.pl", "web-lib-funcs.pl", "README",
 	  "chooser.cgi", "miniserv.pem",
 	  "config-aix", "update-from-repo.sh",

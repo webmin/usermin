@@ -1,5 +1,14 @@
 ## Changelog
 
+#### 2.551 (July 16, 2026)
+* Fix to recognize hex numeric HTML entities to work in various elements
+* Fix SELinux labeling for Usermin runtime data
+* Update the Authentic theme to the latest version with various improvements:
+  - Fix inconsistent gaps around rounded UI elements
+  - Fix CPU usage values exceeding 100% in the dashboard
+  - Fix File Manager remote downloads to respect download address restrictions
+  - Fix spacing in the login page welcome message
+
 #### 2.550 (June 28, 2026)
 * Update Usermin systemd service unit to run without forking
 * Update session handling to improve security, which will require users to re-authenticate after upgrading

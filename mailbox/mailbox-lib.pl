@@ -234,12 +234,14 @@ if (defined(&theme_address_button)) {
 my $form = @_ > 1 ? $_[1] : 0;
 my $mode = @_ > 2 ? $_[2] : 0;
 my $nogroups = @_ > 4 ? $_[4] : 0;
+my $formref = $form ? "document.forms[$form]" :
+		      "(this.form || document.forms[0])";
 my ($rfield1, $rfield2);
 if ($_[3]) {
-	return "<input type=button onClick='ifield = document.forms[$form].$_[0]; rfield = document.forms[$form].$_[3]; chooser = window.open(\"../$module_name/address_chooser.cgi?addr=\"+escape(ifield.value)+\"&mode=$mode&nogroups=$nogroups\", \"chooser\", \"toolbar=no,menubar=no,scrollbars=yes,width=500,height=500\"); chooser.ifield = ifield; window.ifield = ifield; chooser.rfield = rfield; window.rfield = rfield' value=\"...\">\n";
+	return "<input type=button onClick='ifield = $formref.$_[0]; rfield = $formref.$_[3]; chooser = window.open(\"../$module_name/address_chooser.cgi?addr=\"+escape(ifield.value)+\"&mode=$mode&nogroups=$nogroups\", \"chooser\", \"toolbar=no,menubar=no,scrollbars=yes,width=500,height=500\"); chooser.ifield = ifield; window.ifield = ifield; chooser.rfield = rfield; window.rfield = rfield' value=\"...\">\n";
 	}
 else {
-	return "<input type=button onClick='ifield = document.forms[$form].$_[0]; chooser = window.open(\"../$module_name/address_chooser.cgi?addr=\"+escape(ifield.value)+\"&mode=$mode\", \"chooser\", \"toolbar=no,menubar=no,scrollbars=yes,width=500,height=500\"); chooser.ifield = ifield; window.ifield = ifield' value=\"...\">\n";
+	return "<input type=button onClick='ifield = $formref.$_[0]; chooser = window.open(\"../$module_name/address_chooser.cgi?addr=\"+escape(ifield.value)+\"&mode=$mode\", \"chooser\", \"toolbar=no,menubar=no,scrollbars=yes,width=500,height=500\"); chooser.ifield = ifield; window.ifield = ifield' value=\"...\">\n";
 	}
 }
 

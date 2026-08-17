@@ -1,5 +1,17 @@
 ## Changelog
 
+#### 2.560 (August 16, 2026)
+* Fix Usermin server connections that open but never send a request, preventing them from waiting indefinitely [webmin#2815](https://github.com/webmin/webmin/pull/2815)
+* Update the Authentic theme to the latest version with various improvements:
+  - Fix change detection and submission for forms using grouped bottom action buttons
+  - Fix login page front side clipping and flip animation for long welcome messages
+  - Fix opening the wrong directory in Terminal for domain owners in File Manager
+  - Fix disallowed entry handling in File Manager [forum.virtualmin.com/t/137654](https://forum.virtualmin.com/t/extra-admin-file-manager-permissions/137654?u=ilia)
+  - Fix inline images not displaying when printing emails in Usermin
+  - Fix navigation detection for the new Virtualmin Podman plugin
+  - Fix bottom page action buttons wrapping and alignment
+  - Fix errors for Webmin-only users in File Manager
+
 #### 2.552 (July 26, 2026)
 * Update the Authentic theme to the latest version with various improvements:
   - Add improved support for the upcoming Virtualmin Podman plugin

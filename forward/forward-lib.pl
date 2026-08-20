@@ -313,13 +313,19 @@ sub set_forward_perms
 chmod(0644, $forward_file);
 }
 
+# make_absolute(file)
+# Converts a path that is relative to the user's home directory, either with
+# a ~ prefix or with no prefix at all, into an absolute one. Must match the
+# way the autoreply.pl delivery script resolves the same paths.
 sub make_absolute
 {
-if ($_[0] =~ /^\//) {
-	return $_[0];
+my ($file) = @_;
+$file =~ s/^~/$remote_user_info[7]/;
+if ($file =~ /^\//) {
+	return $file;
 	}
 else {
-	return "$remote_user_info[7]/$_[0]";
+	return "$remote_user_info[7]/$file";
 	}
 }
 
@@ -357,6 +363,15 @@ foreach my $a (@aliases) {
 			# Usermin autoreply program
 			return undef if ($simple->{'autoreply'});
 			$simple->{'autoreply'} = &make_absolute($aval);
+			if (!-e $simple->{'autoreply'} &&
+			    !&is_under_directory($remote_user_info[7],
+						 $simple->{'autoreply'}) &&
+			    $simple->{'autoreply'} =~ /\/(autoreply[^\/]*\.txt)$/) {
+				# Move a missing autoreply file back under the
+				# home directory, as the old one is typically
+				# left over from a home directory move
+				$simple->{'autoreply'} = &make_absolute($1);
+				}
 			$simple->{'auto'} = 1;
 			&read_autoreply($simple->{'autoreply'}, $simple);
 			}
@@ -371,6 +386,15 @@ if (!$simple->{'autoreply'}) {
 	# Get autoreply message from default file
 	$simple->{'autoreply'} = &make_absolute("autoreply.txt");
 	&read_autoreply($simple->{'autoreply'}, $simple);
+	}
+if ($simple->{'replies'}) {
+	# Reset any tracking file outside the user's own directories, as it
+	# is typically left over from a home directory move
+	local $rfile = &make_absolute($simple->{'replies'});
+	if (!&is_under_directory($user_module_config_directory, $rfile) &&
+	    !&is_under_directory($remote_user_info[7], $rfile)) {
+		$simple->{'replies'} = "$user_module_config_directory/replies";
+		}
 	}
 return $simple;
 }
@@ -415,6 +439,11 @@ if ($simple->{'autotext'}) {
 		# Create autoreply file
 		$simple->{'autoreply'} =
 			"$remote_user_info[7]/autoreply.txt";
+		}
+	if ($simple->{'replies'}) {
+		# Make the reply tracking file relative to the home
+		# directory, so that it survives a future home move
+		$simple->{'replies'} =~ s/^\Q$remote_user_info[7]\E\//~\//;
 		}
 	&write_autoreply($simple->{'autoreply'}, $simple);
 	}

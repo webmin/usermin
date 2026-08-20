@@ -56,9 +56,14 @@ print "<tr> <td></td> <td><font size=-1>$text{'rfile_fromdesc'}</font></td> </tr
 # Show reply-tracking option
 printf "<tr> <td colspan=2><input type=checkbox name=replies value=1 %s> %s</td> </tr>\n",
 	$replies ? "checked" : "", $text{'rfile_replies'};
-if (&is_under_directory($user_module_config_directory, $replies) ||
-    &is_under_directory($remote_user_info[7], $replies)) {
-	print "<input type=hidden name=replies_file value='$replies'>\n";
+if ($replies) {
+	# Only preserve a tracking file under the user's own directories, as
+	# it may be relative to the home directory or left over from a move
+	$rpath = &make_absolute($replies);
+	if (&is_under_directory($user_module_config_directory, $rpath) ||
+	    &is_under_directory($remote_user_info[7], $rpath)) {
+		print &ui_hidden("replies_file", $replies),"\n";
+		}
 	}
 
 # Show reply period input

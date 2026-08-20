@@ -1,7 +1,9 @@
 ## Changelog
 
-#### 2.560 (August 19, 2026)
+#### 2.560 (August 20, 2026)
 * Fix Usermin server connections that open but never send a request, preventing them from waiting indefinitely [webmin#2815](https://github.com/webmin/webmin/pull/2815)
+* Fix automatic reply message and reply tracking to keep working after a user's home directory changes [#126](https://github.com/webmin/usermin/issues/126)
+* Fix custom reply tracking file being reset to the default when editing an automatic reply
 * Update the Authentic theme to the latest version with various improvements:
   - Fix change detection and submission for forms using grouped bottom action buttons
   - Fix login page front side clipping and flip animation for long welcome messages

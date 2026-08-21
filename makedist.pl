@@ -34,7 +34,7 @@ $fullvers =~ /^([0-9.]+)(?:-(\d+))?$/ || usage();
 	  "lang_list.txt", "usermin-systemd", "usermin-init", "updateboot.pl",
 	  "config-openbsd",
 	  "config-macos", "LICENCE",
-	  "session_login.cgi",
+	  "session_login.cgi", "login-lib.pl",
 	  "defaultacl", "date_chooser.cgi",
 	  "install-module.pl", "LICENCE.ja",
 	  "favicon.ico", "config-netbsd", "usermin-debian-pam",

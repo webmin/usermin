@@ -1,5 +1,9 @@
 ## Changelog
 
+#### 2.561 (September, 2026)
+* Add support for editing the email signature in HTML format using the built-in editor, including inline images
+* Fix the signature being added again when re-editing a saved draft
+
 #### 2.560 (August 20, 2026)
 * Fix Usermin server connections that open but never send a request, preventing them from waiting indefinitely [webmin#2815](https://github.com/webmin/webmin/pull/2815)
 * Fix automatic reply message and reply tracking to keep working after a user's home directory changes [#126](https://github.com/webmin/usermin/issues/126)

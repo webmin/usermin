@@ -202,6 +202,7 @@ else {
 					$attach->{'type'} =~ /\/(\S+)$/;
 					$fn = "file.$1";
 					}
+				$fn =~ s/^.*\///;
 				$path = "$in{'dir'}/$fn";
 				}
 			else {

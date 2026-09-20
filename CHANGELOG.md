@@ -1,8 +1,16 @@
 ## Changelog
 
-#### 2.561 (September, 2026)
+#### 2.570 (September 20, 2026)
 * Add support for editing the email signature in HTML format using the built-in editor, including inline images
 * Fix the signature being added again when re-editing a saved draft
+* Update the Authentic theme to the latest version with various improvements:
+  - Add support for HTML signatures in Usermin
+  - Fix light palette layout gaps to be slightly tighter to match dark palette better
+  - Fix data tables and their filter to be restored fully functional on history back navigation
+  - Fix history back navigation after a full page reload
+  - Fix disabled checked checkboxes showing a cross instead of a checkmark
+  - Fix theme authorization to use explicit Webmin module ACLs for privileged actions
+  - Fix mail server credentials being exposed in Usermin responses
 
 #### 2.560 (August 20, 2026)
 * Fix Usermin server connections that open but never send a request, preventing them from waiting indefinitely [webmin#2815](https://github.com/webmin/webmin/pull/2815)

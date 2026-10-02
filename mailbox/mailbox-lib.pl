@@ -445,6 +445,12 @@ elsif ($config{'mail_system'} == 4) {
 			}
 		}
 
+	# Keep managed folders on the Inbox transport, ignoring saved defaults.
+	foreach my $f (grep { $_->{'imapauto'} } @rv) {
+		$f->{'ssl'} = $rv[0]->{'ssl'};
+		$f->{'port'} = $rv[0]->{'port'};
+		}
+
 	# For each IMAP folder, guess the underlying file
 	foreach my $f (@rv) {
 		if ($f->{'inbox'}) {
@@ -850,8 +856,10 @@ elsif ($folder->{'type'} == 4) {
 			$folder->{'id'} = $folder->{'mailbox'} =
 				$folder->{'name'};
 			}
+		# Account transport settings must follow the Inbox on each request.
 		@exclude = ( "type", "mode", "remote", "nowrite", "index",
-			     "id", "mailbox", "server", "user", "pass" );
+			     "id", "mailbox", "server", "user", "pass",
+			     "ssl", "port" );
 		}
 	else {
 		# Just save details of IMAP folder in a file

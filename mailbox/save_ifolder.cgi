@@ -18,6 +18,8 @@ if ($in{'new'}) {
 		    'server' => $folders[0]->{'server'},
 		    'user' => $folders[0]->{'user'},
 		    'pass' => $folders[0]->{'pass'},
+		    'ssl' => $folders[0]->{'ssl'},
+		    'port' => $folders[0]->{'port'},
 		  };
 	}
 else {

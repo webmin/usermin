@@ -113,10 +113,11 @@ if ($in{'body'} =~ /\S/) {
 	    for (my $i = 0; $i < scalar(@inline_images) - 1; $i += 2) {
 	        if ($inline_images[$i] =~ /data:image/) {
 	            my ($type) = $inline_images[$i] =~ /data:image\/(.*?);base64,/;
+		    $type =~ s/;$//;
 	            my $cid = "ii_".(time() + $i).'@'."$type";
 	            my $replace_html = "$inline_images[$i]$inline_images[$i+1]";
 	            my @data = split('@', $cid);
-            	$inline_images[$i] = \@data;
+            	    $inline_images[$i] = \@data;
 	            $inline_images[$i+1] = decode_base64($inline_images[$i+1]);
 
 	            # $cid = "cid:$cid\" style=\"width: 60%";

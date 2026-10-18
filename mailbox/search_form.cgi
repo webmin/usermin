@@ -16,6 +16,22 @@ $folder || &error($text{'view_efolder'});
 &set_module_index($in{'folder'});
 &ui_print_header(undef, $text{'sform_title'}, "");
 
+print <<EOF;
+<script>
+function set_neg(mode, negfield)
+{
+if (mode == "size") {
+	negfield.options[0].text = "$text{'sform_larger'}";
+	negfield.options[1].text = "$text{'sform_smaller'}";
+	}
+else {
+	negfield.options[0].text = "$text{'sform_neg0'}";
+	negfield.options[1].text = "$text{'sform_neg1'}";
+	}
+}
+</script>
+EOF
+
 print &ui_form_start("mail_search.cgi");
 print &ui_table_start($text{'sform_header'}, "width=100%", 2);
 
@@ -35,7 +51,8 @@ for(my $i=0; $i<=4; $i++) {
 			  map { [ $_, $_ eq 'all' ? $text{'sform_allmsg'}
 						  : $text{"sform_".$_} ] }
 			      ( 'from', 'subject', 'to', 'cc', 'date',
-				'body', 'headers', 'all', 'size') ]));
+				'body', 'headers', 'all', 'size') ],
+			1, 0, 0, undef, "onChange='set_neg(value, form.neg_$i)'"));
 
 	push(@cols, &ui_select("neg_$i", 0,
 			[ [ 0, $text{'sform_neg0'} ],

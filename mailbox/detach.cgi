@@ -14,7 +14,7 @@ require './mailbox-lib.pl';
 my @folders = &list_folders_sorted();
 my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
 $folder || &error($text{'view_efolder'});
-my $mail = &mailbox_get_mail($folder, $in{'id'}, 0);
+my $mail = &mailbox_get_mail($folder, $in{'id'}, 0, 1);
 $mail || &error($text{'view_egone'});
 &parse_mail($mail);
 my @sub = split(/\0/, $in{'sub'});

@@ -1602,6 +1602,24 @@ else {
 	}
 }
 
+# special_folder_members_index(&special-folder)
+# Returns a hash ref whose keys are the folder and ID of each special folder
+# member, so that lookups don't need to scan the whole members list. Rebuilt
+# if the members list is replaced or changes size.
+my ($special_index, $special_index_members, $special_index_count);
+sub special_folder_members_index
+{
+my ($sfolder) = @_;
+my $mems = $sfolder->{'members'} || [ ];
+if (!$special_index || $special_index_members ne $mems ||
+    $special_index_count != scalar(@$mems)) {
+	$special_index = { map { ($_->[0]."\t".$_->[1], 1) } @$mems };
+	$special_index_members = $mems;
+	$special_index_count = scalar(@$mems);
+	}
+return $special_index;
+}
+
 # get_mail_read(&folder, &mail)
 # Returns the read-mode flag for some email (0=unread, 1=read, 2=special)
 # Checks the special folder first, then the read DBM
@@ -1618,9 +1636,7 @@ my ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
 my $special = 0;
 if ($sfolder) {
 	# Is it in the special folder? If so, definately special
-	my ($spec) = grep { $_->[0] eq $realfolder &&
-			       $_->[1] eq $realid } @{$sfolder->{'members'}};
-	if ($spec) {
+	if (&special_folder_members_index($sfolder)->{$realfolder."\t".$realid}) {
 		$special = 2;
 		}
 	}
@@ -1705,6 +1721,7 @@ if ($mail->{'id'}) {
 				       @{$sfolder->{'members'}};
 			if ($spec) {
 				$spec->[1] = $mail->{'id'};
+				$special_index = undef;
 				&save_folder($sfolder, $sfolder);
 				}
 			}

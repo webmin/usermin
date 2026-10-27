@@ -166,3 +166,10 @@ When attaching files to a message, multiple files can now be selected at the sam
 Added a button to export the address book in vcard or CSV format.
 ---- Changes since 2.560 ----
 The signature editing page now supports composing an HTML signature using the built-in editor, including inline images.
+---- Changes since 2.570 ----
+Improved sorting and message lookup in large mailboxes, and sped up unread counts and bulk flag changes in Maildir folders.
+Sped up simple IMAP searches, attachment downloads and image slideshows by avoiding unnecessary mailbox scans and sorting.
+Existing sort indexes now gain the new cached ID list without rereading messages.
+Fixed stale Maildir message lists after messages are added, deleted or their flags change.
+Fixed failed Maildir flag changes leaving message details and indexes out of sync.
+Sped up Special folder lookups and fixed stale starred status when message IDs change.

@@ -1,4 +1,6 @@
 ## Changelog
+#### 2.580 (October 30, 2026)
+* Fix slow mailbox browsing, searches, unread counts, flag updates and attachment handling [webmin#2902](https://github.com/webmin/webmin/pull/2902) [#141](https://github.com/webmin/usermin/pull/141)
 
 #### 2.570 (September 20, 2026)
 * Add support for editing the email signature in HTML format using the built-in editor, including inline images

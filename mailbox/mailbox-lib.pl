@@ -811,6 +811,8 @@ my ($inbox) = grep { $_->{'inbox'} } &list_folders();
 return $inbox;
 }
 
+my ($special_index, $special_index_members, $special_index_count);
+
 # save_folder(&folder, [&old])
 # Creates or updates a folder
 sub save_folder
@@ -898,6 +900,8 @@ elsif ($folder->{'type'} == 5) {
 	}
 elsif ($folder->{'type'} == 6) {
 	# A virtual folder
+	# Member IDs can change without replacing or resizing the list.
+	$special_index = undef;
 	$folder->{'id'} ||= time();
 	my %virt;
 	foreach my $k (keys %$folder) {
@@ -1605,8 +1609,7 @@ else {
 # special_folder_members_index(&special-folder)
 # Returns a hash ref whose keys are the folder and ID of each special folder
 # member, so that lookups don't need to scan the whole members list. Rebuilt
-# if the members list is replaced or changes size.
-my ($special_index, $special_index_members, $special_index_count);
+# after save_folder(), or if the members list is replaced or changes size.
 sub special_folder_members_index
 {
 my ($sfolder) = @_;

@@ -1039,22 +1039,45 @@ if (@list_folders_cache) {
 sub delete_folder
 {
 my ($folder) = @_;
+if ($folder->{'type'} == 2 || $folder->{'type'} == 4) {
+	# Remote folder IDs must keep config and cache deletion inside this module.
+	my $id = $folder->{'id'};
+	length($id) && $id !~ /[\r\n\0]/ && $id !~ /^\// &&
+		$id !~ m!(^|/)\.\.?(/|$)! ||
+		&error($text{'fdelete_eid'});
+	my $dir = &simplify_path(&resolve_links($user_module_config_directory));
+	my $ext = $folder->{'type'} == 2 ? 'pop3' : 'imap';
+	foreach my $suffix ($ext, 'cache') {
+		# Check resolved paths without rejecting dots inside a filename.
+		my $path = &simplify_path(&resolve_links(
+			"$user_module_config_directory/$id.$suffix"));
+		defined($path) && defined($dir) && index($path, "$dir/") == 0 ||
+			&error($text{'fdelete_eid'});
+		}
+	}
 if ($folder->{'type'} == 2) {
 	# A POP3 folder
 	unlink("$user_module_config_directory/$folder->{'id'}.pop3");
-	system("rm -rf $user_module_config_directory/$folder->{'id'}.cache");
+	&unlink_file("$user_module_config_directory/$folder->{'id'}.cache");
 	}
 elsif ($folder->{'type'} == 4) {
 	# An IMAP folder
-	unlink("$user_module_config_directory/$folder->{'id'}.imap");
-	system("rm -rf $user_module_config_directory/$folder->{'id'}.cache");
-
 	if ($folder->{'imapauto'}) {
-		# Remove actual folder from IMAP server too
-		my ($ok, $ih) = &imap_login($folder);
-		my @irv = &imap_command($ih, "delete \"$folder->{'name'}\"");
+		# Quote the wire name, not the translated or UTF-7-decoded label.
+		my $name = $folder->{'mailbox'} || $folder->{'id'};
+		$name =~ /[\r\n\0]/ && &error($text{'fdelete_eid'});
+		# LIST names already have IMAP escapes; normalize them before quoting.
+		$name =~ s/\\(["\\])/$1/g;
+		$name =~ s/(["\\])/\\$1/g;
+		# Keep the selected mailbox alive so batch deletes can reuse the session.
+		my ($ok, $ih) = &imap_login({ %$folder, 'mailbox' => 'INBOX' });
+		$ok == 1 || &error($ih);
+		my @irv = &imap_command($ih, "delete \"$name\"");
 		$irv[0] || &error($irv[2] || "Unknown IMAP error");
 		}
+	# Remove local state only after the server accepts a managed deletion.
+	unlink("$user_module_config_directory/$folder->{'id'}.imap");
+	&unlink_file("$user_module_config_directory/$folder->{'id'}.cache");
 	}
 elsif ($folder->{'type'} == 5) {
 	# A composite folder

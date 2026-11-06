@@ -34,6 +34,7 @@ my $temp = &transname();
 &make_dir($temp, 0755) || &error(&text('detachall_emkdir', $!));
 my $n = 0;
 my $fn;
+my %used;
 foreach my $a (@attach) {
 	# Work out a filename
 	if (!$a->{'type'} || $a->{'type'} eq 'message/rfc822') {
@@ -44,6 +45,18 @@ foreach my $a (@attach) {
 		}
 	else {
 		$fn = "file".(++$n).".".&type_to_extension($a->{'type'});
+		}
+	# Keep decoded attachment names inside the temporary directory.
+	$fn =~ s/[\r\n\0]//g;
+	$fn =~ s/\\/\//g;
+	$fn =~ s/^.*\///g;
+	$fn =~ /^\.+$/ && ($fn = "");
+	$fn ||= "file".(++$n);
+	# Keep attachments whose original names reduce to the same basename.
+	my $base = $fn;
+	my $i = 0;
+	while ($used{$fn}++) {
+		$fn = $base.".".(++$i);
 		}
 
 	# Write the file
@@ -57,7 +70,7 @@ foreach my $a (@attach) {
 # Make and output the zip
 my $zip = &transname("$$.zip");
 my $out = &backquote_command(
-	"cd ".quotemeta($temp)." && zip ".quotemeta($zip)." * 2>&1");
+	"cd ".quotemeta($temp)." && zip -r ".quotemeta($zip)." . 2>&1");
 if ($?) {
 	&error(&text('detachall_ezip', "<tt>".&html_escape($out)."</tt>"));
 	}

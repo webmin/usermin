@@ -839,26 +839,42 @@ elsif ($folder->{'type'} == 4) {
 	if ($folder->{'imapauto'}) {
 		# This type of folder needs to be really created or updated
 		# on the server
-		if (!$folder->{'id'}) {
-			# Need to create
-			my ($ok, $ih) = &imap_login($folder);
-			my @irv = &imap_command($ih,
-					"create \"$folder->{'name'}\"");
+		if (!$folder->{'id'} ||
+		    &decode_utf7($folder->{'mailbox'}) ne $folder->{'name'}) {
+			# Reject command delimiters before logging in or
+			# changing state.
+			my $name = $folder->{'name'};
+			my $mailbox = $folder->{'mailbox'};
+			$name !~ /[\r\n\0]/ && $mailbox !~ /[\r\n\0]/ ||
+				&error($text{'save_ename5'});
+
+			# New names are literal. Existing LIST names already
+			# have escapes.
+			$name =~ s/(["\\])/\\$1/g;
+			$mailbox =~ s/\\(["\\])/$1/g;
+			$mailbox =~ s/(["\\])/\\$1/g;
+			my ($ok, $ih) = &imap_login({ %$folder, 'mailbox' => 'INBOX' });
+			$ok == 1 || &error($ih);
+			my @irv;
+			if (!$folder->{'id'}) {
+				# Create the new mailbox without selecting it
+				# first.
+				@irv = &imap_command($ih, "create \"$name\"");
+				}
+			else {
+				# Rename the wire mailbox, preserving literal
+				# quotes and slashes.
+				@irv = &imap_command($ih, "rename \"$mailbox\" \"$name\"");
+				}
 			$irv[0] || &error($irv[2]);
-			$folder->{'id'} = $folder->{'mailbox'} =
-				$folder->{'name'};
+
+			# Match LIST's stored wire name and decoded display
+			# name.
+			$folder->{'id'} = $folder->{'mailbox'} = $name;
+			$folder->{'name'} = &decode_utf7($name);
 			}
-		elsif ($folder->{'mailbox'} ne $folder->{'name'}) {
-			# Need to rename
-			my ($ok, $ih) = &imap_login($folder);
-			my @irv = &imap_command($ih,
-				"rename \"$folder->{'mailbox'}\" \"$folder->{'name'}\"");
-			$irv[0] || &error($irv[2]);
-			$folder->{'id'} = $folder->{'name'};
-			$folder->{'id'} = $folder->{'mailbox'} =
-				$folder->{'name'};
-			}
-		# Account transport settings must follow the Inbox on each request.
+		# Account transport settings must follow the Inbox on each
+		# request.
 		@exclude = ( "type", "mode", "remote", "nowrite", "index",
 			     "id", "mailbox", "server", "user", "pass",
 			     "ssl", "port" );

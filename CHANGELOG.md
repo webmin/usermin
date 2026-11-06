@@ -1,5 +1,7 @@
 ## Changelog
-#### 2.580 (October 30, 2026)
+#### 2.580 (November 7, 2026)
+* Fix command injection in mailbox folder deletion, unsafe attachment previews and path traversal in attachment ZIP downloads [#142](https://github.com/webmin/usermin/issues/142)
+* Fix IMAP batch folder deletion and handling of quoted and UTF-7 folder names
 * Fix slow mailbox browsing, searches, unread counts, flag updates and attachment handling [webmin#2902](https://github.com/webmin/webmin/pull/2902) [#141](https://github.com/webmin/usermin/pull/141)
 
 #### 2.570 (September 20, 2026)

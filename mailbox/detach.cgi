@@ -14,7 +14,7 @@ require './mailbox-lib.pl';
 my @folders = &list_folders_sorted();
 my ($folder) = grep { $_->{'index'} == $in{'folder'} } @folders;
 $folder || &error($text{'view_efolder'});
-my $mail = &mailbox_get_mail($folder, $in{'id'}, 0);
+my $mail = &mailbox_get_mail($folder, $in{'id'}, 0, 1);
 $mail || &error($text{'view_egone'});
 &parse_mail($mail);
 my @sub = split(/\0/, $in{'sub'});
@@ -77,29 +77,48 @@ if ($in{'scale'}) {
 else {
 	# Just output the attachment
 	print "X-no-links: 1\n";
-	if ($in{'type'}) {
-		# Display as a specific MIME type
-		print "Content-type: $in{'type'}\n\n";
-		print $attach->{'data'};
+	print "X-Content-Type-Options: nosniff\n";
+	# Keep decoded download filenames safe for use in a response header.
+	my $fn = $attach->{'filename'} ? &decode_mimewords($attach->{'filename'})
+				    : "attachment";
+	$fn =~ s/[\r\n\0"\\\/]//g;
+	$fn ||= "attachment";
+	my $type = lc($attach->{'type'} || 'application/octet-stream');
+	my $download = $in{'save'};
+	if ($download) {
+		# Downloads must keep the original bytes without rendering them.
+		$type = 'application/octet-stream';
+		}
+	elsif ($in{'type'} || $type =~ /(?:\/|\+)xml\z/ ||
+	       $type eq 'image/svg' || $type eq 'message/delivery-status' ||
+	       $fn =~ /\.svgz?$/i) {
+		# Render XML/SVG and the UI's plain-text override as inert text.
+		$type = 'text/plain';
+		}
+	elsif ($type eq 'text/html') {
+		# Keep HTML previews isolated even if the text filters miss markup.
+		print "Content-Security-Policy: sandbox; script-src 'none'; ".
+		      "object-src 'none'; frame-src 'none'; base-uri 'none'; ".
+		      "form-action 'none'\n";
+		}
+	elsif ($type =~ /^text\//) {
+		# Other text formats must not be interpreted as active content.
+		$type = 'text/plain';
+		}
+	elsif ($type !~ /\A(?:image\/(?:gif|jpeg|png|webp|bmp|avif|x-icon|vnd\.microsoft\.icon)|application\/pdf|(?:audio|video)\/[a-z0-9.+-]+)\z/) {
+		# Only raster images, PDF and media may be served inline unsandboxed.
+		$type = 'application/octet-stream';
+		$download = 1;
+		}
+	print "Content-Disposition: Attachment; filename=\"$fn\"\n" if ($download);
+	print "Content-type: $type\n\n";
+	if ($type eq 'text/html') {
+		# Retain the existing filters in addition to the browser sandbox.
+		print &safe_urls(&filter_javascript($attach->{'data'}));
 		}
 	else {
-		# Auto-detect type
-		if ($in{'save'}) {
-			# Force download
-			print "Content-Disposition: Attachment; filename=\"$attach->{'filename'}\"\n";
-			}
-		if ($attach->{'type'} eq 'message/delivery-status') {
-			print "Content-type: text/plain\n\n";
-			}
-		else {
-			print "Content-type: $attach->{'type'}\n\n";
-			}
-		if ($attach->{'type'} =~ /^(text\/html|image\/svg|application\/xhtml)/i && !$in{'save'}) {
-			print &safe_urls(&filter_javascript($attach->{'data'}));
-			}
-		else {
-			print $attach->{'data'};
-			}
+		# Text previews, images and downloads keep their original bytes.
+		print $attach->{'data'};
 		}
 	}
 &pop3_logout_all();

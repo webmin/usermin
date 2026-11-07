@@ -811,6 +811,8 @@ my ($inbox) = grep { $_->{'inbox'} } &list_folders();
 return $inbox;
 }
 
+my ($special_index, $special_index_members, $special_index_count);
+
 # save_folder(&folder, [&old])
 # Creates or updates a folder
 sub save_folder
@@ -837,26 +839,42 @@ elsif ($folder->{'type'} == 4) {
 	if ($folder->{'imapauto'}) {
 		# This type of folder needs to be really created or updated
 		# on the server
-		if (!$folder->{'id'}) {
-			# Need to create
-			my ($ok, $ih) = &imap_login($folder);
-			my @irv = &imap_command($ih,
-					"create \"$folder->{'name'}\"");
+		if (!$folder->{'id'} ||
+		    &decode_utf7($folder->{'mailbox'}) ne $folder->{'name'}) {
+			# Reject command delimiters before logging in or
+			# changing state.
+			my $name = $folder->{'name'};
+			my $mailbox = $folder->{'mailbox'};
+			$name !~ /[\r\n\0]/ && $mailbox !~ /[\r\n\0]/ ||
+				&error($text{'save_ename5'});
+
+			# New names are literal. Existing LIST names already
+			# have escapes.
+			$name =~ s/(["\\])/\\$1/g;
+			$mailbox =~ s/\\(["\\])/$1/g;
+			$mailbox =~ s/(["\\])/\\$1/g;
+			my ($ok, $ih) = &imap_login({ %$folder, 'mailbox' => 'INBOX' });
+			$ok == 1 || &error($ih);
+			my @irv;
+			if (!$folder->{'id'}) {
+				# Create the new mailbox without selecting it
+				# first.
+				@irv = &imap_command($ih, "create \"$name\"");
+				}
+			else {
+				# Rename the wire mailbox, preserving literal
+				# quotes and slashes.
+				@irv = &imap_command($ih, "rename \"$mailbox\" \"$name\"");
+				}
 			$irv[0] || &error($irv[2]);
-			$folder->{'id'} = $folder->{'mailbox'} =
-				$folder->{'name'};
+
+			# Match LIST's stored wire name and decoded display
+			# name.
+			$folder->{'id'} = $folder->{'mailbox'} = $name;
+			$folder->{'name'} = &decode_utf7($name);
 			}
-		elsif ($folder->{'mailbox'} ne $folder->{'name'}) {
-			# Need to rename
-			my ($ok, $ih) = &imap_login($folder);
-			my @irv = &imap_command($ih,
-				"rename \"$folder->{'mailbox'}\" \"$folder->{'name'}\"");
-			$irv[0] || &error($irv[2]);
-			$folder->{'id'} = $folder->{'name'};
-			$folder->{'id'} = $folder->{'mailbox'} =
-				$folder->{'name'};
-			}
-		# Account transport settings must follow the Inbox on each request.
+		# Account transport settings must follow the Inbox on each
+		# request.
 		@exclude = ( "type", "mode", "remote", "nowrite", "index",
 			     "id", "mailbox", "server", "user", "pass",
 			     "ssl", "port" );
@@ -898,6 +916,8 @@ elsif ($folder->{'type'} == 5) {
 	}
 elsif ($folder->{'type'} == 6) {
 	# A virtual folder
+	# Member IDs can change without replacing or resizing the list.
+	$special_index = undef;
 	$folder->{'id'} ||= time();
 	my %virt;
 	foreach my $k (keys %$folder) {
@@ -1035,22 +1055,45 @@ if (@list_folders_cache) {
 sub delete_folder
 {
 my ($folder) = @_;
+if ($folder->{'type'} == 2 || $folder->{'type'} == 4) {
+	# Remote folder IDs must keep config and cache deletion inside this module.
+	my $id = $folder->{'id'};
+	length($id) && $id !~ /[\r\n\0]/ && $id !~ /^\// &&
+		$id !~ m!(^|/)\.\.?(/|$)! ||
+		&error($text{'fdelete_eid'});
+	my $dir = &simplify_path(&resolve_links($user_module_config_directory));
+	my $ext = $folder->{'type'} == 2 ? 'pop3' : 'imap';
+	foreach my $suffix ($ext, 'cache') {
+		# Check resolved paths without rejecting dots inside a filename.
+		my $path = &simplify_path(&resolve_links(
+			"$user_module_config_directory/$id.$suffix"));
+		defined($path) && defined($dir) && index($path, "$dir/") == 0 ||
+			&error($text{'fdelete_eid'});
+		}
+	}
 if ($folder->{'type'} == 2) {
 	# A POP3 folder
 	unlink("$user_module_config_directory/$folder->{'id'}.pop3");
-	system("rm -rf $user_module_config_directory/$folder->{'id'}.cache");
+	&unlink_file("$user_module_config_directory/$folder->{'id'}.cache");
 	}
 elsif ($folder->{'type'} == 4) {
 	# An IMAP folder
-	unlink("$user_module_config_directory/$folder->{'id'}.imap");
-	system("rm -rf $user_module_config_directory/$folder->{'id'}.cache");
-
 	if ($folder->{'imapauto'}) {
-		# Remove actual folder from IMAP server too
-		my ($ok, $ih) = &imap_login($folder);
-		my @irv = &imap_command($ih, "delete \"$folder->{'name'}\"");
+		# Quote the wire name, not the translated or UTF-7-decoded label.
+		my $name = $folder->{'mailbox'} || $folder->{'id'};
+		$name =~ /[\r\n\0]/ && &error($text{'fdelete_eid'});
+		# LIST names already have IMAP escapes; normalize them before quoting.
+		$name =~ s/\\(["\\])/$1/g;
+		$name =~ s/(["\\])/\\$1/g;
+		# Keep the selected mailbox alive so batch deletes can reuse the session.
+		my ($ok, $ih) = &imap_login({ %$folder, 'mailbox' => 'INBOX' });
+		$ok == 1 || &error($ih);
+		my @irv = &imap_command($ih, "delete \"$name\"");
 		$irv[0] || &error($irv[2] || "Unknown IMAP error");
 		}
+	# Remove local state only after the server accepts a managed deletion.
+	unlink("$user_module_config_directory/$folder->{'id'}.imap");
+	&unlink_file("$user_module_config_directory/$folder->{'id'}.cache");
 	}
 elsif ($folder->{'type'} == 5) {
 	# A composite folder
@@ -1602,6 +1645,23 @@ else {
 	}
 }
 
+# special_folder_members_index(&special-folder)
+# Returns a hash ref whose keys are the folder and ID of each special folder
+# member, so that lookups don't need to scan the whole members list. Rebuilt
+# after save_folder(), or if the members list is replaced or changes size.
+sub special_folder_members_index
+{
+my ($sfolder) = @_;
+my $mems = $sfolder->{'members'} || [ ];
+if (!$special_index || $special_index_members ne $mems ||
+    $special_index_count != scalar(@$mems)) {
+	$special_index = { map { ($_->[0]."\t".$_->[1], 1) } @$mems };
+	$special_index_members = $mems;
+	$special_index_count = scalar(@$mems);
+	}
+return $special_index;
+}
+
 # get_mail_read(&folder, &mail)
 # Returns the read-mode flag for some email (0=unread, 1=read, 2=special)
 # Checks the special folder first, then the read DBM
@@ -1618,9 +1678,7 @@ my ($realfolder, $realid) = &get_underlying_folder($folder, $mail);
 my $special = 0;
 if ($sfolder) {
 	# Is it in the special folder? If so, definately special
-	my ($spec) = grep { $_->[0] eq $realfolder &&
-			       $_->[1] eq $realid } @{$sfolder->{'members'}};
-	if ($spec) {
+	if (&special_folder_members_index($sfolder)->{$realfolder."\t".$realid}) {
 		$special = 2;
 		}
 	}
@@ -1705,6 +1763,7 @@ if ($mail->{'id'}) {
 				       @{$sfolder->{'members'}};
 			if ($spec) {
 				$spec->[1] = $mail->{'id'};
+				$special_index = undef;
 				&save_folder($sfolder, $sfolder);
 				}
 			}

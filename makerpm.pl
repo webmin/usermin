@@ -271,8 +271,10 @@ fi
 EOF
 close(SPEC);
 
+# Build in RPM v4 format for systems that cannot verify v6 signatures.
 $cmd = -x "/usr/bin/rpmbuild" ? "rpmbuild" : "rpm";
-system("$cmd -ba --target=noarch $spec_dir/$pkgname-$ver.spec") && exit;
+system("$cmd --define '_rpmformat 4' -ba --target=noarch ".
+       "$spec_dir/$pkgname-$ver.spec") && exit;
 
 foreach $rpm ("rpm", "newkey/rpm") {
 	if (-d $rpm) {

@@ -6,7 +6,8 @@ require './htaccess-lib.pl';
 &ReadParse();
 
 # Search for files
-open(FIND, "find '$in{'dir'}' -name '$config{'htaccess'}' -print 2>/dev/null |");
+open(FIND, "find ".quotemeta($in{'dir'}).
+	   " -name ".quotemeta($config{'htaccess'})." -print 2>/dev/null |");
 while(<FIND>) {
 	s/\r|\n//g;
 	push(@found, $_);

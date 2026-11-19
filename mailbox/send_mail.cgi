@@ -134,11 +134,12 @@ if ($in{'body'} =~ /\S/) {
 	        $prehtmlbody = $in{'body'};
 	    }
 	my $charset = $in{'charset'} || $userconfig{'charset'};
+	$charset = 'UTF-8' if ($charset =~ /^utf-?8$/i);
 	my $plain_charset = $charset;
 	my $plainbody = $prehtmlbody;
 	if ($in{'html_edit'}) {
 		my $latin1 = $charset =~ /^(?:iso[-_]?8859-1|latin-?1)$/i;
-		my $use_utf8 = $latin1 || $charset =~ /^utf-?8$/i;
+		my $use_utf8 = $latin1 || $charset eq 'UTF-8';
 		# Converters can assume Latin-1 unless the HTML declares UTF-8.
 		if ($use_utf8) {
 			utf8::encode($preplainbody) if ($latin1);

@@ -134,16 +134,30 @@ if ($in{'body'} =~ /\S/) {
 	        $prehtmlbody = $in{'body'};
 	    }
 	my $charset = $in{'charset'} || $userconfig{'charset'};
-	my $utf8_html = $in{'html_edit'} && $charset =~ /^utf-?8$/i;
-	# HTML converters can assume Latin-1 for an unlabelled fragment.
-	if ($utf8_html) {
-		$preplainbody = '<meta http-equiv="Content-Type" '.
-				'content="text/html; charset=UTF-8">'.$preplainbody;
+	my $plain_charset = $charset;
+	my $plainbody = $prehtmlbody;
+	if ($in{'html_edit'}) {
+		my $latin1 = $charset =~ /^(?:iso[-_]?8859-1|latin-?1)$/i;
+		my $use_utf8 = $latin1 || $charset =~ /^utf-?8$/i;
+		# Converters can assume Latin-1 unless the HTML declares UTF-8.
+		if ($use_utf8) {
+			utf8::encode($preplainbody) if ($latin1);
+			$preplainbody = '<meta http-equiv="Content-Type" '.
+				'content="text/html; charset=UTF-8">'.
+				$preplainbody;
+			}
+		$plainbody = &html_to_text($preplainbody);
+		# Use Latin-1 bytes unless an HTML entity needs a wider charset.
+		if ($latin1) {
+			utf8::decode($plainbody)
+				unless utf8::is_utf8($plainbody);
+			$plain_charset = 'UTF-8'
+				unless utf8::downgrade($plainbody, 1);
+			}
+		# The Perl formatter can return characters. MIME needs bytes.
+		utf8::encode($plainbody)
+			if ($use_utf8 && utf8::is_utf8($plainbody));
 		}
-	my $plainbody = $in{'html_edit'} ? &html_to_text($preplainbody)
-					    : $prehtmlbody;
-	# The Perl formatter returns characters. MIME needs bytes.
-	utf8::encode($plainbody) if ($utf8_html && utf8::is_utf8($plainbody));
 	# Perform spell check on body if requested
 	if ($in{'spell'}) {
 		my @errs = &spell_check_text($plainbody);
@@ -201,7 +215,7 @@ if ($in{'body'} =~ /\S/) {
 		# Create an attachment which contains both the HTML and plain
 		# bodies as alternatives
 		my @alts = ( $attach[0] );
-		my $mt = "text/plain; charset=$charset";
+		my $mt = "text/plain; charset=$plain_charset";
 		if ($plainbody =~ /[\177-\377]/) {
 			unshift(@alts,
 			  { 'headers' => [ [ 'Content-Type', $mt ],

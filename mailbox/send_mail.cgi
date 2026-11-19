@@ -133,8 +133,17 @@ if ($in{'body'} =~ /\S/) {
 	        }
 	        $prehtmlbody = $in{'body'};
 	    }
+	my $charset = $in{'charset'} || $userconfig{'charset'};
+	my $utf8_html = $in{'html_edit'} && $charset =~ /^utf-?8$/i;
+	# HTML converters can assume Latin-1 for an unlabelled fragment.
+	if ($utf8_html) {
+		$preplainbody = '<meta http-equiv="Content-Type" '.
+				'content="text/html; charset=UTF-8">'.$preplainbody;
+		}
 	my $plainbody = $in{'html_edit'} ? &html_to_text($preplainbody)
 					    : $prehtmlbody;
+	# The Perl formatter returns characters. MIME needs bytes.
+	utf8::encode($plainbody) if ($utf8_html && utf8::is_utf8($plainbody));
 	# Perform spell check on body if requested
 	if ($in{'spell'}) {
 		my @errs = &spell_check_text($plainbody);
@@ -163,7 +172,6 @@ if ($in{'body'} =~ /\S/) {
 	if (!$in{'html_edit'}) {
 		$wrapped_body = join("\n", &wrap_lines($wrapped_body, 998));
 		}
-	my $charset = $in{'charset'} || $userconfig{'charset'};
 	$mt .= "; charset=$charset";
 	if ($config{'html_base64'} == 2) {
 		# Use base64 encoding

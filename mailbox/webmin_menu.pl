@@ -129,7 +129,7 @@ push(@rv, { 'type' => 'item',
 # Module config link
 if ($config{'noprefs'}) {
 	push(@rv, { 'type' => 'item',
-		    'icon' => '/'.$module_name.'/images/usermin.gif',
+		    'icon' => '/'.$module_name.'/images/prefs.gif',
 		    'id' => 'config',
 		    'desc' => $text{'left_prefs'},
 		    'link' => '/uconfig.cgi?'.$module_name });

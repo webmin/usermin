@@ -49,8 +49,9 @@ elsif ($gconfig{"notabs_${base_remote_user}"} == 2 ||
 		if ($pos % $cols == 0) { print "<tr>\n"; }
 		$desc = $m->{'longdesc'} || $m->{'desc'};
 		print "<td valign=top align=center>\n";
+		my $icon = &module_icon_url("$m->{'dir'}/images/icon.gif");
 		print "<table border><tr><td><a href=$m->{'dir'}/>",
-		      "<img src=$m->{'dir'}/images/icon.gif border=0 ",
+		      "<img src=\"$icon\" border=0 ",
 		      "width=48 height=48 title=\"$desc\"></a></td></tr></table>\n";
 		print "<a href=$m->{'dir'}/>$m->{'desc'}</a></td>\n";
 		if ($pos % $cols == $cols - 1) { print "</tr>\n"; }
@@ -89,8 +90,9 @@ else {
 		if ($pos % $cols == 0) { print "<tr>\n"; }
 		$desc = $m->{'longdesc'} || $m->{'desc'};
 		print "<td valign=top align=center width=$per\%>\n";
+		my $icon = &module_icon_url("$m->{'dir'}/images/icon.gif");
 		print "<table border bgcolor=#ffffff><tr><td><a href=$m->{'dir'}/>",
-		      "<img src=$m->{'dir'}/images/icon.gif title=\"$desc\" border=0></a>",
+		      "<img src=\"$icon\" title=\"$desc\" border=0></a>",
 		      "</td></tr></table>\n";
 		print "<a href=$m->{'dir'}/><font color=#000000>$m->{'desc'}</font></a></td>\n";
 		if ($pos++ % $cols == $cols - 1) { print "</tr>\n"; }

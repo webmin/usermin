@@ -104,14 +104,14 @@ foreach $m (@rv) {
 	      "<tr><td>",&mailbox::simplify_subject($m->{'header'}->{'subject'}),
 	      "</td> <td align=right>";
 	if ($m->{'header'}->{'content-type'} =~ /multipart\/\S+/i) {
-		print "<img src=/mailbox/images/attach.gif>";
+		print "<img src=../images/shared/paperclip.png>";
 		}
 	local $p = int($m->{'header'}->{'x-priority'});
 	if ($p == 1) {
-		print "&nbsp;<img src=images/p1.gif>";
+		print "&nbsp;<img src=../images/shared/priority-high.gif>";
 		}
 	elsif ($p == 2) {
-		print "&nbsp;<img src=images/p2.gif>";
+		print "&nbsp;<img src=../images/shared/priority-low.gif>";
 		}
 	print "</td></tr></table></td> </tr>\n";
 	}

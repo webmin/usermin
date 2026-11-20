@@ -92,18 +92,18 @@ for($i=int($in{'start'}); $i<@mail && $i<$in{'start'}+$perpage; $i++) {
 	      "<tr><td>",&mailbox::simplify_subject($mail[$i]->{'header'}->{'subject'}),
 	      "</td> <td align=right>";
 	if ($mail[$i]->{'header'}->{'content-type'} =~ /multipart\/\S+/i) {
-		print "<img src=/mailbox/images/attach.gif>";
+		print "<img src=../images/shared/paperclip.png>";
 		}
 	local $p = int($mail[$i]->{'header'}->{'x-priority'});
 	if ($p == 1) {
-		print "&nbsp;<img src=/mailbox/images/p1.gif>";
+		print "&nbsp;<img src=../images/shared/priority-high.gif>";
 		}
 	elsif ($p == 2) {
-		print "&nbsp;<img src=/mailbox/images/p2.gif>";
+		print "&nbsp;<img src=../images/shared/priority-low.gif>";
 		}
 	if (!$showto) {
 		if ($read{$mail[$i]->{'header'}->{'message-id'}} == 2) {
-			print "&nbsp;<img src=/mailbox/images/special.gif>";
+			print "&nbsp;<img src=../images/shared/special.gif>";
 			}
 		elsif ($read{$mail[$i]->{'header'}->{'message-id'}} == 1) {
 			print "&nbsp;<img src=/mailbox/images/read.gif>";

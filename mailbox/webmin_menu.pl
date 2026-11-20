@@ -57,7 +57,7 @@ if (!$data->{'nofolders'}) {
 		if ($f->{'type'} == 6 &&
 		    $special_folder_id &&
 		    $f->{'id'} == $special_folder_id) {
-			$item->{'icon'} = '/'.$module_name.'/images/special.gif';
+			$item->{'icon'} = '/images/shared/special.gif';
 			$item->{'special'} = 1;
 			}
 		if (&should_show_unread($f)) {

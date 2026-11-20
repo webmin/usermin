@@ -63,8 +63,9 @@ elsif ($gconfig{"notabs_${base_remote_user}"} == 2 ||
 		print "<td valign=top align=center width=$per\%>\n";
 		local $idx = $m->{'index_link'};
 		my $alink = "$gconfig{'webprefix'}/@{[&urlize($m->{'dir'})]}/$idx";
+		my $icon = &module_icon_url("$m->{'dir'}/images/icon.gif");
 		print "<table border><tr><td><a href='$alink'>",
-		      "<img src=$m->{'dir'}/images/icon.gif border=0 ",
+		      "<img src=\"$icon\" border=0 ",
 		      "width=48 height=48></a></td></tr></table>\n";
 		print "<a href='$alink'>@{[&html_escape($m->{'desc'})]}</a></td>\n";
 		if ($pos % $cols == $cols - 1) { print "</tr>\n"; }
@@ -149,8 +150,9 @@ else {
 		if ($pos % $cols == 0) { print "<tr>\n"; }
 		print "<td valign=top align=center width=$per\%>\n";
 		my $mlink = "$gconfig{'webprefix'}/@{[&urlize($m->{'dir'})]}/";
+		my $icon = &module_icon_url("$m->{'dir'}/images/icon.gif");
 		print "<table border bgcolor=#ffffff><tr><td><a href='$mlink'>",
-		      "<img src=$m->{'dir'}/images/icon.gif alt=\"\" border=0></a>",
+		      "<img src=\"$icon\" alt=\"\" border=0></a>",
 		      "</td></tr></table>\n";
 		print "<a href='$mlink'>@{[&html_escape($m->{'desc'})]}</a></td>\n";
 		if ($pos++ % $cols == $cols - 1) { print "</tr>\n"; }

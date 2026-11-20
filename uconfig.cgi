@@ -1,47 +1,50 @@
 #!/usr/local/bin/perl
-# uconfig.cgi
-# Like config.cgi, but works on a user's personal config file
+# Edit a Usermin module's preferences for the logged-in Unix user.
 
-require './web-lib.pl';
+BEGIN { push(@INC, "."); };
+use WebminCore;
 require './config-lib.pl';
-require './ui-lib.pl';
-$m = $ARGV[0];
 &init_config();
-require './ui-lib.pl';
-&switch_to_remote_user();
-&create_user_config_dirs();
-
-%module_info = &get_module_info($m);
-%module_info || &error($text{'config_emodule'});
-$desc = &text('config_dir', $module_info{'desc'});
-&ui_print_header($desc, $text{'config_title'}, "", undef, 0, 1);
-$mdir = &module_root_directory($m);
-
-print &ui_form_start("uconfig_save.cgi", "post");
-print &ui_hidden("module", $m);
-print &ui_table_start(&text('config_header', $module_info{'desc'}),
-		      "width=100%", 2);
-&read_file("$mdir/defaultuconfig", \%config);
-&read_file("$config_directory/$m/uconfig", \%config);
-&read_file("$user_config_directory/$m/config", \%config);
-&read_file("$config_directory/$m/canconfig", \%canconfig);
-
-if (-r "$mdir/uconfig_info.pl") {
-	# Module has a custom config editor
-	&foreign_require($m, "uconfig_info.pl");
-	local $fn = "${m}::config_form";
-	if (defined(&$fn)) {
-		$func++;
-		&foreign_call($m, "config_form", \%config, \%canconfig);
-		}
+if ($ENV{'CONTENT_TYPE'} =~ m!^multipart/form-data\b!i) {
+	&ReadParseMime();
 	}
-if (!$func) {
-	# Use config.info to create config inputs
-	&generate_config(\%config, "$mdir/uconfig.info", undef,
-			 %canconfig ? \%canconfig : undef);
+else {
+	&ReadParse();
+	}
+
+my $m = $in{'module'} || $ARGV[0];
+my ($info, $dir, $fields, $canconfig, $custom) = &user_config_editor($m);
+my $help = -r &help_file($m, "config_intro") ? [ "config_intro", $m ] : undef;
+&ui_print_header(&text('config_dir', $info->{'desc'}), $text{'config_title'},
+		 "", $help, 0, 1);
+my ($section, $title, $next) =
+	&config_section_navigation("uconfig.cgi", $m, $fields);
+$title = &text('config_header', $info->{'desc'}) if (!defined($section));
+
+# Personal settings override the module and administrator defaults.
+my %prefs;
+&read_file("$dir/defaultuconfig", \%prefs);
+&read_file("$config_directory/$m/uconfig", \%prefs);
+&read_file("$user_config_directory/$m/config", \%prefs);
+
+print &ui_form_start("uconfig_save.cgi", "post"), &ui_hidden("module", $m);
+if (defined($section)) {
+	print &ui_hidden("section", $section), &ui_hidden("section_next", $next);
+	}
+print &ui_table_start($title, "width=100%", 2);
+if ($custom) {
+	# Legacy callbacks read the selected section from their own %in.
+	(my $pkg = $m) =~ tr/-/_/;
+	%{$pkg."::in"} = %in;
+	&foreign_call($m, "config_form", \%prefs, $canconfig);
+	}
+else {
+	&generate_config(\%prefs, $fields, $m, %$canconfig ? $canconfig : undef,
+			 undef, $section);
 	}
 print &ui_table_end();
-print &ui_form_end([ [ "save", $text{'save'} ] ]);
-
-&ui_print_footer("/$m", $text{'index'});
-
+my @buttons = ( [ "save", $text{'save'} ] );
+push(@buttons, [ "save_next", $text{'config_next'} ]) if (defined($section));
+print &ui_form_end(\@buttons);
+my %mtext = &load_language($m);
+&ui_print_footer("/$m/", $mtext{'index_return'} || $text{'index'});

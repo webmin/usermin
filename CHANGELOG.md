@@ -1,5 +1,5 @@
 ## Changelog
-#### 2.580 (November 18, 2026)
+#### 2.580 (November 21, 2026)
 * Fix command injection in mailbox folder deletion, unsafe attachment previews and path traversal in attachment ZIP downloads [#142](https://github.com/webmin/usermin/issues/142)
 * Fix IMAP batch folder deletion and handling of quoted and UTF-7 folder names
 * Fix garbled characters in plain-text copies of UTF-8 and Latin-1 HTML mail and use the standard UTF-8 charset label in outgoing mail [forum.virtualmin.com/t/138349](https://forum.virtualmin.com/t/138349)

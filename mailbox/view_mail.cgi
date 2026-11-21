@@ -577,8 +577,8 @@ if ($_[1]) {
 		}
 	return "<a href='mail_search.cgi?folder=".$fid."&and=0".
 	       $fields.$whats.
-	       "'><img src=images/search.gif ".
-	       "alt='$qtext' title='$qtext' border=0></a>";
+	       "' title='$qtext'>".
+	       &ui_svg_icon('search', { 'title' => $text })."</a>";
 	}
 else {
 	return undef;
@@ -593,6 +593,6 @@ my ($field, $text, $what) = @_;
 return undef if (!$can_create_filter);
 my $qtext = &quote_escape($text);
 return "<a href='../filter/edit.cgi?new=1&header=".&urlize($field).
-       "&value=".&urlize($what)."'><img src=images/filter.gif ".
-       "alt='$qtext' title='$qtext' border=0></a>";
+       "&value=".&urlize($what)."' title='$qtext'>".
+       &ui_svg_icon('filter', { 'title' => $text })."</a>";
 }

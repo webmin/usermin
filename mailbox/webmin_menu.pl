@@ -20,7 +20,7 @@ if (!$userconfig{'folders_menu'}) {
 # Desired title
 push(@rv, { 'type' => 'title',
 	    'id' => 'title',
-	    'icon' => '/'.$module_name.'/images/mail.gif',
+	    'icon' => '/images/shared/mail.svg',
 	    'desc' => $text{'left_mail'} });
 
 # Show real name and address
@@ -57,7 +57,7 @@ if (!$data->{'nofolders'}) {
 		if ($f->{'type'} == 6 &&
 		    $special_folder_id &&
 		    $f->{'id'} == $special_folder_id) {
-			$item->{'icon'} = '/images/shared/special.gif';
+			$item->{'icon'} = '/images/shared/special.svg';
 			$item->{'special'} = 1;
 			}
 		if (&should_show_unread($f)) {
@@ -114,14 +114,14 @@ push(@rv, { 'type' => 'input',
 my $fprog = $config{'mail_system'} == 4 ? "list_ifolders.cgi"
 					: "list_folders.cgi";
 push(@rv, { 'type' => 'item',
-	    'icon' => '/'.$module_name.'/images/mail.gif',
+	    'icon' => '/images/shared/mail-folders.svg',
 	    'id' => 'folders',
 	    'desc' => $text{'left_folders'},
 	    'link' => '/'.$module_name.'/'.$fprog });
 
 # Address book link
 push(@rv, { 'type' => 'item',
-	    'icon' => '/'.$module_name.'/images/address.gif',
+	    'icon' => '/images/shared/address-book.svg',
             'id' => 'address',
 	    'desc' => $text{'left_addresses'},
 	    'link' => '/'.$module_name.'/list_addresses.cgi' });
@@ -129,7 +129,7 @@ push(@rv, { 'type' => 'item',
 # Module config link
 if ($config{'noprefs'}) {
 	push(@rv, { 'type' => 'item',
-		    'icon' => '/'.$module_name.'/images/prefs.gif',
+		    'icon' => '/images/shared/mail-tools.svg',
 		    'id' => 'config',
 		    'desc' => $text{'left_prefs'},
 		    'link' => '/uconfig.cgi?'.$module_name });
@@ -142,7 +142,7 @@ if (&foreign_available("filter")) {
 		# Forwarding link
 		if (&filter::can_simple_forward()) {
 			push(@rv, { 'type' => 'item',
-				    'icon' => '/'.$module_name.'/images/forward.gif',
+				    'icon' => '/images/shared/forward-mail.svg',
 				    'id' => 'forward',
 				    'desc' => $text{'left_forward'},
 			            'link' => '/filter/edit_forward.cgi' });
@@ -151,7 +151,7 @@ if (&foreign_available("filter")) {
 		# Autoreply link
 		if (&filter::can_simple_autoreply()) {
 			push(@rv, { 'type' => 'item',
-				    'icon' => '/'.$module_name.'/images/autoreply.gif',
+				    'icon' => '/images/shared/mail-redirect.svg',
 				    'id' => 'autoreply',
 				    'desc' => $text{'left_autoreply'},
 			            'link' => '/filter/edit_auto.cgi' });
@@ -159,7 +159,7 @@ if (&foreign_available("filter")) {
 
 		# Filter management
 		push(@rv, { 'type' => 'item',
-			    'icon' => '/'.$module_name.'/images/filters.gif',
+			    'icon' => '/images/shared/find-mail.svg',
 			    'id' => 'filter',
 			    'desc' => $text{'left_filter'},
 			    'link' => '/filter/' });
@@ -168,7 +168,7 @@ if (&foreign_available("filter")) {
 
 # Edit signature link
 push(@rv, { 'type' => 'item',
-	    'icon' => '/'.$module_name.'/images/sig.gif',
+	    'icon' => '/images/shared/edit-document.svg',
             'id' => 'sig',
 	    'desc' => $text{'left_sig'},
 	    'link' => '/'.$module_name.'/edit_sig.cgi' });

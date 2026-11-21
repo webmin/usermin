@@ -35,7 +35,7 @@ if (!@sub) {
 	if ($in{'idx'}) {
 		print "<a href='view_mail.cgi?idx=",
 		      $in{'idx'}-1,"'>",
-		      "<img src=/images/left.gif border=0 ",
+		      "<img src=/images/left.svg border=0 ",
 		      "align=middle></a>\n";
 		}
 	print "<font size=+1>",&mailbox::text('view_desc', $in{'idx'}+1,
@@ -43,7 +43,7 @@ if (!@sub) {
 	if ($in{'idx'} < @mail-1) {
 		print "<a href='view_mail.cgi?idx=",
 		      $in{'idx'}+1,"'>",
-		      "<img src=/images/right.gif border=0 ",
+		      "<img src=/images/right.svg border=0 ",
 		      "align=middle></a>\n";
 		}
 	}

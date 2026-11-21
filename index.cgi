@@ -31,7 +31,7 @@ if ($gconfig{'texttitles'}) {
 else {
 	@args = ( $gconfig{'nohostname'} ? $text{'main_title2'} :
 		    &text('main_title', $ver, $hostname, $ostr),
-		  "images/usermin.gif" );
+		  "images/usermin-blue.svg" );
 	}
 &header(@args, undef, undef, 1, 1,
 	$tconfig{'brand'} ? 
@@ -121,18 +121,18 @@ else {
 		$t = $cats{$c};
 		if ($in{'cat'} eq $c) {
 			print "<td valign=top $cb>", $usercol ? "<br>" :
-			  "<img src=images/lc2.gif alt=\"\">","</td>\n";
+			  "<img src=images/lc2.svg alt=\"\">","</td>\n";
 			print "<td $cb>&nbsp;<b>$t</b>&nbsp;</td>\n";
 			print "<td valign=top $cb>", $usercol ? "<br>" :
-			  "<img src=images/rc2.gif alt=\"\">","</td>\n";
+			  "<img src=images/rc2.svg alt=\"\">","</td>\n";
 			}
 		else {
 			print "<td valign=top $tb>", $usercol ? "<br>" :
-			  "<img src=images/lc1.gif alt=\"\">","</td>\n";
+			  "<img src=images/lc1.svg alt=\"\">","</td>\n";
 			print "<td $tb>&nbsp;",
 			      "<a href=$gconfig{'webprefix'}/?cat=@{[&urlize($c)]}><b>@{[&html_escape($t)]}</b></a>&nbsp;</td>\n";
 			print "<td valign=top $tb>", $usercol ? "<br>" :
-			  "<img src=images/rc1.gif alt=\"\">","</td>\n";
+			  "<img src=images/rc1.svg alt=\"\">","</td>\n";
 			}
 		print "<td width=10></td>\n";
 		}

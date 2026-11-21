@@ -203,7 +203,7 @@ if (@addrs) {
 			}
 		if ($in{'mode'} == 0) {
 			# Show button to select just this one
-			print "<td><a href='' onClick='select(\"".&html_escape($a->[0])."\", \"".&html_escape($a->[1])."\"); return false'><img src=images/ok.gif border=0></a></td>\n";
+			print "<td><a href='' onClick='select(\"".&html_escape($a->[0])."\", \"".&html_escape($a->[1])."\"); return false'>".&ui_svg_icon('check')."</a></td>\n";
 
 			}
 		print "</tr>\n";

@@ -32,7 +32,7 @@ print "<form action=mail.cgi><center>\n";
 if ($in{'start'}+$perpage < @mail) {
 	printf "<a href='mail.cgi?start=%d'>%s</a>\n",
 		$in{'start'}+$perpage,
-		'<img src=/images/left.gif border=0 align=middle>';
+		'<img src=/images/left.svg border=0 align=middle>';
 	}
 
 local $s = @mail-$in{'start'};
@@ -49,7 +49,7 @@ print "</font> <input type=submit value='$text{'mail_refresh'}'>\n";
 if ($in{'start'}) {
 	printf "<a href='mail.cgi?start=%d'>%s</a>\n",
 		$in{'start'}-$perpage,
-		'<img src=/images/right.gif border=0 align=middle>';
+		'<img src=/images/right.svg border=0 align=middle>';
 	}
 print "</center></form>\n";
 
@@ -92,21 +92,21 @@ for($i=int($in{'start'}); $i<@mail && $i<$in{'start'}+$perpage; $i++) {
 	      "<tr><td>",&mailbox::simplify_subject($mail[$i]->{'header'}->{'subject'}),
 	      "</td> <td align=right>";
 	if ($mail[$i]->{'header'}->{'content-type'} =~ /multipart\/\S+/i) {
-		print "<img src=../images/shared/paperclip.png>";
+		print "<img src=../images/shared/paperclip.svg>";
 		}
 	local $p = int($mail[$i]->{'header'}->{'x-priority'});
 	if ($p == 1) {
-		print "&nbsp;<img src=../images/shared/priority-high.gif>";
+		print "&nbsp;<img src=../images/shared/priority-high.svg>";
 		}
 	elsif ($p == 2) {
-		print "&nbsp;<img src=../images/shared/priority-low.gif>";
+		print "&nbsp;<img src=../images/shared/priority-low.svg>";
 		}
 	if (!$showto) {
 		if ($read{$mail[$i]->{'header'}->{'message-id'}} == 2) {
-			print "&nbsp;<img src=../images/shared/special.gif>";
+			print "&nbsp;<img src=../images/shared/special.svg>";
 			}
 		elsif ($read{$mail[$i]->{'header'}->{'message-id'}} == 1) {
-			print "&nbsp;<img src=/mailbox/images/read.gif>";
+			print "&nbsp;<img src=../images/shared/read.svg>";
 			}
 		}
 	print "</td></tr></table></td> </tr>\n";

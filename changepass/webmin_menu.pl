@@ -6,7 +6,7 @@ sub list_webmin_menu
 {
 my @rv;
 push(@rv, { 'type' => 'item',
-	    'icon' => '/'.$module_name.'/images/changepass.gif',
+	    'icon' => '/images/shared/key.svg',
 	    'id' => 'changepass',
 	    'desc' => $text{'left_changepass'},
 	    'priority' => -1,

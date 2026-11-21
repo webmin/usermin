@@ -50,7 +50,8 @@ elsif ($gconfig{"notabs_${base_remote_user}"} == 2 ||
 		if ($pos % $cols == 0) { print "<tr>\n"; }
 		print "<td valign=top align=center>\n";
 		print "<table border><tr><td><a href=/$m->{'dir'}/>",
-		      "<img src=$m->{'dir'}/images/icon.gif border=0 ",
+		      "<img src=\"".&module_icon_url("$m->{'dir'}/images/icon.gif").
+		      "\" border=0 ",
 		      "width=20 height=20></a></td></tr></table>\n";
 		print "<a href=/$m->{'dir'}/>$m->{'desc'}</a></td>\n";
 		if ($pos % $cols == $cols - 1) { print "</tr>\n"; }
@@ -79,7 +80,8 @@ else {
 		next if ($m->{'category'} ne $in{'cat'});
 
 		print "<table width=100% border=0 cellpadding=0 cellspacing=0 bgcolor=#ffffff><tr><td><a href=/$m->{'dir'}/>",
-		      "<img src=$m->{'dir'}/images/icon.gif alt=\"\" width=25 height=25 border=1></a>",
+		      "<img src=\"".&module_icon_url("$m->{'dir'}/images/icon.gif").
+		      "\" alt=\"\" width=25 height=25 border=1></a>",
 		      "</td><td width=100% bgcolor=#9e9aa2>\n";
 		print "&nbsp;<a href=/$m->{'dir'}/>"; &chop_font2; print "</a></td></tr></table>\n";
 &make_sep;
